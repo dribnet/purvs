@@ -5,14 +5,19 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 80,
-  "offsetx": -23,
-  "offsety": -10
+    "size": 91,
+  "offsetx": -5.402,
+  "offsety": -94,
+  "smalllength":00,
+  "smallheight":12,
+  "sizesmall": 200
   },
   "B": {
     "size": 100,
-  "offsetx": 10,
-  "offsety": -120
+  "offsetx": 24,
+  "offsety": 0,
+  "smalllength":3,
+  "smallheight":0
   },
   "C": {
       "size": 100,

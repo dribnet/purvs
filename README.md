@@ -11,3 +11,8 @@ I now want to add more perimeters to improve my ideas, I also want to fix the pl
 Played with alphabet and added D, next I want to add another rect ti my design so I can more clearly distingush the letters from each other.
 
 Also setting up the code on my laptop.
+
+20/04
+Decided to change my theme for my alphabet
+Playing around with adding more parimeters
+wanting to create illusion of negative space for some letters by making them the same colour as the background
