@@ -13,34 +13,76 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 70,
-  "offsetx": 80,
-  "offsety": 45,
-  "start":90,
-  "end":270
+  "MainRadiusA":70,
+  "MainRadiusB":50,
+  "MainRadiusC":30,
+  "RoundCorRadA":35,
+  "RoundCorRadB":35,
+  "RoundCorRadC":5,
+  "RoundCorRadD":35,
+  "PartPosX":285,
+  "PartPosY":275,
+  "PartRadiusD":25,
+  "PartRadiusE":0,
+  "PartRadiusF":0,
+  "PartCorRad":0,
+  "StartA":90,
+  "EndA":360,
+  "StartB":320,
+  "EndB":150,
+  "StartC":190,
+  "EndC":270  
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": -70,
-  "offsety": -100,
-  "start":270,
-  "end":90
+  "MainRadiusA":70,
+  "MainRadiusB":50,
+  "MainRadiusC":30,
+  "RoundCorRadA":5,
+  "RoundCorRadB":35,
+  "RoundCorRadC":35,
+  "RoundCorRadD":35,
+  "PartPosX":455,
+  "PartPosY":190,
+  "PartRadiusD":0,
+  "PartRadiusE":20,
+  "PartRadiusF":40,
+  "PartCorRad":10,
+  "StartA":270,
+  "EndA":180,
+  "StartB":110,
+  "EndB":320,
+  "StartC":0,
+  "EndC":80
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0,
-  "start":0,
-  "end":180
+  "MainRadiusA":0,
+  "MainRadiusB":70,
+  "MainRadiusC":50,
+  "RoundCorRadA":0,
+  "RoundCorRadB":0,
+  "RoundCorRadC":0,
+  "RoundCorRadD":0,
+  "PartPosX":730,
+  "PartPosY":250,
+  "PartRadiusD":25,
+  "PartRadiusE":0,
+  "PartRadiusF":0,
+  "PartCorRad":0,
+  "StartA":60,
+  "EndA":300,
+  "StartB":70,
+  "EndB":200,
+  "StartC":230,
+  "EndC":285  
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#f2e2d5"; //light pink
+const strokeColor      = "#b47355"; //orange
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const lightYellow  = "#e5d8b4"; //light yellow
+const lightOrange = '#cd976b'; //light orange
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -49,7 +91,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -71,19 +113,45 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  let startAngle = letterData["start"];
-  let stopAngle = letterData["end"];
+  let MainRadius1 = letterData["MainRadiusA"];
+  let MainRadius2 = letterData["MainRadiusB"];
+  let MainRadius3 = letterData["MainRadiusC"];
+  let RoundCorRad1 = letterData["RoundCorRadA"];
+  let RoundCorRad2 = letterData["RoundCorRadB"];
+  let RoundCorRad3 = letterData["RoundCorRadC"];
+  let RoundCorRad4 = letterData["RoundCorRadD"];
+  let PartOffsetX = letterData["PartPosX"];
+  let PartOffsetY = letterData["PartPosY"];
+  let PartRadius4 = letterData["PartRadiusD"];
+  let PartRadius5 = letterData["PartRadiusE"];
+  let PartRadius6 = letterData["PartRadiusF"];
+  let Start1 = letterData["StartA"];
+  let End1 = letterData["EndA"];
+  let Start2 = letterData["StartB"];
+  let End2 = letterData["EndB"];
+  let Start3 = letterData["StartC"];
+  let End3 = letterData["EndC"];
+  let PartCorRads = letterData["PartCorRad"];
+
+  
+
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
+  noFill();
+  //ellipse(posx, posy, 150, 150);
+  rectMode(CENTER);
+  rect(posx,posy,MainRadius1,MainRadius1,RoundCorRad1,RoundCorRad2,RoundCorRad3,RoundCorRad4);
+  arc(posx,posy,MainRadius2,MainRadius2,Start1,End1);
+  arc(posx,posy,MainRadius3,MainRadius3,Start2,End2);
+  arc(posx,posy,MainRadius3,MainRadius3,Start3,End3);
+
+  fill(lightYellow);
+  ellipse(PartOffsetX,PartOffsetY,PartRadius4);
+  fill(lightOrange);
+  rect(PartOffsetX,PartOffsetY,PartRadius5,PartRadius6,PartCorRads);
+
+
 }
 
 function keyTyped() {
