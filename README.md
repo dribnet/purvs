@@ -27,5 +27,9 @@
   Today I figured out how to make my letters move smoothly between each other, previously my letters had moved in a very clunky way as not every letter used every parameter. I fixed this by making sure each letter uses every parameter, if I didnt want a parameter shown I doubled it over with its pair parameter. Most of the parameters I had to deal with were the 'smallYPos2 and smallXPos2' parameters. Now my letters move smoothly. 
   I also finished the first trial of all of my letters, currently I'm unsure if I will change much.
 
-April 13
-Came into class during the break to finish all my alphabet + numbers, I did this successfully, I am now trying to edit each of my front covers and put in the numbers for the purview page. I also need to figure out how to add a star background to my piece, I was thinking that I could make a PNG file of a star background that I make on illustrator that I can size up and down on the Sublime file to fit each setting. 
+  April 13
+  Came into class during the break to finish all my alphabet + numbers, I did this successfully, I am now trying to edit each of my front covers and put in the numbers for the purview page. I also need to figure out how to add a star background to my piece, I was thinking that I could make a PNG file of a star background that I make on illustrator that I can size up and down on the Sublime file to fit each setting.
+
+  April 20
+  First day back in class since the mid tri break. Worked on tidying up each letter. Worked on figuring out how to put little stars in each letter, I am currently figuring out how to put stars in easier, need to understand how to use the RANDOM, I am not confident with it at all. I am going to continue working on the stars in the next lesson as i am going to need to get some help with it lol. I also mucked around with the colours, mainly the background colour, I changed it to a brighter dark blue rather than the original dull dark blue. 
+

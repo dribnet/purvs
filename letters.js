@@ -5,7 +5,7 @@
 
 const alphabet = {
   "default": {
-    "size": 40,
+    "size": 80,
     "offsetx" : 0,
     "offsety" : 0,
     "offsetx2": 0,
@@ -13,7 +13,9 @@ const alphabet = {
     "smallXPos": 0,
     "smallYPos" : 0,
     "smallXPos2": 0,
-    "smallYPos2" : 0
+    "smallYPos2" : 0,
+    "starx" : 0,
+    "stary" :0
   },
   "A": {
     "size": 100,
@@ -24,7 +26,9 @@ const alphabet = {
     "smallXPos": 15,
     "smallYPos" : 130,
     "smallXPos2": 15,
-    "smallYPos2" : 130
+    "smallYPos2" : 130,
+    "starx" : 10,
+    "stary" : 10
   },
   "B": {
     "size": 100,
@@ -210,8 +214,8 @@ const alphabet = {
     "offsety2": 129,
     "smallXPos": 55,
     "smallYPos": 162,
-    "smallXPos2": 49,
-    "smallYPos2": 154
+    "smallXPos2": 40,
+    "smallYPos2": 140
   },
   "S": {
     "size": 100,
@@ -228,8 +232,8 @@ const alphabet = {
     "size": 71.2,
     "offsetx": 0,
     "offsety": 100,
-    "offsetx2": 16,
-    "offsety2": 99,
+    "offsetx2": 15,
+    "offsety2": 100,
     "smallXPos": 59.5,
     "smallYPos": 160,
     "smallXPos2": -2,
@@ -264,31 +268,31 @@ const alphabet = {
     "offsetx2": 20.5,
     "offsety2": 60,
     "smallXPos": 8.5,
-    "smallYPos": 113.99999999999999,
+    "smallYPos": 114,
     "smallXPos2": 61,
-    "smallYPos2": 84
+    "smallYPos2": 114
   },
   "X": {
     "size": 80,
     "offsetx": 0,
-    "offsety": 76,
-    "offsetx2": 16,
+    "offsety": 100,
+    "offsetx2": 25,
     "offsety2": 60,
-    "smallXPos": -3.5,
+    "smallXPos": -10,
     "smallYPos": 118,
-    "smallXPos2": 56.5,
-    "smallYPos2": 84
+    "smallXPos2": 58,
+    "smallYPos2": 150
   },
   "Y": {
-    "size": 85.6,
+    "size": 80,
     "offsetx": 0,
     "offsety": 100,
     "offsetx2": 8.5,
-    "offsety2": 122.99999999999999,
+    "offsety2": 123,
     "smallXPos": -3.5,
-    "smallYPos": 80,
+    "smallYPos": 100,
     "smallXPos2": 56.5,
-    "smallYPos2": 80
+    "smallYPos2": 100
   },
   "Z": {
     "size": 73.6,
@@ -316,11 +320,11 @@ const alphabet = {
     "size": 69.6,
     "offsetx": 0,
     "offsety": 71,
-    "offsetx2": -12.5,
+    "offsetx2": -13,
     "offsety2": 63,
     "smallXPos": -13,
     "smallYPos": 94,
-    "smallXPos2": 19,
+    "smallXPos2": 18,
     "smallYPos2": 94
   },
   "2": {
@@ -362,9 +366,9 @@ const alphabet = {
     "offsety": 56.99999999999999,
     "offsetx2": 52.000000000000014,
     "offsety2": 103.49999999999999,
-    "smallXPos": 68.5,
-    "smallYPos": 66,
-    "smallXPos2": -7.999999999999993,
+    "smallXPos": 68,
+    "smallYPos": 63,
+    "smallXPos2": -5,
     "smallYPos2": 113.99999999999999
   },
   "6": {

@@ -4,7 +4,7 @@
  */
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#030044";
 }
 
 if (typeof systemLineColor === 'undefined') {
