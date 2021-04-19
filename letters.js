@@ -229,15 +229,15 @@ const alphabet = {
     "recOffsety": 50,
     "rectAngle": 0,
 
-    "size1": 0,
-    "offsetx": 65,
-    "offsety": 60,
+    "size1": 35,
+    "offsetx": 0,
+    "offsety": 165,
 
     "size2": 300,
-    "arcOffsetx": -150,
+    "arcOffsetx": -145,
     "arcOffsety": -100,
     "angleStart": 55,
-    "angleEnd": 90
+    "angleEnd": 65
   },
   "O": {
     "size": 0,
