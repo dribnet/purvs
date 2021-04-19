@@ -22,12 +22,25 @@ function drawLetter(letterData) {
   let pos2y = letterData["offsety"];
   
   let col1 = letterData["ColourPlanet"];
-  let col2 = letterData["ColourSun"]
+  let col2 = letterData["ColourSun"];
+
+  let starsize1 = random(1, 10); // random stars
+  let starsize2 = random(1, 10);
+  let starsize3 = random(1, 10);
+  let starsize4 = random(1, 10);
+
+   fill(0);
+  quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
+  fill(255);
+  square(25,15,starsize1); // the stars in the background
+  square(88,25,starsize2);
+  square(14,178,starsize3);
+  square(79,190,starsize4);
 
   // draw two circles                                                                            
-  fill(darkBlue);
+  fill(40);
   ellipse(50, 100, 100, 100);
-  if(col2 == 0){
+  if(col2 == 0){ // this is the sun colour
  fill(250,180,0);
   }
   else if (col2 == 1) {
@@ -38,7 +51,7 @@ function drawLetter(letterData) {
   }
   ellipse(50, 100, 50, 50);
 
-  if(col1 == 0){
+  if(col1 == 0){ //this is the planet colour
     fill(5, 13, 255);
   }
   else if (col1 == 1) {
@@ -69,7 +82,48 @@ function drawLetter(letterData) {
     fill(242, 255, 0);
   }
 
-  ellipse(pos2x, pos2y, size2, size2);
+  // var X = letterData["ShadowX"];
+  // var Y = letterData["ShadowY"];
+  // var SizeW = letterData["ShadowW"];
+  // var SizeH = letterData["ShadowH"];
+
+  var ShadowPos = letterData["Shadow"];
+  if (ShadowPos == 0) { //this the code that can be typed to tell where the shadow is
+    X = 0;
+    Y = 0;
+    SizeW = 1;
+    SizeH = 1;
+  }
+  else if (ShadowPos == 1){
+    X = 0;
+    Y = -9;
+    SizeW = 19;
+    SizeH = 10;
+  }
+  else if (ShadowPos == 3){
+    X = 0;
+    Y = 9;
+    SizeW = 19;
+    SizeH = 10;
+  }
+  else if (ShadowPos == 4){
+    X = -9;
+    Y = 0;
+    SizeW = 10;
+    SizeH = 19;
+  }
+  else if (ShadowPos == 2){
+    X = 9;
+    Y = 0;
+    SizeW = 10;
+    SizeH = 19;
+  }
+
+  ellipse(pos2x, pos2y, size2, size2); // planet
+  fill(200);
+  ellipse(pos2x + 17, pos2y + 10, 8, 8); // Moon
+  fill(155);
+  ellipse(pos2x + X, pos2y + Y, SizeW, SizeH) //shadow x and y the size Width and Height
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

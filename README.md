@@ -13,3 +13,4 @@ Sketch updated with a design potential and also changed preview and thumbnail to
 
 Made and finished alphabet
 Changed alphabet and made is very visual. 9 coloures in sets of 4 and a blank.
+Added Stars and then added shadow to the planets while making the atmosphere darker. Also added a small moon
