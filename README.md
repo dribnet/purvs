@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Finished utilizing my letters into the proper paranter system utilizing 16 parameters. Each latter is made from the same 4 color coded shapes.
+This is a new style alphabet that utilizes arcs and lines. I havent actually used arcs before, so to challenge myself and increase my learning, I have decided to start again by utilizing a new style that utilizes arcs. As well as this Ive used a new color pallete,
 
 
 Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.

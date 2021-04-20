@@ -5,19 +5,68 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 30, //square
+  "posy": 75, //square
+  "posx2": 55, //circle
+  "posy2": 100, //circle
+  "posx3": 65, //yellow line
+  "posy3": 75, //yellow line
+  "posx4": 0, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 50, //sqaure
+  "sizey": 50, //square
+  "sizex2": 30, //red line
+  "sizey2": 125, // red line
+  "sizex3": 30, //circle
+  "sizey3": 30, //circle
+  "sizex4": 100, //yellow line
+  "sizey4": 200, //yellow line
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+//position
+  "posx": 20, //square
+  "posy": 70, //square
+  "posx2": 50, //circle
+  "posy2": 161, //circle
+  "posx3": 20, //yellow line
+  "posy3": 200, //yellow line
+  "posx4": 18, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 60, //sqaure
+  "sizey": 60, //square
+  "sizex2": 18,//red line
+  "sizey2": 70, // red line
+  "sizex3": 70, //circle
+  "sizey3": 70, //circle
+  "sizex4": 80, //yellow line
+  "sizey4": 200, //yellow line
+
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+//position
+  "posx": 25, //square
+  "posy": 75, //square
+  "posx2": 50, //circle
+  "posy2": 100, //circle
+  "posx3": 25, //yellow line
+  "posy3": 200, //yellow line
+  "posx4": 25, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 50, //sqaure
+  "sizey": 50, //square
+  "sizex2": 25,//red line
+  "sizey2": 75, // red line
+  "sizex3": 30, //circle
+  "sizey3": 30, //circle
+  "sizex4": 75, //yellow line
+  "sizey4": 200, //yellow line
   },
   "D": {
     "size": 50,

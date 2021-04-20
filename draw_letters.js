@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#ed93e3";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -16,20 +16,35 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+// determine parameters
+  let sqx = letterData["posx"];
+  let sqy = letterData["posy"];
+  let crqx = letterData["posx2"];
+  let crqy = letterData["posy2"];
+  let li1x = letterData["posx3"];
+  let li1y = letterData["posy3"];
+  let li2x = letterData["posx4"];
+  let li2y = letterData["posy4"];
+  let sizex = letterData["sizex"];
+  let sizey = letterData["sizey"];
+  let sizex2 = letterData["sizex2"];//red line
+  let sizey2 = letterData["sizey2"];//red line
+  let sizex3 = letterData["sizex3"];
+  let sizey3 = letterData["sizey3"];
+  let sizex4 = letterData["sizex4"];
+  let sizey4 = letterData["sizey4"];
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  //A  
+  strokeWeight(3);
+  stroke(255, 0, 25);
+  line(li2x,li2y,sizex2,sizey2);//red
+  stroke(255, 247, 0);
+  line(li1x,li1y,sizex4,sizey4);//yellow
+  stroke(0,0,0);//black
+  fill(3, 252, 44);
+  rect(sqx,sqy,sizex,sizey);
+  fill(0, 242, 255);
+  ellipse(crqx,crqy,sizex3,sizey3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
