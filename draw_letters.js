@@ -16,6 +16,7 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  angleMode(DEGREES);
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
@@ -24,12 +25,8 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let TriAng = letterData["TriAng"];
+  let triStart = letterData["triStart"];
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -37,6 +34,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["TriAng"] = map(percent, 0, 100, oldObj["TriAng"], newObj["TriAng"]);
+  new_letter["triStart"] = map(percent, 0, 100, oldObj["triStart"], newObj["triStart"]);
   return new_letter;
 }
 
