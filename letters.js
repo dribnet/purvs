@@ -6,8 +6,11 @@ const alphabet = {
   },
   "A": {
     //Shape1 the arc
-    "size": 55,
-    "offsetx": -20,
+    // "size": 55,
+    // "offsetx": -20,
+    // "offsety": -5,
+    "size": 25,
+    "offsetx": -9,
     "offsety": -5,
     "arcStart": 0,
     "arcEnd": 360,
@@ -446,14 +449,14 @@ const alphabet = {
   "W": {
     //Shape1 the arc
     "size": 75,
-    "offsetx": 10,
+    "offsetx": 33,
     "offsety": 5,
-    "arcStart": 70,
-    "arcEnd": 250,
+    "arcStart": 270,
+    "arcEnd": 70,
 
     //Shape2 the second circle
     "size1": 75,
-    "offsetx2": 33,
+    "offsetx2": 10,
     "offsety2": 5,
 
     //Shape3 the rectangle
@@ -525,11 +528,16 @@ const alphabet = {
   },
   "0": {
     //Shape1 the arc
+    // "size": 45,
+    // "offsetx": 25,
+    // "offsety": 20,
+    // "arcStart": 0,
+    // "arcEnd": 360,
     "size": 45,
-    "offsetx": 25,
-    "offsety": 20,
+    "offsetx": 5,
+    "offsety": 5,
     "arcStart": 0,
-    "arcEnd": 360,
+    "arcEnd": 0,
 
     //Shape2 the second circle
     "size1": 75,
@@ -542,6 +550,7 @@ const alphabet = {
     "offsetx3": 5,
     "offsety3": 25,
     "angle": 0
+
   },
   "1": {
     //Shape1 the arc

@@ -1,8 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-I am currently taking Typography, where I've been researching how geometric shapes make up letter forms and I felt inspired to create my letter forms from geometric shapes in p5.js, I want them be abstract like but somewhat still resemble the letter.
-
-As a pop art enthusiast my overall design approach is inspired by pop art.
+Currently trying to develop my current idea further. This is what I got up to in class today, I am trying to achieve a 3D effect. Going to look at adding a pop art texture next.
 
 Currently I have 13 parameters:
 
@@ -24,7 +22,3 @@ Currently I have 13 parameters:
 11. offsetx3: x offset of the rectangle
 12. offsety3: y offset of the rectangle
 13. angle: angle of rotation of the rectangle
-
-**Previous work**
-
-In regards to experimentation 1 and 2 that I previously did; I really like the pop art look, its fun and kind of makes me think of tutti fruity flavours. However I really like the black and white one too and how it creates a strong contrast. I feel like that one would be for more formal practices. As I refine my work further + get feedback I will make a choice on which one I prefer.

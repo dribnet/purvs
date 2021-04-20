@@ -1,5 +1,6 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#FFFFFF";
+// var systemBackgroundColor = "#FADF4B";
 var systemLineColor = "#000090";
 var systemBoxColor = "#5479A3";
 
@@ -9,6 +10,7 @@ const bubblegumPink = "#DC5889";
 const yellowBello = "#FADF4B";
 
 const strokeColor = "#000000";
+const outlineColor = (0, 0, 0, 0);
 
 /*
  * Draw the letter given the letterData
@@ -23,7 +25,7 @@ function drawLetter(letterData) {
   // stroke(strokeColor);
   strokeWeight(4);
   angleMode(DEGREES);
-  blendMode(MULTIPLY);
+  // blendMode(MULTIPLY);
 
   //Parameters
   let size = letterData["size"];
@@ -40,14 +42,38 @@ function drawLetter(letterData) {
   let pos3y = 120 + letterData["offsety3"];
   let angle = letterData["angle"];
 
+  //Creates a drop shadow
+  // drawingContext.shadowOffsetX = 5;
+  // drawingContext.shadowOffsetY = 5;
+  // drawingContext.shadowBlur = 0;
+  // drawingContext.shadowColor = strokeColor;
+
+  //
+  // //Draws a rect and rotates it
+  // fill(berryBlue);
+  // push();
+  // translate(pos3x, pos3y);
+  // rotate(angle);
+  // rect(0, 0, width, height);
+  // pop();
+
+  push();
+  noStroke();
+  drawingContext.shadowOffsetX = 6;
+  drawingContext.shadowOffsetY = 6;
+  drawingContext.shadowBlur = 0;
+  drawingContext.shadowColor = strokeColor;
+
+  // stroke(strokeColor);
+  // strokeWeight(2.5);
+  // noFill();
   //Draws an arc
-  stroke(strokeColor);
-  strokeWeight(2.5);
   fill(bubblegumPink);
   arc(posx, posy, size, size, arcStart, arcEnd);
 
   //Draws an ellipse
   fill(yellowBello);
+  // fill(bubblegumPink);
   ellipse(pos2x, pos2y, size1, size1);
 
   //Draws a rect and rotates it
@@ -57,6 +83,25 @@ function drawLetter(letterData) {
   rotate(angle);
   rect(0, 0, width, height);
   pop();
+  pop();
+
+  //Outline of the letters
+  var outline = true;
+  if (outline) {
+    noFill();
+    stroke(strokeColor);
+    strokeWeight(2.5);
+
+    push();
+    translate(pos3x - 7, pos3y - 7);
+    rotate(angle);
+    rect(0, 0, width, height);
+    pop();
+
+    arc(posx - 7, posy - 7, size, size, arcStart, arcEnd);
+
+    ellipse(pos2x - 7, pos2y - 7, size1, size1);
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
