@@ -148,7 +148,7 @@ const alphabet = {
 
   },
   "G": {
-    "symmode":'symmetry_hor_no_cir',
+    "symmode":'symmetry_hor_rotated',
     "x1":-30,
     "y1":0,
     "x2":-30,
@@ -156,15 +156,15 @@ const alphabet = {
     "x3":35,
     "y3":50,
     "x4":35,
-    "y4":30,
+    "y4":20,
     "x5":-10,
     "y5":0,
   //ellipse parameters
 
-  "ex":0,
+  "ex":-10,
     "ey":10,
-    "eheight":50,
-    "ewidth":20
+    "eheight":30,
+    "ewidth":50
 
   },
   "H": {
@@ -376,43 +376,45 @@ const alphabet = {
      "ewidth":30
   },
   "R": {
-    "symmode":'symmetry_hor',
-    "x1":-30,
-    "y1":0,
-    "x2":-30,
-    "y2":40,
-    "x3":30,
-    "y3":30,
-    "x4":30,
-    "y4":15,
-    "x5":0,
-    "y5":0,
-   //ellipse parameters
-   "ex":0,
-     "ey":0,
-     "eheight":10,
-     "ewidth":10
-  },
-  "S": {
-    "symmode":'symmetry_vert_offsetcir',
-    "x1":0,
+    "symmode":'none',
+    "x1":-35,
     "y1":-50,
     "x2":-35,
-    "y2":-50,
-    "x3":-35,
-    "y3":50,
-    "x4":0,
+    "y2":50,
+    "x3":-10,
+    "y3":15,
+    "x4":40,
     "y4":50,
+    "x5":15,
+    "y5":-50,
+   //ellipse parameters
+   "ex":-5,
+     "ey":-20,
+     "eheight":40,
+     "ewidth":30
+  },
+  "S": {
+    "symmode":'symmetry_hor_offsetcirvert',
+
+    "x1":-35,
+    "y1":0,
+    "x2":-35,
+    "y2":40,
+    "x3":0,
+    "y3":50,
+    "x4":35,
+    "y4":40,
+    "x5":35,
+    "y5":0,
 
 
 
-    "x5":0,
-    "y5":50,
+
   //ellipse parameters
 
   "ex":30,
-    "ey":20,
-    "eheight":40,
+    "ey":17,
+    "eheight":35,
     "ewidth":60
   },
   "T": {
@@ -503,21 +505,21 @@ const alphabet = {
   "X": {
     "symmode":'symmetry_vert',
     "x1":0,
-    "y1":0,
-    "x2":-25,
+    "y1":-20,
+    "x2":-35,
     "y2":-50,
     "x3":-35,
-    "y3":-50,
-    "x4":-35,
-    "y4":50,
-    "x5":-25,
-    "y5":50,
+    "y3":50,
+    "x4":0,
+    "y4":20,
+    "x5":0,
+    "y5":20,
   //ellipse parameters
 
-  "ex":17,
-    "ey":-30,
-    "eheight":0,
-    "ewidth":0
+  "ex":35,
+    "ey":0,
+    "eheight":50,
+    "ewidth":40
   },
   "Y": {
     "symmode":'symmetry_vert',
@@ -539,25 +541,23 @@ const alphabet = {
     "ewidth":30
   },
   "Z": {
-    "symmode":'symmetry_vert_offsetcir',
-    "x1":0,
-    "y1":-50,
+    "symmode":'symmetry_hor_offsetcirvert',
+
+    "x1":-35,
+    "y1":0,
     "x2":-35,
-    "y2":-50,
-    "x3":-35,
+    "y2":40,
+    "x3":0,
     "y3":50,
-    "x4":0,
-    "y4":50,
-
-
-
-    "x5":0,
-    "y5":50,
+    "x4":35,
+    "y4":40,
+    "x5":35,
+    "y5":0,
   //ellipse parameters
 
   "ex":-30,
-    "ey":17,
-    "eheight":50,
+    "ey":5,
+    "eheight":60,
     "ewidth":40
   },
   "0": {
@@ -676,9 +676,29 @@ const alphabet = {
   //ellipse parameters
 
   "ex":30,
-    "ey":17,
-    "eheight":50,
-    "ewidth":40
+    "ey":20,
+    "eheight":40,
+    "ewidth":60
+  //   "symmode":'symmetry_vert_offsetcir',
+  //   "x1":0,
+  //   "y1":-50,
+  //   "x2":-35,
+  //   "y2":-50,
+  //   "x3":-35,
+  //   "y3":50,
+  //   "x4":0,
+  //   "y4":50,
+  //
+  //
+  //
+  //   "x5":0,
+  //   "y5":50,
+  // //ellipse parameters
+  //
+  // "ex":30,
+  //   "ey":17,
+  //   "eheight":50,
+  //   "ewidth":40
   },
   "6": {
     "symmode":'none',

@@ -1,6 +1,8 @@
 /* these are optional special variables which will change the system */
 const backgroundColor  = "#0D0208";
 var systemBackgroundColor = backgroundColor;
+// var systemLineColor = "#0D0208";
+// var systemBoxColor = "#0D0208";
 var systemLineColor = "#FFA500";
 var systemBoxColor = "#FFA500";
 
@@ -19,20 +21,7 @@ const CENTREY=100;
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function sym(letterData,x,y){
-fill(fillcol);
-  beginShape();
-  vertex(CENTREX+x*letterData["x1"],CENTREY+y*letterData["y1"]);
-  vertex(CENTREX+x*letterData["x2"],CENTREY+y*letterData["y2"]);
-  vertex(CENTREX+x*letterData["x3"],CENTREY+y*letterData["y3"]);
-  vertex(CENTREX+x*letterData["x4"],CENTREY+y*letterData["y4"]);
-  vertex(CENTREX+x*letterData["x5"],CENTREY+y*letterData["y5"]);
 
-
-  endShape();
-
-
-}
 function vertpolysym(letterData){
 fill(fillcol);
   beginShape();
@@ -98,6 +87,8 @@ function cir(letterData,x,y){
 function drawLetter(letterData) {
   // color/stroke setup
  noStroke();
+// stroke("#FFA500");
+// strokeWeight(2);
 let symmode = letterData["symmode"];
 
 if (symmode.startsWith("symmetry_vert")){//if vertical sym
@@ -106,8 +97,11 @@ if (symmode.startsWith("symmetry_vert")){//if vertical sym
     cir(letterData,1,-1);
     cir(letterData,-1,1);
   }
-  else {
+  else if (symmode.endsWith("no_cir")){
 
+cir(letterData,1,1);
+}
+  else {
 //sym circles
   cir(letterData,1,1);
   cir(letterData,-1,1);
@@ -119,6 +113,18 @@ horpolysym(letterData);
 //  sym(letterData,1,1);
 if (symmode.endsWith("no_cir")){
   cir(letterData,1,1);
+}
+else if (symmode.endsWith("offsetcirvert")){
+  cir(letterData,1,-1);
+  cir(letterData,-1,1);
+}
+else if (symmode.endsWith("rotated")){
+
+push();
+
+cir(letterData,1,1);
+  ellipse(CENTREX+letterData["ex"]-5, CENTREY+letterData["ey"]+letterData["eheight"]/2, letterData["eheight"], letterData["ewidth"]);
+pop();
 }
 else{
   cir(letterData,1,-1);
@@ -137,55 +143,6 @@ else {
      cir(letterData,1,1);
 }
 }
-
-
-// if (letterData["symmode"]=='symmetry_vert'){//if vertical sym
-//   sym(letterData, -1,1);
-//   sym(letterData, 1,1);
-//   //sym(letterData, -1,1, 1,1);
-//
-//   cir(letterData,1,1);
-//   cir(letterData,-1,1);
-//
-// }
-// else if (letterData["symmode"]=='symmetry_hor') {//if horizontal sym
-// //sym(letterData, -1,1, 1,1);
-//   sym(letterData,1,-1);
-//   sym(letterData,1,1);
-//     cir(letterData,1,-1);
-//     cir(letterData,1,1);
-//
-//
-//
-//
-// }
-// else if (letterData["symmode"]=='symmetry_cir_only'){//if no on poly on on circles
-//   sym(letterData,1,1);
-//   cir(letterData,1,1);
-//   cir(letterData,1,-1);
-// }
-// else if (letterData["symmode"]=='symmetry_hor_no_cir'){//if sym on poly and not on circles
-//   sym(letterData,1,-1);
-//   sym(letterData,1,1);
-//   // sym(letterData,1,-1,1,1);
-//
-//     cir(letterData,1,1);
-// }
-// else if (letterData["symmode"]=='symmetry_vert_offsetcir'){//if vertical sym and the
-//   sym(letterData, -1,1);
-//   sym(letterData, 1,1);
-//
-// //  sym(letterData, -1,1,1,1);
-//
-//   cir(letterData,1,-1);
-//   cir(letterData,-1,1);
-// }
-// else{
-//   sym(letterData,1,1);
-//   cir(letterData,1,1);
-// }
-
-
 
 }
 
