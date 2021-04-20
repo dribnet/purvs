@@ -1,9 +1,11 @@
 ## MDDN 242 2021 Assignment 2
 
-This is my idea of the letter A B and C, these letters consist of circles and arc lines and rectangle with the rounded corners. I made three rounded corner at the main body and left the only one corner without rounded, I hope used this corner to connected the main body and the offset part.
+Updates the letter A B and C into the alphabet html, the next step is draw all letters.
 
-The three parameters per letter:
+The 20 parameters per letter:
 
+  * `MainPosX` : x offset of the main body position
+  * `MainPosY` : y offset of the main body position
   * `MainRadiusA` : radius of the Main body first rectangle with rounded corners
   * `MainRadiusB` : radius of the Main body first arc line 
   * `MainRadiusC` : radius of the Main body second arc line 
@@ -13,9 +15,8 @@ The three parameters per letter:
   * `RoundCorRadD` : main body first rectangle with bottom-left rounded corner radii
   * `PartPosX` : x offset of the second circle relative to the main one
   * `PartPosY` : y offset of the second circle relative to the main one
-  * `PartRadiusD` : radius of the second circle relative to the main one
-  * `PartRadiusE` : width of the second rectangle relative to the main one
-  * `PartRadiusF` : height of the second rectangle relative to the main one
+  * `PartRadiusD` : width of the second rectangle relative to the main one
+  * `PartRadiusE` : height of the second rectangle relative to the main one
   * `PartCorRad` : rounded corners radii of the second rectangle relative to the main one
   * `StartA` : angle to start the arc1
   * `EndA` : angle to stop the arc1

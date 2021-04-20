@@ -4,9 +4,11 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const backgroundColor  = "#f2e2d5"; //light pink
+const strokeColor      = "#b47355"; //orange
+
+const lightYellow  = "#e5d8b4"; //light yellow
+const lightOrange = '#cd976b'; //light orange
 
 /*
  * Draw the letter given the letterData
@@ -18,22 +20,54 @@ const strokeColor  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(3);
   angleMode(DEGREES);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 0 + letterData["offsetx"];
-  let pos2y = 0 + letterData["offsety"];
+  let posx = 50;
+  let posy = 150;
 
   let startAngle = letterData["start"];
   let stopAngle = letterData["end"];
+  let MainOffsetX = posx + letterData["MainPosX"];
+  let MainOffsetY = posy + letterData["MainPosY"];
+  let MainRadius1 = letterData["MainRadiusA"];
+  let MainRadius2 = letterData["MainRadiusB"];
+  let MainRadius3 = letterData["MainRadiusC"];
+  let RoundCorRad1 = letterData["RoundCorRadA"];
+  let RoundCorRad2 = letterData["RoundCorRadB"];
+  let RoundCorRad3 = letterData["RoundCorRadC"];
+  let RoundCorRad4 = letterData["RoundCorRadD"];
+  let PartOffsetX = posx + letterData["PartPosX"];
+  let PartOffsetY = posy + letterData["PartPosY"];
+  let PartRadius4 = letterData["PartRadiusD"];
+  let PartRadius5 = letterData["PartRadiusE"];
+  let PartCorRads = letterData["PartCorRad"];
+  let Start1 = letterData["StartA"];
+  let End1 = letterData["EndA"];
+  let Start2 = letterData["StartB"];
+  let End2 = letterData["EndB"];
+  let Start3 = letterData["StartC"];
+  let End3 = letterData["EndC"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 80, 80);
-  fill(lightBlue);
-  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
+  //draw the main body
+  noFill();
+  push();
+  rectMode(CENTER);
+  rect(MainOffsetX,MainOffsetY,MainRadius1,MainRadius1,RoundCorRad1,RoundCorRad2,RoundCorRad3,RoundCorRad4);
+  pop();
+
+  arc(MainOffsetX,MainOffsetY,MainRadius2,MainRadius2,Start1,End1);
+  arc(MainOffsetX,MainOffsetY,MainRadius3,MainRadius3,Start2,End2);
+
+  // the relative to the main body
+  arc(PartOffsetX,PartOffsetY,MainRadius3,MainRadius3,Start3,End3);
+
+  fill(lightOrange);
+  push();
+  rectMode(CENTER);
+  rect(PartOffsetX,PartOffsetY,PartRadius4,PartRadius5,PartCorRads);
+  pop();
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
