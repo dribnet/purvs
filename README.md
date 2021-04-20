@@ -1,6 +1,14 @@
 ## MDDN 242 2021 Assignment 2
 
-Updates the letter A B and C into the alphabet html, the next step is draw all letters.
+Finished setting up all alphabets.
+
+For letters consists main body and filled part, let numbers are distinguished from the letters, it doesn't contain the filled part. only consists of arc lines and circles.
+
+The letters consists of rectangles, arc lines and circles, it is also have a filled orange color part.
+
+I designed a emoji face to stands for the default alphabet. One of its eyes is circle and the other one is the filled color circle.
+
+And I change the background color, the Line color and the Box color to made these colors go well together.
 
 The 20 parameters per letter:
 

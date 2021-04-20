@@ -1,13 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#f2e2d5"; //light pink
+var systemLineColor = "#6b705c";
+var systemBoxColor = "#cbc0d3";
 
 /* internal constants */
 const backgroundColor  = "#f2e2d5"; //light pink
 const strokeColor      = "#b47355"; //orange
 
-const lightYellow  = "#e5d8b4"; //light yellow
+
 const lightOrange = '#cd976b'; //light orange
 
 /*
