@@ -59,8 +59,8 @@ function drawLetter(letterData) {
 
   push();
   noStroke();
-  drawingContext.shadowOffsetX = 3;
-  drawingContext.shadowOffsetY = 3;
+  drawingContext.shadowOffsetX = 5;
+  drawingContext.shadowOffsetY = 5;
   drawingContext.shadowBlur = 0;
   drawingContext.shadowColor = strokeColor;
 
