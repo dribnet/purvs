@@ -4,19 +4,28 @@
  * and each row should be:
  * ["object_field", minimum_bound, maximum_bound]
  */
-const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
-];
+ const sliderInfo = [
+    ["size", 15, 100],
+    ["offsetx", -2, 1],
+    ["offsety", -100, 2],
+    ["arcStart", -360, 360],
+    ["arcEnd", -360, 360],
+    ["size1", 15, 100],
+    ["offsetx2", -2, 2],
+    ["offsety2", -102, 2],
+    ["width", 10, 96],
+    ["height", 10, 75],
+    ["offsetx3", -36, 50],
+    ["offsety3", -120, 35],
+    ["angle", -360, 360]
+  ];
 
-// PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
-const numSliders = sliderInfo.length;
+ // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
+ const numSliders = sliderInfo.length;
 
-if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
-}
-
+ if (typeof systemBackgroundColor === 'undefined') {
+     var systemBackgroundColor = "#e3eded";
+ }
 // this will use variables if they are already defined
 // var systemBackgroundColor = systemBackgroundColor || "#e3eded";
 
@@ -74,7 +83,7 @@ function draw () {
   background(systemBackgroundColor);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data

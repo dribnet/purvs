@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -12,75 +12,141 @@ const canvasHeight = 500;
  *
  */
 
-const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
-}
+ const letterA = {
+   structure:
+     [[0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+     [0, 0, 0, 1,0,0,0,0,0,0,1,0,0,0],
+     [0, 0, 1, 0,1,0,0,0,0,1,0,1,0,0],
+     [0, 0, 1, 0,0,1,1,1,1,0,0,1,0,0],
+     [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+     [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+     [0, 1, 0, 0,0,1,0,0,1,0,0,0,1,0],
+     [0, 1, 0, 0,0,1,0,0,1,0,0,0,1,0],
+     [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+     [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 0, 0, 1,0,0,0,0,0,0,1,0,0,0],
+     [0, 0, 0, 0,1,1,1,1,1,1,0,0,0,0]]
+ }
 
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
-}
+ const letterB = {
+   structure:
+     [[0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+     [0, 1, 1, 1,0,0,0,0,0,0,0,0,0,0],
+     [0, 1, 0, 1,1,0,0,0,0,0,0,0,0,0],
+     [0, 1, 1, 1,1,0,0,0,0,0,0,0,0,0],
+     [0, 0, 1, 1,1,1,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 1,1,1,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,1,1,1,1,1,1,1,1,1,1],
+     [0, 0, 0, 0,0,0,1,1,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,1,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,0,1,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,0,1,0,0,0,0,0,0,0]]
+ }
 
-const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
-}
+ const letterC = {
+   structure:
+    [[0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,0,1,1,1,1,0,0,0,0,0],
+     [0, 0, 0, 1,1,1,0,0,1,1,1,0,0,0],
+     [0, 0, 1, 1,0,0,0,0,0,0,1,1,0,0],
+     [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+     [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+     [1, 0, 0, 0,0,0,0,0,0,0,0,0,0,1],
+     [1, 0, 0, 0,0,0,0,0,0,0,0,0,0,1],
+     [1, 0, 0, 1,1,1,1,1,1,1,1,0,0,1],
+     [1, 1, 1, 1,0,1,0,0,1,0,1,1,1,1],
+     [0, 1, 1, 0,0,1,0,0,1,0,0,1,1,0],
+     [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 0, 1, 1,0,0,0,0,0,0,1,1,0,0],
+     [0, 0, 0, 1,1,1,1,1,1,1,1,0,0,0]]
+ }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+ const letterD = {
+   structure:
+    [[0, 0, 0, 0,0,0,1,0,0,0,0,0,0,0],
+     [0, 0, 0, 0,1,1,0,1,0,1,1,1,1,0],
+     [0, 0, 0, 1,1,0,0,0,1,1,0,1,0,0],
+     [0, 0, 1, 1,0,0,0,0,0,0,0,1,0,0],
+     [0, 1, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+     [1, 1, 1, 0,1,1,1,1,1,0,0,1,1,1],
+     [0, 0, 1, 0,1,0,1,0,1,0,0,1,0,0],
+     [0, 0, 1, 0,1,1,1,1,1,0,0,1,0,0],
+     [0, 0, 1, 0,1,0,1,0,1,0,0,1,0,0],
+     [0, 0, 1, 0,1,1,1,1,1,0,0,1,0,0],
+     [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+     [0, 0, 1, 1,1,1,1,1,1,1,1,1,0,0]]
+ }
+ const letterE = {
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+ }
+ const colorFront1 = "#199cff";
+ const colorFront2 = "#59ccff";
+ const colorBack = "#9FE2BF";
+ const colorStroke = "#233f11";
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
+ function setup() {
+   // create the drawing canvas, save the canvas element
+   main_canvas = createCanvas(canvasWidth, canvasHeight);
+   main_canvas.parent('canvasContainer');
 
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+   // color/stroke setup
+   stroke(colorStroke);
+   strokeWeight(2);
 
-  // with no animation, redrawing the screen is not necessary
-  noLoop();
-}
+   // with no animation, redrawing the screen is not necessary
+   noLoop();
+ }
 
-function draw () {
-  // clear screen
-  background(backgroundColor);
+ function drawLetter(posx, posy, letterData) {
 
-  // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+   let w = 200;
+   let h = 200;
+   let curY=posy;
+   stroke(0);
+   if(!letterData.structure)return;
+   fill(255,237,235);
+   for (let r = 0; r < letterData.structure.length; r++) {
 
-  // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
-}
+     let curX=posx;
+     for (let c = 0; c < letterData.structure[r].length; c++) {
+         if(letterData.structure[r][c] === 1)
+           rect(curX,curY,7,7,2);
+         curX+=7;
+      }
+      curY+=7;
 
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-}
+   }
 
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
-}
+ }
+
+ function draw() {
+   // clear screen
+   background(colorBack);
+
+   // compute the center of the canvas
+   let center_x = canvasWidth / 2;
+   let center_y = canvasHeight / 2;
+
+   // draw the letters A, B, C from saved data
+   drawLetter(center_x - 450, center_y-50, letterA);
+   drawLetter(center_x -300, center_y-50, letterB);
+   drawLetter(center_x -150, center_y-50, letterC);
+   drawLetter(center_x +0, center_y-50, letterD);
+ }
+
+ function keyTyped() {
+   if (key == '!') {
+     saveBlocksImages();
+   }
+   else if (key == '@') {
+     saveBlocksImages(true);
+   }
+ }
