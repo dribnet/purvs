@@ -12,14 +12,6 @@ var systemBoxColor = "#00c800";
  */
 function drawLetter(letterData) {
 
-
-  // // determine parameters for second circle
- 
-// let TopAxis = 0
-// let RightAxis = 0
-// let BottomAxis = 200
-// let LeftAxis = 100
-
 //Nodes
 
 let TopAxis = -75+letterData["offsetRightTop"]//change when porting to draw_letters
@@ -33,6 +25,7 @@ let RightMidAxisX =  50+ letterData["offsetMidRight"]
 let leftMidNodeX = -50 +letterData["offsetMidLeft"]
 let leftMidNodeY = 0
 
+//Second 
 
 
 let ShapeRotation = letterData["Rotation"]
@@ -46,32 +39,40 @@ c = color(215, 66, 245);
 c.setAlpha(10);
 let illumination = 2
 
+MainShape(lineColor,3,.75,100,100);
+GlowShape();
+// GlowShape();
+
+function GlowShape (){
+
 for (let i = 0; i < 12; i++){
 	illumination = illumination+i
-MainShape(c,illumination,1,1);
+MainShape(c,illumination,.75,50,100);
 }
 
 
 noFill();
-MainShape(lineColor,3,1,50,100);
+MainShape(lineColor,5,.75,50,100);
 
-MainShape(lineColor,3,1);
-
+MainShape(lineColor,3,.75,50,100);
+}
 
 
 function MainShape (StrokeColour,lineWeight,shapeSizeX, posX, posY){
 
 
 
-stroke(StrokeColour);
+// stroke(StrokeColour);
+stroke(255);
 strokeWeight(lineWeight);
 
 push();
 
 
-translate(50,100);
-scale(shapeSizeX);
+translate(posX,posY);
+scale(shapeSizeX,1);
 rotate(ShapeRotation);
+strokeCap(ROUND);
 
 fill(215, 66, 245, 2);
 beginShape();
