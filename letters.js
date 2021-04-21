@@ -1,9 +1,9 @@
 const alphabet = {
   "default": {
     "size": 100,
-    "recOffsetx": 0,
-    "recOffsety": 200,
-    "rectAngle": -90,
+    "recOffsetx": 95,
+    "recOffsety": 185,
+    "rectAngle": 90,
 
     "size1": 50,
     "offsetx": 25,
@@ -37,9 +37,9 @@ const alphabet = {
     "recOffsety": 50,
     "rectAngle": 0,
 
-    "size1": 25,
-    "offsetx": 20,
-    "offsety": 60,
+    "size1": 40,
+    "offsetx": 10,
+    "offsety": 55,
 
     "size2": 100,
     "arcOffsetx": 5,
@@ -102,7 +102,7 @@ const alphabet = {
     "rectAngle": 0,
 
     "size1": 35,
-    "offsetx": 25,
+    "offsetx": 10,
     "offsety": 100,
 
     "size2": 150,
@@ -133,15 +133,15 @@ const alphabet = {
     "recOffsety": 50,
     "rectAngle": 0,
 
-    "size1": 50,
-    "offsetx": 15,
-    "offsety": 100,
+    "size1": 40,
+    "offsetx": 60,
+    "offsety": 160,
 
-    "size2": 180,
-    "arcOffsetx": -20,
-    "arcOffsety": 20,
-    "angleStart": 70,
-    "angleEnd": 90
+    "size2": 80,
+    "arcOffsetx": 20,
+    "arcOffsety": 100,
+    "angleStart": 180,
+    "angleEnd": 360
   },
   "I": {
     "size": 100,
@@ -181,15 +181,15 @@ const alphabet = {
     "recOffsety": 50,
     "rectAngle": 0,
 
-    "size1": 30,
-    "offsetx": 55,
-    "offsety": 50,
+    "size1": 40,
+    "offsetx": 60,
+    "offsety": 160,
 
-    "size2": 150,
-    "arcOffsetx": -50,
-    "arcOffsety": 50,
-    "angleStart": 30,
-    "angleEnd": 70
+    "size2": 80,
+    "arcOffsetx": 20,
+    "arcOffsety": 80,
+    "angleStart": 140,
+    "angleEnd": 320
   },
   "L": {
     "size": 150,
@@ -197,9 +197,9 @@ const alphabet = {
     "recOffsety": 50,
     "rectAngle": 0,
 
-    "size1": 35,
+    "size1": 40,
     "offsetx": 50,
-    "offsety": 165,
+    "offsety": 160,
 
     "size2": 0,
     "arcOffsetx": 0,
@@ -326,7 +326,7 @@ const alphabet = {
     "rectAngle": 0,
 
     "size1": 35,
-    "offsetx": 0,
+    "offsetx": 10,
     "offsety": 50,
 
     "size2": 90,
@@ -343,7 +343,7 @@ const alphabet = {
 
     "size1": 35,
     "offsetx": 0,
-    "offsety": 50,
+    "offsety": 45,
 
     "size2": 100,
     "arcOffsetx": 0,
@@ -384,10 +384,10 @@ const alphabet = {
     "angleEnd": 110
   },
   "X": {
-    "size": 150,
-    "recOffsetx": 0,
-    "recOffsety": 75,
-    "rectAngle": -35,
+    "size": 160,
+    "recOffsetx": 5,
+    "recOffsety": 65,
+    "rectAngle": -30,
 
     "size1": 35,
     "offsetx": 65,
@@ -401,7 +401,7 @@ const alphabet = {
   },
   "Y": {
     "size": 90,
-    "recOffsetx": 0,
+    "recOffsetx": 5,
     "recOffsety": 60,
     "rectAngle": -30,
 
@@ -465,9 +465,9 @@ const alphabet = {
   },
   "2": {
     "size": 100,
-    "recOffsetx": 20,
-    "recOffsety": 200,
-    "rectAngle": 225,
+    "recOffsetx": 80,
+    "recOffsety": 120,
+    "rectAngle": 45,
 
     "size1": 30,
     "offsetx": 70,
