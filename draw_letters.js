@@ -34,13 +34,41 @@ function drawLetter(letterData) {
 
 
 stroke(334, 93, 100);
-
-//arc(50, 100, 85, 85, arc4, arc5, PIE);
 customarc(arc4, arc5)
-push();
+customtriangle(tri1, tri2, tri3, tri4, tri5);
+customwave(line1, line2, line3, line4, line5);
+
+}
+
+function customarc(arc4, arc5){
+
+  push();
+  // blend modes 
+//BLEND, DARKEST, LIGHTEST, DIFFERENCE, MULTIPLY, EXCLUSION, 
+//SCREEN, REPLACE, OVERLAY, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN, ADD, REMOVE or SUBTRACT 
+
+  strokeWeight(12);
+  stroke(334, 70, 100, 0.4);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+
+  stroke(334, 93, 100);
+  strokeWeight(5);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+
+  strokeWeight(2);
+  stroke(250);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+  
+  pop();
+}
+
+function customtriangle (tri1, tri2, tri3, tri4, tri5){
+  strokeCap(ROUND);
+  var numVertices = 3; // or 4 or 30
+  const spacing = 360 / numVertices;
+
+  push();
 // original code taken from Programming Design Systems chapter 5 Procedural Shapes
-var numVertices = 3; // or 4 or 30
-const spacing = 360 / numVertices;
 stroke(177, 100, 100);
 translate(tri1,tri2); 
 rotate(tri3);
@@ -54,13 +82,42 @@ endShape();
 pop();
 
 push();
+strokeWeight(4);
+stroke(177, 65, 100, 0.5);
+translate(tri1,tri2); 
+rotate(tri3);
+beginShape();
+for(let i = 0; i <= numVertices; i++) {
+  const x = cos((i * spacing)) * tri4;
+  const y = sin((i * spacing)) * tri5;
+  vertex(x-5, y-5);
+}
+endShape();
+
+strokeWeight(3);
+stroke(177, 40, 100, 0.3);
+beginShape();
+for(let i = 0; i <= numVertices; i++) {
+  const x = cos((i * spacing)) * tri4;
+  const y = sin((i * spacing)) * tri5;
+  vertex(x-10, y-10);
+}
+endShape();
+
+ pop();
+}
+
+function customwave (line1, line2, line3, line4, line5){
+blendMode(LIGHTEST);
+
+push();
+strokeWeight(5);
 stroke(57, 98, 100);
-//strokeCap(SQUARE);
 translate(line1, line2);
 rotate(line3);
 
+//original code taken from Programming Design Systems chapter 5 Procedural Shapes
 beginShape();
-
 for(let i = 0; i < line4; i++) {
   const x = i * 2;
   const y = sin(i * 2) * 100;
@@ -68,24 +125,23 @@ for(let i = 0; i < line4; i++) {
 }
 endShape();
 pop();
+
+push();
+strokeWeight(5);
+stroke(57, 20, 100, 0.5);
+translate(line1, line2);
+rotate(line3);
+beginShape();
+for(let i = 0; i < line4; i+=20) {
+  const x = i * 2;
+  const y = sin(i * 2) * 100;
+  ellipse(x/line5, y/14,3);
+}
+endShape();
+pop();
 }
 
-function customarc(arc4, arc5){
-  push();
-  strokeWeight(12);
-  stroke(334, 70, 100, 0.3);
-  arc(50, 100, 85, 85, arc4, arc5, PIE);
 
-  stroke(334, 93, 100);
-  strokeWeight(5);
-  arc(50, 100, 85, 85, arc4, arc5, PIE);
-
-  strokeWeight(2);
-  stroke(250);
-  arc(50, 100, 85, 85, arc4, arc5, PIE);
-  
-  pop();
-}
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
