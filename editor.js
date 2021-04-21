@@ -9,8 +9,14 @@ const sliderInfo = [
   ["offsetx",  -30,  30],
   ["offsety", -100, 100],
   ["smalllength", 0, 100],
-  ["smallheight", 0, 200]
+  ["smallheight", 0, 200],
+["sizesmall", 0, 100],
+["leftrectW", -25, 90], 
+["leftrectH", 0, 200],
+["RightrectW", 25, -90],
+["RightrectH", 0, 200]
 ];
+
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;

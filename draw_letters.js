@@ -5,7 +5,7 @@ var systemBoxColor = "#00c800";
 
 /* internal constants */
 const darkBlue  = "#4F708D";
-const lightBlue  = "#F2D344";
+const lightBlue  = (247, 245, 82); //make yellow  #f7f552
 const strokeColor  = "#233f11";
 const orange  = "#F27E4D";
 const beige = "#E1E5C6";
@@ -28,29 +28,29 @@ function drawLetter(letterData) {
   let pos2y = 150 + letterData["offsety"];
 
   // determine  parameters smaller circle
-  let pos3x = 50  + letterData["smalllength"];
-  let pos3y =  100 + letterData["smallheight"]; 
-  let size3 = letterData["size"] - 50;
+  let pos3x =  letterData["smalllength"];
+  let pos3y =   letterData["smallheight"]; 
+  let size3 = letterData["sizesmall"] -50;
+ let posxrl =  letterData["leftrectW"];
+  let posyrl =  letterData["leftrectH"]; 
+  let posxrr = letterData["RightrectW"];
+ let posyrr =   letterData["RightrectH"];
 
-// beige rect
- 
- //let pos4x = 25 + letterData["negativeh"];
- //let pos4y = 50 + letterData ["negativew"];
+ angleMode(DEGREES); 
 
 
-// rect negative
- // fill(beige);
-  //rect(60, 10, negativew, negativeh);
 
-  // draw rects
+  // draw rect left
  fill(orange);
-  rect(0, 10, 30, 190);
+  rect(0, 80, posxrl, posyrl);
+
+// draw rect right
   fill(orange);
-  rect(60, 10, 30, 190);
+  rect(70, 80, posxrr, posyrr);
 
 
   //bigger circle
-  fill(lightBlue,);
+  fill(lightBlue, 160);
 circle(pos2x, pos2y, size2);
 
 //DRAW circle 2

@@ -16,3 +16,10 @@ Also setting up the code on my laptop.
 Decided to change my theme for my alphabet
 Playing around with adding more parimeters
 wanting to create illusion of negative space for some letters by making them the same colour as the background
+
+
+22/04
+
+I've been playing around wih transparency (I stlll want this shape to still be yellow)
+Also added two more parimeters
+I've now done up to letter L
