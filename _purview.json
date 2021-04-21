@@ -11,6 +11,18 @@
     {
       "sha": "1f3f4e309f32a1c7e59b1309413c9f479580bc1f",
       "name": "example 1"
+    },
+    {
+      "sha": "f17b985102f197e292282ca88a26e40910c4a08d",
+      "name": "Fav Orbit"
+    },
+    {
+      "sha": "bd9dd2cffd1a666e3cd26bf9098d85de6c5fba2a",
+      "name": "Orbit test 1"
+    },
+    {
+      "sha": "e9bfb37494a1fc59724a47a51f7833e792e1f36f",
+      "name": "Orbit test 2"
     }
   ]
 }
