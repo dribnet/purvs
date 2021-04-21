@@ -29,7 +29,7 @@ function drawLetter(letterData) {
   let starsize3 = random(6, 7);
   let starsize4 = random(7, 8);
 
-  var orbit = 1;
+  var orbit = 0;
 
   //fill(0);
   //quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
