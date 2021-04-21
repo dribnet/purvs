@@ -7,14 +7,14 @@
 const sliderInfo = [
   ["backgroundShapeType",1, 3],
   ["backgroundShapeRotate",0, 360],
-  ["offsetx", -70, 70],
-  ["offsety", -70, 70],
+  ["trianglePosX", -70, 70],
+  ["trianglePosY", -70, 70],
   ["triangleRotate", 0, 360],
   ["triangleSize", 0, 1.5],
-  ["linesVerticalXpos", 0, 80],
+  ["lines1VerticalXpos", 0, 80],
   ["lines1HorizontalYpos", 0, 80],
-  ["lines2HorizontalYpos", 0, 80],
-  ["lines2HorizonalRotate", 0, 360]
+  ["lines3HorizontalYpos", 0, 80],
+  ["linesHorizonalRotate", 0, 360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

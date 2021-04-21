@@ -8,17 +8,19 @@ EXAMPLE 1: The first version of the alphabet uses only circles, triangles and sq
 
 EXAMPLE 2: I have now completed the second version of my alphabet by adding vertical and horizontal lines to some of the letters. I only have two parameters left for my next development but i am thinking of adding either colour or another smaller cicrle for letters such as p, 6 and 9
 
+working on circle parameter and need to change interpolation
+
 
 The parameters per letter:
   * `backgroundShapeType` : the type of the background shape (triangle, circle, sqaure)
   * `backgroundShapeRotate` : the rotation of the background shape
-  * `offsetx` : x offset of the foreground traingle in relative to the first one
-  * `offsety` : y offset of the foreground triangle in relative to the first one
+  * `trianglePosX` : x position of the foreground traingle
+  * `trianglePosY` : y postion of the foreground triangle
   * `triangleRotate` : roation of the foreground triangle
   * `triangleSize` : size of the foreground triangle
-  * `linesVerticalXpos` : the x postion of the vertical lines
-  * `lines1HorizontalYpos` : the y postion of the first horizonatal lines
-  * `lines2HorizontalYpos` : the y postion of the second horizonatal lines
-  * `lines2HorizonalRotate` : the rotation of the horizonatal lines
+  * `lines1VerticalXpos` : the x postion of the vertical lines
+  * `lines2HorizontalYpos` : the y postion of the first horizonatal lines
+  * `lines3HorizontalYpos` : the y postion of the second horizonatal lines
+  * `linesHorizonalRotate` : the rotation of the horizonatal lines
 
 
