@@ -5,6 +5,14 @@
       "name": "final"
     },
     {
+      "sha": "9c56f27d7627834355f9457bfddee67af74362fd",
+      "name": "animating to target first"
+    },
+     {
+      "sha": "8e712ae0da27d1320af7dfcbbe1b2bc141dc324f",
+      "name": "simple animation example"
+    },
+    {
       "sha": "030821dbd402628782e6086dfba2300d5b9a1acb",
       "name": "custom Line function"
     },
