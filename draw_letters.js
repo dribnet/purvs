@@ -1,14 +1,14 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#012244";
-var systemLineColor = "#8C6C7F";
+var systemLineColor = "#7a00cc";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
 const backgroundColor  = "#012244";
 const strokeColor      = "#233f11";
 
-const darkPink  = "#8C6C7F";
-const lightBlue  = "#6C8A8C";
+const darkPink  = "#7a00cc";
+const lightBlue  = "#4d4dff";
 const lighterBlue = "#B5D6F5";
 
 const greyish = "#CED8E1";
@@ -38,8 +38,8 @@ function drawLetter(letterData) {
   let SmallerxPosition2 = letterData["smallXPos2"]
   let SmalleryPosition2 = letterData["smallYPos2"]
   
-  let circlex = letterData["starx"]
-  let circley = letterData["stary"]
+  // let circlex = letterData["starx"]
+  // let circley = letterData["stary"]
 
   noStroke();
   fill(darkPink);
@@ -56,9 +56,9 @@ function drawLetter(letterData) {
  //dark blue square two
   rect(SmallerxPosition2, SmalleryPosition2, size2-30,size2-30);
 
-  fill(greyish)
-  //star
-  ellipse(circlex,circley,10,10);
+  // fill(greyish)
+  // //star
+  // ellipse(circlex,circley,10,10);
   
   pop()
 }
@@ -74,8 +74,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["smallYPos"] = map(percent, 0, 100, oldObj["smallYPos"], newObj["smallYPos"]);
   new_letter["smallXPos2"] = map(percent, 0, 100, oldObj["smallXPos2"], newObj["smallXPos2"]);
   new_letter["smallYPos2"] = map(percent, 0, 100, oldObj["smallYPos2"], newObj["smallYPos2"]);
-  new_letter["starx"] = map(percent, 0, 100, oldObj["starx"], newObj["starx"]);
-  new_letter["stary"] = map(percent, 0, 100, oldObj["stary"], newObj["stary"]);
+  // new_letter["starx"] = map(percent, 0, 100, oldObj["starx"], newObj["starx"]);
+  // new_letter["stary"] = map(percent, 0, 100, oldObj["stary"], newObj["stary"]);
 
   return new_letter;
 }
