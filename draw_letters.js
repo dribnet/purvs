@@ -29,6 +29,8 @@ function drawLetter(letterData) {
   let starsize3 = random(6, 7);
   let starsize4 = random(7, 8);
 
+  var orbit = 2;
+
   //fill(0);
   //quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
   fill(255);
@@ -37,9 +39,36 @@ function drawLetter(letterData) {
   ellipse(14,178,starsize3, starsize3);
   ellipse(79,190,starsize4, starsize4);
 
-  // draw two circles                                                                            
-  fill(40);
+  // outerspace/orbit indicator                                                                          
+  if (orbit == 0){
+  fill(70);
   ellipse(50, 100, 100, 100);
+}
+else if (orbit == 1){
+  fill(70);
+  ellipse(50, 75, 50, 50);
+  ellipse(50, 125, 50, 50);
+  ellipse(75, 100, 50, 50);
+  ellipse(25, 100, 50, 50);
+  fill(30);
+  ellipse(75, 125, 50, 50);
+  ellipse(25, 125, 50, 50);
+  ellipse(75, 75, 50, 50);
+  ellipse(25, 75, 50, 50);
+}
+else if (orbit == 2){
+  fill(30);
+  ellipse(75, 125, 50, 50);
+  ellipse(25, 125, 50, 50);
+  ellipse(75, 75, 50, 50);
+  ellipse(25, 75, 50, 50);
+  fill(70);
+  ellipse(50, 75, 50, 50);
+  ellipse(50, 125, 50, 50);
+  ellipse(75, 100, 50, 50);
+  ellipse(25, 100, 50, 50);
+}
+
   if(col2 == 0){ // this is the sun colour
  fill(250,180,0);
   }
@@ -88,6 +117,8 @@ function drawLetter(letterData) {
   // var SizeH = letterData["ShadowH"];
 
   var ShadowPos = letterData["Shadow"];
+  var X = 10;
+  var Y = 10;
   if (ShadowPos == 0) { //this the code that can be typed to tell where the shadow is
     X = 0;
     Y = 0;
@@ -122,15 +153,23 @@ function drawLetter(letterData) {
   ellipse(pos2x, pos2y, size2, size2); // planet
   fill(200);
   ellipse(pos2x + 17, pos2y + 10, 8, 8); // Moon
-  fill(155);
-  ellipse(pos2x + X, pos2y + Y, SizeW, SizeH) //shadow x and y the size Width and Height
+  fill(50);
+  ellipse(pos2x + X, pos2y + Y, SizeW, SizeH); //shadow x and y the size Width and Height
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+ if(percent <99){       //makes the shadow look better between animation otherwise it looks odd if moving left or right so this makes it so that it changes at the end
+  new_letter["Shadow"] = oldObj["Shadow"];
+ }
+else{
+  new_letter["Shadow"] = map(percent, 99, 100, oldObj["Shadow"], newObj["Shadow"]);
+}
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["ColourSun"] = map(percent, 0, 100, oldObj["ColourSun"], newObj["ColourSun"]);
+  new_letter["ColourPlanet"] = map(percent, 0, 100, oldObj["ColourPlanet"], newObj["ColourPlanet"]);
   return new_letter;
 }
 

@@ -4,7 +4,7 @@
  */
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#000000";
 }
 
 const canvasWidth = 960;
@@ -212,7 +212,7 @@ function draw () {
     }
   }
 
-  background(systemBackgroundColor);
+  background(15,15,15);
 
   // shorthand variables to allow margin
   var o = 20
