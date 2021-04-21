@@ -39,17 +39,34 @@ let lineColor = color(255,255,255,5);
 angleMode(DEGREES);
 
 c = color(215, 66, 245);
-c.setAlpha(50);
+c.setAlpha(10);
 let illumination = 2
+let Secondillumination = 3
 
-MainShape(c,3,SecondShapeScale,SecondShapeX,SecondShapeY);
+
+let stepsAway = round(sqrt(sq(SecondShapeX)+sq(SecondShapeY))/10)
+
+console.log(stepsAway)
+
+if(Secondillumination<stepsAway){
+for (let i = 0; i < 8; i++){
+  Secondillumination = Secondillumination + i
+MainShape(c,Secondillumination,SecondShapeScale,SecondShapeX,SecondShapeY);
+}
+}
+
+
 c.setAlpha(10);
 GlowShape();
 // GlowShape();
 
+
+
+
+
 function GlowShape (){
 
-for (let i = 0; i < 12; i++){
+for (let i = 0; i < 8; i++){
 	illumination = illumination+i
 MainShape(c,illumination,.75,50,100);
 }

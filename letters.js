@@ -61,12 +61,16 @@ const alphabet = {
         "secondShapeScale": 1
     },
     "E": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 30,
-        "ArcEnd": 310,
-        "TrianglePoint": -50
+        "offsetRightTop": -78,
+        "offsetMidTop": 66,
+        "offsetBottom": -74,
+        "offsetBottomMid": -24,
+        "offsetMidRight": 0,
+        "offsetMidLeft": 0,
+        "Rotation": 90,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 75,
+        "secondShapeScale": .75
     },
     "F": {
         "size": 40,
