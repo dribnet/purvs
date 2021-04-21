@@ -29,13 +29,13 @@ function drawLetter(letterData) {
   let starsize3 = random(1, 10);
   let starsize4 = random(1, 10);
 
-   fill(0);
-  quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
+  //fill(0);
+  //quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
   fill(255);
-  square(25,15,starsize1); // the stars in the background
-  square(88,25,starsize2);
-  square(14,178,starsize3);
-  square(79,190,starsize4);
+  ellipse(25,15,starsize1, starsize1); // the stars in the background
+  ellipse(88,25,starsize2, starsize2);
+  ellipse(14,178,starsize3, starsize3);
+  ellipse(79,190,starsize4, starsize4);
 
   // draw two circles                                                                            
   fill(40);
@@ -52,34 +52,34 @@ function drawLetter(letterData) {
   ellipse(50, 100, 50, 50);
 
   if(col1 == 0){ //this is the planet colour
-    fill(5, 13, 255);
+    fill(239, 31, 100);
   }
   else if (col1 == 1) {
-    fill(255, 34, 0);
+    fill(217, 169, 93);
   }
   else if (col1 == 2) {
-    fill(0, 166, 22);
+    fill(202, 216, 98);
   }
   else if (col1 == 3) {
-    fill(180, 5, 255);
+    fill(157, 216, 98);
   }
    else if (col1 == 5) {
-    fill(255, 0, 162);
+    fill(85, 183, 236);
   }
    else if (col1 == 6) {
-    fill(132, 255, 0);
+    fill(88, 129, 233);
   }
    else if (col1 == 7) {
-    fill(0, 217, 255);
+    fill(124, 67, 239);
   }
    else if (col1 == 8) {
-    fill(255, 140, 0);
+    fill(176, 67, 239);
   }
    else if (col1 == 9) {
     fill(0,0,0);
   }
    else if (col1 == 4) {
-    fill(242, 255, 0);
+    fill(53, 225, 216);
   }
 
   // var X = letterData["ShadowX"];
