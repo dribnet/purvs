@@ -47,8 +47,9 @@ let line6 = letterData ["Diagonalline4"]
     arcStopAngle = 0;
   }
 
-
-wheel (50, 100);
+push();
+wheel(50, 100);
+pop();
 
  //lines and arcs that will draw the letters
   stroke(252, 3, 3);
@@ -93,11 +94,15 @@ pop();
 
 }
 
+let rotateAmount = 90;
 function wheel(x,y){
+  push()
   //background wheel that the letters will be drawn on
   noFill();
 stroke(252, 3, 3, 40);
 strokeWeight(2);
+translate(10, 50)
+rotate(rotateAmount)
 //main wheel
   arc(50, 100, 100, 100, 0, 360);
 
@@ -107,16 +112,19 @@ strokeWeight(2);
   line(15, 65, 85, 135)
 
   stroke(252, 3, 3, 20);
-  strokeWeight(1);
- arc(50, 100, 110, 110, 0, 360);
+ //  strokeWeight(1);
+ // arc(50, 100, 110, 110, 0, 360);
+ pop()
 }
 
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  rotateAmount = map(percent, 0, 100, 0, 180);
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
   return new_letter;
 }
 

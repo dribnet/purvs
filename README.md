@@ -1,3 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-Adding an extra visual element to my letters - added a white line that acts as a shadow to make the letters pop out a little bit. I'm not too sure how i feel about this, i will keep experimenting i think. 
+Started usning the interpolate feature. I am so confused. since my idea doesnt have number variables, it is going to be tricky to make it move in a nice way. I am thinking of having my wheel rotate and then settling into the letter. Nott sure how nice this will look but i am trying it out. So far I have tried to add a rotate map, It is not really working, I think i will have to play around a bit more. 
