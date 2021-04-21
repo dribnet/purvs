@@ -24,10 +24,10 @@ function drawLetter(letterData) {
   let col1 = letterData["ColourPlanet"];
   let col2 = letterData["ColourSun"];
 
-  let starsize1 = random(1, 10); // random stars
-  let starsize2 = random(1, 10);
-  let starsize3 = random(1, 10);
-  let starsize4 = random(1, 10);
+  let starsize1 = random(9, 10); // random stars
+  let starsize2 = random(5, 6);
+  let starsize3 = random(6, 7);
+  let starsize4 = random(7, 8);
 
   //fill(0);
   //quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
