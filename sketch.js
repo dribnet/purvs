@@ -1,6 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
+
 /* 
  * my three variable per letter are:
  *
@@ -13,15 +14,15 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 90
 }
 
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -60
 }
 
 const letterC = {
@@ -30,10 +31,10 @@ const letterC = {
   "offsety": 0
 }
 
-const backgroundColor  = "#e3eded";
+const backgroundColor  = "#F0E390";
 const strokeColor      = "#233f11";
 
-const darkBlue  = "#199cff";
+const darkBlue  = "#482605";
 const lightBlue  = "#59ccff";
 
 function setup () {
@@ -43,7 +44,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(30);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
