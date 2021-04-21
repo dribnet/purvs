@@ -25,3 +25,7 @@ Finished my basic letter form today, what I want to work on now is to refine the
 
 *20 April* :cyclone:  
 Today I tried to use custom funcions to add colour effect to the alphabets, I added white colour stroke to create neon effect.  I want to try glowing effect or some other cool things (that I haven't thought of) with the current variables I have.    
+
+*22 April*  :partly_sunny:  
+Trying out differnt ideas like blendmode(); and fading effect with repeating shapes. 
+Got some crazy effect going, but I think the tiny circles are a little bit gross to look at, so might change that.  

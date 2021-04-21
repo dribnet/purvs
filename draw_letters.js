@@ -46,6 +46,9 @@ function customarc(arc4, arc5){
   // blend modes 
 //BLEND, DARKEST, LIGHTEST, DIFFERENCE, MULTIPLY, EXCLUSION, 
 //SCREEN, REPLACE, OVERLAY, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN, ADD, REMOVE or SUBTRACT 
+  strokeWeight(18);
+  stroke(177, 30, 100, 0.2);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
 
   strokeWeight(12);
   stroke(334, 70, 100, 0.4);
@@ -111,11 +114,24 @@ function customwave (line1, line2, line3, line4, line5){
 blendMode(LIGHTEST);
 
 push();
+strokeWeight(3);
+stroke(57, 20, 100, 0.8);
+translate(line1, line2);
+rotate(line3);
+beginShape();
+for(let i = 0; i < line4; i+=90) {
+  const x = i * 2;
+  const y = sin(i * 2) * 100;
+  ellipse((x/line5), (y/14), 10);
+}
+endShape();
+pop();
+
+push();
 strokeWeight(5);
 stroke(57, 98, 100);
 translate(line1, line2);
 rotate(line3);
-
 //original code taken from Programming Design Systems chapter 5 Procedural Shapes
 beginShape();
 for(let i = 0; i < line4; i++) {
@@ -126,19 +142,8 @@ for(let i = 0; i < line4; i++) {
 endShape();
 pop();
 
-push();
-strokeWeight(5);
-stroke(57, 20, 100, 0.5);
-translate(line1, line2);
-rotate(line3);
-beginShape();
-for(let i = 0; i < line4; i+=20) {
-  const x = i * 2;
-  const y = sin(i * 2) * 100;
-  ellipse(x/line5, y/14,3);
-}
-endShape();
-pop();
+
+
 }
 
 
