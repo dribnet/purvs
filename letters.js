@@ -14,8 +14,7 @@ const alphabet = {
     "smallYPos" : 0,
     "smallXPos2": 0,
     "smallYPos2" : 0
-    // "starx" : 0,
-    // "stary" :0
+
   },
   "A": {
     "size": 100,
@@ -27,8 +26,7 @@ const alphabet = {
     "smallYPos" : 130,
     "smallXPos2": 15,
     "smallYPos2" : 130
-    // "starx" : 10,
-    // "stary" : 10
+
   },
   "B": {
     "size": 100,
@@ -40,8 +38,7 @@ const alphabet = {
     "smallYPos" : 20,
     "smallXPos2": 15,
     "smallYPos2" : 115
-    // "starx" : 30,
-    // "stary" : 40
+
   },
   "C": {
     "size": 70,
@@ -53,8 +50,7 @@ const alphabet = {
     "smallYPos" : 130,
     "smallXPos2": 60,
     "smallYPos2" : 130
-    // "starx" : 70,
-    // "stary" : 50
+
   },
   "D": {
     "size": 70,
@@ -66,8 +62,7 @@ const alphabet = {
     "smallYPos" : 130,
     "smallXPos2": 0,
     "smallYPos2" : 130
-    // "starx" : 10,
-    // "stary" : -20
+
   },
   "E": {
     "size": 70,
