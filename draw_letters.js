@@ -57,17 +57,32 @@ wheel (50, 100);
   arc(50, 100, 100, 100, SecondarcStartAngle, SecondarcStopAngle);
 
   if(line1 == true){
+   push();
    line(50, 150, 50, 50)
-   
+   stroke(255, 255, 255, 150)
+   line(53, 150, 53, 50)
+   pop();
   } 
   if(line2 == true){
+    push();
    line(50, 100, 85, 65)
+   stroke(255, 255, 255, 150)
+   line(53, 103, 88, 68)
+pop();
   }
   if(line3 == true){
+  push();
    line(50, 100, 100, 100)
+   stroke(255, 255, 255, 150)
+   line(53, 103, 97, 103)
+    pop();
   }
   if(line4 == true){
-   line(50, 100, 85, 135)
+    push();
+    line(50, 100, 85, 135)
+   stroke(255, 255, 255, 150)
+   line(47, 103, 82, 138)
+    pop();
   }
   if(line5 == true){
    line(50,100, 15, 135)

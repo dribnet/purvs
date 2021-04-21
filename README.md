@@ -1,3 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-Had a chat with Bex about inspiration and how i could make my alphabet stand out more. I think i will play around with colours and try new things. Also thinking about making the true/false lines be more interesting and adding elements to it. I have also started thinking about ways I could have my letters interpolate. I like the idea of using rotation, as it is a wheel, it would look cool if it spun before changing letters. 
+Adding an extra visual element to my letters - added a white line that acts as a shadow to make the letters pop out a little bit. I'm not too sure how i feel about this, i will keep experimenting i think. 
