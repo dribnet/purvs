@@ -118,14 +118,14 @@ else if (symmode.endsWith("offsetcirvert")){
   cir(letterData,1,-1);
   cir(letterData,-1,1);
 }
-else if (symmode.endsWith("rotated")){
-
-push();
-
-cir(letterData,1,1);
-  ellipse(CENTREX+letterData["ex"]-5, CENTREY+letterData["ey"]+letterData["eheight"]/2, letterData["eheight"], letterData["ewidth"]);
-pop();
-}
+// else if (symmode.endsWith("rotated")){
+//
+// push();
+//
+// cir(letterData,1,1);
+//   ellipse(CENTREX+letterData["ex"]+15, CENTREY+letterData["ey"]+letterData["eheight"]/2-10, letterData["eheight"], letterData["ewidth"]);
+// pop();
+// }
 else{
   cir(letterData,1,-1);
   cir(letterData,1,1);
@@ -148,21 +148,23 @@ else {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["symmode"]    = map(percent, 0, 100, oldObj["symmode"], newObj["symmode"]);
-  new_letter["x1"]    = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
-  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["x4"]    = map(percent, 0, 100, oldObj["x4"], newObj["x5"]);
-  new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
-  new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
-  new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
-  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
-  new_letter["y5"]    = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
-  new_letter["ex"] = map(percent, 0, 100, oldObj["ex"], newObj["ex"]);
-  new_letter["ey"] = map(percent, 0, 100, oldObj["ey"], newObj["ey"]);
-  new_letter["ewidth"]    = map(percent, 0, 100, oldObj["ewidth"], newObj["ewidth"]);
-  new_letter["eheight"] = map(percent, 0, 100, oldObj["eheight"], newObj["eheight"]);
+
+   new_letter["symmode"]    =  newObj["symmode"];
+   //new_letter["symmode"]    = map(percent, 0, 100, oldObj["symmode"], newObj["symmode"]);
+    new_letter["x1"]    = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
+    new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+    new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
+    new_letter["x4"]    = map(percent, 0, 100, oldObj["x4"], newObj["x5"]);
+    new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
+    new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
+    new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+    new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+    new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+    new_letter["y5"]    = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
+    new_letter["ex"] = map(percent, 0, 100, oldObj["ex"], newObj["ex"]);
+    new_letter["ey"] = map(percent, 0, 100, oldObj["ey"], newObj["ey"]);
+    new_letter["ewidth"]    = map(percent, 0, 100, oldObj["ewidth"], newObj["ewidth"]);
+    new_letter["eheight"] = map(percent, 0, 100, oldObj["eheight"], newObj["eheight"]);
 
   return new_letter;
 }

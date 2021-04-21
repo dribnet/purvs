@@ -1,3 +1,2 @@
 ## MDDN 242 2021 Assignment 2
-
-I have made a lot more characters. I also rewrote the code for the symmetry to be more efficient. This is also the first step to fixing the interaction which is only showing half of each letter due to different letters having different numbers of points. 
+I have finished all the characters but some such as g, 1 and z might need touch ups. I also got the interpolation working which was bugged as I was trying to feed a string into a map. The first frame of the animation is being set to the new sym mode which looks great in motion although can rapidly change the shape on the first frame but this is only really noticeable in the interaction but not in exhibition.   
