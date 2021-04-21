@@ -102,6 +102,24 @@ function drawLetter(letterData) {
 
     ellipse(pos2x - 7, pos2y - 7, size1, size1);
   }
+
+  //Texture of the letters
+  var texture = true;
+  if (texture) {
+    var gap = 13;
+    var xMultiplier = int(width / gap);
+    var yMultiplier = int(height / gap);
+    push();
+    rotate(angle);
+    for (var x = 0 + pos3x; x <= pos3x + (gap * xMultiplier); x += gap) {
+      for (var y = 0 + pos3y; y <= pos3y + (gap * yMultiplier); y += gap) {
+        noStroke();
+        fill(255);
+        ellipse(x, y, 6, 6);
+      }
+    }
+    pop();
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

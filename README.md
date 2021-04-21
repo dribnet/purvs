@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Currently trying to develop my current idea further. This is what I got up to in class today, I am trying to achieve a 3D effect. Going to look at adding a pop art texture next.
+During class I added my texture. Having trouble with rotating it properly and I think it has to do with the nested for loop.
 
 Currently I have 13 parameters:
 
