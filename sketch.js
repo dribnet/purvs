@@ -12,44 +12,46 @@ const canvasHeight = 500;
  *
  */
 
+
 //   const letterA = {
-//   "quadXLoki": 200,
+//   "quadXLoki": 100,
 
 //   "quadYLoki": 200,
 
-//   "quadrotation": 0,
+//   "quadrotation": -5,
 
-//   "GreenDot1xpos": 270,
+//   "GreenDot1xpos": 220,
 
-//   "GreenDot1ypos": 110,
+//   "GreenDot1ypos": 130,
 
-//   "greenDot2xpos":220,
+//   "greenDot2xpos":255,
 
-//   "GreenDot2ypos":175,
+//   "GreenDot2ypos":220,
 
 //   "GreenDot3xpos":170,
 
-//   "GreenDot3ypos":240,
+//   "GreenDot3ypos":220,
 
 //   "GreenDotSize": 20,
 
-//   "RedRotation": 0,
+//   "RedRotation": 290,
 
-//   "RedxPosition": 100,
+//   "RedxPosition": 65,
 
-//   "RedyPosition": 200,
+//   "RedyPosition": 270,
 
-//   "BlackLinexpos": 300, 
+//   "BlackLinexpos": 140, 
 
-//   "BlackLineypos": 100,
+//   "BlackLineypos": -30,
 
-//   "BlueCircleSize": 100,
+//   "BlueCircleSize": 80,
 
-//   "BlueCirclexPos": 330,
+//   "BlueCirclexPos": 270,
 
-//   "BlueCircleyPos": 305,
+//   "BlueCircleyPos": 300,
 
 // }
+
 
 //Letter B
 
@@ -950,43 +952,239 @@ const canvasHeight = 500;
 
 
 
-//Letter Y
-  const letterA = {
-  "quadXLoki": 200,
+// //Letter Y
+//   const letterA = {
+//   "quadXLoki": 200,
 
-  "quadYLoki": 200,
+//   "quadYLoki": 200,
 
-  "quadrotation": -25,
+//   "quadrotation": -25,
 
-  "GreenDot1xpos": 190,
+//   "GreenDot1xpos": 190,
 
-  "GreenDot1ypos": 185,
+//   "GreenDot1ypos": 185,
 
-  "greenDot2xpos": 176,
+//   "greenDot2xpos": 176,
 
-  "GreenDot2ypos": 155,
+//   "GreenDot2ypos": 155,
 
-  "GreenDot3xpos": 165,
+//   "GreenDot3xpos": 165,
 
-  "GreenDot3ypos": 122,
+//   "GreenDot3ypos": 122,
 
-  "RedRotation": 305,
+//   "RedRotation": 305,
 
-  "RedxPosition": 150,
+//   "RedxPosition": 150,
 
-  "RedyPosition": 260,
+//   "RedyPosition": 260,
 
-  "BlackLinexpos": 270, 
+//   "BlackLinexpos": 270, 
 
-  "BlackLineypos": -15,
+//   "BlackLineypos": -15,
 
-  "BlueCircleSize": 50,
+//   "BlueCircleSize": 50,
 
-  "BlueCirclexPos": 140,
+//   "BlueCirclexPos": 140,
 
-  "BlueCircleyPos": 80,
+//   "BlueCircleyPos": 80,
 
-}
+// }
+
+
+// //Letter Z
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 165,
+
+//   "GreenDot1xpos": 210,
+
+//   "GreenDot1ypos": 75,
+
+//   "greenDot2xpos": 165,
+
+//   "GreenDot2ypos": 75,
+
+//   "GreenDot3xpos": 120,
+
+//   "GreenDot3ypos": 75,
+
+//   "RedRotation": 110,
+
+//   "RedxPosition": 230,
+
+//   "RedyPosition": 140,
+
+//   "BlackLinexpos": 135, 
+
+//   "BlackLineypos": 225,
+
+//   "BlueCircleSize": 45,
+
+//   "BlueCirclexPos": 255,
+
+//   "BlueCircleyPos": 340,
+
+// }
+
+
+// //Number 0
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 135,
+
+//   "GreenDot1xpos": 130,
+
+//   "GreenDot1ypos": 310,
+
+//   "greenDot2xpos": 100,
+
+//   "GreenDot2ypos": 230,
+
+//   "GreenDot3xpos": 110,
+
+//   "GreenDot3ypos": 150,
+
+//   "RedRotation": 90,
+
+//   "RedxPosition": 210,
+
+//   "RedyPosition": 120,
+
+//   "BlackLinexpos": 190, 
+
+//   "BlackLineypos": 220,
+
+//   "BlueCircleSize": 95,
+
+//   "BlueCirclexPos": 260,
+
+//   "BlueCircleyPos": 180,
+
+// }
+
+
+// //Number 1
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 135,
+
+//   "GreenDot1xpos": 90,
+
+//   "GreenDot1ypos": 140,
+
+//   "greenDot2xpos": 120,
+
+//   "GreenDot2ypos": 120,
+
+//   "GreenDot3xpos": 146,
+
+//   "GreenDot3ypos": 98,
+
+//   "RedRotation": 90,
+
+//   "RedxPosition": 210,
+
+//   "RedyPosition": 120,
+
+//   "BlackLinexpos": 190, 
+
+//   "BlackLineypos": 220,
+
+//   "BlueCircleSize": 40,
+
+//   "BlueCirclexPos": 130,
+
+//   "BlueCircleyPos": 330,
+
+// }
+
+
+
+// //Number 2
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 170,
+
+//   "GreenDot1xpos": 130,
+
+//   "GreenDot1ypos": 130,
+
+//   "greenDot2xpos": 150,
+
+//   "GreenDot2ypos": 77,
+
+//   "GreenDot3xpos": 210,
+
+//   "GreenDot3ypos": 55,
+
+//   "RedRotation": 115,
+
+//   "RedxPosition": 245,
+
+//   "RedyPosition": 120,
+
+//   "BlackLinexpos": 130, 
+
+//   "BlackLineypos": 200,
+
+//   "BlueCircleSize": 50,
+
+//   "BlueCirclexPos": 255,
+
+//   "BlueCircleyPos": 315,
+
+// }
+
+
+// //Number 3
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 15,
+
+//   "GreenDot1xpos": 120,
+
+//   "GreenDot1ypos": 105,
+
+//   "greenDot2xpos": 135,
+
+//   "GreenDot2ypos": 45,
+
+//   "GreenDot3xpos": 190,
+
+//   "GreenDot3ypos": 15,
+
+//    "RedRotation": 280,
+
+//   "RedxPosition": 170,
+
+//   "RedyPosition": 285,
+
+//   "BlackLinexpos": 210, 
+
+//   "BlackLineypos": -30,
+
+//   "BlueCircleSize": 150,
+
+//   "BlueCirclexPos": 215,
+
+//   "BlueCircleyPos": 270,
+
+// }
 
 
   const letterB = {
@@ -1028,8 +1226,8 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  // drawLetter(center_x      , center_y, letterB);
+  // drawLetter(center_x + 250, center_y, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
