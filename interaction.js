@@ -4,15 +4,15 @@
  */
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#f2e2d5";
 }
 
 if (typeof systemLineColor === 'undefined') {
-    var systemLineColor = "#000090";
+    var systemLineColor = "#6b705c";
 }
 
 if (typeof systemBoxColor === 'undefined') {
-    var systemBoxColor = "#00c800";
+    var systemBoxColor = "#cbc0d3";
 }
 
 const canvasWidth = 960;

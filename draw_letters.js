@@ -23,13 +23,8 @@ function drawLetter(letterData) {
   strokeWeight(3);
   angleMode(DEGREES);
 
-  let posx = 50;
-  let posy = 150;
-
-  let startAngle = letterData["start"];
-  let stopAngle = letterData["end"];
-  let MainOffsetX = posx + letterData["MainPosX"];
-  let MainOffsetY = posy + letterData["MainPosY"];
+  let MainOffsetX = 50 + letterData["MainPosX"];
+  let MainOffsetY = 150 + letterData["MainPosY"];
   let MainRadius1 = letterData["MainRadiusA"];
   let MainRadius2 = letterData["MainRadiusB"];
   let MainRadius3 = letterData["MainRadiusC"];
@@ -37,8 +32,8 @@ function drawLetter(letterData) {
   let RoundCorRad2 = letterData["RoundCorRadB"];
   let RoundCorRad3 = letterData["RoundCorRadC"];
   let RoundCorRad4 = letterData["RoundCorRadD"];
-  let PartOffsetX = posx + letterData["PartPosX"];
-  let PartOffsetY = posy + letterData["PartPosY"];
+  let PartOffsetX = 50 + letterData["PartPosX"];
+  let PartOffsetY = 150 + letterData["PartPosY"];
   let PartRadius4 = letterData["PartRadiusD"];
   let PartRadius5 = letterData["PartRadiusE"];
   let PartCorRads = letterData["PartCorRad"];
@@ -72,12 +67,26 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
-  new_letter["end"] = map(percent, 0, 100, oldObj["end"], newObj["end"]);
-  return new_letter;
+  new_letter["MainPosX"] = map(percent, 0, 100, oldObj["MainPosX"], newObj["MainPosX"]);
+  new_letter["MainPosY"] = map(percent, 0, 100, oldObj["MainPosY"], newObj["MainPosY"]);
+  new_letter["MainRadiusA"] = map(percent, 0, 100, oldObj["MainRadiusA"], newObj["MainRadiusA"]);
+  new_letter["MainRadiusB"] = map(percent, 0, 100, oldObj["MainRadiusB"], newObj["MainRadiusB"]);
+  new_letter["MainRadiusC"] = map(percent, 0, 100, oldObj["MainRadiusC"], newObj["MainRadiusC"]);
+  new_letter["RoundCorRadA"] = map(percent, 0, 100, oldObj["RoundCorRadA"], newObj["RoundCorRadA"]);
+  new_letter["RoundCorRadB"] = map(percent, 0, 100, oldObj["RoundCorRadB"], newObj["RoundCorRadB"]);
+  new_letter["RoundCorRadC"] = map(percent, 0, 100, oldObj["RoundCorRadC"], newObj["RoundCorRadC"]);
+  new_letter["RoundCorRadD"] = map(percent, 0, 100, oldObj["RoundCorRadD"], newObj["RoundCorRadD"]);
+  new_letter["PartPosX"] = map(percent, 0, 100, oldObj["PartPosX"], newObj["PartPosX"]);
+  new_letter["PartPosY"] = map(percent, 0, 100, oldObj["PartPosY"], newObj["PartPosY"]);
+  new_letter["PartRadiusD"] = map(percent, 0, 100, oldObj["PartRadiusD"], newObj["PartRadiusD"]);
+  new_letter["PartRadiusE"] = map(percent, 0, 100, oldObj["PartRadiusE"], newObj["PartRadiusE"]);
+  new_letter["PartCorRad"] = map(percent, 0, 100, oldObj["PartCorRad"], newObj["PartCorRad"]);
+  new_letter["StartA"] = map(percent, 0, 100, oldObj["StartA"], newObj["StartA"]);
+  new_letter["EndA"] = map(percent, 0, 100, oldObj["EndA"], newObj["EndA"]);
+  new_letter["StartB"] = map(percent, 0, 100, oldObj["StartB"], newObj["StartB"]);
+  new_letter["EndB"] = map(percent, 0, 100, oldObj["EndB"], newObj["EndB"]);
+  new_letter["StartC"] = map(percent, 0, 100, oldObj["StartC"], newObj["StartC"]);
+  new_letter["EndC"] = map(percent, 0, 100, oldObj["EndC"], newObj["EndC"]);
 }
 
 var swapWords = [

@@ -5,11 +5,26 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size", 40, 80],
-  ["offsetx",  25,  75],
-  ["offsety", 25, 175],
-  ["start", 0, 360],
-  ["end", 0,360],
+  ["MainPosX", -80, 80],
+  ["MainPosY", -80, 80],
+  ["MainRadiusA", 0, 160],
+  ["MainRadiusB", 0, 160],
+  ["MainRadiusC", 0, 160],
+  ["RoundCorRadA", 0, 80],
+  ["RoundCorRadB", 0, 80],
+  ["RoundCorRadC", 0, 80],
+  ["RoundCorRadD", 0, 80],
+  ["PartPosX", -80, 80],
+  ["PartPosY", -80, 80],
+  ["PartRadiusD", 0, 160],
+  ["PartRadiusE", 0, 160],
+  ["PartCorRad", 0, 80],
+  ["StartA", 0 ,360],
+  ["EndA", 0 ,360],
+  ["StartB", 0 ,360],
+  ["EndB", 0 ,360],
+  ["StartC", 0 ,360],
+  ["EndC", 0 ,360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
