@@ -17,3 +17,5 @@ Added Stars and then added shadow to the planets while making the atmosphere dar
 
 
 Phoebe allowed my random as it did not affect my letter form and was more for mood setting and their changes don't change per letter.
+
+tested my orbits and decided i liked the flower looking one as it gave it some depth and interest
