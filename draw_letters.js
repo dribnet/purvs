@@ -25,8 +25,11 @@ let RightMidAxisX =  50+ letterData["offsetMidRight"]
 let leftMidNodeX = -50 +letterData["offsetMidLeft"]
 let leftMidNodeY = 0
 
-//Second 
+//Second Shape
 
+let SecondShapeX = 50 + letterData["offsetsecondShapeX"]
+let SecondShapeY = 100+ letterData["offsetsecondShapeY"]
+let SecondShapeScale = letterData["secondShapeScale"]
 
 let ShapeRotation = letterData["Rotation"]
 
@@ -36,10 +39,11 @@ let lineColor = color(255,255,255,5);
 angleMode(DEGREES);
 
 c = color(215, 66, 245);
-c.setAlpha(10);
+c.setAlpha(50);
 let illumination = 2
 
-MainShape(lineColor,3,.75,100,100);
+MainShape(c,3,SecondShapeScale,SecondShapeX,SecondShapeY);
+c.setAlpha(10);
 GlowShape();
 // GlowShape();
 
@@ -63,14 +67,14 @@ function MainShape (StrokeColour,lineWeight,shapeSizeX, posX, posY){
 
 
 // stroke(StrokeColour);
-stroke(255);
+stroke(StrokeColour);
 strokeWeight(lineWeight);
 
 push();
 
 
 translate(posX,posY);
-scale(shapeSizeX,1);
+scale(shapeSizeX);
 rotate(ShapeRotation);
 strokeCap(ROUND);
 
@@ -87,7 +91,7 @@ vertex(leftMidNodeX,leftMidNodeY);
 endShape(CLOSE);
 
 NodePoints();
-
+NodePoints(); // adjust later ti fit opacity. 
 pop();
 }
 
@@ -119,6 +123,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["Rotation"] = map(percent, 0, 100, oldObj["Rotation"], newObj["Rotation"]);
   new_letter["offsetBottom"]    = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
   new_letter["offsetBottomMid"] = map(percent, 0, 100, oldObj["offsetBottomMid"], newObj["offsetBottomMid"]);
+  new_letter["offsetsecondShapeX"] = map(percent, 0, 100, oldObj["offsetsecondShapeX"], newObj["offsetsecondShapeX"]);
+  new_letter["offsetsecondShapeY"] = map(percent, 0, 100, oldObj["offsetsecondShapeY"], newObj["offsetsecondShapeY"]);
+  new_letter["secondShapeScale"] = map(percent, 0, 100, oldObj["secondShapeScale"], newObj["secondShapeScale"]);
 
   return new_letter;
 }

@@ -6,7 +6,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 0,
         "offsetMidLeft": 0,
-        "Rotation": 0
+        "Rotation": 0,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "A": {
         "offsetRightTop": 80,
@@ -15,7 +18,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 0,
         "offsetMidLeft": 0,
-        "Rotation": -10
+        "Rotation": -10,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 50,
+        "secondShapeScale": .5
 
     },
     "B": {
@@ -25,7 +31,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": -25,
         "offsetMidLeft": 0,
-        "Rotation": -5
+        "Rotation": -5,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": .5
     },
     "C": {
         "offsetRightTop": 10,
@@ -34,7 +43,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": -75,
         "offsetMidLeft": -25,
-        "Rotation": 0
+        "Rotation": 0,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "D": {
         "offsetRightTop": 0,
@@ -43,7 +55,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 25,
         "offsetMidLeft": 0,
-        "Rotation": 0
+        "Rotation": 0,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "E": {
         "size": 40,
@@ -76,7 +91,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 92,
         "offsetMidLeft": -32,
-        "Rotation": -46
+        "Rotation": -46,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "I": {
         "offsetRightTop": 6,
@@ -85,7 +103,10 @@ const alphabet = {
         "offsetBottomMid": -26,
         "offsetMidRight": -36,
         "offsetMidLeft": 40,
-        "Rotation": 183.6
+        "Rotation": 183.6,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "J": {
         "size": 40,
@@ -102,7 +123,10 @@ const alphabet = {
         "offsetBottomMid": -64,
         "offsetMidRight": 0,
         "offsetMidLeft": 84,
-        "Rotation": 180
+        "Rotation": 180,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "L": {
         "size": 40,
@@ -127,7 +151,10 @@ const alphabet = {
         "offsetBottomMid": -18,
         "offsetMidRight": -100,
         "offsetMidLeft": -58,
-        "Rotation": 90
+        "Rotation": 90,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "O": {
         "offsetRightTop": 0,
@@ -136,7 +163,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 38,
         "offsetMidLeft": -22,
-        "Rotation": 7.2
+        "Rotation": 7.2,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "P": {
         "size": 40,
@@ -161,7 +191,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": -4,
         "offsetMidLeft": 50,
-        "Rotation": 180
+        "Rotation": 180,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "S": {
         "size": 40,
@@ -188,7 +221,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 66,
         "offsetMidLeft": 100,
-        "Rotation": 90
+        "Rotation": 90,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "W": {
         "size": 50,
@@ -202,7 +238,10 @@ const alphabet = {
         "offsetBottomMid": -22,
         "offsetMidRight": -52,
         "offsetMidLeft": 48,
-        "Rotation": 270
+        "Rotation": 270,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "Y": {
         "size": 50,
@@ -226,7 +265,10 @@ const alphabet = {
         "offsetBottomMid": 0,
         "offsetMidRight": 0,
         "offsetMidLeft": 68,
-        "Rotation": 0
+        "Rotation": 0,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "2": {
         "offsetRightTop": -72,
@@ -235,7 +277,10 @@ const alphabet = {
         "offsetBottomMid": -78,
         "offsetMidRight": -100,
         "offsetMidLeft": 0,
-        "Rotation": 176.4
+        "Rotation": 176.4,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "3": {
         "size": 40,
@@ -269,7 +314,10 @@ const alphabet = {
         "offsetBottomMid": 84,
         "offsetMidRight": -94,
         "offsetMidLeft": 10.000000000000014,
-        "Rotation": 0
+        "Rotation": 0,
+        "offsetsecondShapeX": 0,
+        "offsetsecondShapeY": 0,
+        "secondShapeScale": 1
     },
     "9": {
         "size": 40,
