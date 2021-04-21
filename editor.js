@@ -5,9 +5,16 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["backgroundShapeType",1, 3],
+  ["backgroundShapeRotate",0, 360],
+  ["offsetx", -70, 70],
+  ["offsety", -70, 70],
+  ["triangleRotate", 0, 360],
+  ["triangleSize", 0, 1.5],
+  ["linesVerticalXpos", 0, 80],
+  ["lines1HorizontalYpos", 0, 80],
+  ["lines2HorizontalYpos", 0, 80],
+  ["lines2HorizonalRotate", 0, 360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
