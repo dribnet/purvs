@@ -45,21 +45,37 @@ noStroke();
   let angleTwo = letterData["angleStop"];
   
  
-  fill(125, 238, 255);  //green 
+  fill(125, 238, 255);  //green
   //fill(245, 179, 243);  //light pink
   ellipse(posx, posy, width, height);  //the main circle
   stroke (29, 55, 207);
   strokeWeight(3);
-  fill(226, 150, 255);
+  fill(81, 245, 204);
   //fill(220, 168, 237, 145);  //purple
-  ellipse(pos2x, pos2y, size, size);
-  fill(255, 255, 255, 145)
+  customShapeOne(pos2x, pos2y, size, size);
+  stroke (29, 55, 207);
+  strokeWeight(3);
+  fill(255, 255, 255, 200)
   //fill(237, 203, 168, cutoutOpacity2);  //orange
   ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
   //fill(255, 255, 168, 145)  //yellow
-  fill(255, 255, 255, 145)
+  fill(255, 255, 255, 200)
   arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
+}
 
+function customShapeOne (pos2x, pos2y, size, size)   {
+  stroke(29, 55, 207);
+  strokeWeight(3);
+  fill(81, 245, 204);
+  ellipse(pos2x, pos2y, size, size);
+
+for (i=0; i<3; i++){
+noFill();
+var offsetx = i*5
+var offsety = i*5
+  bezier(50+offsetx, 110+offsety, 20+offsetx, 115+offsety, 40+offsetx, 140+offsety, 10+offsetx, 145+offsety);
+}
+// //      (x1, y1 , x2, y2 , x3, y3 , x4, y4 )
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
