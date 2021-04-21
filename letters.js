@@ -8,10 +8,10 @@ const alphabet = {
     "point2B": 200,
     "point3B": 180,
     "point1C": 0,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 200,
-    "point2D": 180,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 180,
+    "point2D": 200,
     "point3D": 200
   },
   "A": {
@@ -71,17 +71,17 @@ const alphabet = {
     "point3D": 150
   },
   "E": {
-    "point1A": 100,
-    "point2A": 0,
+    "point1A": 0,
+    "point2A": 100,
     "point3A": 100,
     "point1B": 0,
-    "point2B": 0,
-    "point3B": 90,
+    "point2B": 90,
+    "point3B": 0,
     "point1C": 0,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 200,
-    "point2D": 6,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 6,
+    "point2D": 200,
     "point3D": 200
   },
   "F": {
@@ -204,11 +204,11 @@ const alphabet = {
     "point2B": 200,
     "point3B": 200,
     "point1C": 42,
-    "point2C": 100,
-    "point3C": 82,
+    "point2C": 82,
+    "point3C": 100,
     "point1D": 0,
-    "point2D": 200,
-    "point3D": 0
+    "point2D": 0,
+    "point3D": 200
   },
   "O": {
     "point1A": 0,
@@ -225,12 +225,12 @@ const alphabet = {
     "point3D": 200
   },
   "P": {
-    "point1A": 40,
+    "point1A": 0,
     "point2A": 0,
-    "point3A": 0,
+    "point3A": 40,
     "point1B": 0,
-    "point2B": 0,
-    "point3B": 200,
+    "point2B": 200,
+    "point3B": 0,
     "point1C": 22,
     "point2C": 42,
     "point3C": 100,
@@ -239,12 +239,12 @@ const alphabet = {
     "point3D": 45
   },
   "Q": {
-    "point1A": 100,
-    "point2A": 10,
-    "point3A": 0,
-    "point1B": 75,
-    "point2B": 0,
-    "point3B": 140,
+    "point1A": 10,
+    "point2A": 0,
+    "point3A": 100,
+    "point1B": 0,
+    "point2B": 140,
+    "point3B": 75,
     "point1C": 45,
     "point2C": 100,
     "point3C": 100,
@@ -287,12 +287,12 @@ const alphabet = {
     "point1B": 25,
     "point2B": 200,
     "point3B": 200,
-    "point1C": 50,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 50,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 50,
+    "point1D": 0,
     "point2D": 0,
-    "point3D": 0
+    "point3D": 50
   },
   "U": {
     "point1A": 0,
@@ -309,12 +309,12 @@ const alphabet = {
     "point3D": 200
   },
   "V": {
-    "point1A": 100,
-    "point2A": 0,
-    "point3A": 20,
+    "point1A": 0,
+    "point2A": 20,
+    "point3A": 100,
     "point1B": 0,
-    "point2B": 0,
-    "point3B": 200,
+    "point2B": 200,
+    "point3B": 0,
     "point1C": 20,
     "point2C": 80,
     "point3C": 50,
@@ -337,12 +337,12 @@ const alphabet = {
     "point3D": 200
   },
   "X": {
-    "point1A": 35,
-    "point2A": 0,
-    "point3A": 100,
+    "point1A": 0,
+    "point2A": 100,
+    "point3A": 35,
     "point1B": 0,
-    "point2B": 0,
-    "point3B": 200,
+    "point2B": 200,
+    "point3B": 0,
     "point1C": 0,
     "point2C": 100,
     "point3C": 100,
@@ -351,12 +351,12 @@ const alphabet = {
     "point3D": 55
   },
   "Y": {
-    "point1A": 35,
-    "point2A": 0,
-    "point3A": 67,
+    "point1A": 0,
+    "point2A": 67,
+    "point3A": 35,
     "point1B": 0,
-    "point2B": 0,
-    "point3B": 100,
+    "point2B": 100,
+    "point3B": 0,
     "point1C": 50,
     "point2C": 65,
     "point3C": 100,
@@ -413,12 +413,12 @@ const alphabet = {
     "point1B": 110,
     "point2B": 200,
     "point3B": 175,
-    "point1C": 100,
-    "point2C": 0,
+    "point1C": 0,
+    "point2C": 100,
     "point3C": 100,
-    "point1D": 125,
-    "point2D": 25,
-    "point3D": 0
+    "point1D": 25,
+    "point2D": 0,
+    "point3D": 125
   },
   "3": {
     "point1A": 0,
@@ -427,12 +427,12 @@ const alphabet = {
     "point1B": 90,
     "point2B": 200,
     "point3B": 90,
-    "point1C": 90,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 90,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 90,
+    "point1D": 0,
     "point2D": 0,
-    "point3D": 0
+    "point3D": 90
   },
   "4": {
     "point1A": 100,
@@ -456,11 +456,11 @@ const alphabet = {
     "point2B": 190,
     "point3B": 200,
     "point1C": 0,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 100,
-    "point2D": 0,
-    "point3D": 10
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 0,
+    "point2D": 10,
+    "point3D": 100
   },
   "6": {
     "point1A": 100,
@@ -470,11 +470,11 @@ const alphabet = {
     "point2B": 100,
     "point3B": 25,
     "point1C": 0,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 200,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 100,
     "point2D": 100,
-    "point3D": 100
+    "point3D": 200
   },
   "7": {
     "point1A": 0,
@@ -483,12 +483,12 @@ const alphabet = {
     "point1B": 0,
     "point2B": 25,
     "point3B": 0,
-    "point1C": 0,
-    "point2C": 75,
-    "point3C": 100,
-    "point1D": 200,
+    "point1C": 75,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 0,
     "point2D": 0,
-    "point3D": 0
+    "point3D": 200
   },
   "8": {
     "point1A": 50,
@@ -497,12 +497,12 @@ const alphabet = {
     "point1B": 100,
     "point2B": 200,
     "point3B": 200,
-    "point1C": 50,
-    "point2C": 0,
-    "point3C": 100,
-    "point1D": 100,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 50,
+    "point1D": 0,
     "point2D": 0,
-    "point3D": 0
+    "point3D": 100
   },
   "9": {
     "point1A": 100,
@@ -511,11 +511,11 @@ const alphabet = {
     "point1B": 100,
     "point2B": 180,
     "point3B": 200,
-    "point1C": 100,
-    "point2C": 0,
+    "point1C": 0,
+    "point2C": 100,
     "point3C": 100,
-    "point1D": 100,
-    "point2D": 90,
-    "point3D": 0
+    "point1D": 90,
+    "point2D": 0,
+    "point3D": 100
   }
 }

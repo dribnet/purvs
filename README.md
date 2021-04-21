@@ -2,5 +2,4 @@
 
 20/04	|| WORKING ON COMMENTING MY CODE 
 || My letterforms work by having each parameter correspond with one point of each triangle. 2 triangles = 12 parameters per letterform. The red triangle uses the parameter points 1A, 2A, 3A, 1B, 2B, 3B. The black triangle uses the parameter points 1C, 2C, 3C, 1D, 2D, 3D.
-|| I have already hit the projects twelve parameters limit, and I can't really shove a triangle into a function to try to eliminate some parameters because the triangles used require more control, so I'm thinking about how I can use my own custom functions to create a more dynamic design.
-|| The exhibition.html is a cool place to hang out and try thinking of words to challenge my font to see how well it works. Previously, letters such as "E", "M", "N" etc, were pretty difficult to read, but I've since modified the designs of these letters. Unfortunately I'm still using a lowercase "E" in my uppercase font, but that's as far as I've gotton with my two triangle approach.
+|| I used my own functions in draw_letters to create custom shapes to add dots at the points on the triangles. This is purely a technical choice so I can get the interpolate animation to transition without any unintentional overlap. They will be removed before my final hand-in.

@@ -42,16 +42,27 @@ function drawLetter(letterData) {
   fill(colourRed);
   customTriangle1(A1, B1, A2, B2, A3, B3);
   fill(colourBlack);
-  triangle(C1, D1, C2, D2, C3, D3);
+  customTriangle2(C1, D1, C2, D2, C3, D3);
 }
 
 function customTriangle1(A1, B1, A2, B2, A3, B3){
   triangle(A1, B1, A2, B2, A3, B3);
-  ellipse(A1, B1, 10);
+  // fill('#ff0000');
+  // ellipse(A1, B1, 20);
+  // fill('#00ff00');
+  // ellipse(A2, B2, 20);
+  // fill('#0000ff');
+  // ellipse(A3, B3, 20);
 }
 
 function customTriangle2(C1, D1, C2, D2, C3, D3){
-
+  triangle(C1, D1, C2, D2, C3, D3);
+  fill('#ff0000');
+  ellipse(C1, D1, 20);
+  fill('#00ff00');
+  ellipse(C2, D2, 20);
+  fill('#0000ff');
+  ellipse(C3, D3, 20);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
