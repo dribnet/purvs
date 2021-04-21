@@ -52,28 +52,27 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  let targetHeadY = -30;  
+
+  let targetHeadY = -30; // this is the value that I want the HeadY to hit before moving on to its final destination
+
+  let defaultChar = getObjFromChar("default"); // the variable defaultChar now contains all the infomation of the "default" section of letters.js
+
   if(percent < 50){
-  new_letter["HeadY"]  = map(percent, 0, 50, oldObj["HeadY"], targetHeadY);
+  new_letter["HeadY"]  = map(percent, 0, 50, oldObj["HeadY"], targetHeadY); // half way through the animation we want the HeadY to hit -30
+  new_letter["mouthH"] = map(percent, 0, 50, oldObj["mouthH"], defaultChar["HeadY"]); // half way through the animation the face looks like default
+   new_letter["mouthW"] = map(percent, 0, 50, oldObj["mouthW"], defaultChar["HeadY"]);
   } 
   else{
-  new_letter["HeadY"]  = map(percent, 51, 100, targetHeadY, newObj["HeadY"]);
+  new_letter["HeadY"]  = map(percent, 51, 100, targetHeadY, newObj["HeadY"]); // starting from -30 we are moving to the next letters HeadY
+  new_letter["mouthH"]  = map(percent, 51, 100, defaultChar["mouthH"], newObj["mouthH"]); // moving from default to the new letter
+  new_letter["mouthW"]  = map(percent, 51, 100, defaultChar["mouthW"], newObj["mouthW"]);
   }
 
- //new_letter["HeadY"]  = map(percent, 50, 100, oldObj["HeadY"], newObj["HeadY"]);
-   new_letter["mouthH"] = map(percent, 0, 100, oldObj["mouthH"], newObj["mouthH"]);
-   new_letter["mouthW"] = map(percent, 0, 100, oldObj["mouthW"], newObj["mouthW"]);
-  return new_letter;
+ //new_letter["HeadY"]  = map(percent, 50, 100, oldObj["HeadY"], newObj["HeadY"]);  // if these are uncommented then the animation would be "straight"
 
-   //let inbetweenLetter = getObjFromChar("default");
-//    let inbetweenTarget = 0
-//   if(percent < 50){
-//     new_letter["HeadY"]  = map(percent, 0, 50, oldObj["HeadY"],inbetweenTarget);
-//   }
-// else{
-//   new_letter["HeadY"]  = map(percent, 50, 100, inbetweenTarget, newObj["HeadY"]);
- 
-// }
+  //new_letter["mouthH"] = map(percent, 0, 100, oldObj["mouthH"], newObj["mouthH"]);
+  // new_letter["mouthW"] = map(percent, 0, 100, oldObj["mouthW"], newObj["mouthW"]);
+  return new_letter;
 }
 
 var swapWords = [
