@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Doing the editor and interaction part, but all met some problems and I'm trying to solve these problems...
+Thank you for Phoebe's help and I solved the interaction problem, I update the interaction part and keep solving the editor problem...
 
 The 20 parameters per letter:
 
