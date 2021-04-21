@@ -221,15 +221,15 @@ const alphabet = {
     "offsety3": 128
   },
   "T": {
-    "size": 50,
-    "size2": 30,
-    "size3": 10,
-    "offsetx": 80,
-    "offsety": 175,
-    "offsetx2": 20,
-    "offsety2": 20,
-    "offsetx3": 50,
-    "offsety3": 150
+    "size": 53,
+    "size2": 16,
+    "size3": 52,
+    "offsetx": 20,
+    "offsety": 164,
+    "offsetx2": 50,
+    "offsety2": 192,
+    "offsetx3": 80,
+    "offsety3": 164
   },
   "U": {
     "size": 34,
@@ -265,48 +265,48 @@ const alphabet = {
     "offsety3": 124
   },
   "X": {
-    "size": 50,
-    "size2": 30,
-    "size3": 10,
-    "offsetx": 80,
-    "offsety": 175,
-    "offsetx2": 20,
-    "offsety2": 20,
-    "offsetx3": 50,
-    "offsety3": 150
+    "size": 40,
+    "size2": 42,
+    "size3": 40,
+    "offsetx": 20,
+    "offsety": 144,
+    "offsetx2": 50,
+    "offsety2": 180,
+    "offsetx3": 80,
+    "offsety3": 144
   },
   "Y": {
-    "size": 44,
-    "size2": 39,
-    "size3": 39,
-    "offsetx": 50,
-    "offsety": 122,
-    "offsetx2": 24,
-    "offsety2": 168,
-    "offsetx3": 76,
-    "offsety3": 168
+    "size": 53,
+    "size2": 16,
+    "size3": 52,
+    "offsetx": 20,
+    "offsety": 164,
+    "offsetx2": 50,
+    "offsety2": 108,
+    "offsetx3": 80,
+    "offsety3": 164
   },
   "Z": {
     "size": 50,
-    "size2": 30,
-    "size3": 10,
-    "offsetx": 80,
-    "offsety": 175,
-    "offsetx2": 20,
-    "offsety2": 20,
-    "offsetx3": 50,
-    "offsety3": 150
+    "size2": 43,
+    "size3": 30,
+    "offsetx": 26,
+    "offsety": 142,
+    "offsetx2": 78,
+    "offsety2": 166,
+    "offsetx3": 86,
+    "offsety3": 140
   },
   "0": {
     "size": 50,
-    "size2": 30,
-    "size3": 10,
-    "offsetx": 80,
-    "offsety": 175,
-    "offsetx2": 20,
-    "offsety2": 20,
+    "size2": 61,
+    "size3": 50,
+    "offsetx": 50,
+    "offsety": 128,
+    "offsetx2": 50,
+    "offsety2": 148,
     "offsetx3": 50,
-    "offsety3": 150
+    "offsety3": 172
   },
   "1": {
     "size": 50,
@@ -331,15 +331,15 @@ const alphabet = {
     "offsety3": 150
   },
   "3": {
-    "size": 50,
-    "size2": 30,
-    "size3": 10,
-    "offsetx": 80,
-    "offsety": 175,
-    "offsetx2": 20,
-    "offsety2": 20,
-    "offsetx3": 50,
-    "offsety3": 150
+    "size": 59,
+    "size2": 62,
+    "size3": 50,
+    "offsetx": 32,
+    "offsety": 132,
+    "offsetx2": 30,
+    "offsety2": 168,
+    "offsetx3": 24,
+    "offsety3": 148
   },
   "4": {
     "size": 50,
