@@ -5,7 +5,7 @@ var systemBoxColor = "#00c800";
 
 /* internal constants */
 const darkBlue  = "#4F708D";
-const lightBlue  = (247, 245, 82); //make yellow  #f7f552
+const lightBlue  = ("#f5e85b"); //make yellow 
 const strokeColor  = "#233f11";
 const orange  = "#F27E4D";
 const beige = "#E1E5C6";
@@ -50,7 +50,7 @@ function drawLetter(letterData) {
 
 
   //bigger circle
-  fill(lightBlue, 160);
+  fill(lightBlue);
 circle(pos2x, pos2y, size2);
 
 //DRAW circle 2
