@@ -1,5 +1,5 @@
 ## MDDN 242 2021 Assignment 2
 
-### Mon 29 Mar
+### Thu 22 Apr
 
-I have completed the numbers of my font, making the typeface complete.
+This was an experiment with trying to use the WebGl 3D renderer with this system. Unfortunately, some strange lines from the ends of the letters to the origin appeared (the other red lines around the letters are intentional), so I think this idea is a bust. It was well worth a try though
