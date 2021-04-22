@@ -649,16 +649,16 @@ const alphabet = {
     "RoundCorRadC":0,
     "RoundCorRadD":0,
     "PartPosX":0,
-    "PartPosY":-40,
+    "PartPosY":-7,
     "PartRadiusD":0,
     "PartRadiusE":0,
     "PartCorRad":0,
     "StartA":190,
     "EndA":120,
-    "StartB":40,
-    "EndB":130,
-    "StartC":0,
-    "EndC":0
+    "StartB":0,
+    "EndB":0,
+    "StartC":40,
+    "EndC":130
   },
   "3": {
     "MainPosX":0,

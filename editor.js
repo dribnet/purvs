@@ -5,15 +5,15 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["MainPosX", -80, 80],
-  ["MainPosY", -80, 80],
+  //["MainPosX", -80, 80],
+  //["MainPosY", -80, 80],
   ["MainRadiusA", 0, 160],
   ["MainRadiusB", 0, 160],
   ["MainRadiusC", 0, 160],
   ["RoundCorRadA", 0, 80],
   ["RoundCorRadB", 0, 80],
-  ["RoundCorRadC", 0, 80],
-  ["RoundCorRadD", 0, 80],
+  //["RoundCorRadC", 0, 80],
+  //["RoundCorRadD", 0, 80],
   ["PartPosX", -80, 80],
   ["PartPosY", -80, 80],
   ["PartRadiusD", 0, 160],
