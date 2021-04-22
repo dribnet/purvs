@@ -148,23 +148,7 @@ const alphabet = {
 
   },
   "G": {
-  //   "symmode":'symmetry_hor_rotated',
-  //   "x1":-30,
-  //   "y1":0,
-  //   "x2":-30,
-  //   "y2":50,
-  //   "x3":35,
-  //   "y3":50,
-  //   "x4":35,
-  //   "y4":20,
-  //   "x5":-10,
-  //   "y5":0,
-  // //ellipse parameters
-  //
-  // "ex":-10,
-  //   "ey":20,
-  //   "eheight":40,
-  //   "ewidth":20
+
     "symmode":'symmetry_hor_no_cir',
     "x1":-35,
     "y1":-50,
@@ -173,15 +157,20 @@ const alphabet = {
     "x3":35,
     "y3":-10,
     "x4":-20,
-    "y4":-25,
+    "y4":-29,
     "x5":-20,
     "y5":0,
   //ellipse parameters
 
-  "ex":-3,
-    "ey":25,
-    "eheight":25,
-    "ewidth":35
+  "ex":0,
+    "ey":30,
+    "eheight":15,
+    "ewidth":40
+
+    // "ex":-3,
+    //   "ey":25,
+    //   "eheight":25,
+    //   "ewidth":35
 
   },
   "H": {
