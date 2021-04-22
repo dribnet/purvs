@@ -1,3 +1,4 @@
 ## MDDN 242 2021 Assignment 2
 
-Started usning the interpolate feature. I am so confused. since my idea doesnt have number variables, it is going to be tricky to make it move in a nice way. I am thinking of having my wheel rotate and then settling into the letter. Nott sure how nice this will look but i am trying it out. So far I have tried to add a rotate map, It is not really working, I think i will have to play around a bit more. 
+Bex helped me get my wheel done! It looks quite cool and interesting! Now i have to work on getting the timing of it right. I like how it is simple but still look cool. i also need to figure out how to get the letters to only appear once the wheel is done rotating. At the moment it is appearing halfway through the spin. Looks a bit messy. 
+

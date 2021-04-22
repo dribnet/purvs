@@ -47,15 +47,25 @@ let line6 = letterData ["Diagonalline4"]
     arcStopAngle = 0;
   }
 
+// push();
+// wheel(50, 100);
+// pop();
+
 push();
-wheel(50, 100);
+translate(50,100);
+rotate(rotateAmount);
+wheel(0,0);
 pop();
 
  //lines and arcs that will draw the letters
+  
   stroke(252, 3, 3);
   strokeWeight(3);
+  push();
+  noFill();
   arc(50, 100, 100, 100, arcStartAngle, arcStopAngle);
   arc(50, 100, 100, 100, SecondarcStartAngle, SecondarcStopAngle);
+  pop();
 
   if(line1 == true){
    push();
@@ -94,26 +104,23 @@ pop();
 
 }
 
-let rotateAmount = 90;
+let rotateAmount = 0;
 function wheel(x,y){
   push()
   //background wheel that the letters will be drawn on
   noFill();
-stroke(252, 3, 3, 40);
-strokeWeight(2);
-translate(10, 50)
-rotate(rotateAmount)
-//main wheel
-  arc(50, 100, 100, 100, 0, 360);
-
-  line(50, 150, 50, 50)
-  line(100, 100, 0, 100)
-  line(85, 65, 15, 135)
-  line(15, 65, 85, 135)
+  stroke(252, 3, 3, 40);
+  strokeWeight(2);
+  //main wheel
+  ellipse(x,y,100,100);
+  line(x, y+50, x, y-50)
+  line(x+50, y, x-50, y)
+  line(x+35, y-35, x-35, y+35)
+  line(x-35, y-35, x+35, y+35)
 
   stroke(252, 3, 3, 20);
- //  strokeWeight(1);
- // arc(50, 100, 110, 110, 0, 360);
+  strokeWeight(1);
+ ellipse(x,y,110,110);
  pop()
 }
 
