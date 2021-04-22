@@ -4,124 +4,371 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 0
   },
+  //50 and 100 makes a full circle
   "A": {
 //position
-  "posx": 30, //square
-  "posy": 75, //square
-  "posx2": 55, //circle
-  "posy2": 100, //circle
-  "posx3": 65, //yellow line
-  "posy3": 75, //yellow line
-  "posx4": 0, //red line
-  "posy4": 200, //red line
+//position
+  "posx": 50, //pink arc
+  "posy": 170, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 160, //blue arc
+  "posx3": 50, //yellow line
+  "posy3": 200, //yellow line
+  "posx4": 100, //red line
+  "posy4": 100, //red line
 
 //sizes
-  "sizex": 50, //sqaure
-  "sizey": 50, //square
-  "sizex2": 30, //red line
-  "sizey2": 125, // red line
-  "sizex3": 30, //circle
-  "sizey3": 30, //circle
-  "sizex4": 100, //yellow line
-  "sizey4": 200, //yellow line
+  "sizex": -70, //pink arc
+  "sizey": -70, //pink arc
+  "sizex2": 50, //red line
+  "sizey2": 200, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 10, //yellow line
+  "sizey4": 100, //yellow line
+  "rotx": 800,
+  "roty": -200,
+  "rotx1": 86,
+  "roty1": 24,
   },
   "B": {
 //position
-  "posx": 20, //square
-  "posy": 70, //square
-  "posx2": 50, //circle
-  "posy2": 161, //circle
-  "posx3": 20, //yellow line
+  "posx": 50, //pink arc
+  "posy": 125, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 175, //blue arc
+  "posx3": 50, //yellow line
   "posy3": 200, //yellow line
-  "posx4": 18, //red line
-  "posy4": 200, //red line
+  "posx4": 50, //red line
+  "posy4": 100, //red line
+
 
 //sizes
-  "sizex": 60, //sqaure
-  "sizey": 60, //square
-  "sizex2": 18,//red line
-  "sizey2": 70, // red line
-  "sizex3": 70, //circle
-  "sizey3": 70, //circle
-  "sizex4": 80, //yellow line
-  "sizey4": 200, //yellow line
-
+  "sizex": 50, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 50,//red line
+  "sizey2": 120, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 100, //yellow line
+  "rotx": 40,
+  "roty": 265,
+  "rotx1": 80,
+  "roty1": 230,
   },
   "C": {
 //position
-  "posx": 25, //square
-  "posy": 75, //square
-  "posx2": 50, //circle
-  "posy2": 100, //circle
-  "posx3": 25, //yellow line
+  "posx": 50, //pink arc
+  "posy": 150, //pink arc
+  "posx2": 15, //blue arc
+  "posy2": 160, //blue arc
+  "posx3": 55, //yellow line
+  "posy3": 110, //yellow line
+  "posx4": 70, //red line
+  "posy4": 190, //red line
+
+//sizes
+  "sizex": 75, //pink arc
+  "sizey": 100, //pink arc
+  "sizex2": 55,//red line
+  "sizey2": 205, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 60, //blue arc
+  "sizex4": 60, //yellow line
+  "sizey4": 90, //yellow line
+//arc sizes
+  "rotx": -30, //pink arc start
+  "roty": 30, //pink arc stop
+  "rotx1": 60, //blue arc start
+  "roty1": 100,//blue arc stop
+  },
+  "D": {
+//position
+  "posx": 50, //pink arc
+  "posy": 180, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 125, //blue arc
+  "posx3": 50, //yellow line
+  "posy3": 198, //yellow line
+  "posx4": 80, //red line
+  "posy4": 152, //red line
+
+//sizes
+  "sizex": 50, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 20,//red line
+  "sizey2": 151, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 45, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 100, //yellow line
+
+//arc start and stop
+  "rotx": 40, //pink start
+  "roty": 265, //pink stop
+  "rotx1": 100, //blue start
+  "roty1": 180, //blue stop
+  },
+  "E": {
+//position
+  "posx": 50, //pink arc
+  "posy": 125, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 175, //blue arc
+  "posx3": 12, //yellow line
+  "posy3": 175, //yellow line
+  "posx4": 12, //red line
+  "posy4": 125, //red line
+
+//sizes
+  "sizex": 75, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 50,//red line
+  "sizey2": 125, //red line
+  "sizex3": 75, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 175, //yellow line
+//arc sizes
+  "rotx": -30, //pink arc start
+  "roty": 30, //pink arc stop
+  "rotx1": -30, //blue arc start
+  "roty1": 30,//blue arc stop
+  },
+  "F": {
+//position
+  "posx": 50, //pink arc
+  "posy": 125, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 190, //blue arc
+  "posx3": 13, //yellow line
+  "posy3": 125, //yellow line
+  "posx4": 12, //red line
+  "posy4": 150, //red line
+
+//sizes
+  "sizex": 75, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 75,//red line
+  "sizey2": 150, //red line
+  "sizex3": 75, //blue arc
+  "sizey3": 25, //blue arc
+  "sizex4": 13, //yellow line
+  "sizey4": 190, //yellow line
+//arc sizes
+  "rotx": 110, //pink arc start
+  "roty": 100, //pink arc stop
+  "rotx1": -500, //blue arc start
+  "roty1": 600,//blue arc stop
+  },
+  "G": {
+//position
+  "posx": 50, //pink arc
+  "posy": 140, //pink arc
+  "posx2": 60, //blue arc
+  "posy2": 140, //blue arc
+  "posx3": 60, //yellow line
   "posy3": 200, //yellow line
+  "posx4": 45, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 75, //pink arc
+  "sizey": 75, //pink arc
+  "sizex2": 75,//red line
+  "sizey2": 200, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 20, //blue arc
+  "sizex4": 60, //yellow line
+  "sizey4": 150, //yellow line
+//arc sizes
+  "rotx": -30, //pink arc start
+  "roty": 30, //pink arc stop
+  "rotx1": 100, //blue arc start
+  "roty1": 60,//blue arc stop
+  },
+  "H": {
+//position
+  "posx": 95, //pink arc
+  "posy": 150, //pink arc
+  "posx2": 0, //blue arc
+  "posy2": 150, //blue arc
+  "posx3": 0, //yellow line
+  "posy3": 160, //yellow line
+  "posx4": 100, //red line
+  "posy4": 130, //red line
+
+//sizes
+  "sizex": 75, //pink arc
+  "sizey": 100, //pink arc
+  "sizex2": 0,//red line
+  "sizey2": 130, // red line
+  "sizex3": 75, //blue arc
+  "sizey3": 100, //blue arc
+  "sizex4": 100, //yellow line
+  "sizey4": 160, //yellow line
+//arc sizes
+  "rotx": -30, //pink arc start
+  "roty": 30, //pink arc stop
+  "rotx1": 30, //blue arc start
+  "roty1": -30,//blue arc stop
+  },
+  "I": {
+//position
+  "posx": 30, //pink arc
+  "posy": 115, //pink arc
+  "posx2": 70, //blue arc
+  "posy2": 115, //blue arc
+  "posx3": 50, //yellow line
+  "posy3": 200, //yellow line
+  "posx4": 35, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 30, //pink arc
+  "sizey": 30, //pink arc
+  "sizex2": 65,//red line
+  "sizey2": 200, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 30, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 150, //yellow line
+//arc sizes
+  "rotx": 20, //pink arc start
+  "roty": 120, //pink arc stop
+  "rotx1": 20, //blue arc start
+  "roty1": 120,//blue arc stop
+  },
+  "J": {
+//position
+  "posx": 50, //pink arc
+  "posy": 115, //pink arc
+  "posx2": 65, //blue arc
+  "posy2": 170, //blue arc
+  "posx3": 50, //yellow line
+  "posy3": 140, //yellow line
+  "posx4": 35, //red line
+  "posy4": 150, //red line
+
+//sizes
+  "sizex": 20, //pink arc
+  "sizey": 20, //pink arc
+  "sizex2": 65,//red line
+  "sizey2": 150, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 60, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 175, //yellow line
+//arc sizes
+  "rotx": 20, //pink arc start
+  "roty": 120, //pink arc stop
+  "rotx1": -200, //blue arc start
+  "roty1": -600,//blue arc stop
+  },
+  "K": {
+//position
+  "posx": 100, //pink arc
+  "posy": 115, //pink arc
+  "posx2": 65, //blue arc
+  "posy2": 170, //blue arc
+  "posx3": 50, //yellow line
+  "posy3": 100, //yellow line
   "posx4": 25, //red line
   "posy4": 200, //red line
 
 //sizes
-  "sizex": 50, //sqaure
-  "sizey": 50, //square
-  "sizex2": 25,//red line
-  "sizey2": 75, // red line
-  "sizex3": 30, //circle
-  "sizey3": 30, //circle
-  "sizex4": 75, //yellow line
-  "sizey4": 200, //yellow line
-  },
-  "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
-  "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 30, //pink arc
+  "sizey": 20, //pink arc
+  "sizex2": 100,//red line
+  "sizey2": 100, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 60, //blue arc
+  "sizex4": 50, //yellow line
+  "sizey4": 175, //yellow line
+//arc sizes
+  "rotx": 30, //pink arc start
+  "roty": 40, //pink arc stop
+  "rotx1": -200, //blue arc start
+  "roty1": -600,//blue arc stop
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+//position
+  "posx": 20, //pink arc
+  "posy": 180, //pink arc
+  "posx2": 30, //blue arc
+  "posy2": 165, //blue arc
+  "posx3": 10, //yellow line
+  "posy3": 100, //yellow line
+  "posx4": 50, //red line
+  "posy4": 185, //red line
+
+//sizes
+  "sizex": 40, //pink arc
+  "sizey": 40, //pink arc
+  "sizex2": 100,//red line
+  "sizey2": 185, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 60, //blue arc
+  "sizex4": 10, //yellow line
+  "sizey4": 120, //yellow line
+//arc sizes
+  "rotx": 20, //pink arc start
+  "roty": 120, //pink arc stop
+  "rotx1": 300, //blue arc start
+  "roty1": 126,//blue arc stop
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+//position
+  "posx": 20, //pink arc
+  "posy": 173, //pink arc
+  "posx2": 65, //blue arc
+  "posy2": 181, //blue arc
+  "posx3": 60, //yellow line
+  "posy3": 133, //yellow line
+  "posx4": 40, //red line
+  "posy4": 200, //red line
+
+//sizes
+  "sizex": 40, //pink arc
+  "sizey": 70, //pink arc
+  "sizex2": 40,//red line
+  "sizey2": 165, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 100, //blue arc
+  "sizex4": 40, //yellow line
+  "sizey4": 200, //yellow line
+//arc sizes
+  "rotx": 90, //pink arc start
+  "roty": 50, //pink arc stop
+  "rotx1": 80, //blue arc start
+  "roty1": 120,//blue arc stop
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+//position
+  "posx": 50, //pink arc
+  "posy": 115, //pink arc
+  "posx2": 65, //blue arc
+  "posy2": 181, //blue arc
+  "posx3": 60, //yellow line
+  "posy3": 133, //yellow line
+  "posx4": 35, //red line
+  "posy4": 150, //red line
+
+//sizes
+  "sizex": 20, //pink arc
+  "sizey": 20, //pink arc
+  "sizex2": 65,//red line
+  "sizey2": 150, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 100, //blue arc
+  "sizex4": 20, //yellow line
+  "sizey4": 200, //yellow line
+//arc sizes
+  "rotx": 20, //pink arc start
+  "roty": 120, //pink arc stop
+  "rotx1": 80, //blue arc start
+  "roty1": 120,//blue arc stop
   },
   "O": {
     "size": 50,
