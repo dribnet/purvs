@@ -1,8 +1,9 @@
 ## MDDN 242 2021 Assignment 2
 
-idea: i like the idea of my design being kinda ocean-inspired. I'll show this through the colour scheme and through having a few little waves accross the main boday of the letter
+idea: a space inspired design where a planet and a moon going infornt of the sun creates negetive space to that you can see the rough outline of a letter.
 
-today I spent the whole class trying to figure out bezier curves and for loops. I have one that I kinda like but I ended up deciding to use a sin wave instead - I might even look into how to make it move. Curves have been a real challenge for me to figure out though
+today I got the hang of sin waves, benier curves, and making circular shapes out of sin waves. The practise sin wave circle I did kinda reminded me of a starburst, so I decided to lean more into that thn the ocean inspired one I had started researching the curves for. I think my design is a lot more interesting now.
 
+My next steps will be adding some little stars in the background, and working out how to fit my arc into the theme - I thought it could possibly be a shooting star or something like that but I'm still working on making the star actually look like a star. I think I'll also make it a bit darker to that it's more obvious that it's supposed to be negetive space.
 
 

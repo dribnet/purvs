@@ -1,15 +1,9 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#0d0c24";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-//const darkBlue  = "#199cff";
-//const lightBlue  = "#59ccff";
-//const strokeColor  = "#233f11";
-const backgroundColor  = (227, 237, 237);
-const strokeColor      = (2, 30, 189);
-
 /*
  * Draw the letter given the letterData
  *
@@ -33,49 +27,170 @@ noStroke();
   let sizeThree = letterData["size3"];
   let pos4x = letterData["offsetx4"];
   let pos4y = letterData["offsety4"];
-  let width = 75
-  let height = 75
-  let posx = 50
-  let posy = 150
-
-  // let cutoutOpacity1 = letterData["opacity1"]
-  //let cutoutOpacity2 = letterData["opacity2"]
-
   let angleOne = letterData["angleStart"];
   let angleTwo = letterData["angleStop"];
-  
+  let colourScheme = letterData["colour"];
  
-  fill(125, 238, 255);  //green
-  //fill(245, 179, 243);  //light pink
-  ellipse(posx, posy, width, height);  //the main circle
-  stroke (29, 55, 207);
-  strokeWeight(3);
-  fill(81, 245, 204);
-  //fill(220, 168, 237, 145);  //purple
-  customShapeOne(pos2x, pos2y, size, size);
-  stroke (29, 55, 207);
-  strokeWeight(3);
-  fill(255, 255, 255, 200)
-  //fill(237, 203, 168, cutoutOpacity2);  //orange
-  ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
-  //fill(255, 255, 168, 145)  //yellow
-  fill(255, 255, 255, 200)
-  arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
+  sun(50, 150, 75);  //the main circle
+  moon(pos2x, pos2y, size, size);
+  stroke (61, 58, 112);
+  //strokeWeight(3);
+  fill(35, 32, 97, 200)
+  planetOne(pos3x, pos3y, sizeTwo, sizeTwo);
+  fill(colourScheme)
+  noStroke();
+  shootingStar(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
+
+  strokeWeight(1.5);
+
+// push();
+// beginShape();
+// for (let i=0; i<359; i++) {
+// var r = map(sin(i*8), -1, 1, 22, 28);
+// var x = r * cos(i);
+// var y = r * sin(i);
+// vertex(x, y);
+// }
+// endShape(CLOSE);
+// pop();
 }
 
-function customShapeOne (pos2x, pos2y, size, size)   {
-  stroke(29, 55, 207);
-  strokeWeight(3);
-  fill(81, 245, 204);
+function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) {
+   arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);
+push();
+stroke (255);
+strokeWeight(1);
+fill(255, 220, 130)
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, sizeThree/10-sizeThree/16, sizeThree/10+sizeThree/12);
+var x = r * cos(i);
+var y = r * sin(i);
+vertex(pos4x+x, pos4y+y);
+}
+endShape(CLOSE);
+pop();
+}
+
+function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
+  noStroke();
+  fill(35, 32, 97, 200)
+  ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
+  strokeWeight(1);
+  stroke(129, 206, 227, 150);
+noFill();
+  for (f=0; f<3; f++){
+var offsety = f*sizeTwo/10
+bezier(pos3x+sizeTwo/1.85, pos3y+offsety, pos3x+sizeTwo/2.25, pos3y+sizeTwo/6+offsety, pos3x-sizeTwo/2.25, pos3y-sizeTwo/6+offsety, pos3x-sizeTwo/1.85, pos3y+offsety);
+}
+
+}
+
+function sun (x, y) {
+
+fill(144, 102, 189, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 38, 42);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(219, 105, 177, 100);  
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 36, 40);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(219, 105, 177, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 34, 38);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(224, 101, 159, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 32, 36);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(224, 142, 101, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 30, 34);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(224, 181, 101, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 28, 32);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(237, 225, 111, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 26, 30);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(255, 250, 105, 100);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 24, 28);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+
+fill(255, 255, 255, 80);
+beginShape();
+for (let i=0; i<359; i++) {
+var r = map(sin(i*8), -1, 1, 22, 26);
+var sunx = r * cos(i);
+var suny = r * sin(i);
+vertex(x+sunx, y+suny);
+}
+endShape(CLOSE);
+}
+
+function moon (pos2x, pos2y, size, size)   {
+  stroke(140);
+  strokeWeight(2);
+  fill(120, 120, 150);
   ellipse(pos2x, pos2y, size, size);
 
-for (i=0; i<3; i++){
-noFill();
-var offsetx = i*5
-var offsety = i*5
-  bezier(50+offsetx, 110+offsety, 20+offsetx, 115+offsety, 40+offsetx, 140+offsety, 10+offsetx, 145+offsety);
-}
-// //      (x1, y1 , x2, y2 , x3, y3 , x4, y4 )
+noStroke();
+fill(130, 130, 160)
+ellipse (pos2x-size/6, pos2y+size/6, size/2.5, size/2.5)
+ellipse (pos2x+size/4.5, pos2y-size/6, size/3, size/3)
+ellipse (pos2x+size/8, pos2y, size/6, size/6)
+ellipse (pos2x-size/4, pos2y-size/4, size/5, size/5)
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -91,20 +206,10 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
   new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
   new_letter["angleStop"] = map(percent, 0, 100, oldObj["angleStop"], newObj["angleStop"]);
+  new_letter["colour"] = map(percent, 0, 100, oldObj["colour"], newObj["colour"]);
   return new_letter;
 }
 
-// "size": 60,
-//   "offsetx": 50,
-//   "offsety": 185,
-//   "size2": 30,
-//   "offsetx3": 50,
-//   "offsety3": 130,
-//   "size3": 100,
-//   "offsetx4": 0,
-//   "offsety4": -70,
-//   "angleStart": 0, //-210
-//   "angleStop": 0,  //30
 
 var swapWords = [
   "ABBAABBA",

@@ -15,7 +15,8 @@ const sliderInfo = [
   ["offsetx4", 0, 200],
   ["offsety4", 50, 200],
   ["angleStart", 0, 360],
-  ["angleStop", 0, 360]
+  ["angleStop", 0, 360],
+  ["colour", 0, 255]
 ];
 
 

@@ -10,7 +10,8 @@ const alphabet = {
   "offsetx4": 52,
   "offsety4": 155,
   "angleStart": 0,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "A":  {
@@ -25,6 +26,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": 0, //-210
   "angleStop": 0,  //30
+  "colour": 255
 },
 
 "B":  {
@@ -39,6 +41,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": -30,
   "angleStop": 30,
+  "colour": 255
 },
 
 "C":  {
@@ -53,6 +56,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": 0,
   "angleStop": 0,
+  "colour": 255
 },
 
   "D":  {
@@ -67,6 +71,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": -90,
   "angleStop": 90,
+  "colour": 255
 },
 
   "E":  {
@@ -81,6 +86,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": 0,
   "angleStop": 0,
+  "colour": 255
 },
 
   "F": {
@@ -95,6 +101,7 @@ const alphabet = {
   "offsety4": 160,
   "angleStart": 0,
   "angleStop": 90,
+  "colour": 255
 },
 
   "G": {
@@ -109,6 +116,7 @@ const alphabet = {
   "offsety4": 170,
   "angleStart": 40,
   "angleStop": 100,
+  "colour": 255
   },
 
   "H": {
@@ -123,6 +131,7 @@ const alphabet = {
   "offsety4": 180,
   "angleStart": 0,
   "angleStop": 0,
+  "colour": 255
   },
 
   "I": {
@@ -137,6 +146,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": 0,
   "angleStop": 0,
+  "colour": 255
   },
 
   "J": {
@@ -151,6 +161,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": 0,
   "angleStop": 0,
+  "colour": 255
   },
 
   "K": {
@@ -165,6 +176,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": -30,
   "angleStop": 30,
+  "colour": 255
   },
 
   "L": {
@@ -179,6 +191,7 @@ const alphabet = {
   "offsety4": 150,
   "angleStart": -90,
   "angleStop": 0,
+  "colour": 255
   },
 
   "M": {
@@ -193,6 +206,7 @@ const alphabet = {
   "offsety4": 140,
   "angleStart": -120,
   "angleStop": -60,
+  "colour": 255
   },
 
   "N": {
@@ -207,6 +221,7 @@ const alphabet = {
   "offsety4": 180,
   "angleStart": 180,
   "angleStop": 180,
+  "colour": 255
   },
 
   "O": {
@@ -220,7 +235,8 @@ const alphabet = {
   "offsetx4": 100,
   "offsety4": 125,
   "angleStart": 180,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "P": {
@@ -234,7 +250,8 @@ const alphabet = {
   "offsetx4": 54,
   "offsety4": 161,
   "angleStart": 360,
-  "angleStop": 90
+  "angleStop": 90,
+  "colour": 255
   },
 
   "Q": {
@@ -248,7 +265,8 @@ const alphabet = {
   "offsetx4": 66,
   "offsety4": 176,
   "angleStart": 25,
-  "angleStop": 87
+  "angleStop": 87,
+  "colour": 255
   },
 
   "R": {
@@ -262,7 +280,8 @@ const alphabet = {
   "offsetx4": 46,
   "offsety4": 161,
   "angleStart": 39.6,
-  "angleStop": 87
+  "angleStop": 87,
+  "colour": 255
   },
 
   "S": {
@@ -276,7 +295,8 @@ const alphabet = {
   "offsetx4": 75,
   "offsety4": 131,
   "angleStart": 302.4,
-  "angleStop": 169.2
+  "angleStop": 169.2,
+  "colour": 255
   },
 
   "T": {
@@ -290,7 +310,8 @@ const alphabet = {
   "offsetx4": 100,
   "offsety4": 125,
   "angleStart": 180,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
 },
 
   "U": {
@@ -304,7 +325,8 @@ const alphabet = {
   "offsetx4": 100,
   "offsety4": 125,
   "angleStart": 180,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "V": {
@@ -318,7 +340,8 @@ const alphabet = {
   "offsetx4": 50,
   "offsety4": 150,
   "angleStart": 230.4,
-  "angleStop": 309.6
+  "angleStop": 309.6,
+  "colour": 255
   },
 
   "W": {
@@ -332,7 +355,8 @@ const alphabet = {
   "offsetx4": 50,
   "offsety4": 165,
   "angleStart": 61.2,
-  "angleStop": 115.2
+  "angleStop": 115.2,
+  "colour": 255
   },
 
   "X": {
@@ -346,7 +370,8 @@ const alphabet = {
   "offsetx4": 50,
   "offsety4": 164,
   "angleStart": 64.8,
-  "angleStop": 111.6
+  "angleStop": 111.6,
+  "colour": 255
   },
 
   "Y": {
@@ -360,7 +385,8 @@ const alphabet = {
   "offsetx4": 50,
   "offsety4": 138.5,
   "angleStart": 237.60000000000002,
-  "angleStop": 302.4
+  "angleStop": 302.4,
+  "colour": 255
   },
 
   "Z": {
@@ -374,7 +400,8 @@ const alphabet = {
   "offsetx4": 52,
   "offsety4": 128,
   "angleStart": 133.2,
-  "angleStop": 183.6
+  "angleStop": 183.6,
+  "colour": 255
   },
 
   "0": {
@@ -388,7 +415,8 @@ const alphabet = {
   "offsetx4": 100,
   "offsety4": 125,
   "angleStart": 180,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "1": {
@@ -402,7 +430,8 @@ const alphabet = {
   "offsetx4": 60,
   "offsety4": 135.5,
   "angleStart": 90,
-  "angleStop": 165.6
+  "angleStop": 165.6,
+  "colour": 255
   },
 
   "2": {
@@ -416,7 +445,8 @@ const alphabet = {
   "offsetx4": 62,
   "offsety4": 165,
   "angleStart": 320.4,
-  "angleStop": 0
+  "angleStop": 0,
+  "colour": 255
   },
 
   "3": {
@@ -430,7 +460,8 @@ const alphabet = {
   "offsetx4": 62,
   "offsety4": 125,
   "angleStart": 136.8,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "4": {
@@ -444,7 +475,8 @@ const alphabet = {
   "offsetx4": 46,
   "offsety4": 150,
   "angleStart": 273.6,
-  "angleStop": 0
+  "angleStop": 0,
+  "colour": 255
   },
 
   "5": {
@@ -458,7 +490,8 @@ const alphabet = {
   "offsetx4": 52,
   "offsety4": 134,
   "angleStart": 360,
-  "angleStop": 28.8
+  "angleStop": 28.8,
+  "colour": 255
   },
 
   "6": {
@@ -472,7 +505,8 @@ const alphabet = {
   "offsetx4": 44,
   "offsety4": 129.5,
   "angleStart": 317,
-  "angleStop": 11
+  "angleStop": 11,
+  "colour": 255
   },
 
   "7": {
@@ -486,7 +520,8 @@ const alphabet = {
   "offsetx4": 65,
   "offsety4": 135,
   "angleStart": 118,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "8": {
@@ -500,7 +535,8 @@ const alphabet = {
   "offsetx4": 57.99999999999999,
   "offsety4": 129.5,
   "angleStart": 118.80000000000001,
-  "angleStop": 180
+  "angleStop": 180,
+  "colour": 255
   },
 
   "9": {
@@ -514,7 +550,8 @@ const alphabet = {
   "offsetx4": 54,
   "offsety4": 176,
   "angleStart": 187.20000000000002,
-  "angleStop": 216
+  "angleStop": 216,
+  "colour": 255
   }
 
 }
