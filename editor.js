@@ -1,12 +1,9 @@
-/*******
- * define this "sliderInfo" variable
- * have an entry for each slider you want
- * and each row should be:
- * ["object_field", minimum_bound, maximum_bound]
- */
+
 const sliderInfo = [
   ["backgroundShapeType",1, 3],
   ["backgroundShapeRotate",0, 360],
+  ["backgroundShapeColour1", 160, 220],
+  ["backgroundShapeColour2", 220, 255],
   ["trianglePosX", -70, 70],
   ["trianglePosY", -70, 70],
   ["triangleRotate", 0, 360],
@@ -14,9 +11,7 @@ const sliderInfo = [
   ["lines1VerticalXpos", 0, 80],
   ["lines1HorizontalYpos", 0, 80],
   ["lines3HorizontalYpos", 0, 80],
-  ["linesHorizonalRotate", 0, 360],
-  ["circlePosX", -80, 80],
-  ["circlePosY", -80, 80]
+  ["linesHorizonalRotate", 0, 360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

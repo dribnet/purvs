@@ -16,6 +16,8 @@ function drawLetter(letterData) {
 
   let shapeType = letterData["backgroundShapeType"];
   let shapeRotate = letterData["backgroundShapeRotate"];
+  let shapeColour1 = letterData["backgroundShapeColour1"]
+  let shapeColour2 = letterData["backgroundShapeColour2"]
   let triPosX = letterData["trianglePosX"];
   let triPosY = letterData["trianglePosY"];
   let triRotate = letterData["triangleRotate"];
@@ -24,8 +26,6 @@ function drawLetter(letterData) {
   let lines2Ypos = letterData["lines2HorizontalYpos"];
   let lines3Ypos = letterData["lines3HorizontalYpos"];
   let linesrotate = letterData["linesHorizonalRotate"];
-  let cirPosX = letterData["circlePosX"];
-  let cirPosY = letterData["circlePosY"];
   let lines1opacity = 0;
   let lines2opacity = 0;
   let lines3opacity = 0;
@@ -37,18 +37,18 @@ function drawLetter(letterData) {
     if (shapeType < 2){ //square
       translate(posx, posy);
       rotate(shapeRotate);
-      fill('#59ccff');
+      fill(85, shapeColour1, shapeColour2); //lighter blue
       rect(posx-50, posy-150, 100, 100);
 
     } else if (shapeType >1 && shapeType < 3){ //circle
-      fill('#52b4ff');
+      fill(85, shapeColour1, shapeColour2); //darker blue
       ellipse(posx, posy, 100, 100); //circle doesnt need rotate, as it would stay the same
       
 
     } else if (shapeType > 2){ //triangle
       translate(posx, posy);
       rotate(shapeRotate);
-      fill('#53d2dc');
+      fill(85, shapeColour1, shapeColour2); //greeny blue
       triangle(posx-50, posy-200, posx, posy-100, posx-100, posy-100);
     }
 
@@ -128,17 +128,6 @@ function drawLetter(letterData) {
 
 
 
-  //foreground circle
-    if (cirPosX <= -80){ //if x postion of circle is < 0 then circle disappear
-    cicrleOpacity = 0;
-  } else if (cirPosX >-80){
-    cicrleOpacity =255;
-  }
-  push();
-  fill(255, cicrleOpacity);
-  translate(posx, posy);
-  ellipse(cirPosX, cirPosY, 60);
-  pop()
 
 
 
@@ -154,6 +143,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   if (percent < 50){ //when percent is below half change letter to defult
     new_letter["backgroundShapeType"]    = map(percent, 0, 50, oldObj["backgroundShapeType"], defaultCharacter["backgroundShapeType"]);
     new_letter["backgroundShapeRotate"]    = map(percent, 0, 50, oldObj["backgroundShapeRotate"], defaultCharacter["backgroundShapeRotate"]);
+    new_letter["backgroundShapeColour1"] = map(percent, 0, 50, oldObj["backgroundShapeColour1"], defaultCharacter["backgroundShapeColour1"]);
+    new_letter["backgroundShapeColour2"] = map(percent, 0, 50, oldObj["backgroundShapeColour2"], defaultCharacter["backgroundShapeColour2"]);
     new_letter["trianglePosX"]    = map(percent, 0, 50, oldObj["trianglePosX"], defaultCharacter["trianglePosX"]);
     new_letter["trianglePosY"] = map(percent, 0, 50, oldObj["trianglePosY"], defaultCharacter["trianglePosY"]);
     new_letter["triangleRotate"] = map(percent, 0, 50, oldObj["triangleRotate"], defaultCharacter["triangleRotate"]);
@@ -162,11 +153,12 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lines2HorizontalYpos"] = map(percent, 0, 50, oldObj["lines2HorizontalYpos"], defaultCharacter["lines2HorizontalYpos"]);
     new_letter["lines3HorizontalYpos"] = map(percent, 0, 50, oldObj["lines3HorizontalYpos"], defaultCharacter["lines3HorizontalYpos"]);
     new_letter["linesHorizonalRotate"] = map(percent, 0, 50, oldObj["linesHorizonalRotate"], defaultCharacter["linesHorizonalRotate"]);
-    new_letter["circlePosX"] = map(percent, 0, 50, oldObj["circlePosX"], defaultCharacter["circlePosX"]);
-    new_letter["circlePosY"] = map(percent, 0, 50, oldObj["circlePosY"], defaultCharacter["circlePosY"]);   
+
   } else{ //else change the letter to the new letter
     new_letter["backgroundShapeType"]    = map(percent, 51, 100, defaultCharacter["backgroundShapeType"], newObj["backgroundShapeType"]);
     new_letter["backgroundShapeRotate"]    = map(percent, 51, 100, defaultCharacter["backgroundShapeRotate"], newObj["backgroundShapeRotate"]);
+    new_letter["backgroundShapeColour1"] = map(percent, 0, 50, oldObj["backgroundShapeColour1"], defaultCharacter["backgroundShapeColour1"]);
+    new_letter["backgroundShapeColour2"] = map(percent, 0, 50, oldObj["backgroundShapeColour2"], defaultCharacter["backgroundShapeColour2"]);
     new_letter["trianglePosX"]    = map(percent, 51, 100, defaultCharacter["trianglePosX"], newObj["trianglePosX"]);
     new_letter["trianglePosY"] = map(percent, 51, 100, defaultCharacter["trianglePosY"], newObj["trianglePosY"]);
     new_letter["triangleRotate"] = map(percent, 51, 100, defaultCharacter["triangleRotate"], newObj["triangleRotate"]);
@@ -175,8 +167,6 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lines2HorizontalYpos"] = map(percent, 51, 100, defaultCharacter["lines2HorizontalYpos"], newObj["lines2HorizontalYpos"]);
     new_letter["lines3HorizontalYpos"] = map(percent, 51, 100, defaultCharacter["lines3HorizontalYpos"], newObj["lines3HorizontalYpos"]);
     new_letter["linesHorizonalRotate"] = map(percent, 51, 100, defaultCharacter["linesHorizonalRotate"], newObj["linesHorizonalRotate"]);
-    new_letter["circlePosX"] = map(percent, 0, 50, oldObj["circlePosX"], defaultCharacter["circlePosX"]); 
-    new_letter["circlePosY"] = map(percent, 0, 50, oldObj["circlePosY"], defaultCharacter["circlePosY"]); 
   }
 
 

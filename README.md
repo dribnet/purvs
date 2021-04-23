@@ -15,7 +15,5 @@ The parameters per letter:
   * `lines2HorizontalYpos` : the y position of the first horizonatal lines
   * `lines3HorizontalYpos` : the y position of the second horizonatal lines
   * `linesHorizonalRotate` : the rotation of the horizonatal lines 
-  * `circlePosX` : the x position of the foreground circle 
-  * `circlePosY` : the y position of the foreground circle 
 
 
