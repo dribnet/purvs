@@ -10,8 +10,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "A": {
     "backgroundShapeType": 3, //triangle
@@ -24,8 +24,8 @@ const alphabet = {
     "lines2HorizontalYpos": 60,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "B": {
     "backgroundShapeType": 1, //square
@@ -38,21 +38,21 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "C": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
     "trianglePosX": 0,
     "trianglePosY": 0,
-    "triangleRotate": 270,
-    "triangleSize": 1,
+    "triangleRotate": 0,
+    "triangleSize": 0,
     "lines1VerticalXpos": 0,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
+    "circlePosX": 20,
     "circlePosY": 0
   },
   "D": {
@@ -66,8 +66,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "E": {
     "backgroundShapeType": 1, //square
@@ -80,8 +80,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "F": {
     "backgroundShapeType": 1, //square
@@ -94,8 +94,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "G": {
     "backgroundShapeType": 2, //circle
@@ -108,8 +108,8 @@ const alphabet = {
     "lines2HorizontalYpos": 50,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "H": {
     "backgroundShapeType": 1, //square
@@ -122,8 +122,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 90,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "I": {
     "backgroundShapeType": 1, //square
@@ -136,8 +136,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "J": {
     "backgroundShapeType": 2, //circle
@@ -150,8 +150,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "K": {
     "backgroundShapeType": 1, //square
@@ -164,8 +164,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "L": {
     "backgroundShapeType": 1, //square
@@ -178,8 +178,8 @@ const alphabet = {
     "lines2HorizontalYpos": 80,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "M": {
     "backgroundShapeType": 1, //square
@@ -192,8 +192,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "N": {
     "backgroundShapeType": 1, //square
@@ -206,16 +206,16 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 90,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "O": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
     "trianglePosX": 0,
-    "trianglePosY": -30,
-    "triangleRotate": 180,
-    "triangleSize": 0.5,
+    "trianglePosY": 0,
+    "triangleRotate": 0,
+    "triangleSize": 0,
     "lines1VerticalXpos": 0,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
@@ -234,8 +234,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "Q": {
     "backgroundShapeType": 2, //circle
@@ -248,22 +248,22 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -0,
+    "circlePosY": -0
   },
   "R": {
     "backgroundShapeType": 3, //triangle
     "backgroundShapeRotate": 0,
-    "trianglePosX": -18,
-    "trianglePosY": -30,
-    "triangleRotate": 90,
-    "triangleSize": 1.3,
-    "lines1VerticalXpos": 7,
+    "trianglePosX": 0,
+    "trianglePosY": 0,
+    "triangleRotate": 0,
+    "triangleSize": 0,
+    "lines1VerticalXpos": 17,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": 8,
+    "circlePosY": -25
   },
   "S": {
     "backgroundShapeType": 3, //triangle
@@ -276,8 +276,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "T": {
     "backgroundShapeType": 1, //sqaure
@@ -290,22 +290,22 @@ const alphabet = {
     "lines2HorizontalYpos": 1,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "U": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
     "trianglePosX": 0,
     "trianglePosY": 0,
-    "triangleRotate": 180,
-    "triangleSize": 1,
+    "triangleRotate": 0,
+    "triangleSize": 0,
     "lines1VerticalXpos": 0,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
     "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosY": -20
   },
   "V": {
     "backgroundShapeType": 3, //triangle
@@ -318,8 +318,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "W": {
     "backgroundShapeType": 1, //sqaure
@@ -332,8 +332,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "X": {
     "backgroundShapeType": 3, //triangle
@@ -346,8 +346,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "Y": {
     "backgroundShapeType": 1, //square
@@ -360,8 +360,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "Z": {
     "backgroundShapeType": 3, //triangle
@@ -374,8 +374,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "0": {
     "backgroundShapeType": 2, //circle
@@ -388,8 +388,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "1": {
     "backgroundShapeType": 1, //square
@@ -402,8 +402,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "2": {
     "backgroundShapeType": 2, //circle
@@ -416,8 +416,8 @@ const alphabet = {
     "lines2HorizontalYpos": 80,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "3": {
     "backgroundShapeType": 3, //triangle
@@ -430,8 +430,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 80,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "4": {
     "backgroundShapeType": 1, //square
@@ -444,8 +444,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "5": {
     "backgroundShapeType": 2, //circle
@@ -458,8 +458,8 @@ const alphabet = {
     "lines2HorizontalYpos": 5,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "6": {
     "backgroundShapeType": 3, //triangle
@@ -472,8 +472,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "7": {
     "backgroundShapeType": 3, //triangle
@@ -486,22 +486,22 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
   "8": {
     "backgroundShapeType": 3, //triangle
-    "backgroundShapeRotate": 180,
+    "backgroundShapeRotate": 0,
     "trianglePosX": 0,
-    "trianglePosY": -17,
+    "trianglePosY": 0,
     "triangleRotate": 0,
-    "triangleSize": 1.5,
+    "triangleSize": 0,
     "lines1VerticalXpos": 0,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
     "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosY": -30
   },
   "9": {
     "backgroundShapeType": 3, //triangle
@@ -514,8 +514,8 @@ const alphabet = {
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,
     "linesHorizonalRotate": 0,
-    "circlePosX": 0,
-    "circlePosY": 0
+    "circlePosX": -80,
+    "circlePosY": -80
   },
 
 }

@@ -14,7 +14,9 @@ const sliderInfo = [
   ["lines1VerticalXpos", 0, 80],
   ["lines1HorizontalYpos", 0, 80],
   ["lines3HorizontalYpos", 0, 80],
-  ["linesHorizonalRotate", 0, 360]
+  ["linesHorizonalRotate", 0, 360],
+  ["circlePosX", -80, 80],
+  ["circlePosY", -80, 80]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

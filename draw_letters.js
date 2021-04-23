@@ -59,7 +59,7 @@ function drawLetter(letterData) {
 
   //foreground triangle
   push();
-  fill(260);
+  fill(255);
   translate(posx, posy);
   rotate(triRotate);
   scale(triSize);
@@ -128,12 +128,17 @@ function drawLetter(letterData) {
 
 
 
-  // //foreground circle
-  // push();
-  // fill(260);
-  // translate(posx, posy);
-  // ellipse(cirPosX, cirPosY, 50);
-  // pop()
+  //foreground circle
+    if (cirPosX <= -80){ //if x postion of circle is < 0 then circle disappear
+    cicrleOpacity = 0;
+  } else if (cirPosX >-80){
+    cicrleOpacity =255;
+  }
+  push();
+  fill(255, cicrleOpacity);
+  translate(posx, posy);
+  ellipse(cirPosX, cirPosY, 60);
+  pop()
 
 
 
@@ -156,7 +161,9 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lines1VerticalXpos"] = map(percent, 0, 50, oldObj["lines1VerticalXpos"], defaultCharacter["lines1VerticalXpos"]);
     new_letter["lines2HorizontalYpos"] = map(percent, 0, 50, oldObj["lines2HorizontalYpos"], defaultCharacter["lines2HorizontalYpos"]);
     new_letter["lines3HorizontalYpos"] = map(percent, 0, 50, oldObj["lines3HorizontalYpos"], defaultCharacter["lines3HorizontalYpos"]);
-    new_letter["linesHorizonalRotate"] = map(percent, 0, 50, oldObj["linesHorizonalRotate"], defaultCharacter["linesHorizonalRotate"]); 
+    new_letter["linesHorizonalRotate"] = map(percent, 0, 50, oldObj["linesHorizonalRotate"], defaultCharacter["linesHorizonalRotate"]);
+    new_letter["circlePosX"] = map(percent, 0, 50, oldObj["circlePosX"], defaultCharacter["circlePosX"]);
+    new_letter["circlePosY"] = map(percent, 0, 50, oldObj["circlePosY"], defaultCharacter["circlePosY"]);   
   } else{ //else change the letter to the new letter
     new_letter["backgroundShapeType"]    = map(percent, 51, 100, defaultCharacter["backgroundShapeType"], newObj["backgroundShapeType"]);
     new_letter["backgroundShapeRotate"]    = map(percent, 51, 100, defaultCharacter["backgroundShapeRotate"], newObj["backgroundShapeRotate"]);
@@ -168,6 +175,8 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lines2HorizontalYpos"] = map(percent, 51, 100, defaultCharacter["lines2HorizontalYpos"], newObj["lines2HorizontalYpos"]);
     new_letter["lines3HorizontalYpos"] = map(percent, 51, 100, defaultCharacter["lines3HorizontalYpos"], newObj["lines3HorizontalYpos"]);
     new_letter["linesHorizonalRotate"] = map(percent, 51, 100, defaultCharacter["linesHorizonalRotate"], newObj["linesHorizonalRotate"]);
+    new_letter["circlePosX"] = map(percent, 0, 50, oldObj["circlePosX"], defaultCharacter["circlePosX"]); 
+    new_letter["circlePosY"] = map(percent, 0, 50, oldObj["circlePosY"], defaultCharacter["circlePosY"]); 
   }
 
 
