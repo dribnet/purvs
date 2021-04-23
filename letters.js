@@ -856,298 +856,521 @@ const alphabet = {
 
 
   "W": {
-  "quadXLoki": 200,
+  "quadXLoki": 35,
 
   "quadYLoki": 200,
 
-  "quadrotation": 118,
+  "quadrotation": 310,
 
-  "GreenDot1xpos": 445,
+  "GreenDot1xpos": 185,
 
-  "GreenDot1ypos": 80,
+  "GreenDot1ypos": 100,
 
-  "greenDot2xpos": 415,
+  "greenDot2xpos": 170,
 
-  "GreenDot2ypos": 205,
+  "GreenDot2ypos": 210,
 
-  "GreenDot3xpos": 385,
+  "GreenDot3xpos": 155,
 
-  "GreenDot3ypos": 330,
+  "GreenDot3ypos": 320,
 
-  "RedRotation": 70,
+  "RedRotation": 265,
 
-  "RedxPosition": 180,
+  "RedxPosition": 43,
 
-  "RedyPosition": 125,
+  "RedyPosition": 320,
 
-  "BlackLinexpos": 235, 
+  "BlackLinexpos": 25, 
 
-  "BlackLineypos": 212,
+  "BlackLineypos": 0,
 
   "BlueCircleSize": 60,
 
-  "BlueCirclexPos": 310,
+  "BlueCirclexPos": 100,
 
-  "BlueCircleyPos": 220
+  "BlueCircleyPos": 250
   },
 
 
   "X": {
-  "quadXLoki": 200,
+  "quadXLoki": 110,
 
   "quadYLoki": 200,
 
   "quadrotation": 118,
 
-  "GreenDot1xpos": 240,
+  "GreenDot1xpos": 135,
 
-  "GreenDot1ypos": 180,
+  "GreenDot1ypos": 160,
 
-  "greenDot2xpos": 180,
+  "greenDot2xpos": 80,
 
-  "GreenDot2ypos": 250,
+  "GreenDot2ypos": 230,
 
-  "GreenDot3xpos": 120,
+  "GreenDot3xpos": 25,
 
-  "GreenDot3ypos": 330,
+  "GreenDot3ypos": 310,
 
   "RedRotation": 70,
 
-  "RedxPosition": 180,
+  "RedxPosition": 115,
 
-  "RedyPosition": 125,
+  "RedyPosition": 180,
 
-  "BlackLinexpos": 235, 
+  "BlackLinexpos": 160, 
 
-  "BlackLineypos": 212,
+  "BlackLineypos": 270,
 
-  "BlueCircleSize": 70,
+  "BlueCircleSize": 55,
 
-  "BlueCirclexPos": 300,
+  "BlueCirclexPos": 165,
 
   "BlueCircleyPos": 100
   },
 
 
   "Y": {
-  "quadXLoki": 200,
+  "quadXLoki": 90,
 
   "quadYLoki": 200,
 
-  "quadrotation": -25,
+  "quadrotation": 130,
 
-  "GreenDot1xpos": 190,
+  "GreenDot1xpos": 90,
 
-  "GreenDot1ypos": 185,
+  "GreenDot1ypos": 305,
 
-  "greenDot2xpos": 176,
+  "greenDot2xpos": 90,
 
-  "GreenDot2ypos": 155,
+  "GreenDot2ypos": 265,
 
-  "GreenDot3xpos": 165,
+  "GreenDot3xpos": 90,
 
-  "GreenDot3ypos": 122,
+  "GreenDot3ypos": 222,
 
-  "RedRotation": 305,
+  "RedRotation": 298,
 
-  "RedxPosition": 150,
+  "RedxPosition": 65,
 
-  "RedyPosition": 260,
+  "RedyPosition": 310,
 
-  "BlackLinexpos": 270, 
+  "BlackLinexpos": 160, 
 
-  "BlackLineypos": -15,
+  "BlackLineypos": 15,
 
   "BlueCircleSize": 50,
 
-  "BlueCirclexPos": 140,
+  "BlueCirclexPos": 35,
 
-  "BlueCircleyPos": 80
+  "BlueCircleyPos": 100
   },
 
 
+
   "Z": {
-  "quadXLoki": 200,
+  "quadXLoki": 110,
 
   "quadYLoki": 200,
 
-  "quadrotation": 165,
+  "quadrotation": 170,
 
-  "GreenDot1xpos": 210,
+  "GreenDot1xpos": 120,
 
   "GreenDot1ypos": 75,
 
-  "greenDot2xpos": 165,
+  "greenDot2xpos": 75,
 
   "GreenDot2ypos": 75,
 
-  "GreenDot3xpos": 120,
+  "GreenDot3xpos": 30,
 
   "GreenDot3ypos": 75,
 
-  "RedRotation": 110,
+  "RedRotation": 125,
 
-  "RedxPosition": 230,
+  "RedxPosition": 190,
 
-  "RedyPosition": 140,
+  "RedyPosition": 185,
 
-  "BlackLinexpos": 135, 
+  "BlackLinexpos": 55, 
 
-  "BlackLineypos": 225,
+  "BlackLineypos": 240,
 
-  "BlueCircleSize": 45,
+  "BlueCircleSize": 50,
 
-  "BlueCirclexPos": 255,
+  "BlueCirclexPos": 155,
 
-  "BlueCircleyPos": 340
+  "BlueCircleyPos": 282
   },
 
 
   "0": {
-  "quadXLoki": 200,
+  "quadXLoki": 100,
 
   "quadYLoki": 200,
 
   "quadrotation": 135,
 
-  "GreenDot1xpos": 130,
+  "GreenDot1xpos": 40,
 
   "GreenDot1ypos": 310,
 
-  "greenDot2xpos": 100,
+  "greenDot2xpos": 10,
 
   "GreenDot2ypos": 230,
 
-  "GreenDot3xpos": 110,
+  "GreenDot3xpos": 20,
 
   "GreenDot3ypos": 150,
 
   "RedRotation": 90,
 
-  "RedxPosition": 210,
+  "RedxPosition": 130,
 
-  "RedyPosition": 120,
+  "RedyPosition": 180,
 
-  "BlackLinexpos": 190, 
+  "BlackLinexpos": 115, 
 
-  "BlackLineypos": 220,
+  "BlackLineypos": 270,
 
-  "BlueCircleSize": 95,
+  "BlueCircleSize": 80,
 
-  "BlueCirclexPos": 260,
+  "BlueCirclexPos": 150,
 
   "BlueCircleyPos": 180
   },
 
 
   "1": {
-  "quadXLoki": 200,
+  "quadXLoki": 120,
 
   "quadYLoki": 200,
 
   "quadrotation": 135,
 
-  "GreenDot1xpos": 90,
+  "GreenDot1xpos": 30,
 
   "GreenDot1ypos": 140,
 
-  "greenDot2xpos": 120,
+  "greenDot2xpos": 60,
 
   "GreenDot2ypos": 120,
 
-  "GreenDot3xpos": 146,
+  "GreenDot3xpos": 86,
 
   "GreenDot3ypos": 98,
 
   "RedRotation": 90,
 
-  "RedxPosition": 210,
+  "RedxPosition": 160,
 
-  "RedyPosition": 120,
+  "RedyPosition": 170,
 
-  "BlackLinexpos": 190, 
+  "BlackLinexpos": 145, 
 
-  "BlackLineypos": 220,
+  "BlackLineypos": 270,
 
   "BlueCircleSize": 40,
 
-  "BlueCirclexPos": 130,
+  "BlueCirclexPos": 50,
 
-  "BlueCircleyPos": 330
+  "BlueCircleyPos": 305
   },
 
 
   "2": {
-  "quadXLoki": 200,
+  "quadXLoki": 100,
 
   "quadYLoki": 200,
 
   "quadrotation": 170,
 
-  "GreenDot1xpos": 130,
+  "GreenDot1xpos": 30,
 
   "GreenDot1ypos": 130,
 
-  "greenDot2xpos": 150,
+  "greenDot2xpos": 50,
 
   "GreenDot2ypos": 77,
 
-  "GreenDot3xpos": 210,
+  "GreenDot3xpos": 110,
 
   "GreenDot3ypos": 55,
 
   "RedRotation": 115,
 
-  "RedxPosition": 245,
+  "RedxPosition": 165,
 
-  "RedyPosition": 120,
+  "RedyPosition": 190,
 
-  "BlackLinexpos": 130, 
+  "BlackLinexpos": 60, 
 
-  "BlackLineypos": 200,
+  "BlackLineypos": 260,
 
   "BlueCircleSize": 50,
 
-  "BlueCirclexPos": 255,
+  "BlueCirclexPos": 160,
 
-  "BlueCircleyPos": 315
+  "BlueCircleyPos": 300
   },
 
 
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "quadXLoki": 55,
+
+  "quadYLoki": 200,
+
+  "quadrotation": 170,
+
+  "GreenDot1xpos": 170,
+
+  "GreenDot1ypos": 320,
+
+  "greenDot2xpos": 130,
+
+  "GreenDot2ypos": 350,
+
+  "GreenDot3xpos": 65,
+
+  "GreenDot3ypos": 345,
+
+   "RedRotation": 50,
+
+  "RedxPosition": 30,
+
+  "RedyPosition": 190,
+
+  "BlackLinexpos": 150, 
+
+  "BlackLineypos": 245,
+
+  "BlueCircleSize": 110,
+
+  "BlueCirclexPos": 110,
+
+  "BlueCircleyPos": 120
   },
+
+
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "quadXLoki": 35,
+
+  "quadYLoki": 200,
+
+  "quadrotation": 225,
+  
+  "GreenDot1xpos": 110,
+
+  "GreenDot1ypos": 150,
+
+  "greenDot2xpos": 110,
+
+  "GreenDot2ypos": 200,
+
+  "GreenDot3xpos": 110,
+
+  "GreenDot3ypos": 250,
+
+  "RedRotation": 270,
+
+  "RedxPosition": 50,
+
+  "RedyPosition": 320,
+
+  "BlackLinexpos": 55, 
+
+  "BlackLineypos": 0,
+
+  "BlueCircleSize": 30,
+
+  "BlueCirclexPos": 110,
+
+  "BlueCircleyPos": 300
   },
+
+
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+ "quadXLoki": 85,
+
+  "quadYLoki": 200,
+
+  "quadrotation": -10,
+  
+  "GreenDot1xpos": 115,
+
+  "GreenDot1ypos": 205,
+
+  "greenDot2xpos":165,
+
+  "GreenDot2ypos":230,
+
+  "GreenDot3xpos":165,
+
+  "GreenDot3ypos":300,
+
+  "RedRotation": 270,
+
+  "RedxPosition": 85,
+
+  "RedyPosition": 320,
+
+  "BlackLinexpos": 85, 
+
+  "BlackLineypos": 0,
+
+  "BlueCircleSize": 40,
+
+  "BlueCirclexPos": 165,
+
+  "BlueCircleyPos": 80
   },
+
+
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "quadXLoki": 40,
+
+  "quadYLoki": 200,
+
+  "quadrotation": 305,
+
+  "GreenDot1xpos": 120,
+
+  "GreenDot1ypos": 80,
+
+  "greenDot2xpos": 70,
+
+  "GreenDot2ypos": 120,
+
+  "GreenDot3xpos": 50,
+
+  "GreenDot3ypos": 180,
+
+  "RedRotation": 40,
+
+  "RedxPosition": 10,
+
+  "RedyPosition": 200,
+
+  "BlackLinexpos": 150, 
+
+  "BlackLineypos": 230,
+
+  "BlueCircleSize": 110,
+
+  "BlueCirclexPos": 120,
+
+  "BlueCircleyPos": 280
   },
+
+
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "quadXLoki": 110,
+
+  "quadYLoki": 210,
+
+  "quadrotation": 170,
+
+  "GreenDot1xpos": 90,
+
+  "GreenDot1ypos": 230,
+
+  "greenDot2xpos": 65,
+
+  "GreenDot2ypos": 275,
+
+  "GreenDot3xpos": 40,
+
+  "GreenDot3ypos": 320,
+
+  "RedRotation": 270,
+
+  "RedxPosition": 120,
+
+  "RedyPosition": 320,
+
+  "BlackLinexpos": 120, 
+
+  "BlackLineypos": 0,
+
+  "BlueCircleSize": 60,
+
+  "BlueCirclexPos": 40,
+
+  "BlueCircleyPos": 90
   },
+
+
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "quadXLoki": 110,
+
+  "quadYLoki": 210,
+
+  "quadrotation": 170,
+  
+  "GreenDot1xpos": 60,
+
+  "GreenDot1ypos": 140,
+
+  "greenDot2xpos": 30,
+
+  "GreenDot2ypos": 90,
+
+  "GreenDot3xpos": 60,
+
+  "GreenDot3ypos": 40,
+
+  "RedRotation": 270,
+
+  "RedxPosition": 120,
+
+  "RedyPosition": 320,
+
+  "BlackLinexpos": 120, 
+
+  "BlackLineypos": 0,
+
+  "BlueCircleSize": 160,
+
+  "BlueCirclexPos": 100,
+
+  "BlueCircleyPos": 290
   },
+
+
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "quadXLoki": 160,
+
+  "quadYLoki": 210,
+
+  "quadrotation": 135,
+
+  "GreenDot1xpos": 150,
+
+  "GreenDot1ypos": 230,
+
+  "greenDot2xpos": 140,
+
+  "GreenDot2ypos": 280,
+
+  "GreenDot3xpos": 110,
+
+  "GreenDot3ypos": 320,
+
+  "RedRotation": 240,
+
+  "RedxPosition": 220,
+
+  "RedyPosition": 320,
+
+  "BlackLinexpos": 110, 
+
+  "BlackLineypos": 20,
+
+  "BlueCircleSize": 120,
+
+  "BlueCirclexPos": 100,
+
+  "BlueCircleyPos": 110
   }
 
 }

@@ -1148,43 +1148,43 @@ const canvasHeight = 500;
 // }
 
 
-// //Number 3
-//   const letterA = {
-//   "quadXLoki": 200,
+//Number 3
+  const letterA = {
+  "quadXLoki": 200,
 
-//   "quadYLoki": 200,
+  "quadYLoki": 200,
 
-//   "quadrotation": 15,
+  "quadrotation": 15,
 
-//   "GreenDot1xpos": 120,
+  "GreenDot1xpos": 120,
 
-//   "GreenDot1ypos": 105,
+  "GreenDot1ypos": 105,
 
-//   "greenDot2xpos": 135,
+  "greenDot2xpos": 135,
 
-//   "GreenDot2ypos": 45,
+  "GreenDot2ypos": 45,
 
-//   "GreenDot3xpos": 190,
+  "GreenDot3xpos": 190,
 
-//   "GreenDot3ypos": 15,
+  "GreenDot3ypos": 15,
 
-//    "RedRotation": 280,
+   "RedRotation": 280,
 
-//   "RedxPosition": 170,
+  "RedxPosition": 170,
 
-//   "RedyPosition": 285,
+  "RedyPosition": 285,
 
-//   "BlackLinexpos": 210, 
+  "BlackLinexpos": 210, 
 
-//   "BlackLineypos": -30,
+  "BlackLineypos": -30,
 
-//   "BlueCircleSize": 150,
+  "BlueCircleSize": 150,
 
-//   "BlueCirclexPos": 215,
+  "BlueCirclexPos": 215,
 
-//   "BlueCircleyPos": 270,
+  "BlueCircleyPos": 270,
 
-// }
+}
 
 
   const letterB = {
