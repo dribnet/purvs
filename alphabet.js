@@ -23,6 +23,8 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
 let debugBox = false;
 
+let BMoon = 'lightblue'
+let YMoon = 'lightyellow'
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
