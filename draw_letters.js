@@ -37,8 +37,19 @@ function drawLetter(letterData) {
   let posxrr = letterData["RightrectW"];
  let posyrr =   letterData["RightrectH"];
 
+ // triangle
+ let trix1 =   letterData["x1"]; 
+  let triy1 = letterData["y1"] ;
+ let trix2 =  letterData["x2"];
+  let triy2 =  letterData["y2"]; 
+  let trix3 = letterData["x3"];
+ let triy3 =   letterData["y3"];
+
  angleMode(DEGREES); 
 
+ //triangle from (0,0) to (100, 200)
+ fill(245, 73, 82, 170);
+ triangle(trix1, triy1, trix2, triy2, trix3, triy3); 
 
 
   // draw rect left

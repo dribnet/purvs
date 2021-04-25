@@ -14,7 +14,13 @@ const sliderInfo = [
 ["leftrectW", -25, 90], 
 ["leftrectH", 0, 200],
 ["RightrectW", 25, -90],
-["RightrectH", 0, 200]
+["RightrectH", 0, 200],
+  ["x1",0, 100], 
+  ["y1", 0, 200],
+  ["x2", 0, 100],
+["y2", 0, 200],
+["x3", 0, 100],
+ ["y3", 0, 200]
 ];
 
 
