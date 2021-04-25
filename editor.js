@@ -5,9 +5,31 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+
+  //position
+  ["posx", 0, 50], //pink arc
+  ["posy", 0, 170], //pink arc
+  ["posx2", 0, 50], //blue arc
+  ["posy2", 0, 160], //blue arc
+  ["posx3", 0, 50], //yellow line
+  ["posy3", 0, 200], //yellow line
+  ["posx4", 0, 100], //red line
+  ["posy4", 0, 100], //red line
+
+//sizes
+  ["sizex", 0, -70], //pink arc
+  ["sizey", 0, -70], //pink arc
+  ["sizex2", 0, 50], //red line
+  ["sizey2", 0, 200], // red line
+  ["sizex3", 0, 50], //blue arc
+  ["sizey3", 0, 50], //blue arc
+  ["sizex4", 0, 10], //yellow line
+  ["sizey4", 0, 100], //yellow line
+  ["rotx", 0, 800],
+  ["roty", 0, -200],
+  ["rotx1", 0, 800],
+  ["roty1", 0, -200],
+
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
