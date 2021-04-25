@@ -15,32 +15,34 @@ function drawLetter(letterData) {
 
   stroke(strokeColor);
 
-  // draw points around the circle
-  for (let i = 0; i < 8; i++) {
-    for (let j = 1; j <= 5; j++) {
-      if (letterData["point" + j] == i) {
-        strokeWeight(8);
-      } else {
-        strokeWeight(random(1, 4));
-      }
-      point(radius * cos(i * PI / 4) + posx, radius * sin(i * PI / 4) + posy);
-    }
-  }
+  let letterPos = createVector(posx, posy);
 
-  strokeWeight(1.5);
-  for (let i = 1; i <= 5; i++) {
-    let lineStartX = radius * cos(letterData["point" + i] * PI / 4) + posx;
-    let lineStartY = radius * sin(letterData["point" + i] * PI / 4) + posy;
-    let lineEndX, lineEndY;
-    if (i == 5) {
-      lineEndX = lineStartX;
-      lineEndY = lineStartY;
-    } else {
-      lineEndX = radius * cos(letterData["point" + (i + 1)] * PI / 4) + posx;
-      lineEndY = radius * sin(letterData["point" + (i + 1)] * PI / 4) + posy;
-    }
-    line(lineStartX, lineStartY, lineEndX, lineEndY);
+  for (let i = 1; i < 5; i++) {
+    drawLineSegment(letterPos, letterData["point" + i], letterData["point" + (i+1)]);
   }
+}
+
+function drawLineSegment(letterPos, point1, point2) {
+  let radius = 50;
+  let linePoint = 30;
+  let lineAngle = PI / 16;
+
+  let lineStartX = radius * cos(point1 * PI / 4) + letterPos.x;
+  let lineStartY = radius * sin(point1 * PI / 4) + letterPos.y;
+
+  let lineEndX = radius * cos(point2 * PI / 4) + letterPos.x;
+  let lineEndY = radius * sin(point2 * PI / 4) + letterPos.y;
+
+  let lineVector = createVector(lineEndX - lineStartX, lineEndY - lineStartY); // Get the vector for the current line segment
+
+  stroke(255);
+  strokeWeight(1.5);
+  noFill();
+  line(lineStartX, lineStartY, lineStartX + lineVector.x, lineStartY + lineVector.y);
+
+  strokeWeight(8);
+  point(lineStartX, lineStartY);
+  point(lineEndX, lineEndY);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
