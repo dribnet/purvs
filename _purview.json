@@ -1,12 +1,16 @@
 {
   "commits": [
     {
-      "sha": "47fa971603d2a3e83198d50fadc526e5d512c822",
-      "name": "different colours"
+      "sha": "00000",
+      "name": "Final"
+    },
+    {
+      "sha": "9159225c9a8e8fa75a1a3ba0f61a9ee2186cf9a2",
+      "name": "Different colours"
     },
     {
       "sha": "17f36c68dbac93314410215b14c15cf617eee305",
-      "name": "example 1"
+      "name": "first finalised design"
     },
     {
       "sha": "ff73a05b5e542fb775a4a487d2cc0239f7a5e899",
