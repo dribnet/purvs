@@ -1,5 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
 
-Playing around with colour. 
-i thinkk i really like my lemonade theme. Now i just need to find colours that work, and also maybe some help/feedback from Phoebe and Bex. I still feel like it hurts a lot to look at it because of the bright colour
+Refined my lemonade theme a bit more, changed the background to a lovely green colour which works well with the yellow. I also inputted lemonade reated words into the file. 
+
+ALSO i didn't know we were meant to change the index file with each commit! i have finally changed it now to show the alphabet.html. All my commits thus far have sketch.html as the index. oops! i will remember to change it for the final commits as well. 
