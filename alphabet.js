@@ -1,4 +1,4 @@
-const colorBack    = "#CCCCFF";
+const colorBack    = (0);
 const colorLines   = "#6495ED";
 
 /*
@@ -32,7 +32,7 @@ const colorLines   = "#6495ED";
 
  function draw () {
    // clear screen
-   background(systemBackgroundColor);
+   background(colorBack);
 
    // compute the center of the canvas
    let center_x = canvasWidth / 2;

@@ -1,11 +1,11 @@
 /* these are optional special variables which will change the system */
-const colorFront1  = "#F89880";//center line
-const colorFront2  = "#A7C7E7";//top line
-const colorFront3  = "#96DED1";//bottom line
-const colorFront4  = "#FFC0CB";//shape background
+const colorFront1  = "#EADDCA";//center line
+const colorFront2  = "#DAA06D";//top line
+const colorFront3  = "#C19A6B";//bottom line
+const colorFront4  = "#F0FFFF";//shape background
 
 
-const colorStroke  = "#40E0D0";
+const colorStroke  = "#6E260E";
 
 /*
  * Draw the letter given the letterData
