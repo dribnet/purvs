@@ -11,6 +11,14 @@
     {
       "sha": "0000000000000000000000000000000000000001",
       "name": "example 1"
+    },
+    {
+      "sha": "730c3673041f8bb8c182dbf36216a389d17f8c32",
+      "name": "Debug Interpolation"
+    }
+    {
+      "sha": "0000000000000000000000000000000000000004",
+      "name": "Flippy Interpolation"
     }
   ]
 }
