@@ -16,7 +16,7 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  rectMode(CENTER);
+  // rectMode(CENTER);
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
@@ -27,9 +27,13 @@ function drawLetter(letterData) {
   let pos2y = 150 + letterData["offsety"];
 
   // draw two circles
-  fill(darkBlue);
-  rect(50, 100, 100, 175);
-  fill(lightBlue);
+  fill(52, 52, 56);
+  rect(0, 0, 100, 200);
+
+  fill(255, 255, 255);
+  line(100, 50, 100, 100);
+
+  fill(196, 17, 66);
   rect(pos2x, pos2y, size2, size2+50);
 }
 
