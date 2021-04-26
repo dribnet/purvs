@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#e6e6e6";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemLineColor = "#e6e6e6";
+var systemBoxColor = "#e6e6e6";
 
 
 
@@ -11,9 +11,10 @@ function drawLetter(letterData) {
   noStroke();
   rectMode(CENTER);
   angleMode(DEGREES);
-  let posx = 50;
+  let posx = 50; //center of letter box
   let posy = 150;
 
+  //renaming and initiaizing variables
   let shapeType = letterData["backgroundShapeType"];
   let shapeRotate = letterData["backgroundShapeRotate"];
   let shapeColour1 = letterData["backgroundShapeColour1"]
@@ -35,18 +36,19 @@ function drawLetter(letterData) {
   // background shape
   push()
     if (shapeType < 2){ //square
-      translate(posx, posy);
+      translate(posx, posy); //centers square so it can be rotated
       rotate(shapeRotate);
       fill(85, shapeColour1, shapeColour2); //lighter blue
       rect(posx-50, posy-150, 100, 100);
 
     } else if (shapeType >1 && shapeType < 3){ //circle
       fill(85, shapeColour1, shapeColour2); //darker blue
-      ellipse(posx, posy, 100, 100); //circle doesnt need rotate, as it would stay the same
+      ellipse(posx, posy, 100, 100); 
+      //circle doesnt need rotate, as it would stay the same
       
 
     } else if (shapeType > 2){ //triangle
-      translate(posx, posy);
+      translate(posx, posy); //centers triangle so it can be rotated
       rotate(shapeRotate);
       fill(85, shapeColour1, shapeColour2); //greeny blue
       triangle(posx-50, posy-200, posx, posy-100, posx-100, posy-100);
@@ -60,7 +62,7 @@ function drawLetter(letterData) {
   //foreground triangle
   push();
   fill(255);
-  translate(posx, posy);
+  translate(posx, posy); //centers triangle so it can be rotated
   rotate(triRotate);
   scale(triSize);
   triangle(triPosX, triPosY, 30+triPosX, 50+triPosY, -30+triPosX, 50+triPosY);
@@ -80,7 +82,7 @@ function drawLetter(letterData) {
   stroke(255,lines1opacity);
   strokeWeight(1.5);
   translate(posx, posy);
-  for (var i=1; i<5; i=i+1){
+  for (var i=1; i<5; i=i+1){ //for loop that creates 4 lines, 5 pixels apart
     line(posx-105+(i*5)+lines1Xpos, posy-200, posx-105+(i*5)+lines1Xpos, posy-100);
   } 
   pop(); 
@@ -100,7 +102,7 @@ function drawLetter(letterData) {
   strokeWeight(1.5);
   translate(posx, posy);
   rotate(linesrotate);
-  for (var y=1; y<5; y=y+1){
+  for (var y=1; y<5; y=y+1){ //for loop that creates 4 lines, 5 pixels apart
     line(posx-100, posy-205+(y*5)+lines2Ypos, posx, posy-205+(y*5)+lines2Ypos);
   }
   pop();
@@ -125,8 +127,6 @@ function drawLetter(letterData) {
   }
   pop();
   //
-
-
 
 
 
@@ -175,7 +175,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "NAUTICAL",
+  "ABSTRACT",
+  "NEGATIVE"
 ]

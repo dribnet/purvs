@@ -6,15 +6,19 @@
     },
     {
       "sha": "01b2bf51f6890a607174ff39bb5ed6d1a1b92bca",
-      "name": "example 3"
+      "name": "background shape, triangle, lines and circles"
     },
     {
       "sha": "bcf1a9e84c7717d6e76022a9b67c9c30f82e0e79",
-      "name": "example 2"
+      "name": "background shape, triangle and lines"
     },
     {
       "sha": "dd64c9bb9433a7b580134753cadb2020de4219e5",
-      "name": "example 1"
+      "name": "background shape and triangle"
+    },
+    {
+      "sha": "c102c6ee222f866ebd1d55b037390100991389d7",
+      "name": "Sketch"
     }
   ]
 }

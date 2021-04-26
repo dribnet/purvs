@@ -385,7 +385,7 @@ const alphabet = {
     "trianglePosX": 0,
     "trianglePosY": -30,
     "triangleRotate": 180,
-    "triangleSize": 0.5,
+    "triangleSize": 0.8,
     "lines1VerticalXpos": 0,
     "lines2HorizontalYpos": 0,
     "lines3HorizontalYpos": 0,

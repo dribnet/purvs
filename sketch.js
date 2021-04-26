@@ -1,16 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
 
 const letterA = {
   "backgroundShapeType": 3, //triangle
@@ -111,7 +101,7 @@ function drawLetter(posx, posy, letterData) {
   pop();
 
 
-  //left lines
+  // lines
   push();
   if (leftLineLength > 0){
     stroke(260);

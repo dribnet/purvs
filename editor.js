@@ -9,7 +9,7 @@ const sliderInfo = [
   ["triangleRotate", 0, 360],
   ["triangleSize", 0, 1.5],
   ["lines1VerticalXpos", 0, 80],
-  ["lines1HorizontalYpos", 0, 80],
+  ["lines2HorizontalYpos", 0, 80],
   ["lines3HorizontalYpos", 0, 80],
   ["linesHorizonalRotate", 0, 360]
 ];
