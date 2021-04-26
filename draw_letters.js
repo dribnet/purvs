@@ -59,90 +59,28 @@ function drawLetter(letterData) {
  
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-if(percent <= 25){
 
-  scale(0.75);
-  new_letter["start"]    = map(percent, 0, 25, oldObj["start"], newObj["start"]);
-    new_letter["end"]    = map(percent, 0, 25, oldObj["end"], newObj["end"]);
-  new_letter["start2"]    = map(percent, 0, 25, oldObj["start2"], newObj["start2"]);
-    new_letter["end2"]    = map(percent, 0, 25, oldObj["end2"], newObj["end2"]);
-  new_letter["start3"]    = map(percent, 0, 25, oldObj["start3"], newObj["start3"]);
-    new_letter["end3"]    = map(percent, 0, 25, oldObj["end3"], newObj["end3"]);
-  new_letter["start4"]    = map(percent, 0, 25, oldObj["start4"], newObj["start4"]);
-    new_letter["end4"]    = map(percent, 0, 25, oldObj["end4"], newObj["end4"]);
-  new_letter["start5"]    = map(percent, 0, 25, oldObj["start5"], newObj["start5"]);
-    new_letter["end5"]    = map(percent, 0, 25, oldObj["end5"], newObj["end5"]);
-  new_letter["start6"]    = map(percent, 0, 25, oldObj["start6"], newObj["start6"]);
-    new_letter["end6"]    = map(percent, 0, 25, oldObj["end6"], newObj["end6"]);
-  new_letter["start7"]    = map(percent, 0, 25, oldObj["start7"], newObj["start7"]);
-    new_letter["end7"]    = map(percent, 0, 25, oldObj["end7"], newObj["end7"]);
-  new_letter["start8"]    = map(percent, 0, 25, oldObj["start8"], newObj["start8"]);
-    new_letter["end8"]    = map(percent, 0, 25, oldObj["end8"], newObj["end8"]);
-
-  return new_letter;
-}
-else if(percent > 25 && percent <= 50){
-  scale(0.5);
-   new_letter["start"]    = map(percent, 26, 50, oldObj["start"], newObj["start"]);
-    new_letter["end"]    = map(percent, 26, 50, oldObj["end"], newObj["end"]);
-  new_letter["start2"]    = map(percent, 26, 50, oldObj["start2"], newObj["start2"]);
-    new_letter["end2"]    = map(percent, 26, 50, oldObj["end2"], newObj["end2"]);
-  new_letter["start3"]    = map(percent, 26, 50, oldObj["start3"], newObj["start3"]);
-    new_letter["end3"]    = map(percent, 26, 50, oldObj["end3"], newObj["end3"]);
-  new_letter["start4"]    = map(percent, 26, 50, oldObj["start4"], newObj["start4"]);
-    new_letter["end4"]    = map(percent, 26, 50, oldObj["end4"], newObj["end4"]);
-  new_letter["start5"]    = map(percent, 26, 50, oldObj["start5"], newObj["start5"]);
-    new_letter["end5"]    = map(percent, 26, 50, oldObj["end5"], newObj["end5"]);
-  new_letter["start6"]    = map(percent, 26, 50, oldObj["start6"], newObj["start6"]);
-    new_letter["end6"]    = map(percent, 26, 50, oldObj["end6"], newObj["end6"]);
-  new_letter["start7"]    = map(percent, 26, 50, oldObj["start7"], newObj["start7"]);
-    new_letter["end7"]    = map(percent, 26, 50, oldObj["end7"], newObj["end7"]);
-  new_letter["start8"]    = map(percent, 26, 50, oldObj["start8"], newObj["start8"]);
-    new_letter["end8"]    = map(percent, 26, 50, oldObj["end8"], newObj["end8"]);
+  let sc = map(percent,0,100,0,1); 
+  scale(sc);
+  new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
+    new_letter["end"]    = map(percent, 0, 100, oldObj["end"], newObj["end"]);
+  new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
+    new_letter["end2"]    = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
+  new_letter["start3"]    = map(percent, 0, 100, oldObj["start3"], newObj["start3"]);
+    new_letter["end3"]    = map(percent, 0, 100, oldObj["end3"], newObj["end3"]);
+  new_letter["start4"]    = map(percent, 0, 100, oldObj["start4"], newObj["start4"]);
+    new_letter["end4"]    = map(percent, 0, 100, oldObj["end4"], newObj["end4"]);
+  new_letter["start5"]    = map(percent, 0, 100, oldObj["start5"], newObj["start5"]);
+    new_letter["end5"]    = map(percent, 0, 100, oldObj["end5"], newObj["end5"]);
+  new_letter["start6"]    = map(percent, 0, 100, oldObj["start6"], newObj["start6"]);
+    new_letter["end6"]    = map(percent, 0, 100, oldObj["end6"], newObj["end6"]);
+  new_letter["start7"]    = map(percent, 0, 100, oldObj["start7"], newObj["start7"]);
+    new_letter["end7"]    = map(percent, 0, 100, oldObj["end7"], newObj["end7"]);
+  new_letter["start8"]    = map(percent, 0, 100, oldObj["start8"], newObj["start8"]);
+    new_letter["end8"]    = map(percent, 0, 100, oldObj["end8"], newObj["end8"]);
 
   return new_letter;
-}
-else if(percent > 50 && percent <= 75){
-  scale(0.25);
-    new_letter["start"]    = map(percent, 51, 75, oldObj["start"], newObj["start"]);
-    new_letter["end"]    = map(percent, 51, 75, oldObj["end"], newObj["end"]);
-  new_letter["start2"]    = map(percent, 51, 75, oldObj["start2"], newObj["start2"]);
-    new_letter["end2"]    = map(percent, 51, 75, oldObj["end2"], newObj["end2"]);
-  new_letter["start3"]    = map(percent, 51, 75, oldObj["start3"], newObj["start3"]);
-    new_letter["end3"]    = map(percent, 51, 75, oldObj["end3"], newObj["end3"]);
-  new_letter["start4"]    = map(percent, 51, 75, oldObj["start4"], newObj["start4"]);
-    new_letter["end4"]    = map(percent, 51, 75, oldObj["end4"], newObj["end4"]);
-  new_letter["start5"]    = map(percent, 51, 75, oldObj["start5"], newObj["start5"]);
-    new_letter["end5"]    = map(percent, 51, 75, oldObj["end5"], newObj["end5"]);
-  new_letter["start6"]    = map(percent, 51, 75, oldObj["start6"], newObj["start6"]);
-    new_letter["end6"]    = map(percent, 51, 75, oldObj["end6"], newObj["end6"]);
-  new_letter["start7"]    = map(percent, 51, 75, oldObj["start7"], newObj["start7"]);
-    new_letter["end7"]    = map(percent, 51, 75, oldObj["end7"], newObj["end7"]);
-  new_letter["start8"]    = map(percent, 51, 75, oldObj["start8"], newObj["start8"]);
-    new_letter["end8"]    = map(percent, 51, 75, oldObj["end8"], newObj["end8"]);
 
-    return new_letter;
-}
-else{
-  new_letter["start"]    = map(percent, 76, 100, oldObj["start"], newObj["start"]);
-    new_letter["end"]    = map(percent, 76, 100, oldObj["end"], newObj["end"]);
-  new_letter["start2"]    = map(percent, 76, 100, oldObj["start2"], newObj["start2"]);
-    new_letter["end2"]    = map(percent, 76, 100, oldObj["end2"], newObj["end2"]);
-  new_letter["start3"]    = map(percent, 76, 100, oldObj["start3"], newObj["start3"]);
-    new_letter["end3"]    = map(percent, 76, 100, oldObj["end3"], newObj["end3"]);
-  new_letter["start4"]    = map(percent, 76, 100, oldObj["start4"], newObj["start4"]);
-    new_letter["end4"]    = map(percent, 76, 100, oldObj["end4"], newObj["end4"]);
-  new_letter["start5"]    = map(percent, 76, 100, oldObj["start5"], newObj["start5"]);
-    new_letter["end5"]    = map(percent, 76, 100, oldObj["end5"], newObj["end5"]);
-  new_letter["start6"]    = map(percent, 76, 100, oldObj["start6"], newObj["start6"]);
-    new_letter["end6"]    = map(percent, 76, 100, oldObj["end6"], newObj["end6"]);
-  new_letter["start7"]    = map(percent, 76, 100, oldObj["start7"], newObj["start7"]);
-    new_letter["end7"]    = map(percent, 76, 100, oldObj["end7"], newObj["end7"]);
-  new_letter["start8"]    = map(percent, 76, 100, oldObj["start8"], newObj["start8"]);
-    new_letter["end8"]    = map(percent, 76, 100, oldObj["end8"], newObj["end8"]);
-
-    return new_letter;
-}
 }
 
 var swapWords = [
