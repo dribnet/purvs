@@ -5,9 +5,29 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["tx1",  -50,  50],
+  ["ty1", -70, 70],
+  ["tx2",  -40,  40],
+  ["ty2", -70, 70],
+  ["tx3",  -40,  40],
+  ["ty3", -70, 70],
+
+  ["rx1",  -40,  40],
+  ["ry1", -70, 70],
+  ["rx2",  -40,  40],
+  ["ry2", -70, 70],
+  ["rw1", 15, 60],
+  ["rh1", 15, 150],
+  ["rw2", 15, 60],
+  ["rh2", 15, 150],
+
+  ["ax1",  -40,  40],
+  ["ay1", -70, 70],
+  ["aw1", 15, 60],
+  ["ah1", 15, 150],
+  ["angle1",  -40,  40],
+  ["angle2", -70, 70],
+
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -74,7 +94,7 @@ function draw () {
   background(systemBackgroundColor);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
