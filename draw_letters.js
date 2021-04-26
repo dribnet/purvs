@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#ffffff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -24,23 +24,26 @@ function drawLetter(letterData) {
   //setup the sketch
   angleMode(DEGREES);
 
-  // determine parameters for second circle
+//parameters for the size of the circles
   let size2 = letterData["size"];
   let size3 = letterData["size2"];
   let size4 = letterData["size3"];
 
+//parameters for the darkest circle
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
 
+//parameters for the mid circle
   let pos3x = letterData["offsetx2"];
   let pos3y = letterData["offsety2"];
 
+//parameters for the lightest circle
   let pos4x = letterData["offsetx3"];
   let pos4y = letterData["offsety3"];
 
   noStroke()
 
-  // draw three circles
+  // draw the four circles
   fill(darkRed);
   ellipse(50, 150, 100, 100);
 
@@ -69,8 +72,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA",
-  "DOTWORKS"
+  "BLOODIED",
+  "CLOTTED!",
+  "SLASHED!",
+  "ANTIBODY"
 ]
