@@ -1,6 +1,6 @@
 /* these are optional special variables which will change the system */
-// var systemBackgroundColor = "#FFFFFF";
-var systemBackgroundColor = "#FADF4B";
+var systemBackgroundColor = "#FFFFFF";
+// var systemBackgroundColor = "#FADF4B";
 var systemLineColor = "#000090";
 var systemBoxColor = "#5479A3";
 
@@ -21,11 +21,8 @@ const outlineColor = (0, 0, 0, 0);
  */
 
 function drawLetter(letterData) {
-  // color/stroke setup
-  // stroke(strokeColor);
   strokeWeight(4);
   angleMode(DEGREES);
-  // blendMode(MULTIPLY);
 
   //Parameters
   let size = letterData["size"];
@@ -44,38 +41,20 @@ function drawLetter(letterData) {
   let translatex = letterData["translatex"];
   let translatey = letterData["translatey"];
 
-  //Creates a drop shadow
-  // drawingContext.shadowOffsetX = 5;
-  // drawingContext.shadowOffsetY = 5;
-  // drawingContext.shadowBlur = 0;
-  // drawingContext.shadowColor = strokeColor;
-
-  //
-  // //Draws a rect and rotates it
-  // fill(berryBlue);
-  // push();
-  // translate(pos3x, pos3y);
-  // rotate(angle);
-  // rect(0, 0, width, height);
-  // pop();
-
   push();
+  //Creates a drop shadow with no stroke
   noStroke();
   drawingContext.shadowOffsetX = 5;
   drawingContext.shadowOffsetY = 5;
   drawingContext.shadowBlur = 0;
   drawingContext.shadowColor = strokeColor;
 
-  // stroke(strokeColor);
-  // strokeWeight(2.5);
-  // noFill();
   //Draws an arc
   fill(bubblegumPink);
   arc(posx, posy, size, size, arcStart, arcEnd);
 
   //Draws an ellipse
   fill(yellowBello);
-  // fill(bubblegumPink);
   ellipse(pos2x, pos2y, size1, size1);
 
   //Draws a rect and rotates it
@@ -87,7 +66,7 @@ function drawLetter(letterData) {
   pop();
   pop();
 
-  //Outline of the letters
+  //Outline of the letters that are drawn
   var outline = true;
   if (outline) {
     noFill();
@@ -106,16 +85,15 @@ function drawLetter(letterData) {
   }
 
   //Texture of the letters
-  var texture = true;
-  if (texture) {
     dots(pos3x, pos3y, width, height, angle, translatex, translatey);
-  }
 }
 
+//The function that creates the dot texture that we will call in the main function
 function dots(pos3x, pos3y, widthx, heighty, angle, translatex, translatey) {
-  var gap = 13;
-  var xMultiplier = int(widthx / gap);
-  var yMultiplier = int(heighty / gap);
+  var gap = 13; //How far apart the dots will be
+  var xMultiplier = int(widthx / gap); //The width of the row of dots
+  var yMultiplier = int(heighty / gap); //The height of the row of dots
+
   push();
   translate(translatex, translatey);
   if (angle > 0) {
@@ -131,24 +109,6 @@ function dots(pos3x, pos3y, widthx, heighty, angle, translatex, translatey) {
   }
   pop();
 }
-// function keyPressed(size, size1, width, height, posx, posy, arcStart, arcEnd, pos2x, pos2y, pos3x, pos3y, angle) {
-//   if (keyCode === SPACE) {
-//     fill(0,0,0,0);
-//     let size = 0;
-//     let size1 = 0;
-//     let width = 0;
-//     let height = 0;
-//     let posx = 0;
-//     let posy = 0;
-//     let arcStart = 0;
-//     let arcEnd = 0;
-//     let pos2x = 0;
-//     let pos2y = 0;
-//     let pos3x = 0;
-//     let pos3y = 0;
-//     let angle = 0;
-//   }
-//   }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -174,6 +134,6 @@ var swapWords = [
   "POP",
   "BANG",
   "KACHING",
-  "BAZINGA",
+  "BAZINGAA",
   "BY ROBYN"
 ]

@@ -1,19 +1,9 @@
 ## MDDN 242 2021 Assignment 2
-**Animating the letters**
-
-I worked on the animation of the letters, leaving the value of the starting and ending value of the arcs at 0, because I already like how they swoosh slowing from one position to another. I tried to increase the value to 25 and 50 and they go to quickly swooshing multiple times.
-
-I did consider maybe having letters transition quickly and having the effect of jumping them out but I feel because the letter design is already busy this might be to harsh on the viewers eyes.
-
-I changed the map values for the sizes of all the shapes to 25 and it makes the transition between each letter smoother which I like.
-
-**Problems**
-SOLVED
-The rotation of the texture(dots) I added.
-There was a problem with the translation of the rotated texture(dots), and the only way to fix it to its exact precision was to add 2 extra parameters. The transition of the x axis, and the transition of the y axis allowing me to get the position perfect. I am trying to keep my parameters as low as possible.
-
 **Letters**
-I have tweaked some letters to look better.
+- Worked on the letter y as it is one of my least favourites.
+- I will continue working on the look of my numbers because they are still not 100% what I want them to look like, just need to polish them up.
+- Restructured and cleaned up my code.
+- I created my default character to look like both a question mark and an exclamation mark, it will depend on the viewers personal interpretation. I have spoken to Bex and I would prefer if I didn't have to use the default character, so Bex suggested using an if statement so when its called it doesn't draw it just leaves it blank. 
 
 Currently I have 15 parameters:
 
@@ -35,3 +25,5 @@ Currently I have 15 parameters:
 11. offsetx3: x offset of the rectangle
 12. offsety3: y offset of the rectangle
 13. angle: angle of rotation of the rectangle
+14. translatex: the x translation for the degree of rotation
+15. translatey: the y translation for the degree of rotation
