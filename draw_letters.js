@@ -58,10 +58,6 @@ function drawLetter(letterData) {
   rect(posx4, posy4, posw4, posh4, 15)
   pop()
 
-  //   fill(colorFront1);
-  // ellipse(50, 150, 75, 75);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -90,7 +86,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "INTEREST",
+  "COLORFUL",
+  "CANDICE?"//MY NAME
 ]
