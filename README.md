@@ -2,10 +2,19 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-For my sketch i have chaged the shape of the letters to rectangle, and also changed the color to red.
+//For my sketch i have chaged the shape of the letters to rectangle, and also changed the color to red.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+//in this update i have changed the design of my letters and also started to add more parameters, for now i got eleven parmeters, it is little bit too much, i might going to change it again in the future.
 
+The eleven parameters per letter:
+  * `size` : size of rectegle
+  * "rx1": x offset of the no.1 rectegle relative to the first one
+  * "ry1": y offset of the no.1 rectegle relative to the first one
+  * "rx2": x offset of the no.2 rectegle relative to the first one
+  * "ry2": y offset of the no.2 rectegle relative to the first one
+  * "rx3": x offset of the no.3 rectegle relative to the first one
+  * "ry3": y offset of the no.3 rectegle relative to the first one
+  * "rx4": x offset of the no.4 rectegle relative to the first one
+  * "ry4": y offset of the no.4 rectegle relative to the first one
+  * "rx5": x offset of the no.5 rectegle relative to the first one
+  * "ry5": y offset of the no.5 rectegle relative to the first one

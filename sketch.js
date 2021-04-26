@@ -14,24 +14,48 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "rx1": -10,
+  "ry1": 25,
+  "rx2": 10,
+  "ry2": 50,
+  "rx3": 10,
+  "ry3": 10,
+  "rx4": -20,
+  "ry4": -10,
+  "rx5": -30,
+  "ry5": 40
 }
 
 const letterB = {
-  "size": 120,
-  "offsetx": -14,
-  "offsety": -137
+  "size": 80,
+  "rx1": -10,
+  "ry1": 25,
+  "rx2": 10,
+  "ry2": 50,
+  "rx3": 10,
+  "ry3": 10,
+  "rx4": -20,
+  "ry4": -10,
+  "rx5": -30,
+  "ry5": 40
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 80,
+  "rx1": -10,
+  "ry1": 25,
+  "rx2": 10,
+  "ry2": 50,
+  "rx3": 10,
+  "ry3": 10,
+  "rx4": -20,
+  "ry4": -10,
+  "rx5": -30,
+  "ry5": 40
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#000000";
+const strokeColor      = "#ffffff";
 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
@@ -67,16 +91,42 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let size = letterData["size"];
+
+  let rec1x = posx + letterData["rx1"];
+  let rec1y = posy + letterData["ry1"];
+
+  let rec2x = posx + letterData["rx2"]
+  let rec2y = posy + letterData["ry2"]
+
+  let rec3x = posx + letterData["rx3"]
+  let rec3y = posy + letterData["ry3"]
+
+  let rec4x = posx + letterData["rx4"]
+  let rec4y = posy + letterData["ry4"]
+
+  let rec5x = posx + letterData["rx5"]
+  let rec5y = posy + letterData["ry5"]
+
+  let rec6x = posx + letterData["rx6"]
+  let rec6y = posy + letterData["ry6"]
+
+  let rec7x = posx + letterData["rx7"]
+  let rec7y = posy + letterData["ry7"]
+
 
   // draw two circles
-  fill(darkRed);
+  noFill();
   rectMode(CENTER)
-  rect(posx, posy, 150, 150);
-  fill(lightRed);
-  rect(pos2x, pos2y, size2, size2);
+  noStroke()
+  rect(posx, posy, 80, 80);
+
+  stroke(strokeColor)
+  rect(rec1x, rec1y, size, size);
+  rect(rec2x, rec2y, size, size);
+  rect(rec3x, rec3y, size, size);
+  rect(rec4x, rec4y, size, size);
+  rect(rec5x, rec5y, size, size);
 }
 
 function keyTyped() {
