@@ -126,7 +126,7 @@ const canvasHeight = 500;
    // draw two circles
    rectMode(CENTER)
    fill(colorFront4)
- 	rect(posx, posy, 100, 200, 20)
+ 	rect(posx, posy, 100, 200, 45)
 
    fill(colorFront1);
    rect(posx1, posy1, posw1, posh1, 15)
