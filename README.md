@@ -30,6 +30,12 @@ Today I tried to use custom funcions to add colour effect to the alphabets, I ad
 Trying out differnt ideas like blendmode(); and fading effect with repeating shapes. 
 Got some crazy effect going, but I think the tiny circles are a little bit gross to look at, so might change that.  
 
-*26 April*  :sunny:  :house:
+*26 April*  :sunny:  :house:  
 I've refined the colour, and applied blend mode to some part of the deisgn.  
 I don't have an idea for the animation yet, but for now I made it loop back to default before the new letter.  I might let the waveform be a part of the animation as well. 
+
+
+*26 April*  :umbrella:
+I've decided to focus my animation on the wavy form.   
+The value of the wave form is set to go from the old value to very short and extend to the new value.  
+This would emphasise the waviness of the form.  
