@@ -12,6 +12,8 @@
 
 //finished most of the letters, the missing ones still need some "redesign" work, i will start work on them while i put the numbers in.
 
+//completed all of the letters, i will start work on the numbers later
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
