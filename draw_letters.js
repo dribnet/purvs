@@ -7,9 +7,8 @@ var systemBoxColor = "#00c800";
 const backgroundColor  = "#012244";
 const strokeColor      = "#233f11";
 
-const darkPink  = "#7a00cc";
-const lightBlue  = "#4d4dff";
-const lighterBlue = "#B5D6F5";
+const brightPurple  = "#7a00cc";
+const brightBlue  = "#4d4dff";
 
 
 /*
@@ -39,12 +38,12 @@ function drawLetter(letterData) {
   
 
   noStroke();
-  fill(darkPink);
-  //pink squares
+  fill(brightPurple);
+  //purple squares
   rect(posx, posy, 100, 100);
 
-  fill(lightBlue);
-  //green/blue square
+  fill(brightBlue);
+  //bright blue square
   rect(posx2,posy2, size2, size2);
 
   fill(backgroundColor);
@@ -74,8 +73,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ASTEROID",
+  "COSMOS",
+  "12345678"
 ]
 
