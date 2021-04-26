@@ -12,13 +12,9 @@ var systemBoxColor = "#00c800";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  //set up the sketch
-angleMode(DEGREES);
-noStroke();
-  // color/stroke setup
+  angleMode(DEGREES);
+  noStroke();
   let size = letterData["size"];
-  //let posx = letterData["offsetx"];
-  //let posy = letterData["offsety"];
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
   let sizeTwo = letterData["size2"];
@@ -29,164 +25,175 @@ noStroke();
   let pos4y = letterData["offsety4"];
   let angleOne = letterData["angleStart"];
   let angleTwo = letterData["angleStop"];
-  let colourScheme = letterData["colour"];
  
-  sun(50, 150, 75);  //the main circle
-  moon(pos2x, pos2y, size, size);
-  stroke (61, 58, 112);
-  //strokeWeight(3);
-  fill(35, 32, 97, 200)
+  sun(50, 150, 75);  //the main body of the letter - always in the same place and always looks the same
+  moon(pos2x, pos2y, size, size); 
   planetOne(pos3x, pos3y, sizeTwo, sizeTwo);
-  fill(colourScheme)
-  noStroke();
+  //fill(colourScheme)
   shootingStar(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
-
-  strokeWeight(1.5);
-
-// push();
-// beginShape();
-// for (let i=0; i<359; i++) {
-// var r = map(sin(i*8), -1, 1, 22, 28);
-// var x = r * cos(i);
-// var y = r * sin(i);
-// vertex(x, y);
-// }
-// endShape(CLOSE);
-// pop();
 }
 
-function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) {
-fill(255, 242, 218, 200)
-arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);
-push();
-stroke (255);
-strokeWeight(0);
-fill(255);
-beginShape();
-for (let i=0; i<359; i++) {
-var r1 = map(sin(i*8), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
-var r2 = map(sin(i*12), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
-var r = r1 +r2;
-var x = r * cos(i);
-var y = r * sin(i);
-vertex(pos4x+x, pos4y+y);
-}
-endShape(CLOSE);
-pop();
-
-}
-
-function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
+//this is the arc part of the letter form 
+//it'll have a star in the centre point so the arc is like the trail of the shooting star
+function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) { 
+  fill(189, 255, 255, 200);
   noStroke();
-  fill(35, 32, 97, 200)
-  ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
+  //this makes the trail be a gradient
+  for (let i=0; i<10; i++){
+    gradient = i*sizeThree/10
+    size = gradient-sizeThree
+    //size = sizeThree-i
+    colour = gradient+130
+    fill(colour, 195, 215, 90);
+  arc(pos4x, pos4y, size, size, angleOne, angleTwo);  //the trail
+
+  //arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);  //the trail
+  }
+  
+  //this makes the star be more of a burst than a standard star shape
+  push();
+    fill(255, 145, 133);
+    beginShape();
+    for (let i=0; i<359; i++) {
+      var r1 = map(sin(i*8), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
+      var r2 = map(sin(i*12), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
+      var r = r1 +r2;
+      var x = r * cos(i);
+      var y = r * sin(i);
+    vertex(pos4x+x, pos4y+y);
+    }
+    endShape(CLOSE);
+  pop();
+
+}
+
+//this is the planet with the 3 wavey rings on it
+function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
   strokeWeight(1);
-  stroke(129, 206, 227, 150);
-noFill();
-  for (f=0; f<3; f++){
-var offsety = f*sizeTwo/10
-bezier(pos3x+sizeTwo/1.85, pos3y+offsety, pos3x+sizeTwo/2.25, pos3y+sizeTwo/6+offsety, pos3x-sizeTwo/2.25, pos3y-sizeTwo/6+offsety, pos3x-sizeTwo/1.85, pos3y+offsety);
-}
+  stroke(61, 54, 207);  //creates a glowing edge effect around the planet
+  fill(35, 32, 97)  //dark blue
+  ellipse(pos3x, pos3y, sizeTwo, sizeTwo);  //the centre planet part
+  stroke(117, 154, 255);
+  noFill();
+  for (f=0; f<3; f++){  //this draws the 3 rings
+    var offsety = f*sizeTwo/10
+    bezier(pos3x+sizeTwo/1.85, pos3y+offsety, pos3x+sizeTwo/2.25, pos3y+sizeTwo/6+offsety, pos3x-sizeTwo/2.25, pos3y-sizeTwo/6+offsety, pos3x-sizeTwo/1.85, pos3y+offsety);
+  }
 
 }
 
+
+//this is the sun in the centre of the letter
+//it's made of multiple sin loops layered on top of each other creating a gradient colour effect
 function sun (x, y) {
+  fill(144, 102, 189, 100);  //purple
+  beginShape();
+  for (let i=0; i<359; i++) {
+    var r = map(sin(i*8), -1, 1, 38, 42);
+    var sunx = r * cos(i);
+    var suny = r * sin(i);
+    vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(144, 102, 189, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 38, 42);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(219, 105, 177, 100);    //pink
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 36, 40);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(219, 105, 177, 100);  
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 36, 40);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(219, 105, 177, 100);  //pink
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 34, 38);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(219, 105, 177, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 34, 38);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(224, 101, 159, 100);  //orange
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 32, 36);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(224, 101, 159, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 32, 36);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(224, 142, 101, 100);  //orange
+  beginShape();
+  for (let i=0; i<359; i++) {
+    var r = map(sin(i*8), -1, 1, 30, 34);
+    var sunx = r * cos(i);
+    var suny = r * sin(i); 
+    vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(224, 142, 101, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 30, 34);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(224, 181, 101, 100);  //orange
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 28, 32);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(224, 181, 101, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 28, 32);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(237, 225, 111, 100);  //yellow
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 26, 30);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(237, 225, 111, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 26, 30);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(255, 250, 105, 120);  //yellow
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 24, 28);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(255, 250, 105, 100);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 24, 28);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(255, 255, 255, 100);  //white
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 22, 26);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 
-fill(255, 255, 255, 80);
-beginShape();
-for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, 22, 26);
-var sunx = r * cos(i);
-var suny = r * sin(i);
-vertex(x+sunx, y+suny);
-}
-endShape(CLOSE);
+  fill(255, 255, 255, 120);  //white
+  beginShape();
+  for (let i=0; i<359; i++) {
+   var r = map(sin(i*8), -1, 1, 20, 24);
+   var sunx = r * cos(i);
+   var suny = r * sin(i);
+   vertex(x+sunx, y+suny);
+  }
+  endShape(CLOSE);
 }
 
+//this is the moon that moves infront of the sun
 function moon (pos2x, pos2y, size, size)   {
-  stroke(150, 150, 180);
-  strokeWeight(2);
-  fill(120, 120, 150);
+  stroke(130, 130, 160);  //this make it seem like the moon has a glowing edge (like it would in an eclipse)
+  strokeWeight(1);
+  fill(100, 100, 130);
+
+  //this makes the moon not perfectly circular
 beginShape();
 for (let i=0; i<359; i++) {
 var r1 = map(sin(i*3), -1, 1, size/4-size/32, size/4);
@@ -198,14 +205,16 @@ vertex(pos2x+x, pos2y+y);
 }
 endShape(CLOSE);
 
+//these are the craters
 noStroke();
-fill(150, 150, 180)
+fill(130, 130, 160)
 ellipse (pos2x-size/6, pos2y+size/6, size/2.5, size/2.5)
 ellipse (pos2x+size/4.5, pos2y-size/6, size/3, size/3)
 ellipse (pos2x+size/8, pos2y, size/6, size/6)
 ellipse (pos2x-size/4, pos2y-size/4, size/5, size/5)
 }
 
+//this is the animation when the letters change over
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
@@ -219,13 +228,13 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
   new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
   new_letter["angleStop"] = map(percent, 0, 100, oldObj["angleStop"], newObj["angleStop"]);
-  new_letter["colour"] = map(percent, 0, 100, oldObj["colour"], newObj["colour"]);
   return new_letter;
 }
 
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ASTEROID",
+  "AQUARIUS",
+  "STARGAZE",
+  "ECLIPSE!"
 ]

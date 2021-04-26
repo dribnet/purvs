@@ -1,9 +1,11 @@
 ## MDDN 242 2021 Assignment 2
 
-idea: a space inspired design where a planet and a moon going infornt of the sun creates negetive space to that you can see the rough outline of a letter.
+idea: a space inspired design where a planet and a moon eclipse the sun, which creates the outline of the letter
 
-today I got the hang of sin waves, benier curves, and making circular shapes out of sin waves. The practise sin wave circle I did kinda reminded me of a starburst, so I decided to lean more into that thn the ocean inspired one I had started researching the curves for. I think my design is a lot more interesting now.
+possible names:
+spacecase
+eclipsed
 
-My next steps will be adding some little stars in the background, and working out how to fit my arc into the theme - I thought it could possibly be a shooting star or something like that but I'm still working on making the star actually look like a star. I think I'll also make it a bit darker to that it's more obvious that it's supposed to be negetive space.
+today I worked on the shooting star part of my alphabet. I made the star part more starburst-like, and madethe trail behind it have a gradient. I also played with the colour of the planet, and edited the shape of the moon. I thought it could be cool to use the skill I learnt while trying to figure out sine waves and create a moon that wasn't perfectly circular. Finally I neatened up my code and added in more comments, as well as changing the words displayed in ther exhibithion section (I chose space-themed words because I thought it could be fun to tie it into the theme).
 
 
