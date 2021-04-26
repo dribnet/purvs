@@ -6,23 +6,23 @@
     },
     {
       "sha": "79b0550b12824b7797af4fe3c6be0dfbec73ae38",
-      "name": "example 2"
+      "name": "Version 1"
     },
     {
       "sha": "1f3f4e309f32a1c7e59b1309413c9f479580bc1f",
-      "name": "example 1"
+      "name": "Version 2"
     },
     {
       "sha": "4c4c873599a226a7b3c675189c5f9b9eca9f5814",
-      "name": "Fav Orbit"
+      "name": "Best Orbit"
     },
     {
       "sha": "bd9dd2cffd1a666e3cd26bf9098d85de6c5fba2a",
-      "name": "Orbit test 1"
+      "name": "Orbit design 2"
     },
     {
       "sha": "e9bfb37494a1fc59724a47a51f7833e792e1f36f",
-      "name": "Orbit test 2"
+      "name": "Orbit design 3"
     }
   ]
 }
