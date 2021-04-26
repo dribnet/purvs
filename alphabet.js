@@ -4,12 +4,13 @@
  */
 
 if (typeof systemBackgroundColor === 'undefined') {
-  //  var systemBackgroundColor = "#e3eded";
+    //var systemBackgroundColor = "#e3eded";
     var systemBackgroundColor = "#ffffff";
 }
 
 if (typeof systemLineColor === 'undefined') {
-    var systemLineColor = "#000090";
+    //var systemLineColor = "#000090";
+    var systemLineColor = "#ffffff";
 }
 
 if (typeof systemBoxColor === 'undefined') {
