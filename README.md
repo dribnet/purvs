@@ -14,7 +14,9 @@
 
 //completed all of the letters, i will start work on the numbers later
 
-//finished the numbers. 
+//finished the numbers, thinking about upload the progress i have got so far.(unable to upload files, unknow error.)
+
+//added the interaction to the letters.
 
 The eleven parameters per letter:
   * `size` : size of rectegle
