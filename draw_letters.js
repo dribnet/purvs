@@ -40,29 +40,30 @@ function drawLetter(letterData) {
 
   //Draw an ellipse
     noStroke();
-    fill(black); //red 
+    fill(red);
     ellipseMode(CORNER);
     ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-    fill(black); //blue 
+    fill(blue);
     arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
 
 
   // draw a rectangle with round corners and rotate it
-    fill(black); //yellow 
+    fill(yellow);
+
     push();
-    translate(posx,posy);
-    rotate(rectAngle);
-    rect(0, 0, 15, size, 20);
+      translate(posx,posy);
+      rotate(rectAngle);
+      rect(0, 0, 15, size, 20);
     pop();
 
   //Calling functions
 
-  bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow);
+   bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow);
 
-  lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black, red, blue, yellow);
+   lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black);
 }
 
 
@@ -71,24 +72,23 @@ function drawLetter(letterData) {
 
 function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow){
 
- push();
- ellipseMode(CENTER);
- noFill();
- strokeWeight(2);
+ push(); 
+   ellipseMode(CENTER); // draw the ellipse at with the pivot at their center
+   noFill();
+   strokeWeight(2);
 
- stroke(yellow);
- ellipse(pos2x, pos2y, 20); //ellipse following the big ellipse's position
+   stroke(red);
+   ellipse(posx, posy, 30); // ellipse following the rectangle's position
 
- stroke(blue);
- if(pos3y < -25 || pos3x < -99){ // if the y position of the big arc is smaller than -25 or the x position smaller than -99, then draw the bubble at 0,0
- // noStroke()
-  ellipse(0,0,10)
- } else { // if it's lower than -24, then use the arc's position to draw the bubble
-  ellipse(pos3x, pos3y, 10);
- }
- 
- stroke(red);
- ellipse(posx, posy, 30);
+   stroke(yellow);
+   ellipse(pos2x, pos2y, 20); //ellipse following the big ellipse's position
+
+   stroke(blue);
+   if(pos3y < -25 || pos3x < -99){ // if the y position of the big arc is smaller than -25 or the x position smaller than -99, then draw the bubble at 0,0
+      noStroke();
+   } else { // if it's lower than -24, then use the arc's position to draw the bubble
+     ellipse(pos3x, pos3y, 10);
+   }
  pop();
 
 }
@@ -97,42 +97,43 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow){
 
 /*******FUNCTION TO CREATE THE BLACK OUTLINES*******/
 
-function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black, red, blue, yellow){
+function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black){
 
   noFill();
-  strokeWeight(4); //1.5
-
-  if(size1==0){ // is the size of the ellipse is 0 then no stroke applied to the shape so that no dot appears on the top of the letter
-    noStroke();
-  } else {
-   stroke(yellow); // black stroke if the size is other than 0
-  }
+  strokeWeight(1.5);
 
   //Draw an ellipse
-    ellipseMode(CORNER);
-    ellipse(pos2x-5, pos2y-5, size1, size1);
+   if(size1 == 0){ // is the size of the ellipse is 0 then no stroke applied to the shape so that no dot appears on the top of the letter
+     noStroke();
+   } else {
+     stroke(black); // black stroke if the size is other than 0
+   }
 
-    if(size2==0){ //if the size of the arc is 0 then no stroke applied to the shape
-      noStroke();
-    } else {
-    stroke(red); // black stroke if the size is other than 0
-    }
+   ellipseMode(CORNER);
+   ellipse(pos2x-5, pos2y-5, size1, size1);
+
 
   //Draw an arc
-    arc(pos3x-5, pos3y-5, size2, size2, angleStart, angleEnd);
-
-    if(size==0){ //if the size of the rectangle is 0 then no stroke applied to the shape
-      noStroke();
-    }else{
-      stroke(blue); // black stroke if the size is other than 0
+    if(size2 == 0){ //if the size of the arc is 0 then no stroke applied to the shape
+     noStroke();
+    } else {
+     stroke(black); // black stroke if the size is other than 0
     }
 
+    arc(pos3x-5, pos3y-5, size2, size2, angleStart, angleEnd);
+
+
   // draw a rectangle with round corners and rotate it
+    if( size == 0){ //if the size of the rectangle is 0 then no stroke applied to the shape
+      noStroke();
+    }else{
+      stroke(black); // black stroke if the size is other than 0
+    }
 
     push();
-    translate(posx,posy);
-    rotate(rectAngle);
-    rect(-5, -5, 15, size, 20);
+      translate(posx,posy);
+      rotate(rectAngle);
+      rect(-5, -5, 15, size, 20);
     pop();
 
 }
@@ -141,38 +142,29 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
 /***FUNCTION TO SET UP THE ANIMATION IN BETWEEN EACH LETTER CHANGE****/
 
 function interpolate_letter(percent, oldObj, newObj) {
+
   let new_letter = {};
-  let defaultChar = getObjFromChar("default");
+  let defaultChar = getObjFromChar("default"); //variable for the default characters
 
   // making the sizes of the rectangle, ellipse and arc go back to the default before interpolating towards the new size
-  // thanks to this, you can still see the letter change when you press the same letter
-  if(percent < 50){ 
+   if(percent < 50){ 
 
-    new_letter["size"] = map(percent, 0, 50, oldObj["size"], defaultChar["size"]); 
+     new_letter["size"] = map(percent, 0, 50, oldObj["size"], defaultChar["size"]); 
+     new_letter["size1"] = map(percent, 0, 50, oldObj["size1"], defaultChar["size1"]);
+     new_letter["size2"] = map(percent, 0, 50, oldObj["size2"], defaultChar["size2"]);
+   } else {
 
-    new_letter["size1"] = map(percent, 0, 50, oldObj["size1"], defaultChar["size1"]);
+     new_letter["size"] = map(percent, 51, 100, defaultChar["size"], newObj["size"]);
+     new_letter["size1"] = map(percent, 51, 100, defaultChar["size1"], newObj["size1"]);
+     new_letter["size2"] = map(percent, 51, 100, defaultChar["size2"], newObj["size2"]);
+   }
 
-    new_letter["size2"] = map(percent, 0, 50, oldObj["size2"], defaultChar["size2"]);
-
-
-  } else {
-
-    new_letter["size"] = map(percent, 51, 100, defaultChar["size"], newObj["size"]);
-
-    new_letter["size1"] = map(percent, 51, 100, defaultChar["size1"], newObj["size1"]);
-
-    new_letter["size2"] = map(percent, 51, 100, defaultChar["size2"], newObj["size2"]);
-  }
-
-  //rest of the interpolations
+  //Offsets' interpolation starting at 30% to make it more "snappy"
 
     new_letter["recOffsetx"] = map(percent, 30, 100, oldObj["recOffsetx"], newObj["recOffsetx"]);
     new_letter["recOffsety"] = map(percent, 30, 100, oldObj["recOffsety"], newObj["recOffsety"]);
-
     new_letter["offsetx"] = map(percent, 30, 100, oldObj["offsetx"], newObj["offsetx"]);
     new_letter["offsety"] = map(percent, 30, 100, oldObj["offsety"], newObj["offsety"]);
-
-
     new_letter["arcOffsetx"] = map(percent, 30, 100, oldObj["arcOffsetx"], newObj["arcOffsetx"]);
     new_letter["arcOffsety"] = map(percent, 30, 100, oldObj["arcOffsety"], newObj["arcOffsety"]);
 
@@ -185,10 +177,13 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
+
 /***EXIBITION WORDS***/
 
 var swapWords = [
   "WASSILYK", //name of the artist that inspired the font
   "BAUHAUS!", //movement that inspired the font
-  "BY LAURA" // my name!
+  "ALPHABET",
+  "BY.LAURA", // my name!
+  "12345678" //showing off my numbers, 'cause they're cool
 ]
