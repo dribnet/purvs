@@ -14,33 +14,54 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 170,
-  "offsetx": 50,
-  "offsety": 100,
-  "TriAng": 5,
-  "triStart": 30
+   "triangleX": 121,
+   "triangleY": 40,
+   "TriAng": 80,
+   "triWidth": 100,
+   "triHeight": 140,
+   "ellipseX": 48,
+   "ellipseY": 99,
+   "ellipseSize": 70,
+   "rectX": 37,
+   "rectY": 33,
+   "rectWidth": 15,
+   "rectHeight": 80
 
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 100,
-  "offsety": -145,
-  "TriAng": 55,
-  "triStart": 20
+  "triangleX": -10,
+  "triangleY": 120,
+  "TriAng": 260,
+  "triWidth": 120,
+  "triHeight": 120,
+  "ellipseX": 54,
+  "ellipseY": 100,
+  "ellipseSize": 70,
+  "rectX": 7,
+  "rectY": 20,
+  "rectWidth": 15,
+  "rectHeight": 95
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 200,
-  "offsety": 100,
-  "TriAng": 105,
-  "triStart": 10
+  "triangleX": 107,
+  "triangleY": 60,
+  "TriAng": 90,
+  "triWidth": 120,
+  "triHeight": 100,
+  "ellipseX": 58,
+  "ellipseY": 100,
+  "ellipseSize": 70,
+  "rectX": 0,
+  "rectY": 0,
+  "rectWidth": 0,
+  "rectHeight": 0
 }
 
-const backgroundColor  = "#e3eded";
-const purple  = "#b29af5";
-const lightBlue  = "#59ccff";
+//const backgroundColor  = "#e3eded";
+const backgroundColor  = "#ffffff";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -70,26 +91,42 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size1 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let triangleX =  letterData["triangleX"];
+  let triangleY =  10  + letterData["triangleY"];
   let TriAng = letterData["TriAng"];
-  let triStart = letterData["triStart"];
+  let triWidth = letterData["triWidth"];
+  let triHeight = letterData["triHeight"];
+  let left = 30 - triWidth/2;
+  let right = 30 + triWidth/2;
+  let triangleHeight = triangleY + triHeight;
+  let ellipseX = letterData["ellipseX"];
+  let ellipseY = letterData["ellipseY"];
+  let ellipseSize = letterData["ellipseSize"];
+  let rectX = letterData["rectX"];
+  let rectY = letterData["rectY"];
+  let rectWidth = letterData["rectWidth"];
+  let rectHeight = letterData["rectHeight"];
 
+  //creates triangle
   push();
-  translate(posx,posy);
-  rotate(TriAng);
-  let triStart2 = triStart - triStart/2;
-  let triStart3 = triStart + triStart/2;
-  let pos4y = pos2y + pos2y/2;
   fill(0);
-  triangle(triStart2, pos2y, triStart3, pos2y, triStart, pos4y);
+  translate(triangleX,triangleY);
+  rotate(TriAng);
+  triangle(left, 30, right, 30, 30, triHeight);
   pop();
 
+  //creates an ellipse
+  push()
+  fill(255);
+  ellipse(ellipseX, ellipseY, ellipseSize);
+  pop();
 
-
-
-
+  //creates a rectangle
+  push()
+  fill(255);
+  translate(rectX,rectY);
+  rect(rectX, rectY, rectWidth, rectHeight)
+  pop();
 
 }
 
