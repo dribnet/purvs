@@ -45,22 +45,24 @@ function drawLetter(letterData) {
 // the ellipses in the custom functions below are used for my debug
 function customTriangle1(A1, B1, A2, B2, A3, B3){
   triangle(A1, B1, A2, B2, A3, B3);
-  // fill('#ff0000');
-  // ellipse(A1, B1, 20);
-  // fill('#00ff00');
-  // ellipse(A2, B2, 20);
-  // fill('#0000ff');
-  // ellipse(A3, B3, 20);
+  push();
+  rectMode(CENTER);
+    fill('#f2f2f2');
+      rect(A1, B1, 10);
+      rect(A2, B2, 10);
+      rect(A3, B3, 10);
+  pop();
 }
 // the ellipses in the custom functions below are used for my debug
 function customTriangle2(C1, D1, C2, D2, C3, D3){
   triangle(C1, D1, C2, D2, C3, D3);
-  // fill('#ff0000');
-  // ellipse(C1, D1, 20);
-  // fill('#00ff00');
-  // ellipse(C2, D2, 20);
-  // fill('#0000ff');
-  // ellipse(C3, D3, 20);
+  push();
+  rectMode(CENTER);
+    fill('#f2f2f2');
+      rect(C1, D1, 10);
+      rect(C2, D2, 10);
+      rect(C3, D3, 10);
+  pop();
 }
 // below is the vanilla animation
 function interpolate_letter(percent, oldObj, newObj) {
