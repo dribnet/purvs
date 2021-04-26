@@ -35,3 +35,5 @@ I finshed my alphabet, I'm not just going to further refine my design and work o
 experimented with a new colour palette + tweaked letters
 
 quite like this palette
+
+My alphabet gets more complex has it goes on, the letters/numbers become more an more abstract but even so when together they form a fairly functional alphabet, but alone they provoke the eye.
