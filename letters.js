@@ -5,7 +5,7 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "stroke1": 9,
+    "stroke1": 20,
     "offsetx": 0,
     "offsety": 17
   },

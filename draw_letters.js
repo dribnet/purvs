@@ -1,11 +1,11 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#FAE";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const darkBlue  = "#DB162F";
+const lightBlue  = "#e3eded";
 const strokeColor  = "#233f11";
 
 /*
@@ -30,11 +30,7 @@ function drawLetter(letterData) {
   fill(darkBlue);
   rect(0,0,100,200);
 
-  let Stroke1 =letterData["stroke1"];
-  strokeWeight(Stroke1);
-  stroke("#e3eded");
-  line(50,50,100,100);
-
+  triangle(pos2x,0,50,pos2y,100,100);
   
   // draw two circles
   // fill(darkBlue);

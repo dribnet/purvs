@@ -13,21 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 100,
-  "offsetx": 5,
-  "offsety": -0
+  "x1" : 60,
+  "y1" : -100,  
+  "x2" : 200,
+  "y2" : 0,
+  "x3" : 50,
+  "y3" : 100
 }
 
 const letterB = {
-  "size":100,
-  "offsetx": -40,
-  "offsety": -90,
+  "x1" : 0,
+  "y1" : 0,  
+  "x2" : 100,
+  "y2" : 0,
+  "x3" : 50,
+  "y3" : 100
 }
 
 const letterC = {
-  "size": 80,
-  "offsetx": 30,
-  "offsety": 0
+  "x1" : 0,
+  "y1" : 0,  
+  "x2" : 100,
+  "y2" : 0,
+  "x3" : 50,
+  "y3" : 100
 }
 
 const backgroundColor  = "#e3eded";
@@ -65,15 +74,16 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let bottomleftx = posx+letterData["x1"];
+  let bottomlefty = posy+letterData["y1"];
+  let bottomrightx = posx+letterData["x2"];
+  let bottomrighty = posy+letterData["y2"];
+  let topx = posx+letterData["x3"];
+  let topy = posy+letterData["y3"];
 
   // draw two circles
   fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(bottomleftx,bottomlefty,bottomrightx,bottomrighty,topx,topy);
 }
 
 function keyTyped() {
