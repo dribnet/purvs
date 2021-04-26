@@ -36,3 +36,5 @@ i managed to fix and re jig my alphabet but the interpolation is not acting righ
 interpolation is working well now, now it is time to make the alphabet more exciting and intriguing to look at
 
 some level of fake 3d was added
+
+added words that i thought showed my alphabet in a cool way

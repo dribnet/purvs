@@ -41,13 +41,15 @@ function drawLetter(letterData) {
   let start8 = letterData["start8"];
     let stop8 =  letterData["end8"];
 
-     stroke(darkBlue);
+    //this is my fake 3d
+  stroke(darkBlue);
   strokeWeight(7);
-  line(start +3,stop +3,start2 +3,stop2 +3);
-  line(start3 +3,stop3 +3,start4 +3,stop4 +3);
-  line(start5 +3,stop5 +3,start6 +3,stop6 +3);
-  line(start7 +3,stop7 +3,start8 +3,stop8 +3);
+  line(start +4,stop +4,start2 +4,stop2 +4);
+  line(start3 +4,stop3 +4,start4 +4,stop4 +4);
+  line(start5 +4,stop5 +4,start6 +4,stop6 +4);
+  line(start7 +4,stop7 +4,start8 +4,stop8 +4);
 
+  //draws the letters
   stroke(lBabyBlue);
   strokeWeight(4);
   line(start,stop,start2,stop2);
@@ -60,8 +62,10 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
-  let sc = map(percent,0,100,0,1); 
-  scale(sc);
+  let sc = map(percent,0,100,0,1); //maps the scale so it increases the size from the top left corner
+  scale(sc); //puts the current sc data from the map to te scale of the letter
+
+  //interpolates between the letters
   new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
     new_letter["end"]    = map(percent, 0, 100, oldObj["end"], newObj["end"]);
   new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
@@ -84,9 +88,22 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "VASTRACT", //name of my font
+  "12345678",
+  "ALTHOUGH",
+  "HAPPENED",
+  "QUESTION",
+  "ANYTHING",
+  "BUILDING",
+  "BUSINESS",
+  "NATIONAL",
+  "CONTINUE",
+  "PLANNING",
+  "STUDENTS",
+  "ECONOMIC",
+  "EVIDENCE",
+  "99TEST99",
+  "ADDITION"
 ]
 
 
