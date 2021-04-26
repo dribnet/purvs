@@ -1,15 +1,15 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#d6ca27";
+var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor  = "#d6ca27";
+const backgroundColor  = "#000000";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
 
-//d6ca27
+//ffea00 yellow colour
 /*
  * Draw the letter given the letterData
  *
@@ -59,7 +59,9 @@ pop();
 
  //lines and arcs that will draw the letters
 
-  stroke(255, 0, 0);
+  stroke(
+255, 221, 0
+);
   strokeWeight(3);
   push();
   noFill();
@@ -112,7 +114,8 @@ function wheel(x,y, wheelRotate, WheelColour){
   push()
   //background wheel that the letters will be drawn on
   noFill();
-  stroke(252, 3, 3, WheelColour);
+  //stroke(252, 3, 3, WheelColour);
+  stroke(255, 234, 0, WheelColour);
   strokeWeight(2);
   //main wheel
   ellipse(x,y,100,100);
@@ -121,7 +124,9 @@ function wheel(x,y, wheelRotate, WheelColour){
   line(x+35, y-35, x-35, y+35)
   line(x-35, y-35, x+35, y+35)
 
-  stroke(252, 3, 3, 20);
+  stroke(
+255, 221, 0, 60
+);
   strokeWeight(1);
  ellipse(x,y,110,110);
  pop()
@@ -134,9 +139,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   rotateAmount = map(percent, 0, wheelRotate, 0, 180);
 
   if (percent <=45){
-  WheelColour = map(percent, 0, 40, 40, 100);
+  WheelColour = map(percent, 0, 40, 80, 150);
   }else {
- WheelColour = map(percent, 40, 90, 100, 40);
+ WheelColour = map(percent, 40, 90, 150, 80);
   }
 
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
