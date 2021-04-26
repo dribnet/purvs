@@ -18,6 +18,8 @@
 
 //added the interaction to the letters.
 
+//fixed the error on number "5".
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
