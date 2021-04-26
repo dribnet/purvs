@@ -2,7 +2,4 @@
 
 
 Playing around with colour. 
-i can not decide what colours i want to go with! I like black and yellow but i feel that the contrast is quite intense and it may hurt the eyes or become hard to read. 
-
-!!!CODE Problem
-After i added the map to the color of the wheels it is coming up as the wrong shade of red while in my alphabet.html, editor.html, and  exhibition.html. i'm not sure why this is happening because at 0% the stroke of the wheel should be at the lightest red, not at the darkest. As seen in lines 139-142 of draw_letters.js 
+i thinkk i really like my lemonade theme. Now i just need to find colours that work, and also maybe some help/feedback from Phoebe and Bex. I still feel like it hurts a lot to look at it because of the bright colour
