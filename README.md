@@ -23,3 +23,9 @@ wanting to create illusion of negative space for some letters by making them the
 I've been playing around wih transparency (I stlll want this shape to still be yellow)
 Also added two more parimeters
 I've now done up to letter L
+
+26/04 
+
+code is now uploading to git from my own computer, for some reason I had two ps2 folders!
+
+I finshed my alphabet, I'm not just going to further refine my design and work on transitions.

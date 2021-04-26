@@ -486,25 +486,77 @@ const alphabet = {
   "y3": 140
 },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
+  "size": 19,
+  "offsetx": -21,
+  "offsety": -32,
+  "smalllength": 35,
+  "smallheight": 96,
+  "sizesmall": 50,
+  "leftrectW": 29.049999999999997,
+  "leftrectH": 0,
+  "RightrectW": -25.6,
+  "RightrectH": 110.00000000000001,
+  "x1": 68,
+  "y1": 182,
+  "x2": 46,
+  "y2": 80,
+  "x3": 0,
+  "y3": 110.00000000000001
+},
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
+  "size": 23,
+  "offsetx": -15.600000000000001,
+  "offsety": -14,
+  "smalllength": 0,
+  "smallheight": 166,
+  "sizesmall": 83,
+  "leftrectW": 27.900000000000006,
+  "leftrectH": 22,
+  "RightrectW": -25.6,
+  "RightrectH": 30,
+  "x1": 69,
+  "y1": 110.00000000000001,
+  "x2": 56.00000000000001,
+  "y2": 115.99999999999999,
+  "x3": 45,
+  "y3": 110.00000000000001
+},
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
+  "size": 65,
+  "offsetx": -10.2,
+  "offsety": -14,
+  "smalllength": 39,
+  "smallheight": 138,
+  "sizesmall": 1,
+  "leftrectW": 65.85000000000001,
+  "leftrectH": 10,
+  "RightrectW": -15.25,
+  "RightrectH": 57.99999999999999,
+  "x1": 50,
+  "y1": 100,
+  "x2": 50,
+  "y2": 100,
+  "x3": 50,
+  "y3": 78
+},
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
+  "size": 0,
+  "offsetx": -30,
+  "offsety": 100,
+  "smalllength": 0,
+  "smallheight": 0,
+  "sizesmall": 50,
+  "leftrectW": 42.849999999999994,
+  "leftrectH": 10,
+  "RightrectW": -21,
+  "RightrectH": 82,
+  "x1": 50,
+  "y1": 100,
+  "x2": 50,
+  "y2": 100,
+  "x3": 50,
+  "y3": 18
+},
   "8":{
   "size": 50,
   "offsetx": -12,
@@ -524,9 +576,22 @@ const alphabet = {
   "y3": 162
 },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  }
+  "size": 51,
+  "offsetx": -9,
+  "offsety": -64,
+  "smalllength": 46,
+  "smallheight": 82,
+  "sizesmall": 100,
+  "leftrectW": 68.15,
+  "leftrectH": 0,
+  "RightrectW": -21,
+  "RightrectH": 82,
+  "x1": 50,
+  "y1": 100,
+  "x2": 50,
+  "y2": 100,
+  "x3": 50,
+  "y3": 66
+}
 
 }
