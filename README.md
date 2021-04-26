@@ -36,5 +36,7 @@
   April 22
   Today in class I edited the colours of my code, they are now brighter and I believe they work better with the background colour and makes it all more cohesive. We are learning about manipulating the movements between the letters when they change but I am liking the original smooth letter changes, they flow as if they are floating and I think that represents my space idea well. However I would like to slow down the movement between the letters a bit more to give more of a floating in space look. 
 
-  Design Statement Draft: 
-  I really enjoyed making this project, it felt like we had a lot of freedom! I immediately started working with squares as my main shape, I liked the idea of making shapes that were slightly similiar to our alphabet. When I started creating my alphabet I kept thinking of space, I think it was because of my original background colour being a dull dark blue. This led to the idea of hmm maybe my alphabet is an alphabet from space! From a species similar to us! I eventually changed the square shape colours from a dark pink and a dull light blue to two different bright purples, I believe these colour choices further push my space idea. 
+  April 27
+  This is one of my final saves before I change my final purview with my design statement. Today I tidied up my code and worked on making my letters more cohesive with each other, letters such as the S and the P stood out from the rest of the letters so I changed them so they were more similar to the rest. Some of my numbers also touched each other so I had to edit those so they didnt.  
+
+  
