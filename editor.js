@@ -8,19 +8,22 @@ const sliderInfo = [
   ["size",       0, 100],
   ["offsetx",  -30,  30],
   ["offsety", -100, 100],
-  ["smalllength", 0, 100],
-  ["smallheight", 0, 200],
-["sizesmall", 0, 100],
 ["leftrectW", -25, 90], 
 ["leftrectH", 0, 200],
-["RightrectW", 25, -90],
+["RightrectW", 25, 100],
 ["RightrectH", 0, 200],
   ["x1",0, 100], 
   ["y1", 0, 200],
   ["x2", 0, 100],
 ["y2", 0, 200],
 ["x3", 0, 100],
- ["y3", 0, 200]
+ ["y3", 0, 200],
+["negativeW", 0, 200],
+ ["negativeH", 100, 0],
+ ["smalllength", 0, 100],
+  ["smallheight", 0, 200],
+["sizesmall", 0, 100]
+
 ];
 
 
