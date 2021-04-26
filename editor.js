@@ -11,7 +11,13 @@ const sliderInfo = [
   ["offsetBottomMid", -100, 100],
   ["offsetMidRight", -100, 100],
   ["offsetMidLeft", -100, 100],
-  ["Rotation", 0, 360]
+  ["Rotation", -180, 180],
+  ["offsetsecondShapeX", -100,100],
+  ["offsetsecondShapeY",-100, 100],
+  ["secondShapeScale", .25,1],
+  ["TranslateX",-100, 100],
+  ["TranslateY", -100, 100],
+  ["SecondShapeRotation",-180,180]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
