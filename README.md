@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-FONT: Geometric Funhouse
+FONT: Funhouse
 
 
 My alphabet gets more complex has it goes on, the letters/numbers become more an more abstract but even so when together they form a fairly functional alphabet, but alone they provoke the eye.
@@ -40,3 +40,11 @@ quite like this palette
 My alphabet gets more complex has it goes on, the letters/numbers become more an more abstract but even so when together they form a fairly functional alphabet, but alone they provoke the eye.
 
  - also need to make sure all of my letters fit into their bounding box
+
+ 27/04
+
+ Tweaked most letters to fit into boundry squares, some still need adjusting.
+
+ Decided to go with the name 'FUNHOUSE'.
+
+ Also changed my display words, and made my exhibition my default image.
