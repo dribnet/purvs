@@ -1,11 +1,8 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Example 1
-
-Alphabets using 2-5 kite shapes. Rotaing, scaling and changing the XY position of each kite shape.
-
+The alphabets are expressed in braille on the bottom half of the domino tile.
+The numbers are expressed in the normal domino way, on both the top and bottom half of the domino tiles.
+There are 11 dots, and each of the dots' colour can be changed in letters.js. By changing the colour the dots can appear and disappear depending on the alphabet and number.
 
 
 
