@@ -10,6 +10,8 @@
 
 //coped the codes to the draw_letter.js, and fixed some the bug that shiftted the box.
 
+//finished most of the letters, the missing ones still need some "redesign" work, i will start work on them while i put the numbers in.
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one

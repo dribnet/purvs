@@ -6,6 +6,7 @@ var systemBoxColor = "#00c800";
 /* internal constants */
 //const backgroundColor  = "#000000";
 const strokeColor      = "#ffffff";
+strokeWeight(4);
 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
