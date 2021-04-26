@@ -14,6 +14,8 @@
 
 //completed all of the letters, i will start work on the numbers later
 
+//finished the numbers. 
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
