@@ -29,3 +29,9 @@ I've now done up to letter L
 code is now uploading to git from my own computer, for some reason I had two ps2 folders!
 
 I finshed my alphabet, I'm not just going to further refine my design and work on transitions.
+
+//
+
+experimented with a new colour palette + tweaked letters
+
+quite like this palette

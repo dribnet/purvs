@@ -1,13 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#E1E5C6";
+var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#4F708D";
+const darkBlue  = "#287afc";
 
 const strokeColor  = "#233f11";
-const orange  = "#F27E4D";
+const orange  = "#fca028";
 const beige = "#E1E5C6";
       
 /*
@@ -48,7 +48,7 @@ function drawLetter(letterData) {
  angleMode(DEGREES); 
 
  //triangle from (0,0) to (100, 200)
- fill(245, 73, 82, 170);
+ fill(255, 18, 26);
  triangle(trix1, triy1, trix2, triy2, trix3, triy3); 
 
 
@@ -79,7 +79,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MARSHALL",
+  "COOLNESS",
+  "1234ABCD"
 ]
