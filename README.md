@@ -6,6 +6,6 @@ possible names:
 spacecase
 eclipsed
 
-today I worked on the shooting star part of my alphabet. I made the star part more starburst-like, and madethe trail behind it have a gradient. I also played with the colour of the planet, and edited the shape of the moon. I thought it could be cool to use the skill I learnt while trying to figure out sine waves and create a moon that wasn't perfectly circular. Finally I neatened up my code and added in more comments, as well as changing the words displayed in ther exhibithion section (I chose space-themed words because I thought it could be fun to tie it into the theme).
+I put all my suns shapes into a embedded for loop, and stored the colour values in an array. I also decreased the amount of layers it has so that the code doesn't run slow. I thought it running slow was just an issue with my laptop, but then it was still running slow on the macs so I knew I needed to fix that
 
 

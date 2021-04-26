@@ -86,105 +86,117 @@ function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
 //this is the sun in the centre of the letter
 //it's made of multiple sin loops layered on top of each other creating a gradient colour effect
 function sun (x, y) {
-  fill(144, 102, 189, 100);  //purple
+  rValueArray = [144, 219, 224, 237, 237];
+  gValueArray = [102, 105, 142, 225, 225];
+  bValueArray = [189, 177, 101, 111, 151];
+
+  for (let j=0; j<5; j++) {
+    let Rcolour = rValueArray[j]
+    let Gcolour = gValueArray[j]
+    let Bcolour = bValueArray[j]
+  fill(Rcolour, Gcolour, Bcolour, 100);  //purple
+  let sizeOne = 38-j*3
+  let sizeTwo = 42-j*3
   beginShape();
   for (let i=0; i<359; i++) {
-    var r = map(sin(i*8), -1, 1, 38, 42);
+    var r = map(sin(i*8), -1, 1, sizeOne, sizeTwo);
     var sunx = r * cos(i);
     var suny = r * sin(i);
     vertex(x+sunx, y+suny);
   }
   endShape(CLOSE);
 
-  fill(219, 105, 177, 100);    //pink
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 36, 40);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+}
 
-  fill(219, 105, 177, 100);  //pink
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 34, 38);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(219, 105, 177, 100);    //pink
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 36, 40);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(224, 101, 159, 100);  //orange
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 32, 36);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(219, 105, 177, 100);  //pink
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 34, 38);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(224, 142, 101, 100);  //orange
-  beginShape();
-  for (let i=0; i<359; i++) {
-    var r = map(sin(i*8), -1, 1, 30, 34);
-    var sunx = r * cos(i);
-    var suny = r * sin(i); 
-    vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(224, 101, 159, 100);  //orange
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 32, 36);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(224, 181, 101, 100);  //orange
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 28, 32);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(224, 142, 101, 100);  //orange
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //   var r = map(sin(i*8), -1, 1, 30, 34);
+  //   var sunx = r * cos(i);
+  //   var suny = r * sin(i); 
+  //   vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(237, 225, 111, 100);  //yellow
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 26, 30);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(224, 181, 101, 100);  //orange
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 28, 32);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(255, 250, 105, 120);  //yellow
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 24, 28);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(237, 225, 111, 100);  //yellow
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 26, 30);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(255, 255, 255, 100);  //white
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 22, 26);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(255, 250, 105, 120);  //yellow
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 24, 28);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 
-  fill(255, 255, 255, 120);  //white
-  beginShape();
-  for (let i=0; i<359; i++) {
-   var r = map(sin(i*8), -1, 1, 20, 24);
-   var sunx = r * cos(i);
-   var suny = r * sin(i);
-   vertex(x+sunx, y+suny);
-  }
-  endShape(CLOSE);
+  // fill(255, 255, 255, 100);  //white
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 22, 26);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
+
+  // fill(255, 255, 255, 120);  //white
+  // beginShape();
+  // for (let i=0; i<359; i++) {
+  //  var r = map(sin(i*8), -1, 1, 20, 24);
+  //  var sunx = r * cos(i);
+  //  var suny = r * sin(i);
+  //  vertex(x+sunx, y+suny);
+  // }
+  // endShape(CLOSE);
 }
 
 //this is the moon that moves infront of the sun
@@ -233,8 +245,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 
 var swapWords = [
+  "ECLIPSED",
   "ASTEROID",
   "AQUARIUS",
-  "STARGAZE",
-  "ECLIPSE!"
+  "STARGAZE"
 ]
