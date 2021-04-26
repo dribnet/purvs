@@ -2,14 +2,10 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
+MY PARAMETERS
+2 triangles = 12 parameters per letterform. 
+The first triangle uses the parameter points 1A, 2A, 3A, 1B, 2B, 3B. 
+The second triangle uses the parameter points 1C, 2C, 3C, 1D, 2D, 3D.
  */
 
 const letterA = {
@@ -40,7 +36,6 @@ const letterB = {
     "point1D": 100,
     "point2D": 100,
     "point3D": 200
-  
 }
 
 const letterC = {
@@ -58,11 +53,10 @@ const letterC = {
     "point3D": 200
 }
 
-const backgroundColor  = "#c9afaf";
-const strokeColor      = "#f2f2f2";
-
-const colourRed  = "#a83636";
-const colourBlack  = "#1f1f1f";
+const backgroundColor  = "#c9afaf"; // grey-red colour
+const strokeColor      = "#f2f2f2"; // slightly grey
+const colourRed  = "#a83636"; // off-red colour
+const colourBlack  = "#1f1f1f"; // off-black colour
 
 function setup () {
   // create the drawing canvas, save the canvas element

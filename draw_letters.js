@@ -7,10 +7,8 @@ var systemBoxColor = "#00c800";
 const colourRed  = "#a83636";
 const colourBlack  = "#1f1f1f";
 const strokeColor  = "#f2f2f2";
-
 /*
  * Draw the letter given the letterData
- *
  * Letters should always be drawn with the
  * following bounding box guideline:
  * from (0,0) to (100, 200)
@@ -44,17 +42,17 @@ function drawLetter(letterData) {
   fill(colourBlack);
   customTriangle2(C1, D1, C2, D2, C3, D3);
 }
-
+// the ellipses in the custom functions below are used for my debug
 function customTriangle1(A1, B1, A2, B2, A3, B3){
   triangle(A1, B1, A2, B2, A3, B3);
-  // fill('#ff0000');
-  // ellipse(A1, B1, 20);
-  // fill('#00ff00');
-  // ellipse(A2, B2, 20);
-  // fill('#0000ff');
-  // ellipse(A3, B3, 20);
+  fill('#ff0000');
+  ellipse(A1, B1, 20);
+  fill('#00ff00');
+  ellipse(A2, B2, 20);
+  fill('#0000ff');
+  ellipse(A3, B3, 20);
 }
-
+// the ellipses in the custom functions below are used for my debug
 function customTriangle2(C1, D1, C2, D2, C3, D3){
   triangle(C1, D1, C2, D2, C3, D3);
   fill('#ff0000');
@@ -64,7 +62,7 @@ function customTriangle2(C1, D1, C2, D2, C3, D3){
   fill('#0000ff');
   ellipse(C3, D3, 20);
 }
-
+// below is the vanilla animation
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["point1A"] = map(percent, 0, 100, oldObj["point1A"], newObj["point1A"]);
