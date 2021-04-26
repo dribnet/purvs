@@ -16,24 +16,10 @@ const pink  = "#E9707F";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  // stroke(strokeColor);
-  // strokeWeight(4);
 
-  // determine parameters for second circle
-  // let size2 = letterData["size"];
-  // let pos2x = 50  + letterData["offsetx"];
-  // let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-//   fill(darkBlue);
-//   ellipse(50, 150, 75, 75);
-//   fill(lightBlue);
-//   ellipse(pos2x, pos2y, size2, size2);
-
-  angleMode(DEGREES);
   strokeWeight(4);
 
+  angleMode(DEGREES);
 
   //Parameters
   let size = letterData["size"];
@@ -58,7 +44,7 @@ function drawLetter(letterData) {
   //Draw arc
   push();
   fill(pink);
-  blendMode(MULTIPLY);
+  // blendMode(MULTIPLY);
   arc(pos2x+10, pos2y+60, size1+80, size1+50, arcStart, arcEnd);
   arc(pos3x+10, pos3y+60, size1+80, size1+50, arcStart, arcEnd);
 
@@ -67,11 +53,11 @@ function drawLetter(letterData) {
   pop();
 
   //Draw rect
-
+  push();
   fill(pink);
   // blendMode(MULTIPLY);
   noStroke();
-
+  pop();
   rect(pos1x-10, pos1y+30, size-10, size + 100 ,arcSize, arcSize, arcSize, arcSize);
   rect(pos5x+30, pos5y+5, size-10, size + 100 ,arcSize, arcSize, arcSize, arcSize);
   push();

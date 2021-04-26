@@ -1,18 +1,19 @@
 ## MDDN 242 2021 Assignment 2
 
-first week
-
-<<<<<<< HEAD
+First week
 I started trying some ideas. I would like to be able to combine the traditional alphabet and the Braille alphabet. I also started to see what a combination of colors can be. This time try something monochromatic on each letter using a different color.
 
-second week
+Second week
+In my second week I was researching about alphabets and how to implement my idea. My main problem is the limitation of parameters that we have, in this work I would like my letters to be as close as possible to the real letters and not to be so abstract.
 
-In the second week I kept working on my alphabet design and trying to implement my idea using js. from the beginning I had problems that my ps2 folder moves within ps1 I tried to solve it several times but it happens again.
+Holidays
 
-holidays
+on my vacation I broke some git and I can't make changes to the page. anyway I kept working on my alphabet but I did not save the changes and I only have a copy on my computer that I will keep when I can fix it.
 
-during the holidays I continued working on my idea and developed almost all the letters of my alphabet. again I had problems with the location of the ps2 folder but I accommodated it again. I decided to be able to imitate the letters but use similar shapes to my first design. in my particular case having less than 20 parameters is a difficult task but I am trying to improve it. I still have not decided on the colors and if I add the letters in Braille, if I add them I still do not know how to incorporate them into the design and how to continue maintaining the amount of necessary parameters.
-=======
+I decided to make the letters as similar as possible to the original alphabet and I decided to use capital letters, in my opinion it is more aesthetic to maintain a unified height size with all the letters
+
+
+
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
 The three parameters per letter:
@@ -20,9 +21,4 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one -->
 
-Update this file as you go along to record your progress.
 
-first week 
-
-I started trying some ideas. I would like to be able to combine the traditional alphabet and the Braille alphabet. I also started to see what a combination of colors can be. This time try something monochromatic on each letter using a different color.
->>>>>>> 8f3053b3b6be2dffa68ee71c1be8223ca5aec926
