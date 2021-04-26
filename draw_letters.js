@@ -11,6 +11,12 @@ var systemBoxColor = "#ff8c42"; //orange
 
 function drawLetter(letterData) {
 
+  //create variales to make it easy to play with the colours
+  let red = '#db1c5f';
+  let blue = '#4c5bd8';
+  let yellow = '#fadf43';
+  let black = '#000000';
+
   angleMode(DEGREES); //angle mode to degrees
 
   // determine the parameters for the rectangle
@@ -34,18 +40,18 @@ function drawLetter(letterData) {
 
   //Draw an ellipse
     noStroke();
-    fill('#000000'); //red #db1c5f
+    fill(black); //red 
     ellipseMode(CORNER);
     ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-    fill('#000000'); //blue #4c5bd8
+    fill(black); //blue 
     arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
 
 
   // draw a rectangle with round corners and rotate it
-    fill('#000000'); //yellow #fadf43
+    fill(black); //yellow 
     push();
     translate(posx,posy);
     rotate(rectAngle);
@@ -54,26 +60,26 @@ function drawLetter(letterData) {
 
   //Calling functions
 
-  bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y);
+  bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow);
 
-  lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle);
+  lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black, red, blue, yellow);
 }
 
 
 
 /*******FUNCTION DRAWING CIRCLES BY RE-USING THE EXISTING POSITION PARAMETERS*******/
 
-function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
+function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y, red, blue, yellow){
 
  push();
  ellipseMode(CENTER);
  noFill();
  strokeWeight(2);
 
- stroke('#fadf43');//yellow
+ stroke(yellow);
  ellipse(pos2x, pos2y, 20); //ellipse following the big ellipse's position
 
- stroke('#4c5bd8');//blue
+ stroke(blue);
  if(pos3y < -25 || pos3x < -99){ // if the y position of the big arc is smaller than -25 or the x position smaller than -99, then draw the bubble at 0,0
  // noStroke()
   ellipse(0,0,10)
@@ -81,7 +87,7 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
   ellipse(pos3x, pos3y, 10);
  }
  
- stroke('#db1c5f');//red
+ stroke(red);
  ellipse(posx, posy, 30);
  pop();
 
@@ -91,7 +97,7 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
 
 /*******FUNCTION TO CREATE THE BLACK OUTLINES*******/
 
-function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle){
+function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle, black, red, blue, yellow){
 
   noFill();
   strokeWeight(4); //1.5
@@ -99,7 +105,7 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
   if(size1==0){ // is the size of the ellipse is 0 then no stroke applied to the shape so that no dot appears on the top of the letter
     noStroke();
   } else {
-   stroke('#db1c5f'); // black stroke if the size is other than 0
+   stroke(yellow); // black stroke if the size is other than 0
   }
 
   //Draw an ellipse
@@ -109,7 +115,7 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
     if(size2==0){ //if the size of the arc is 0 then no stroke applied to the shape
       noStroke();
     } else {
-    stroke('#4c5bd8'); // black stroke if the size is other than 0
+    stroke(red); // black stroke if the size is other than 0
     }
 
   //Draw an arc
@@ -118,7 +124,7 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
     if(size==0){ //if the size of the rectangle is 0 then no stroke applied to the shape
       noStroke();
     }else{
-      stroke('#fadf43'); // black stroke if the size is other than 0
+      stroke(blue); // black stroke if the size is other than 0
     }
 
   // draw a rectangle with round corners and rotate it
