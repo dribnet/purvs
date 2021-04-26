@@ -1,8 +1,5 @@
 ## MDDN 242 2021 Assignment 2
-Finished the first line of the alphabet fully utilizing the 4 shaopes and utilizing arcs in different ways furthering my knowlege on the code we are using.
-
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+At this point, I have 5 characters leftodo on the 3rd row. I have also recenterd some letters that looked off within the exibition asd well as set up the editor in conjunction with my code.
 
 The three parameters per letter:
   * `size` : radius of the second circle
