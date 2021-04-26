@@ -1,10 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ffd885";
+var systemBackgroundColor = "#6e6e6e";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor  = "#ffd885";
+const backgroundColor  = "#6e6e6e";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
@@ -34,7 +34,7 @@ let line6 = letterData ["Diagonalline4"]
 //potential parameters set by true/false statements or if statements. so maybe parametrs could include
 // "verticalline"
 // "horizontalline"
-// "arc1" etc. something like that 
+// "arc1" etc. something like that
 
   if(arcStartAngle == null) {
     print("Warning: missing arcStartAngle");
@@ -54,12 +54,12 @@ let line6 = letterData ["Diagonalline4"]
 push();
 translate(50,100);
 rotate(rotateAmount);
-wheel(0,0);
+wheel(0,0, wheelRotate, WheelColour);
 pop();
 
  //lines and arcs that will draw the letters
-  
-  stroke(252, 3, 3);
+
+  stroke(255,0,0);
   strokeWeight(3);
   push();
   noFill();
@@ -73,7 +73,7 @@ pop();
    stroke(255, 255, 255, 150)
    line(53, 150, 53, 50)
    pop();
-  } 
+  }
   if(line2 == true){
     push();
    line(50, 100, 85, 65)
@@ -104,12 +104,15 @@ pop();
 
 }
 
+
 let rotateAmount = 0;
-function wheel(x,y){
+  let wheelRotate = 100;
+  let WheelColour;
+function wheel(x,y, wheelRotate, WheelColour){
   push()
   //background wheel that the letters will be drawn on
   noFill();
-  stroke(252, 3, 3, 40);
+  stroke(252, 3, 3, WheelColour);
   strokeWeight(2);
   //main wheel
   ellipse(x,y,100,100);
@@ -127,7 +130,15 @@ function wheel(x,y){
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  rotateAmount = map(percent, 0, 100, 0, 180);
+
+  rotateAmount = map(percent, 0, wheelRotate, 0, 180);
+
+  if (percent <=45){
+  WheelColour = map(percent, 0, 40, 40, 100);
+  }else {
+ WheelColour = map(percent, 40, 90, 100, 40);
+  }
+
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
