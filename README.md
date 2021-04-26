@@ -2,4 +2,5 @@
 
 
 Playing around with colour. 
-Black looks super cool!! i really like how the red stands out and the wheel disappears after it spins. look cool, might play around a bit more though. 
+I think i like bright colours a bit better. 
+I like yellow with red, sort of reminds me of a lemon! still not 100% happy with it though

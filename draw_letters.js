@@ -1,15 +1,15 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#000000";
+var systemBackgroundColor = "#d6ca27";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor  = "#000000";
+const backgroundColor  = "#d6ca27";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
 
-
+//d6ca27
 /*
  * Draw the letter given the letterData
  *
@@ -59,7 +59,7 @@ pop();
 
  //lines and arcs that will draw the letters
 
-  stroke(255,0,0);
+  stroke(255, 0, 0);
   strokeWeight(3);
   push();
   noFill();
