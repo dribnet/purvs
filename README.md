@@ -1,10 +1,11 @@
 ## MDDN 242 2021 Assignment 2
 
-I've started playing around with ideas for my alphabet, I am very interested in going down an art deco (retro?) or neo-futrisitc route.
+FONT: Geometric Funhouse
 
-I'm interested in using rounded rectange instead of arcs or ellipses.  
 
-I now want to add more perimeters to improve my ideas, I also want to fix the placement of my letters on the page.
+My alphabet gets more complex has it goes on, the letters/numbers become more an more abstract but even so when together they form a fairly functional alphabet, but alone they provoke the eye.
+
+Often typography is brushed to the side and seen as more of a requirement is design, rather than an assest. Typography has deep roots in design, and changes era by era, with the trends. In my design I wanted to acknowledge the fun pops of colour and geometric design of the 80's and the mixed varation of stroke and width size of art deco. 
 
 
 24/03
