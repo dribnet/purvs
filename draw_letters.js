@@ -30,12 +30,12 @@ function drawLetter(letterData) {
   moon(pos2x, pos2y, size, size); 
   planetOne(pos3x, pos3y, sizeTwo, sizeTwo);
   //fill(colourScheme)
-  shootingStar(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
+  comet(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
 }
 
 //this is the arc part of the letter form 
-//it'll have a star in the centre point so the arc is like the trail of the shooting star
-function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) { 
+//it'll have a comet in the centre point so the arc is like the trail of the comet
+function comet (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) { 
   fill(189, 255, 255, 200);
   noStroke();
   //this makes the trail be a gradient
@@ -43,28 +43,27 @@ function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) {
     gradient = i*sizeThree/10
     size = gradient-sizeThree
     //size = sizeThree-i
-    colour = gradient+130
+    colour = gradient+140
     fill(colour, 195, 215, 90);
   arc(pos4x, pos4y, size, size, angleOne, angleTwo);  //the trail
-
-  //arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);  //the trail
   }
   
-  //this makes the star be more of a burst than a standard star shape
+  //this draws the comet
   push();
-    fill(255, 145, 133);
+  strokeWeight(1);
+  stroke(150)
+  fill(75);
     beginShape();
-    for (let i=0; i<359; i++) {
-      var r1 = map(sin(i*8), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
-      var r2 = map(sin(i*12), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
-      var r = r1 +r2;
-      var x = r * cos(i);
-      var y = r * sin(i);
-    vertex(pos4x+x, pos4y+y);
-    }
-    endShape(CLOSE);
+for (let i=0; i<359; i++) {
+var r1 = map(sin(i*3), -1, 1, sizeThree/20-sizeThree/160, sizeThree/20);
+var r2 = map(sin(i*6), -1, 1, sizeThree/20-sizeThree/160, sizeThree/20);
+var r = r1 +r2;
+var x = r * cos(i);
+var y = r * sin(i);
+vertex(pos4x+x, pos4y+y);
+}
+endShape(CLOSE);
   pop();
-
 }
 
 //this is the planet with the 3 wavey rings on it
@@ -79,16 +78,15 @@ function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
     var offsety = f*sizeTwo/10
     bezier(pos3x+sizeTwo/1.85, pos3y+offsety, pos3x+sizeTwo/2.25, pos3y+sizeTwo/6+offsety, pos3x-sizeTwo/2.25, pos3y-sizeTwo/6+offsety, pos3x-sizeTwo/1.85, pos3y+offsety);
   }
-
 }
 
 
 //this is the sun in the centre of the letter
 //it's made of multiple sin loops layered on top of each other creating a gradient colour effect
 function sun (x, y) {
-  rValueArray = [144, 219, 224, 237, 237];
-  gValueArray = [102, 105, 142, 225, 225];
-  bValueArray = [189, 177, 101, 111, 151];
+  rValueArray = [235, 230, 245, 255, 255];
+  gValueArray = [119, 165, 191, 212, 230];
+  bValueArray = [119, 119, 125, 102, 102];
 
   for (let j=0; j<5; j++) {
     let Rcolour = rValueArray[j]
@@ -107,96 +105,6 @@ function sun (x, y) {
   endShape(CLOSE);
 
 }
-
-  // fill(219, 105, 177, 100);    //pink
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 36, 40);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(219, 105, 177, 100);  //pink
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 34, 38);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(224, 101, 159, 100);  //orange
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 32, 36);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(224, 142, 101, 100);  //orange
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //   var r = map(sin(i*8), -1, 1, 30, 34);
-  //   var sunx = r * cos(i);
-  //   var suny = r * sin(i); 
-  //   vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(224, 181, 101, 100);  //orange
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 28, 32);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(237, 225, 111, 100);  //yellow
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 26, 30);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(255, 250, 105, 120);  //yellow
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 24, 28);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(255, 255, 255, 100);  //white
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 22, 26);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
-
-  // fill(255, 255, 255, 120);  //white
-  // beginShape();
-  // for (let i=0; i<359; i++) {
-  //  var r = map(sin(i*8), -1, 1, 20, 24);
-  //  var sunx = r * cos(i);
-  //  var suny = r * sin(i);
-  //  vertex(x+sunx, y+suny);
-  // }
-  // endShape(CLOSE);
 }
 
 //this is the moon that moves infront of the sun
@@ -227,15 +135,36 @@ ellipse (pos2x-size/4, pos2y-size/4, size/5, size/5)
 }
 
 //this is the animation when the letters change over
-function interpolate_letter(percent, oldObj, newObj) {
+function interpolate_letter(percent, oldObj, newObj) { 
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  //these change the moon parameters
+    if (percent < 30){  //this makes the planet grow slightly before it shrinks so it makes it seem like it's orbiting the sun
+    new_letter["size"] = map(percent, 0, 25, oldObj["size"], oldObj["size"]+(oldObj["size"]/2));
+  }
+  else {
+  new_letter["size"] = map(percent, 25, 100, oldObj["size"]+(oldObj["size"]/2), newObj["size"]);
+}
+
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["size2"] = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
+
+  //these change the planet parameters
+   if (percent < 30){
+    new_letter["size2"] = map(percent, 0, 25, oldObj["size2"], oldObj["size2"]+(oldObj["size2"]/2));
+  }
+  else {
+  new_letter["size2"] = map(percent, 25, 100, oldObj["size2"]+(oldObj["size2"]/2), newObj["size2"]);
+}
   new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
   new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
-  new_letter["size3"] = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
+
+  //these change the comet parameters
+  if (percent < 30){
+    new_letter["size3"] = map(percent, 0, 25, oldObj["size3"], oldObj["size3"]+(oldObj["size3"]/2));
+  }
+  else {
+  new_letter["size3"] = map(percent, 25, 100, oldObj["size3"]+(oldObj["size3"]/2), newObj["size3"]);
+}
   new_letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
   new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
   new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
@@ -243,10 +172,26 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
-
 var swapWords = [
   "ECLIPSED",
   "ASTEROID",
   "AQUARIUS",
-  "STARGAZE"
+  "STARGAZE",
+  "OMGCOMET"
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

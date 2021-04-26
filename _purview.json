@@ -5,12 +5,20 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "2394f8d808aa494c307fcea983bf5fd6e9562e0f",
+      "name": "my first geometric-style alphabet"
     },
     {
-      "sha": "f770c9d436fc20bc5fd8d420b9b203995cd4a8f8",
-      "name": "example 1"
+      "sha": "1f0167c367ad41136f9b3b20b7c911db/2c68b3a4eaddb8055aac57de90a7a9a3ac6c2d80",
+      "name": "my second geometric-style alphabet"
+    },
+    {
+      "sha": "a1854d26a1ae3a0d6448bde04777346567e71039",
+      "name": "now it's space themed"
+    },
+    {
+      "sha": "74c1213c1a78c8d4e6fb664d51c6ae315cbcac3a",
+      "name": "space, but it moves super slowly"
     }
   ]
 }

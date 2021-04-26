@@ -1,15 +1,15 @@
 const alphabet = {
   "default": {
-  "size": 20,
-  "offsetx": 30,
-  "offsety": 135.5,
-  "size2": 20,
-  "offsetx3": 67,
-  "offsety3": 135.5,
-  "size3": 50,
-  "offsetx4": 52,
-  "offsety4": 155,
-  "angleStart": 0,
+  "size": 68,
+  "offsetx": 50,
+  "offsety": 150.5,
+  "size2": 0,
+  "offsetx3": 53,
+  "offsety3": 125,
+  "size3": 0,
+  "offsetx4": 100,
+  "offsety4": 125,
+  "angleStart": 180,
   "angleStop": 180
   },
 
