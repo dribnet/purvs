@@ -11,7 +11,7 @@ const darkBlue  = "#199cff";
 
 let rotateAmount = 0;
 let wheelRotate = 100;
-let WheelColour =40;
+let WheelColour =30;
 //ffea00 yellow colour
 //44a684 green 
 /*
@@ -56,7 +56,7 @@ let line6 = letterData ["Diagonalline4"]
   pop();
 
  //lines and arcs that will draw the letters
-  stroke(255, 221, 0);
+  stroke(255, 215, 0);
   strokeWeight(3.5);
   push();
   noFill();
@@ -112,10 +112,10 @@ function wheel(x,y, wheelRotate, WheelColour){
   line(x-35, y-35, x+35, y+35)
 
   stroke(245, 255, 171, 200);
-  strokeWeight(4);
-  ellipse(x,y,110,110);
+  strokeWeight(2.5);
+  ellipse(x,y,111,111);
   
-  stroke(255, 255, 255, 200);
+  stroke(255, 255, 255, 150);
   strokeWeight(2.5);
   ellipse(x,y,104,104);
 
@@ -128,9 +128,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   rotateAmount = map(percent, 0, wheelRotate, 0, 180);
 
   if (percent <=45){
-  WheelColour = map(percent, 0, 40, 40, 80);
+  WheelColour = map(percent, 0, 40, 30, 70);
   }else {
- WheelColour = map(percent, 40, 90, 80, 40);
+ WheelColour = map(percent, 40, 90, 70, 30);
   }
 
   // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
@@ -141,10 +141,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "LEMONADE",
+  "LEMONADE", //my font is called lemonade
   "?CITRUS?",
-  "COCKTAIL",
-  "VITAMINC",
+  "VITAMIN?",
   "?SUMMER?",
   "DRINKING",
   "CHILLING",
