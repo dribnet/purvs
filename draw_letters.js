@@ -55,8 +55,6 @@ function drawLetter(letterData) {
   let arcStart = letterData["arcStart"];
   let arcEnd = letterData["arcEnd"];
 
-
-
   //Draw arc
   push();
   fill(pink);
@@ -67,8 +65,6 @@ function drawLetter(letterData) {
   rect(pos4x-5, pos4y+5, size+30, size-10  ,arcSize, arcSize, arcSize, arcSize);
   rect(pos4x-5, pos5y+60, size+30, size-10  ,arcSize, arcSize, arcSize, arcSize);
   pop();
-
- 
 
   //Draw rect
 
