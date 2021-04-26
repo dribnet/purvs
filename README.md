@@ -1,8 +1,13 @@
+## Feedback
+
+Phoebe helped me figure out how to hide the bubbles that goes way out of the frame by using an "if statement".
+I am also trying other colours to see if I can achieve something even more "Bauhaus".
+
 ## Interpolations
 
 The size of each element interpolates to the default size before interpolating to the new shape's size. This helps to see the change in letter even when you press the same one twice in a row. It also gives a nice bounciness to the overall interpolation of the letter.
 The interpolation of the arc and rectangle's angles are left to default as they did not look nice when I changed them.
-I could still work on it but I don't really have ideas and don't want to make the animation too chaotic.
+I also made the offset of each shapes start at 30% to give them a little bit more of a snapping affect which goes well with the bounciness of the size interpolations.
 
 ## Inspiration
 

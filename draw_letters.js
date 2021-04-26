@@ -34,18 +34,18 @@ function drawLetter(letterData) {
 
   //Draw an ellipse
     noStroke();
-    fill('#db1c5f'); //red
+    fill('#000000'); //red #db1c5f
     ellipseMode(CORNER);
     ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-    fill('#4c5bd8'); //blue
+    fill('#000000'); //blue #4c5bd8
     arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
 
 
   // draw a rectangle with round corners and rotate it
-    fill("#fadf43"); //yellow
+    fill('#000000'); //yellow #fadf43
     push();
     translate(posx,posy);
     rotate(rectAngle);
@@ -69,10 +69,18 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
  ellipseMode(CENTER);
  noFill();
  strokeWeight(2);
+
  stroke('#fadf43');//yellow
- ellipse(pos2x, pos2y, 20);
+ ellipse(pos2x, pos2y, 20); //ellipse following the big ellipse's position
+
  stroke('#4c5bd8');//blue
- ellipse(pos3x, pos3y, 10);
+ if(pos3y < -25 || pos3x < -99){ // if the y position of the big arc is smaller than -25 or the x position smaller than -99, then draw the bubble at 0,0
+ // noStroke()
+  ellipse(0,0,10)
+ } else { // if it's lower than -24, then use the arc's position to draw the bubble
+  ellipse(pos3x, pos3y, 10);
+ }
+ 
  stroke('#db1c5f');//red
  ellipse(posx, posy, 30);
  pop();
@@ -86,12 +94,12 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
 function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angleStart, angleEnd, rectAngle){
 
   noFill();
-  strokeWeight(1.5);
+  strokeWeight(4); //1.5
 
   if(size1==0){ // is the size of the ellipse is 0 then no stroke applied to the shape so that no dot appears on the top of the letter
     noStroke();
   } else {
-   stroke('#000000'); // black stroke if the size is other than 0
+   stroke('#db1c5f'); // black stroke if the size is other than 0
   }
 
   //Draw an ellipse
@@ -101,7 +109,7 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
     if(size2==0){ //if the size of the arc is 0 then no stroke applied to the shape
       noStroke();
     } else {
-    stroke('#000000'); // black stroke if the size is other than 0
+    stroke('#4c5bd8'); // black stroke if the size is other than 0
     }
 
   //Draw an arc
@@ -110,7 +118,7 @@ function lines(posx, posy, pos2x, pos2y, pos3x, pos3y, size, size1, size2, angle
     if(size==0){ //if the size of the rectangle is 0 then no stroke applied to the shape
       noStroke();
     }else{
-      stroke('#000000'); // black stroke if the size is other than 0
+      stroke('#fadf43'); // black stroke if the size is other than 0
     }
 
   // draw a rectangle with round corners and rotate it
@@ -131,14 +139,14 @@ function interpolate_letter(percent, oldObj, newObj) {
   let defaultChar = getObjFromChar("default");
 
   // making the sizes of the rectangle, ellipse and arc go back to the default before interpolating towards the new size
-  //thanks to this, you can still see the letter change when you press the same letter
-    if(percent < 50){ 
+  // thanks to this, you can still see the letter change when you press the same letter
+  if(percent < 50){ 
 
-       new_letter["size"] = map(percent, 0, 50, oldObj["size"], defaultChar["size"]); 
+    new_letter["size"] = map(percent, 0, 50, oldObj["size"], defaultChar["size"]); 
 
-       new_letter["size1"] = map(percent, 0, 50, oldObj["size1"], defaultChar["size1"]);
+    new_letter["size1"] = map(percent, 0, 50, oldObj["size1"], defaultChar["size1"]);
 
-       new_letter["size2"] = map(percent, 0, 50, oldObj["size2"], defaultChar["size2"]);
+    new_letter["size2"] = map(percent, 0, 50, oldObj["size2"], defaultChar["size2"]);
 
 
   } else {
