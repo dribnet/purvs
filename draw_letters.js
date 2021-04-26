@@ -34,10 +34,26 @@ function drawLetter(letterData) {
 
 
 stroke(334, 93, 100);
-customarc(arc4, arc5)
-customtriangle(tri1, tri2, tri3, tri4, tri5);
-customwave(line1, line2, line3, line4, line5);
+customarc(arc4, arc5);
 
+stroke(177, 100, 100);
+customtriangle(tri1, tri2, tri3, tri4, tri5);
+
+stroke(177, 50, 100, 0.5);
+customtriangle(tri1-5, tri2-5, tri3, tri4+5, tri5+5);
+
+blendMode(REMOVE);
+stroke(177, 60, 100, 0.3);
+customtriangle(tri1-10, tri2-10, tri3, tri4+10, tri5+10);
+
+
+stroke(177, 50, 100, 0.3);
+customtriangle(tri1+5, tri2+5, tri3, tri4-5, tri5-5);
+
+stroke(177, 50, 100, 0.3);
+customtriangle(tri1+10, tri2+10, tri3, tri4-10, tri5-10);
+
+customwave(line1, line2, line3, line4, line5);
 }
 
 function customarc(arc4, arc5){
@@ -72,7 +88,7 @@ function customtriangle (tri1, tri2, tri3, tri4, tri5){
 
   push();
 // original code taken from Programming Design Systems chapter 5 Procedural Shapes
-stroke(177, 100, 100);
+
 translate(tri1,tri2); 
 rotate(tri3);
 beginShape();
@@ -83,49 +99,10 @@ for(let i = 0; i <= numVertices; i++) {
 }
 endShape();
 pop();
-
-push();
-strokeWeight(4);
-stroke(177, 65, 100, 0.5);
-translate(tri1,tri2); 
-rotate(tri3);
-beginShape();
-for(let i = 0; i <= numVertices; i++) {
-  const x = cos((i * spacing)) * tri4;
-  const y = sin((i * spacing)) * tri5;
-  vertex(x-5, y-5);
-}
-endShape();
-
-strokeWeight(3);
-stroke(177, 40, 100, 0.3);
-beginShape();
-for(let i = 0; i <= numVertices; i++) {
-  const x = cos((i * spacing)) * tri4;
-  const y = sin((i * spacing)) * tri5;
-  vertex(x-10, y-10);
-}
-endShape();
-
- pop();
 }
 
 function customwave (line1, line2, line3, line4, line5){
 blendMode(LIGHTEST);
-
-push();
-strokeWeight(3);
-stroke(57, 20, 100, 0.8);
-translate(line1, line2);
-rotate(line3);
-beginShape();
-for(let i = 0; i < line4; i+=90) {
-  const x = i * 2;
-  const y = sin(i * 2) * 100;
-  ellipse((x/line5), (y/14), 10);
-}
-endShape();
-pop();
 
 push();
 strokeWeight(5);
@@ -142,16 +119,24 @@ for(let i = 0; i < line4; i++) {
 endShape();
 pop();
 
-
-
 }
 
 
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["arcStart"]    = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
-  new_letter["arcEnd"] = map(percent, 0, 100, oldObj["arcEnd"], newObj["arcEnd"]);
+  let defaultChar = getObjFromChar("default");
+  let targetwave = 100;
+  if(percent < 40){
+  new_letter["arcStart"]    = map(percent, 0, 40, oldObj["arcStart"], defaultChar["arcStart"]);
+  new_letter["arcEnd"] = map(percent, 0, 40, oldObj["arcEnd"], defaultChar["arcEnd"]);
+  new_letter["wave"] = map(percent, 0, 40, oldObj["wave"], newObj["wave"]);
+}
+else{
+  new_letter["arcStart"]    = map(percent, 41, 100, defaultChar["arcStart"], newObj["arcStart"]);
+  new_letter["arcEnd"] = map(percent, 41, 100, defaultChar["arcEnd"], newObj["arcEnd"]);
+}
+
   new_letter["triX"] = map(percent, 0, 100, oldObj["triX"], newObj["triX"]);
   new_letter["triY"]    = map(percent, 0, 100, oldObj["triY"], newObj["triY"]);
   new_letter["triR"] = map(percent, 0, 100, oldObj["triR"], newObj["triR"]);
@@ -171,5 +156,6 @@ var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
   "POPLIGHT",
-  "12345678"
+  "12345678",
+  "PARTYPOP",
 ]

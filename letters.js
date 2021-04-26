@@ -1,18 +1,17 @@
 const alphabet = {
   "default": {
-"arcX": 50,
   "arcStart": 0,
   "arcEnd": 360,
-  "triX": 50,
-  "triY": 145,
-  "triR": 270,
-  "triH": 55,
-  "triW": 25,
-   "lineX": 20,
-  "lineY": 140,
-   "lineR": 0,
-   "wave": 360,
-   "waveH": 12,
+  "triX": 52,
+  "triY": 100,
+  "triR": 119,
+  "triH": 40.5,
+  "triW": 43,
+  "lineX": 10,
+  "lineY": 46,
+  "lineR": 50,
+  "wave": 550,
+  "waveH": 9
   },
   "A": {
   "arcX": 50,
