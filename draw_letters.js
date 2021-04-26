@@ -24,15 +24,14 @@ function drawLetter(letterData) {
   let col1 = letterData["ColourPlanet"];
   let col2 = letterData["ColourSun"];
 
-  let starsize1 = random(9, 10); // random stars
-  let starsize2 = random(5, 6);
-  let starsize3 = random(6, 7);
-  let starsize4 = random(7, 8);
+  let starsize1 = random(10, 12); // random stars
+  let starsize2 = random(4, 6);
+  let starsize3 = random(6, 8);
+  let starsize4 = random(8, 10);
 
   var orbit = 2;
 
-  //fill(0);
-  //quad(-5, 0, -5, 200, 105, 200, 105, 0); // black background
+
   fill(255);
   ellipse(25,15,starsize1, starsize1); // the stars in the background
   ellipse(88,25,starsize2, starsize2);
@@ -78,7 +77,8 @@ else if (orbit == 2){
   else if (col2 == 2) {
     fill(255,255,255);
   }
-  ellipse(50, 100, 50, 50);
+
+  ellipse(50, 100, 45, 45); // sun ellipse 
 
   if(col1 == 0){ //this is the planet colour
     fill(239, 31, 100);
@@ -111,14 +111,12 @@ else if (orbit == 2){
     fill(53, 225, 216);
   }
 
-  // var X = letterData["ShadowX"];
-  // var Y = letterData["ShadowY"];
-  // var SizeW = letterData["ShadowW"];
-  // var SizeH = letterData["ShadowH"];
 
   var ShadowPos = letterData["Shadow"];
-  var X = 10;
-  var Y = 10;
+  var X = 0; // var setting so that editor doesnt break and gives point to allign.
+  var Y = 0;
+  var SizeW = 1;
+  var SizeH = 1;
   if (ShadowPos == 0) { //this the code that can be typed to tell where the shadow is
     X = 0;
     Y = 0;
