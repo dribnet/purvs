@@ -29,7 +29,7 @@ function drawLetter(letterData) {
   let starsize3 = random(6, 8);
   let starsize4 = random(8, 10);
 
-  var orbit = 2;
+  var orbit = 3;
 
 
   fill(255);
@@ -67,12 +67,60 @@ else if (orbit == 2){
   ellipse(75, 100, 50, 50);
   ellipse(25, 100, 50, 50);
 }
+else if (orbit == 3){ //orbit that has waves comming out.
+  fill(30);
+  ellipse(75, 125, 50, 50);
+  ellipse(25, 125, 50, 50);
+  ellipse(75, 75, 50, 50);
+  ellipse(25, 75, 50, 50);
+
+  ellipse(75, 125, 40, 40);
+  ellipse(25, 125, 40, 40);
+  ellipse(75, 75, 40, 40);
+  ellipse(25, 75, 40, 40);
+
+  ellipse(75, 125, 30, 30);
+  ellipse(25, 125, 30, 30);
+  ellipse(75, 75, 30, 30);
+  ellipse(25, 75, 30, 30);
+
+  ellipse(75, 125, 20, 20);
+  ellipse(25, 125, 20, 20);
+  ellipse(75, 75, 20, 20);
+  ellipse(25, 75, 20, 20);  
+
+  fill(70);
+  ellipse(50, 75, 50, 50);
+  ellipse(50, 125, 50, 50);
+  ellipse(75, 100, 50, 50);
+  ellipse(25, 100, 50, 50);
+
+  ellipse(50, 75, 40, 40);
+  ellipse(50, 125, 40, 40);
+  ellipse(75, 100, 40, 40);
+  ellipse(25, 100, 40, 40);
+
+  ellipse(50, 75, 30, 30);
+  ellipse(50, 125, 30, 30);
+  ellipse(75, 100, 30, 30);
+  ellipse(25, 100, 30, 30);
+
+  ellipse(50, 75, 20, 20);
+  ellipse(50, 125, 20, 20);
+  ellipse(75, 100, 20, 20);
+  ellipse(25, 100, 20, 20);
+
+  ellipse(50, 75, 10, 10);
+  ellipse(50, 125, 10, 10);
+  ellipse(75, 100, 10, 10);
+  ellipse(25, 100, 10, 10);
+}
 
   if(col2 == 0){ // this is the sun colour
- fill(250,180,0);
+ fill(255,96,0);
   }
   else if (col2 == 1) {
-    fill(255,255,0);
+    fill(248,208,6);
   }
   else if (col2 == 2) {
     fill(255,255,255);
@@ -172,6 +220,13 @@ else{
 }
 
 var swapWords = [
+  "?ORBITS?",     //Name Orbits
+  "PLANETS?",
+  "?SPACE??",
+  "MEEP123?",
+  "ABC?123?",
+  "SHIMMERS",
+  "?SHINES?",
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
