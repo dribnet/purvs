@@ -6,6 +6,8 @@
 
 //in this update i have changed the design of my letters and also started to add more parameters, for now i got eleven parmeters, it is little bit too much, i might going to change it again in the future.
 
+//cpmpleted the sletch of my new design, i think i will be focus work on this one.
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
