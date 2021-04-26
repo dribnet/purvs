@@ -2,9 +2,9 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Practice. The letter A is composed with a triangle and quad. B is composed with two ellipses and two rects. C is composed with two arcs. The size and position of the shapes are not fixed. 
+Example 1
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Alphabets using 2-5 kite shapes. Rotaing, scaling and changing the XY position of each kite shape.
 
 
 
