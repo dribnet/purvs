@@ -17,24 +17,9 @@ var systemBoxColor = "#FFFFFF";
 const strokeColor = "#000000";
 const translatex = 50;
 const translatey = 100;
-
 function drawLetter(letterData) {
   // color/stroke setup
-  push();
-  translate(translatex,translatey);
-  stroke(strokeColor);
-  strokeWeight(4);
-
-  // Determine parameters for second circle
-  let size = letterData["size"];
-  let posx = letterData["offsetx"];
-  let posy = letterData["offsety"];
-  // Determine paramters for second circle
-  let size2 = letterData["size2"];
-  let pos2x = letterData["offsetx2"];
-  let pos2y = letterData["offsety2"];
-  // Determine paramters for the line
-  let sw = int(letterData["SW"]);
+  let sw = letterData["SW"];
   let startx = letterData["startx"];
   let starty = letterData["starty"];
   let endx = letterData["endx"];
@@ -51,21 +36,11 @@ function drawLetter(letterData) {
   let starty3 = letterData["starty3"];
   let endx3 = letterData["endx3"];
   let endy3 = letterData["endy3"];
-  // let SW3 = letterData["SW3"];
 
-
-let MoonC = letterData["MoonColour"];
-
-  // drawing base ellipse
-  // fill('#0');
-  // ellipse(0, 0, 100, 100);
- // drawing ellipse
-  fill('#76c8ff');
-  ellipse(posx, posy, size, size);
- // drawing ellipse
- fill('#76c8ff');
-  ellipse(pos2x, pos2y, size2, size2);
- // drawing big Line1
+push();
+  translate(translatex,translatey);
+  stroke(strokeColor);
+  strokeWeight(4);
   push();
   stroke('#76c8ff');
   // strokeWeight(80);
@@ -84,25 +59,16 @@ let MoonC = letterData["MoonColour"];
   strokeWeight(30);
   line(startx3, starty3, endx3, endy3);
   pop();
-
-
 pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
-  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
-  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
-
-  new_letter["startx"] = map(percent, 0, 100, oldObj["startx"], newObj["startx"]);
+    new_letter["startx"] = map(percent, 0, 100, oldObj["startx"], newObj["startx"]);
   new_letter["starty"] = map(percent, 0, 100, oldObj["starty"], newObj["starty"]);
   new_letter["endx"] = map(percent, 0, 100, oldObj["endx"], newObj["endx"]);
   new_letter["endy"] = map(percent, 0, 100, oldObj["endy"], newObj["endy"]);
- new_letter["sw"] = map(percent, 0, 100, oldObj["sw"], newObj["sw"]);
+  new_letter["SW"] = map(percent, 0, 100, oldObj["SW"], newObj["SW"]);
 
   new_letter["startx2"] = map(percent, 0, 100, oldObj["startx2"], newObj["startx2"]);
   new_letter["starty2"] = map(percent, 0, 100, oldObj["starty2"], newObj["starty2"]);
@@ -114,7 +80,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["starty3"] = map(percent, 0, 100, oldObj["starty3"], newObj["starty3"]);
   new_letter["endx3"] = map(percent, 0, 100, oldObj["endx3"], newObj["endx3"]);
   new_letter["endy3"] = map(percent, 0, 100, oldObj["endy3"], newObj["endy3"]);
-  // new_letter["SW3"] = map(percent, 0, 100, oldObj["SW3"], newObj["SW3"]);
+  return new_letter;
 }
 
 var swapWords = [
