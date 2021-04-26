@@ -1,2 +1,2 @@
 ## MDDN 242 2021 Assignment 2
-I improved the g and I think I will leave the z where it is. I am slightly concerned that the a b and g look less blocky than the rest of the alphabet. I also got the interpolation working and fixed a bug on it where I incorrectly enter a variable so the interpolation causing a vertex to behave weirdly. I also  set the interpolation to shrink the old letter then grow the new letter. I have mixed opinions on this as while it works well I feel like it is a bit basic.  
+I changed the speed of the interpolation and parameterised it. I have made it so the interpolation really pops onto the screen almost like its a bold font. 
