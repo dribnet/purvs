@@ -56,20 +56,24 @@ noStroke();
 }
 
 function shootingStar (pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo) {
-   arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);
+fill(255, 242, 218, 200)
+arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo);
 push();
 stroke (255);
-strokeWeight(1);
-fill(255, 220, 130)
+strokeWeight(0);
+fill(255);
 beginShape();
 for (let i=0; i<359; i++) {
-var r = map(sin(i*8), -1, 1, sizeThree/10-sizeThree/16, sizeThree/10+sizeThree/12);
+var r1 = map(sin(i*8), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
+var r2 = map(sin(i*12), -1, 1, sizeThree/15-sizeThree/12, sizeThree/15);
+var r = r1 +r2;
 var x = r * cos(i);
 var y = r * sin(i);
 vertex(pos4x+x, pos4y+y);
 }
 endShape(CLOSE);
 pop();
+
 }
 
 function planetOne (pos3x, pos3y, sizeTwo, sizeTwo) {
@@ -180,13 +184,22 @@ endShape(CLOSE);
 }
 
 function moon (pos2x, pos2y, size, size)   {
-  stroke(140);
+  stroke(150, 150, 180);
   strokeWeight(2);
   fill(120, 120, 150);
-  ellipse(pos2x, pos2y, size, size);
+beginShape();
+for (let i=0; i<359; i++) {
+var r1 = map(sin(i*3), -1, 1, size/4-size/32, size/4);
+var r2 = map(sin(i*6), -1, 1, size/4-size/32, size/4);
+var r = r1 +r2;
+var x = r * cos(i);
+var y = r * sin(i);
+vertex(pos2x+x, pos2y+y);
+}
+endShape(CLOSE);
 
 noStroke();
-fill(130, 130, 160)
+fill(150, 150, 180)
 ellipse (pos2x-size/6, pos2y+size/6, size/2.5, size/2.5)
 ellipse (pos2x+size/4.5, pos2y-size/6, size/3, size/3)
 ellipse (pos2x+size/8, pos2y, size/6, size/6)
