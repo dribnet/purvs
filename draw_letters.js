@@ -1,12 +1,16 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
+//const backgroundColor  = "#000000";
+const strokeColor      = "#ffffff";
+
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const darkRed = "#4f0000"
+const lightRed = "#cc0000"
 
 /*
  * Draw the letter given the letterData
@@ -16,28 +20,43 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
-
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size = letterData["size"];
+
+  let rec1x = letterData["rx1"];
+  let rec1y = letterData["ry1"];
+
+  let rec2x = letterData["rx2"]
+  let rec2y = letterData["ry2"]
+
+  let rec3x = letterData["rx3"]
+  let rec3y = letterData["ry3"]
+
+  let rec4x = letterData["rx4"]
+  let rec4y = letterData["ry4"]
+
+  let rec5x = letterData["rx5"]
+  let rec5y = letterData["ry5"]
+
+  let rec6x = letterData["rx6"]
+  let rec6y = letterData["ry6"]
+
+  let rec7x = letterData["rx7"]
+  let rec7y = letterData["ry7"]
+
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-}
+  noFill();
+  //rectMode(CENTER)
+  noStroke()
+  rect(0, 0, 80, 80);
 
-function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  stroke(strokeColor)
+  rect(rec1x, rec1y, size, size);
+  rect(rec2x, rec2y, size, size);
+  rect(rec3x, rec3y, size, size);
+  rect(rec4x, rec4y, size, size);
+  rect(rec5x, rec5y, size, size);
 }
 
 var swapWords = [
