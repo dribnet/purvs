@@ -1,12 +1,13 @@
 ## Interpolations
 
-The size of each element goes back to the default size before going towards the new size. This helps see the change in letter even when you press the same one twice in a row. I also gives a nice bounciness to the overall interpolation of the letter.
+The size of each element interpolates to the default size before interpolating to the new shape's size. This helps to see the change in letter even when you press the same one twice in a row. It also gives a nice bounciness to the overall interpolation of the letter.
 The interpolation of the arc and rectangle's angles are left to default as they did not look nice when I changed them.
+I could still work on it but I don't really have ideas and don't want to make the animation too chaotic.
 
 ## Inspiration
 
 This alphabet takes inspiration from [**Wassily Kandinsky**](https://www.wassilykandinsky.net), a Russian painter and pioneer of abstract art (1866-1944).
-The [**Bauhaus art**](https://i.pinimg.com/originals/af/be/fb/afbefbd7da9a1aea6ddf6237a48f7b50.jpg) movement inspires the colour palette because Kandinsky took part in it.
+The [**Bauhaus art**](https://i.pinimg.com/originals/af/be/fb/afbefbd7da9a1aea6ddf6237a48f7b50.jpg) movement inspires the colour palette as Kandinsky took part in it.
 
 ## Letters composition
 
