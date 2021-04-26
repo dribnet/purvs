@@ -1,3 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-I have just finished all the letters and numbers of my alphabet. Somee still need a bit of tweeking to make them more legiable but they pretty much finished.
+I am playing around with the background colour. since I am basing my alphabet of memphis art I think it would be a good idea to use a bright colour as my background. when researching memphis art I found that this light blue colour is commomly used. therefore I have applied it to my background to see what it would look like.

@@ -84,13 +84,13 @@ const alphabet = {
 
   "quadrotation": 315,
 
-  "GreenDot1xpos": 120,
+  "GreenDot1xpos": 100,
 
-  "GreenDot1ypos": 100,
+  "GreenDot1ypos": 110,
 
-  "greenDot2xpos": 90,
+  "greenDot2xpos": 100,
 
-  "GreenDot2ypos": 150,
+  "GreenDot2ypos": 160,
 
   "GreenDot3xpos": 60,
 
@@ -367,11 +367,11 @@ const alphabet = {
 
   "BlackLineypos": 280,
 
-  "BlueCircleSize": 50,
+  "BlueCircleSize": 40,
 
-  "BlueCirclexPos": 40,
+  "BlueCirclexPos": 50,
 
-  "BlueCircleyPos": 310
+  "BlueCircleyPos": 315
   },
 
 
@@ -1194,7 +1194,7 @@ const alphabet = {
 
   "quadYLoki": 200,
 
-  "quadrotation": -10,
+  "quadrotation": 350,
   
   "GreenDot1xpos": 115,
 

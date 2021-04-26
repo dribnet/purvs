@@ -2,11 +2,13 @@
 // var systemBackgroundColor = "#e3eded";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
-
+var systemBackgroundColor = "#b1f1fc";
  //internal constants 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
 const strokeColor  = "#233f11";
+
+
 
 /*
  * Draw the letter given the letterData
@@ -40,6 +42,10 @@ function drawLetter(letterData) {
 
   let RedObjectAngle = letterData["RedRotation"];
 
+  let RedxPos = letterData["RedxPosition"]
+
+  let RedyPos = letterData["RedyPosition"]
+
   let BlackLinex = letterData["BlackLinexpos"];
 
   let BlackLiney = letterData["BlackLineypos"];
@@ -50,16 +56,11 @@ function drawLetter(letterData) {
 
   let CircleyPos = letterData["BlueCircleyPos"];
 
-  let RedxPos = letterData["RedxPosition"]
 
-  let RedyPos = letterData["RedyPosition"]
 
     angleMode(DEGREES)
 
-
-
-
-
+// background(160, 260, 260)
 
 //Yellow Quad
   push();
@@ -88,7 +89,7 @@ function drawLetter(letterData) {
   translate(RedxPos, RedyPos)
   rotate(RedObjectAngle)
   fill(200, 20, 20);
-  rect(70, 5, 150, 10)
+  rect(70, 5, 150, 10);
   ellipse(210, 10, 70, 70)
   pop()
 
@@ -118,9 +119,25 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["quadXLoki"] = map(percent, 0, 100, oldObj["quadXLoki"], newObj["quadXLoki"]);
+  new_letter["quadYLoki"] = map(percent, 0, 100, oldObj["quadYLoki"], newObj["quadYLoki"]);
+  new_letter["quadrotation"] = map(percent, 0, 100, oldObj["quadrotation"], newObj["quadrotation"]);
+  new_letter["GreenDot1xpos"] = map(percent, 0, 100, oldObj["GreenDot1xpos"], newObj["GreenDot1xpos"]);
+  new_letter["GreenDot1ypos"] = map(percent, 0, 100, oldObj["GreenDot1ypos"], newObj["GreenDot1ypos"]);
+  new_letter["greenDot2xpos"] = map(percent, 0, 100, oldObj["greenDot2xpos"], newObj["greenDot2xpos"]);
+  new_letter["GreenDot2ypos"] = map(percent, 0, 100, oldObj["GreenDot2ypos"], newObj["GreenDot2ypos"]);
+  new_letter["GreenDot3xpos"] = map(percent, 0, 100, oldObj["GreenDot3xpos"], newObj["GreenDot3xpos"]);
+  new_letter["GreenDot3ypos"] = map(percent, 0, 100, oldObj["GreenDot3ypos"], newObj["GreenDot3ypos"]);
+  new_letter["RedRotation"] = map(percent, 0, 100, oldObj["RedRotation"], newObj["RedRotation"]);
+  new_letter["BlackLinexpos"] = map(percent, 0, 100, oldObj["BlackLinexpos"], newObj["BlackLinexpos"]);
+  new_letter["BlackLineypos"] = map(percent, 0, 100, oldObj["BlackLineypos"], newObj["BlackLineypos"]);
+  new_letter["BlueCircleSize"] = map(percent, 0, 100, oldObj["BlueCircleSize"], newObj["BlueCircleSize"]);
+  new_letter["BlueCirclexPos"] = map(percent, 0, 100, oldObj["BlueCirclexPos"], newObj["BlueCirclexPos"]);
+  new_letter["BlueCircleyPos"] = map(percent, 0, 100, oldObj["BlueCircleyPos"], newObj["BlueCircleyPos"]);
+  new_letter["RedxPosition"] = map(percent, 0, 100, oldObj["RedxPosition"], newObj["RedxPosition"]);
+  new_letter["RedyPosition"] = map(percent, 0, 100, oldObj["RedyPosition"], newObj["RedyPosition"]);
+
+
   return new_letter;
 }
 
