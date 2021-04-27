@@ -74,14 +74,14 @@ const letterC = {
   "posy2": 20, //blue arc
   "posx3": -70, //yellow line
   "posy3": 100, //yellow line
-  "posx4": -50, //red line
-  "posy4": -50, //red line
+  "posx4": -40, //red line
+  "posy4": -40, //red line
 
 //sizes
   "sizex": -625, //pink arc
   "sizey": -100, //pink arc
-  "sizex2": -30,//red line
-  "sizey2": -50, // red line
+  "sizex2": -35,//red line
+  "sizey2": -60, // red line
   "sizex3": -680, //blue arc
   "sizey3": -300, //blue arc
   "sizex4": -60, //yellow line

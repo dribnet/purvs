@@ -758,19 +758,80 @@ const alphabet = {
   "roty1": 20,//blue arc stop
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 60, //pink arc
+  "posy": 185, //pink arc
+  "posx2": 60, //blue arc
+  "posy2": 125, //blue arc
+  "posx3": 75, //yellow line
+  "posy3": 179, //yellow line
+  "posx4": 35, //red line
+  "posy4": 150, //red line
+
+//sizes
+  "sizex": 30, //pink arc
+  "sizey": 30, //pink arc
+  "sizex2": 75,//red line
+  "sizey2": 150, // red line
+  "sizex3": 30, //blue arc
+  "sizey3": 30, //blue arc
+  "sizex4": 75, //yellow line
+  "sizey4": 125, //yellow line
+//arc sizes
+  "rotx": -119.6, //pink arc start
+  "roty": 10, //pink arc stop
+  "rotx1": 3, //blue arc start
+  "roty1": 56.5,//blue arc stop
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 40, //pink arc
+  "posy": 150, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 150, //blue arc
+  "posx3": 15, //yellow line
+  "posy3": 150, //yellow line
+  "posx4": 50, //red line
+  "posy4": 133, //red line
+
+//sizes
+  "sizex": 50, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 30, //red line
+  "sizey2": 200, // red line
+  "sizex3": 100, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 100, //yellow line
+  "sizey4": 150, //yellow line
+  "rotx": 98, //pink arc start
+  "roty": 10,//pink arc stop
+  "rotx1": 5, //blue arc start
+  "roty1": -24,//blue arc stop
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 62, //pink arc
+  "posy": 140, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 175, //blue arc
+  "posx3": 80, //yellow line
+  "posy3": 130, //yellow line
+  "posx4": 40, //red line
+  "posy4": 178, //red line
+
+//sizes
+  "sizex": 51, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 26, //red line
+  "sizey2": 200, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 95, //yellow line
+  "sizey4": 125, //yellow line
+  "rotx": 97, //pink arc start
+  "roty": 5.7,//pink arc stop
+  "rotx1": 86, //blue arc start
+  "roty1": 40,//blue arc stop
   },
   "6": {
 //position
@@ -795,7 +856,7 @@ const alphabet = {
 //arc sizes
   "rotx": 98, //pink arc start
   "roty": 10, //pink arc stop
-  "rotx1": 98, //blue arc start
+  "rotx1": 100, //blue arc start
   "roty1": 10,//blue arc stop
   },
   "7": {
@@ -819,20 +880,62 @@ const alphabet = {
   "sizex4": 50, //yellow line
   "sizey4": 100, //yellow line
 //arc sizes
-  "rotx": 98, //pink arc start
+  "rotx": 50, //pink arc start
   "roty": 10, //pink arc stop
   "rotx1": 98, //blue arc start
   "roty1": 50,//blue arc stop
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 50, //pink arc
+  "posy": 125, //pink arc
+  "posx2": 50, //blue arc
+  "posy2": 175, //blue arc
+  "posx3": 62, //yellow line
+  "posy3": 190, //yellow line
+  "posx4": 35, //red line
+  "posy4": 105, //red line
+
+
+//sizes
+  "sizex": 50, //pink arc
+  "sizey": 50, //pink arc
+  "sizex2": 60,//red line
+  "sizey2": 145, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 40, //yellow line
+  "sizey4": 150, //yellow line
+  "rotx": 98, //pink arc start 
+  "roty": 10, //pink start stop
+  "rotx1": 98, //blue arc start
+  "roty1": 10, //blue arc stop
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//position
+  "posx": 60, //pink arc
+  "posy": 175, //pink arc
+  "posx2": 40, //blue arc
+  "posy2": 130, //blue arc
+  "posx3": 70, //yellow line
+  "posy3": 200, //yellow line
+  "posx4": 20, //red line
+  "posy4": 125, //red line
+
+//sizes
+  "sizex": 30, //pink arc
+  "sizey": 30, //pink arc
+  "sizex2": 60,//red line
+  "sizey2": 130, // red line
+  "sizex3": 50, //blue arc
+  "sizey3": 50, //blue arc
+  "sizex4": 51, //yellow line
+  "sizey4": 152, //yellow line
+//arc sizes
+  "rotx": 15, //pink arc start
+  "roty": 50.5, //pink arc stop
+  "rotx1": 98, //blue arc start
+  "roty1": 10,//blue arc stop
   }
 
 }
