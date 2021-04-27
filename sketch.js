@@ -2,13 +2,9 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * my ten variable per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+   five x and y coordinates to map out each letter
  *
  */
 
@@ -102,8 +98,6 @@ function drawLetter(posx, posy, letterData) {
   let pos3y = posy + letterData["y3"];
   let pos4y = posy + letterData["y4"];
   let pos5y = posy + letterData["y5"];
-  
-
 
   // draws lines
   line(pos1x, pos1y, pos2x, pos2y);
