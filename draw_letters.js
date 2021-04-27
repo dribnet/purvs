@@ -22,9 +22,9 @@ push();
   noStroke()
    angleMode(DEGREES);
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 100 + letterData["offsety"];
+  // let size2 = letterData["size"];
+  // let pos2x = 50  + letterData["offsetx"];
+  // let pos2y = 100 + letterData["offsety"];
 
   let tposx1 = 50+ letterData["tx1"];
   let tposy1 = 100+ letterData["ty1"];
@@ -163,9 +163,40 @@ pop();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["tx1"]    = map(percent, 0, 100, oldObj["tx1"], newObj["tx1"]);
+  new_letter["ty1"] = map(percent, 0, 100, oldObj["ty1"], newObj["ty1"]);
+  new_letter["tx2"] = map(percent, 0, 100, oldObj["tx2"], newObj["tx2"]);
+  new_letter["ty2"] = map(percent, 0, 100, oldObj["ty2"], newObj["ty2"]);
+  new_letter["tx3"] = map(percent, 0, 100, oldObj["tx3"], newObj["tx3"]);
+  new_letter["ty3"] = map(percent, 0, 100, oldObj["ty3"], newObj["ty3"]);
+
+  new_letter["rx1"] = map(percent, 0, 100, oldObj["rx1"], newObj["rx1"]);
+  new_letter["ry1"] = map(percent, 0, 100, oldObj["ry1"], newObj["ry1"]);
+  new_letter["rx2"] = map(percent, 0, 100, oldObj["rx2"], newObj["rx2"]);
+  new_letter["ry2"] = map(percent, 0, 100, oldObj["ry2"], newObj["ry2"]);
+  new_letter["rw1"] = map(percent, 0, 100, oldObj["rw1"], newObj["rw1"]);
+  new_letter["rh1"] = map(percent, 0, 100, oldObj["rh1"], newObj["rh1"]);
+  new_letter["rw2"] = map(percent, 0, 100, oldObj["rw2"], newObj["rw2"]);
+  new_letter["rh2"] = map(percent, 0, 100, oldObj["rh2"], newObj["rh2"]);
+
+  new_letter["ax1"] = map(percent, 0, 100, oldObj["ax1"], newObj["ax1"]);
+  new_letter["ay1"] = map(percent, 0, 100, oldObj["ay1"], newObj["ay1"]);
+  new_letter["aw1"] = map(percent, 0, 100, oldObj["aw1"], newObj["aw1"]);
+  new_letter["ah1"] = map(percent, 0, 100, oldObj["ah1"], newObj["ah1"]);
+  new_letter["angle1"] = map(percent, 0, 100, oldObj["angle1"], newObj["angle1"]);
+  new_letter["angle2"] = map(percent, 0, 100, oldObj["angle2"], newObj["angle2"]);
+
+  new_letter["ax2"] = map(percent, 0, 100, oldObj["ax2"], newObj["ax2"]);
+  new_letter["ay2"] = map(percent, 0, 100, oldObj["ay2"], newObj["ay2"]);
+  new_letter["aw2"] = map(percent, 0, 100, oldObj["aw2"], newObj["aw2"]);
+  new_letter["ah2"] = map(percent, 0, 100, oldObj["ah2"], newObj["ah2"]);
+  new_letter["angle3"] = map(percent, 0, 100, oldObj["angle3"], newObj["angle3"]);
+  new_letter["angle4"] = map(percent, 0, 100, oldObj["angle4"], newObj["angle4"]);
+
+
+
+
+
   return new_letter;
 }
 
