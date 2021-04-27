@@ -3,6 +3,7 @@ var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
+
 /*
  * Draw the letter given the letterData
  *
@@ -14,16 +15,19 @@ function drawLetter(letterData) {
 
 //Nodes - These make up the custom shape used. These can be manipulated with letters.js
 
+let width = letterData["offsetMidTop"] - letterData["offsetBottomMid"]
+let WidthScaleChange = map(width,-25,25,-.15,.05)
+
 let TopAxis = -75+letterData["offsetRightTop"]//change when porting to draw_letters
 let TopMidAxis = -100 +letterData["offsetMidTop"]
-let LeftAxis = -50
+let LeftAxis = -50 
 let BottomSideAxis = 75 +letterData["offsetBottom"]
 let BottomMidAxis = BottomSideAxis +25 +letterData["offsetBottomMid"]
-let RightAxis = 50
-let RightMidAxisY = 0
-let RightMidAxisX =  50+ letterData["offsetMidRight"]
-let leftMidNodeX = -50 +letterData["offsetMidLeft"]
-let leftMidNodeY = 0
+let RightAxis = 50 
+let RightMidAxisY = BottomSideAxis + TopAxis //was 0, this makes it more adpaptive but at the cost of how far i can change it. 
+let RightMidAxisX =  RightAxis+ letterData["offsetMidRight"]
+let leftMidNodeX = LeftAxis +letterData["offsetMidLeft"]
+let leftMidNodeY = TopAxis + BottomSideAxis
 
 // Translation Parameters -  Parameters used to adjust and polish letter forms to create more cohesive font family
 
@@ -37,6 +41,12 @@ let SecondShapeX = 50 + letterData["offsetsecondShapeX"]
 let SecondShapeY = 100+ letterData["offsetsecondShapeY"]
 let SecondShapeScale = letterData["secondShapeScale"]
 let SecondShapeRotation = letterData["SecondShapeRotation"]
+
+//Node Variables
+let NodeSize = 10
+let NodeTransitionSize = 2
+
+
 
 
 let lineColor = color(255,255,255,5);
@@ -87,7 +97,9 @@ MainShape(OrangeColour,illumination,SecondShapeScale,SecondShapeX,SecondShapeY,O
 // rect(0,0,100,200);
 c.setAlpha(0);
 transparentFill = color(0,0,0,0)
-MainShape(lineBright,1,.75,ShapePosX,ShapePosY,transparentFill, 0);
+MainShape(lineBright,.5,.75,ShapePosX,ShapePosY,transparentFill, 0);
+MainShape(lineBright,.5,SecondShapeScale,SecondShapeX,SecondShapeY,OrangeColour,SecondShapeRotation);
+
 }
 
 
@@ -103,12 +115,15 @@ push();
 
 
 translate(posX,posY);
-scale(shapeSizeX);
+scale(shapeSizeX,shapeSizeX);
 rotate(ShapeRotation + OffsetRotation);
 strokeCap(ROUND);
 
 noFill();
 // fill(solidFill);
+
+push();
+scale(1+WidthScaleChange,1.05);
 beginShape();
 vertex(LeftAxis, TopAxis);
 vertex(RightAxis-50,TopMidAxis)
@@ -122,12 +137,13 @@ endShape(CLOSE);
 
 NodePoints();
 pop();
+pop();
 }
 
 function NodePoints (){
 
 stroke(lineColor);
-strokeWeight(10);
+strokeWeight(NodeSize);
 
 point(LeftAxis, TopAxis);
 point(RightAxis-50,TopMidAxis)
@@ -144,6 +160,10 @@ point(leftMidNodeX,leftMidNodeY);
 
 function interpolate_letter(percent, oldObj, newObj) {
  
+
+ let NodeSize = 10
+let NodeTransitionSize = 2
+
 
   let new_letter = {};
 
@@ -166,7 +186,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter["offsetMidTop"] = map(percent, 0, 100, oldObj["offsetMidTop"], newObj["offsetMidTop"]);
   // new_letter["offsetMidRight"] = map(percent, 0, 100, oldObj["offsetMidRight"], newObj["offsetMidRight"]);
   // new_letter["offsetMidLeft"] = map(percent, 0, 100, oldObj["offsetMidLeft"], newObj["offsetMidLeft"]);
-  new_letter["Rotation"] = map(percent, 0, 100, oldObj["Rotation"], newObj["Rotation"]);
   new_letter["offsetBottom"]    = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
   new_letter["offsetBottomMid"] = map(percent, 0, 100, oldObj["offsetBottomMid"], newObj["offsetBottomMid"]);
   new_letter["offsetsecondShapeX"] = map(percent, 0, 100, oldObj["offsetsecondShapeX"], newObj["offsetsecondShapeX"]);
@@ -174,7 +193,20 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["secondShapeScale"] = map(percent, 0, 100, oldObj["secondShapeScale"], newObj["secondShapeScale"]);
   new_letter["TranslateX"] = map(percent, 0, 100, oldObj["TranslateX"], newObj["TranslateX"]);
   new_letter["TranslateY"] = map(percent, 0, 100, oldObj["TranslateY"], newObj["TranslateY"]);
-  new_letter["SecondShapeScale"] = map(percent, 0, 100, oldObj["SecondShapeScale"], newObj["SecondShapeScale"]);
+
+if(percent < 20){
+
+  new_letter["Rotation"] = oldObj["Rotation"]
+  new_letter["SecondShapeRotation"] = oldObj["SecondShapeRotation"]
+
+
+} else {
+      new_letter["Rotation"] = map(percent, 21, 100, oldObj["Rotation"], newObj["Rotation"]);
+  new_letter["SecondShapeRotation"] = map(percent, 21, 100, oldObj["SecondShapeRotation"], newObj["SecondShapeRotation"]);
+
+}
+
+
 
   return new_letter;
 }
