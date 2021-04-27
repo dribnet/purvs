@@ -12,6 +12,8 @@ on my vacation I broke some git and I can't make changes to the page. anyway I k
 
 I decided to make the letters as similar as possible to the original alphabet and I decided to use capital letters, in my opinion it is more aesthetic to maintain a unified height size with all the letters
 
+''''today I was able to solve the problem I had to upload my files to git so I will upload all the documents that I was saving throughout these days''''
+
 
 
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
