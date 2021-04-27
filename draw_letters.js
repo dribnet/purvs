@@ -91,5 +91,7 @@ var swapWords = [
   "BACTERIA",
   "QUESTION",
   "MAJESTIC",
-  "DISASTER"
+  "DISASTER",
+  "CLOWNARY",
+  "GIRLBOSS"
 ]
