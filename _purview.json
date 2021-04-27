@@ -2,15 +2,15 @@
   "commits": [
     {
       "sha": "74cf350a1d1bf39d7deaafb12315cd7b4e969daf",
+      "name": "final"
+    },
+    {
+      "sha": "74cf350a1d1bf39d7deaafb12315cd7b4e969daf",
       "name": "exhibition"
     },
     {
       "sha": "0056c465ace10c8998bffe96400f204fe766324a",
       "name": "interaction"
-    },
-    {
-      "sha": "0056c465ace10c8998bffe96400f204fe766324a",
-      "name": "editor"
     },
     {
       "sha": "b3aea29b1fc475a66f01a2e8725795c6406383c8",
