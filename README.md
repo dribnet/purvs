@@ -1,8 +1,20 @@
 ## MDDN 242 2021 Assignment 2
 
-Editor
+Exhibition
 
-Add my own parameters and make the sliders to control each parameter.
+For exhibition, there is a version that automatically animates word transitions as well as responds to keyboard presses.
+
+The first word shows the name of my font “Arc Lines”.
+
+Although these alphabets consist of circles, rectangles and arc lines. But all of these letters and numbers have curve outlines, I naming this font be arc lines.
+
+The words that followed,
+“?LiYang?” – (My Name),
+“MDDN?242” – (Course Code),
+“Project2” – (This project),
+“ArcLines” – (Font name again),
+“?Orange?”,
+and “ManyPink”.
 
 
   * `MainPosX` : x offset of the main body position
