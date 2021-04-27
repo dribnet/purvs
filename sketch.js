@@ -48,9 +48,9 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // with no animation, redrawing the screen is not necessary
-  noStroke();
   noLoop();
   angleMode(DEGREES);
+  noStroke();
 }
 
 function draw () {

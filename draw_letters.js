@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#5bc8ac"; // turquoise
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-/* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+/* internal constants */ 
+const pink  = "#f18d9e";
+const aqua  = "#98dbc6";
+const yellow = "#e6d72a";
 
 /*
  * Draw the letter given the letterData
@@ -15,21 +15,26 @@ const strokeColor  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+ 
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  // setup
+  angleMode(DEGREES);
+  noStroke();
 
-  // determine parameters for second circle
+  // determine parameters for 
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+
+  let arcStart = letterData["start"];
+  let arcMode = letterData["mode"];
+
+  // draw circle and triangles
+  fill(pink);
+  ellipse(0, 0, 150, 150);
+  fill(aqua);
+  arc(pos2x, pos2y, size2, size2, arcStart, arcMode);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
