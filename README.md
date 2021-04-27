@@ -1,8 +1,18 @@
 ## MDDN 242 2021 Assignment 2
 
-Thank you for Bex's help and let me know where and why this bug is, I have too many parameters that made slider cannot control, I want to try to reduce my parameters, but the Rounded Corner Radii takes 4 parameters... I will try this..
+Alphabet
 
-And maybe improve my editor later, and some alphabets interaction is not good, I will try to make these looks better, I also still need to naming my alphbets.
+All alphabets consist of two parts, one part have rectangle with four rounded corner radii, and two arc lines (arc line1 and arc line2), and the other part also have rectangle with filled color and one arc line (arc line3), arc line3 have the same radius with arc line2.
+
+Both arc lines and rectangles can be circles. So all alphabets are made up of circles, arc lines and rectangles. 
+
+To make a distinction between letters and numbers, every letter consists filled color part and the numbers doesn’t contain the filled part. It’s easy to identify the alphabet.
+
+I designed an emoji face to stands for the default alphabet. One of its eyes is circle and the other one is the filled color circle.
+
+And I also change the background color, the Line color and the Box color to made these colors go well together.
+
+
 
 The 20 parameters per letter:
 
