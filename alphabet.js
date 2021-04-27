@@ -8,11 +8,11 @@ if (typeof systemBackgroundColor === 'undefined') {
 }
 
 if (typeof systemLineColor === 'undefined') {
-    var systemLineColor = "#6b705c";
+    var systemLineColor = "#6b705c"; //light green
 }
 
 if (typeof systemBoxColor === 'undefined') {
-    var systemBoxColor = "#cbc0d3";
+    var systemBoxColor = "#cbc0d3"; //light purple
 }
 
 const canvasWidth = 960;

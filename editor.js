@@ -5,15 +5,15 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  //["MainPosX", -80, 80],
-  //["MainPosY", -80, 80],
+  ["MainPosX", -120, 120],
+  ["MainPosY", -140, 40],
   ["MainRadiusA", 0, 160],
   ["MainRadiusB", 0, 160],
   ["MainRadiusC", 0, 160],
   ["RoundCorRadA", 0, 80],
   ["RoundCorRadB", 0, 80],
-  //["RoundCorRadC", 0, 80],
-  //["RoundCorRadD", 0, 80],
+  ["RoundCorRadC", 0, 80],
+  ["RoundCorRadD", 0, 80],
   ["PartPosX", -80, 80],
   ["PartPosY", -80, 80],
   ["PartRadiusD", 0, 160],
@@ -31,7 +31,7 @@ const sliderInfo = [
 const numSliders = sliderInfo.length;
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#f2e2d5";
 }
 
 // this will use variables if they are already defined

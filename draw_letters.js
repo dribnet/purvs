@@ -54,7 +54,7 @@ function drawLetter(letterData) {
   arc(MainOffsetX,MainOffsetY,MainRadius2,MainRadius2,Start1,End1);
   arc(MainOffsetX,MainOffsetY,MainRadius3,MainRadius3,Start2,End2);
 
-  // the relative to the main body
+  // the relative to the main body (filled color part)
   arc(PartOffsetX,PartOffsetY,MainRadius3,MainRadius3,Start3,End3);
 
   fill(lightOrange);
@@ -65,6 +65,7 @@ function drawLetter(letterData) {
 
 }
 
+//the interaction function
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["MainPosX"] = map(percent, 0, 100, oldObj["MainPosX"], newObj["MainPosX"]);
@@ -81,17 +82,56 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["PartRadiusD"] = map(percent, 0, 100, oldObj["PartRadiusD"], newObj["PartRadiusD"]);
   new_letter["PartRadiusE"] = map(percent, 0, 100, oldObj["PartRadiusE"], newObj["PartRadiusE"]);
   new_letter["PartCorRad"] = map(percent, 0, 100, oldObj["PartCorRad"], newObj["PartCorRad"]);
-  new_letter["StartA"] = map(percent, 0, 100, oldObj["StartA"], newObj["StartA"]);
-  new_letter["EndA"] = map(percent, 0, 100, oldObj["EndA"], newObj["EndA"]);
-  new_letter["StartB"] = map(percent, 0, 100, oldObj["StartB"], newObj["StartB"]);
-  new_letter["EndB"] = map(percent, 0, 100, oldObj["EndB"], newObj["EndB"]);
-  new_letter["StartC"] = map(percent, 0, 100, oldObj["StartC"], newObj["StartC"]);
-  new_letter["EndC"] = map(percent, 0, 100, oldObj["EndC"], newObj["EndC"]);
+  
+  //add if-else funtion to make arc lines rotation in clockwise
+  if (oldObj["StartA"] > newObj["StartA"]){
+    new_letter["StartA"] = map(percent, 0, 100, oldObj["StartA"], 360+newObj["StartA"]);
+  } else {
+    new_letter["StartA"] = map(percent, 0, 100, oldObj["StartA"], newObj["StartA"]);
+  }
+
+  if (oldObj["EndA"] > newObj["EndA"]){
+    new_letter["EndA"] = map(percent, 0, 100, oldObj["EndA"], 360+newObj["EndA"]);
+  } else {
+    new_letter["EndA"] = map(percent, 0, 100, oldObj["EndA"], newObj["EndA"]);
+  }
+
+  if (oldObj["StartB"] > newObj["StartB"]){
+    new_letter["StartB"] = map(percent, 0, 100, oldObj["StartB"], 360+newObj["StartB"]);
+  } else {
+    new_letter["StartB"] = map(percent, 0, 100, oldObj["StartB"], newObj["StartB"]);
+  }
+
+
+  if (oldObj["EndB"] > newObj["EndB"]){
+    new_letter["EndB"] = map(percent, 0, 100, oldObj["EndB"], 360+newObj["EndB"]);
+  } else {
+    new_letter["EndB"] = map(percent, 0, 100, oldObj["EndB"], newObj["EndB"]);
+  }
+
+  if (oldObj["StartC"] > newObj["StartC"]){
+    new_letter["StartC"] = map(percent, 0, 100, oldObj["StartC"], 360+newObj["StartC"]);
+  } else {
+    new_letter["StartC"] = map(percent, 0, 100, oldObj["StartC"], newObj["StartC"]);
+  }
+
+  if (oldObj["EndC"] > newObj["EndC"]){
+    new_letter["EndC"] = map(percent, 0, 100, oldObj["EndC"], 360+newObj["EndC"]);
+  } else {
+    new_letter["EndC"] = map(percent, 0, 100, oldObj["EndC"], newObj["EndC"]);
+  }
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "ARCLINES",
+  "?LIYANG?",
+  "MDDN?242",
+  "PROJECT2",
+  "ARCLINES",
+  "?ORANGE?",
+  "MANYPINK",
   "CAB?CAB?",
   "BAAAAAAA",
   "ABBDDADA",

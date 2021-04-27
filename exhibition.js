@@ -4,7 +4,7 @@
  */
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#f2e2d5";
 }
 
 const canvasWidth = 960;

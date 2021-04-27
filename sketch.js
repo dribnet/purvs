@@ -97,7 +97,6 @@ const letterC = {
 const backgroundColor  = "#f2e2d5"; //light pink
 const strokeColor      = "#b47355"; //orange
 
-const lightYellow  = "#e5d8b4"; //light yellow
 const lightOrange = '#cd976b'; //light orange
 
 function setup () {
