@@ -27,7 +27,7 @@ The words that followed are,
 “?Orange?”,
 “ManyPink”.
 
-I choose the light orange/Tangerine as the background color, and the stroke color and filled color are still in orange.
+I choose the light orange/Tangerine as the background color, and the stroke color and filled color are still in orange.  made these colors go well together.
 
 
 Here are my 20 parameters:
