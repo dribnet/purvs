@@ -41,6 +41,8 @@ function drawLetter(letterData) {
   let start8 = letterData["start8"];
     let stop8 =  letterData["end8"];
 
+    let scale = letterData["scale"];
+
     //this is my fake 3d
   stroke(darkBlue);
   strokeWeight(7);
@@ -62,30 +64,52 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
-  let sc = map(percent,0,100,0,1); //maps the scale so it increases the size from the top left corner
-  scale(sc); //puts the current sc data from the map to te scale of the letter
+  //new_letter["scale"] = map(percent,0,100,0.1,2); //maps the scale so it increases the size from the top left corner
+ // scale(new_letter["scale"]); //puts the current sc data from the map to te scale of the letter
 
   //interpolates between the letters
-  new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
-    new_letter["end"]    = map(percent, 0, 100, oldObj["end"], newObj["end"]);
-  new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
-    new_letter["end2"]    = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
-  new_letter["start3"]    = map(percent, 0, 100, oldObj["start3"], newObj["start3"]);
-    new_letter["end3"]    = map(percent, 0, 100, oldObj["end3"], newObj["end3"]);
-  new_letter["start4"]    = map(percent, 0, 100, oldObj["start4"], newObj["start4"]);
-    new_letter["end4"]    = map(percent, 0, 100, oldObj["end4"], newObj["end4"]);
-  new_letter["start5"]    = map(percent, 0, 100, oldObj["start5"], newObj["start5"]);
-    new_letter["end5"]    = map(percent, 0, 100, oldObj["end5"], newObj["end5"]);
-  new_letter["start6"]    = map(percent, 0, 100, oldObj["start6"], newObj["start6"]);
-    new_letter["end6"]    = map(percent, 0, 100, oldObj["end6"], newObj["end6"]);
-  new_letter["start7"]    = map(percent, 0, 100, oldObj["start7"], newObj["start7"]);
-    new_letter["end7"]    = map(percent, 0, 100, oldObj["end7"], newObj["end7"]);
-  new_letter["start8"]    = map(percent, 0, 100, oldObj["start8"], newObj["start8"]);
-    new_letter["end8"]    = map(percent, 0, 100, oldObj["end8"], newObj["end8"]);
-
-  return new_letter;
-
+  if(percent <= 50){
+  new_letter["start"]    = map(percent, 0, 50, oldObj["start"], 50);
+    new_letter["end"]    = map(percent, 0, 50, oldObj["end"], 100);
+  new_letter["start2"]    = map(percent, 0, 50, oldObj["start2"], 50);
+    new_letter["end2"]    = map(percent, 0, 50, oldObj["end2"], 100);
+  new_letter["start3"]    = map(percent, 0, 50, oldObj["start3"], 50);
+    new_letter["end3"]    = map(percent, 0, 50, oldObj["end3"], 100);
+  new_letter["start4"]    = map(percent, 0, 50, oldObj["start4"], 50);
+    new_letter["end4"]    = map(percent, 0, 50, oldObj["end4"], 100);
+  new_letter["start5"]    = map(percent, 0, 50, oldObj["start5"], 50);
+    new_letter["end5"]    = map(percent, 0, 50, oldObj["end5"], 100);
+  new_letter["start6"]    = map(percent, 0, 50, oldObj["start6"], 50);
+    new_letter["end6"]    = map(percent, 0, 50, oldObj["end6"], 100);
+  new_letter["start7"]    = map(percent, 0, 50, oldObj["start7"], 50);
+    new_letter["end7"]    = map(percent, 0, 50, oldObj["end7"], 100);
+  new_letter["start8"]    = map(percent, 0, 50, oldObj["start8"], 50);
+    new_letter["end8"]    = map(percent, 0, 50, oldObj["end8"], 100);
 }
+else if(percent > 50) {
+    new_letter["start"]    = map(percent, 51, 100, 50, newObj["start"]);
+    new_letter["end"]    = map(percent, 51, 100, 100, newObj["end"]);
+  new_letter["start2"]    = map(percent, 51, 100, 50, newObj["start2"]);
+    new_letter["end2"]    = map(percent, 51, 100, 100, newObj["end2"]);
+  new_letter["start3"]    = map(percent, 51, 100, 50, newObj["start3"]);
+    new_letter["end3"]    = map(percent, 51, 100, 100, newObj["end3"]);
+  new_letter["start4"]    = map(percent, 51, 100, 50, newObj["start4"]);
+    new_letter["end4"]    = map(percent, 51, 100, 100, newObj["end4"]);
+  new_letter["start5"]    = map(percent, 51, 100, 50, newObj["start5"]);
+    new_letter["end5"]    = map(percent, 51, 100, 100, newObj["end5"]);
+  new_letter["start6"]    = map(percent, 51, 100, 50, newObj["start6"]);
+    new_letter["end6"]    = map(percent, 51, 100, 100, newObj["end6"]);
+  new_letter["start7"]    = map(percent, 51, 100, 50, newObj["start7"]);
+    new_letter["end7"]    = map(percent, 51, 100, 100, newObj["end7"]);
+  new_letter["start8"]    = map(percent, 51, 100, 50, newObj["start8"]);
+    new_letter["end8"]    = map(percent, 51, 100, 100, newObj["end8"]);
+  }
+  return new_letter;
+}
+
+ 
+
+
 
 var swapWords = [
   "VASTRACT", //name of my font

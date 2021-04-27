@@ -15,7 +15,8 @@ const alphabet = {
     "start7": 100,
     "end7": 120,
   "start8": 0,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
    
   },
   "A": { //done
@@ -34,7 +35,8 @@ const alphabet = {
   "start7": 49,
     "end7": 0,
   "start8": 100,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
 
   },
   "B": { //done
@@ -53,7 +55,8 @@ const alphabet = {
   "start7": 0,
   "end7": 200,
   "start8": 100,
-  "end8": 126
+  "end8": 126,
+    "scale": 1 
   },
   "C": {//done
    "start": 100,
@@ -71,7 +74,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "start8": 0,
-    "end8": 102
+    "end8": 102,
+    "scale": 1 
   },
   "D": { //done
    "start": 0,
@@ -89,7 +93,8 @@ const alphabet = {
   "start7": 0,
     "end7": 0,
   "start8": 100,
-    "end8": 108
+    "end8": 108,
+    "scale": 1 
   },
   "E": { //done
     "start": 0,
@@ -107,7 +112,8 @@ const alphabet = {
   "start7": 0,
   "end7": 200,
   "start8": 100,
-  "end8": 200
+  "end8": 200,
+    "scale": 1 
   },
   "F": { //done
    "start": 100,
@@ -125,7 +131,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "start8": 0,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "G": { //done
    "start": 0,
@@ -143,7 +150,8 @@ const alphabet = {
   "start7": 100,
   "end7": 102,
   "start8": 46,
-  "end8": 102
+  "end8": 102,
+    "scale": 1 
   },
   "H": { //done
     "start": 100,
@@ -161,7 +169,8 @@ const alphabet = {
   "start7": 100,
     "end7": 200,
   "start8": 100,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
 
   },
   "I": { //done
@@ -180,7 +189,8 @@ const alphabet = {
   "start7": 49,
     "end7": 200,
   "start8": 50,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "J": { //done
     "start": 100,
@@ -198,7 +208,8 @@ const alphabet = {
   "start7": 0,
   "end7": 100,
   "start8": 50,
-  "end8": 200
+  "end8": 200,
+    "scale": 1 
   },
   "K": { //done
   "start": 0,
@@ -216,7 +227,8 @@ const alphabet = {
   "start7": 0,
     "end7": 200,
   "start8": 100,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "L": { //done
   "start": 0,
@@ -234,7 +246,8 @@ const alphabet = {
   "start7": 0,
     "end7": 0,
   "start8": 0,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
   },
   "M": { //done
    "start": 0,
@@ -252,7 +265,8 @@ const alphabet = {
   "start7": 0,
     "end7": 0,
   "start8": 50,
-    "end8": 76
+    "end8": 76,
+    "scale": 1 
   },
 
   "N": { //done
@@ -271,7 +285,8 @@ const alphabet = {
   "start7": 100,
     "end7": 200,
   "start8": 100,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "O": { //done
   "start": 0,
@@ -289,7 +304,8 @@ const alphabet = {
   "start7": 100,
   "end7": 100,
   "start8": 50,
-  "end8": 0
+  "end8": 0,
+    "scale": 1 
   },
   "P": { //done
   "start": 0,
@@ -307,7 +323,8 @@ const alphabet = {
   "start7": 0,
   "end7": 100,
   "start8": 0,
-  "end8": 200
+  "end8": 200,
+    "scale": 1 
   },
   "Q": { //done
   "start": 100,
@@ -325,7 +342,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "start8": 0,
-    "end8": 152
+    "end8": 152,
+    "scale": 1 
   },
   "R": { //done
    "start": 0,
@@ -343,7 +361,8 @@ const alphabet = {
   "start7": 0,
     "end7": 0,
   "start8": 100,
-    "end8": 52
+    "end8": 52,
+    "scale": 1 
   },
   "S": { //done
   "start": 100,
@@ -361,7 +380,8 @@ const alphabet = {
   "start7": 0,
   "end7": 200,
   "start8": 100,
-  "end8": 102
+  "end8": 102,
+    "scale": 1 
   },
   "T": { //done
     "start": 49,
@@ -379,7 +399,8 @@ const alphabet = {
   "start7": 49,
     "end7": 0,
   "start8": 100,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "U": { //done
     "start": 0,
@@ -397,7 +418,8 @@ const alphabet = {
   "start7": 0,
     "end7": 0,
   "start8": 0,
-    "end8": 100
+    "end8": 100,
+    "scale": 1 
   },
   "V": { //done
   "start": 46,
@@ -415,7 +437,8 @@ const alphabet = {
   "start7": 46,
     "end7": 200,
   "start8": 100,
-    "end8": 0
+    "end8": 0,
+    "scale": 1 
   },
   "W": { //done
   "start": 46,
@@ -433,7 +456,8 @@ const alphabet = {
   "start7": 46,
     "end7": 0,
   "start8": 72,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
   },
   "X": { //done
     "start": 100,
@@ -451,7 +475,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "start8": 0,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
   },
   "Y": { //done
   "start": 100,
@@ -469,7 +494,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "star8": 0,
-    "end8": 200
+    "end8": 200,
+    "scale": 1 
   },
   "Z": { //done
    "start": 100,
@@ -487,7 +513,8 @@ const alphabet = {
   "start7": 100,
     "end7": 0,
   "start8": 34,
-    "end8": 118
+    "end8": 118,
+    "scale": 1 
   },
    "0": { //done
     "start": 50,
@@ -505,7 +532,8 @@ const alphabet = {
   "start7": 0,
   "end7": 120,
   "start8": 50,
-  "end8": 180
+  "end8": 180,
+    "scale": 1 
   },
    "1": { //done
      "start": 0,
@@ -523,7 +551,8 @@ const alphabet = {
   "start7": 50,
   "end7": 100,
   "start8": 50,
-  "end8": 100
+  "end8": 100,
+    "scale": 1 
   },
    "2": { //done
    "start": 100,
@@ -541,7 +570,8 @@ const alphabet = {
   "start7": 100,
   "end7": 50,
   "start8": 0,
-  "end8": 0
+  "end8": 0,
+    "scale": 1 
   },
    "3": { //done
      "start": 0,
@@ -559,7 +589,8 @@ const alphabet = {
   "start7": 100,
   "end7": 200,
   "start8": 0,
-  "end8": 136
+  "end8": 136,
+    "scale": 1 
   },
    "4": { //done
    "start": 100,
@@ -577,7 +608,8 @@ const alphabet = {
   "start7": 100,
   "end7": 100,
   "start8": 0,
-  "end8": 100
+  "end8": 100,
+    "scale": 1 
   },
    "5": { 
   "start": 0,//done
@@ -595,7 +627,8 @@ const alphabet = {
   "start7": 100,
   "end7": 100,
   "start8": 0,
-  "end8": 200
+  "end8": 200,
+    "scale": 1 
   },
    "6": { //done
      "start": 0,
@@ -613,7 +646,8 @@ const alphabet = {
   "start7": 100,
   "end7": 100,
   "start8": 0,
-  "end8": 100
+  "end8": 100,
+    "scale": 1 
   },
    "7": { //done
     "start": 0,
@@ -631,7 +665,8 @@ const alphabet = {
   "start7": 51,
   "end7": 200,
   "start8": 55,
-  "end8": 0
+  "end8": 0,
+    "scale": 1 
   },
    "8": { //done
     "start": 0,
@@ -649,7 +684,8 @@ const alphabet = {
   "start7": 100,
   "end7": 200,
   "start8": 0,
-  "end8": 0
+  "end8": 0,
+    "scale": 1 
   },
     "9": { //done
    "start": 56,
@@ -667,6 +703,7 @@ const alphabet = {
   "start7": 83,
   "end7": 72,
   "start8": 0,
-  "end8": 36
+  "end8": 36,
+    "scale": 1 
   }
 }

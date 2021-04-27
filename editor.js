@@ -20,7 +20,8 @@ const sliderInfo = [
    ["start7", 0, 100],
   ["end7", 0, 200],
   ["start8", 0, 100],
-  ["end8", 0, 200]
+  ["end8", 0, 200],
+  ["scale", 0, 1]
 
 ];
 
