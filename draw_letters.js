@@ -56,7 +56,7 @@ let line6 = letterData ["Diagonalline4"]
   pop();
 
  //lines and arcs that will draw the letters
-  stroke(255, 215, 0);
+  stroke(255, 240, 3);
   strokeWeight(3.5);
   push();
   noFill();
@@ -117,7 +117,7 @@ function wheel(x,y, wheelRotate, WheelColour){
   
   stroke(255, 255, 255, 150);
   strokeWeight(2.5);
-  ellipse(x,y,104,104);
+  ellipse(x,y,103,103);
 
  pop()
 }
