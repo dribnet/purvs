@@ -1,38 +1,38 @@
 const alphabet = {
   "default": {
-  "quadXLoki": 200,
+  "quadXLoki": 100,
 
   "quadYLoki": 200,
 
-  "quadrotation": 0,
+  "quadrotation": 145,
 
-  "GreenDot1xpos": 270,
+  "GreenDot1xpos": 160,
 
   "GreenDot1ypos": 110,
 
-  "greenDot2xpos":220,
+  "greenDot2xpos":132.5,
 
-  "GreenDot2ypos":175,
+  "GreenDot2ypos":165,
 
-  "GreenDot3xpos":170,
+  "GreenDot3xpos":105,
 
-  "GreenDot3ypos":240,
+  "GreenDot3ypos":220,
 
   "GreenDotSize": 20,
 
-  "RedRotation": 0,
+  "RedRotation": 270,
 
-  "RedxPosition": 100,
+  "RedxPosition": 120,
 
-  "RedyPosition": 200,
+  "RedyPosition": 320,
 
-  "BlackLinexpos": 300, 
+  "BlackLinexpos": 120, 
 
-  "BlackLineypos": 100,
+  "BlackLineypos": 0,
 
-  "BlueCircleSize": 100,
+  "BlueCircleSize": 70,
 
-  "BlueCirclexPos": 330,
+  "BlueCirclexPos": 100,
 
   "BlueCircleyPos": 305
   },
@@ -59,7 +59,8 @@ const alphabet = {
 
   "GreenDotSize": 20,
 
-  "RedRotation": 282,
+  // "RedRotation": 282,
+    "RedRotation": 282,
 
   "RedxPosition": 65,
 
@@ -448,6 +449,7 @@ const alphabet = {
   "BlueCircleyPos": 320
   },
 
+
   "L": {
   "quadXLoki": 75,
 
@@ -486,40 +488,41 @@ const alphabet = {
 
 
   "M": {
-  "quadXLoki": 70,
+  "quadXLoki": 150,
 
   "quadYLoki": 200,
 
-  "quadrotation": 345,
+  "quadrotation": 135,
 
-  "GreenDot1xpos": 60,
+  "GreenDot1xpos": 35,
 
-  "GreenDot1ypos": 95,
+  "GreenDot1ypos": 80,
 
-  "greenDot2xpos": 85,
+  "greenDot2xpos": 30,
 
-  "GreenDot2ypos": 145,
+  "GreenDot2ypos": 200,
 
-  "GreenDot3xpos": 110,
+  "GreenDot3xpos": 25,
 
-  "GreenDot3ypos": 195,
+  "GreenDot3ypos": 320,
 
-  "RedRotation": -45,
+  "RedRotation": 90,
 
-  "RedxPosition": 30,
+  "RedxPosition": 190,
 
-  "RedyPosition": 300,
+  "RedyPosition": 180,
 
-  "BlackLinexpos": 175, 
+  "BlackLinexpos": 160, 
 
-  "BlackLineypos": 50,
+  "BlackLineypos": 280,
 
-  "BlueCircleSize": 70,
+  "BlueCircleSize": 50,
 
-  "BlueCirclexPos": 170,
+  "BlueCirclexPos": 90,
 
-  "BlueCircleyPos": 300
+  "BlueCircleyPos": 150
   },
+
 
 
   "N": {
@@ -560,39 +563,39 @@ const alphabet = {
 
 
   "O": {
-   "quadXLoki": 80,
+  "quadXLoki": 100,
 
   "quadYLoki": 200,
 
-  "quadrotation": -10,
+  "quadrotation": 135,
 
-  "GreenDot1xpos": 180,
+  "GreenDot1xpos": 130,
 
-  "GreenDot1ypos": 200,
+  "GreenDot1ypos": 80,
 
-  "greenDot2xpos": 155,
+  "greenDot2xpos": 170,
 
-  "GreenDot2ypos": 290,
+  "GreenDot2ypos": 130,
 
-  "GreenDot3xpos": 80,
+  "GreenDot3xpos": 180,
 
-  "GreenDot3ypos": 310,
+  "GreenDot3ypos": 210,
 
-  "RedRotation": -40,
+  "RedRotation": 90,
 
-  "RedxPosition": 5,
+  "RedxPosition": 130,
 
-  "RedyPosition": 290,
+  "RedyPosition": 180,
 
-  "BlackLinexpos": 160, 
+  "BlackLinexpos": 115, 
 
-  "BlackLineypos": 55,
+  "BlackLineypos": 270,
 
-  "BlueCircleSize": 130,
+  "BlueCircleSize": 80,
 
-  "BlueCirclexPos": 70,
+  "BlueCirclexPos": 50,
 
-   "BlueCircleyPos": 170
+  "BlueCircleyPos": 220
   },
 
 

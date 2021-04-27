@@ -1,8 +1,9 @@
 /* these are optional special variables which will change the system */
 // var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
-var systemBackgroundColor = "#b1f1fc";
+var systemLineColor = "#a39341";
+var systemBoxColor = "#bfac4d";
+ var systemBackgroundColor = "#faf7e6";
+ //var systemBackgroundColor = "#fcf8e3";
  //internal constants 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
@@ -91,6 +92,7 @@ function drawLetter(letterData) {
   fill(200, 20, 20);
   rect(70, 5, 150, 10);
   ellipse(210, 10, 70, 70)
+
   pop()
 
 //black lines
@@ -107,6 +109,7 @@ function drawLetter(letterData) {
   //3 green dots
   push();
   scale(0.5)
+  strokeWeight(5)
   stroke(20, 200, 20)
   fill(20, 20, 20);
   circle(GreenDot1x, GreenDot1y, 20);
@@ -119,6 +122,18 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+let Ballsize = 180;
+if(oldObj < 10){
+
+  new_letter["BlueCircleSize"] = map(percent, 0, 100, oldObj["BlueCircleSize"], Ballsize);
+
+}
+else{
+
+   new_letter["BlueCircleSize"] = map(percent, 0, 100, oldObj["BlueCircleSize"], newObj["BlueCircleSize"]);
+}
+
+
   new_letter["quadXLoki"] = map(percent, 0, 100, oldObj["quadXLoki"], newObj["quadXLoki"]);
   new_letter["quadYLoki"] = map(percent, 0, 100, oldObj["quadYLoki"], newObj["quadYLoki"]);
   new_letter["quadrotation"] = map(percent, 0, 100, oldObj["quadrotation"], newObj["quadrotation"]);
@@ -129,20 +144,21 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["GreenDot3xpos"] = map(percent, 0, 100, oldObj["GreenDot3xpos"], newObj["GreenDot3xpos"]);
   new_letter["GreenDot3ypos"] = map(percent, 0, 100, oldObj["GreenDot3ypos"], newObj["GreenDot3ypos"]);
   new_letter["RedRotation"] = map(percent, 0, 100, oldObj["RedRotation"], newObj["RedRotation"]);
+   new_letter["RedxPosition"] = map(percent, 0, 100, oldObj["RedxPosition"], newObj["RedxPosition"]);
+  new_letter["RedyPosition"] = map(percent, 0, 100, oldObj["RedyPosition"], newObj["RedyPosition"]);
   new_letter["BlackLinexpos"] = map(percent, 0, 100, oldObj["BlackLinexpos"], newObj["BlackLinexpos"]);
   new_letter["BlackLineypos"] = map(percent, 0, 100, oldObj["BlackLineypos"], newObj["BlackLineypos"]);
-  new_letter["BlueCircleSize"] = map(percent, 0, 100, oldObj["BlueCircleSize"], newObj["BlueCircleSize"]);
+  // new_letter["BlueCircleSize"] = map(percent, 0, 100, oldObj["BlueCircleSize"], newObj["BlueCircleSize"]);
   new_letter["BlueCirclexPos"] = map(percent, 0, 100, oldObj["BlueCirclexPos"], newObj["BlueCirclexPos"]);
   new_letter["BlueCircleyPos"] = map(percent, 0, 100, oldObj["BlueCircleyPos"], newObj["BlueCircleyPos"]);
-  new_letter["RedxPosition"] = map(percent, 0, 100, oldObj["RedxPosition"], newObj["RedxPosition"]);
-  new_letter["RedyPosition"] = map(percent, 0, 100, oldObj["RedyPosition"], newObj["RedyPosition"]);
+
 
 
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FESTIVAL",
+  "JAMBOREE",
+  "CONFETTI"
 ]
