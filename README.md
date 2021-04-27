@@ -1,18 +1,14 @@
 ## MDDN 242 2021 Assignment 2
 
-Alphabet
+Interaction
 
-All alphabets consist of two parts, one part have rectangle with four rounded corner radii, and two arc lines (arc line1 and arc line2), and the other part also have rectangle with filled color and one arc line (arc line3), arc line3 have the same radius with arc line2.
+This is a visual interpolation and animated transition between letters.
 
-Both arc lines and rectangles can be circles. So all alphabets are made up of circles, arc lines and rectangles. 
+And thank for Phoebe’s help and I solved the interaction problem, it needs to return the new_letter.
 
-To make a distinction between letters and numbers, every letter consists filled color part and the numbers doesn’t contain the filled part. It’s easy to identify the alphabet.
+And for Bex’s suggestion, some of interpolation between letters has minor tweaks. For looks better, I add if-else function to let arc lines transfer from first one to the next one rotates in clockwise.
 
-I designed an emoji face to stands for the default alphabet. One of its eyes is circle and the other one is the filled color circle.
-
-And I also change the background color, the Line color and the Box color to made these colors go well together.
-
-
+Before map from oldObj to newObj, it should be compare the oldObj angle to the newObj angle, if oldObj angle greater than the newObj angle, then newObj angle need to add 360 to make sure rotation in clockwise.
 
 The 20 parameters per letter:
 
