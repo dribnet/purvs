@@ -18,11 +18,6 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(4);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
   let A1 = letterData["point1A"]; // first X-point start triangle1
   let A2 = letterData["point2A"]; // second X-point start triangle1
   let A3 = letterData["point3A"]; // third X-point start triangle1
@@ -38,22 +33,21 @@ function drawLetter(letterData) {
 
   // draw two triangles
   fill(colourRed);
-  customTriangle1(A1, B1, A2, B2, A3, B3);
+    customTriangle1(A1, B1, A2, B2, A3, B3);
   fill(colourBlack);
-  customTriangle2(C1, D1, C2, D2, C3, D3);
+    customTriangle2(C1, D1, C2, D2, C3, D3);
 }
-// the ellipses in the custom functions below are used for my debug
 function customTriangle1(A1, B1, A2, B2, A3, B3){
   triangle(A1, B1, A2, B2, A3, B3);
-  push();
+  push(); 
   rectMode(CENTER);
     fill('#f2f2f2');
       rect(A1, B1, 10);
       rect(A2, B2, 10);
       rect(A3, B3, 10);
-  pop();
+  pop(); // used push pop because otherwise rectMode messes up the green boxes when you click in alphabet
 }
-// the ellipses in the custom functions below are used for my debug
+
 function customTriangle2(C1, D1, C2, D2, C3, D3){
   triangle(C1, D1, C2, D2, C3, D3);
   push();
@@ -62,27 +56,52 @@ function customTriangle2(C1, D1, C2, D2, C3, D3){
       rect(C1, D1, 10);
       rect(C2, D2, 10);
       rect(C3, D3, 10);
-  pop();
+  pop(); // used push pop because otherwise rectMode messes up the green boxes when you click in alphabet
 }
-// below is the vanilla animation
+
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["point1A"] = map(percent, 0, 100, oldObj["point1A"], newObj["point1A"]);
+  if(percent < 50){
+    new_letter["point1A"] = oldObj["point1A"];
+    new_letter["point1B"] = oldObj["point1B"];
+  }
+  else{
+    new_letter["point1A"] = map(percent, 51, 100, oldObj["point1A"], newObj["point1A"]);
+    new_letter["point1B"] = map(percent, 51, 100, oldObj["point1B"], newObj["point1B"]);
+  }
+
+  if(percent < 40){
+    new_letter["point3A"] = oldObj["point3A"];
+    new_letter["point3B"] = oldObj["point3B"];
+    new_letter["point1C"] = oldObj["point1C"];
+    new_letter["point1D"] = oldObj["point1D"];
+  }
+  else{
+    new_letter["point3A"] = map(percent, 41, 100, oldObj["point3A"], newObj["point3A"]);
+    new_letter["point3B"] = map(percent, 41, 100, oldObj["point3B"], newObj["point3B"]);
+    new_letter["point1C"] = map(percent, 41, 100, oldObj["point1C"], newObj["point1C"]);
+    new_letter["point1D"] = map(percent, 41, 100, oldObj["point1D"], newObj["point1D"]);
+  }
+  // new_letter["point1A"] = map(percent, 0, 100, oldObj["point1A"], newObj["point1A"]);
   new_letter["point2A"] = map(percent, 0, 100, oldObj["point2A"], newObj["point2A"]);
-  new_letter["point3A"] = map(percent, 0, 100, oldObj["point3A"], newObj["point3A"]);
-  new_letter["point1B"] = map(percent, 0, 100, oldObj["point1B"], newObj["point1B"]);
+  // new_letter["point3A"] = map(percent, 0, 100, oldObj["point3A"], newObj["point3A"]);
+  // new_letter["point1B"] = map(percent, 0, 100, oldObj["point1B"], newObj["point1B"]);
   new_letter["point2B"] = map(percent, 0, 100, oldObj["point2B"], newObj["point2B"]);
-  new_letter["point3B"] = map(percent, 0, 100, oldObj["point3B"], newObj["point3B"]);
-  new_letter["point1C"] = map(percent, 0, 100, oldObj["point1C"], newObj["point1C"]);
+  // new_letter["point3B"] = map(percent, 0, 100, oldObj["point3B"], newObj["point3B"]);
+  // new_letter["point1C"] = map(percent, 0, 100, oldObj["point1C"], newObj["point1C"]);
   new_letter["point2C"] = map(percent, 0, 100, oldObj["point2C"], newObj["point2C"]);
   new_letter["point3C"] = map(percent, 0, 100, oldObj["point3C"], newObj["point3C"]);
-  new_letter["point1D"] = map(percent, 0, 100, oldObj["point1D"], newObj["point1D"]);
+  // new_letter["point1D"] = map(percent, 0, 100, oldObj["point1D"], newObj["point1D"]);
   new_letter["point2D"] = map(percent, 0, 100, oldObj["point2D"], newObj["point2D"]);
   new_letter["point3D"] = map(percent, 0, 100, oldObj["point3D"], newObj["point3D"]);
   return new_letter;
 }
 
 var swapWords = [
+  "TRIANGLE",
+  "KJWKJWKJ",
+  "WKJWKJWK",
+  "JWKJWKJW",
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
