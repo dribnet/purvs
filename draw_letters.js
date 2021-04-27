@@ -177,7 +177,12 @@ var swapWords = [
   "ASTEROID",
   "AQUARIUS",
   "STARGAZE",
-  "OMGCOMET"
+  "OMGCOMET",
+  "00000000",
+  "SATURN!",
+  "GIRLBOSS",
+  "GATEKEEP",
+  "GASLIGHT"
 ]
 
 
