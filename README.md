@@ -19,13 +19,13 @@ Before map from oldObj to newObj, it should be compare the oldObj angle to the n
 The first word shows the name of my font “Arc Lines”.
 Although these alphabets consist of circles, rectangles and arc lines. But all of these letters and numbers have curve outlines, I naming this font be arc lines.
 
-The words that followed,
+The words that followed are,
 “?LiYang?” – (My Name),
 “MDDN?242” – (Course Code),
 “Project2” – (This project),
 “ArcLines” – (Font name again),
 “?Orange?”,
-and “ManyPink”.
+“ManyPink”.
 
 I choose the light orange/Tangerine as the background color, and the stroke color and filled color are still in orange.
 
