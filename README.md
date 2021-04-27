@@ -4,6 +4,7 @@ Editor
 
 Add my own parameters and make the sliders to control each parameter.
 
+Here are my 20 parameters:
 
   * `MainPosX` : x offset of the main body position
   * `MainPosY` : y offset of the main body position
