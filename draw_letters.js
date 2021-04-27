@@ -179,24 +179,5 @@ var swapWords = [
   "STARGAZE",
   "OMGCOMET",
   "00000000",
-  "SATURN!",
-  "GIRLBOSS",
-  "GATEKEEP",
-  "GASLIGHT"
+  "SATURN!"
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
