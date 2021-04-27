@@ -58,16 +58,38 @@ function drawLetter(letterData) {
 
 }
 
-function interpolate_letter(percent, oldObj, newObj) {
+ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+
+  new_letter["posx"] = map(percent, 0, 100, oldObj["posx"], newObj["posx"]);
+  new_letter["posy"] = map(percent, 0, 100, oldObj["posy"], newObj["posy"]);
+  new_letter["posx2"] = map(percent, 0, 100, oldObj["posx2"], newObj["posx2"]);
+  new_letter["posy2"] = map(percent, 0, 100, oldObj["posy2"], newObj["posy2"]);
+  new_letter["posx3"] = map(percent, 0, 100, oldObj["posx3"], newObj["posx3"]);
+  new_letter["posy3"] = map(percent, 0, 100, oldObj["posy3"], newObj["posy3"]);
+  new_letter["posx4"] = map(percent, 0, 100, oldObj["posx4"], newObj["posx4"]);
+  new_letter["posy4"] = map(percent, 0, 100, oldObj["posy4"], newObj["posy4"]);
+
+  new_letter["sizex"] = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
+  new_letter["sizey"] = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
+  new_letter["sizex2"] = map(percent, 0, 100, oldObj["sizex2"], newObj["sizex2"]);
+  new_letter["sizey2"] = map(percent, 0, 100, oldObj["sizey2"], newObj["sizey2"]);
+  new_letter["sizex3"] = map(percent, 0, 100, oldObj["sizex3"], newObj["sizex3"]);
+  new_letter["sizey3"] = map(percent, 0, 100, oldObj["sizey3"], newObj["sizey3"]);
+  new_letter["sizex4"] = map(percent, 0, 100, oldObj["sizex4"], newObj["sizex4"]);
+  new_letter["sizey4"] = map(percent, 0, 100, oldObj["sizey4"], newObj["sizey4"]);
+
+  new_letter["rotx"] = map(percent, 0, 100, oldObj["rotx"], newObj["rotx"]);
+  new_letter["roty"] = map(percent, 0, 100, oldObj["roty"], newObj["roty"]);
+  new_letter["rotx1"] = map(percent, 0, 100, oldObj["rotx1"], newObj["rotx1"]);
+  new_letter["roty1"] = map(percent, 0, 100, oldObj["roty1"], newObj["roty1"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "neonlite",        
+  "nitevibe",
+  "softglow",
+  "clublook",
 ]

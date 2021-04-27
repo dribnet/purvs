@@ -1,5 +1,5 @@
 ## MDDN 242 2021 Assignment 2
-At this point, I have 5 characters leftodo on the 3rd row. I have also recenterd some letters that looked off within the exibition asd well as set up the editor in conjunction with my code.
+At this point, I have With this update, i have started on the animation aspect and updated index.html to resemble alphabet.html
 
 The three parameters per letter:
   * `size` : radius of the second circle
