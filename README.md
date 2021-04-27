@@ -1,11 +1,12 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+Unfortunately this past week and half I have been really sick and with a 40% assignment due in the same week for another class, I have started this assignment a little later than I would have liked. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+For my design I went with a colourful and refreshing colour palette with light blues, pinks and yellows. For the design of the alphabet I decided to keep it a little simple (due to the time constraints.) I have chosen an arc to help shape the letters, these shapes are inspired by the pacman character.  
 
-The three parameters per letter:
+The five parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
-
+  * `start` : start of the arc in degrees.
+  * `mode` : end mode of the arc in degrees.
