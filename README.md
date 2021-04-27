@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Alphabet
+-Alphabet-
 
 All alphabets consist of two parts, one part have rectangle with four rounded corner radii, and two arc lines (arc line1 and arc line2), and the other part also have rectangle with filled color and one arc line (arc line3), arc line3 have the same radius with arc line2.
 
