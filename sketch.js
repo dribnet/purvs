@@ -13,32 +13,67 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  // 1triangle
-  "tx1":0,
-  "ty1": -100,
-  "tx2": 50,
-  "ty2":0,
-  "tx3": -50,
-  "ty3": 0,
+//   // 1triangle
+//   "tx1":0,
+//   "ty1": -100,
+//   "tx2": 50,
+//   "ty2":0,
+//   "tx3": -50,
+//   "ty3": 0,
+//
+// // 2rect
+//   "rx1":30,
+//   "ry1": 50,
+//   "rw1":30,
+//   "rh1":80,
+//
+//   "rx2":-30,
+//   "ry2":50,
+//   "rw2":30,
+//   "rh2":80,
+//
+//   // 1arch
+//   "ax1":0,
+//   "ay1":0,
+//   "aw1":100,
+//   "ah1":100,
+//   "angle1":180,
+//   "angle2":0,
+
+// 1triangle
+"tx1":0,
+"ty1": -100,
+"tx2": 50,
+"ty2":0,
+"tx3": -50,
+"ty3": 0,
 
 // 2rect
-  "rx1":30,
-  "ry1": 50,
-  "rw1":30,
-  "rh1":80,
+"rx1":30,
+"ry1": 50,
+"rw1":30,
+"rh1":80,
 
-  "rx2":-30,
-  "ry2":50,
-  "rw2":30,
-  "rh2":80,
+"rx2":-30,
+"ry2":50,
+"rw2":30,
+"rh2":80,
 
-  // 1arch
-  "ax1":0,
-  "ay1":0,
-  "aw1":100,
-  "ah1":100,
-  "angle1":180,
-  "angle2":0,
+// 1arch
+"ax1":0,
+"ay1":0,
+"aw1":100,
+"ah1":100,
+"angle1":180,
+"angle2":0,
+
+// 2arch
+"ax2":180,
+"ay2":150,
+"aw2":55,
+"ah2":70,
+"angle3":180,
+"angle4":0,
 
 
 }
@@ -71,6 +106,14 @@ const letterB = {
   "ah1":80,
   "angle1":270,
   "angle2":90,
+
+  // 2arch
+  "ax2":425,
+  "ay2":200,
+  "aw2":80,
+  "ah2":60,
+  "angle3":270,
+  "angle4":90,
 
 }
 
@@ -148,9 +191,16 @@ function drawLetter(posx, posy,letterData) {
   let arcSize2 = letterData["ah1"];
   let angle1 = letterData["angle1"]
   let angle2 = letterData["angle2"]
+
+  let arcx2 = 50+ letterData["ax2"]
+  let arcy2 = 100+ letterData["ay2"];
+  let arcSize3 = letterData["aw2"];
+  let arcSize4 = letterData["ah2"];
+  let angle3 = letterData["angle3"]
+  let angle4 = letterData["angle4"]
   rectMode(CENTER)
 
-  fill(235,245,230)
+  fill(202,227,226,150)
   rect(posx,posy,140,220,25)
 
   fill(144,177,170)
@@ -162,6 +212,8 @@ function drawLetter(posx, posy,letterData) {
   fill(239,102,72);
   triangle(tposx1,tposy1,tposx2,tposy2,tposx3,tposy3);
 
+  fill(72,126,207);
+  arc(arcx2,arcy2,arcSize3,arcSize4,angle3,angle4);
 
   fill(65,82,164,155);
   arc(arcx1,arcy1,arcSize1,arcSize2,angle1,angle2);
