@@ -1,11 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+This is what I have done before for the sketch, it's more focused on the cat and moving the vertex as the cat body to looks like each letter. But I found its hard to achieve the 37 letterforms by adding the cat ear, cat eyes, cat head and the cat body. Even though the brief said it is encouraged that letterforms use 12 or fewer parameters, but up to 20 will be allowed. But I still cancel this idea to moving on to do some basic shape such as the triangle, circle and the rect and it's easier to move around. But I still really love this turnout and this is a great experience for me to found out what I really want to do.
