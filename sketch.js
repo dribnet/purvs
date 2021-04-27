@@ -12,6 +12,8 @@ const canvasHeight = 500;
  *
  */
 
+
+
 const letterA = {
   "size": 80,
   "offsetx": 0,
@@ -59,7 +61,7 @@ function setup () {
 function draw () {
   // clear screen
   background(backgroundColor);
-
+line(150, 300, 85, 90);
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
