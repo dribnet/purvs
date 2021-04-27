@@ -6,11 +6,19 @@
     },
     {
       "sha": "bb7445f3bcbe2db0f5bdd848c60473684bb1f18f",
-      "name": "example 2"
+      "name": "Aesthetic Improvements"
+    },
+    {
+      "sha": "92dacd0781e85e0f71383f2d5f0bf154ac7a58cf",
+      "name": "Fixed Interpolation"
+    },
+    {
+      "sha": "226fe8a981c957e3a8c7d6f88752cf3529b28aa3",
+      "name": "First Interpolation Issue"
     },
     {
       "sha": "6a855e685ca446a12f9568f68cb7d81992bbe072",
-      "name": "example 1"
+      "name": "First Alphabet Attempt"
     }
   ]
 }
