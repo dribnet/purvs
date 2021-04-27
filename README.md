@@ -14,7 +14,7 @@ I decided to make the letters as similar as possible to the original alphabet an
 
 ''''today I was able to solve the problem I had to upload my files to git so I will upload all the documents that I was saving throughout these days''''
 
-
+this alphabet represents one of my examples. I decided to improve the previous code by changing the color and adding stars to the letters. tries to look as close to real letters as possible and has a Russian constructivism design style.
 
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
