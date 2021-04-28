@@ -59,6 +59,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["l1y1"]    = map(percent, 0, 100, oldObj["l1y1"], newObj["l1y1"]);
   new_letter["l1x2"]    = map(percent, 0, 100, oldObj["l1x2"], newObj["l1x2"]);
   new_letter["l1y2"]    = map(percent, 0, 100, oldObj["l1y2"], newObj["l1y2"]);
+  new_letter["l2x1"]    = map(percent, 0, 100, oldObj["l2x1"], newObj["l2x1"]);
+  new_letter["l2y1"]    = map(percent, 0, 100, oldObj["l2y1"], newObj["l2y1"]);
+  new_letter["l2x2"]    = map(percent, 0, 100, oldObj["l2x2"], newObj["l2x2"]);
+  new_letter["l2y2"]    = map(percent, 0, 100, oldObj["l2y2"], newObj["l2y2"]);
+  new_letter["l3x1"]    = map(percent, 0, 100, oldObj["l3x1"], newObj["l3x1"]);
+  new_letter["l3y1"]    = map(percent, 0, 100, oldObj["l3y1"], newObj["l3y1"]);
+  new_letter["l3x2"]    = map(percent, 0, 100, oldObj["l3x2"], newObj["l3x2"]);
+  new_letter["l3y2"]    = map(percent, 0, 100, oldObj["l3y2"], newObj["l3y2"]);
+  new_letter["l4x1"]    = map(percent, 0, 100, oldObj["l4x1"], newObj["l4x1"]);
+  new_letter["l4y1"]    = map(percent, 0, 100, oldObj["l4y1"], newObj["l4y1"]);
+  new_letter["l4x2"]    = map(percent, 0, 100, oldObj["l4x2"], newObj["l4x2"]);
+  new_letter["l4y2"]    = map(percent, 0, 100, oldObj["l4y2"], newObj["l4y2"]);
   return new_letter;
 }
 
