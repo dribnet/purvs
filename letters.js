@@ -16,7 +16,8 @@ const alphabet = {
     "pos3y": 0,
     "width": 0,
     "height": 0,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "B": {
     // arc
@@ -30,7 +31,8 @@ const alphabet = {
     "pos3y": 0,
     "width": 0,
     "height": 0,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "C": {
     // arc
@@ -44,7 +46,8 @@ const alphabet = {
     "pos3y": 0,
     "width": 0,
     "height": 0,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "D": {
     // arc
@@ -58,7 +61,8 @@ const alphabet = {
     "pos3y": 0,
     "width": 0,
     "height": 0,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "E": {
     // arc
@@ -72,7 +76,8 @@ const alphabet = {
     "pos3y": 0,
     "width": 0,
     "height": 0,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "F": {
     // arc
@@ -83,10 +88,11 @@ const alphabet = {
     "mode": 0,
     // rect
     "pos3x": 45,
-    "pos3y": 117,
+    "pos3y": 180,
     "width": 15,
     "height": 60,
-    "stroke": 4
+    "stroke": 4,
+    "angle": 0
   },
   "G": {
     // arc
@@ -96,11 +102,12 @@ const alphabet = {
     "start": 0,
     "mode": 110,
     // rect
-    "pos3x": 90,
-    "pos3y": 150,
+    "pos3x": 95,
+    "pos3y": 180,
     "width": 10,
     "height": 70,
-    "stroke": 1
+    "stroke": 0,
+    "angle": 0
   },
   "H": {
     // arc
@@ -110,11 +117,12 @@ const alphabet = {
     "start": 0,
     "mode": 360,
     // rect
-    "pos3x": 10,
-    "pos3y": 140,
+    "pos3x": 50,
+    "pos3y": 150,
     "width": 80,
     "height": 15,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "I": {
     // arc
@@ -124,15 +132,16 @@ const alphabet = {
     "start": 0,
     "mode": 360,
     // rect
-    "pos3x": 40,
-    "pos3y": 120,
+    "pos3x": 50,
+    "pos3y": 150,
     "width": 20,
-    "height": 60,
-    "stroke": 0
+    "height": 100,
+    "stroke": 0,
+    "angle": 0
   },
   "J": { 
     // arc
-    "size": 140,
+    "size": 120,
     "offsetx": 90,
     "offsety": 170,
     "start": 90,
@@ -140,9 +149,10 @@ const alphabet = {
     // rect
     "pos3x": 85,
     "pos3y": 150,
-    "width": 15,
+    "width": 30,
     "height": 80,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "K": {
     // arc
@@ -152,11 +162,12 @@ const alphabet = {
     "start": 270,
     "mode": 0,
     // rect
-    "pos3x": 25,
-    "pos3y": 140,
+    "pos3x": 50,
+    "pos3y": 150,
     "width": 45,
     "height": 50,
-    "stroke": 0
+    "stroke": 0,
+    "angle": 0
   },
   "L": {
     // arc
@@ -166,96 +177,267 @@ const alphabet = {
     "start": 0,
     "mode": 270,
     // rect
-    "pos3x": 40,
-    "pos3y": 110,
-    "width": 10,
-    "height": 50,
-    "stroke": 1
+    "pos3x": 50,
+    "pos3y": 125,
+    "width": 0,
+    "height": 0,
+    "stroke": 0,
+    "angle": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 10,
+    "height": 80,
+    "stroke": 0,
+    "angle": 70
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 15,
+    "height": 80,
+    "stroke": 0.5,
+    "angle": 320
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 20,
+    "height": 20,
+    "stroke": 1,
+    "angle": 0
   },
   "P": {
+    // arc
     "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 35,
+    "pos3y": 150,
+    "width": 25,
+    "height": 60,
+    "stroke": 1,
+    "angle": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 0,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 270,
+    // rect
+    "pos3x": 75,
+    "pos3y": 180,
+    "width": 50,
+    "height": 50,
+    "stroke": 0,
+    "angle": 0
   },
   "R": {
+    // arc
     "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 165,
+    "width": 15,
+    "height": 60,
+    "stroke": 0,
+    "angle": 320
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 120,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 90,
+    "mode": 320,
+    // rect
+    "pos3x": 85,
+    "pos3y": 150,
+    "width": 0,
+    "height": 0,
+    "stroke": 0,
+    "angle": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 0,
+    "offsetx": 50,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 120,
+    "width": 45,
+    "height": 110,
+    "stroke": 0,
+    "angle": 90
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": -50,
+    "mode": 240,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0,
+    "angle": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": -30,
+    "mode": 210,
+    // rect
+    "pos3x": 50,
+    "pos3y": 140,
+    "width": 20,
+    "height": 50,
+    "stroke": 1,
+    "angle": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     // arc
+    "size": 120,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": -20,
+    "mode": 200,
+    // rect
+    "pos3x": 50,
+    "pos3y": 140,
+    "width": 30,
+    "height": 30,
+    "stroke": 0,
+    "angle": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 40,
+    "offsetx": 70,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 25,
+    "height": 120,
+    "stroke": 1.5,
+    "angle": 320
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 60,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 170,
+    "width": 25,
+    "height": 60,
+    "stroke": 1,
+    "angle": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 60,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": -60,
+    "mode": 180,
+    // rect
+    "pos3x": 50,
+    "pos3y": 190,
+    "width": 110,
+    "height": 20,
+    "stroke": 0,
+    "angle": 0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 50,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 120,
+    "height": 30,
+    "stroke": 0.5,
+    "angle": 140
   },
   "1": {
+    // arc
     "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 40,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 160,
+    "width": 80,
+    "height": 20,
+    "stroke": 0,
+    "angle": 90
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 50,
+    "offsetx": 50,
+    "offsety": 170,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 80,
+    "height": 20,
+    "stroke": 1,
+    "angle": 130
   },
   "3": {
     "size": 40,

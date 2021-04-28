@@ -21,10 +21,12 @@ function drawLetter(letterData) {
   // setup
   angleMode(DEGREES);
   noStroke();
+  rectMode(CENTER);
 
   // defining parameters 
   let size2 = letterData["size"]; // size for arc
   let weight = letterData["stroke"];
+
 
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
@@ -48,10 +50,12 @@ function drawLetter(letterData) {
 
   // draw rectangle
   push();
+  translate(rectX, rectY);
+  rotate(angle);
   fill(yellow);
   stroke(strokeColor);
   strokeWeight(weight);
-  rect(rectX, rectY, rectWidth, rectHeight);
+  rect(0, 0, rectWidth, rectHeight);
   pop();
 }
 
