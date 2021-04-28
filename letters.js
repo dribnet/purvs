@@ -268,20 +268,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 30,
     "arcOffSetX": 7,
-    "arcOffSetY": 25,
+    "arcOffSetY": 30,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "ellipseSize": 20,
     "ellipseOffSetX": 0,
-    "ellipseOffSetY": -40,
+    "ellipseOffSetY": -35,
 
     //Shape3 the rectangle
     "rectWidth": 20,
     "rectHeight": 80,
     "rectPosX": 0,
-    "rectPosY": -10,
+    "rectPosY": -5,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
