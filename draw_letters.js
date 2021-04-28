@@ -223,7 +223,14 @@ var swapWords = [
     "DAFTPUNK",
     "APEXTWIN",
     "APAPTIVE",
-    "ABBAABBA",
-    "CAB?CAB?",
-    "BAAAAAAA"
+    "?OUTRUN?",
+    "?NUWAVE?",
+    "GLITCHED",
+    "ELECTRON",
+    "COMPUTER",
+    "ADDITION",
+    "COMPLETE",
+    "PROGRAMS",
+    "STANDARD",
+    "CONTINUE"
 ]
