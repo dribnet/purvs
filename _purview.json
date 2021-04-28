@@ -12,5 +12,9 @@
       "sha": "a99fff11f2b1ca58accd56510a6b4916f82e6f00",
       "name": "example 1"
     }
+    {
+      "sha": "79041dd9c04804a12fe1ed37c14f1439ace6cd51",
+      "name": "Braille example"
+    }
   ]
 }
