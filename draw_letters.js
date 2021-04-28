@@ -110,7 +110,7 @@ else{
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MOUNTAIN",
+  "AMAZING",
+  "ACTUALLY"
 ]
