@@ -53,8 +53,8 @@ const letterC = {
     "point3D": 200
 }
 
-const backgroundColor  = "#c9afaf"; // grey-red colour
-const strokeColor      = "#f2f2f2"; // slightly grey
+const backgroundColor = "#c9afaf"; // grey-red colour
+const strokeColor = "#f2f2f2"; // slightly grey
 const colourRed  = "#a83636"; // off-red colour
 const colourBlack  = "#1f1f1f"; // off-black colour
 
@@ -86,6 +86,7 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
+  stroke('#ffffff');
   let A1 = posx + letterData["point1A"];
   let A2 = posx + letterData["point2A"];
   let A3 = posx + letterData["point3A"];
@@ -100,9 +101,9 @@ function drawLetter(posx, posy, letterData) {
   let D3 = posy + letterData["point3D"];
 
   // draw triangles
-  fill(colourRed);
+  fill('#808080');
   triangle(A1, B1, A2, B2, A3, B3);
-  fill(colourBlack);
+  fill('#000000');
   triangle(C1, D1, C2, D2, C3, D3);
 }
 
