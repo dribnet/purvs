@@ -1,41 +1,26 @@
-w## MDDN 242 2021 Assignment 2
-:memo:  
-The lighter purple ellipse rotates around the centre based on the feauture of the letter. For example, A could be seen as a triangle / fan, so it has a fan shape in the middle. B has two little half circle on the side, and C is like a complete half circle.  *working on putting triangles* 
+I knew that I wanted to use triangle, circle and rectangle to create my alphabet form from the start.  
+I was trying out a pastel colour theme and cute rounded style at the beginning. However, I soon found out there will be too many variables if having triangle, circle and rectangle at the same time, and I wouldn’t be able to edit my form as freely.   
+Therefore, I did some research about drawing triangles or rectangles in a different way, and managed to source a better code from the assignment reading.    
+The base idea doesn’t change, I’m still using circle and triangle, but I substituted the rectangle with sine wave and used trigonometry to draw the triangle.  
+Sine wave is still in a line form (but wavy), and it would still deliver the idea of a line or stick if I use it in my alphabet. The way that it moves between alphabet also adds more character to the letter.  
+Using trigonometry to draw shapes allows me to utilise the variables, and there’s a lot more flexibility on the shape itself, in case I want to change anything in the future. 
+I’m personally interested in neon style art and flurol colour, so I decided to use the neon theme colour palette to start with. In order to add a stronger characteristic to the alphabet, I added glow effect by manipulating the colour transparency.    
+The glow effect makes the whole alphabet “jumps” out from the screen even more.   
+I also tried out a new code reference which is blendMode(); and this enables me to manipulate how the colour overlaps.  
+Since I really want to emphasis how the sine wave is moving in the animation, so I created a map that forces the wave to start moving from its shortest length to its target length.  
+The name of my letterform is PARTYPOP because the colour and the interpolation is eye catching in a way that it pops right into your eyes.  
+Overall, I’m satisfied with how the design communicates with the audience, the animation almost looks like it’s flashing to the next letter. You could almost use it as your screensaver and have your favourite words changing around on the screen with this letterform.   
 
-*25 March*  :sunny: 
-Updating my sketch today, I chose to use rectangles, triangles and ellipses to create my letters.  
-
-*30 March*  :umbrella: :zap:  
-Working on getting things into draw letter js and looking at using the variables wisely to get the most out of it.  Starting to work in the editor, but nothing major has changed.  
-
-*1 April* :umbrella: :cyclone:  
-I want to have more efficient parameters, so I changed the way that I draw the triangle and ellipse.  
-Code inspiration from the course reading, and using arc to draw ellipse so there more poetential in shapes. 
-
-*16 April* :sunny: :sun_with_face:  
-Finalised my alphabet idea.   
-I'm trying to create an abstract neon type set, I found a neon colour theme from the internet.  
-**colour theme taken from Lopznyko**
-![Image alt text](https://cdn.dribbble.com/users/944284/screenshots/2373617/neon_palette.png?compress=1&resize=800x600)
-
-I've started to crate letters in editor.html. I decid to let the arc size and Y position stay as a constant, so I can limit my parameters.
-
-*17 April* :sunny: :umbrella:  
-Finished my basic letter form today, what I want to work on now is to refine them a bit more and see what else I could do to improve it.  
-
-*20 April* :cyclone:  
-Today I tried to use custom funcions to add colour effect to the alphabets, I added white colour stroke to create neon effect.  I want to try glowing effect or some other cool things (that I haven't thought of) with the current variables I have.    
-
-*22 April*  :partly_sunny:  
-Trying out differnt ideas like blendmode(); and fading effect with repeating shapes. 
-Got some crazy effect going, but I think the tiny circles are a little bit gross to look at, so might change that.  
-
-*26 April*  :sunny:  :house:  
-I've refined the colour, and applied blend mode to some part of the deisgn.  
-I don't have an idea for the animation yet, but for now I made it loop back to default before the new letter.  I might let the waveform be a part of the animation as well. 
-
-
-*26 April*  :umbrella:
-I've decided to focus my animation on the wavy form.   
-The value of the wave form is set to go from the old value to very short and extend to the new value.  
-This would emphasise the waviness of the form.  
+###Parameters
+- arc1 = arcStart = angle to start the arc  
+- arc2 = arcEnd = angle to finish the arc  
+- tri1 = triX = X position of triangle  
+- tri2 = triY = Y position of triangle  
+- tri3 = triR = Rotation of triangle  
+- tri4 = triH = Height of triangle  
+- tri5 = triW = Width of triangle   
+- line1 = lineX = X position of wave  
+- line2 = lineY = Y position of wave  
+- line3 = lineR = Rotation of wave  
+- line4 = wave = Density of wave  
+- line5 = waveH = Length of wave 
