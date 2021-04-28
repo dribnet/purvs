@@ -28,7 +28,7 @@ The words that followed are,
 “?Orange?”,
 “ManyPink”.
 
-The structure of these alphabets is not too hard in this project. There are 20 parameters but most of them didn’t affect the outline of alphabets. For example, the rectangle rounded corner, it has 4 parameters but it works at most one at the same time. I designed this part to make the alphabet shapes not boring, it’s not just a simple circle. For distinguish the letters and numbers, I decided to ignore the filled part. That means I have one less pick to construct the numbers. Therefore, some outlines of number are not perfect, (like number 4), I have to design in three arc lines. In fact, the circle is just an arc line with start angle to end angle from 0 to 360. It’s a small challenge for me to design numbers. 
+The structure of these alphabets is not too hard in this project. There are 20 parameters but most of them didn’t affect the outline of alphabets. For example, the rectangle rounded corner, it has 4 parameters but it works at most one at the same time. I designed this part to make the alphabet shapes not boring, it’s not just a simple circle. For distinguish the letters and numbers, I decided to ignore the filled part. That means I have one less pick to construct the numbers. Therefore, some outlines of number are not perfect, (like number 4), I have to design in three arc lines. In fact, the circle is just an arc line with start angle to end angle from 0 to 360. It’s a small challenge for me to design numbers. But the process is interesting and funny.
 
 
 Here are my 20 parameters:
