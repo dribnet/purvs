@@ -36,7 +36,7 @@ const letterC = {
   "offsety": 15
 }
 
-const backgroundColor = "#e3eded";
+const backgroundColor = "#FFFFFF";
 const strokeColor = "#233f11";
 
 function setup() {

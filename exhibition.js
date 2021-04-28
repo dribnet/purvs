@@ -134,7 +134,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -253,6 +253,6 @@ function keyTyped() {
     }
     upper_key = key.toUpperCase();
     swapExhibitLetter(curChosenLetter, upper_key, 0);
-    curChosenLetter = (curChosenLetter + 1) % 8;  
+    curChosenLetter = (curChosenLetter + 1) % 8;
   }
 }

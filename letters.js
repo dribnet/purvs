@@ -1,815 +1,815 @@
 const alphabet = {
   "default": {
     //Shape1 the arc
-    "size": 50,
-    "offsetx": 5,
-    "offsety": -25,
+    "arcSize": 50,
+    "arcOffSetX": 5,
+    "arcOffSetY": -25,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 10,
-    "offsety2": 35,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 10,
+    "ellipseOffSetY": 35,
 
     //Shape3 the rectangle
-    "width": 25,
-    "height": 50,
-    "offsetx3": 20,
-    "offsety3": -10,
-    "angle": 0
+    "rectWidth": 25,
+    "rectHeight": 50,
+    "rectPosX": 20,
+    "rectPosY": -10,
+    "angleRotate": 0
 
   },
   "A": {
     //Shape1 the arc
-    "size": 25,
-    "offsetx": -9,
-    "offsety": -5,
+    "arcSize": 25,
+    "arcOffSetX": -9,
+    "arcOffSetY": -5,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": 0,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 0,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 40,
-    "offsetx3": 25,
-    "offsety3": 30,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 40,
+    "rectPosX": 25,
+    "rectPosY": 30,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "B": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 0,
+    "arcSize": 75,
+    "arcOffSetX": 0,
+    "arcOffSetY": 0,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 30,
-    "offsety2": 20,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 30,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 40,
-    "offsetx3": -28,
-    "offsety3": -20,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 40,
+    "rectPosX": -28,
+    "rectPosY": -20,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "C": {
     //Shape1 the arc
-    "size": 85,
-    "offsetx": 15,
-    "offsety": 0,
+    "arcSize": 85,
+    "arcOffSetX": 15,
+    "arcOffSetY": 0,
     "arcStart": 90,
     "arcEnd": 270,
 
     //Shape2 the second circle
-    "size1": 35,
-    "offsetx2": 15,
-    "offsety2": 0,
+    "ellipseSize": 35,
+    "ellipseOffSetX": 15,
+    "ellipseOffSetY": 0,
 
     //Shape3 the rectangle
-    "width": 15,
-    "height": 15,
-    "offsetx3": 5,
-    "offsety3": 35,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 15,
+    "rectHeight": 15,
+    "rectPosX": 5,
+    "rectPosY": 35,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "D": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 0,
+    "arcSize": 75,
+    "arcOffSetX": 0,
+    "arcOffSetY": 0,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -30,
-    "offsety2": 20,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -30,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 40,
-    "offsetx3": 25,
-    "offsety3": -20,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 40,
+    "rectPosX": 25,
+    "rectPosY": -20,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "E": {
     //Shape1 the arc
-    "size": 25,
-    "offsetx": 0,
-    "offsety": 0,
+    "arcSize": 25,
+    "arcOffSetX": 0,
+    "arcOffSetY": 0,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": -0,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": -0,
 
     //Shape3 the rectangle
-    "width": 57,
-    "height": 18,
-    "offsetx3": -2,
-    "offsety3": 30,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 57,
+    "rectHeight": 18,
+    "rectPosX": -2,
+    "rectPosY": 30,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "F": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": -2,
-    "offsety": -10,
+    "arcSize": 75,
+    "arcOffSetX": -2,
+    "arcOffSetY": -10,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -15,
-    "offsety2": 10,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -15,
+    "ellipseOffSetY": 10,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 55,
-    "offsetx3": -30,
-    "offsety3": 20,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 55,
+    "rectPosX": -30,
+    "rectPosY": 20,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "G": {
     //Shape1 the arc
-    "size": 40,
-    "offsetx": 17,
-    "offsety": 70,
+    "arcSize": 40,
+    "arcOffSetX": 17,
+    "arcOffSetY": 70,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": 0,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 0,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 70,
-    "offsetx3": 25,
-    "offsety3": 30,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 70,
+    "rectPosX": 25,
+    "rectPosY": 30,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "H": {
     //Shape1 the arc
-    "size": 70,
-    "offsetx": 5,
-    "offsety": 10,
+    "arcSize": 70,
+    "arcOffSetX": 5,
+    "arcOffSetY": 10,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 30,
-    "offsety2": 37,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 30,
+    "ellipseOffSetY": 37,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 95,
-    "offsetx3": -25,
-    "offsety3": -20,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 95,
+    "rectPosX": -25,
+    "rectPosY": -20,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "I": {
     //Shape1 the arc
-    "size": 20,
-    "offsetx": 0,
-    "offsety": -20,
+    "arcSize": 20,
+    "arcOffSetX": 0,
+    "arcOffSetY": -20,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 0,
-    "offsety2": -40,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": -40,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 60,
-    "offsetx3": 0,
-    "offsety3": 10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 60,
+    "rectPosX": 0,
+    "rectPosY": 10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "J": {
     //Shape1 the arc
-    "size": 40,
-    "offsetx": -10,
-    "offsety": 45,
+    "arcSize": 40,
+    "arcOffSetX": -10,
+    "arcOffSetY": 45,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 22,
-    "offsetx2": 0,
-    "offsety2": -40,
+    "ellipseSize": 22,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": -40,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 65,
-    "offsetx3": 0,
-    "offsety3": 10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 65,
+    "rectPosX": 0,
+    "rectPosY": 10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "K": {
     //Shape1 the arc
-    "size": 35,
-    "offsetx": 0,
-    "offsety": -10,
+    "arcSize": 35,
+    "arcOffSetX": 0,
+    "arcOffSetY": -10,
     "arcStart": 330,
     "arcEnd": 145,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 20,
-    "offsety2": 30,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 20,
+    "ellipseOffSetY": 30,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 87,
-    "offsetx3": -26,
-    "offsety3": -15,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 87,
+    "rectPosX": -26,
+    "rectPosY": -15,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "L": {
     //Shape1 the arc
-    "size": 30,
-    "offsetx": 7,
-    "offsety": 25,
+    "arcSize": 30,
+    "arcOffSetX": 7,
+    "arcOffSetY": 25,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 0,
-    "offsety2": -40,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": -40,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 80,
-    "offsetx3": 0,
-    "offsety3": -10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 80,
+    "rectPosX": 0,
+    "rectPosY": -10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "M": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 23,
-    "offsety": 5,
+    "arcSize": 75,
+    "arcOffSetX": 23,
+    "arcOffSetY": 5,
     "arcStart": 270,
     "arcEnd": 90,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": 5,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 75,
-    "offsetx3": -36,
-    "offsety3": 0,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 75,
+    "rectPosX": -36,
+    "rectPosY": 0,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "N": {
     //Shape1 the arc
-    "size": 65,
-    "offsetx": 0,
-    "offsety": 5,
+    "arcSize": 65,
+    "arcOffSetX": 0,
+    "arcOffSetY": 5,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 25,
-    "offsety2": 30,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 25,
+    "ellipseOffSetY": 30,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 65,
-    "offsetx3": -26,
-    "offsety3": 0,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 65,
+    "rectPosX": -26,
+    "rectPosY": 0,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "O": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 5,
+    "arcSize": 75,
+    "arcOffSetX": 0,
+    "arcOffSetY": 5,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 45,
-    "offsetx2": 25,
-    "offsety2": 20,
+    "ellipseSize": 45,
+    "ellipseOffSetX": 25,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 20,
-    "offsetx3": 5,
-    "offsety3": 25,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 20,
+    "rectPosX": 5,
+    "rectPosY": 25,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "P": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 0,
+    "arcSize": 75,
+    "arcOffSetX": 0,
+    "arcOffSetY": 0,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 30,
-    "offsety2": -20,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 30,
+    "ellipseOffSetY": -20,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 70,
-    "offsetx3": -25,
-    "offsety3": 30,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 70,
+    "rectPosX": -25,
+    "rectPosY": 30,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Q": {
     //Shape1 the arc
-    "size": 40,
-    "offsetx": 35,
-    "offsety": 70,
+    "arcSize": 40,
+    "arcOffSetX": 35,
+    "arcOffSetY": 70,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": 0,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 0,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 70,
-    "offsetx3": 25,
-    "offsety3": 30,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 70,
+    "rectPosX": 25,
+    "rectPosY": 30,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "R": {
     //Shape1 the arc
-    "size": 50,
-    "offsetx": 10,
-    "offsety": -5,
+    "arcSize": 50,
+    "arcOffSetX": 10,
+    "arcOffSetY": -5,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 8,
-    "offsety2": 0,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 8,
+    "ellipseOffSetY": 0,
 
     //Shape3 the rectangle
-    "width": 25,
-    "height": 75,
-    "offsetx3": -30,
-    "offsety3": -5,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 25,
+    "rectHeight": 75,
+    "rectPosX": -30,
+    "rectPosY": -5,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "S": {
     //Shape1 the arc
-    "size": 25,
-    "offsetx": 25,
-    "offsety": -25,
+    "arcSize": 25,
+    "arcOffSetX": 25,
+    "arcOffSetY": -25,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 45,
-    "offsetx2": -10,
-    "offsety2": 20,
+    "ellipseSize": 45,
+    "ellipseOffSetX": -10,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 80,
-    "height": 20,
-    "offsetx3": -5,
-    "offsety3": -5,
-    "angle": 50,
-    "translatex": 92,
-    "translatey": 15
+    "rectWidth": 80,
+    "rectHeight": 20,
+    "rectPosX": -5,
+    "rectPosY": -5,
+    "angleRotate": 50,
+    "translateX": 92,
+    "translateY": 15
   },
   "T": {
     //Shape1 the arc
-    "size": 40,
-    "offsetx": 10,
-    "offsety": 40,
+    "arcSize": 40,
+    "arcOffSetX": 10,
+    "arcOffSetY": 40,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 20,
-    "offsety2": -20,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 20,
+    "ellipseOffSetY": -20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 80,
-    "offsetx3": 0,
-    "offsety3": -10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 80,
+    "rectPosX": 0,
+    "rectPosY": -10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "U": {
     //Shape1 the arc
-    "size": 60,
-    "offsetx": 0,
-    "offsety": 10,
+    "arcSize": 60,
+    "arcOffSetX": 0,
+    "arcOffSetY": 10,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": -25,
-    "offsety2": -20,
+    "ellipseSize": 20,
+    "ellipseOffSetX": -25,
+    "ellipseOffSetY": -20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 75,
-    "offsetx3": 35,
-    "offsety3": 0,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 75,
+    "rectPosX": 35,
+    "rectPosY": 0,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "V": {
-    "size": 60,
-    "offsetx": 10,
-    "offsety": 8,
+    "arcSize": 60,
+    "arcOffSetX": 10,
+    "arcOffSetY": 15,
     "arcStart": 330,
     "arcEnd": 145,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 30,
-    "offsety2": -20,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 30,
+    "ellipseOffSetY": -20,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 60,
-    "offsetx3": -10,
-    "offsety3": 7,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 75,
+    "rectPosX": -20,
+    "rectPosY": 0,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "W": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 33,
-    "offsety": 5,
+    "arcSize": 75,
+    "arcOffSetX": 25,
+    "arcOffSetY": 5,
     "arcStart": 270,
     "arcEnd": 70,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 10,
-    "offsety2": 5,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 5,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 68,
-    "offsetx3": 5,
-    "offsety3": 65,
-    "angle": 160,
-    "translatex": 145,
-    "translatey": 345
+    "rectWidth": 20,
+    "rectHeight": 68,
+    "rectPosX": 5,
+    "rectPosY": 65,
+    "angleRotate": 160,
+    "translateX": 145,
+    "translateY": 345
   },
   "X": {
     //Shape1 the arc
-    "size": 50,
-    "offsetx": 20,
-    "offsety": -30,
+    "arcSize": 50,
+    "arcOffSetX": 20,
+    "arcOffSetY": -30,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 50,
-    "offsetx2": 20,
-    "offsety2": 20,
+    "ellipseSize": 50,
+    "ellipseOffSetX": 20,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 54,
-    "height": 30,
-    "offsetx3": 3,
-    "offsety3": 45,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 54,
+    "rectHeight": 30,
+    "rectPosX": 3,
+    "rectPosY": 45,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Y": {
     //Shape1 the arc
-    "size": 65,
-    "offsetx": 5,
-    "offsety": -35,
+    "arcSize": 65,
+    "arcOffSetX": 5,
+    "arcOffSetY": -35,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 5,
-    "offsety2": -30,
+    "ellipseSize": 20,
+    "ellipseOffSetX": 5,
+    "ellipseOffSetY": -30,
 
     //Shape3 the rectangle
-    "width": 18,
-    "height": 50,
-    "offsetx3": 10,
-    "offsety3": 27,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 18,
+    "rectHeight": 50,
+    "rectPosX": 10,
+    "rectPosY": 27,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Z": {
     //Shape1 the arc
-    "size": 40,
-    "offsetx": 20,
-    "offsety": 20,
+    "arcSize": 40,
+    "arcOffSetX": 20,
+    "arcOffSetY": 20,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -30,
-    "offsety2": -29,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -30,
+    "ellipseOffSetY": -29,
 
     //Shape3 the rectangle
-    "width": 80,
-    "height": 20,
-    "offsetx3": 35,
-    "offsety3": 5,
-    "angle": 125,
-    "translatex": 215,
-    "translatey": 130
+    "rectWidth": 80,
+    "rectHeight": 20,
+    "rectPosX": 35,
+    "rectPosY": 5,
+    "angleRotate": 125,
+    "translateX": 215,
+    "translateY": 130
   },
   "0": {
     //Shape1 the arc
-    "size": 45,
-    "offsetx": 5,
-    "offsety": 5,
+    "arcSize": 45,
+    "arcOffSetX": 5,
+    "arcOffSetY": 5,
     "arcStart": 0,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 75,
-    "offsetx2": 0,
-    "offsety2": 5,
+    "ellipseSize": 75,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
-    "width": 20,
-    "height": 20,
-    "offsetx3": 5,
-    "offsety3": 25,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 20,
+    "rectHeight": 20,
+    "rectPosX": 5,
+    "rectPosY": 25,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
 
   },
   "1": {
     //Shape1 the arc
-    "size": 55,
-    "offsetx": 0,
-    "offsety": 45,
+    "arcSize": 55,
+    "arcOffSetX": 0,
+    "arcOffSetY": 45,
     "arcStart": 180,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -10,
-    "offsety2": -27,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -10,
+    "ellipseOffSetY": -27,
 
     //Shape3 the rectangle
-    "width": 18,
-    "height": 75,
-    "offsetx3": 0,
-    "offsety3": -10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 18,
+    "rectHeight": 75,
+    "rectPosX": 0,
+    "rectPosY": -10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "2": {
     //Shape1 the arc
-    "size": 55,
-    "offsetx": 7,
-    "offsety": -20,
+    "arcSize": 55,
+    "arcOffSetX": 7,
+    "arcOffSetY": -20,
     "arcStart": 180,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 23,
-    "offsety2": 33,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 23,
+    "ellipseOffSetY": 33,
 
     //Shape3 the rectangle
-    "width": 80,
-    "height": 18,
-    "offsetx3": 45,
-    "offsety3": 5,
-    "angle": 120,
-    "translatex": 232,
-    "translatey": 110
+    "rectWidth": 80,
+    "rectHeight": 18,
+    "rectPosX": 45,
+    "rectPosY": 5,
+    "angleRotate": 120,
+    "translateX": 232,
+    "translateY": 110
   },
   "3": {
     //Shape1 the arc
-    "size": 48,
-    "offsetx": 8,
-    "offsety": -25,
+    "arcSize": 48,
+    "arcOffSetX": 8,
+    "arcOffSetY": -25,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 55,
-    "offsetx2": 10,
-    "offsety2": 18,
+    "ellipseSize": 55,
+    "ellipseOffSetX": 10,
+    "ellipseOffSetY": 18,
 
     //Shape3 the rectangle
-    "width": 7,
-    "height": 44,
-    "offsetx3": 38,
-    "offsety3": 0,
-    "angle": 55,
-    "translatex": 130,
-    "translatey": -9
+    "rectWidth": 7,
+    "rectHeight": 44,
+    "rectPosX": 38,
+    "rectPosY": 0,
+    "angleRotate": 55,
+    "translateX": 130,
+    "translateY": -9
   },
   "4": {
     //Shape1 the arc
-    "size": 60,
-    "offsetx": 25,
-    "offsety": -15,
+    "arcSize": 60,
+    "arcOffSetX": 25,
+    "arcOffSetY": -15,
     "arcStart": 90,
     "arcEnd": 270,
 
     //Shape2 the second circle
-    "size1": 21,
-    "offsetx2": 10,
-    "offsety2": 35,
+    "ellipseSize": 21,
+    "ellipseOffSetX": 10,
+    "ellipseOffSetY": 35,
 
     //Shape3 the rectangle
-    "width": 60,
-    "height": 15,
-    "offsetx3": 25,
-    "offsety3": -11,
-    "angle": 112,
-    "translatex": 188,
-    "translatey": 90
+    "rectWidth": 60,
+    "rectHeight": 15,
+    "rectPosX": 25,
+    "rectPosY": -11,
+    "angleRotate": 112,
+    "translateX": 188,
+    "translateY": 90
   },
   "5": {
     //Shape1 the arc
-    "size": 60,
-    "offsetx": -5,
-    "offsety": 15,
+    "arcSize": 60,
+    "arcOffSetX": -5,
+    "arcOffSetY": 15,
     "arcStart": 270,
     "arcEnd": 90,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -30,
-    "offsety2": 32,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -30,
+    "ellipseOffSetY": 32,
 
     //Shape3 the rectangle
-    "width": 65,
-    "height": 17,
-    "offsetx3": -30,
-    "offsety3": -15,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 65,
+    "rectHeight": 17,
+    "rectPosX": -30,
+    "rectPosY": -15,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "6": {
     //Shape1 the arc
-    "size": 55,
-    "offsetx": 0,
-    "offsety": 15,
+    "arcSize": 55,
+    "arcOffSetX": 0,
+    "arcOffSetY": 15,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 25,
-    "offsety2": 20,
+    "ellipseSize": 25,
+    "ellipseOffSetX": 25,
+    "ellipseOffSetY": 20,
 
     //Shape3 the rectangle
-    "width": 80,
-    "height": 17,
-    "offsetx3": 20,
-    "offsety3": -10,
-    "angle": 110,
-    "translatex": 181,
-    "translatey": 90
+    "rectWidth": 80,
+    "rectHeight": 17,
+    "rectPosX": 20,
+    "rectPosY": -10,
+    "angleRotate": 110,
+    "translateX": 181,
+    "translateY": 90
   },
   "7": {
     //Shape1 the arc
-    "size": 55,
-    "offsetx": 7,
-    "offsety": -20,
+    "arcSize": 55,
+    "arcOffSetX": 7,
+    "arcOffSetY": -20,
     "arcStart": 180,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": -2,
-    "offsety2": 10,
+    "ellipseSize": 20,
+    "ellipseOffSetX": -2,
+    "ellipseOffSetY": 10,
 
     //Shape3 the rectangle
-    "width": 75,
-    "height": 20,
-    "offsetx3": 45,
-    "offsety3": 5,
-    "angle": 110,
-    "translatex": 225,
-    "translatey": 90
+    "rectWidth": 75,
+    "rectHeight": 20,
+    "rectPosX": 45,
+    "rectPosY": 5,
+    "angleRotate": 110,
+    "translateX": 225,
+    "translateY": 90
   },
   "8": {
     //Shape1 the arc
-    "size": 35,
-    "offsetx": 0,
-    "offsety": -30,
+    "arcSize": 35,
+    "arcOffSetX": 0,
+    "arcOffSetY": -30,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 50,
-    "offsetx2": 0,
-    "offsety2": 15,
+    "ellipseSize": 50,
+    "ellipseOffSetX": 0,
+    "ellipseOffSetY": 15,
 
     //Shape3 the rectangle
-    "width": 35,
-    "height": 75,
-    "offsetx3": 4,
-    "offsety3": -10,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 35,
+    "rectHeight": 75,
+    "rectPosX": 4,
+    "rectPosY": -10,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "9": {
     //Shape1 the arc
-    "size": 60,
-    "offsetx": 5,
-    "offsety": -15,
+    "arcSize": 60,
+    "arcOffSetX": 5,
+    "arcOffSetY": -15,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -10,
-    "offsety2": 5,
+    "ellipseSize": 25,
+    "ellipseOffSetX": -10,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
-    "width": 22,
-    "height": 70,
-    "offsetx3": 25,
-    "offsety3": 0,
-    "angle": 0,
-    "translatex": 0,
-    "translatey": 0
+    "rectWidth": 22,
+    "rectHeight": 70,
+    "rectPosX": 25,
+    "rectPosY": 0,
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
   }
 }
