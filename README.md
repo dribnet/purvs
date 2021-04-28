@@ -1,9 +1,13 @@
 ## MDDN 242 2021 Assignment 2
 
-EXAMPLE 3: In this version, I added 2 circle parameters that are used in the letters C, O, Q, R, U, and 8. As these were my last parameters I only had space for their x position and y position and wasn't able to change their size. Though the addition of these circles is an interesting new element to the design I believe the circles look too different from the other two foreground objects (sharp tiangles and lines). Therefore I will not be using these circles in my final design. 
-The other thing I changed in this version was the colour of the background shapes to different shades of blue depending on the shape. I like this change as it helps differentiate the letters, however it doesn't look great when the letters are switching as they suddenly change colour. To fix this I will look at changing the last two parameters I had used to create the foreground circles to now change the background shape colour. 
+My font is a combination of one background shape and several foreground shapes. Each letter is represented by either a square, triangle, or circle, then layered with white foreground elements using positive and negative space to form the letters.
 
-making finishing touches
+Inspiration:
+For this project, I wanted to create a fairly abstract font based on simple geometric forms. Though it was necessary for the letters to be readable, I focused more on creating creative shapes that require a little more time to read. The font style is loosely inspired by navigational and nautical themes using shapes similar to that found on a compass, lines that give a sense of directionality, and a colour scheme similar to the ocean. 
+
+
+Creation:
+Starting with just the background shape, I slowly added more foreground elements to the font. The triangle was the first shape I added, with parameters to change the size, position, and rotation angle. I then added the vertical and horizontal lines and experimented with another foreground circle, but ultimately decided against this as adding the circle as it didn’t fit in with the sharp navigational shape themes. Finally, I worked on the motion of the font, where the lines move into the letter from the side, the triangle rotates into place and the colour smoothly changes colour.
 
 
 The parameters per letter:

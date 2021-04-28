@@ -1,4 +1,3 @@
-/* these are optional special variables which will change the system */
 var systemBackgroundColor = "#e6e6e6";
 var systemLineColor = "#e6e6e6";
 var systemBoxColor = "#e6e6e6";
