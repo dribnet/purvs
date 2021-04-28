@@ -1,6 +1,10 @@
 ## MDDN 242 2021 Assignment 2
 
 (Replace this README with information about your alphabet. This is an example.)
+29/4
+- big update i had struggled with getting the letters to turn out how i wanted and wanted the process to be smother in implememting such as all the skips contained within one parameter but couldnt figure out how to get that done so they have been spread more over the letters 
+- all letters have been enetered and show on the alphabet page
+
 
 24/3
 -inital commit came up with concept and implemented a very rough idea of what i want to do i want to be able to have an array withtin the constants that allows there to be more control over what rectangles are drawn.

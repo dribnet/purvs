@@ -26,10 +26,11 @@ const letterA = {
 }
 
 const letterB = {
+  "reverse": 1,
   "squaresL": 10,
-  "squaresR": 10,
+  "squaresR": 5,
   "skipL":100,//placeholder
-  "skipR": [0,1],
+  "skipR":0,
   "sizex": 50,
   "sizey": 25,
   "offsetx": -60,
@@ -41,16 +42,14 @@ const letterC = {
   "squaresR": 10,
   "skipL":100,//placeholder
   "skipR": 5,
+  "skipR2": 6,
   "sizex": 50,
   "sizey": 25,
   "offsetx": -60,
   "offsety": -100
 }
-const bigCats = ['lion', 'tiger', 'panther'];
-bigCats.push('leopard');
-console.log(bigCats);
 
-const backgroundColor  = (255);//"#e3eded";
+const backgroundColor  = (100);//"#e3eded";
 //const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
@@ -89,19 +88,17 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let i = 0;
-  let n = 0;
   // draw two circles
   fill(0);
   while (i <= letterData["squaresR"]){
-    if(i == letterData["skipR"]){
-      posy += letterData["sizey"];
-      i++
+    if(i == letterData["skipR"]|| i == letterData["skipR2"]){
+    posy += letterData["sizey"];
+    i++;
     }
     else{
       rect(posx, posy-100, letterData["sizex"], letterData["sizey"]);
       posy += letterData["sizey"];
       i++;
-      console.log(letterData["skipR"]);
     }
   }
   i=0;

@@ -77,7 +77,7 @@ function draw () {
     for (let i=left_margin+first_letter_offset_x; i<right_margin-x_step+1; i+=x_step) {
       if (cur_letter_index < letters.length) {
         if (debugBox) {
-          noFill()
+          noFill();
           strokeWeight(4);
           stroke(systemBoxColor);
           rect(0, 0, 100, 200);
