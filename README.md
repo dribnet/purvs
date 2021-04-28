@@ -1,8 +1,8 @@
 ## MDDN 242 2021 Assignment 2
 
-Being relativly simple the trasitions added in the interaction come across quite smooth though the radius lines pop in and out which isnt very clean.
+I redid the colour scheme to a more classic monochromatic style. Instead of dark text I took a negative approach with the letters standng out on a darker background. I also layered a lighter inner arc on a smaller stroke. I think this adds a little more intrest while not ruining its minimalist and clean design, to which i think gives of an almost graphic design kinda look which Im quite fond of. 
 
-Changed the `lineOn` parameter to `lineLength` as lineOn used an if statment meaning there was no transition between lines and no lines. lineLength however ranges from 0-47 allowing for a full smooth transition in line length between letters.
+I also added a few custom words including the fronts name 'CYCLICAL'
 
 The 9 parameters per letter:
 * `line1R` : rotation of the first line around the centre of the letter
