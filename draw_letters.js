@@ -20,10 +20,6 @@ const babyPink = "#FBB1FF";
 const green = "#21C1B7";
 const babyOrange = "#FEC68E";
 
-
-
-
-
 /*
  * Draw the letter given the letterData
  *
@@ -63,8 +59,7 @@ function drawLetter(letterData) {
 
     //-------------------------------------------------------
 
-
-    // draw rectangle 
+    // draw rectangle ---- body letters
 
     push();
     fill(pink);
@@ -76,8 +71,7 @@ function drawLetter(letterData) {
     rect(pos5x, pos5y, sizeLetter1, sizeLetter2);
     pop();
 
-
-    //texture pink lines vertical
+    // texture pink lines vertical
 
     var linesVertical = true;
     if (linesVertical) {
@@ -96,7 +90,7 @@ function drawLetter(letterData) {
         pop();
     }
 
-    //texture pink lines horizontal
+    // texture pink lines horizontal
 
     var linesHorizontal = true;
     if (linesHorizontal) {
@@ -116,7 +110,7 @@ function drawLetter(letterData) {
     }
 
 
-    //draw arc
+    //draw arc purple
 
     push();
     fill(purple);
@@ -127,6 +121,7 @@ function drawLetter(letterData) {
     // draw flower
 
     push();
+
     //petal
     push();
     fill(white);
@@ -153,7 +148,7 @@ function drawLetter(letterData) {
     pop();
 
 
-    //draw arc and change color for size
+    // draw arc and change color for size
 
     var colorLine = sizeLetter4;
     if (colorLine) {
@@ -171,7 +166,6 @@ function drawLetter(letterData) {
         } else {
             stroke(white);
         }
-
         strokeWeight(4);
         arc(pos6x, pos6y, sizeLetter4, sizeLetter4, start1, end1);
         pop();
@@ -204,7 +198,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
     "POW3RFLO",
-    "SMILE !",
+    "SMILE!",
     "BYGUADA",
     "FLOWERS!",
     "PROYECT2"
