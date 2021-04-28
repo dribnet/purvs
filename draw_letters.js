@@ -96,12 +96,10 @@ else{
 }
 
 var swapWords = [
+  "DROPLETS",
   "BUBBLES!",
   "COZINESS",
-  "QUESTION",
   "SHINING!",
   "DELICATE",
-  "DROPLETS",
-  "TOGETHER",
-  "SEASONAL"
+  "TOGETHER"
 ]
