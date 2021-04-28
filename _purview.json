@@ -1,7 +1,7 @@
 {
   "commits": [
     {
-      "sha": "8f53ad5e2436a426c632aa307257d1e427ffef1f",
+      "sha": "220bb75f5046585bbcc434ec3761fbee5439d2c5",
       "name": "final"
     },
     {
@@ -11,7 +11,7 @@
     {
       "sha": "a99fff11f2b1ca58accd56510a6b4916f82e6f00",
       "name": "example 1"
-    }
+    },
     {
       "sha": "79041dd9c04804a12fe1ed37c14f1439ace6cd51",
       "name": "Braille example"
