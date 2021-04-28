@@ -49,11 +49,11 @@ function drawLetter(letterData) {
   //stroke(0,0,0);//black
   //fill(3, 252, 44);
   stroke(235, 152, 225);
-  arc(sqx, sqy, sizex, sizey, rox1, roy1, PI + QUARTER_PI);
+  arc(sqx, sqy, sizex, sizey, rox1, roy1);//PI + QUARTER_PI
   //rect(sqx,sqy,sizex,sizey);
   
   stroke(0, 242, 255);
-  arc(arcx, arcy, sizex3, sizey3, rox2, roy2, PI + QUARTER_PI);
+  arc(arcx, arcy, sizex3, sizey3, rox2, roy2); //PI + QUARTER_PI
   //ellipse(crqx,crqy,sizex3,sizey3);
 
 }
@@ -62,34 +62,35 @@ function drawLetter(letterData) {
   let new_letter = {};
 
 
-  new_letter["posx"] = map(percent, 0, 100, oldObj["posx"], newObj["posx"]);
-  new_letter["posy"] = map(percent, 0, 100, oldObj["posy"], newObj["posy"]);
-  new_letter["posx2"] = map(percent, 0, 100, oldObj["posx2"], newObj["posx2"]);
-  new_letter["posy2"] = map(percent, 0, 100, oldObj["posy2"], newObj["posy2"]);
-  new_letter["posx3"] = map(percent, 0, 100, oldObj["posx3"], newObj["posx3"]);
-  new_letter["posy3"] = map(percent, 0, 100, oldObj["posy3"], newObj["posy3"]);
-  new_letter["posx4"] = map(percent, 0, 100, oldObj["posx4"], newObj["posx4"]);
-  new_letter["posy4"] = map(percent, 0, 100, oldObj["posy4"], newObj["posy4"]);
+  new_letter["posx"] = map(percent, 0, 100, oldObj["posx"], newObj["posx"]); //pink
+  new_letter["posy"] = map(percent, 0, 100, oldObj["posy"], newObj["posy"]); //pink
+  new_letter["posx2"] = map(percent, 0, 100, oldObj["posx2"], newObj["posx2"]); //blue
+  new_letter["posy2"] = map(percent, 0, 100, oldObj["posy2"], newObj["posy2"]); //blue
+  new_letter["posx3"] = map(percent, 0, 100, oldObj["posx3"], newObj["posx3"]); //yelloe
+  new_letter["posy3"] = map(percent, 0, 100, oldObj["posy3"], newObj["posy3"]); //yellow
+  new_letter["posx4"] = map(percent, 0, 100, oldObj["posx4"], newObj["posx4"]); //red
+  new_letter["posy4"] = map(percent, 0, 100, oldObj["posy4"], newObj["posy4"]); //red
 
-  new_letter["sizex"] = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
-  new_letter["sizey"] = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
-  new_letter["sizex2"] = map(percent, 0, 100, oldObj["sizex2"], newObj["sizex2"]);
-  new_letter["sizey2"] = map(percent, 0, 100, oldObj["sizey2"], newObj["sizey2"]);
-  new_letter["sizex3"] = map(percent, 0, 100, oldObj["sizex3"], newObj["sizex3"]);
-  new_letter["sizey3"] = map(percent, 0, 100, oldObj["sizey3"], newObj["sizey3"]);
-  new_letter["sizex4"] = map(percent, 0, 100, oldObj["sizex4"], newObj["sizex4"]);
-  new_letter["sizey4"] = map(percent, 0, 100, oldObj["sizey4"], newObj["sizey4"]);
+  // new_letter["sizex"] = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
+  // new_letter["sizey"] = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
+  // new_letter["sizex2"] = map(percent, 0, 100, oldObj["sizex2"], newObj["sizex2"]);
+  // new_letter["sizey2"] = map(percent, 0, 100, oldObj["sizey2"], newObj["sizey2"]);
+  // new_letter["sizex3"] = map(percent, 0, 100, oldObj["sizex3"], newObj["sizex3"]);
+  // new_letter["sizey3"] = map(percent, 0, 100, oldObj["sizey3"], newObj["sizey3"]);
+  // new_letter["sizex4"] = map(percent, 0, 100, oldObj["sizex4"], newObj["sizex4"]);
+  // new_letter["sizey4"] = map(percent, 0, 100, oldObj["sizey4"], newObj["sizey4"]);
 
-  new_letter["rotx"] = map(percent, 0, 100, oldObj["rotx"], newObj["rotx"]);
-  new_letter["roty"] = map(percent, 0, 100, oldObj["roty"], newObj["roty"]);
-  new_letter["rotx1"] = map(percent, 0, 100, oldObj["rotx1"], newObj["rotx1"]);
-  new_letter["roty1"] = map(percent, 0, 100, oldObj["roty1"], newObj["roty1"]);
+  // new_letter["rotx"] = map(percent, 0, 100, oldObj["rotx"], newObj["rotx"]);
+  // new_letter["roty"] = map(percent, 0, 100, oldObj["roty"], newObj["roty"]);
+  // new_letter["rotx1"] = map(percent, 0, 100, oldObj["rotx1"], newObj["rotx1"]);
+  // new_letter["roty1"] = map(percent, 0, 100, oldObj["roty1"] , newObj["roty1"]);
   return new_letter;
 }
 
 var swapWords = [
-  "neonlite",        
-  "nitevibe",
-  "softglow",
-  "clublook",
+  "NEONNITE",
+  "SOFTGLOW",
+  "NEONLITE",        
+  "NITEVIBE",
+  "CLUBLOOK",
 ]

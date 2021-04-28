@@ -19,8 +19,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // these variables are used for animation
-let soloCurLetter = "B";
-let soloLastLetter = "A"
+let soloCurLetter = "1";
+let soloLastLetter = "0"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
 let soloNumAnimationFrames = 30;

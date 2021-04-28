@@ -26,8 +26,8 @@ const alphabet = {
   "sizey3": 50, //blue arc
   "sizex4": 10, //yellow line
   "sizey4": 100, //yellow line
-  "rotx": 800, //pink arc start
-  "roty": -200, //pink arc stop
+  "rotx": 39.8, //pink arc start
+  "roty": 126.7, //pink arc stop
   "rotx1": 86, //blue arc start
   "roty1": 24, //black arc stop
   },
@@ -53,9 +53,9 @@ const alphabet = {
   "sizex4": 50, //yellow line
   "sizey4": 100, //yellow line
   "rotx": 40, //pink arc start 
-  "roty": 265, //pink start stop
-  "rotx1": 80, //blue arc start
-  "roty1": 230, //blue arc stop
+  "roty": 190, //pink start stop
+  "rotx1": 150, //blue arc start
+  "roty1": 180, //blue arc stop
   },
   "C": {
 //position
@@ -106,7 +106,7 @@ const alphabet = {
 
 //arc start and stop
   "rotx": 40, //pink start
-  "roty": 265, //pink stop
+  "roty": 120.3, //pink stop
   "rotx1": 100, //blue start
   "roty1": 180, //blue stop
   },
@@ -159,8 +159,8 @@ const alphabet = {
 //arc sizes
   "rotx": 110, //pink arc start
   "roty": 100, //pink arc stop
-  "rotx1": -500, //blue arc start
-  "roty1": 600,//blue arc stop
+  "rotx1": 21, //blue arc start
+  "roty1": 191.7,//blue arc stop
   },
   "G": {
 //position
@@ -263,8 +263,8 @@ const alphabet = {
 //arc sizes
   "rotx": 20, //pink arc start
   "roty": 120, //pink arc stop
-  "rotx1": -200, //blue arc start
-  "roty1": -600,//blue arc stop
+  "rotx1": 20, //blue arc start
+  "roty1": 60,//blue arc stop
   },
   "K": {
 //position
@@ -289,8 +289,8 @@ const alphabet = {
 //arc sizes
   "rotx": 30, //pink arc start
   "roty": 40, //pink arc stop
-  "rotx1": -200, //blue arc start
-  "roty1": -600,//blue arc stop
+  "rotx1": 20, //blue arc start
+  "roty1": 60,//blue arc stop
   },
   "L": {
 //position
@@ -315,7 +315,7 @@ const alphabet = {
 //arc sizes
   "rotx": 50, //pink arc start
   "roty": 100, //pink arc stop
-  "rotx1": 300, //blue arc start
+  "rotx1": 80, //blue arc start
   "roty1": 126,//blue arc stop
   },
   "M": {
@@ -390,8 +390,8 @@ const alphabet = {
   "sizey3": 50, //blue arc
   "sizex4": 60, //yellow line
   "sizey4": 137, //yellow line
-  "rotx": 800, //pink arc start
-  "roty": -200,//pink arc stop
+  "rotx": 98, //pink arc start
+  "roty": 10,//pink arc stop
   "rotx1": 86, //blue arc start
   "roty1": 24,//blue arc stop
   },
@@ -570,7 +570,7 @@ const alphabet = {
   "sizex4": 0, //yellow line
   "sizey4": 100, //yellow line
   "rotx": 100, //pink arc start
-  "roty": 500, //pink arc stop
+  "roty": 198.5, //pink arc stop
   "rotx1": 60.5, //blue arc start
   "roty1": 24.5, // blue arc stop
   },

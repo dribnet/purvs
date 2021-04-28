@@ -1,8 +1,3 @@
 ## MDDN 242 2021 Assignment 2
-At this point, I have With this update, i have started on the animation aspect and updated index.html to resemble alphabet.html
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+Within this update, Ive changed the numbers in alphabet.js that were over 200 to fit within the breifs "no random number" rule as well as added smoother animation ajustments to the extibition and interacttion.
 
