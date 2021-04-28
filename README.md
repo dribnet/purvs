@@ -20,6 +20,8 @@
 
 //fixed the error on number "5".
 
+//finished some polish, if nothing is wrong then this will be the one for final.
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
