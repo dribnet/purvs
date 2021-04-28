@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-My font is a combination of one background shape and several foreground shapes. Each letter is represented by either a square, triangle, or circle, then layered with white foreground elements using positive and negative space to form the letters.
+My font called 'nautical' is a combination of one background shape and several foreground shapes. Each letter is represented by either a square, triangle, or circle, then layered with white foreground elements using positive and negative space to form the letters.
 
 Inspiration:
 For this project, I wanted to create a fairly abstract font based on simple geometric forms. Though it was necessary for the letters to be readable, I focused more on creating creative shapes that require a little more time to read. The font style is loosely inspired by navigational and nautical themes using shapes similar to that found on a compass, lines that give a sense of directionality, and a colour scheme similar to the ocean. 
