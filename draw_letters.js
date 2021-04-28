@@ -1,8 +1,7 @@
 /* these are optional special variables which will change the system */
 const backgroundColor = "#0D0208";
 var systemBackgroundColor = backgroundColor;
-//var systemLineColor = backgroundColor;
-// var systemBoxColor = backgroundColor;
+
 var systemLineColor = "#045e19";
 var systemBoxColor = "#045e19";
 
@@ -55,27 +54,27 @@ function drawLetter(letterData) {
   if (symmode.startsWith("symmetry_vert")) { //if vertical sym
 
     drawpoly(letterData, 1, 1, -1, 1); //draw green poly
-    if (symmode.endsWith("offsetcir")) { //offseted sym circles
+    if (symmode.endsWith("offsetcir")) { //offseted sym circles both are symetrical down x but 1 is +y and 1 is -y
       cir(letterData, 1, -1);
       cir(letterData, -1, 1);
-    } else if (symmode.endsWith("no_cir")) {
+    } else if (symmode.endsWith("no_cir")) {//if no sym on the circle
 
       cir(letterData, 1, 1);
     } else {
-      //symmetrical circles
+      //symmetrical circles from the centre of letter using x axis
       cir(letterData, 1, 1);
       cir(letterData, -1, 1);
     }
-  } else if (symmode.startsWith("symmetry_hor")) { //if horizontal sym
+  } else if (symmode.startsWith("symmetry_hor")) { //if horizontal sym on the poly
 
     drawpoly(letterData, 1, -1, 1, 1);
-    if (symmode.endsWith("no_cir")) {
+    if (symmode.endsWith("no_cir")) {//if no sym on the circle
       cir(letterData, 1, 1);
-    } else if (symmode.endsWith("offsetcirvert")) {
+    } else if (symmode.endsWith("offsetcirvert")) {//offseted sym circles both are symetrical down x but 1 is +y and 1 is -y
       cir(letterData, 1, -1);
       cir(letterData, -1, 1);
     } else {
-      cir(letterData, 1, -1);
+      cir(letterData, 1, -1);//horizonal sym on circles from centre
       cir(letterData, 1, 1);
     }
 
@@ -124,7 +123,7 @@ if (percent < swaptonumpercent) { //shrink the old letter into the number:
   new_letter["ey"] = map(percent, 0, swaptonumpercent, oldObj["ey"], number["ey"]);
   new_letter["ewidth"] = map(percent, 0, swaptonumpercent, oldObj["ewidth"], number["ewidth"]);
   new_letter["eheight"] = map(percent, 0, swaptonumpercent, oldObj["eheight"], number["eheight"]);
-}else if(percent<swapfromnumpercent){
+}else if(percent<swapfromnumpercent){//show the num
   new_letter["symmode"] = number["symmode"];
   new_letter["x1"] =  number["x1"];
   new_letter["x2"] = number["x2"];
@@ -140,7 +139,7 @@ if (percent < swaptonumpercent) { //shrink the old letter into the number:
   new_letter["ey"] = number["ey"];
   new_letter["ewidth"] = number["ewidth"];
   new_letter["eheight"] = number["eheight"];
-} else { //grow the new letter
+} else { //turn the num into the new letter
   new_letter["symmode"] = newObj["symmode"];
   new_letter["x1"] = map(percent, swapfromnumpercent+1, 100, number["x1"], newObj["x1"]);
   new_letter["x2"] = map(percent, swapfromnumpercent+1, 100, number["x2"], newObj["x2"]);
@@ -158,43 +157,6 @@ if (percent < swaptonumpercent) { //shrink the old letter into the number:
   new_letter["eheight"] = map(percent, swapfromnumpercent+1, 100, number["eheight"], newObj["eheight"]);
 }
 
-
-
-  // let smallest=0;//smallest the interpolation will shrink letter to
-  // let swappercent=80;//percent where it swaps from shrinking old letter to growing new letter
-  // if (percent < swappercent) { //shrink the old letter:
-  //   new_letter["symmode"] = oldObj["symmode"];
-  //   new_letter["x1"] = map(percent, 0, swappercent, oldObj["x1"], smallest);
-  //   new_letter["x2"] = map(percent, 0, swappercent, oldObj["x2"], smallest);
-  //   new_letter["x3"] = map(percent, 0, swappercent, oldObj["x3"], smallest);
-  //   new_letter["x4"] = map(percent, 0, swappercent, oldObj["x4"], smallest);
-  //   new_letter["x5"] = map(percent, 0, swappercent, oldObj["x5"], smallest);
-  //   new_letter["y1"] = map(percent, 0, swappercent, oldObj["y1"], smallest);
-  //   new_letter["y2"] = map(percent, 0, swappercent, oldObj["y2"], smallest);
-  //   new_letter["y3"] = map(percent, 0, swappercent, oldObj["y3"], smallest);
-  //   new_letter["y4"] = map(percent, 0, swappercent, oldObj["y4"], smallest);
-  //   new_letter["y5"] = map(percent, 0, swappercent, oldObj["y5"], smallest);
-  //   new_letter["ex"] = map(percent, 0, swappercent, oldObj["ex"], smallest);
-  //   new_letter["ey"] = map(percent, 0, swappercent, oldObj["ey"], smallest);
-  //   new_letter["ewidth"] = map(percent, 0, swappercent, oldObj["ewidth"], smallest);
-  //   new_letter["eheight"] = map(percent, 0, swappercent, oldObj["eheight"], smallest);
-  // } else { //grow the new letter
-  //   new_letter["symmode"] = newObj["symmode"];
-  //   new_letter["x1"] = map(percent, swappercent+1, 100, smallest, newObj["x1"]);
-  //   new_letter["x2"] = map(percent, swappercent+1, 100, smallest, newObj["x2"]);
-  //   new_letter["x3"] = map(percent, swappercent+1, 100, smallest, newObj["x3"]);
-  //   new_letter["x4"] = map(percent, swappercent+1, 100, smallest, newObj["x4"]);
-  //   new_letter["x5"] = map(percent, swappercent+1, 100, smallest, newObj["x5"]);
-  //   new_letter["y1"] = map(percent, swappercent+1, 100, smallest, newObj["y1"]);
-  //   new_letter["y2"] = map(percent, swappercent+1, 100, smallest, newObj["y2"]);
-  //   new_letter["y3"] = map(percent, swappercent+1, 100, smallest, newObj["y3"]);
-  //   new_letter["y4"] = map(percent, swappercent+1, 100, smallest, newObj["y4"]);
-  //   new_letter["y5"] = map(percent, swappercent+1, 100, smallest, newObj["y5"]);
-  //   new_letter["ex"] = map(percent, swappercent+1, 100, smallest, newObj["ex"]);
-  //   new_letter["ey"] = map(percent, swappercent+1, 100, smallest, newObj["ey"]);
-  //   new_letter["ewidth"] = map(percent, swappercent+1, 100, smallest, newObj["ewidth"]);
-  //   new_letter["eheight"] = map(percent, swappercent+1, 100, smallest, newObj["eheight"]);
-  // }
 
   return new_letter;
 }
