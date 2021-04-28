@@ -6,6 +6,8 @@ For my design I went with a colourful and refreshing colour palette with light b
 
 Added a rectangle shape as I felt like it adds more depth to the letters, some extra parameters of the rectangle eg. stroke and angle. 
 
+Updated the interaction.html to work with my interpolations and parameters. 
+
 The parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one

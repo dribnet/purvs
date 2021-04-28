@@ -64,11 +64,21 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
+  new_letter["mode"] = map(percent, 0, 100, oldObj["mode"], newObj["mode"]);
+
+  new_letter["pos3x"] = map(percent, 0, 100, oldObj["pos3x"], newObj["pos3x"]);
+  new_letter["pos3y"] = map(percent, 0, 100, oldObj["pos3y"], newObj["pos3y"]);
+  new_letter["width"] = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  new_letter["height"] = map(percent, 0, 100, oldObj["height"], newObj["height"]);
+  new_letter["stroke"] = map(percent, 0, 100, oldObj["stroke"], newObj["stroke"]);
+  new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "!SERENE!", // NAME OF MY FONT
+  "PEACHY!!",
+  "SURVIVAL",
+  "POPSTAR7"
 ]

@@ -1,8 +1,18 @@
 const alphabet = {
-  "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "default": { // exclamation point
+    // arc
+    "size": 20,
+    "offsetx": 50,
+    "offsety": 180,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 135,
+    "width": 15,
+    "height": 50,
+    "stroke": 1,
+    "angle": 0
   },
   "A": {
     // arc
