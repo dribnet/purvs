@@ -1,13 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#c9afaf";
+var systemBackgroundColor = "#36504f";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 var rectSize = 7;
 
 /* internal constants */
-const colourRed  = "#a83636";
-const colourBlack  = "#1f1f1f";
-const strokeColor  = "#f2f2f2";
+const colourBlue  = "#5ac8c8";
+const colourWhite  = "#e0e0e0";
+const strokeColor  = "#0d0d0d";
 /*
  * Draw the letter given the letterData
  * Letters should always be drawn with the
@@ -32,10 +32,13 @@ function drawLetter(letterData) {
   let D3 = letterData["point3D"]; // third Y-point end triangle2
 
   // draw two customised triangles
-  fill(colourRed);
+  customTriange1Shade(A1, B1, A2, B2, A3, B3);
+  customTriange2Shade(C1, D1, C2, D2, C3, D3)
+  fill(colourBlue);
     customTriangle1(A1, B1, A2, B2, A3, B3);
-  fill(colourBlack);
+  fill(colourWhite);
     customTriangle2(C1, D1, C2, D2, C3, D3);
+
 }
 
 function customTriangle1(A1, B1, A2, B2, A3, B3){
@@ -43,10 +46,12 @@ function customTriangle1(A1, B1, A2, B2, A3, B3){
   triangle(A1, B1, A2, B2, A3, B3);
   push(); 
   rectMode(CENTER);
-    fill('#f2f2f2');
+    fill('#0d0d0d');
       rect(A1, B1, rectSize);
       rect(A2, B2, rectSize);
       rect(A3, B3, rectSize);
+    stroke(56, 140, 140);
+       line(A1 + 10, B1, A2 + 10, B2); // stylistic flare for an example commit
   pop(); // used push pop because otherwise rectMode messes up the green boxes when you click in alphabet
 
 }
@@ -55,11 +60,27 @@ function customTriangle2(C1, D1, C2, D2, C3, D3){
   triangle(C1, D1, C2, D2, C3, D3);
   push();
   rectMode(CENTER);
-    fill('#f2f2f2');
+    fill('#0d0d0d');
       rect(C1, D1, rectSize);
       rect(C2, D2, rectSize);
       rect(C3, D3, rectSize);
   pop(); // used push pop because otherwise rectMode messes up the green boxes when you click in alphabet
+}
+
+function customTriange1Shade(A1, B1, A2, B2, A3, B3){ // creates a drop shadow for the first triangle
+  push();
+  noStroke();
+  fill('#002e2e');
+  triangle(A1 + 10, B1 + 10, A2 + 10, B2 + 10, A3 + 10, B3 + 10);
+  pop();
+}
+
+function customTriange2Shade(C1, D1, C2, D2, C3, D3){ // creates a drop shadow for the second triangle
+  push();
+  noStroke();
+  fill('#002e2e');
+  triangle(C1 + 10, D1 + 10, C2 + 10, D2 + 10, C3 + 10, D3 + 10);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
