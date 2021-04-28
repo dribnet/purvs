@@ -22,10 +22,7 @@ I would have liked to be able to rotate the flower and change its size, but due 
 
  🤦 Problems
 I had a lot of problems with the terminal and update my code periodically. I think I wasted a lot of time trying to fix it instead of improving the code.
-It does not necessarily count as a problem but I would like to point out that I tried to use the editor but it was much easier for me to make the modifications of the parameter values ​​without using it but it is a good option to have the editor to clear doubts in particular. 
-Más información sobre este texto de origenPara obtener más información sobre la traducción, se necesita el texto de origen
-Enviar comentarios
-Paneles laterales
+
 
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
