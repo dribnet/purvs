@@ -7,6 +7,7 @@ var systemBoxColor = "#00c800";
 const pink  = "#f18d9e";
 const aqua  = "#98dbc6";
 const yellow = "#e6d72a";
+const strokeColor = "#000000";
 
 /*
  * Draw the letter given the letterData
@@ -15,14 +16,15 @@ const yellow = "#e6d72a";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
- 
+
 function drawLetter(letterData) {
   // setup
   angleMode(DEGREES);
   noStroke();
 
-  // determine parameters for 
-  let size2 = letterData["size"];
+  // defining parameters 
+  let size2 = letterData["size"]; // size for arc
+  let weight = letterData["stroke"];
 
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
@@ -30,11 +32,27 @@ function drawLetter(letterData) {
   let arcStart = letterData["start"];
   let arcMode = letterData["mode"];
 
-  // draw circle and triangles
+  let rectX = letterData["pos3x"];
+  let rectY = letterData["pos3y"];
+  let rectWidth = letterData["width"];
+  let rectHeight = letterData["height"];
+  let angle = letterData["angle"];
+
+  // draw circle
   fill(pink);
-  ellipse(0, 0, 150, 150);
+  ellipse(50, 150, 100, 100);
+
+  // draw arcs
   fill(aqua);
   arc(pos2x, pos2y, size2, size2, arcStart, arcMode);
+
+  // draw rectangle
+  push();
+  fill(yellow);
+  stroke(strokeColor);
+  strokeWeight(weight);
+  rect(rectX, rectY, rectWidth, rectHeight);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

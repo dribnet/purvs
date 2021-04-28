@@ -5,70 +5,172 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 120,
-    "offsetx": 0,
-    "offsety": 0,
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
     "start": 140,
-    "mode": 400
+    "mode": 400,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0
   },
   "B": {
-    "size": 190,
-    "offsetx": -10,
-    "offsety": 120,
+    // arc
+    "size": 130,
+    "offsetx": 50,
+    "offsety": 220,
     "start": 270,
-    "mode": 0
+    "mode": 0,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0
   },
   "C": {
-    "size": 120,
-    "offsetx": 0,
-    "offsety": 0,
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
     "start": 410,
-    "mode": -50
+    "mode": -50,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 40,
+    "offsety": 150,
+    "start": 270,
+    "mode": 90,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 120,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 180,
+    "mode": 0,
+    // rect
+    "pos3x": 0,
+    "pos3y": 0,
+    "width": 0,
+    "height": 0,
+    "stroke": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 80,
+    "offsetx": 85,
+    "offsety": 165,
+    "start": 180,
+    "mode": 0,
+    // rect
+    "pos3x": 45,
+    "pos3y": 117,
+    "width": 15,
+    "height": 60,
+    "stroke": 4
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 120,
+    "offsetx": 40,
+    "offsety": 160,
+    "start": 0,
+    "mode": 110,
+    // rect
+    "pos3x": 90,
+    "pos3y": 150,
+    "width": 10,
+    "height": 70,
+    "stroke": 1
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 60,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 10,
+    "pos3y": 140,
+    "width": 80,
+    "height": 15,
+    "stroke": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 0,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 40,
+    "pos3y": 120,
+    "width": 20,
+    "height": 60,
+    "stroke": 0
   },
-  "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "J": { 
+    // arc
+    "size": 140,
+    "offsetx": 90,
+    "offsety": 170,
+    "start": 90,
+    "mode": 180,
+    // rect
+    "pos3x": 85,
+    "pos3y": 150,
+    "width": 15,
+    "height": 80,
+    "stroke": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 100,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 270,
+    "mode": 0,
+    // rect
+    "pos3x": 25,
+    "pos3y": 140,
+    "width": 45,
+    "height": 50,
+    "stroke": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    // arc
+    "size": 100,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 270,
+    // rect
+    "pos3x": 40,
+    "pos3y": 110,
+    "width": 10,
+    "height": 50,
+    "stroke": 1
   },
   "M": {
     "size": 50,
