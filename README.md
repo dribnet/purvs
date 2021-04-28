@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-FONT: Funhouse
+FONT: FUNHOUSE
 
 My final typeface is called "FUNHOUSE", as I believe this font to be very playful from first glance.
 My alphabet contains quite distinct letters/numbers some are more abstract (size, width and height are purposely inconsistent) than others but when together they form a functional Typeface, but alone they still provoke the eye. One could say this typeface would be more targeted to a younger audience, but my intention would be for it to be used by all to just add a little bit more fun to their day.
@@ -35,8 +35,6 @@ I've now done up to letter L
 code is now uploading to git from my own computer, for some reason I had two ps2 folders!
 
 I finshed my alphabet, I'm not just going to further refine my design and work on transitions.
-
-//
 
 experimented with a new colour palette + tweaked letters
 
