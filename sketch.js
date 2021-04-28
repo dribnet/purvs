@@ -13,28 +13,45 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "line1R": 90,
+  "line2R": 270,
+  "line3R": 90,
+  "line4R": 90,
+  "arc1Start":225,
+  "arc1End":135,
+  "arc2Start":0,
+  "arc2End":0,
+  "lineOn":1,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+ "line1R":120,
+  "line2R":65,
+  "line3R":65,
+  "line4R":65,
+  "arc1Start":120,
+  "arc1End":65,
+  "arc2Start":0,
+  "arc2End":0,
+  "lineOn":1,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+ "line1R":0,
+  "line2R":0,
+  "line3R":0,
+  "line4R":0,
+  "arc1Start":135,
+  "arc1End":45,
+  "arc2Start":0,
+  "arc2End":0,
+  "lineOn":0,
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#393d3d";
+const strokeColor      = "#cbd6d6";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,10 +60,11 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(8);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES)
 }
 
 function draw () {
@@ -65,15 +83,63 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+//inner line rotation from the centre
+  let line1R = letterData["line1R"];
+  let line2R = letterData["line2R"];
+  let line3R = letterData["line3R"];
+  let line4R = letterData["line4R"];
+//start and end of outer arcs
+  let arc1Start = letterData["arc1Start"];
+  let arc1End = letterData["arc1End"];
+  let arc2Start = letterData["arc2Start"];
+  let arc2End = letterData["arc2End"];
+
+  let lineOn = letterData["lineOn"];
+
+  let lineLength = 75;
+
+  if (lineOn<1) { lineLength = 0
+  }
+
+ 
+  noFill()
+ 
+ 
+  arc(posx, posy, 150, 150, arc1Start-90, arc1End-90)
+  arc(posx, posy, 150, 150, arc2Start-90, arc2End-90)
+  
+
+  push();
+  translate(posx, posy)
+  rotate(line1R+180);
+  line(0, 0, 0, lineLength);
+  pop();
+
+  push();
+  translate(posx, posy)
+  rotate(line2R+180);
+  line(0, 0, 0, lineLength);
+  pop();
+   
+
+   push();
+  translate(posx, posy)
+  rotate(line3R+180);
+  line(0, 0, 0, lineLength);
+  pop();
+   
+
+   push();
+  translate(posx, posy)
+  rotate(line4R+180);
+  line(0, 0, 0, lineLength);
+  pop();
+   
+   
+  
+
 }
 
 function keyTyped() {
