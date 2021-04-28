@@ -24,6 +24,8 @@
 
 //i have find that if i change the strokeWeight from 3 to 2, the pattern of overlapping area will be more fit to the design that i have struchured at begginning, the reason i didn't put 2 there is i have did some comparison and find out that set the strokweight to 3 can make the letters in alphabet page more clear, but at the other pages it will change the size a little bit. at the end i think it is more important for me to present my design clearer, so i changed it to 2, and also made some adjustment on some of the letters.
 
+//this is the final.
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
