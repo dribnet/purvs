@@ -5,12 +5,23 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size1",       0, 1.5],
-  ["rotate1", 0, 360],
-  ["offset1_X",  -20,  -110],
-  ["offset1_Y", -370, -70],
-  
-];
+  ["color1", 0, 255],
+  ["color2", 0, 255],
+  ["color3", 0, 255],
+  ["color4", 0, 255],
+  ["color5", 0, 255],
+  ["color6", 0, 255],
+  ["color7", 0, 255],
+  ["color8", 0, 255],
+  ["color9", 0, 255],
+  ["color10", 0, 255],
+  ["color11", 0, 255],
+  ["color12", 0, 255],
+  ["color13", 0, 255],
+  ["color14", 0, 255],
+  ["domino", 0, 255],
+  ["line1", 0, 255],
+  ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;

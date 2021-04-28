@@ -3,12 +3,6 @@
 var systemBackgroundColor = "#02A89E";
 var systemLineColor = "#ccc2b6";
 var systemBoxColor = "#ccc2b6";
- 
-
-/* internal constants */
-
-const dominoColor2  = "#f3f2ed"; 
-const shineColor = "#f3f2ed";
 
 /*
 * Draw the letter given the letterData
@@ -41,8 +35,6 @@ let domino = letterData["domino"];
 
   //MIDDLE LINE OF DOMINO PIECE
 
-  // let line1 = str(letterData["line1"]);
-  // line1 = color(line1);
 let line1 = letterData["line1"];
   stroke(line1);
   strokeWeight(5);
@@ -98,69 +90,37 @@ let dotsize = 17;
   ellipse(dotX+25, dotY-90, dotsize, dotsize); // top right 3
   fill(color14);
   ellipse(dotX-25, dotY-90, dotsize, dotsize); // top left 3
- 
-
-  //DOTS SHINE
-
-  let shineWidth = 6;
-  let shineHeight = 4;
- 
-  fill(shineColor);
-  ellipse(dotX+2, dotY+4, shineWidth, shineHeight); //middle bottom
-  ellipse(dotX+27, dotY-23, shineWidth, shineHeight); // bottom right 3
-  ellipse(dotX-23, dotY-23, shineWidth, shineHeight); // bottom left 3
-  ellipse(dotX+27, dotY+4, shineWidth, shineHeight); // bottom right 2
-  ellipse(dotX-23, dotY+4, shineWidth, shineHeight); // bottom left 2
-  ellipse(dotX+27, dotY+31, shineWidth, shineHeight); // bottom right 1
-  ellipse(dotX-23, dotY+31, shineWidth, shineHeight); // bottom left 1
-
-  ellipse(dotX+2, dotY-86, shineWidth, shineHeight); //middle top
-  ellipse(dotX+27, dotY-113, shineWidth, shineHeight); // bottom right 3
-  ellipse(dotX-23, dotY-113, shineWidth, shineHeight); // bottom left 3
-  ellipse(dotX+27, dotY-59, shineWidth, shineHeight); // bottom right 1
-  ellipse(dotX-23, dotY-59, shineWidth, shineHeight); // bottom left 1
-  ellipse();
-  ellipse();
-
-  // customDots(50, 100);
 
 }
-
- 
-
-// function customDots(dotX, dotY){
-
- 
-
-//   noStroke();
-
-//   fill(strokeColor);
-
-//   ellipse(dotX, dotY, dotsize, dotsize); //middle bottom
-
- 
-
-//   fill(shineColor);
-
-//   ellipse(dotX+2, dotY+4, shineWidth, shineHeight); //middle bottom
-
- 
-
-// }
-
- 
 
 function interpolate_letter(percent, oldObj, newObj) {
 
   let new_letter = {};
+
+  // if(percent < 50){
+  //   new_letter["domino"] = oldObj["domino"]
+  // }
+  // else{
+  //   new_letter["domino"] = map(percent,51, 100,oldObj["domino"],newObj["domino"]);
+  // }
+
+  new_letter["color1"] = map(percent, 0, 100, oldObj["color1"], newObj["color1"]);
+  new_letter["color2"] = map(percent, 0, 100, oldObj["color2"], newObj["color2"]);
+  new_letter["color3"] = map(percent, 0, 100, oldObj["color3"], newObj["color3"]);
+  new_letter["color4"] = map(percent, 0, 100, oldObj["color4"], newObj["color4"]);
+  new_letter["color5"] = map(percent, 0, 100, oldObj["color5"], newObj["color5"]);
+  new_letter["color6"] = map(percent, 0, 100, oldObj["color6"], newObj["color6"]);
+  new_letter["color7"] = map(percent, 0, 100, oldObj["color7"], newObj["color7"]);
+  new_letter["color8"] = map(percent, 0, 100, oldObj["color8"], newObj["color8"]);
+  new_letter["color9"] = map(percent, 0, 100, oldObj["color9"], newObj["color9"]);
+  new_letter["color10"] = map(percent, 0, 100, oldObj["color10"], newObj["color10"]);
+  new_letter["color11"] = map(percent, 0, 100, oldObj["color11"], newObj["color11"]);
+  new_letter["color12"] = map(percent, 0, 100, oldObj["color12"], newObj["color12"]);
+  new_letter["color13"] = map(percent, 0, 100, oldObj["color13"], newObj["color13"]);
+  new_letter["color14"] = map(percent, 0, 100, oldObj["color14"], newObj["color14"]);
   new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
   new_letter["domino"] = map(percent,0,100,oldObj["domino"],newObj["domino"]);
-  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
-  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
-  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
-  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  
 
   return new_letter;
 
@@ -170,10 +130,22 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
 
-  "ABBAABBA",
+  "DOMINO37",
 
-  "CAB?CAB?",
+  "COLLAPSE",
 
-  "BAAAAAAA"
+  "CARNIVAL",
+
+  "SPINNING",
+
+  "12345678",
+
+  "ROULETTE",
+
+  "PLATFORM",
+
+  "UNICORNS",
+
+  "HUSTLERS"
 
 ]
