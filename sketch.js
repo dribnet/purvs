@@ -2,15 +2,30 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "points": [3, 6, 1, 4]
+  "point1": 3,
+  "point2": 6,
+  "point3": 1,
+  "point4": 4,
+  "point5": 4,
+  "randomSeed": 1
 }
 
 const letterB = {
-  "points": [4, 0, 6, 2, 0]
+  "point1": 4,
+  "point2": 0,
+  "point3": 6,
+  "point4": 2,
+  "point5": 0,
+  "randomSeed": 2
 }
 
 const letterC = {
-  "points": [2, 4, 6]
+  "point1": 2,
+  "point2": 4,
+  "point3": 6,
+  "point4": 6,
+  "point5": 6,
+  "randomSeed": 3
 }
 
 const backgroundColor = "#000000";
@@ -27,12 +42,6 @@ function setup() {
   // color/stroke setup
   stroke(strokeColor);
 
-  // draw background stars
-  for (let i = 0; i < 600; i++) {
-    strokeWeight(random(1, 4));
-    point(random(width), random(height));
-  }
-
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
@@ -48,35 +57,70 @@ function draw() {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
-function drawLetter(posx, posy, letterData) {
-  let letterPos = createVector(posx, posy);
-
-  for (let i = 0; i < letterData["points"].length - 1; i++) {
-    drawLineSegment(letterPos, letterData["points"][i], letterData["points"][i + 1]);
+let stars = []; // Initialise array for background stars
+for (let i = 0; i < 100; i++) { // Fill stars array with background stars with placeholder positions
+  stars[i] = {
+    "x": 0,
+    "y": 0
   }
 }
 
-function drawLineSegment(letterPos, point1, point2) {
-  let radius = 50;
-  let linePoint = 30;
-  let lineAngle = PI / 16;
+function drawLetter(posx, posy, letterData) {
+  let letterPos = createVector(posx, posy);
 
+  randomSeed(letterData["randomSeed"]); // Set the seed for the random positions of the background stars
+
+  stroke(255, letterData["starsAlpha"]);
+  strokeWeight(2);
+  for (let i = 0; i < stars.length; i++) {
+    // Set positions of background stars
+    stars[i].x = random(-120, 120);
+    stars[i].y = random(-height/2 - 120, height/2);
+
+    point(letterPos.x + stars[i].x, letterPos.y + stars[i].y); // Draw background stars
+  }
+
+  // Draw lines of letter
+  let firstLine = true;
+  for (let i = 1; i < 5; i++) {
+    drawLineSegment(letterPos, letterData["point" + i], letterData["point" + (i + 1)], firstLine);
+    firstLine = false;
+  }
+}
+
+// Custom line function
+function drawLineSegment(letterPos, point1, point2, firstLineInLetter) {
+  let radius = 45; // Radius of circle letters are drawn within
+
+  // Calculate the vector of the line segment
   let lineStartX = radius * cos(point1 * PI / 4) + letterPos.x;
   let lineStartY = radius * sin(point1 * PI / 4) + letterPos.y;
 
   let lineEndX = radius * cos(point2 * PI / 4) + letterPos.x;
   let lineEndY = radius * sin(point2 * PI / 4) + letterPos.y;
 
-  let lineVector = createVector(lineEndX - lineStartX, lineEndY - lineStartY); // Get the vector for the current line segment
+  let lineVector = createVector(lineEndX - lineStartX, lineEndY - lineStartY);
 
+  // Draw line segment
   stroke(255);
   strokeWeight(1.5);
   noFill();
   line(lineStartX, lineStartY, lineStartX + lineVector.x, lineStartY + lineVector.y);
 
-  strokeWeight(8);
-  point(lineStartX, lineStartY);
-  point(lineEndX, lineEndY);
+  // Draw glowing stars
+  if (firstLineInLetter) {
+    star(lineStartX, lineStartY, random(4, 6));
+  }
+  star(lineEndX, lineEndY, random(4, 6));
+}
+
+// Custom point function for glowing stars
+function star(x, y, size) {
+  noStroke();
+  for (let i = 3; i > 0; i--) {
+    fill(255, 249, 209, map(pow(i, 2), 9, 1, 50, 255));
+    ellipse(x, y, map(pow(i, 2), 9, 1, 3, 1) * size);
+  }
 }
 
 function keyTyped() {
