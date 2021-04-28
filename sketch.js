@@ -79,13 +79,13 @@ const canvasHeight = 500;
    "h4": 15,
  }
 
- const colorFront1  = (0);//center line
- const colorFront2  = (0);//top line
- const colorFront3  = (0);//bottom line
- const colorFront4  = "0";//shape background
+ const colorFront1  = "#F89880";//center line
+ const colorFront2  = "#A7C7E7";//top line
+ const colorFront3  = "#96DED1";//bottom line
+ const colorFront4  = "#FFC0CB";//shape background
 
  const colorBack    = "#CCCCFF";//background
- const colorStroke  = "0";//stroke
+ const colorStroke  = "#40E0D0";//stroke
 
  function setup () {
    // create the drawing canvas, save the canvas element
@@ -145,7 +145,7 @@ const canvasHeight = 500;
 
  function draw () {
    // clear screen
-   background(0);
+   background(204, 204, 255);
 
    // compute the center of the canvas
    let center_x = canvasWidth / 2;
