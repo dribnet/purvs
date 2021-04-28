@@ -5,12 +5,16 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "399fe68aa188cff453ce96d21223cd80c6883ba4",
+      "name": "First attempt with Two distinct shapes"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "ebcb2396ad77617ccda38c8bd6bb67ed2b7fc5cf",
+      "name": "Secondary shape used as highlight"
+    },
+    {
+      "sha": "da8ac549d1a3688c1e79721a6d523cfdd343b6c8",
+      "name": "Isometric attempt. Only one shape"
     }
   ]
 }
