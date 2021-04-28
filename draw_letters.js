@@ -113,5 +113,5 @@ var swapWords = [
   "MOUNTAIN",
   "AMAZING",
   "ABSTRACT"
-  "<<<<<<<<"
+  
 ]
