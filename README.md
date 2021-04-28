@@ -6,6 +6,6 @@ possible names:
 spacecase
 eclipsed
 
-I made some of the letters look a bit more different and added words to the exhibition
+Just cleaning up the code :)
 
 
