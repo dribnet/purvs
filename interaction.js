@@ -91,7 +91,7 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(0);
+  background(204, 204, 255);
 
   // draw the interpolation on the guidelines
   push();
