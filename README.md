@@ -3,13 +3,14 @@
 FONT: FUNHOUSE
 
 My final typeface is called "FUNHOUSE", as I believe this font to be very playful from first glance.
+
 My alphabet contains quite distinct letters/numbers some are more abstract (size, width and height are purposely inconsistent) than others but when together they form a functional Typeface, but alone they still provoke the eye. One could say this typeface would be more targeted to a younger audience, but my intention would be for it to be used by all to just add a little bit more fun to their day.
 
- In my design I wanted to acknowledge the fun pops of colour and geometric design of the 80's and the mixed varation of stroke and width size of art deco. I took colour and geometric shapes and used them in a way that is readable but not lacklustre. "FUNHOUSE" is all about making the mundane a little more fun.
- I orginally started for a calming vibe for my deisgn, with beige and light colours with a contrasting blue, but I decided not only did my Font look better but it is more effective, and readable in these striking (primarily) primary colours.
+ In my design I wanted to acknowledge the mixed varation of stroke and width size of art deco. My final colour palette and use of geometric shapes was heavily inspired by Bauhaus. I took colour and geometric shapes and used them in a way that is readable but not lacklustre. "FUNHOUSE" is all about making the mundane a little more fun.
 
- My process was a lot of development, my ideas changed the more I learnt, and the more research I did.
- From this assesment I learnt how majorly a colour palette can change the tone of a design, and how important it is to just step back and look at your work.
+ I orginally started with a more calming approach for my deisgn, with beige and light colours with a contrasting blue, but I decided not only did my Font look better but it is more effective, and readable in these striking (primarily) primary colours.
+
+ My process was a lot of development, my ideas changed the more I learnt, and the more research I did. I used quite a few perimeters, coming in at 18. I believe having this many helped me achieve my ideal design, and an effective one. I also used my interpolation to continue on this fun aesthetic, with a fast effect that almost ressembles a bubble popping whilst drifting away from the centre of the default form. From this assesment I learnt how majorly a colour palette can change the tone of a design, and how important it is to just step back and look at your work.
 
                                                      << README Journal >>
  
