@@ -37,11 +37,26 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["start"] = map(percent, 0, 360, oldObj["start"], newObj["start"]);
-  new_letter["end"] = map(percent, 0, 360, oldObj["end"], newObj["end"]);
+ 
+ let targetstart= 0;
+ let defaultChar = getObjFromChar("default");
+ if(percent < 50){
+    new_letter["start"] = map(percent, 0, 180, oldObj["start"], defaultChar["start"]);
+    new_letter["size"]    = map(percent, 0, 50, oldObj["size"], defaultChar["size"]);
+    new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], defaultChar["offsetx"]);
+    new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], defaultChar["offsety"]);
+    new_letter["end"] = map(percent, 0, 180, oldObj["end"], defaultChar["end"]);
+
+ }
+
+ 
+if(percent > 50){
+  new_letter["size"]    = map(percent, 50, 100, defaultChar["size"], newObj["size"]);
+  new_letter["offsetx"] = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 50, 100, defaultChar["offsety"], newObj["offsety"]);
+  new_letter["start"] = map(percent, 181, 360, defaultChar["start"], newObj["start"]);
+  new_letter["end"] = map(percent, 181, 360, defaultChar["end"], newObj["end"]);
+}
   return new_letter;
 }
 

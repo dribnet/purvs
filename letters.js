@@ -1,8 +1,10 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "size": 1,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "end":360
   },
   "A": {
     "size": 60,
