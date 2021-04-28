@@ -5,12 +5,20 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "7e416d16d6c1a18f0742c4ff8dd33f1cf94747fa",
+      "name": "smoother exhibition"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "f5b77ad10ad0fe6f3738ebe3fda7fbd60c9d792d",
+      "name": "interaction of custom swap words"
+    },
+    {
+      "sha": "21d1ec901828de4501d91c122f897af6e08f1767",
+      "name": "alphabet"
+    },
+    {
+      "sha": "7e5522fdf6453aa165d60362415bddf9676494f2",
+      "name": "sketch"
     }
   ]
 }

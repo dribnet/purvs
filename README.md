@@ -1,18 +1,13 @@
 ## MDDN 242 2021 Assignment 2
 
-Unfortunately this past week and half I have been really sick and with a 40% assignment due in the same week for another class, I have started this assignment a little later than I would have liked. 
+For my font "SERENE" I decided to go with three main shapes. One of these shapes being the background shape. The background shape is a circle which is a constant, the other two shapes being used is a circle in the middle and a rotating rectangle in the foreground.
 
-For my design I went with a colourful and refreshing colour palette with light blues, pinks and yellows. For the design of the alphabet I decided to keep it a little simple (due to the time constraints.) I have chosen an arc to help shape the letters, these shapes are inspired by the pacman character.  
+The inspiration I drew for this project is based off one of my part-time jobs as a photographer. I wanted the letters to form the inside of a lens, with simplicity at the forefront, as I am someone who pefers simple and minimal looking fonts. However, once I got to designing them in code I realised it is a bit more difficult to create different so many different characters, I started to notice that some of the arc almost look like something in a PacMan game. I decided to try and combine the two inspirations. 
 
-Added a rectangle shape as I felt like it adds more depth to the letters, some extra parameters of the rectangle eg. stroke and angle. 
+For my design I went with a colourful and refreshing colour palette with light blues, pinks and yellows. I was going to originally go for a dark grey colour palette but decided it would be more enjoyable to create something bright and colourful for a change. For the design of the alphabet I decided to keep it a  simple and minimalistic.  I have chosen an arc and a rotating rectangle to help shape the letters and numbers. By adding different parameters to the rectangle such as a stroke and having it rotate added more depth to the animation that I was doing in the exhibition phases. 
 
-Updated the interaction.html to work with my interpolations and parameters. 
+Personally, I wish I had spent a little more time on refining the design and potentially adding another shape to the characters to give it some more depth. However, due to the poor health these past almost two weeks and a huge assignment due in the same week for another class, I am pleased with the result.
 
-Added in my own words into swapWords including the font name "SERENE". also fixed the defalut character to represent an exclamation point. 
-
-Played with the interpolation animation percentages to be more smooth. 
-
-updated thumbnail and preview
 
 The parameters per letter:
   * `size` : radius of the second circle
