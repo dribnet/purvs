@@ -22,64 +22,51 @@ function drawLetter(letterData) {
 
   angleMode(DEGREES);
 
-  let dotX = 50;
-  let dotY = 145;
+let dotX = 50;
+let dotY = 145;
 
  
   // DOMINO PIECE
 
-  let domino1 = str(letterData["domino1"]);
-  domino1 = color(domino1);
+let domino = letterData["domino"];
 
   noStroke();
   fill(140, 140, 140); // grey
   rectMode(CENTER);
   rect(53, 103, 90, 190, 10); // shadow
-  fill(domino1);
+  fill(domino);
   rect(50, 100, 90, 190, 10); // domino
 
  
 
   //MIDDLE LINE OF DOMINO PIECE
 
-  let line1 = str(letterData["line1"]);
-  line1 = color(line1);
-
+  // let line1 = str(letterData["line1"]);
+  // line1 = color(line1);
+let line1 = letterData["line1"];
   stroke(line1);
   strokeWeight(5);
   line(15, 100, 85, 100);
 
   //DOTS
 
-  let dotsize = 17;
+let dotsize = 17;
 
   noStroke();
-  let color1 = str(letterData["color1"]);
-  color1 = color(color1);
-  let color2 = str(letterData["color2"]);
-  color2 = color(color2);
-  let color3 = str(letterData["color3"]);
-  color3 = color(color3);
-  let color4 = str(letterData["color4"]);
-  color4 = color(color4);
-  let color5 = str(letterData["color5"]);
-  color5 = color(color5);
-  let color6 = str(letterData["color6"]);
-  color6 = color(color6);
-  let color7 = str(letterData["color7"]);
-  color7 = color(color7);
-  let color8 = str(letterData["color8"]);
-  color8 = color(color8);
-  let color9 = str(letterData["color9"]);
-  color9 = color(color9);
-  let color10 = str(letterData["color10"]);
-  color10 = color(color10);
-  let color11 = str(letterData["color11"]);
-  color11 = color(color11);
-  let color12 = str(letterData["color12"]);
-  color12 = color(color12);
-  let color13 = str(letterData["color13"]);
-  color13 = color(color13);
+  let color1 = letterData["color1"];
+  let color2 = letterData["color2"];
+  let color3 = letterData["color3"];
+  let color4 = letterData["color4"];
+  let color5 = letterData["color5"];
+  let color6 = letterData["color6"];
+  let color7 = letterData["color7"];
+  let color8 = letterData["color8"];
+  let color9 = letterData["color9"];
+  let color10 = letterData["color10"];
+  let color11 = letterData["color11"];
+  let color12 = letterData["color12"];
+  let color13 = letterData["color13"];
+  let color14 = letterData["color14"];
 
 
   fill(color1);
@@ -107,6 +94,10 @@ function drawLetter(letterData) {
   ellipse(dotX+25, dotY-63, dotsize, dotsize); // top right 1
   fill(color12);
   ellipse(dotX-25, dotY-63, dotsize, dotsize); // top left 1
+  fill(color13);
+  ellipse(dotX+25, dotY-90, dotsize, dotsize); // top right 3
+  fill(color14);
+  ellipse(dotX-25, dotY-90, dotsize, dotsize); // top left 3
  
 
   //DOTS SHINE
@@ -128,6 +119,8 @@ function drawLetter(letterData) {
   ellipse(dotX-23, dotY-113, shineWidth, shineHeight); // bottom left 3
   ellipse(dotX+27, dotY-59, shineWidth, shineHeight); // bottom right 1
   ellipse(dotX-23, dotY-59, shineWidth, shineHeight); // bottom left 1
+  ellipse();
+  ellipse();
 
   // customDots(50, 100);
 
@@ -160,16 +153,14 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
 
   let new_letter = {};
-
+  new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
+  new_letter["domino"] = map(percent,0,100,oldObj["domino"],newObj["domino"]);
+  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
+  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
+  // new_letter["line1"] = map(percent,0,100,oldObj["line1"],newObj["line1"]);
   // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-
   // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-
   // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-
- 
-
- 
 
   return new_letter;
 
