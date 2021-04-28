@@ -26,6 +26,8 @@
 
 //this is the final.
 
+//sorry final change, deleted unnecessary swapwords.
+
 The eleven parameters per letter:
   * `size` : size of rectegle
   * "rx1": x offset of the no.1 rectegle relative to the first one
