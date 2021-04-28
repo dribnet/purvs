@@ -1,19 +1,16 @@
 {
   "commits": [
     {
-      "sha": "8ac59149274dea81ad00daad9cf4bcbce70fe996",
+      "sha": "0000000000000000000000000000000000000003",
       "name": "final"
     },
     {
-      "sha": "b56e94d7cf3eead23253b84271a9547e73b3fdfa",
-      "name": "adding color"
+      "sha": "0000000000000000000000000000000000000002",
+      "name": "example 2"
     },
     {
-      "sha": "6376b2f388771905d09aae323d3eae2e46be1260",
-      "name": "basic color"
+      "sha": "0000000000000000000000000000000000000001",
+      "name": "example 1"
     }
-    {
-      "sha": "46259031e1e0a267b5c86528a503b67700f39286",
-      "name": "first sketch"
   ]
 }
