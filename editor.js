@@ -1,13 +1,27 @@
-/*******
- * define this "sliderInfo" variable
- * have an entry for each slider you want
- * and each row should be:
- * ["object_field", minimum_bound, maximum_bound]
- */
-const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+
+//animation variables
+
+ const sliderInfo = [
+
+["quadXLoki", 0, 1000],
+["quadYLoki", 0, 1000],
+["quadrotation", 0, 1000],
+["GreenDot1xpos", 0, 1000],
+["GreenDot1ypos", 0, 1000],
+["greenDot2xpos", 0, 1000],
+["GreenDot2ypos", 0, 1000],
+["GreenDot3xpos", 0, 1000],
+["GreenDot3ypos", 0, 1000],
+["GreenDotSize", 0, 1000],
+["RedRotation", 0, 1000],
+["RedxPosition", 0, 1000],
+["RedyPosition", 0, 1000],
+["BlackLinexpos", 0, 1000],
+["BlackLineypos", 0, 1000],
+["BlueCircleSize", 0, 1000],
+["BlueCirclexPos", 0, 1000],
+["BlueCircleyPos", 0, 1000],
+
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

@@ -12,6 +12,7 @@ const canvasHeight = 500;
  *
  */
 
+// letters ABC first attempt
 
   const letterA = {
  "quadXLoki": 150,
@@ -167,6 +168,7 @@ function draw () {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
+  // Here are my parametrics for my alphabet
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let quadx = letterData["quadXLoki"];
@@ -206,7 +208,7 @@ function drawLetter(posx, posy, letterData) {
 
 
 
-
+//My drawn shapes for my alphabet
 
 
 //Yellow Quad
