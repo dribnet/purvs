@@ -1,18 +1,22 @@
 const alphabet = {
   "default": {
-    "startx": -5,
-    "starty": 0,
+    "startx": 1,
+    "starty": 40,
     "endx": 0,
-    "endy": 0,
-    "startx2": 25,
-    "starty2": -25,
-    "endx2": 25,
-    "endy2": 25,
+    "endy": 40,
+    "startx2": 0,
+    "starty2": 10,
+    "endx2": 0,
+    "endy2": -45,
     "startx3": 0,
     "starty3": 0,
-    "endx3": -5,
+    "endx3": 0,
     "endy3": 0,
-    "SW":80
+    "startx4": 0,
+    "starty4": -40,
+    "endx4": 0,
+    "endy4": -25,
+    "SW":25
   },
    "A": {
     "startx": -5,
@@ -27,6 +31,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": -5,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
    },
   "B": {
@@ -42,6 +50,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -30,
+    "starty4": -49,
+    "endx4": -30,
+    "endy4": 0,
     "SW": 80
   },
   "C": {
@@ -57,6 +69,10 @@ const alphabet = {
     "starty3": -10,
     "endx3": 28,
     "endy3": 10,
+    "startx4": -10,
+    "starty4": -25,
+    "endx4": -20,
+    "endy4": -20,
     "SW":80
   },
   "D": {
@@ -72,6 +88,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "E": { 
@@ -87,6 +107,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": -5,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "F": {
@@ -102,6 +126,10 @@ const alphabet = {
     "starty3": -15,
     "endx3": 30,
     "endy3": -10,
+    "startx4": -25,
+    "starty4": -28,
+    "endx4": -15,
+    "endy4": -40,
     "SW":70
   },
   "G": {
@@ -117,6 +145,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": -5,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "H": {
@@ -132,6 +164,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 2,
     "endy3": 35,
+    "startx4": -28,
+    "starty4": -45,
+    "endx4": -28,
+    "endy4": 0,
     "SW":80
   },
   "I": {
@@ -147,6 +183,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -2,
+    "starty4": -15,
+    "endx4": -2,
+    "endy4": 0,
     "SW":30
   },
   "J": {
@@ -162,6 +202,10 @@ const alphabet = {
     "starty3": 10,
     "endx3": -5,
     "endy3": -30,
+    "startx4": 22,
+    "starty4": -25,
+    "endx4": 22,
+    "endy4": 0,
     "SW":70
   },
   "K": {
@@ -177,6 +221,10 @@ const alphabet = {
     "starty3": -32,
     "endx3": 20,
     "endy3": 2,
+    "startx4": -28,
+    "starty4": -49,
+    "endx4": -28,
+    "endy4": -10,
     "SW":70
   },
   "L": {
@@ -192,6 +240,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -2,
+    "starty4": -45,
+    "endx4": -2,
+    "endy4": 0,
     "SW":80
 
   },
@@ -208,6 +260,10 @@ const alphabet = {
     "starty3": 20,
     "endx3": -15,
     "endy3": 30,
+    "startx4": -15,
+    "starty4": -28,
+    "endx4": -25,
+    "endy4": -22,
     "SW":60
   },
   "N": {
@@ -223,6 +279,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 2,
     "endy3": 35,
+    "startx4": -28,
+    "starty4": -28,
+    "endx4": -28,
+    "endy4": 0,
     "SW":80
   },
   "O": {
@@ -238,6 +298,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": -5,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "P": {
@@ -253,6 +317,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -28,
+    "starty4": -25,
+    "endx4": -28,
+    "endy4": 0,
     "SW":80
   },
   "Q": {
@@ -268,6 +336,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "R": {
@@ -283,6 +355,10 @@ const alphabet = {
     "starty3": -5,
     "endx3": 5,
     "endy3": 10,
+    "startx4": -28,
+    "starty4": -25,
+    "endx4": -28,
+    "endy4": 0,
     "SW":60
   },
   "S": {
@@ -298,6 +374,10 @@ const alphabet = {
     "starty3": -20,
     "endx3": 40,
     "endy3": -10,
+    "startx4": -12,
+    "starty4": -40,
+    "endx4": -22,
+    "endy4": -30,
     "SW":70
   },
   "T": {
@@ -313,6 +393,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -2,
+    "starty4": -50,
+    "endx4": -2,
+    "endy4": -20,
     "SW":30
   },
   "U": {
@@ -328,6 +412,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": -35,
+    "startx4": -25,
+    "starty4": -5,
+    "endx4": -23,
+    "endy4": -20,
     "SW":80
   },
   "V": {
@@ -343,6 +431,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -20,
+    "starty4": -25,
+    "endx4": -18,
+    "endy4": -20,
     "SW":30
   },
   "W": {
@@ -358,6 +450,10 @@ const alphabet = {
     "starty3": -20,
     "endx3": -15,
     "endy3": -30,
+    "startx4": -35,
+    "starty4": 10,
+    "endx4": -35,
+    "endy4": -5,
     "SW":60
   },
   "X": {
@@ -373,6 +469,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -20,
+    "starty4": -22,
+    "endx4": -18,
+    "endy4": -20,
     "SW":30
   },
   "Y": {
@@ -388,6 +488,10 @@ const alphabet = {
     "starty3": -35,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -25,
+    "starty4": 10,
+    "endx4": -30,
+    "endy4": -5,
     "SW":75
   },
   "Z": {
@@ -403,6 +507,10 @@ const alphabet = {
     "starty3": 15,
     "endx3": 40,
     "endy3": 5,
+    "startx4": -18,
+    "starty4": -28,
+    "endx4": -10,
+    "endy4": -25,
     "SW":70
   },
   "0": {
@@ -418,6 +526,10 @@ const alphabet = {
     "starty3": -5,
     "endx3": 0,
     "endy3": 5,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":70
   },
   "1": {
@@ -433,6 +545,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -5,
+    "starty4": -30,
+    "endx4": -18,
+    "endy4": -18,
     "SW":30
   },
   "2": {
@@ -448,6 +564,10 @@ const alphabet = {
     "starty3": -17,
     "endx3": -40,
     "endy3": -7,
+    "startx4": -5,
+    "starty4": -42,
+    "endx4": -15,
+    "endy4": -40,
     "SW":70
   },
   "3": {
@@ -463,6 +583,10 @@ const alphabet = {
     "starty3": -18,
     "endx3": -35,
     "endy3": -18,
+    "startx4": 0,
+    "starty4": -42,
+    "endx4": -10,
+    "endy4": -42,
     "SW":70
   },
   "4": {
@@ -478,6 +602,10 @@ const alphabet = {
     "starty3": -20,
     "endx3": 0,
     "endy3": 0,
+    "startx4": -12,
+    "starty4": -28,
+    "endx4": -22,
+    "endy4": -22,
     "SW":80
   },
   "5": {
@@ -493,6 +621,10 @@ const alphabet = {
     "starty3": 15,
     "endx3": -40,
     "endy3": 5,
+    "startx4": 5,
+    "starty4": -30,
+    "endx4": -18,
+    "endy4": -20,
     "SW":70
   },
   "6": {
@@ -508,6 +640,10 @@ const alphabet = {
     "starty3": 5,
     "endx3": 0,
     "endy3": 8,
+    "startx4": -8,
+    "starty4": -20,
+    "endx4": 2,
+    "endy4": -38,
     "SW":70
   },
   "7": {
@@ -523,6 +659,10 @@ const alphabet = {
     "starty3": 0,
     "endx3": 0,
     "endy3": 0,
+    "startx4": 0,
+    "starty4": -32,
+    "endx4": -20,
+    "endy4": -32,
     "SW":30
   },
   "8": {
@@ -538,6 +678,10 @@ const alphabet = {
     "starty3": 12,
     "endx3": 0,
     "endy3": 15,
+    "startx4": 0,
+    "starty4": -30,
+    "endx4": 0,
+    "endy4": -31,
     "SW":60
   },
   "9": {
@@ -553,6 +697,10 @@ const alphabet = {
     "starty3": -10,
     "endx3": 0,
     "endy3": -10,
+    "startx4": -12,
+    "starty4": -36,
+    "endx4": -22,
+    "endy4": -26,
     "SW":70
   }
 
