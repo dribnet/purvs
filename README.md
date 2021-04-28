@@ -1,11 +1,8 @@
 ## MDDN 242 2021 Assignment 2
-Overall project
-At first, I was at a loss for this project. For me, coding is a course that I am not good at. So at first I wanted to design pixel-style patterns instead of letters, but in the end I encountered difficulties because of my ability.Later, I decided to use the most basic graphics to form the shapes of letters and numbers, and the colors I chose were also fresher colors.
 
-Inspiration
-This letter image is inspired by Chinese mahjong, using lines and ovals to form different letters and numbers.
+Selection of color
+I chose the "#F89880","#A7C7E7","#96DED1","#FFC0CB" and "#40E0D0" these colors to reflect the letters and numbers. The reason why I chose these colors is because they are very bright, and they give people a very refreshing feeling.
 
-In the alphabet, it can be seen that some numbers are not displayed neatly, but they are "incomplete". I don't want all the letters and numbers to be completely regular, I hope it can be replaced with four shapes.At the end, I used the three words "colorful", "mahjong" and "Candice" as a display. First, "colorful" represents my color, brighter colors, and then "mahjong" represents my source of inspiration. Finally word is my English name.
 
 The 16 parameters per letter:
   * 'posx1':x position of rect1
