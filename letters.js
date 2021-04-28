@@ -17,27 +17,29 @@ const alphabet = {
     "rectHeight": 50,
     "rectPosX": 20,
     "rectPosY": -10,
-    "angleRotate": 0
+    "angleRotate": 0,
+    "translateX": 0,
+    "translateY": 0
 
   },
   "A": {
     //Shape1 the arc
     "arcSize": 25,
     "arcOffSetX": -9,
-    "arcOffSetY": -5,
+    "arcOffSetY": 3,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the circle
     "ellipseSize": 75,
     "ellipseOffSetX": 0,
-    "ellipseOffSetY": 0,
+    "ellipseOffSetY": 8,
 
     //Shape3 the rectangle
     "rectWidth": 20,
     "rectHeight": 40,
     "rectPosX": 25,
-    "rectPosY": 30,
+    "rectPosY": 38,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -46,20 +48,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 75,
     "arcOffSetX": 0,
-    "arcOffSetY": 0,
+    "arcOffSetY": 8,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "ellipseSize": 25,
     "ellipseOffSetX": 30,
-    "ellipseOffSetY": 20,
+    "ellipseOffSetY": 28,
 
     //Shape3 the rectangle
     "rectWidth": 20,
     "rectHeight": 40,
     "rectPosX": -28,
-    "rectPosY": -20,
+    "rectPosY": -12,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -90,20 +92,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 75,
     "arcOffSetX": 0,
-    "arcOffSetY": 0,
+    "arcOffSetY": 8,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "ellipseSize": 25,
     "ellipseOffSetX": -30,
-    "ellipseOffSetY": 20,
+    "ellipseOffSetY": 28,
 
     //Shape3 the rectangle
     "rectWidth": 20,
     "rectHeight": 40,
     "rectPosX": 25,
-    "rectPosY": -20,
+    "rectPosY": -12,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -112,20 +114,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 25,
     "arcOffSetX": 0,
-    "arcOffSetY": 0,
+    "arcOffSetY": 5,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "ellipseSize": 75,
     "ellipseOffSetX": 0,
-    "ellipseOffSetY": -0,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
     "rectWidth": 57,
     "rectHeight": 18,
     "rectPosX": -2,
-    "rectPosY": 30,
+    "rectPosY": 35,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -310,20 +312,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 65,
     "arcOffSetX": 0,
-    "arcOffSetY": 5,
+    "arcOffSetY": 10,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
     "ellipseSize": 20,
     "ellipseOffSetX": 25,
-    "ellipseOffSetY": 30,
+    "ellipseOffSetY": 35,
 
     //Shape3 the rectangle
     "rectWidth": 22,
     "rectHeight": 65,
     "rectPosX": -26,
-    "rectPosY": 0,
+    "rectPosY": 5,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -397,21 +399,21 @@ const alphabet = {
   "R": {
     //Shape1 the arc
     "arcSize": 50,
-    "arcOffSetX": 10,
-    "arcOffSetY": -5,
+    "arcOffSetX": 15,
+    "arcOffSetY": 0,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
     "ellipseSize": 20,
-    "ellipseOffSetX": 8,
-    "ellipseOffSetY": 0,
+    "ellipseOffSetX": 13,
+    "ellipseOffSetY": 5,
 
     //Shape3 the rectangle
     "rectWidth": 25,
     "rectHeight": 75,
-    "rectPosX": -30,
-    "rectPosY": -5,
+    "rectPosX": -25,
+    "rectPosY": 0,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -442,20 +444,20 @@ const alphabet = {
     //Shape1 the arc
     "arcSize": 40,
     "arcOffSetX": 10,
-    "arcOffSetY": 40,
+    "arcOffSetY": 30,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
     "ellipseSize": 20,
     "ellipseOffSetX": 20,
-    "ellipseOffSetY": -20,
+    "ellipseOffSetY": -30,
 
     //Shape3 the rectangle
     "rectWidth": 20,
     "rectHeight": 80,
     "rectPosX": 0,
-    "rectPosY": -10,
+    "rectPosY": -20,
     "angleRotate": 0,
     "translateX": 0,
     "translateY": 0
@@ -572,23 +574,23 @@ const alphabet = {
   "Z": {
     //Shape1 the arc
     "arcSize": 40,
-    "arcOffSetX": 20,
+    "arcOffSetX": 30,
     "arcOffSetY": 20,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "ellipseSize": 25,
-    "ellipseOffSetX": -30,
+    "ellipseOffSetX": -20,
     "ellipseOffSetY": -29,
 
     //Shape3 the rectangle
     "rectWidth": 80,
     "rectHeight": 20,
-    "rectPosX": 35,
+    "rectPosX": 45,
     "rectPosY": 5,
     "angleRotate": 125,
-    "translateX": 215,
+    "translateX": 228,
     "translateY": 130
   },
   "0": {

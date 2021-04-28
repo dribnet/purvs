@@ -135,9 +135,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "BAZINGA!", //Name of my font
   "MUNDANE!",
-  "QUESTION",
   "ADVOCATE",
+  "QUESTION",
+  "REBELLED",
+  "RIDICULE",
   "BOUNDARY",
-  "COLORFUL",
-  "RIDICULE"
+  "COLORFUL"
 ]
