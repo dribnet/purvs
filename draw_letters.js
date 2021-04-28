@@ -1,15 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#000000";
+var systemBackgroundColor = "#000000"; //black
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
 const darkBlue  = "#287afc";
 
-const strokeColor  = "#233f11";
-const orange  = "#fca028";
-const beige = "#E1E5C6";
-      const negativespace = "#000000";
+const strokeColor  = "#233f11"; 
+const orange  = "#fca028"; // rects colour
+      const negativespace = "#000000"; // black rect
 /*
  * Draw the letter given the letterData
  *
@@ -23,40 +22,40 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(0);
   // determine parameters bigger circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size2 = letterData["size"]; // size of yellow circle
+  let pos2x = 50  + letterData["offsetx"]; // yellow circle x
+  let pos2y = 150 + letterData["offsety"]; // yellow circle y postion 
 
   // determine  parameters smaller circle
-  let pos3x =  letterData["smalllength"];
-  let pos3y =   letterData["smallheight"]; 
-  let size3 = letterData["sizesmall"] -50;
- let posxrl =  letterData["leftrectW"];
-  let posyrl =  letterData["leftrectH"]; 
-  let posxrr = letterData["RightrectW"];
- let posyrr =   letterData["RightrectH"];
+  let pos3x =  letterData["smalllength"]; // small circle x position
+  let pos3y =   letterData["smallheight"]; // small circle y position
+  let size3 = letterData["sizesmall"] -50; // size of small circle
+ let posxrl =  letterData["leftrectW"]; // left rectangle width
+  let posyrl =  letterData["leftrectH"]; // left rectangle height
+  let posxrr = letterData["RightrectW"]; // right rectangle width
+ let posyrr =   letterData["RightrectH"]; // right rectangle height
 
  // triangle
- let trix1 =   letterData["x1"]; 
-  let triy1 = letterData["y1"] ;
- let trix2 =  letterData["x2"];
-  let triy2 =  letterData["y2"]; 
-  let trix3 = letterData["x3"];
- let triy3 =   letterData["y3"];
+ let trix1 =   letterData["x1"]; // point 1 x position = mid point triangle
+  let triy1 = letterData["y1"] ; // point 1 y position
+ let trix2 =  letterData["x2"]; // point 2 x position
+  let triy2 =  letterData["y2"]; // point 2 y position
+  let trix3 = letterData["x3"]; // point 3 x position
+ let triy3 =   letterData["y3"]; // point 3 y position
 
- let posxne =  letterData["negativeW"];
-  let posyne =  letterData["negativeH"];
+ let posxne =  letterData["negativeW"]; // black rectangle (negative space) width
+  let posyne =  letterData["negativeH"]; // black rectangle (negative space) height
 
- angleMode(DEGREES); 
+ 
 
  //triangle from (0,0) to (100, 200)
  fill(255, 18, 26);
- triangle(trix1, triy1, trix2, triy2, trix3, triy3); 
+ triangle(trix1, triy1, trix2, triy2, trix3, triy3); // each angle is made up of a trix and a triy 
 
 
   // draw rect left
  fill(orange);
-  rect(0, 80, posxrl, posyrl);
+  rect(0, 80, posxrl, posyrl); 
 
 // draw rect right
   fill(orange);
@@ -79,11 +78,25 @@ fill(negativespace);
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  let targetsize = 0; // this is the value that I want the HeadY to hit before moving on to its final destination
+
+  let defaultChar = getObjFromChar("default"); // the variable defaultChar now contains all the infomation of the "default" section of letters.js
+
+  if(percent < 50){
+  new_letter["size"]    = map(percent, 0, 50, oldObj["size"], targetsize); // half way through the animation we want the HeadY to hit -30
+  new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], defaultChar["offsety"]); // half way through the animation the face looks like default
+   new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], defaultChar["offsetx"]);
+  } 
+  else{
+   new_letter["size"]    = map(percent, 50, 100, oldObj["size"], targetsize); // starting from 0 we are moving to the next letters HeadY
+  new_letter["offsetx"]  = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsety"]); // moving from default to the new letter
+  new_letter["offsety"]  = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsetx"]);
+  }
+
   return new_letter;
 }
+
 
 var swapWords = [
  "FUNHOUSE",

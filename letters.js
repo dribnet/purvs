@@ -201,14 +201,16 @@ const alphabet = {
 },
   "L": {
   "size": 28.999999999999996,
-  "offsetx": 3.6000000000000014,
-  "offsety": 8,
-  "smalllength": 30,
-  "smallheight": 158,
+  "offsetx": 35,
+  "offsety": 18,
+  "smalllength": 60,
+  "negativeW": 25,
+  "negativeH": 200,
+  "smallheight": 168,
   "sizesmall": 23,
-  "leftrectW": 19.85,
-  "leftrectH": 90,
-  "RightrectW": -22.15,
+  "leftrectW": 50.85,
+  "leftrectH": 100,
+  "RightrectW": -12.15,
   "RightrectH": 0
 },
   "M": {
@@ -250,7 +252,7 @@ const alphabet = {
   "O": {
   "size": 90,
   "offsetx": 0,
-  "offsety": -32,
+  "offsety": -10,
   "leftrectW": 32.5,
   "leftrectH": 0,
   "RightrectW": 25,
@@ -264,7 +266,7 @@ const alphabet = {
   "negativeW": 0,
   "negativeH": 0,
   "smalllength": 50,
-  "smallheight": 118,
+  "smallheight": 138,
   "sizesmall": 100
 },
   "P": {
@@ -286,8 +288,8 @@ const alphabet = {
   "y3": 100
 },
   "Q": {
-  "size": 85,
-  "offsetx": -10.8,
+  "size": 95,
+  "offsetx": -5.8,
   "offsety": -28,
   "smalllength": 57.99999999999999,
   "smallheight": 172,
@@ -298,13 +300,13 @@ const alphabet = {
   "RightrectH": 0,
   "x1": 0,
   "y1": 102,
-  "x2": 42,
-  "y2": 176,
-  "x3": 80,
-  "y3": 176
+  "x2": 52,
+  "y2": 190,
+  "x3": 90,
+  "y3": 190
 },
   "R": {
-  "size": 71,
+  "size": 81,
   "offsetx": -13.799999999999997,
   "offsety": -42.00000000000001,
   "smalllength": 0,
@@ -315,31 +317,31 @@ const alphabet = {
   "RightrectW": 25,
   "RightrectH": 0,
   "x1": 71,
-  "y1": 178,
+  "y1": 190,
   "x2": 4,
   "y2": 96,
   "x3": 0,
-  "y3": 176
+  "y3": 190
 },
   "S": {
-  "size": 0,
-  "offsetx": -30,
-  "offsety": 2,
-  "smalllength": 0,
-  "smallheight": 158,
+  "size": 20,
+  "offsetx": 5,
+  "offsety": -60,
+  "smalllength": 20,
+  "smallheight": 168,
   "sizesmall": 82,
-  "leftrectW": 22.15,
+  "leftrectW": 42.15,
   "leftrectH": 38,
-  "RightrectW": -32.5,
+  "RightrectW": 20.5,
   "RightrectH": 14.000000000000002,
-  "x1": 56.99999999999999,
-  "y1": 126,
-  "x2": 0,
+  "x1": 86.99999999999999, // mid point triangle
+  "y1": 126, // mid 
+  "x2": 30,
   "y2": 82,
-  "x3": 0,
+  "x3": 30,
   "y3": 168,
-  "negativeW": 0 ,
- "negativeH": 0
+  "negativeW": 16 ,
+ "negativeH": 38
 },
   "T": {
   "size": 25,
@@ -366,16 +368,16 @@ const alphabet = {
   "smalllength": 50,
   "smallheight": 0,
   "sizesmall": 50,
-  "leftrectW": 32.5,
-  "leftrectH": 86,
+  "leftrectW": 28.5,
+  "leftrectH": 100,
   "RightrectW": -17.549999999999997,
-  "RightrectH": 86,
+  "RightrectH": 100,
   "x1": 70,
-  "y1": 166,
+  "y1": 180,
   "x2": 70,
   "y2": 84,
   "x3": 0,
-  "y3": 166
+  "y3": 180
 },
   "V": {
   "size": 0,
@@ -504,7 +506,7 @@ const alphabet = {
   "y3": 100
 },
   "2": {
-  "size": 31,
+  "size": 0,
   "offsetx": -10.2,
   "offsety": -64,
   "smalllength": 31,
