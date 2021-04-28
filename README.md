@@ -1,9 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 **Letters**
-- Worked on the letter y as it is one of my least favourites.
-- I will continue working on the look of my numbers because they are still not 100% what I want them to look like, just need to polish them up.
-- Restructured and cleaned up my code.
-- I created my default character to look like both a question mark and an exclamation mark, it will depend on the viewers personal interpretation. I have spoken to Bex and I would prefer if I didn't have to use the default character, so Bex suggested using an if statement so when its called it doesn't draw it just leaves it blank. 
+- Tweaked the letter c and my numbers, not by much just increased/decreased some numbers here and there.
+- Added some new swop words
 
 Currently I have 15 parameters:
 

@@ -83,9 +83,8 @@ function drawLetter(letterData) {
 
     ellipse(pos2x - 7, pos2y - 7, size1, size1);
   }
-
   //Texture of the letters
-    dots(pos3x, pos3y, width, height, angle, translatex, translatey);
+  dots(pos3x, pos3y, width, height, angle, translatex, translatey);
 }
 
 //The function that creates the dot texture that we will call in the main function
@@ -131,9 +130,11 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "POP",
-  "BANG",
-  "KACHING",
-  "BAZINGAA",
-  "BY ROBYN"
+  "BAZINGA!", //Name of my font
+  "MUNDANE!",
+  "QUESTION",
+  "ADVOCATE",
+  "BOUNDARY",
+  "COLORFUL",
+  "RIDICULE"
 ]

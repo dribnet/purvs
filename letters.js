@@ -40,7 +40,7 @@ const alphabet = {
     "offsety3": 30,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "B": {
     //Shape1 the arc
@@ -62,29 +62,29 @@ const alphabet = {
     "offsety3": -20,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "C": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
+    "size": 85,
+    "offsetx": 15,
     "offsety": 0,
     "arcStart": 90,
     "arcEnd": 270,
 
     //Shape2 the second circle
     "size1": 35,
-    "offsetx2": 0,
+    "offsetx2": 15,
     "offsety2": 0,
 
     //Shape3 the rectangle
     "width": 15,
     "height": 15,
-    "offsetx3": -10,
+    "offsetx3": 5,
     "offsety3": 35,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "D": {
     //Shape1 the arc
@@ -106,7 +106,7 @@ const alphabet = {
     "offsety3": -20,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "E": {
     //Shape1 the arc
@@ -128,7 +128,7 @@ const alphabet = {
     "offsety3": 30,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "F": {
     //Shape1 the arc
@@ -150,7 +150,7 @@ const alphabet = {
     "offsety3": 20,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "G": {
     //Shape1 the arc
@@ -172,7 +172,7 @@ const alphabet = {
     "offsety3": 30,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "H": {
     //Shape1 the arc
@@ -194,7 +194,7 @@ const alphabet = {
     "offsety3": -20,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "I": {
     //Shape1 the arc
@@ -216,7 +216,7 @@ const alphabet = {
     "offsety3": 10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "J": {
     //Shape1 the arc
@@ -238,7 +238,7 @@ const alphabet = {
     "offsety3": 10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "K": {
     //Shape1 the arc
@@ -260,7 +260,7 @@ const alphabet = {
     "offsety3": -15,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "L": {
     //Shape1 the arc
@@ -282,7 +282,7 @@ const alphabet = {
     "offsety3": -10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "M": {
     //Shape1 the arc
@@ -304,7 +304,7 @@ const alphabet = {
     "offsety3": 0,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "N": {
     //Shape1 the arc
@@ -326,7 +326,7 @@ const alphabet = {
     "offsety3": 0,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "O": {
     //Shape1 the arc
@@ -348,7 +348,7 @@ const alphabet = {
     "offsety3": 25,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "P": {
     //Shape1 the arc
@@ -370,7 +370,7 @@ const alphabet = {
     "offsety3": 30,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "Q": {
     //Shape1 the arc
@@ -392,7 +392,7 @@ const alphabet = {
     "offsety3": 30,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "R": {
     //Shape1 the arc
@@ -414,7 +414,7 @@ const alphabet = {
     "offsety3": -5,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "S": {
     //Shape1 the arc
@@ -435,8 +435,8 @@ const alphabet = {
     "offsetx3": -5,
     "offsety3": -5,
     "angle": 50,
-    "translatex":95,
-    "translatey":15
+    "translatex": 92,
+    "translatey": 15
   },
   "T": {
     //Shape1 the arc
@@ -458,7 +458,7 @@ const alphabet = {
     "offsety3": -10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "U": {
     //Shape1 the arc
@@ -480,7 +480,7 @@ const alphabet = {
     "offsety3": 0,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "V": {
     "size": 60,
@@ -501,7 +501,7 @@ const alphabet = {
     "offsety3": 7,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "W": {
     //Shape1 the arc
@@ -523,29 +523,29 @@ const alphabet = {
     "offsety3": 65,
     "angle": 160,
     "translatex": 145,
-    "translatey":345
+    "translatey": 345
   },
   "X": {
     //Shape1 the arc
     "size": 50,
-    "offsetx": 0,
+    "offsetx": 20,
     "offsety": -30,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
     "size1": 50,
-    "offsetx2": 0,
+    "offsetx2": 20,
     "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 54,
     "height": 30,
-    "offsetx3": -17,
+    "offsetx3": 3,
     "offsety3": 45,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "Y": {
     //Shape1 the arc
@@ -567,20 +567,20 @@ const alphabet = {
     "offsety3": 27,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "Z": {
     //Shape1 the arc
-    "size": 25,
-    "offsetx": -30,
-    "offsety": -29,
+    "size": 40,
+    "offsetx": 20,
+    "offsety": 20,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 45,
-    "offsetx2": 5,
-    "offsety2": 20,
+    "size1": 25,
+    "offsetx2": -30,
+    "offsety2": -29,
 
     //Shape3 the rectangle
     "width": 80,
@@ -589,7 +589,7 @@ const alphabet = {
     "offsety3": 5,
     "angle": 125,
     "translatex": 215,
-    "translatey":130
+    "translatey": 130
   },
   "0": {
     //Shape1 the arc
@@ -611,7 +611,7 @@ const alphabet = {
     "offsety3": 25,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
 
   },
   "1": {
@@ -634,7 +634,7 @@ const alphabet = {
     "offsety3": -10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "2": {
     //Shape1 the arc
@@ -651,56 +651,56 @@ const alphabet = {
 
     //Shape3 the rectangle
     "width": 80,
-    "height": 20,
+    "height": 18,
     "offsetx3": 45,
     "offsety3": 5,
     "angle": 120,
-    "translatex": 230,
-    "translatey":110
+    "translatex": 232,
+    "translatey": 110
   },
   "3": {
     //Shape1 the arc
-    "size": 50,
-    "offsetx": 0,
-    "offsety": -20,
+    "size": 48,
+    "offsetx": 8,
+    "offsety": -25,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
     "size1": 55,
-    "offsetx2": 0,
+    "offsetx2": 10,
     "offsety2": 18,
 
     //Shape3 the rectangle
-    "width": 13,
-    "height": 50,
-    "offsetx3": 28,
+    "width": 7,
+    "height": 44,
+    "offsetx3": 38,
     "offsety3": 0,
     "angle": 55,
-    "translatex": 120,
-    "translatey":-5
+    "translatex": 130,
+    "translatey": -9
   },
   "4": {
     //Shape1 the arc
     "size": 60,
-    "offsetx": 5,
-    "offsety": -10,
+    "offsetx": 25,
+    "offsety": -15,
     "arcStart": 90,
     "arcEnd": 270,
 
     //Shape2 the second circle
     "size1": 21,
-    "offsetx2": -10,
+    "offsetx2": 10,
     "offsety2": 35,
 
     //Shape3 the rectangle
     "width": 60,
     "height": 15,
-    "offsetx3": 5,
-    "offsety3": -6,
+    "offsetx3": 25,
+    "offsety3": -11,
     "angle": 112,
-    "translatex": 163,
-    "translatey":115
+    "translatex": 188,
+    "translatey": 90
   },
   "5": {
     //Shape1 the arc
@@ -719,32 +719,32 @@ const alphabet = {
     "width": 65,
     "height": 17,
     "offsetx3": -30,
-    "offsety3": -10,
+    "offsety3": -15,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "6": {
     //Shape1 the arc
     "size": 55,
-    "offsetx": -20,
+    "offsetx": 0,
     "offsety": 15,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
     "size1": 25,
-    "offsetx2": 5,
+    "offsetx2": 25,
     "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 80,
     "height": 17,
-    "offsetx3": 0,
+    "offsetx3": 20,
     "offsety3": -10,
     "angle": 110,
-    "translatex": 152,
-    "translatey":110
+    "translatex": 181,
+    "translatey": 90
   },
   "7": {
     //Shape1 the arc
@@ -766,7 +766,7 @@ const alphabet = {
     "offsety3": 5,
     "angle": 110,
     "translatex": 225,
-    "translatey":90
+    "translatey": 90
   },
   "8": {
     //Shape1 the arc
@@ -788,7 +788,7 @@ const alphabet = {
     "offsety3": -10,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   },
   "9": {
     //Shape1 the arc
@@ -810,6 +810,6 @@ const alphabet = {
     "offsety3": 0,
     "angle": 0,
     "translatex": 0,
-    "translatey":0
+    "translatey": 0
   }
 }

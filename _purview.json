@@ -1,16 +1,36 @@
 {
   "commits": [
     {
-      "sha": "d6d201c0893ee4ff2a9db69d90c433c352b2d072",
-      "name": "final"
+      "sha": "6bd1ec90b19978819f6d110eac63f434f156d29d",
+      "name": "Final"
     },
     {
-      "sha": "d9a320c8f469b6163d444b5941c357700d3c02f8",
-      "name": "Example 2"
+      "sha": "95febd7a62c1492f12440c1431a1fe28713a5afc",
+      "name": "Animation example + problem"
+    },
+    {
+      "sha": "3fe29135607ab33eb9b4812f569b4bbd89f5b237",
+      "name": "Building on my idea"
+    },
+    {
+      "sha": "fb5a3f7a0eb4235638e863feece6494a6f20dec4",
+      "name": "Adding colour"
     },
     {
       "sha": "e17d2701c4012a6379ad2a0274a47d12dbe8fc90",
-      "name": "Example 1"
+      "name": "Black & White"
+    },
+    {
+      "sha": "a0f699e56703cfe1db0c7d8e839d7099d8be2f17",
+      "name": "First try"
+    },
+    {
+      "sha": "21ec57d3e68d71e87dd30e20c2be13f56c3d3a27",
+      "name": "Second sketch"
+    },
+    {
+      "sha": "c0a33b00b41f12fb0c628150e48ab3160c7ed0e7",
+      "name": "First sketch"
     }
   ]
 }
