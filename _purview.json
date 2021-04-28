@@ -1,8 +1,12 @@
 {
   "commits": [
     {
-      "sha": "b90c1b294aae3ebb8a1a1ab1b557412223301ee6",
+      "sha": "bddf912f42c6ef70c8e62e4c6e29a7f83ecd7d26",
       "name": "Final"
+    },
+    {
+      "sha": "b90c1b294aae3ebb8a1a1ab1b557412223301ee6",
+      "name": "Example 3"
     },
     {
       "sha": "cefa1911bf15216ce5353da1fe6a6cfcaeb8472b",
