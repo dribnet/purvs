@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#4B4544";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const strokeColor  = "#009DE0";
 
 //Sets up the alphabet draw
 function drawLetter(letterData) {
@@ -52,9 +52,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   return new_letter;
 }
-
+//These words are chosen so the user reads the key information about the font:
+//RUNICTIM (Title of font), ENGLISH (The langue of the font), SCOTT AS (My name and initails)
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "RUNICTIM",
+  "ENG LISH",
+  "SCOTT AS"
 ]
