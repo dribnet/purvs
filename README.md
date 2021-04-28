@@ -19,5 +19,7 @@ Edits on this commit.
 
 After looking at my Exhibiton I decided I liked the way 'Droplets' looked rather than 'Bubbles!' I feel like bubbles are almost perfect ellipses wheres my characters are more like splattered droplets. I also considered that 'Droplets' was a satisfying 8 letter word that fit in comfortably in the exhibition.
 
+Adding some minor comments and updating thumbnail.
+
 
 

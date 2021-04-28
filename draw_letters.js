@@ -8,23 +8,23 @@ const translatex = 50;
 const translatey = 100;
 function drawLetter(letterData) {
 
-  // color/stroke setup
+  //Creating first line
   let sw = letterData["SW"];
   let startx = letterData["startx"];
   let starty = letterData["starty"];
   let endx = letterData["endx"];
   let endy = letterData["endy"];
-
+ //Creating second line
   let startx2 = letterData["startx2"];
   let starty2 = letterData["starty2"];
   let endx2 = letterData["endx2"];
   let endy2 = letterData["endy2"];
-
+ //Creating third line
   let startx3 = letterData["startx3"];
   let starty3 = letterData["starty3"];
   let endx3 = letterData["endx3"];
   let endy3 = letterData["endy3"];
-
+ //Creating fourth line
   let startx4 = letterData["startx4"];
   let starty4 = letterData["starty4"];
   let endx4 = letterData["endx4"];
@@ -37,7 +37,7 @@ push();
   // drawing size chaning blue line 
   push();
   stroke('#76c8ff');
-  // strokeWeight(80);
+  // strokeWeight can be changed in letters.js
   strokeWeight(sw);
   line(startx, starty, endx, endy);
   pop();
@@ -65,13 +65,13 @@ pop();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-
+//Making the animation for my larger line change after 70%
 if (percent < 70){
   new_letter["SW"] = oldObj["SW"]
 }
 else{
   new_letter["SW"] = map(percent, 71, 100, oldObj["SW"], newObj["SW"]);
-
+//Keeping the animation for my other designs simple and smooth
 }
   new_letter["startx"] = map(percent, 0, 100, oldObj["startx"], newObj["startx"]);
   new_letter["starty"] = map(percent, 0, 100, oldObj["starty"], newObj["starty"]);
@@ -94,7 +94,7 @@ else{
   new_letter["endy4"] = map(percent, 0, 100, oldObj["endy4"], newObj["endy4"]);
   return new_letter;
 }
-
+//Swap words to do with water and rain.
 var swapWords = [
   "DROPLETS",
   "BUBBLES!",
