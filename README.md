@@ -2,11 +2,4 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
-alsdkfnasdlkfn
+I just uploaded my final sketch, this final sketch shows how I want my final alpahabet to go.  The grey rectangles are going to be roads, and the red rectangles will be the cars).  I will add road lines (white/yellow dotted line to create sides of the road) and include regular streetlamps/bushes etc. 
