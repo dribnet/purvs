@@ -112,5 +112,6 @@ else{
 var swapWords = [
   "MOUNTAIN",
   "AMAZING",
-  "ACTUALLY"
+  "ABSTRACT"
+  "<<<<<<<<"
 ]
