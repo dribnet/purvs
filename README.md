@@ -10,17 +10,3 @@ I also tried out a new code reference which is blendMode(); and this enables me 
 Since I really want to emphasis how the sine wave is moving in the animation, so I created a map that forces the wave to start moving from its shortest length to its target length.  
 The name of my letterform is PARTYPOP because the colour and the interpolation is eye catching in a way that it pops right into your eyes.  
 Overall, I’m satisfied with how the design communicates with the audience, the animation almost looks like it’s flashing to the next letter. You could almost use it as your screensaver and have your favourite words changing around on the screen with this letterform.   
-
-###Parameters
-- arc1 = arcStart = angle to start the arc  
-- arc2 = arcEnd = angle to finish the arc  
-- tri1 = triX = X position of triangle  
-- tri2 = triY = Y position of triangle  
-- tri3 = triR = Rotation of triangle  
-- tri4 = triH = Height of triangle  
-- tri5 = triW = Width of triangle   
-- line1 = lineX = X position of wave  
-- line2 = lineY = Y position of wave  
-- line3 = lineR = Rotation of wave  
-- line4 = wave = Density of wave  
-- line5 = waveH = Length of wave 
