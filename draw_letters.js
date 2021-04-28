@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#000000"; //black
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemLineColor = "00000001"; 
+var systemBoxColor = "#fca028"; 
 
 /* internal constants */
 const darkBlue  = "#287afc";
@@ -17,7 +17,7 @@ const orange  = "#fca028"; // rects colour
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  const lightBlue  = color(245, 232, 91,140); //make yellow 
+  const lightyellow  = color(245, 232, 91,140); //make yellow 
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(0);
@@ -63,7 +63,7 @@ function drawLetter(letterData) {
 
 
   //bigger circle
-  fill(lightBlue, 140);
+  fill(lightyellow, 140);
 circle(pos2x, pos2y, size2);
 
   //NEGATIVE SPACE
@@ -79,19 +79,30 @@ fill(negativespace);
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
-  let targetsize = 0; // this is the value that I want the HeadY to hit before moving on to its final destination
+  let targetsize = 10; // this is the value that I want the size to hit before moving on to its destination
 
   let defaultChar = getObjFromChar("default"); // the variable defaultChar now contains all the infomation of the "default" section of letters.js
 
-  if(percent < 50){
-  new_letter["size"]    = map(percent, 0, 50, oldObj["size"], targetsize); // half way through the animation we want the HeadY to hit -30
-  new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], defaultChar["offsety"]); // half way through the animation the face looks like default
-   new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], defaultChar["offsetx"]);
+  if(percent < 80){
+  new_letter["size"]    = map(percent, 0, 80, oldObj["size"], targetsize); // causes animation half way through to ame size to hit the target size 
+  new_letter["offsetx"] = map(percent, 0, 80, oldObj["offsetx"], defaultChar["offsety"]); // half way through the animation the yellow circle will go to its default position
+   new_letter["offsety"] = map(percent, 0, 80, oldObj["offsety"], defaultChar["offsetx"]);
+    new_letter["sizesmall"]    = map(percent, 0, 80, oldObj["size"], targetsize);  // same for blue circle
+  new_letter["smalllength"] = map(percent, 0, 80, oldObj["smalllength"], defaultChar["smallheight"]); 
+   new_letter["smallheight"] = map(percent, 0, 80, oldObj["smallheight"], defaultChar["smalllength"]);
+   new_letter["leftrectW"] = map(percent, 0, 80, oldObj["leftrectW"],  targetsize); // same for left rect
+   new_letter["leftrectH"] = map(percent, 0, 80, oldObj["leftrectH"],  targetsize); 
   } 
   else{
-   new_letter["size"]    = map(percent, 50, 100, oldObj["size"], targetsize); // starting from 0 we are moving to the next letters HeadY
-  new_letter["offsetx"]  = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsety"]); // moving from default to the new letter
-  new_letter["offsety"]  = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsetx"]);
+   new_letter["size"]    = map(percent, 80, 160, oldObj["size"], targetsize); // starting from 0 we are moving to the next letter
+  new_letter["offsetx"]  = map(percent, 80, 160, defaultChar["offsetx"], newObj["offsety"]); // causes us to move from the default to the new letter
+  new_letter["offsety"]  = map(percent, 80, 160, defaultChar["offsetx"], newObj["offsetx"]);
+     new_letter["sizesmall"]    = map(percent, 80, 160, oldObj["sizesmall"], targetsize); // same for blue circle
+  new_letter["smalllength"]  = map(percent, 80, 160, defaultChar["smalllength"], newObj["smallheight"]); 
+  new_letter["smallheight"]  = map(percent, 80, 160, defaultChar["smallheight"], newObj["smalllength"]);
+  new_letter["leftrectW"]  = map(percent, 80, 160, defaultChar["leftrectW"], newObj["leftrectH"]); //same for left rect
+  new_letter["leftrectH"]  = map(percent, 80, 160, defaultChar["leftrectH"], newObj["leftrectW"]);
+
   }
 
   return new_letter;

@@ -2,12 +2,17 @@
 
 FONT: Funhouse
 
+My final typeface is called "FUNHOUSE", as I believe this font to be very playful from first glance.
+My alphabet contains quite distinct letters/numbers some are more abstract than others but when together they form functional Typeface, but alone they still provoke the eye. One could say this typeface would be more targeted to a younger audience, but my intention would be for it to be used by all to just add a little bit more fun to their day.
 
-My alphabet gets more complex has it goes on, the letters/numbers become more an more abstract but even so when together they form a fairly functional alphabet, but alone they provoke the eye.
+ In my design I wanted to acknowledge the fun pops of colour and geometric design of the 80's and the mixed varation of stroke and width size of art deco. I took colour and geometric shapes and used them in a way that is readable but not lacklustre. "FUNHOUSE" is all about making the mundane a little more fun.
+ I orginally started for a calming vibe for my deisgn, with beige and light colours with a contrasting blue, but I decided not only did my Font look better but it is more effective, and readable in these striking (primarily) primary colours.
 
-Often typography is brushed to the side and seen as more of a requirement is design, rather than an assest. Typography has deep roots in design, and changes era by era, with the trends. In my design I wanted to acknowledge the fun pops of colour and geometric design of the 80's and the mixed varation of stroke and width size of art deco. 
-
-
+ My process was a lot of development, my ideas changed the more I learnt, and the more research I did.
+ From this assesment I learnt how majorly a colour palette can change the tone of a design, and how important it is to just step back and look at your work.
+ 
+                                                     << README Journal >>
+ 
 24/03
 Played with alphabet and added D, next I want to add another rect ti my design so I can more clearly distingush the letters from each other.
 
@@ -48,3 +53,11 @@ My alphabet gets more complex has it goes on, the letters/numbers become more an
  Decided to go with the name 'FUNHOUSE'.
 
  Also changed my display words, and made my exhibition my default image.
+
+ 28/04
+
+ Commented all of my code.
+
+ Tweaked most of my letters and numbers so they feel cohesieve. 
+
+ Chose my animation, went for a bubble, fast effect almost as if characters are residue left over from something.
