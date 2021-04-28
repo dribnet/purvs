@@ -440,39 +440,109 @@ const alphabet = {
     "angle": 130
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 100,
+    "offsetx": 50,
+    "offsety": 140,
+    "start": 180,
+    "mode": 0,
+    // rect
+    "pos3x": 70,
+    "pos3y": 150,
+    "width": 60,
+    "height": 10,
+    "stroke": 0,
+    "angle": 180
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 45,
+    "offsetx": 40,
+    "offsety": 140,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 60,
+    "pos3y": 150,
+    "width": 20,
+    "height": 60,
+    "stroke": 0,
+    "angle": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 70,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 120,
+    "mode": -40,
+    // rect
+    "pos3x": 50,
+    "pos3y": 180,
+    "width": 15,
+    "height": 60,
+    "stroke": 0,
+    "angle": 90
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 45,
+    "offsetx": 50,
+    "offsety": 160,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 40,
+    "pos3y": 150,
+    "width": 20,
+    "height": 60,
+    "stroke": 0,
+    "angle": 0
   },
   "7": {
+    // arc
     "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 50,
+    "offsety": 130,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 50,
+    "pos3y": 150,
+    "width": 80,
+    "height": 20,
+    "stroke": 1.5,
+    "angle": 140
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 80,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 140,
+    "mode": 400,
+    // rect
+    "pos3x": 50,
+    "pos3y": 170,
+    "width": 70,
+    "height": 12,
+    "stroke": 2,
+    "angle": 180
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    // arc
+    "size": 50,
+    "offsetx": 50,
+    "offsety": 150,
+    "start": 0,
+    "mode": 360,
+    // rect
+    "pos3x": 70,
+    "pos3y": 150,
+    "width": 60,
+    "height": 20,
+    "stroke": 1,
+    "angle": 90
   }
 
 }
