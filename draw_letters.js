@@ -64,25 +64,44 @@ c.setAlpha(10);
 let illumination = 2
 
 
-// let stepsAway = round(sqrt(sq(SecondShapeX)+sq(SecondShapeY))/10)
-
-// console.log(stepsAway)
-
-// if(Secondillumination<stepsAway){
-// for (let i = 0; i < 8; i++){
-//   Secondillumination = Secondillumination + i
-// MainShape(c,Secondillumination,SecondShapeScale,SecondShapeX,SecondShapeY);
-// }
-// }
 
 let ShapePosX = 50 + ShapeTranslationX
 let ShapePosY = 100 + ShapeTranslationY
 
 GlowShape();
-// GlowShape();
+
+function InnerContour (StrokeColour,lineWeight,shapeSizeX, posX, posY,solidFill, OffsetRotation){
+
+fill(255,207,53,2) //Green
+
+push();
+
+beginShape()
+noStroke();
+
+vertex(LeftAxis, TopAxis);
+vertex(RightAxis-50,TopMidAxis);
+vertex(RightAxis, TopAxis);
+vertex(RightMidAxisX,RightMidAxisY)
+
+
+endShape(CLOSE);
+
+beginShape()
+vertex(LeftAxis,BottomSideAxis);
+vertex(leftMidNodeX,leftMidNodeY);
+vertex(RightAxis,BottomSideAxis );
+vertex(RightAxis-50, BottomMidAxis);
 
 
 
+endShape(CLOSE);
+
+beginShape()
+endShape(CLOSE);
+
+pop();
+}
 
 
 function GlowShape (){
@@ -93,8 +112,7 @@ MainShape(GreenColour,illumination,.75,ShapePosX,ShapePosY,GreenColour,0);
 MainShape(OrangeColour,illumination,SecondShapeScale,SecondShapeX,SecondShapeY,OrangeColour,SecondShapeRotation);
 }
 
-// fill(0,0,0,100);
-// rect(0,0,100,200);
+
 c.setAlpha(0);
 transparentFill = color(0,0,0,0)
 MainShape(lineBright,.5,.75,ShapePosX,ShapePosY,transparentFill, 0);
@@ -102,12 +120,25 @@ MainShape(lineBright,.5,SecondShapeScale,SecondShapeX,SecondShapeY,OrangeColour,
 
 }
 
+function NodePoints (){
+
+stroke(lineColor);
+strokeWeight(NodeSize);
+
+point(LeftAxis, TopAxis);
+point(RightAxis-50,TopMidAxis)
+point(RightAxis, TopAxis);
+point(RightMidAxisX,RightMidAxisY)
+point(RightAxis,BottomSideAxis );
+point(RightAxis-50, BottomMidAxis);
+point(LeftAxis,BottomSideAxis);
+point(leftMidNodeX,leftMidNodeY);
+
+}
 
 function MainShape (StrokeColour,lineWeight,shapeSizeX, posX, posY,solidFill, OffsetRotation){
 
 
-
-// stroke(StrokeColour);
 stroke(StrokeColour);
 strokeWeight(lineWeight);
 
@@ -135,26 +166,12 @@ vertex(LeftAxis,BottomSideAxis);
 vertex(leftMidNodeX,leftMidNodeY);
 endShape(CLOSE);
 
+InnerContour();
 NodePoints();
 pop();
 pop();
 }
 
-function NodePoints (){
-
-stroke(lineColor);
-strokeWeight(NodeSize);
-
-point(LeftAxis, TopAxis);
-point(RightAxis-50,TopMidAxis)
-point(RightAxis, TopAxis);
-point(RightMidAxisX,RightMidAxisY)
-point(RightAxis,BottomSideAxis );
-point(RightAxis-50, BottomMidAxis);
-point(LeftAxis,BottomSideAxis);
-point(leftMidNodeX,leftMidNodeY);
-
-}
 }
 
 
@@ -212,6 +229,8 @@ if(percent < 20){
 }
 
 var swapWords = [
+  "NEONVOLT",
+  "DAFTPUNK",
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
