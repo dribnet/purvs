@@ -222,7 +222,7 @@ var swapWords = [
     "NEONVOLT",
     "DAFTPUNK",
     "APEXTWIN",
-    "APAPTIVE",
+    "ADAPTIVE",
     "?OUTRUN?",
     "?NUWAVE?",
     "GLITCHED",
