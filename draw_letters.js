@@ -1,20 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#E6E6E6";
+var systemLineColor = "#0B0B3B";
+var systemBoxColor = "#424242";
 
 
 const strokeColor  = "#233f11";
-const darkBlue = "#199cff";
-const lightBlue = "#59ccff";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
+
 function drawLetter(letterData) {
   push();
   rectMode(CENTER);
@@ -29,39 +22,28 @@ function drawLetter(letterData) {
   
   // draw two circles
   fill(255);
-  ellipse(50, 150, 100, 100);
+  ellipse(50, 150, 100, 100);//the constant circle present in every letter and number
   fill(0);
-  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
+  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);//the second circle/arc that is changed throughout the alphabet
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
- 
- let targetstart= 0;
- let defaultChar = getObjFromChar("default");
- if(percent < 50){
-    new_letter["start"] = map(percent, 0, 180, oldObj["start"], defaultChar["start"]);
-    new_letter["size"]    = map(percent, 0, 50, oldObj["size"], defaultChar["size"]);
-    new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], defaultChar["offsetx"]);
-    new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], defaultChar["offsety"]);
-    new_letter["end"] = map(percent, 0, 180, oldObj["end"], defaultChar["end"]);
 
- }
+//Below is the code to get my alphabet to flow smoothly between one another
 
- 
-if(percent > 50){
-  new_letter["size"]    = map(percent, 50, 100, defaultChar["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 50, 100, defaultChar["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 50, 100, defaultChar["offsety"], newObj["offsety"]);
-  new_letter["start"] = map(percent, 181, 360, defaultChar["start"], newObj["start"]);
-  new_letter["end"] = map(percent, 181, 360, defaultChar["end"], newObj["end"]);
-}
+  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
+  new_letter["end"] = map(percent, 0, 100, oldObj["end"], newObj["end"]);
+
   return new_letter;
 }
 
-var swapWords = [
-  "SMOOTHAF",
-  "DEMONIC1",
-  "EL137GMR"
+var swapWords = [ //These are the words that will first be displayed on the interaction part of the website.
+  "YIN?YANG",
+  "HALFHALF",
+  "GUNG?FU?"
 ]

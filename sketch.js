@@ -9,6 +9,8 @@ const canvasHeight = 500;
             relative to the first one
    offsety: y offset (in pixels) of the second circle
             relative to the first one
+    Start: The starting point for the arc
+    End:
  *
  */
 
@@ -75,14 +77,13 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-
   let startAngle = letterData["start"];
   let stopAngle = letterData["end"];
 
   // draw two circles
-  fill(255);
+  fill(255);//white colour for main cirlce
   ellipse(posx, posy, 150, 150);
-  fill(0);
+  fill(0);//black fill for secondary circle
   arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
 }
 
