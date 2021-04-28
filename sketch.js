@@ -2,13 +2,19 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * my 10 variable per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+    arcstart: starting angle of the arc
+    arc stop: ending angle of the arc
+    secondarcstart: starting angle of second arc (for letters that have 2 arcs)
+    secondartstop: ending angle of second arc (for letters that have 2 arcs)
+    verticalline: calling the vertical line 
+    horizontalline: calling the right half of the horizontal line 
+    diagonalline1: line at 45 degrees
+    diagonalline2: line at 135 degrees
+    diagalline3: line at 225 degrees
+    diagonalline4: line at 315 degrees
+
  *
  */
 
