@@ -1,15 +1,13 @@
 /* these are optional special variables which will change the system */
 
-var systemBackgroundColor = "#5b3849";
+var systemBackgroundColor = "#02A89E";
 var systemLineColor = "#ccc2b6";
 var systemBoxColor = "#ccc2b6";
  
 
 /* internal constants */
 
-const strokeColor = "#1d1d1d"; //black
-const dominoColor1 = "#f3f2ed"; //white
-const dominoColor2  = "#f3f2ed";
+const dominoColor2  = "#f3f2ed"; 
 const shineColor = "#f3f2ed";
 
 /*
@@ -30,18 +28,24 @@ function drawLetter(letterData) {
  
   // DOMINO PIECE
 
+  let domino1 = str(letterData["domino1"]);
+  domino1 = color(domino1);
+
   noStroke();
   fill(140, 140, 140); // grey
   rectMode(CENTER);
   rect(53, 103, 90, 190, 10); // shadow
-  fill(dominoColor1);
+  fill(domino1);
   rect(50, 100, 90, 190, 10); // domino
 
  
 
   //MIDDLE LINE OF DOMINO PIECE
 
-  stroke(strokeColor);
+  let line1 = str(letterData["line1"]);
+  line1 = color(line1);
+
+  stroke(line1);
   strokeWeight(5);
   line(15, 100, 85, 100);
 
@@ -81,28 +85,28 @@ function drawLetter(letterData) {
   fill(color1);
   ellipse(dotX, dotY, dotsize, dotsize); //middle bottom
   fill(color2);
-  ellipse(dotX+25, dotY-27, dotsize, dotsize); // bottom right 3
+  ellipse(dotX+25, dotY-27, dotsize, dotsize); // right 1
   fill(color3);
-  ellipse(dotX-25, dotY-27, dotsize, dotsize); // bottom left 3
+  ellipse(dotX-25, dotY-27, dotsize, dotsize); // left 1
   fill(color4);
-  ellipse(dotX+25, dotY, dotsize, dotsize); // bottom right 2
+  ellipse(dotX+25, dotY, dotsize, dotsize); // right 2
   fill(color5);
-  ellipse(dotX-25, dotY, dotsize, dotsize); // bottom left 2
+  ellipse(dotX-25, dotY, dotsize, dotsize); // left 2
   fill(color6);
-  ellipse(dotX+25, dotY+27, dotsize, dotsize); // bottom right 1
+  ellipse(dotX+25, dotY+27, dotsize, dotsize); // right 3
   fill(color7);
-  ellipse(dotX-25, dotY+27, dotsize, dotsize); // bottom left 1
+  ellipse(dotX-25, dotY+27, dotsize, dotsize); // left 3
 
   fill(color8);
   ellipse(dotX, dotY-90, dotsize, dotsize); //middle top
   fill(color9);
-  ellipse(dotX+25, dotY-117, dotsize, dotsize); // bottom right 3
+  ellipse(dotX+25, dotY-117, dotsize, dotsize); // top right 3
   fill(color10);
-  ellipse(dotX-25, dotY-117, dotsize, dotsize); // bottom left 3
+  ellipse(dotX-25, dotY-117, dotsize, dotsize); // top left 3
   fill(color11);
-  ellipse(dotX+25, dotY-63, dotsize, dotsize); // bottom right 1
+  ellipse(dotX+25, dotY-63, dotsize, dotsize); // top right 1
   fill(color12);
-  ellipse(dotX-25, dotY-63, dotsize, dotsize); // bottom left 1
+  ellipse(dotX-25, dotY-63, dotsize, dotsize); // top left 1
  
 
   //DOTS SHINE
