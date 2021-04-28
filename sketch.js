@@ -46,6 +46,7 @@ const letterC = {
   "arc2Start":0,
   "arc2End":0,
   "lineOn":0,
+  
 }
 
 const backgroundColor  = "#393d3d";
@@ -98,10 +99,10 @@ function drawLetter(posx, posy, letterData) {
 
   let lineOn = letterData["lineOn"];
 
-  let lineLength = 75;
+  let lineLength = letterData["lineLength"];
 
-  if (lineOn<1) { lineLength = 0
-  }
+  //if (lineOn<1) { lineLength = 0
+  //}
 
  
   noFill()

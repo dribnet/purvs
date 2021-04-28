@@ -35,12 +35,7 @@ angleMode(DEGREES)
   let arc2Start = letterData["arc2Start"];
   let arc2End = letterData["arc2End"];
 
-  let lineOn = letterData["lineOn"];
-
-  let lineLength = 47;
-
-  if (lineOn<1) { lineLength = 0
-  }
+  let lineLength = letterData["lineLength"];
 
  
   noFill()
@@ -79,10 +74,16 @@ angleMode(DEGREES)
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  new_letter["line1R"]    = map(percent, 0, 100, oldObj["line1R"], newObj["line1R"]);
+  new_letter["line2R"] = map(percent, 0, 100, oldObj["line2R"], newObj["line2R"]);
+  new_letter["line3R"] = map(percent, 0, 100, oldObj["line3R"], newObj["line3R"]);
+  new_letter["line4R"] = map(percent, 0, 100, oldObj["line4R"], newObj["line4R"]);
+  new_letter["arc1Start"] = map(percent, 0, 100, oldObj["arc1Start"], newObj["arc1Start"]);
+  new_letter["arc1End"] = map(percent, 0, 100, oldObj["arc1End"], newObj["arc1End"]);
+  new_letter["arc2Start"] = map(percent, 0, 100, oldObj["arc2Start"], newObj["arc2Start"]);
+  new_letter["arc2End"] = map(percent, 0, 100, oldObj["arc2End"], newObj["arc2End"]);
+  new_letter["lineLength"] = map(percent, 0, 100, oldObj["lineLength"], newObj["lineLength"]);
+   return new_letter;
 }
 
 var swapWords = [
