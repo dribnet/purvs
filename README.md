@@ -10,6 +10,10 @@ Updated the interaction.html to work with my interpolations and parameters.
 
 Added in my own words into swapWords including the font name "SERENE". also fixed the defalut character to represent an exclamation point. 
 
+Played with the interpolation animation percentages to be more smooth. 
+
+updated thumbnail and preview
+
 The parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one
