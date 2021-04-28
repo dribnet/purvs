@@ -1,16 +1,20 @@
 ## MDDN 242 2021 Assignment 2
 
-Alphabet
+Exhibition
 
-All alphabets consist of two parts, one part have rectangle with four rounded corner radii, and two arc lines (arc line1 and arc line2), and the other part also have rectangle with filled color and one arc line (arc line3), arc line3 have the same radius with arc line2.
+For exhibition, there is a version that automatically animates word transitions as well as responds to keyboard presses.
 
-Both arc lines and rectangles can be circles. So all alphabets are made up of circles, arc lines and rectangles.
+The first word shows the name of my font “Arc Lines”.
 
-To make a distinction between letters and numbers, every letter consists filled color part and the numbers doesn’t contain the filled part. It’s easy to identify the alphabet.
+Although these alphabets consist of circles, rectangles and arc lines. But all of these letters and numbers have curve outlines, I naming this font be arc lines.
 
-I designed an emoji face to stands for the default alphabet. One of its eyes is circle and the other one is the filled color circle.
-
-And I also change the background color, the Line color and the Box color to made these colors go well together.
+The words that followed,
+“?LiYang?” – (My Name),
+“MDDN?242” – (Course Code),
+“Project2” – (This project),
+“ArcLines” – (Font name again),
+“?Orange?”,
+and “ManyPink”.
 
 Here are my 20 parameters:
 
