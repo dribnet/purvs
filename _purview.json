@@ -6,6 +6,10 @@
     },
     {
       "sha": "0000000000000000000000000000000000000002",
+      "name": "example 1"
+    },
+    {
+      "sha": "0000000000000000000000000000000000000002",
       "name": "example 2"
     },
     {
@@ -17,7 +21,7 @@
       "name": "Original Sketch"
     },
     {
-      "sha:": "8138e97b6e62f4e93f40b9f8c4cad74b74787b57/?raw=true",
+      "sha:": "8138e97b6e62f4e93f40b9f8c4cad74b74787b57",
       "name": "Final Sketch"
     }
   ]
