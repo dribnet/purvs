@@ -17,6 +17,8 @@ const lBabyBlue = "#b6e2f6";
  */
 function drawLetter(letterData) {
 
+  //gets all the parameters from the letters and makes them into variables to use for drawing lines thatll for letters
+
   let start = letterData["start"];
     let stop =  letterData["end"];
 
@@ -41,8 +43,6 @@ function drawLetter(letterData) {
   let start8 = letterData["start8"];
     let stop8 =  letterData["end8"];
 
-    let scale = letterData["scale"];
-
     //this is my fake 3d
   stroke(darkBlue);
   strokeWeight(7);
@@ -64,11 +64,13 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
+
+//this was my first attempt at the scale interpolation
   //new_letter["scale"] = map(percent,0,100,0.1,2); //maps the scale so it increases the size from the top left corner
  // scale(new_letter["scale"]); //puts the current sc data from the map to te scale of the letter
 
-  //interpolates between the letters
-  if(percent <= 50){
+  //interpolates between the letters 
+  if(percent <= 50){ //checks if the percentage is below 50 then merges all the lines into the middle of the screen 
   new_letter["start"]    = map(percent, 0, 50, oldObj["start"], 50);
     new_letter["end"]    = map(percent, 0, 50, oldObj["end"], 100);
   new_letter["start2"]    = map(percent, 0, 50, oldObj["start2"], 50);
@@ -86,7 +88,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["start8"]    = map(percent, 0, 50, oldObj["start8"], 50);
     new_letter["end8"]    = map(percent, 0, 50, oldObj["end8"], 100);
 }
-else if(percent > 50) {
+else if(percent > 50) { //checks if the percentage is above 50 then grows the lines into the new letter
     new_letter["start"]    = map(percent, 51, 100, 50, newObj["start"]);
     new_letter["end"]    = map(percent, 51, 100, 100, newObj["end"]);
   new_letter["start2"]    = map(percent, 51, 100, 50, newObj["start2"]);
@@ -106,11 +108,6 @@ else if(percent > 50) {
   }
   return new_letter;
 }
-
- 
-
-
-
 var swapWords = [
   "VASTRACT", //name of my font
   "12345678",
