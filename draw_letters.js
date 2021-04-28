@@ -20,8 +20,7 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(2);
 
-  // determine parameters for second circle
-  //let xloki = letterData["size"];
+
 
 //triangle1
 let x1 = letterData["x1"];
@@ -78,12 +77,34 @@ function interpolate_letter(percent, oldObj, newObj) {
   // DO NOT DELETE THIS LINE vvvvv
   let new_letter = {};
   // DO NOT DELETE THIS LINE ^^^^^
-  new_letter["x1"]    = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
-  new_letter["y1"]    = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
-  new_letter["x2"]    = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-  new_letter["x3"]    = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["y3"]    = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+ let targetx1 = -30; 
+ let targety1 = -30
+ let targetx2 = -30
+ let targety2 = -30
+ let targetx3 = -30
+ let targety3 = -30
+
+ let defaultChar = getObjFromChar("default"); 
+
+ if(percent <50){
+  new_letter["x1"]    = map(percent, 0, 50, oldObj["x1"], targetx1);
+  new_letter["y1"]    = map(percent, 0, 50, oldObj["y1"], targety1);
+  new_letter["x2"]    = map(percent, 0, 50, oldObj["x2"], targetx2);
+  new_letter["y2"]    = map(percent, 0, 50, oldObj["y2"], targety2);
+  new_letter["x3"]    = map(percent, 0, 50, oldObj["x3"], targetx3);
+  new_letter["y3"]    = map(percent, 0, 50, oldObj["y3"], targety3);
+}
+else{
+  new_letter["x1"]    = map(percent, 51, 100, targetx1, newObj["x1"]);
+  new_letter["y1"]    = map(percent, 51, 100, targety1, newObj["y1"]);
+  new_letter["x2"]    = map(percent, 51, 100, targetx2, newObj["x2"]);
+  new_letter["y2"]    = map(percent, 51, 100, targety2, newObj["y2"]);
+  new_letter["x3"]    = map(percent, 51, 100, targetx3, newObj["x3"]);
+  new_letter["y3"]    = map(percent, 51, 100, targety3, newObj["y3"]);
+}
+  
+
+
   // DO NOT DELETE BELOW HERE!!!!!
   return new_letter;
 }
