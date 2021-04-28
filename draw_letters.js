@@ -21,24 +21,44 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
   // draw circle and line
   fill(darkBlue);
   ellipse(50, 150, 75, 75);
   fill(lightBlue);
-  line(pos2x, pos2y, size2, size2);
+
+  let line1x1 = letterData["l1x1"];
+  let line1y1 = letterData["l1y1"];
+  let line1x2 = letterData["l1x2"];
+  let line1y2 = letterData["l1y2"];
+  let line2x1 = letterData["l2x1"];
+  let line2y1 = letterData["l2y1"];
+  let line2x2 = letterData["l2x2"];
+  let line2y2 = letterData["l2y2"];
+  let line3x1 = letterData["l3x1"];
+  let line3y1 = letterData["l3y1"];
+  let line3x2 = letterData["l3x2"];
+  let line3y2 = letterData["l3y2"];
+  let line4x1 = letterData["l4x1"];
+  let line4y1 = letterData["l4y1"];
+  let line4x2 = letterData["l4x2"];
+  let line4y2 = letterData["l4y2"];
+
+  line(line1x1,line1y1,line1x2,line1y2);
+  line(line2x1,line2y1,line2x2,line2y2);
+  line(line3x1,line3y1,line3x2,line3y2);
+  line(line4x1,line4y1,line4x2,line4y2);
+
 
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["l1x1"]    = map(percent, 0, 100, oldObj["l1x1"], newObj["l1x1"]);
+  new_letter["l1y1"]    = map(percent, 0, 100, oldObj["l1y1"], newObj["l1y1"]);
+  new_letter["l1x2"]    = map(percent, 0, 100, oldObj["l1x2"], newObj["l1x2"]);
+  new_letter["l1y2"]    = map(percent, 0, 100, oldObj["l1y2"], newObj["l1y2"]);
   return new_letter;
 }
 

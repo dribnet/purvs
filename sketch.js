@@ -15,33 +15,76 @@ const canvasHeight = 500;
 
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 60, 
-  "start":180,
-  "end":0
+  "l1x1":0,
+  "l1y1":35,
+  "l1x2":0,
+  "l1y2":100,
+
+  "l2x1":0,
+  "l2y1":35,
+  "l2x2":0,
+  "l2y2":100,
+
+  "l3x1":-10,
+  "l3y1":-10,
+  "l3x2":10,
+  "l3y2":10,
+
+  "l4x1":10,
+  "l4y1":-10,
+  "l4x2":-10,
+  "l4y2":10,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145, 
-  "start":270,
-  "end":90
+  "l1x1":-75,
+  "l1y1":-160,
+  "l1x2":-75,
+  "l1y2":0,
+
+  "l2x1":0,
+  "l2y1":0,
+  "l2x2":0,
+  "l2y2":0,
+
+  "l3x1":-10,
+  "l3y1":-10,
+  "l3x2":10,
+  "l3y2":10,
+
+  "l4x1":10,
+  "l4y1":-10,
+  "l4x2":-10,
+  "l4y2":10,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 40,
-  "offsety": 0, 
-  "start":80,
-  "end":280
+  "l1x1":35,
+  "l1y1":0,
+  "l1x2":100,
+  "l1y2":0,
+
+  "l1x1":35,
+  "l1y1":0,
+  "l1x2":100,
+  "l1y2":0,
+
+  "l1x1":35,
+  "l1y1":0,
+  "l1x2":100,
+  "l1y2":0,
+
+  "l1x1":35,
+  "l1y1":0,
+  "l1x2":100,
+  "l1y2":0,
+
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#abf28f";
+const strokeColor      = "#000000";
 
-const darkBlue  = "#199cff";
+const darkBlue  = "#ffffff";
 const lightBlue  = "#59ccff";
 
 function setup () {
@@ -61,7 +104,6 @@ function setup () {
 function draw () {
   // clear screen
   background(backgroundColor);
-line(150, 300, 85, 90);
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
@@ -74,20 +116,36 @@ line(150, 300, 85, 90);
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  let startAngle = letterData["start"];
-  let stopAngle = letterData["end"];
 
   // draw two circles
   fill(darkBlue);
   ellipse(posx, posy, 150, 150);
   fill(lightBlue);
 
+  let line1x1 = letterData["l1x1"];
+  let line1y1 = letterData["l1y1"];
+  let line1x2 = letterData["l1x2"];
+  let line1y2 = letterData["l1y2"];
+  let line2x1 = letterData["l2x1"];
+  let line2y1 = letterData["l2y1"];
+  let line2x2 = letterData["l2x2"];
+  let line2y2 = letterData["l2y2"];
+  let line3x1 = letterData["l3x1"];
+  let line3y1 = letterData["l3y1"];
+  let line3x2 = letterData["l3x2"];
+  let line3y2 = letterData["l3y2"];
+  let line4x1 = letterData["l4x1"];
+  let line4y1 = letterData["l4y1"];
+  let line4x2 = letterData["l4x2"];
+  let line4y2 = letterData["l4y2"];
 
-  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
+  line(posx+line1x1,posy+line1y1,posx+line1x2,posy+line1y2);
+  line(posx+line2x1,posy+line2y1,posx+line2x2,posy+line2y2);
+  line(posx+line3x1,posy+line3y1,posx+line3x2,posy+line3y2);
+  line(posx+line4x1,posy+line4y1,posx+line4x2,posy+line4y2);
+
+
 }
 
 function keyTyped() {

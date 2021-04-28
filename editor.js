@@ -4,10 +4,24 @@
  * and each row should be:
  * ["object_field", minimum_bound, maximum_bound]
  */
+
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["l1x1",       0, 100],
+  ["l1y1",  0,  200],
+  ["l1x2",       0, 100],
+  ["l1y2",  0,  200],
+  ["l2x1",       0, 100],
+  ["l2y1",  0,  200],
+  ["l2x2",       0, 100],
+  ["l2y2",  0,  200],
+  ["l3x1",       0, 100],
+  ["l3y1",  0,  200],
+  ["l3x2",       0, 100],
+  ["l3y2",  0,  200],
+  ["l4x1",       0, 100],
+  ["l4y1",  0,  200],
+  ["l4x2",       0, 100],
+  ["l4y2",  0,  200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
