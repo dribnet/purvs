@@ -160,8 +160,8 @@ const alphabet = {
   "size2": 30,
   "offsetx3": 50,
   "offsety3": 180,
-  "size3": 40,
-  "offsetx4": 75,
+  "size3": 60,
+  "offsetx4": 65,
   "offsety4": 150,
   "angleStart": -30,
   "angleStop": 30
