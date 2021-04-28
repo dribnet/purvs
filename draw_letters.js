@@ -71,19 +71,19 @@ function drawLetter(letterData) {
   new_letter["posx4"] = map(percent, 0, 100, oldObj["posx4"], newObj["posx4"]); //red
   new_letter["posy4"] = map(percent, 0, 100, oldObj["posy4"], newObj["posy4"]); //red
 
-  // new_letter["sizex"] = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
-  // new_letter["sizey"] = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
-  // new_letter["sizex2"] = map(percent, 0, 100, oldObj["sizex2"], newObj["sizex2"]);
-  // new_letter["sizey2"] = map(percent, 0, 100, oldObj["sizey2"], newObj["sizey2"]);
-  // new_letter["sizex3"] = map(percent, 0, 100, oldObj["sizex3"], newObj["sizex3"]);
-  // new_letter["sizey3"] = map(percent, 0, 100, oldObj["sizey3"], newObj["sizey3"]);
-  // new_letter["sizex4"] = map(percent, 0, 100, oldObj["sizex4"], newObj["sizex4"]);
-  // new_letter["sizey4"] = map(percent, 0, 100, oldObj["sizey4"], newObj["sizey4"]);
+  new_letter["sizex"] = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
+  new_letter["sizey"] = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
+  new_letter["sizex2"] = map(percent, 0, 100, oldObj["sizex2"], newObj["sizex2"]);
+  new_letter["sizey2"] = map(percent, 0, 100, oldObj["sizey2"], newObj["sizey2"]);
+  new_letter["sizex3"] = map(percent, 0, 100, oldObj["sizex3"], newObj["sizex3"]);
+  new_letter["sizey3"] = map(percent, 0, 100, oldObj["sizey3"], newObj["sizey3"]);
+  new_letter["sizex4"] = map(percent, 0, 100, oldObj["sizex4"], newObj["sizex4"]);
+  new_letter["sizey4"] = map(percent, 0, 100, oldObj["sizey4"], newObj["sizey4"]);
 
-  // new_letter["rotx"] = map(percent, 0, 100, oldObj["rotx"], newObj["rotx"]);
-  // new_letter["roty"] = map(percent, 0, 100, oldObj["roty"], newObj["roty"]);
-  // new_letter["rotx1"] = map(percent, 0, 100, oldObj["rotx1"], newObj["rotx1"]);
-  // new_letter["roty1"] = map(percent, 0, 100, oldObj["roty1"] , newObj["roty1"]);
+  new_letter["rotx"] = map(percent, 0, 100, oldObj["rotx"], newObj["rotx"]);
+  new_letter["roty"] = map(percent, 0, 100, oldObj["roty"], newObj["roty"]);
+  new_letter["rotx1"] = map(percent, 0, 100, oldObj["rotx1"], newObj["rotx1"]);
+  new_letter["roty1"] = map(percent, 0, 100, oldObj["roty1"] , newObj["roty1"]);
   return new_letter;
 }
 
