@@ -1,30 +1,31 @@
 ## MDDN 242 2021 Assignment 2
 
-First week
-I started trying some ideas. I would like to be able to combine the traditional alphabet and the Braille alphabet. I also started to see what a combination of colors can be. This time try something monochromatic on each letter using a different color.
+Final readme
 
-Second week
-In my second week I was researching about alphabets and how to implement my idea. My main problem is the limitation of parameters that we have, in this work I would like my letters to be as close as possible to the real letters and not to be so abstract.
+🤓 Introduction 
+My final alphabet is called "powerflo" which tries to reflect power and happiness. for my final version I decided to join my two main ideas and create a last alphabet. I used the idea of ​​incorporating a small graphic that is the flower with the smiling face similar to my first example and from the second I followed with the same idea of ​​typography. try to create something out of my comfort zone as it is a bit unstructured alphabet and plays with geometric shapes.
 
-Holidays
+🧠 Concept
+To develop the idea I based myself on a retro hippie style. I wanted to create something visually cheerful. When I started to create the alphabet I thought who would be the best user and I thought it would be very fun for children to play with this alphabet so I tried to create something that catches their attention, that has bright colors, that looks fun and interesting at the same time
 
-on my vacation I broke some git and I can't make changes to the page. anyway I kept working on my alphabet but I did not save the changes and I only have a copy on my computer that I will keep when I can fix it.
+💜 Colour
+Mainly in Latin America, many women fight every day for security, equality and justice. the range of violets is the color they use to represent this fight and it seemed like a good idea to use it and add a flower in honor of all the women who fight every day. I always try to choose colors and characteristic things that represent something in each of my designs.
 
-I decided to make the letters as similar as possible to the original alphabet and I decided to use capital letters, in my opinion it is more aesthetic to maintain a unified height size with all the letters
+📹 Animation
+For the animation I decided to keep it simple since having several different geometric shapes generated something organic that seemed perfect for the type of graphic I decided to use.
 
-''''today I was able to solve the problem I had to upload my files to git so I will upload all the documents that I was saving throughout these days''''
+✅ Parameters
+For the project use the 20 allowed parameters. It was quite difficult for me to have the limitation of using only 20 parameters but at the same time it forced me to find new ways to try to represent what I wanted.
 
-this alphabet represents one of my examples. I decided to improve the previous code by changing the color and adding stars to the letters. tries to look as close to real letters as possible and has a Russian constructivism design style.
+💪 Things to improve
+I would have liked to be able to rotate the flower and change its size, but due to the parameters I used, rotating it would break the structure I wanted to achieve, so I chose not to.
 
-Third week
-
-I still couldn't fix the git problem but I'm still working on my alphabet. try trying something more geometric and playing with the colors. I still haven't decided on a color palette but I'm doing different tests to see which one is my favorite.
-
-I am not very satisfied with how to do number 2. Aesthetically it is my least favorite but for now it will remain this way.
-
-I decided to add two types of lines to my letters, horizontal and vertical. I think it is taking a quite retro shape as it has a fairly wide thickness and the vertical lines that stand out I think they go with the style.
-
-Something that I must improve is the animation of the triangle, it does not generate any change and it looks a bit static so I would like to change that. the problem is that it does not incorporate it in all the letters so every time I use it it looks a bit weird.
+ 🤦 Problems
+I had a lot of problems with the terminal and update my code periodically. I think I wasted a lot of time trying to fix it instead of improving the code.
+It does not necessarily count as a problem but I would like to point out that I tried to use the editor but it was much easier for me to make the modifications of the parameter values ​​without using it but it is a good option to have the editor to clear doubts in particular. 
+Más información sobre este texto de origenPara obtener más información sobre la traducción, se necesita el texto de origen
+Enviar comentarios
+Paneles laterales
 
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
