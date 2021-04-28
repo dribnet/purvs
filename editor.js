@@ -6,8 +6,16 @@
  */
 const sliderInfo = [
   ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["rx1",  0,  100],
+  ["ry1", 0, 200],
+  ["rx2",  0,  100],
+  ["ry2", 0, 200],
+  ["rx3",  0,  100],
+  ["ry3", 0, 200],
+  ["rx4",  0,  100],
+  ["ry4", 0, 200],
+  ["rx5",  0,  100],
+  ["ry5", 0, 200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

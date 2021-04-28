@@ -57,7 +57,7 @@ function drawLetter(letterData) {
   rect(0, 0, 100, 200);
 
   stroke(strokeColor)
-  strokeWeight(3);
+  strokeWeight(2);
 
   rect(rec1x, rec1y, size, size);
   rect(rec2x, rec2y, size, size);
