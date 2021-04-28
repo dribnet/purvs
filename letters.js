@@ -657,7 +657,7 @@ const alphabet = {
     "EndA":130,
     "StartB":0,
     "EndB":0,
-    "StartC":190,
+    "StartC":235,
     "EndC":120
   },
   "3": {

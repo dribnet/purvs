@@ -30,8 +30,6 @@ const sliderInfo = [
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;
 
-$("#controls").css("font-size","10px");
-
 if (typeof systemBackgroundColor === 'undefined') {
     var systemBackgroundColor = "#f2e2d5";
 }
