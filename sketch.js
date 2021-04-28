@@ -79,13 +79,13 @@ const canvasHeight = 500;
    "h4": 15,
  }
 
- const colorFront1  = "#EADDCA";//center line
- const colorFront2  = "#DAA06D";//top line
- const colorFront3  = "#C19A6B";//bottom line
- const colorFront4  = "#F0FFFF";//shape background
+ const colorFront1  = (0);//center line
+ const colorFront2  = (0);//top line
+ const colorFront3  = (0);//bottom line
+ const colorFront4  = "0";//shape background
 
  const colorBack    = "#CCCCFF";//background
- const colorStroke  = "#6E260E";//stroke
+ const colorStroke  = "0";//stroke
 
  function setup () {
    // create the drawing canvas, save the canvas element

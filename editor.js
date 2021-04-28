@@ -1,9 +1,3 @@
-/*
- * Here are some things you can edit
- */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
-
 /*******
  * define this "sliderInfo" variable
  * have an entry for each slider you want
@@ -11,29 +5,20 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["x1",  -40,  40],
-  ["y1", -70, 70],
-  ["w1", 15, 60],
-  ["h1", 15, 150],
-
-  ["x2",  -40,  40],
-  ["y2", -70, 70],
-  ["w2", 15, 60],
-  ["h2", 15, 150],
-
-  ["x3",  -40,  40],
-  ["y3", -70, 70],
-  ["w3", 15, 60],
-  ["h3", 15, 150],
-
-  ["x4",  -40,  40],
-  ["y4", -70, 70],
-  ["w4", 15, 60],
-  ["h4", 15, 150],
+  ["size",       0, 100],
+  ["offsetx",  -30,  30],
+  ["offsety", -100, 100]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;
+
+if (typeof systemBackgroundColor === 'undefined') {
+    var systemBackgroundColor = "#e3eded";
+}
+
+// this will use variables if they are already defined
+// var systemBackgroundColor = systemBackgroundColor || "#e3eded";
 
 // if everything is defined above, this should just work
 function sliderToDataObject() {
@@ -86,7 +71,7 @@ function buttonPressedEvent() {
 
 function draw () {
   // clear screen
-  background(0);
+  background(systemBackgroundColor);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
