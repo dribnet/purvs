@@ -215,7 +215,7 @@ function draw () {
     }
   }
 
-  background(0);
+  background(204, 204, 255);
   fill(colorFront);
   stroke(95, 52, 8);
 
