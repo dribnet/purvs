@@ -1,4 +1,4 @@
-const colorBack    = "#CCCCFF";
+const colorBack    = (0);
 const colorLines   = "#6495ED";
 
 /*

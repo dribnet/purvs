@@ -79,13 +79,13 @@ const canvasHeight = 500;
    "h4": 15,
  }
 
- const colorFront1  = "#F89880";//center line
- const colorFront2  = "#A7C7E7";//top line
- const colorFront3  = "#96DED1";//bottom line
- const colorFront4  = "#FFC0CB";//shape background
+ const colorFront1  = "#EADDCA";//center line
+ const colorFront2  = "#DAA06D";//top line
+ const colorFront3  = "#C19A6B";//bottom line
+ const colorFront4  = "#F0FFFF";//shape background
 
  const colorBack    = "#CCCCFF";//background
- const colorStroke  = "#40E0D0";//stroke
+ const colorStroke  = "#6E260E";//stroke
 
  function setup () {
    // create the drawing canvas, save the canvas element
@@ -145,7 +145,73 @@ const canvasHeight = 500;
 
  function draw () {
    // clear screen
-   background(204, 204, 255);
+   background(0);
+
+   // compute the center of the canvas
+   let center_x = canvasWidth / 2;
+   let center_y = canvasHeight / 2;
+
+   // draw the letters A, B, C from saved data
+   drawLetter(center_x - 250, center_y, letterA);
+   drawLetter(center_x      , center_y, letterB);
+   drawLetter(center_x + 250, center_y, letterC);
+ }
+
+ function keyTyped() {
+   if (key == '!') {
+     saveBlocksImages();
+   }
+   else if (key == '@') {
+     saveBlocksImages(true);
+   }
+ }
+
+ function drawLetter(posx, posy, letterData) {
+   // determine parameters for second circle
+
+   let posx1 = posx + letterData["x1"];
+   let posy1 = posy + letterData["y1"];
+   let posw1 = letterData["w1"];
+   let posh1 = letterData["h1"];
+
+   let posx2 = posx + letterData["x2"];
+   let posy2 = posy + letterData["y2"];
+   let posw2 = letterData["w2"];
+   let posh2 = letterData["h2"];
+
+   let posx3 = posx + letterData["x3"];
+   let posy3 = posy + letterData["y3"];
+   let posw3 = letterData["w3"];
+   let posh3 = letterData["h3"];
+
+
+   let posx4 = posx + letterData["x4"];
+   let posy4 = posy + letterData["y4"];
+   let posw4 = letterData["w4"];
+   let posh4 = letterData["h4"];
+   // draw two circles
+   rectMode(CENTER)
+   fill(colorFront4)
+ 	rect(posx, posy, 100, 200, 45)
+
+   fill(colorFront1);
+   rect(posx1, posy1, posw1, posh1, 15)
+
+   fill(colorFront2);
+   rect(posx2, posy2, posw2, posh2, 15)
+
+   fill(colorFront3);
+   rect(posx3, posy3, posw3, posh3, 15)
+   rect(posx4, posy4, posw4, posh4, 15)
+
+   // ellipse(pos2x, pos2y, size2, size2);
+
+
+ }
+
+ function draw () {
+   // clear screen
+   background(0);
 
    // compute the center of the canvas
    let center_x = canvasWidth / 2;

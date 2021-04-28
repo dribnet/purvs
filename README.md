@@ -1,7 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 
-Selection of color
-I chose the "#F89880","#A7C7E7","#96DED1","#FFC0CB" and "#40E0D0" these colors to reflect the letters and numbers. The reason why I chose these colors is because they are very bright, and they give people a very refreshing feeling.
+basic color
+I started looking for colors suitable for these letters and numbers, and now I just choose some darker colors casually, and I will change some colors later.
 
 
 The 16 parameters per letter:
