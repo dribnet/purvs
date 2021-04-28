@@ -97,7 +97,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   let num=random();//work out random number between 0 and 1
   let number;
-  if (num<.5){//decide whether the interpolation should interpolate between using 0 or 1
+  if (num<.5){//decide whether the interpolation should generate 0 or 1 (the 2 numbers in binary)
     number=getObjFromChar("0");
   }
   else {
