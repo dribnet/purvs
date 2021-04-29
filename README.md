@@ -34,6 +34,9 @@ I chose 5 parameters - three of which are rectangles that go downwards, whilst t
 Overall, this assignment has been challenging but has made me understand a looooot more about coding!  Normally coding can be extremely intimidating, however, with this project - I have gained a lot of confidence in which I can take into the third project - and I'm really excited to be able to better my skills and show off more of my understanding!   
 
 
+(making sure this is the final)
+
+
 
 
 
