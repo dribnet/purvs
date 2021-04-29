@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#292929";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
+const darkBlue  = "#d9d9d9";
 const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const strokeColor  = "#7ade50";
 
 /*
  * Draw the letter given the letterData
@@ -76,6 +76,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "funnyman",
-  "iamdumb!",
-  "winning?"
+  "progress",
+  "icandoit"
 ]
