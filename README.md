@@ -12,4 +12,4 @@ As you can see, I have cleaned up a little bit my 'cars', however, now I've deci
 adding my thumbnail again
 and again
 
-started to spread my cars out again :) 
+started to spread my cars out again :). 
