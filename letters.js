@@ -849,15 +849,15 @@ const alphabet = {
    "offsetx": -25,
   "offsety": -80,
 
-  "offsetx2": 0,
-  "offsety2": -80,
+  "offsetx2": 10,
+  "offsety2": -70,
 
   "offsetx3": 30,
   "offsety3": -80,
 
 
     "offsetx4": -10,
-  "offsety4": -100,
+  "offsety4": -110,
 
    "offsetx5": -15,
    "offsety5": -10,
