@@ -10,8 +10,7 @@ const sliderInfo = [
   ["size3",       0, 100],
   ["size4",       0, 100],
   ["size5",       0, 100],
-  ["size6",       0, 100],
-  ["size7",       0, 100],
+
   ["offsetx",  -30,  30],
   ["offsety", -100, 100],
   ["offsetx2",  -30,  30],
@@ -22,10 +21,6 @@ const sliderInfo = [
   ["offsety4", -100, 100],
   ["offsetx5",  -30,  30],
   ["offsety5", -100, 100],
-  ["offsetx6",  -30,  30],
-  ["offsety6", -100, 100],
-  ["offsetx7",   -30, 30],
-  ["offsety7", -100, 100],
 
 ];
 
