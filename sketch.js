@@ -26,9 +26,8 @@ const letterA = {
 }
 
 const letterB = {
-  "reverse": 1,
   "squaresL": 10,
-  "squaresR": 5,
+  "squaresR": 10,
   "skipL":100,//placeholder
   "skipR":0,
   "sizex": 50,
@@ -42,14 +41,13 @@ const letterC = {
   "squaresR": 10,
   "skipL":100,//placeholder
   "skipR": 5,
-  "skipR2": 6,
   "sizex": 50,
   "sizey": 25,
   "offsetx": -60,
   "offsety": -100
 }
 
-const backgroundColor  = (100);//"#e3eded";
+const backgroundColor  = (255);//"#e3eded";
 //const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";

@@ -95,8 +95,9 @@ const alphabet = {
   },
   "I": {
     "squaresL": 10,
+    "squaresR":0,
     "skipL":2,
-    "skipR": 100,//placeholder
+    "skipR": 0,//placeholder
     "sizex": 50,
     "sizey": 18,
     "offsetx": -60,
@@ -203,7 +204,6 @@ const alphabet = {
     "squaresR": 10,
     "skipL":2,
     "skipR": 5,//placeholder
-
     "sizex": 50,
     "sizey": 18,
     "offsetx": -60,
