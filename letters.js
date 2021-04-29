@@ -23,8 +23,7 @@ const alphabet = {
   "offsety5": -25,
 
 
-  //4 is rect and so is 
-  //5 is rect
+  //4 and 5 are lanscape, 1-3 are portrait
 
   },
   "A": {

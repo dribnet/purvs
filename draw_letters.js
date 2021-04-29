@@ -10,10 +10,7 @@ const strokeColor  = "#5F0820";
 
 /*
  * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
+ 
  */
 function drawLetter(letterData) {
   //set up the sketch
