@@ -11,3 +11,5 @@ I decided on the green black and white colour scheme very early on and I am glad
 There are a few parts I would do different if I was going to redo this project, that would be to try harder at making sure everything flowed a bit nicer, I realised some of the letters like B and D dont really sit well with me and I wanted to fix them up a bit and make them look a bit nicer but I can live with it. 
 
 I also wanted readibility to be a big part of my project, I feel like I can reaad it pretty well and I am thankful that it turned out like this. 
+
+I named my font "seatown" because I like the way it sounds and I also really liked the way that it looked when it was spelt out in the font, I love the X's and the circles, I also really like my default character :)
