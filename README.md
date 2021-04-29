@@ -10,3 +10,4 @@ I have a half working alphabet currently, however I need to do a lot more.  Righ
 As you can see, I have cleaned up a little bit my 'cars', however, now I've decided they can't be crashing so will spread them apart again.   I have also added traffic lights and the road lines to make sure my design looks like a road!   I think this already looks a lot better, and I like the theme that is starting to go on.  
 
 adding my thumbnail again
+and again
