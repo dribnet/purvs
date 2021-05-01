@@ -2,11 +2,11 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "name": "Final (editor does not have background slider function)
     },
     {
       "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "name": "Final (editor has working slider function however breaks code outside of editor)
     },
     {
       "sha": "0000000000000000000000000000000000000001",

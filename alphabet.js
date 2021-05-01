@@ -3,14 +3,14 @@
  * drawing code in draw_letters.js
  */
 
+
 if (typeof systemBackgroundColor === 'undefined') {
-    //var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#e3eded";
     var systemBackgroundColor = "#ffffff";
 }
 
 if (typeof systemLineColor === 'undefined') {
-    //var systemLineColor = "#000090";
-    var systemLineColor = "#ffffff";
+    var systemLineColor = "#000090";
 }
 
 if (typeof systemBoxColor === 'undefined') {

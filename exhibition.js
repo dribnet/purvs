@@ -37,7 +37,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "CHARLIE",
   "1234567?",
   "EXPECTED",
   "PROPERTY",

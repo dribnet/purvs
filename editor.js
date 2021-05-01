@@ -5,28 +5,40 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 
-
+ const canvasWidth = 960;
+ const canvasHeight = 500;
 
 const sliderInfo = [
-  ["triangleX",  0, 100],
-  ["triangleY",  0,  200],
+
+  ["triangleX",  -50, 208],
+  ["triangleY",  0, 204],
   ["TriAng", -180, 180],
-  ["triWidth", 0, 100],
-  ["triHeight", 30, 200],
-  ["ellipseX", 0, 100],
-  ["ellipseY", 0, 200],
-  ["ellipseSize", 0, 100],
-  ["rectX", 0, 100],
+  ["triWidth", 0, 200],
+  ["triHeight", 0, 200],
+  ["ellipseX", 0, 200],
+  ["ellipseY", 0, 380],
+  ["ellipseSize", 0, 130],
+  ["ellipse2X", 0, 200],
+  ["ellipse2Y", 0, 280],
+  ["ellipseSize2", 0, 130],
+  ["rectX", 0, 200],
   ["rectY", 0, 200],
-  ["rectWidth", 0, 100],
+  ["rectWidth", 0, 130],
   ["rectHeight", 0, 200],
+  ["backgroundSlider", 0, 255],
+  ["offsetX", -230, 200 ],
+  ["offsetY", -250, 150],
+  ["letterScale", 0.5, 1.5]
+
 ];
+
+
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#ffffff";
 }
 
 // this will use variables if they are already defined
@@ -48,10 +60,8 @@ let param_sliders = [];
 
 let main_canvas = null;
 
-const canvasWidth = 960;
-const canvasHeight = 500;
-
 let debugBox = false;
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -64,7 +74,7 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 50)
+    let cur_slider = createSlider(0, 100)
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
@@ -83,16 +93,15 @@ function buttonPressedEvent() {
 
 function draw () {
   // clear screen
-  background(systemBackgroundColor);
-
+  background(255);
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;
-  let center_y = canvasHeight / 2;
 
-  // draw the letters A, B, C from saved data
-  push();
-  scale(2);
-  translate(width/4 - 50, 25);
+  const sliderInfo = [
+
+  ["backgroundSlider", 0, 255],
+
+  ];
+
 
   if (debugBox) {
     noFill()
@@ -101,10 +110,19 @@ function draw () {
     rect(0, 0, 100, 200);
   }
 
+
+  push();
+  translate(680,150);
   let obj = sliderToDataObject();
   drawLetter(obj);
   pop();
-  
+
+
+
+
+
+
+
 }
 
 function keyTyped() {
