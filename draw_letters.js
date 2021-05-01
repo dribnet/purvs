@@ -82,10 +82,10 @@ making the triangle isosceles.
   //creates yellow background in editor to make shapes easier to edit
   //background controlled by backgroundSlider in editor
   //this code is commented out because for some reason it creates a visual bug outside of editor.js
-  // push();
-  // fill(255,255,backgroundSlider);
-  // rect(-125, -120, 300, 500);
-  // pop();
+  push();
+  fill(255,255,backgroundSlider);
+  rect(-125, -120, 300, 500);
+  pop();
 
 
 
