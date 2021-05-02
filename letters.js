@@ -1,9 +1,13 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0,
-    "rotation":45
+  "size": 29,
+  "offsetx": 74,
+  "offsety": 150,
+  "rotation": 223.2,
+  "arcPosX": 35,
+  "arcPosY": 150,
+  "start": 39.6,
+  "stop": 320.4
   },
   "A": {
   "size": 70,

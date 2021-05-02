@@ -5,9 +5,14 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["size", 25, 125],
+  ["offsetx", 0, 100],
+  ["offsety", 0, 300],
+  ["rotation", 0, 360],
+  ["arcPosX", 0, 100],
+  ["arcPosY", 0, 300],
+  ["start", 0, 360],
+  ["stop", 0, 360],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -48,6 +53,7 @@ function setup () {
 
   // rotation in degrees (more slider friendly)
   angleMode(DEGREES);
+  rectMode(CENTER);
 
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
