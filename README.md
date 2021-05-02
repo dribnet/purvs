@@ -1,6 +1,10 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+3/05
+There has been a long amount of time since this assignment was given to us, and I have sat out of the class for some time since the holidays. This assignment was due several days ago. My goal here is to quickly get an acceptable submission together and submit before the seventh day past the due date.
+
+The last two hours have been spent reaquinting myself with this assignments layout. I added some new perimeters to the sketch, then migrated them over to draw_letters and letters. In the next sitting I will have a concept tightened up, but I'm thinking of something that evokes an alien type representation of an alphabet.
+
 
 25/03
 Pulled my sketch code over to the main draw letter function. Both Phoebe and Bex helped me to do so. My primitives are still oversized, as I'm not sure where I need to adjust them right now, either in draw_letters.js or letters.js. I will review the lecture video at home again before I continue on.

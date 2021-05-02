@@ -16,21 +16,33 @@ const letterA = {
   "size": 100,
   "offsetx": 0,
   "offsety": -45,
-  "rotation":45
+  "rotation":45,
+  "arcPosX": 0,
+  "arcPosY": 0,
+  "start":50,
+  "stop":230
 }
 
 const letterB = {
   "size": 70,
   "offsetx": 45,
   "offsety": 3,
-  "rotation":45
+  "rotation":45,
+  "arcPosX": 0,
+  "arcPosY": 0,
+  "start":270,
+  "stop":50
 }
 
 const letterC = {
   "size": 100,
   "offsetx": 50,
   "offsety": 0,
-  "rotation":100
+  "rotation":100,
+  "arcPosX": 0,
+  "arcPosY": 0,
+  "start":30,
+  "stop":270
 }
 
 const backgroundColor  = "#e3eded";
@@ -38,6 +50,7 @@ const strokeColor      = "#233f11";
 
 const darkPurple  = "#582C70";
 const lightPurple  = "#BD5DF0";
+const orange = "#F65502";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -73,16 +86,29 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let pos3x = posx + letterData["arcPosX"];
+  let pos3y = posy + letterData["arcPosY"];
+  let startAngle = letterData["start"];
+  let stopAngle = letterData["stop"];
 
   // draw two circles
+  push();
   fill(darkPurple);
   ellipse(posx, posy, 150, 150);
+  pop();
+
   fill(lightPurple);
   push();
   translate(pos2x, pos2y);
   rotate(letterData["rotation"]);
   rect(0, 0, size2, size2);
   pop();
+
+  push();
+  fill(orange);
+  arc(pos3x, pos3y, 50, 50, startAngle, stopAngle, PIE);
+  pop();
+  
 }
 
 function keyTyped() {

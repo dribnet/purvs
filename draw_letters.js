@@ -5,11 +5,11 @@ var systemBoxColor = "#00c800";
 
 /* internal constants */
 
-  const backgroundColor  = "#e3eded";
-  const strokeColor      = "#233f11";
-
-  const darkPurple  = "#582C70";
-  const lightPurple  = "#BD5DF0";
+const backgroundColor  = "#e3eded";
+const strokeColor = "#233f11";
+const darkPurple  = "#582C70";
+const lightPurple  = "#BD5DF0";
+const orange = "#F65502";
 
 
 
@@ -27,22 +27,38 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(4);
   angleMode(DEGREES);
+  push();
   rectMode(CENTER);
-  let posx = 0;
-  let posy = 0;
+  pop();
 
+  // parameters for letters
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+  let rot = letterData["rotation"];
+  let pos3x = letterData["arcPosX"];
+  let pos3y = letterData["arcPosY"];
+  let startAngle = letterData["start"];
+  let stopAngle = letterData["stop"];
+  
+
 
   // draw two circles
+  push();
   fill(darkPurple);
-  ellipse(posx, posy, 150, 150);
+  ellipse(50, 150, 100, 100);
+  pop();
+
   fill(lightPurple);
   push();
   translate(pos2x, pos2y);
-  rotate(letterData["rotation"]);
+  rotate(rot);
   rect(0, 0, size2, size2);
+  pop();
+
+  push();
+  fill(orange);
+  arc(pos3x, pos3y, 50, 50, startAngle, stopAngle, PIE);
   pop();
 }
 

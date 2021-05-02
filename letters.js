@@ -6,22 +6,34 @@ const alphabet = {
     "rotation":45
   },
   "A": {
-  "size": 100,
-  "offsetx": 0,
-  "offsety": -45,
-  "rotation":45
+  "size": 70,
+  "offsetx": 50,
+  "offsety": 80,
+  "rotation":45,
+  "arcPosX":50,
+  "arcPosY":150,
+  "start":50,
+  "stop":230
   },
   "B": {
-  "size": 70,
-  "offsetx": 45,
-  "offsety": 3,
-  "rotation":45
+  "size": 55,
+  "offsetx": 75,
+  "offsety": 110,
+  "rotation":45,
+  "arcPosX":50,
+  "arcPosY":150,
+  "start":270,
+  "stop":50
   },
   "C": {
-  "size": 100,
-  "offsetx": 50,
-  "offsety": 0,
-  "rotation":100
+  "size": 65,
+  "offsetx": 110,
+  "offsety": 130,
+  "rotation":100,
+  "arcPosX":80,
+  "arcPosY":150,
+  "start":30,
+  "stop":270
   },
   "D": {
     "size": 50,
