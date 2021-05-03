@@ -13,37 +13,33 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-
-  "size": 80,
-  "offsetx": 60,
-  "offsety": 60,
-  "bool": true,
-  "rotation": 45
-
+  "size": 70,
+  "offsetx": 20,
+  "offsety": 30,
+  "start": 700,
+  "End": 100,
 
 }
 
 const letterB = {
-  "size": 200,
-  "offsetx": 0,
-  "offsety": -145,
-  "bool": false,
-  "rotation": 88
+  "size": 70,
+  "offsetx": 20,
+  "offsety": 30,
+  "start": 700,
+  "End": 340,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
+  "size": 70,
+  "offsetx": -35,
   "offsety": 0,
-  "bool": false,
-  "rotation": 170
+  "start": 100,
+  "End": 250,
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
-
-const darkBlue  = "#fcba03";
-const lightBlue  = "#03cefc";
+const backgroundColor  = "#6495ED";
+const DarkTurquoise   = "#00CED1";
+const Salmon = "#FA8072";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -51,12 +47,13 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
+  stroke('#F8F8FF');
   strokeWeight(4);
+  noLoop();
   angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
-  noLoop();
+  
 }
 
 function draw () {
@@ -72,7 +69,6 @@ function draw () {
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 
-  // arc(50,50, 100, 100, 0, PI + QUARTER_PI, CHORD);
 
 
 }
@@ -83,27 +79,21 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-  
-  push();
-  rectMode(CENTER);
-  translate(posx, posy);
-  rotate(letterData["rotation"]);
-  rect(0,0, 55, 55);
-  pop();
+  let StartArc = letterData["start"];
+  let EndArc = letterData["End"];
 
-  if(letterData["bool"]){
-  push();
-  strokeWeight(12.0);
-  strokeCap(ROUND);
-  fill(255,0,0);
-  arc(posx, posy, 80, 80, 50, 275, CHORD);
-  pop();
-  }
+  // draw two circles
+  // fill(darkBlue);
+  // ellipse(posx, posy, 150, 150);
+  // fill(lightBlue);
+  // rect(pos2x, pos2y, size2, size2,startAngle,stopAngle);
+  fill(DarkTurquoise);
+  ellipse(posx, posy, 150, 150);
+  fill(Salmon);
+  arc(pos2x, pos2y, size2, size2, StartArc, EndArc);
+  
+
+ 
   
 
 }
