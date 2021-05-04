@@ -1,11 +1,40 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+Sketch
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+The shape of the letter is a combination of dumbbell/barbell and lever. Each has the dumbbell consisting of three rectangles (in center mode) and two lines representing levers.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+Here are the following 20 parameters that I used:
+
+The blue rectangle:
+rx1: rectangle x position
+  ry1: y position
+  rw1: width
+  rh1: height
+  
+
+  x, y position, width, height of mint green rectangle:
+  rx2
+  ry2
+  rw2
+  rh2
+
+  x, y position, width, height of yellow rectangle:
+  rx3
+  ry3
+  rw3
+  rh3
+  
+x, y position, width, height of white line:
+  lx1
+  ly1
+  ex1
+  ey1
+  
+  x, y position, width, height of black line:
+  lx2
+  ly2
+  ex2
+  ey2
+
 
