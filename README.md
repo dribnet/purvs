@@ -1,31 +1,33 @@
 ## MDDN 242 2021 Assignment 2
 
-Sketch
+Alphabet
 
-The shape of the letter is a combination of dumbbell/barbell and lever. Each has the dumbbell consisting of three rectangles (in center mode) and two lines representing levers.
+To achieve a visual layout of a complete letter form, I placed the “barbell” on different location in a vertical or horizon way, experimenting with different start point and the end point of black and white lines (“levers”).
 
-Here are the following 20 parameters that I used:
+I didn’t figure out how to incline rectangles instead of only vertically or horizontally demonstrating them; obviously, there still need a few steps to achieve the most ideal page outlook as my assumption due to limits in my technical capability.
+
+20 parameters:
 
 The blue rectangle:
-rx1: rectangle x position
+  rx1: rectangle x position
   ry1: y position
   rw1: width
   rh1: height
   
 
-  x, y position, width, height of mint green rectangle:
+  x, y position, width, height of mint green: rectangle:
   rx2
   ry2
   rw2
   rh2
 
-  x, y position, width, height of yellow rectangle:
+  x, y position, width, height of yellow: rectangle:
   rx3
   ry3
   rw3
   rh3
   
-x, y position, width, height of white line:
+  x, y position, width, height of white line:
   lx1
   ly1
   ex1
@@ -36,5 +38,6 @@ x, y position, width, height of white line:
   ly2
   ex2
   ey2
+
 
 
