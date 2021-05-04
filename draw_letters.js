@@ -68,9 +68,31 @@ pop()
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["rx1"]    = map(percent, 0, 100, oldObj["rx1"], newObj["rx1"]);
+  new_letter["ry1"] = map(percent, 0, 100, oldObj["ry1"], newObj["ry1"]);
+  new_letter["rw1"] = map(percent, 0, 100, oldObj["rw1"], newObj["rw1"]);
+  new_letter["rh1"] = map(percent, 0, 100, oldObj["rh1"], newObj["rh1"]);
+
+  new_letter["rx2"]    = map(percent, 0, 100, oldObj["rx2"], newObj["rx2"]);
+  new_letter["ry2"] = map(percent, 0, 100, oldObj["ry2"], newObj["ry2"]);
+  new_letter["rw2"] = map(percent, 0, 100, oldObj["rw2"], newObj["rw2"]);
+  new_letter["rh2"] = map(percent, 0, 100, oldObj["rh2"], newObj["rh2"]);
+
+  new_letter["rx3"]    = map(percent, 0, 100, oldObj["rx3"], newObj["rx3"]);
+  new_letter["ry3"] = map(percent, 0, 100, oldObj["ry3"], newObj["ry3"]);
+  new_letter["rw3"] = map(percent, 0, 100, oldObj["rw3"], newObj["rw3"]);
+  new_letter["rh3"] = map(percent, 0, 100, oldObj["rh3"], newObj["rh3"]);
+
+  new_letter["lx1"]    = map(percent, 0, 100, oldObj["lx1"], newObj["lx1"]);
+  new_letter["ly1"] = map(percent, 0, 100, oldObj["ly1"], newObj["ly1"]);
+  new_letter["ex1"] = map(percent, 0, 100, oldObj["ex1"], newObj["ex1"]);
+  new_letter["ey1"] = map(percent, 0, 100, oldObj["ey1"], newObj["ey1"]);
+
+  new_letter["lx2"]    = map(percent, 0, 100, oldObj["lx2"], newObj["lx2"]);
+  new_letter["ly2"] = map(percent, 0, 100, oldObj["ly2"], newObj["ly2"]);
+  new_letter["ex2"] = map(percent, 0, 100, oldObj["ex2"], newObj["ex2"]);
+  new_letter["ey2"] = map(percent, 0, 100, oldObj["ey2"], newObj["ey2"]);
+
   return new_letter;
 }
 
