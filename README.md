@@ -1,4 +1,9 @@
 ## MDDN 242 2021 Assignment 2
+4/5
+Over the last day I was looking at various different forms of inspiration, looking at various fantasy fonts from different media. I was thinking of something that resembles the Hylian alphabet from Zelda, or "Alien Language 1" from Futurama, but make them resemble the Greek alphabet. I'm leaving this behind however, and I don't wish to just recreate a font that already exists.
+
+I have settled on the theme of my font, music notes. I have constucted a variety of shapes and perimetres I can control, and they work reasonably well together to formulate into letter of the alphabet. The three objects are the parts of a classic musical quater note, the note head, the stem and the flag. I am looking at a boolean to control whether is is a quater, half or full note, to go along with the them. Unfortunately I cannot get the sketch.js to co-operate with a custom vertex shape, and the scale and translate tools. All it seems to want to do is replicate the shapes in boxes it shouldn't belong. I don't have much time before the last possible point of hand-in, but I'm going to at least submit something to get's the message accross.
+
 3/05
 There has been a long amount of time since this assignment was given to us, and I have sat out of the class for some time since the holidays. This assignment was due several days ago. My goal here is to quickly get an acceptable submission together and submit before the seventh day past the due date.
 

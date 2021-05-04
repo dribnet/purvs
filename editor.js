@@ -5,14 +5,28 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size", 25, 125],
-  ["offsetx", 0, 100],
-  ["offsety", 0, 300],
-  ["rotation", 0, 360],
-  ["arcPosX", 0, 100],
-  ["arcPosY", 0, 300],
-  ["start", 0, 360],
-  ["stop", 0, 360],
+//  ["size", 25, 125],
+//  ["offsetx", 0, 100],
+//  ["offsety", 0, 300],
+//  ["rotation", 0, 360],
+//  ["arcPosX", 0, 100],
+//  ["arcPosY", 0, 300],
+//  ["start", 0, 360],
+//  ["stop", 0, 360],
+  ["noteRotate", 90, 270],  //my notes start here
+  ["noteWidth",0, 200],
+  ["notePosx", -300, 300],
+  ["notePosy", 0, 300],
+  ["stemPosx", -250, 250],
+  ["stemPosy", 0, 150],
+  ["stemHeight", 0, 200],
+  ["stemThick", 0, 100],
+  ["stemRotate", 90, 270],
+  ["flagScale", 0.5, 2],
+  ["flagRotate", 0, 360],
+  ["flagPosx",-150, 200],
+  ["flagPosy", 0, 200],
+  ["flagThick", -10, 10]   //might not use if I can't get it to work
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
