@@ -1,41 +1,16 @@
 ## MDDN 242 2021 Assignment 2
-5/5
-I am very close to hand in. All my alphabet is in place and my interpolation works how I want it to. It currently morphs into my default character about 30% of the way through, holds until 70%, then finally morphs into the target letter or number. Now I have to pretty up my work some, and clean up my code before I get prepared for final submission. 
 
-5/5
-Another commit in case something dreadful happens to my code in the eleventh hour. Almost got my entire alphabet populated. Eight more to go before I start beautifying my code and looking into the interpolation. I have an idea of how I am going to do that, by leaning into the music notation side of my theme.
+The name of my font is Songbook.
 
-5/5
-Another commit. Figured out what was the issues with my editor. I added a rectMode when I first started with it and it was changing the debug box location. I have started outlining and designing my alphabet from my shapes and functions. Some letters have come out rather well, some are a compromise with the shapes I selected.
+This will be my final commit. I have gotten my code up to a reasonable enough standard for submission. Although I should have been working on this steadily through the semester break, giving me time for further iterations and experiments, I am still happy with where I ended up.
 
-5/5
-Today is the last oportunity I have to get things submitted and sent through before 10am tomorrow morning. A quick commit before I continue to work on my font. I have worked out some issues with the editor and it adding a my sketch with working A, B and C, getting creative with how I manage to make the different shapes with only three objects I can scale rotate and pivot. I was happy with adding a seperate parameter that controls a mirror flip of the note flag through the y co-ordinate of a scale. This was very quick and easy implimentation which will give me much more control over the shapes I can make.
-I am using a simple x and y position text feature we shown given in first year with the co-ord space snippit. This is invaluable to allowing me to pick out certain points with my cursor making finding the translate point for rotations and scales.
+When looking for inspiration I was at first going to adapt a fantasy based language, examples being the Hylian alphabet from the Legend of Zelda franchise, or Alien Language 1 from Futurama, but adjusting the characters so they more closely recognised the English alphabet. I however turned this idea down because I did not just want to recreate an existing font, or find I don't end up with enough changes to make it my own. I then decided on the sheet music idea after discussing it with a fellow student. From the beginning I knew I wanted to have the letters morph into musical notes before ended up as their final letters.
 
-I'm still having trouble with making the same shapes with the editor and the draw_letters file. I still have no idea why it seems to be working differently.
+Further ideas I could adapt into this with further experience could be a sound element, where a pitch that matches where in the alphabet a letter is found, and the morphing music note would adjust it's height to where on the music stave it corresponds.
 
-4/5
-Over the last day I was looking at various different forms of inspiration, looking at various fantasy fonts from different media. I was thinking of something that resembles the Hylian alphabet from Zelda, or "Alien Language 1" from Futurama, but make them resemble the Greek alphabet. I'm leaving this behind however, and I don't wish to just recreate a font that already exists.
+The first part I started on was creating the elements of the music note I needed. Once I had done that it was tricky recreating each letter with what shapes I had to work with. Some letters like W and S were especially difficult, but I felt I came to a good compromise. It was a great experiment in seeing what works when all you have is some rather abstract shapes to work with. I did find I was able to adapt to both sharp and curved letters. Once I had worked it out, the editor was an invaluable tool in recreating the letters.
 
-I have settled on the theme of my font, music notes. I have constucted a variety of shapes and perimetres I can control, and they work reasonably well together to formulate into letter of the alphabet. The three objects are the parts of a classic musical quater note, the note head, the stem and the flag. I am looking at a boolean to control whether is is a quater, half or full note, to go along with the them. Unfortunately I cannot get the sketch.js to co-operate with a custom vertex shape, and the scale and translate tools. All it seems to want to do is replicate the shapes in boxes it shouldn't belong. I don't have much time before the last possible point of hand-in, but I'm going to at least submit something to get's the message accross.
+I did find by the end I spoiled myself with the amount of parameters I programmed in. I finished with 18 individual parameters, but I ate up several through requiring both x and y control of individual elements, but often scale and rotation too. I could have solved a few of these through custom shapes and clever use of functions, but I felt making the letters seemed challenging enough.
 
-3/05
-There has been a long amount of time since this assignment was given to us, and I have sat out of the class for some time since the holidays. This assignment was due several days ago. My goal here is to quickly get an acceptable submission together and submit before the seventh day past the due date.
-
-The last two hours have been spent reaquinting myself with this assignments layout. I added some new perimeters to the sketch, then migrated them over to draw_letters and letters. In the next sitting I will have a concept tightened up, but I'm thinking of something that evokes an alien type representation of an alphabet.
-
-Got editor up and running with custom values. This will be indispensible when arranging my characters.
-
-25/03
-Pulled my sketch code over to the main draw letter function. Both Phoebe and Bex helped me to do so. My primitives are still oversized, as I'm not sure where I need to adjust them right now, either in draw_letters.js or letters.js. I will review the lecture video at home again before I continue on.
-
-23/03
-Updated my sketch with some adjustments I added to the existing parameters, namely setting up a square. Bex helped me set up a new variable, rotation. I'm still not sure which approach I will take with this assignment, as my alphabet still represents the clasic alphabet, but it is important I get my ideas down fast.
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+Overall, I did enjoy this assignment, though I found on some parts I struggled, which is largely my fault for leaving things so late. I am finding myself more familiar with the kinds of things you can achieve in P5js, and this was good practice.
 

@@ -13,15 +13,6 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-//  "size": 100,
-//  "offsetx": 0,
-//  "offsety": -45,
-//  "rotation":45,
-//  "arcPosX": 0,
-//  "arcPosY": 0,
-//  "start":50,
-//  "stop":230,
-
   "noteRotate": -18.00000000000003,
   "noteWidth": 28.000000000000004,
   "notePosx": 6,
@@ -43,15 +34,6 @@ const letterA = {
 }
 
 const letterB = {
-//  "size": 70,
-//  "offsetx": 45,
-//  "offsety": 3,
-//  "rotation":45,
-//  "arcPosX": 0,
-//  "arcPosY": 0,
-//  "start":270,
-//  "stop":50,
-
   "noteRotate": -21.600000000000023,
   "noteWidth": 52,
   "notePosx": 36.00000000000006,
@@ -71,15 +53,6 @@ const letterB = {
 }
 
 const letterC = {
-//  "size": 100,
-//  "offsetx": 50,
-//  "offsety": 0,
-//  "rotation":100,
-//  "arcPosX": 0,
-//  "arcPosY": 0,
-//  "start":30,
-//  "stop":270,
-
   "noteRotate": -151.2,
   "noteWidth": 78,
   "notePosx": 48,

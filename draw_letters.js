@@ -1,11 +1,11 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#f9daaf";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
 
-const backgroundColor  = "#e3eded";
+const backgroundColor  = "#f9daaf";
 const strokeColor = "#233f11";
 const darkPurple  = "#582C70";
 const lightPurple  = "#BD5DF0";
@@ -32,18 +32,9 @@ function drawLetter(letterData) {
   rectMode(CENTER);
   pop();
 
-  // parameters for letters
-  let size2 = letterData["size"];
-  let pos2x = letterData["offsetx"];
-  let pos2y = letterData["offsety"];
-  let rot = letterData["rotation"];
-  let pos3x = letterData["arcPosX"];
-  let pos3y = letterData["arcPosY"];
-  let startAngle = letterData["start"];
-  let stopAngle = letterData["stop"];
-
-
-//my notes ones
+  // parameters for letters There are three objects in my scene. Together they combine to make a full music note. The three objects
+  // are the stem, the flag and the head. The various parameters control most of their functionality from co-ordinates, scale and 
+  // rotation. The head function later down the page has a second elipse that works in negative space, refered to has the full note.
   let noteR = letterData["noteRotate"];
   let nWidth = letterData["noteWidth"];
   let nHeadx = letterData["notePosx"];
@@ -64,51 +55,37 @@ function drawLetter(letterData) {
   let noteFy = letterData["fullNotey"];
   let fullNoteR = letterData["fullNoteRot"];
   
-push();
+push(); //push to keep rectMode locked in my code without affecting the grids guidelines.
 rectMode(CENTER);   //called rect mode down here because it was affect the green guidelines for alphabet.
-scale(0.7, 1);
-translate(50,0);
+scale(0.7, 1);      //Can't remember why I called these, but it's important to my code, I guess.
+translate(50, 0);
 
-  // draw two circles
-  push();
-  fill(darkPurple);
-//  ellipse(50, 150, 100, 100);
-  pop();
+fill(black);
 
-  fill(black);   //lightPurple
-  push();
-  translate(pos2x, pos2y);
-  rotate(rot);
-//  rect(0, 0, size2, size2);
-  pop();
-
-  push();
-  fill(orange);
-// arc(pos3x, pos3y, 50, 50, startAngle, stopAngle, PIE);
-  pop();
-
-//new note code starts here
+//Bellow are the different shapes I am calling. A basic rectangle, an ellipse for the head of the note, and a custom vertex shape for
+//the flag of the note. 
   push();
   noteHead(0, 0);
-  pop()
+  pop();
   pop();
   push();
-  translate(stemx,stemy);  //the stem of the note.
+  translate(stemx, stemy);  //translate and rotate covers the stem of the note.
   rotate(stemR);
-  rect(0,0,stemT,stemH); //the stem of the note.
+  rect(0, 0, stemT, stemH); //Rect is the stem of the note. It's on it's own so did not deem it worthy it's own function.
+  pop();
+
+  push(); //
+  translate(flagx, flagy);
+  scale(flagS);
+  rotate(flagR);
+  scale(1, flagI);
+  flag(0, 0);
   pop();
 
   push();
-  //push()
-  //stroke(255,0,0); // Change the color
-  //strokeWeight(10);
-  //point(48,15);
-  //pop()
-  translate(flagx,flagy);   //flagx,flagy
-  scale(flagS);
-  rotate(flagR);
-  scale(1,flagI);
-  flag(0, 0);
+  noFill();
+  stroke(0, 0, 0, 70); //alpha transparancy for the sheet music staves.
+  stave(0, 0);   //the background to give my canvas a sheet music aesthetic.
   pop();
 
   pop();   //pop to keep rectMode locked in my code without affecting grids.
@@ -118,17 +95,11 @@ translate(50,0);
 function flag(flagx, flagy, flagS, flagS) {
 //the flag of the note.
   push();
-  //noFill();
-  //translate(0, 0);
-  //scale(flagS);
-  //rotate(flagR);
-  //rect(200,200,50,50);
+  strokeWeight(2);
   beginShape();
   curveVertex(104 - 48, 104 - 15);
   curveVertex(104- 48, 104 - 15);
-  //curveVertex(114, 91);
   curveVertex(114- 48, 91 - 15);
-  //curveVertex(68, 19);
   curveVertex(96- 48, 62 - 15);
   curveVertex(66- 48, 46 - 15);
   curveVertex(50- 48, 20 - 15);
@@ -138,8 +109,6 @@ function flag(flagx, flagy, flagS, flagS) {
   curveVertex(66- 48, 66 - 15);
   curveVertex(66- 48, 66 - 15);
   curveVertex(96- 48, 77 - 15);
-  //curveVertex(96, 77);
-  //curveVertex(114, 91);
   curveVertex(114- 48, 91 - 15);
   curveVertex(104- 48, 104 - 15);
   curveVertex(104- 48, 104 - 15);
@@ -147,23 +116,45 @@ function flag(flagx, flagy, flagS, flagS) {
   pop();
 }
 
-function noteHead(x,y){
+function noteHead(x, y){
   push();
   noStroke();
-    translate(nHeadx,nHeady);
+  translate(nHeadx, nHeady);
   rotate(noteR);
-  ellipse(0,0,1.8*nWidth,nWidth);  //the notehead.  x3 math keeps width of elipse to aesthetic scale
+  ellipse(0, 0, 1.8*nWidth, nWidth);  //the notehead.  x3 math keeps width of elipse to aesthetic scale
   push();
   fill(backgroundColor);
   rotate(fullNoteR);
   scale(noteF);
-  ellipse(noteFx,noteFy,1.8*nWidth,nWidth);  //full note
+  ellipse(noteFx, noteFy, 1.8*nWidth, nWidth);  //full note
+  pop();
+}
 
-  pop()
+//tried to run a for loop, but I'm still having trouble getting them to run as expected. Will have to fall back on messy code in the
+//following function. Commented out attempted loop for later reference.
+
+//followingg function is the lines on the background giving my canvas a sheet music-like aesthetic.
+function stave(x,y){
+
+var y = 0;
+rect(0, y, 161, 1);
+y = y + 50;
+rect(0, y, 161, 1);
+y = y + 50;
+rect(0, y, 161, 1);
+y = y + 50;
+rect(0, y, 161, 1);
+y = y + 50;
+rect(0, y, 161, 1);
+y = y + 50;
+
+
+//  for (var x = 0; x <= 5; y = y + 50){
+//    ellipse(x, 300, 25, 25);
+//  }
 
 }
 }
-
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -240,7 +231,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "SONGBOOK",
+  "EUPHONIC",
+  "?MUSICAL",
+  "HARMONY?",
+  "NOTATION"
+  
 ]
