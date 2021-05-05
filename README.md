@@ -1,5 +1,8 @@
 ## MDDN 242 2021 Assignment 2
 5/5
+I am very close to hand in. All my alphabet is in place and my interpolation works how I want it to. It currently morphs into my default character about 30% of the way through, holds until 70%, then finally morphs into the target letter or number. Now I have to pretty up my work some, and clean up my code before I get prepared for final submission. 
+
+5/5
 Another commit in case something dreadful happens to my code in the eleventh hour. Almost got my entire alphabet populated. Eight more to go before I start beautifying my code and looking into the interpolation. I have an idea of how I am going to do that, by leaning into the music notation side of my theme.
 
 5/5
