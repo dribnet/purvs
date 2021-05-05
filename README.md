@@ -1,5 +1,8 @@
 ## MDDN 242 2021 Assignment 2
 5/5
+Another commit. Figured out what was the issues with my editor. I added a rectMode when I first started with it and it was changing the debug box location. I have started outlining and designing my alphabet from my shapes and functions. Some letters have come out rather well, some are a compromise with the shapes I selected.
+
+5/5
 Today is the last oportunity I have to get things submitted and sent through before 10am tomorrow morning. A quick commit before I continue to work on my font. I have worked out some issues with the editor and it adding a my sketch with working A, B and C, getting creative with how I manage to make the different shapes with only three objects I can scale rotate and pivot. I was happy with adding a seperate parameter that controls a mirror flip of the note flag through the y co-ordinate of a scale. This was very quick and easy implimentation which will give me much more control over the shapes I can make.
 I am using a simple x and y position text feature we shown given in first year with the co-ord space snippit. This is invaluable to allowing me to pick out certain points with my cursor making finding the translate point for rotations and scales.
 

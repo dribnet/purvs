@@ -36,7 +36,10 @@ const letterA = {
   "flagPosx": 21.5,
   "flagPosy": 16,
   "flagThick": 0,
-  "flagInvert": 1
+  "flagInvert": 1,
+  "noteFull": 0.6,
+  "fullNotex": 5,
+  "fullNoteRot": 0
 }
 
 const letterB = {
@@ -63,7 +66,8 @@ const letterB = {
   "flagPosx": 14.5,
   "flagPosy": 8,
   "flagThick": 4.199999999999999,
-  "flagInvert": -1
+  "flagInvert": -1,
+  "noteFull": 0
 }
 
 const letterC = {
@@ -90,7 +94,8 @@ const letterC = {
   "flagPosx": 11,
   "flagPosy": 0,
   "flagThick": -1,
-  "flagInvert": 1
+  "flagInvert": 1,
+  "noteFull": 0
 
 }
 
@@ -159,6 +164,9 @@ function drawLetter(posx, posy, letterData) {
   let flagy = posy + letterData["flagPosy"];
   let flagT = letterData["flagThick"];
   let flagI = letterData["flagInvert"];
+  let noteF = letterData["noteFull"];
+  let noteFx = letterData["fullNotex"];
+  let fullNoteR = letterData["fullNoteRot"];
 
  
 
@@ -198,6 +206,12 @@ function drawLetter(posx, posy, letterData) {
   translate(nHeadx,nHeady);
   rotate(noteR);
   ellipse(0,0,1.8*nWidth,nWidth);  //the notehead.  x3 math keeps width of elipse to aesthetic scale
+  push();
+  fill(255);
+  rotate(fullNoteR);
+  scale(noteF);
+  ellipse(noteFx,0,1.8*nWidth,nWidth);  //full note
+  pop()
   pop();
   push();
   translate(stemx,stemy);  //the stem of the note.

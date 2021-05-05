@@ -17,17 +17,21 @@ const sliderInfo = [
   ["noteWidth",0, 200],
   ["notePosx", -300, 300],
   ["notePosy", -300, 300],
-  ["stemPosx", -250, 250],
+  ["stemPosx", -300, 300],
   ["stemPosy", 0, 150],
   ["stemHeight", 0, 200],
   ["stemThick", 0, 100],
-  ["stemRotate", 90, 270],
+  ["stemRotate", 180, -180],
   ["flagScale", -1, 3],
   ["flagRotate", 180, -180],
-  ["flagPosx",-150, 200],
+  ["flagPosx",-200, 250],
   ["flagPosy", 0, 200],
   ["flagThick", -10, 10],   //might not use if I can't get it to work
-  ["flagInvert", -1, 3]
+  ["flagInvert", -1, 3],
+  ["noteFull", 0, 1],
+  ["fullNotex", -200, 200],
+  ["fullNotey", -200, 200],
+  ["fullNoteRot", 180, -180]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -68,7 +72,6 @@ function setup () {
 
   // rotation in degrees (more slider friendly)
   angleMode(DEGREES);
-  rectMode(CENTER);
 
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))

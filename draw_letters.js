@@ -59,8 +59,15 @@ function drawLetter(letterData) {
   let flagy = letterData["flagPosy"];
   let flagT = letterData["flagThick"];
   let flagI = letterData["flagInvert"];
+  let noteF = letterData["noteFull"];
+  let noteFx = letterData["fullNotex"];
+  let noteFy = letterData["fullNotey"];
+  let fullNoteR = letterData["fullNoteRot"];
   
-
+push();
+rectMode(CENTER);   //called rect mode down here because it was affect the green guidelines for alphabet.
+scale(0.7, 1);
+translate(50,0);
 
   // draw two circles
   push();
@@ -82,10 +89,9 @@ function drawLetter(letterData) {
 
 //new note code starts here
   push();
-  translate(nHeadx,nHeady);
-  rotate(noteR);
-  ellipse(0, 0, 1.8*nWidth,nWidth);  //the notehead.
+  noteHead(0, 0);
   pop()
+  pop();
   push();
   translate(stemx,stemy);  //the stem of the note.
   rotate(stemR);
@@ -104,6 +110,8 @@ function drawLetter(letterData) {
   scale(1,flagI);
   flag(0, 0);
   pop();
+
+  pop();   //pop to keep rectMode locked in my code without affecting grids.
 
 
 
@@ -137,6 +145,22 @@ function flag(flagx, flagy, flagS, flagS) {
   curveVertex(104- 48, 104 - 15);
   endShape();
   pop();
+}
+
+function noteHead(x,y){
+  push();
+  noStroke();
+    translate(nHeadx,nHeady);
+  rotate(noteR);
+  ellipse(0,0,1.8*nWidth,nWidth);  //the notehead.  x3 math keeps width of elipse to aesthetic scale
+  push();
+  fill(255);
+  rotate(fullNoteR);
+  scale(noteF);
+  ellipse(noteFx,noteFy,1.8*nWidth,nWidth);  //full note
+
+  pop()
+
 }
 }
 
