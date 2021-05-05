@@ -18,7 +18,7 @@ const sliderInfo = [
   ["notePosx", -300, 300],
   ["notePosy", -300, 300],
   ["stemPosx", -300, 300],
-  ["stemPosy", 0, 150],
+  ["stemPosy", 0, 300],
   ["stemHeight", 0, 200],
   ["stemThick", 0, 100],
   ["stemRotate", 180, -180],

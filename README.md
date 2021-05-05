@@ -1,5 +1,8 @@
 ## MDDN 242 2021 Assignment 2
 5/5
+Another commit in case something dreadful happens to my code in the eleventh hour. Almost got my entire alphabet populated. Eight more to go before I start beautifying my code and looking into the interpolation. I have an idea of how I am going to do that, by leaning into the music notation side of my theme.
+
+5/5
 Another commit. Figured out what was the issues with my editor. I added a rectMode when I first started with it and it was changing the debug box location. I have started outlining and designing my alphabet from my shapes and functions. Some letters have come out rather well, some are a compromise with the shapes I selected.
 
 5/5

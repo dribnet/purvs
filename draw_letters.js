@@ -167,9 +167,25 @@ function noteHead(x,y){
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["noteRotate"]    = map(percent, 0, 100, oldObj["noteRotate"], newObj["noteRotate"]);
+  new_letter["noteWidth"] = map(percent, 0, 100, oldObj["noteWidth"], newObj["noteWidth"]);
+  new_letter["notePosx"] = map(percent, 0, 100, oldObj["notePosx"], newObj["notePosx"]);
+  new_letter["notePosy"]    = map(percent, 0, 100, oldObj["notePosy"], newObj["notePosy"]);
+  new_letter["stemPosx"] = map(percent, 0, 100, oldObj["stemPosx"], newObj["stemPosx"]);
+  new_letter["stemPosy"] = map(percent, 0, 100, oldObj["stemPosy"], newObj["stemPosy"]);
+  new_letter["stemHeight"]    = map(percent, 0, 100, oldObj["stemHeight"], newObj["stemHeight"]);
+  new_letter["stemThick"] = map(percent, 0, 100, oldObj["stemThick"], newObj["stemThick"]);
+  new_letter["stemRotate"] = map(percent, 0, 100, oldObj["stemRotate"], newObj["stemRotate"]);
+  new_letter["flagScale"]    = map(percent, 0, 100, oldObj["flagScale"], newObj["flagScale"]);
+  new_letter["flagRotate"] = map(percent, 0, 100, oldObj["flagRotate"], newObj["flagRotate"]);
+  new_letter["flagPosx"] = map(percent, 0, 100, oldObj["flagPosx"], newObj["flagPosx"]);
+  new_letter["flagPosy"]    = map(percent, 0, 100, oldObj["flagPosy"], newObj["flagPosy"]);
+  new_letter["flagThick"] = map(percent, 0, 100, oldObj["flagThick"], newObj["flagThick"]);
+  new_letter["flagInvert"] = map(percent, 0, 100, oldObj["flagInvert"], newObj["flagInvert"]);
+  new_letter["noteFull"]    = map(percent, 0, 100, oldObj["noteFull"], newObj["noteFull"]);
+  new_letter["fullNotex"] = map(percent, 0, 100, oldObj["fullNotex"], newObj["fullNotex"]);
+  new_letter["fullNotey"] = map(percent, 0, 100, oldObj["fullNotey"], newObj["fullNotey"]);
+  new_letter["fullNoteRot"] = map(percent, 0, 100, oldObj["fullNoteRot"], newObj["fullNoteRot"]);
   return new_letter;
 }
 
