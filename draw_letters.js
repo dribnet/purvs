@@ -58,6 +58,7 @@ function drawLetter(letterData) {
   let flagx = letterData["flagPosx"];
   let flagy = letterData["flagPosy"];
   let flagT = letterData["flagThick"];
+  let flagI = letterData["flagInvert"];
   
 
 
@@ -91,37 +92,52 @@ function drawLetter(letterData) {
   rect(0,0,stemT,stemH); //the stem of the note.
   pop();
 
+  push();
+  //push()
+  //stroke(255,0,0); // Change the color
+  //strokeWeight(10);
+  //point(48,15);
+  //pop()
+  translate(flagx,flagy);   //flagx,flagy
+  scale(flagS);
+  rotate(flagR);
+  scale(1,flagI);
+  flag(0, 0);
+  pop();
 
 
+
+function flag(flagx, flagy, flagS, flagS) {
 //the flag of the note.
   push();
   //noFill();
-  translate(flagx, flagy);
-  scale(flagS);
-  rotate(flagR);
-//  rect(200,200,50,50);
+  //translate(0, 0);
+  //scale(flagS);
+  //rotate(flagR);
+  //rect(200,200,50,50);
   beginShape();
-  curveVertex(-54, -65);
-  curveVertex(-54, -65);
-  //curveVertex(-64, -41);
-  curveVertex(-64, -41);
-  //curveVertex(-18, 31);
-  curveVertex(-46, -12);
-  curveVertex(-16,4);
-  curveVertex(0, 30);
-  curveVertex(0, 30);
-  curveVertex(0, -10);
-  curveVertex(0, -10);
-  curveVertex(-16, -16);
-  curveVertex(-16, -16);
-  curveVertex(-46, -27);
-  //curveVertex(-46, -27);
-  //curveVertex(-64, -41);
-  curveVertex(-64, -41);
-  curveVertex(-54, -65);
-  curveVertex(-54, -65);
+  curveVertex(104 - 48, 104 - 15);
+  curveVertex(104- 48, 104 - 15);
+  //curveVertex(114, 91);
+  curveVertex(114- 48, 91 - 15);
+  //curveVertex(68, 19);
+  curveVertex(96- 48, 62 - 15);
+  curveVertex(66- 48, 46 - 15);
+  curveVertex(50- 48, 20 - 15);
+  curveVertex(50- 48, 20 - 15);
+  curveVertex(50- 48, 60 - 15);
+  curveVertex(50- 48, 60 - 15);
+  curveVertex(66- 48, 66 - 15);
+  curveVertex(66- 48, 66 - 15);
+  curveVertex(96- 48, 77 - 15);
+  //curveVertex(96, 77);
+  //curveVertex(114, 91);
+  curveVertex(114- 48, 91 - 15);
+  curveVertex(104- 48, 104 - 15);
+  curveVertex(104- 48, 104 - 15);
   endShape();
   pop();
+}
 }
 
 

@@ -22,20 +22,21 @@ const letterA = {
 //  "start":50,
 //  "stop":230,
 
-  "noteRotate": 0,
-  "noteWidth": 30,
-  "notePosx": 150,
-  "notePosy": 150,
-  "stemPosx": 100,
-  "stemPosy": 100,
-  "stemHeight": 60,
-  "stemThick": 10,
-  "stemRotate": 0,
-  "flagScale": 1,
-  "flagRotate": 0,
-  "flagPosx": 0,
-  "flagPosy": 0,
-  "flagThick": 0
+  "noteRotate": -18.00000000000003,
+  "noteWidth": 28.000000000000004,
+  "notePosx": 6,
+  "notePosy": 126,
+  "stemPosx": -10,
+  "stemPosy": 102.00000000000001,
+  "stemHeight": 178,
+  "stemThick": 6,
+  "stemRotate": 198,
+  "flagScale": 1.68,
+  "flagRotate": 21.599999999999994,
+  "flagPosx": 21.5,
+  "flagPosy": 16,
+  "flagThick": 0,
+  "flagInvert": 1
 }
 
 const letterB = {
@@ -48,20 +49,21 @@ const letterB = {
 //  "start":270,
 //  "stop":50,
 
-  "noteRotate": 0,
-  "noteWidth": 30,
-  "notePosx": 150,
-  "notePosy": 150,
-  "stemPosx": 100,
-  "stemPosy": 100,
-  "stemHeight": 60,
-  "stemThick": 10,
-  "stemRotate": 0,
-  "flagScale": 1,
-  "flagRotate": 0,
-  "flagPosx": 0,
-  "flagPosy": 0,
-  "flagThick": 0
+  "noteRotate": -21.600000000000023,
+  "noteWidth": 52,
+  "notePosx": 36.00000000000006,
+  "notePosy": 162,
+  "stemPosx": 10,
+  "stemPosy": 99,
+  "stemHeight": 182,
+  "stemThick": 24,
+  "stemRotate": 190.8,
+  "flagScale": 1.3599999999999999,
+  "flagRotate": -172.8,
+  "flagPosx": 14.5,
+  "flagPosy": 8,
+  "flagThick": 4.199999999999999,
+  "flagInvert": -1
 }
 
 const letterC = {
@@ -74,20 +76,21 @@ const letterC = {
 //  "start":30,
 //  "stop":270,
 
-  "noteRotate": 0,
-  "noteWidth": 30,
-  "notePosx": 150,
-  "notePosy": 150,
-  "stemPosx": 100,
-  "stemPosy": 100,
-  "stemHeight": 60,
-  "stemThick": 10,
-  "stemRotate": 0,
-  "flagScale": 1,
-  "flagRotate": 0,
-  "flagPosx": 0,
+  "noteRotate": -151.2,
+  "noteWidth": 78,
+  "notePosx": 48,
+  "notePosy": 162,
+  "stemPosx": 25,
+  "stemPosy": 75,
+  "stemHeight": 162,
+  "stemThick": 46,
+  "stemRotate": 187.2,
+  "flagScale": 1.44,
+  "flagRotate": -25.19999999999999,
+  "flagPosx": 11,
   "flagPosy": 0,
-  "flagThick": 0
+  "flagThick": -1,
+  "flagInvert": 1
 
 }
 
@@ -111,7 +114,7 @@ function setup () {
   rectMode(CENTER);
 
   // with no animation, redrawing the screen is not necessary
-//  noLoop();
+  noLoop();
 }
 
 function draw () {
@@ -122,10 +125,12 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
+  push()
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
+  pop()
 
 }
 
@@ -141,18 +146,19 @@ function drawLetter(posx, posy, letterData) {
 
   let noteR = letterData["noteRotate"];
   let nWidth = letterData["noteWidth"];
-  let nHeadx = letterData["notePosx"];
-  let nHeady = letterData["notePosy"];
-  let stemx = letterData["stemPosx"];
-  let stemy = letterData["stemPosy"];
+  let nHeadx = posx + letterData["notePosx"];
+  let nHeady = posy + letterData["notePosy"];
+  let stemx = posx + letterData["stemPosx"];
+  let stemy = posy + letterData["stemPosy"];
   let stemH = letterData["stemHeight"];
   let stemT = letterData["stemThick"];
   let stemR = letterData["stemRotate"];
   let flagS = letterData["flagScale"];
   let flagR = letterData["flagRotate"];
-  let flagx = letterData["flagPosx"];
-  let flagy = letterData["flagPosy"];
+  let flagx = posx + letterData["flagPosx"];
+  let flagy = posy + letterData["flagPosy"];
   let flagT = letterData["flagThick"];
+  let flagI = letterData["flagInvert"];
 
  
 
@@ -170,7 +176,7 @@ function drawLetter(posx, posy, letterData) {
 
   push();
   fill(darkPurple);
-  ellipse(posx, posy, 150, 150);
+  //ellipse(posx, posy, 150, 150);
   pop();
 
   fill(black);   //lightPurple
@@ -185,7 +191,14 @@ function drawLetter(posx, posy, letterData) {
   arc(pos3x, pos3y, 50, 50, startAngle, stopAngle, PIE);
   pop();
 
-  ellipse(nHeadx,nHeady,50,nWidth);  //the notehead.
+  push();
+  scale(1.2);
+  translate(-150,-150);
+  push();
+  translate(nHeadx,nHeady);
+  rotate(noteR);
+  ellipse(0,0,1.8*nWidth,nWidth);  //the notehead.  x3 math keeps width of elipse to aesthetic scale
+  pop();
   push();
   translate(stemx,stemy);  //the stem of the note.
   rotate(stemR);
@@ -193,39 +206,49 @@ function drawLetter(posx, posy, letterData) {
   pop();
 
   push();
-  note(stemx, stemy, flagS, flagS);
+  //push()
+  //stroke(255,0,0); // Change the color
+  //strokeWeight(10);
+  //point(48,15);
+  //pop()
+  translate(flagx,flagy);   //flagx,flagy
+  scale(flagS);
+  rotate(flagR);
+  scale(1,flagI);
+  flag(0, 0);
+  pop();
   pop();
 
 
 
-function note(stemx, stemy, flagS, flagS) {
+function flag(flagx, flagy, flagS, flagS) {
 //the flag of the note.
   push();
   //noFill();
-  translate(0,0);
-  scale(flagS);
-  rotate(flagR);
+  //translate(0, 0);
+  //scale(flagS);
+  //rotate(flagR);
   //rect(200,200,50,50);
   beginShape();
-  curveVertex(104, 104);
-  curveVertex(104, 104);
+  curveVertex(104 - 48, 104 - 15);
+  curveVertex(104- 48, 104 - 15);
   //curveVertex(114, 91);
-  curveVertex(114, 91);
+  curveVertex(114- 48, 91 - 15);
   //curveVertex(68, 19);
-  curveVertex(96, 62);
-  curveVertex(66, 46);
-  curveVertex(50, 20);
-  curveVertex(50, 20);
-  curveVertex(50, 60);
-  curveVertex(50, 60);
-  curveVertex(66, 66);
-  curveVertex(66, 66);
-  curveVertex(96, 77);
+  curveVertex(96- 48, 62 - 15);
+  curveVertex(66- 48, 46 - 15);
+  curveVertex(50- 48, 20 - 15);
+  curveVertex(50- 48, 20 - 15);
+  curveVertex(50- 48, 60 - 15);
+  curveVertex(50- 48, 60 - 15);
+  curveVertex(66- 48, 66 - 15);
+  curveVertex(66- 48, 66 - 15);
+  curveVertex(96- 48, 77 - 15);
   //curveVertex(96, 77);
   //curveVertex(114, 91);
-  curveVertex(114, 91);
-  curveVertex(104, 104);
-  curveVertex(104, 104);
+  curveVertex(114- 48, 91 - 15);
+  curveVertex(104- 48, 104 - 15);
+  curveVertex(104- 48, 104 - 15);
   endShape();
   pop();
 }

@@ -13,20 +13,21 @@ const sliderInfo = [
 //  ["arcPosY", 0, 300],
 //  ["start", 0, 360],
 //  ["stop", 0, 360],
-  ["noteRotate", 90, 270],  //my notes start here
+  ["noteRotate", 180, -180],  //my notes start here
   ["noteWidth",0, 200],
   ["notePosx", -300, 300],
-  ["notePosy", 0, 300],
+  ["notePosy", -300, 300],
   ["stemPosx", -250, 250],
   ["stemPosy", 0, 150],
   ["stemHeight", 0, 200],
   ["stemThick", 0, 100],
   ["stemRotate", 90, 270],
-  ["flagScale", 0.5, 2],
-  ["flagRotate", 0, 360],
+  ["flagScale", -1, 3],
+  ["flagRotate", 180, -180],
   ["flagPosx",-150, 200],
   ["flagPosy", 0, 200],
-  ["flagThick", -10, 10]   //might not use if I can't get it to work
+  ["flagThick", -10, 10],   //might not use if I can't get it to work
+  ["flagInvert", -1, 3]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
