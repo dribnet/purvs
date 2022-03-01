@@ -2,4 +2,5 @@
 
 ### THIS IS YOUR README
 
-Update this file as you go along to record your progress.
+ 1/03
+ today i finally figured out how github works! took me a while to figure it out but i'm all on top of it now (hopefully).
