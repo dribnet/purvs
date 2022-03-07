@@ -11,18 +11,66 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
-  fill(200); // dark grey
+
+
+
+  background(255,179,110); //  lolly orange
+
+  // minute and hour hands / circles
+
+  noStroke();
+  fill(95, 179, 150);// dark aqua circle thats minutes hand
+  ellipse(480, 250, 400);
+  fill(255,179,110);  //  lolly orange
+  ellipse(480,250,350); // circle that removes green center
+
+  fill(59, 91, 179); // dark blue circle thats hour hand
+  ellipse(480, 250, 300); // centre
+  fill(255,179,110);  //  lolly orange
+  ellipse(480,250,250); // circle that removes blue centre center
+
+/// Hour text signs
+
+  fill(97,139,255); // lighter blue than before
+  ellipse(480, 40,75) // hour 12 circle spray paint
+
+  fill(255,179,110); // lolly orange
+  textSize(50);
+  textAlign(CENTER,CENTER)
+  text("12", 477, 40); // 12 hour text
+
+
+  fill(255,217,122); // pastel yellow
+  ellipse(690, 250,75) // hour 3 circle spray paint
+
+  fill(255,179,110); // lolly orange
+  textSize(50);
+  textAlign(CENTER,CENTER)
+  text("3", 690, 250); // 12 hour text
+
+
+  fill(122, 255, 209) // pastel green
+  ellipse(480, 460, 75); // hour 6 circle spray paint
+
+  fill(255,179,110); // lolly orange
+  textSize(50);
+  textAlign(CENTER,CENTER)
+  text("6", 480, 461); // 12 hour text
+
+
+  fill(255,127,97); // pastel red
+  ellipse(270, 250,75) // hour 9 circle spray paint
+
+  fill(255,179,110); // lolly orange
+  textSize(50);
+  textAlign(CENTER,CENTER)
+  text("9", 270, 250); // 12 hour text
+
+
+
+
+  fill(500); // white
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-
-
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
-
+  text("Le clock", width / 2, 200);
 }
