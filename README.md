@@ -17,3 +17,6 @@ I also recreated a maeda clock which was number 4. It consisted of creating a pi
 8/03
 
 today i created my sketch in code. While it does not look like much, It is a mere skeleton and will provide me with a guidline of where to go next. It might completely change, who knows. My next step will be to either create my spray cans in code or have them as an image, and figure out the code for a colour changing option. I will also have to figure out how to get the "hands" to rotate and decide how to get them to slowly expand with each minute / hour
+
+9/03
+I've put a lot of code in today. Iv'e tried to find a colour changing code that interacts with time, but it doesnt seem to work. I've tried to also Implement two images using that code from the first year course on the ,music visualizer. But it doesn't work, can't figure out why. Hopefully i'll figure it out by the rest of the week
