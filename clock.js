@@ -4,8 +4,6 @@
 
 let firstRun = true
 
-//colours
-
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -17,48 +15,71 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
 
+  let hourCan = [];
+   let minuteCan = [];
+
+  if (firstRun) {
+    rectMode(CENTER);
+   hourCan.push(loadImage('hourCan.png'));
+   minuteCan.push(loadImage('minuteCan.png'));
+
+   firstRun = false
+
+   }
+
   background(255, 179, 110); //  lolly orange
 
-
-  // minute and hour hand varibales
 
   let hours = obj.hours;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
  let millis = obj.millis
-  //let alarm = object.seconds_until_alarm -- doesn't want to run
-
-  // minute and hour hands / circles
-  // this is the code that Phobe created On the class of 10/03, I thought it would be useful in my colorMode
-  // I've used this code as i want my Hour circle and minute circle to change colour with time.
-//  let blue = color(0, 89, 255);
-//  let yellow = color(255, 175, 0);
-//  let minuteMap = map(minutes, 0, 59, 0, 1);
-//  let hourMap = map(hours, 0, 23, 0, 1);
-//  let minuteColour = lerpColor(blue, yellow, minuteMap);
-//  let hourColour = lerpColor(yellow, blue, hourMap);
-
-  // when the variables are moved up here the whole clock just goes blank.
 
   let customColours = []
-  customColours.push(color(175, 133, 255)) // purple
-  customColours.push(color(249, 140, 255)) // pink
-  customColours.push(color(140, 255, 251)) // blue
+  customColours.push(color(127, 0, 255)) // purple 1
+  customColours.push(color(85, 0, 255)) // purplePurpleBlue 2
+  customColours.push(color(63, 0, 255)) // purpleBlue 3
+  customColours.push(color(31, 0, 255)) // purpleBlueBlue 4
+  customColours.push(color(0, 0, 255)) // blue 5
+  customColours.push(color(0, 127, 255)) // blueBlueGreen 6
+  customColours.push(color(0, 255, 255)) // blueGreen 7
+  customColours.push(color(0, 255, 127)) // blueGreenGreen 8
+  customColours.push(color(0, 255, 0)) // green 9
+  customColours.push(color(63, 255, 0)) // greenGreenYellow 10
+  customColours.push(color(127, 255, 0)) // greenYellow 11
+  customColours.push(color(191, 255, 0)) // greenYellowYellow 12
+  customColours.push(color(255, 255, 0)) // yellow 13
+  customColours.push(color(255, 102, 0)) // yellowYellowOrange 14
+  customColours.push(color(255, 205, 0)) // yellowOrange 15
+  customColours.push(color(255, 175, 0)) // yellowOrangeOrange 16
+  customColours.push(color(255, 155, 0)) // orange 17
+  customColours.push(color(255, 100, 0)) // orangeOrangeRed 18
+  customColours.push(color(255, 77, 0)) // orangeRed 19
+  customColours.push(color(255, 37, )) // orangeRedRed 20
+  customColours.push(color(255, 0, 0)) // red 22
+  customColours.push(color(255, 0, 63)) // redRedPink 23
+  customColours.push(color(255, 0, 127)) // redPink 24
+  customColours.push(color(255, 0, 191)) // redPinkPink 25
+  customColours.push(color(255, 0, 255)) // pink 26
+  customColours.push(color(220, 0, 255)) // pinkPinkPurple 27
+  customColours.push(color(191, 0, 255)) // pinkPurple 28
+
+
   let howManyColours = customColours.length;
 
-  let whatColourMap = int(map(obj.seconds, 0,59, 0, howManyColours-1))
+  let minutesColourMap = int(map(obj.minutes, 0,59, 0, howManyColours-1))
+ let hoursColourMap = int(map(obj.hours, 0, 23, 0, howManyColours-1))
 
-  fill(customColours[whatColourMap]);
-  ellipse(width / 3 * 2, 350, 150);
+
 
 
   noStroke();
-  fill(95, 179, 150); // dark aqua circle thats minutes hand -- I want to put minuteColour in here
+  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand -- I want to put minuteColour in here
   ellipse(480, 250, 400);
   fill(255, 179, 110); //  lolly orange
   ellipse(480, 250, 350); // circle that removes green center
 
-  fill(59, 91, 179); // dark blue circle thats hour hand --  I want to put hourColour in here
+  fill(customColours[hoursColourMap]); // dark blue circle thats hour hand --  I want to put hourColour in here
   ellipse(480, 250, 300); // centre
   fill(255, 179, 110); //  lolly orange
   ellipse(480, 250, 250); // circle that removes blue centre center
@@ -106,22 +127,7 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   text("Le clock", width / 2, 200);
 
-  // images
-  // these images are going to act as the hour and minute hands.
-  // i thought that by using the same image code as i did last year it would work.
-  // I can't figure ot how to get the images to show.
 
 
-//  let hourCan = [];
-//  let minuteCan = [];
-
- //if (firstRun) {
-//   rectMode(CENTER);
-//   hourCan.push(loadImage('hourCan.png'));
-//  minuteCan.push(loadImage('minuteCan.png'));
-
-//  firstRun = false
-
-//  }
 
 }
