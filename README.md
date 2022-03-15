@@ -20,3 +20,6 @@ today i created my sketch in code. While it does not look like much, It is a mer
 
 9/03
 I've put a lot of code in today. Iv'e tried to find a colour changing code that interacts with time, but it doesnt seem to work. I've tried to also Implement two images using that code from the first year course on the ,music visualizer. But it doesn't work, can't figure out why. Hopefully i'll figure it out by the rest of the week
+
+15/03
+I implemented a colour array today. I've made it so that the minute and hour circles change through a set of 28 colours depending on the time. Next step is to implement my clock hands and to get them to move depending on the minutes/ hour
