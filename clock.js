@@ -2,7 +2,15 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 
-let firstRun = true
+let hourCan3;
+let minuteCan3;
+function preload(){
+
+hourCan3 = loadImage('hourCan3.png');
+minuteCan3 = loadImage('minuteCan3.png');
+
+}
+
 
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -15,19 +23,10 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
 
-  let hourCan = [];
-   let minuteCan = [];
 
-  if (firstRun) {
-    rectMode(CENTER);
-   hourCan.push(loadImage('hourCan.png'));
-   minuteCan.push(loadImage('minuteCan.png'));
-
-   firstRun = false
-
-   }
 
   background(255, 179, 110); //  lolly orange
+
 
 
   let hours = obj.hours;
@@ -55,7 +54,7 @@ function draw_clock(obj) {
   customColours.push(color(255, 155, 0)) // orange 17
   customColours.push(color(255, 100, 0)) // orangeOrangeRed 18
   customColours.push(color(255, 77, 0)) // orangeRed 19
-  customColours.push(color(255, 37, )) // orangeRedRed 20
+  customColours.push(color(255, 37,0 )) // orangeRedRed 20
   customColours.push(color(255, 0, 0)) // red 22
   customColours.push(color(255, 0, 63)) // redRedPink 23
   customColours.push(color(255, 0, 127)) // redPink 24
@@ -63,7 +62,6 @@ function draw_clock(obj) {
   customColours.push(color(255, 0, 255)) // pink 26
   customColours.push(color(220, 0, 255)) // pinkPinkPurple 27
   customColours.push(color(191, 0, 255)) // pinkPurple 28
-
 
   let howManyColours = customColours.length;
 
@@ -127,6 +125,21 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   text("Le clock", width / 2, 200);
 
+let hourCanMap = map(obj.hours,0,23,0,12);
+let minuteCanMap = map(obj.minutes,0,59,0,6)
+
+push();
+translate(width/2,height/2);
+rotate(hourCanMap);
+imageMode(CENTER);
+image(hourCan3, 0,0);
+pop();
+push();
+translate(width/2,height/2);
+rotate (minuteCanMap);
+imageMode(CENTER);
+image(minuteCan3,0,0);
+pop();
 
 
 
