@@ -23,3 +23,6 @@ I've put a lot of code in today. Iv'e tried to find a colour changing code that 
 
 15/03
 I implemented a colour array today. I've made it so that the minute and hour circles change through a set of 28 colours depending on the time. Next step is to implement my clock hands and to get them to move depending on the minutes/ hour
+
+17/03
+Today i figure out how to import images into my clock code. I then coded these images so that they could be used as clock hands. This code used the function of translate, rotate, map, push, pop, imageMode, image. I sued a map to code the clock hand but it needs touching up. I also hand to change the sizes of the clock hands multiple times in order for them to line up with the circles.
