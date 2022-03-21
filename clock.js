@@ -55,13 +55,15 @@ function draw_clock(obj) {
   customColours.push(color(255, 100, 0)) // orangeOrangeRed 18
   customColours.push(color(255, 77, 0)) // orangeRed 19
   customColours.push(color(255, 37,0 )) // orangeRedRed 20
-  customColours.push(color(255, 0, 0)) // red 22
-  customColours.push(color(255, 0, 63)) // redRedPink 23
-  customColours.push(color(255, 0, 127)) // redPink 24
-  customColours.push(color(255, 0, 191)) // redPinkPink 25
-  customColours.push(color(255, 0, 255)) // pink 26
-  customColours.push(color(220, 0, 255)) // pinkPinkPurple 27
-  customColours.push(color(191, 0, 255)) // pinkPurple 28
+  customColours.push(color(255, 0, 0)) // red 21
+  customColours.push(color(255, 0, 63)) // redRedPink 22
+  customColours.push(color(255, 0, 127)) // redPink 23
+  customColours.push(color(255, 0, 191)) // redPinkPink 24
+  customColours.push(color(255, 0, 255)) // pink 25
+  customColours.push(color(220, 0, 255)) // pinkPinkPurple 26
+  customColours.push(color(191, 0, 255)) // pinkPurple 27
+
+  //Should i cut this down to 24?
 
   let howManyColours = customColours.length;
 
@@ -69,21 +71,24 @@ function draw_clock(obj) {
  let hoursColourMap = int(map(obj.hours, 0, 23, 0, howManyColours-1))
 
 
-
+// Minute spray paint can (hand)
 
   noStroke();
-  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand -- I want to put minuteColour in here
+  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand
   ellipse(480, 250, 400);
   fill(255, 179, 110); //  lolly orange
   ellipse(480, 250, 350); // circle that removes green center
 
-  fill(customColours[hoursColourMap]); // dark blue circle thats hour hand --  I want to put hourColour in here
+//hour spray paint can (hand)
+  fill(customColours[hoursColourMap]); // dark blue circle thats hour hand
   ellipse(480, 250, 300); // centre
   fill(255, 179, 110); //  lolly orange
   ellipse(480, 250, 250); // circle that removes blue centre center
 
-  /// Hour text signs
+  /// Hour text signs 12, 3, 6, 9
 
+
+//12
   fill(97, 139, 255); // lighter blue than before
   ellipse(480, 40, 75) // hour 12 circle spray paint
 
@@ -92,7 +97,7 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER)
   text("12", 477, 40); // 12 hour text
 
-
+//3
   fill(255, 217, 122); // pastel yellow
   ellipse(690, 250, 75) // hour 3 circle spray paint
 
@@ -101,7 +106,7 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER)
   text("3", 690, 250); // 12 hour text
 
-
+//6
   fill(122, 255, 209) // pastel green
   ellipse(480, 460, 75); // hour 6 circle spray paint
 
@@ -110,7 +115,7 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER)
   text("6", 480, 461); // 12 hour text
 
-
+//9
   fill(255, 127, 97); // pastel red
   ellipse(270, 250, 75) // hour 9 circle spray paint
 
@@ -120,10 +125,13 @@ function draw_clock(obj) {
   text("9", 270, 250); // 12 hour text
 
 
-
+//Hour and minute hand maps
 
 let hourCanMap = map(obj.hours,0,23,0,12);
 let minuteCanMap = map(obj.minutes,0,59,0,6)
+
+//The images of the spray paint cans (hour and minute hands)
+//rotation code
 
 push();
 translate(width/2,height/2);
