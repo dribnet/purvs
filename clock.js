@@ -120,10 +120,7 @@ function draw_clock(obj) {
   text("9", 270, 250); // 12 hour text
 
 
-  fill(500); // white
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("Le clock", width / 2, 200);
+
 
 let hourCanMap = map(obj.hours,0,23,0,12);
 let minuteCanMap = map(obj.minutes,0,59,0,6)
