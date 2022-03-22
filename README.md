@@ -30,3 +30,7 @@ Today i figure out how to import images into my clock code. I then coded these i
 
 22/03
 I'm now trying to figure out how i can make the paint trail follow the can hands. I've got the colour sorted and the thickness. The only thing I can't  seem to crack is how to get the trail to start and end at the hour of twelve
+
+22/03
+Messaged phoebe and she solved my problem! There was more precision needed with one of my maps and a specific rotation number was needed too. With this code figure out, the main clock function i wanted to acheive has been solved.
+All i need to do now is work on my alarm and drips of the hour signs.

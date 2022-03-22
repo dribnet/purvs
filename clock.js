@@ -71,6 +71,8 @@ function draw_clock(obj) {
  let hoursColourMap = int(map(obj.hours, 0, 23, 0, howManyColours-1))
 
 
+/// **********OLD CODE***************
+
 // Minute spray paint can (hand)
 
  noStroke();
@@ -80,44 +82,68 @@ function draw_clock(obj) {
 //  ellipse(480, 250, 350); // circle that removes green center
 
 //hour spray paint can (hand)
-  fill(customColours[hoursColourMap]); // dark blue circle thats hour hand
-  ellipse(480, 250, 300); // centre
-  fill(255, 179, 110); //  lolly orange
-  ellipse(480, 250, 250); // circle that removes blue centre center
+  //fill(customColours[hoursColourMap]); // dark blue circle thats hour hand
+  //ellipse(480, 250, 300); // centre
+//  fill(255, 179, 110); //  lolly orange
+//  ellipse(480, 250, 250); // circle that removes blue centre center
 
 
 
 //Hour and minute hand maps
 
-let hourCanMap = map(obj.hours,0,23,0,12);
-let minuteCanMap = map(obj.minutes,0,59,0,6)
+let hourCanMap = map(obj.hours,0,23,0,12.56);
+let minuteCanMap = map(obj.minutes,0,59,0,6.28)
+
+//minute paint
+// Phoebe gave me this code my orignal is below
+
+
+//let minArcLegth = map(obj.minutes, 0, 59, 3.76) // first I thought to change how the arc is drawn.
+let hourArcLegth = map(obj.hours,0,23,0,12.56)
+let minArcLegth = map(obj.minutes,0,59,0,6.28) // added presision is needed, 6 does not work here.
+push();
+strokeJoin(ROUND);
+strokeWeight(30);
+noFill();
+translate(490, 400);
+line (0,0,1000,1)
+let amil1 = map(minutes, 0, 59, 0, 6);
+stroke(customColours[minutesColourMap]);
+//arc(-10, -150, 370, 370, 4.725, minArcLegth); // changing how the arc was drawn started getting over complicated.
+translate(-10, -150)
+rotate(-3.14/2)
+//arc(-10, -150, 370, 370, 0, minArcLegth);
+arc(0, 0, 370, 370, 0, minArcLegth); // so this is the simplest option
+pop();
 
 push();
 strokeJoin(ROUND);
 strokeWeight(30);
 noFill();
 translate(490, 400);
-
-let amil1 = map(minutes, 0, 59, 0, 6);
-stroke(customColours[minutesColourMap]);
-arc(-10, -150, 370, 370,0, minuteCanMap); // 110
+line (0,0,1000,1)
+stroke(customColours[hoursColourMap]);
+translate(-10, -150)
+rotate(-3.14/2)
+arc(0, 0, 280, 280, 0, hourArcLegth);
 pop();
+// end of phoebes code
 
-//The images of the spray paint cans (hour and minute hands)
-//rotation code
-push();
-translate(width/2,height/2);
-rotate (minuteCanMap);
-imageMode(CENTER);
-image(minuteCan3,0,0);
-pop();
-push();
-translate(width/2,height/2);
-rotate(hourCanMap);
-imageMode(CENTER);
-image(hourCan3, 0,0);
-pop();
+// hour paint
 
+
+//Orignal code
+
+//push();
+//strokeJoin(ROUND);
+//strokeWeight(30);
+//noFill();
+//translate(490, 400);
+
+//let amil1 = map(minutes, 0, 59, 0, 6);
+//stroke(customColours[minutesColourMap]);
+//arc(-10, -150, 370, 370,0, minuteCanMap); // 110
+//pop();
 
 /// Hour text signs 12, 3, 6, 9
 
@@ -133,7 +159,7 @@ text("12", 477, 40); // 12 hour text
 
 //3
 fill(255, 217, 122); // pastel yellow
-ellipse(690, 250, 75) // hour 3 circle spray paint
+ellipse(690, 250, 90) // hour 3 circle spray paint
 
 fill(255, 179, 110); // lolly orange
 textSize(50);
@@ -157,6 +183,26 @@ fill(255, 179, 110); // lolly orange
 textSize(50);
 textAlign(CENTER, CENTER)
 text("9", 270, 250); // 12 hour text
+
+
+//The images of the spray paint cans (hour and minute hands)
+//rotation code
+
+push();
+translate(width/2,height/2);
+rotate (minuteCanMap);
+imageMode(CENTER);
+image(minuteCan3,0,0);
+pop();
+push();
+translate(width/2,height/2);
+rotate(hourCanMap);
+imageMode(CENTER);
+image(hourCan3, 0,0);
+pop();
+
+
+
 
 
  // experiment
