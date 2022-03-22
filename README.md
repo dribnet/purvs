@@ -26,3 +26,7 @@ I implemented a colour array today. I've made it so that the minute and hour cir
 
 17/03
 Today i figure out how to import images into my clock code. I then coded these images so that they could be used as clock hands. This code used the function of translate, rotate, map, push, pop, imageMode, image. I sued a map to code the clock hand but it needs touching up. I also hand to change the sizes of the clock hands multiple times in order for them to line up with the circles.
+
+
+22/03
+I'm now trying to figure out how i can make the paint trail follow the can hands. I've got the colour sorted and the thickness. The only thing I can't  seem to crack is how to get the trail to start and end at the hour of twelve

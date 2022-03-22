@@ -73,11 +73,11 @@ function draw_clock(obj) {
 
 // Minute spray paint can (hand)
 
-  noStroke();
-  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand
-  ellipse(480, 250, 400);
-  fill(255, 179, 110); //  lolly orange
-  ellipse(480, 250, 350); // circle that removes green center
+ noStroke();
+//  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand
+//  ellipse(480, 250, 400);
+//  fill(255, 179, 110); //  lolly orange
+//  ellipse(480, 250, 350); // circle that removes green center
 
 //hour spray paint can (hand)
   fill(customColours[hoursColourMap]); // dark blue circle thats hour hand
@@ -145,6 +145,34 @@ rotate (minuteCanMap);
 imageMode(CENTER);
 image(minuteCan3,0,0);
 pop();
+
+
+
+
+ // experiment
+
+//push();
+//strokeJoin(ROUND);
+//strokeWeight(10);
+//noFill();
+//translate(480, 300);
+//let amil = map(hours, 0, 23, 0, 12);
+//stroke(hoursColourMap);
+//arc(-10, -150, 140, 140, 0, amil);
+//pop();
+
+push();
+strokeJoin(ROUND);
+strokeWeight(30);
+noFill();
+translate(490, 400);
+
+let amil1 = map(minutes, 0, 59, 0, 6);
+stroke(customColours[minutesColourMap]);
+arc(-10, -150, 370, 370,0, minuteCanMap); // 110
+pop();
+
+
 
 
 
