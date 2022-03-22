@@ -9,6 +9,7 @@ function preload(){
 hourCan3 = loadImage('hourCan3.png');
 minuteCan3 = loadImage('minuteCan3.png');
 
+
 }
 
 
@@ -27,13 +28,66 @@ function draw_clock(obj) {
 
   background(255, 179, 110); //  lolly orange
 
+// brick background
+  push();
+  stroke(135,0,0);
+  strokeWeight(5);
+
+  line(1000,50,0,50); // horizontal
+  line(1000,150,0,150); // horizontal
+  line(1000,250,0,250); // horizontal
+  line(1000,350,0,350); // horizontal
+  line(1000,450,0,450); // horizontal
+
+//**************GROUP1*************
+//*************VERTICAL************
+
+  line(50,50,50,0)// set one
+  line(50,150,50,250) // set one
+  line(50,350,50,450) // set one
+
+  line(300,50,300,0)// set two
+  line(300,150,300,250) // set two
+  line(300,350,300,450) // set two
+
+  line(550,50,550,0)// set three
+  line(550,150,550,250) // set three
+  line(550,350,550,450) // set three
 
 
+  line(800,50,800,0)// set four
+  line(800,150,800,250) // set four
+  line(800,350,800,450) // set four
+
+//**************GROUP2*************
+//*************VERTICAL************
+
+  line(175,150,175,50)// set one
+  line(175,350,175,250)// set one
+  line(175,550,175,450)// set one
+
+  line(425,150,425,50) // set two
+  line(425,350,425,250) // set two
+  line(425,550,425,450) // set two
+
+  line(675,150,675,50) // set three
+  line(675,350,675,250) // set three
+  line(675,550,675,450) // set three
+
+  line(925,150,925,50) // set four
+  line(925,350,925,250) // set four
+  line(925,550,925,450) // set four
+
+  pop();
+
+//hour variables
   let hours = obj.hours;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
- let millis = obj.millis
+ let millis = obj.millis;
+ let alarm = obj.seconds_until_alarm;
 
+//colour array
   let customColours = []
   customColours.push(color(127, 0, 255)) // purple 1
   customColours.push(color(85, 0, 255)) // purplePurpleBlue 2
@@ -75,7 +129,6 @@ function draw_clock(obj) {
 
 // Minute spray paint can (hand)
 
- noStroke();
 //  fill(customColours[minutesColourMap]); // dark aqua circle thats minutes hand
 //  ellipse(480, 250, 400);
 //  fill(255, 179, 110); //  lolly orange
@@ -88,7 +141,7 @@ function draw_clock(obj) {
 //  ellipse(480, 250, 250); // circle that removes blue centre center
 
 
-
+noStroke();
 //Hour and minute hand maps
 
 let hourCanMap = map(obj.hours,0,23,0,12.56);
@@ -96,7 +149,6 @@ let minuteCanMap = map(obj.minutes,0,59,0,6.28)
 
 //minute paint
 // Phoebe gave me this code my orignal is below
-
 
 //let minArcLegth = map(obj.minutes, 0, 59, 3.76) // first I thought to change how the arc is drawn.
 let hourArcLegth = map(obj.hours,0,23,0,12.56)
@@ -115,7 +167,9 @@ rotate(-3.14/2)
 //arc(-10, -150, 370, 370, 0, minArcLegth);
 arc(0, 0, 370, 370, 0, minArcLegth); // so this is the simplest option
 pop();
+// end of phoebes code
 
+// hour paint
 push();
 strokeJoin(ROUND);
 strokeWeight(30);
@@ -127,12 +181,9 @@ translate(-10, -150)
 rotate(-3.14/2)
 arc(0, 0, 280, 280, 0, hourArcLegth);
 pop();
-// end of phoebes code
-
-// hour paint
 
 
-//Orignal code
+//My Orignal code
 
 //push();
 //strokeJoin(ROUND);
@@ -146,38 +197,67 @@ pop();
 //pop();
 
 /// Hour text signs 12, 3, 6, 9
-
+textFont('Impact');
 
 //12
 fill(97, 139, 255); // lighter blue than before
-ellipse(480, 40, 75) // hour 12 circle spray paint
+ellipse(480, 40, 90) // hour 12 circle spray paint
+ellipse(485,75,40) // paint
+ellipse(460,65,40,60)// paint
+ellipse(510,60,30,50)// paint
+ellipse(502,90,20,30)// paint
+ellipse(502,90 + millis,10) // paint drips
+ellipse(460,40 + millis/2 ,10) // paints drips
+ellipse(482,70 + millis/3,10)// paints drips
 
 fill(255, 179, 110); // lolly orange
 textSize(50);
 textAlign(CENTER, CENTER)
 text("12", 477, 40); // 12 hour text
+//********************
 
 //3
 fill(255, 217, 122); // pastel yellow
 ellipse(690, 250, 90) // hour 3 circle spray paint
+ellipse(695,285,40) // paint
+ellipse(670,275,40,60)// paint
+ellipse(720,270,30,50)// paint
+ellipse(712,300,20,30)// paint
+ellipse(712,300 + millis,10) // paint drips
+ellipse(670,250 + millis/2 ,10) // paints drips
+ellipse(692,280 + millis/3,10)// paints drips
 
 fill(255, 179, 110); // lolly orange
 textSize(50);
 textAlign(CENTER, CENTER)
 text("3", 690, 250); // 12 hour text
+//********************
 
 //6
 fill(122, 255, 209) // pastel green
-ellipse(480, 460, 75); // hour 6 circle spray paint
+ellipse(480, 460, 90); // hour 6 circle spray paint
+ellipse(485,495,40) // paint
+ellipse(460,485,40,60)// paint
+ellipse(510,480,30,50)// paint
+ellipse(502,510,20,30)// paint
+// no need for drips
 
 fill(255, 179, 110); // lolly orange
 textSize(50);
 textAlign(CENTER, CENTER)
 text("6", 480, 461); // 12 hour text
+//********************
 
 //9
 fill(255, 127, 97); // pastel red
-ellipse(270, 250, 75) // hour 9 circle spray paint
+ellipse(270, 250, 90) // hour 9 circle spray paint
+ellipse(275,285,40) // paint
+ellipse(250,275,40,60)// paint
+ellipse(300,270,30,50)// paint
+ellipse(292,300,20,30)// paint
+ellipse(292,300 + millis,10) // paint drips
+ellipse(250,250 + millis/2 ,10) // paints drips
+ellipse(272,280 + millis/3,10)// paints drips
 
 fill(255, 179, 110); // lolly orange
 textSize(50);
@@ -201,6 +281,58 @@ imageMode(CENTER);
 image(hourCan3, 0,0);
 pop();
 
+//seconds corner counter green circle etc
+
+let moveSecondsText = 0; // moves seconds text to center if single digit
+if(obj.seconds <10){
+  moveSecondsText = 0;
+}
+
+push();
+fill(60,255,59);
+ellipse(150,100,140)
+ellipse(155,135,70) // paint
+ellipse(125,150,40,70)// paint
+ellipse(150,160,30,70)// paint
+ellipse(172,150,60,70)// paint
+ellipse(120,50,60) // paint
+ellipse(180,40,40) // paint
+ellipse(85,100,30,40) // paint
+ellipse(210,120,40,50)
+ellipse(172,150 + millis,10) // paint drips
+ellipse(130,150 + millis/2 ,10) // paints drips
+ellipse(152,180 + millis/3,10)// paints drips
+
+textSize(80);
+fill(255, 179, 110);
+text(obj.seconds, 150 + moveSecondsText,100);
+pop();
+
+//alarm
+
+if(alarm < 0) {
+
+}
+else if(alarm == 0 && millis > 500) {
+  fill(255,0,0);
+  textSize(1 + millis/4);
+  textAlign(CENTER, CENTER);
+  textFont('Impact');
+    text("WAKE UP!!!",480, 250);
+
+    textSize(0 + millis/8);
+    text("WAKE UP!!!",480 - millis/3, 450);
+
+    textSize(0 + millis/8);
+    text("WAKE UP!!!",480 + millis/3, 450);
+
+    textSize(0 + millis/8);
+    text("WAKE UP!!!",480 + millis/3, 50);
+
+    textSize(0 + millis/8);
+    text("WAKE UP!!!",480 - millis/3, 50);
+
+}
 
 
 

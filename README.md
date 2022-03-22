@@ -34,3 +34,6 @@ I'm now trying to figure out how i can make the paint trail follow the can hands
 22/03
 Messaged phoebe and she solved my problem! There was more precision needed with one of my maps and a specific rotation number was needed too. With this code figure out, the main clock function i wanted to acheive has been solved.
 All i need to do now is work on my alarm and drips of the hour signs.
+
+23/03
+Added an alarm function which has a series of WAKE UP texts across the screen, in bright red. slightly scray but effective. I changed the font to 'impact'. I added a brick patttern in the background which gave it a better design feel, and it works with the theme of graffiti too. I also added dripping paint on each of the numbered hour circles. The paint drips with the obj.millis function. I also added a seconds count in the top left corner. This also drips with paint. All i need to do now is fix the purview.json.
