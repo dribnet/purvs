@@ -85,44 +85,6 @@ function draw_clock(obj) {
   fill(255, 179, 110); //  lolly orange
   ellipse(480, 250, 250); // circle that removes blue centre center
 
-  /// Hour text signs 12, 3, 6, 9
-
-
-//12
-  fill(97, 139, 255); // lighter blue than before
-  ellipse(480, 40, 75) // hour 12 circle spray paint
-
-  fill(255, 179, 110); // lolly orange
-  textSize(50);
-  textAlign(CENTER, CENTER)
-  text("12", 477, 40); // 12 hour text
-
-//3
-  fill(255, 217, 122); // pastel yellow
-  ellipse(690, 250, 75) // hour 3 circle spray paint
-
-  fill(255, 179, 110); // lolly orange
-  textSize(50);
-  textAlign(CENTER, CENTER)
-  text("3", 690, 250); // 12 hour text
-
-//6
-  fill(122, 255, 209) // pastel green
-  ellipse(480, 460, 75); // hour 6 circle spray paint
-
-  fill(255, 179, 110); // lolly orange
-  textSize(50);
-  textAlign(CENTER, CENTER)
-  text("6", 480, 461); // 12 hour text
-
-//9
-  fill(255, 127, 97); // pastel red
-  ellipse(270, 250, 75) // hour 9 circle spray paint
-
-  fill(255, 179, 110); // lolly orange
-  textSize(50);
-  textAlign(CENTER, CENTER)
-  text("9", 270, 250); // 12 hour text
 
 
 //Hour and minute hand maps
@@ -130,23 +92,71 @@ function draw_clock(obj) {
 let hourCanMap = map(obj.hours,0,23,0,12);
 let minuteCanMap = map(obj.minutes,0,59,0,6)
 
+push();
+strokeJoin(ROUND);
+strokeWeight(30);
+noFill();
+translate(490, 400);
+
+let amil1 = map(minutes, 0, 59, 0, 6);
+stroke(customColours[minutesColourMap]);
+arc(-10, -150, 370, 370,0, minuteCanMap); // 110
+pop();
+
 //The images of the spray paint cans (hour and minute hands)
 //rotation code
-
-push();
-translate(width/2,height/2);
-rotate(hourCanMap);
-imageMode(CENTER);
-image(hourCan3, 0,0);
-pop();
 push();
 translate(width/2,height/2);
 rotate (minuteCanMap);
 imageMode(CENTER);
 image(minuteCan3,0,0);
 pop();
+push();
+translate(width/2,height/2);
+rotate(hourCanMap);
+imageMode(CENTER);
+image(hourCan3, 0,0);
+pop();
 
 
+/// Hour text signs 12, 3, 6, 9
+
+
+//12
+fill(97, 139, 255); // lighter blue than before
+ellipse(480, 40, 75) // hour 12 circle spray paint
+
+fill(255, 179, 110); // lolly orange
+textSize(50);
+textAlign(CENTER, CENTER)
+text("12", 477, 40); // 12 hour text
+
+//3
+fill(255, 217, 122); // pastel yellow
+ellipse(690, 250, 75) // hour 3 circle spray paint
+
+fill(255, 179, 110); // lolly orange
+textSize(50);
+textAlign(CENTER, CENTER)
+text("3", 690, 250); // 12 hour text
+
+//6
+fill(122, 255, 209) // pastel green
+ellipse(480, 460, 75); // hour 6 circle spray paint
+
+fill(255, 179, 110); // lolly orange
+textSize(50);
+textAlign(CENTER, CENTER)
+text("6", 480, 461); // 12 hour text
+
+//9
+fill(255, 127, 97); // pastel red
+ellipse(270, 250, 75) // hour 9 circle spray paint
+
+fill(255, 179, 110); // lolly orange
+textSize(50);
+textAlign(CENTER, CENTER)
+text("9", 270, 250); // 12 hour text
 
 
  // experiment
@@ -161,16 +171,9 @@ pop();
 //arc(-10, -150, 140, 140, 0, amil);
 //pop();
 
-push();
-strokeJoin(ROUND);
-strokeWeight(30);
-noFill();
-translate(490, 400);
 
-let amil1 = map(minutes, 0, 59, 0, 6);
-stroke(customColours[minutesColourMap]);
-arc(-10, -150, 370, 370,0, minuteCanMap); // 110
-pop();
+
+
 
 
 
