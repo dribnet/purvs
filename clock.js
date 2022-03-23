@@ -144,8 +144,8 @@ function draw_clock(obj) {
 noStroke();
 //Hour and minute hand maps
 
-let hourCanMap = map(obj.hours,0,23,0,12.56);
-let minuteCanMap = map(obj.minutes,0,59,0,6.28)
+let hourCanMap = map(obj.hours,0,23,0,12.56); // map for spray paint Can which will be the hour hand
+let minuteCanMap = map(obj.minutes,0,59,0,6.28) // map for spray paint Can which will be the minute hand
 
 //minute paint
 // Phoebe gave me this code my orignal is below
@@ -159,12 +159,9 @@ strokeWeight(30);
 noFill();
 translate(490, 400);
 line (0,0,1000,1)
-let amil1 = map(minutes, 0, 59, 0, 6);
 stroke(customColours[minutesColourMap]);
-//arc(-10, -150, 370, 370, 4.725, minArcLegth); // changing how the arc was drawn started getting over complicated.
 translate(-10, -150)
 rotate(-3.14/2)
-//arc(-10, -150, 370, 370, 0, minArcLegth);
 arc(0, 0, 370, 370, 0, minArcLegth); // so this is the simplest option
 pop();
 // end of phoebes code
@@ -268,13 +265,13 @@ text("9", 270, 250); // 12 hour text
 //The images of the spray paint cans (hour and minute hands)
 //rotation code
 
-push();
+push(); // spray paint can, minute hand
 translate(width/2,height/2);
 rotate (minuteCanMap);
 imageMode(CENTER);
 image(minuteCan3,0,0);
 pop();
-push();
+push(); // spray paint can, hour hand
 translate(width/2,height/2);
 rotate(hourCanMap);
 imageMode(CENTER);
@@ -289,8 +286,8 @@ if(obj.seconds <10){
 }
 
 push();
-fill(60,255,59);
-ellipse(150,100,140)
+fill(60,255,59); // bright green
+ellipse(150,100,140) // main circle
 ellipse(155,135,70) // paint
 ellipse(125,150,40,70)// paint
 ellipse(150,160,30,70)// paint
@@ -298,39 +295,46 @@ ellipse(172,150,60,70)// paint
 ellipse(120,50,60) // paint
 ellipse(180,40,40) // paint
 ellipse(85,100,30,40) // paint
-ellipse(210,120,40,50)
+ellipse(210,120,40,50) // paint
 ellipse(172,150 + millis,10) // paint drips
 ellipse(130,150 + millis/2 ,10) // paints drips
 ellipse(152,180 + millis/3,10)// paints drips
 
 textSize(80);
-fill(255, 179, 110);
+fill(255, 179, 110); // lolly orange
 text(obj.seconds, 150 + moveSecondsText,100);
 pop();
 
 //alarm
 
 if(alarm < 0) {
-
+// nothing happens, no countdown, nothing.
 }
 else if(alarm == 0 && millis > 500) {
-  fill(255,0,0);
-  textSize(1 + millis/4);
+  // blue
+  fill(255,0,0,100);
+  ellipse(480,250,0 + millis/2);
+
+
+  fill(255,0,0); // bright red
+  strokeWeight(8)
+  stroke(255);
+  textSize(1 + millis/4); // text increses in size, this text is the biggiest and in the middle
   textAlign(CENTER, CENTER);
   textFont('Impact');
-    text("WAKE UP!!!",480, 250);
+    text("WAKE UP!!!",480, 250); // thought that these words would be appropriate.
 
     textSize(0 + millis/8);
-    text("WAKE UP!!!",480 - millis/3, 450);
+    text("WAKE UP!!!",480 - millis/3, 450); // bottom left
 
     textSize(0 + millis/8);
-    text("WAKE UP!!!",480 + millis/3, 450);
+    text("WAKE UP!!!",480 + millis/3, 450);// bottom right
 
     textSize(0 + millis/8);
-    text("WAKE UP!!!",480 + millis/3, 50);
+    text("WAKE UP!!!",480 + millis/3, 50); // top right
 
     textSize(0 + millis/8);
-    text("WAKE UP!!!",480 - millis/3, 50);
+    text("WAKE UP!!!",480 - millis/3, 50); //top left
 
 }
 
