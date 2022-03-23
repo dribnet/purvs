@@ -1,6 +1,6 @@
 ## MDDN 242 Project 1: Time-based Media  
 
-### THIS IS YOUR README
+### Adam Leach
 
  1/03
  today i finally figured out how github works! took me a while to figure it out but i'm all on top of it now (hopefully).
@@ -36,4 +36,9 @@ Messaged phoebe and she solved my problem! There was more precision needed with 
 All i need to do now is work on my alarm and drips of the hour signs.
 
 23/03
-Added an alarm function which has a series of WAKE UP texts across the screen, in bright red. slightly scray but effective. I changed the font to 'impact'. I added a brick patttern in the background which gave it a better design feel, and it works with the theme of graffiti too. I also added dripping paint on each of the numbered hour circles. The paint drips with the obj.millis function. I also added a seconds count in the top left corner. This also drips with paint. All i need to do now is fix the purview.json.
+Added an alarm function which has a series of WAKE UP texts across the screen, in bright red. slightly scary but effective. I changed the font to 'impact'. I added a brick pattern in the background which gave it a better design feel, and it works with the theme of graffiti too. I also added dripping paint on each of the numbered hour circles. The paint drips with the obj.millis function. I also added a seconds count in the top left corner. This also drips with paint. All i need to do now is fix the purview.json.
+
+
+24/03
+
+Added some more thing to my alarm function. Before, my alarm function was a series of WAKE UP texts across the screen, in bright red. slightly scary but effective. I changed the font to 'impact'. It now has a white stroke around each of the WAKE UP!!! texts. It also features a slightly transparent circle in the centre which expands using obj.millis.
