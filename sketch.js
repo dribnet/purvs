@@ -15,19 +15,34 @@ const canvasHeight = 500;
 const letterA = {
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35,
+  "rectangle_x": -40,
+  "rectangle_y": 30,
+  "rectangle_width": 80,
+  "rectangle_height": 10,
+  "rectangle_first": false
 }
 
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -145,
+  "rectangle_x": -70,
+  "rectangle_y": -120,
+  "rectangle_width": 80,
+  "rectangle_height": 150,
+  "rectangle_first": true
 }
 
 const letterC = {
   "size": 100,
   "offsetx": 30,
-  "offsety": 0
+  "offsety": 0,
+  "rectangle_x": 0,
+  "rectangle_y": 0,
+  "rectangle_width": 0,
+  "rectangle_height": 0,
+  "rectangle_first": false
 }
 
 const backgroundColor  = "#caf0f8";
@@ -42,8 +57,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  noStroke()
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -72,8 +86,20 @@ function drawLetter(posx, posy, letterData) {
   // draw two circles
   fill(darkBlue);
   ellipse(posx, posy, 150, 150);
+
+  // If we draw the rectangle first then draw!
+  if (letterData["rectangle_first"]) {
+    rect(posx + letterData["rectangle_x"], posy + letterData["rectangle_y"], letterData["rectangle_width"], letterData["rectangle_height"]);
+  }
+
   fill(lightBlue);
   ellipse(pos2x, pos2y, size2, size2);
+
+  // If we draw the rectangle last then draw!
+  if (!letterData["rectangle_first"]) {
+    fill(darkBlue);
+    rect(posx + letterData["rectangle_x"], posy + letterData["rectangle_y"], letterData["rectangle_width"], letterData["rectangle_height"]);
+  }
 }
 
 function keyTyped() {
