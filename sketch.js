@@ -1,40 +1,48 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "R2posX": 0,
+  "R2posY": 25,
+  "Rheight2": 50,
+  "Rwidth2": 50,
+
+  "R3posX": 0,
+  "R3posY": 75,
+  "Rheight3": 50,
+  "Rwidth3": 50
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "R2posX": 25,
+  "R2posY": -75,
+  "Rheight2": 50,
+  "Rwidth2": 100,
+
+  "R3posX": 0,
+  "R3posY": 25,
+  "Rheight3": 50,
+  "Rwidth3": 50
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "R2posX": 25,
+  "R2posY": -25,
+  "Rheight2": 50,
+  "Rwidth2": 100,
+
+  "R3posX": 25,
+  "R3posY": 25,
+  "Rheight3": 50,
+  "Rwidth3": 100
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+// colours
+const backgroundColor  = "#f2d4ff"; // pastel purple
+const strokeColor      = "#590080"; // dark purple
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const darkPurple  = "#7a1da3";
+const lightPurple  = "#cb4fff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -64,16 +72,26 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // determine parameters for second rect
+  let pos2x = posx + letterData["R2posX"];
+  let pos2y = posy + letterData["R2posY"];
+  let rectHeight2 = letterData["Rheight2"]
+  let rectWidth2 = letterData["Rwidth2"]
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // determine parameters for third rect
+  let pos3x = posx + letterData["R3posX"];
+  let pos3y = posy + letterData["R3posY"];
+  let rectHeight3 = letterData["Rheight3"]
+  let rectWidth3 = letterData["Rwidth3"]
+
+  // draw two rects
+  rectMode(CENTER);
+  fill(darkPurple);
+  rect(posx, posy, 150, 200);
+
+  fill(lightPurple);
+  rect(pos2x, pos2y, rectWidth2, rectHeight2);
+  rect(pos3x, pos3y, rectWidth3, rectHeight3);
 }
 
 function keyTyped() {
