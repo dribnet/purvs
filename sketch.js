@@ -13,28 +13,52 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "squareX": 0,
+  "squareY": -100,
+  "squareSize": 100,
+  "rectX": 35,
+  "rectY": 10,
+  "rectWidth": 30,
+  "rectHeight": 100,
+  "lineX": -47,
+  "lineY": -38,
+  "lineLength": 100,
+  "lineAngle": "vertical"
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "squareX": 15,
+  "squareY": 10,
+  "squareSize": 110,
+  "rectX": 15,
+  "rectY": -125,
+  "rectWidth": 110,
+  "rectHeight": 50,
+  "lineX": -50,
+  "lineY": -150,
+  "lineLength": 215,
+  "lineAngle": "vertical"
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "squareX": 30,
+  "squareY": 42,
+  "squareSize": 50,
+  "rectX": -20,
+  "rectY": -40,
+  "rectWidth": 30,
+  "rectHeight": 215,
+  "lineX": 5,
+  "lineY": -147,
+  "lineLength": 50,
+  "lineAngle": "horizonal"
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor  = "#FFFFF0";
+const strokeColor = "#000000";
+const squareColour = "#FF0000";
+const rectColour = "#0000FF";
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -64,16 +88,42 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  rectMode(CENTER);
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // determine parameters for second circle
+  let squareSize = letterData["squareSize"];
+  let squareX = posx + letterData["squareX"];
+  let squareY = posy + letterData["squareY"];
+
+  let rectWidth = letterData["rectWidth"];
+  let rectHeight = letterData["rectHeight"];
+  let rectX = posx + letterData["rectX"];
+  let rectY = posy + letterData["rectY"];
+
+  let lineX = posx + letterData["lineX"];
+  let lineY = posy + letterData["lineY"];
+  let lineLength = letterData['lineLength'];
+
+  fill(squareColour);
+  rect(squareX, squareY, squareSize);
+  fill(rectColour);
+  rect(rectX, rectY, rectWidth, rectHeight);
+
+
+  if(letterData['lineAngle'] == "vertical"){
+  //  line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+    line(lineX, lineY, lineX, lineY+lineLength);
+
+  }
+  else{
+    //line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+    line(lineX, lineY, lineX+lineLength, lineY);
+
+  }
+
+
+
+
 }
 
 function keyTyped() {
