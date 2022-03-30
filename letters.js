@@ -5,24 +5,60 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
     "offsetx": 0,
-    "offsety": 17
+  "offsety": 100,
+  "waveL1": 1,
+  "rotate1": 0,
+  "peaks1": 5.2,
+  "peak1H": 44,
+  "offsetx2": 0,
+  "offsety2": 100,
+  "waveL2": 1,
+  "rotate2": 0,
+  "peaks2": -5.2,
+  "peak2H": 42
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "offsetx": 21,
+     "offsety": 50,
+     "waveL1": 1,
+     "rotate1": 90,
+     "peaks1": -1.8,
+     "peak1H": -14,
+     "offsetx2": 53,
+     "offsety2": 50,
+     "waveL2": 1,
+     "rotate2": 90,
+     "peaks2": 6,
+     "peak2H": 40
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 84,
+     "offsety": 52,
+     "waveL1": 1,
+     "rotate1": 90,
+     "peaks1": 1.8,
+     "peak1H": 70,
+     "offsetx2": 84,
+     "offsety2": 52,
+     "waveL2": 1,
+     "rotate2": 90,
+     "peaks2": 1.8,
+     "peak2H": -70
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 16,
+  "offsety": 50,
+  "waveL1": 1,
+  "rotate1": 90,
+  "peaks1": 1.799999999999999,
+  "peak1H": 6,
+  "offsetx2": 28.000000000000004,
+  "offsety2": 52,
+  "waveL2": 1,
+  "rotate2": 90,
+  "peaks2": 1.799999999999999,
+  "peak2H": 62
   },
   "E": {
     "size": 50,

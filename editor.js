@@ -5,9 +5,23 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+
+
+  ["offsetx",  0,  100],
+  ["offsety", 0, 200],
+  ["waveL1", 1, 2],
+  ["rotate1", 0, 360],
+  ["peaks1", -10, 10],
+  ["peak1H", -100, 100],
+  ["offsetx2",  0,  100],
+  ["offsety2", 0, 200],
+  ["waveL2", 1, 2],
+  ["rotate2", 0, 360],
+  ["peaks2", -10, 10],
+  ["peak2H", -100, 100]
+
+
+
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
@@ -88,6 +102,10 @@ function draw () {
     strokeWeight(4);
     stroke(0, 200, 0);
     rect(0, 0, 100, 200);
+    rect(0,50, 100,100); //added boxes, lines
+    strokeWeight(2);
+    line(50,0,50,200);
+    line(0,100,100,100);
   }
 
   let obj = sliderToDataObject();

@@ -16,22 +16,64 @@ const strokeColor  = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
-
+  push();
+  let posx= 0;
+  let posy= 0;
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
+  let pos1x = posx + letterData["offsetx"];
+  let pos1y = posy + letterData["offsety"];
+  let pos2x = posx + letterData["offsetx2"];
+  let pos2y = posy + letterData["offsety2"];
+  let waveL1 = letterData["waveL1"];
+  let waveL2 = letterData["waveL2"];
+  let rotate1 = letterData["rotate1"];
+  let rotate2 = letterData["rotate2"];
+  let peaks1 = letterData["peaks1"];
+  let peaks2 = letterData["peaks2"];
+  let peaks1H = letterData["peak1H"];
+  let peaks2H = letterData["peak2H"];
+
+  //rect(posx, posy, 150, 250); //bounding box?
+  pop();
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-}
+  strokeWeight(15);
+  strokeCap(SQUARE);
+  stroke(0);
+  push();
+  translate(pos1x, pos1y);
+  angleMode(DEGREES);
+  rotate(rotate1);
+  angleMode(RADIANS);
+  noFill();
+  beginShape();
+  for (let i = 0; i < 100; i++) { //sets length
 
+    const x = i * waveL1; //also sets length
+    const y = sin(i * radians(peaks1)) * peaks1H; //height of curve
+    vertex(x, y);
+  }
+  endShape();
+  pop();
+
+  push();
+  translate(pos2x, pos2y);
+  angleMode(DEGREES);
+  rotate(rotate2);
+  angleMode(RADIANS);
+  noFill();
+  beginShape();
+  for (let i = 0; i < 100; i++) { //2 pixel spacing on the x - axis.
+
+    const x = i * waveL2; //200 pixel high waveform on the y - axis.
+    const y = -sin(i * radians(peaks2)) * peaks2H; //radians sets how many peaks
+    vertex(x, y);
+  }
+  endShape();
+  pop();
+
+
+}
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
