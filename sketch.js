@@ -1,40 +1,47 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "arcLocat": 158,
+  "arcSize": 200,
+  "arcBg": 140,
+  "arcEd": 200,
+
+  "rectLocatL": 15,
+  "rectLocatS": 5,
+  "rectSizeL": 80,
+  "rectSizeS": 40
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "arcLocat": -100,
+  "arcSize": 200,
+  "arcBg": 310,
+  "arcEd": 30,
+
+  "rectLocatL": 40,
+  "rectLocatS": 15,
+  "rectSizeL": 80,
+  "rectSizeS": 40
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "arcLocat": 80,
+  "arcSize": 150,
+  "arcBg": 60,
+  "arcEd": 300,
+
+  "rectLocatL": 10,
+  "rectLocatS": 5,
+  "rectSizeL": 40,
+  "rectSizeS": 20
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor  = "#FFCB9A";
+const strokeColor      = "#0F6466";
 
 const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const lightBlue  = "#D2E8E3";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -58,22 +65,31 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x - 300, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
+  let rectSizeA = letterData["rectSizeL"];
+  let rectSizeB = letterData["rectSizeS"];
+  let rectPosX = posx + letterData["rectLocatL"];
+  let rectPosY = posy + letterData["rectLocatS"];
+
+
+  angleMode(DEGREES);
+  //fill(darkBlue);
+  noFill();
+  strokeWeight(10);
+  arc(posx+letterData["arcLocat"], posy, letterData["arcSize"], letterData["arcSize"], letterData["arcBg"], letterData["arcEd"]);
+  strokeWeight(4);
+  arc(posx+letterData["arcLocat"]*1.05, posy*0.95, letterData["arcSize"], letterData["arcSize"], letterData["arcBg"], letterData["arcEd"]);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  strokeWeight(6);
+  rectMode(CENTER);
+  rect(rectPosX, rectPosY, rectSizeA, rectSizeA, 20);
+  rect(rectPosX, rectPosY, rectSizeB, rectSizeB, 20);
 }
 
 function keyTyped() {
