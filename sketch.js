@@ -13,28 +13,40 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "rectPositionX": 0,
+  "rectPositionY": 60,
+  "rectwidth": 80,
+  "rectheight": 90,
+
+  "triPositionX": 0,
+  "triPositionY": -70
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "rectPositionX": 0,
+  "rectPositionY": 50,
+  "rectwidth": 80,
+  "rectheight": 50,
+
+  "triangleRotate": 90,
+  "triPositionX": 20,
+  "triPositionY": -40
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "triangleScale": 2,
+  "triangleRotate": -90,
+  "triPositionX": -40,
+  "triPositionY": 0
 }
 
-const backgroundColor  = "#caf0f8";
+const backgroundColor  = "#ffffff";
 const strokeColor      = "#03045e";
 
 const darkBlue  = "#0077b6";
 const lightBlue  = "#90e0ef";
+const black  = "#000000";
+const white  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -65,15 +77,34 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let rectPosX = posx + letterData["rectPositionX"];
+  let rectPosY = posy + letterData["rectPositionY"];
+  let rectWidth = letterData["rectwidth"];
+  let rectHeight = letterData["rectheight"];
+  let triPosX = posx + letterData["triPositionX"];
+  let triPosY = posy + letterData["triPositionY"];
+  let triscale = letterData["triangleScale"];
+  let triRotate = letterData["triangleRotate"];
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  rectMode(CENTER);
+  noStroke();
+  angleMode(DEGREES);
+
+  fill(black);
+  rect(posx, posy, 150, 200);
+
+  fill(white);
+  rect(rectPosX, rectPosY, rectWidth, rectHeight);
+
+  push();
+  translate(triPosX, triPosY);
+  fill(white);
+  scale(triscale);
+  rotate(triRotate);
+  triangle(0, 0, 40, 60, - 40, 60);
+  pop();
+
 }
 
 function keyTyped() {

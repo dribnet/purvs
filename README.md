@@ -1,10 +1,15 @@
 ## MDDN 242 2022 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+### 31/03/22 Sketch
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I started working on the assignment 2. Letters are made with black and white simple shapes such as triangles and rectangles. White shapes are empty space in the letter.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The parameters per letter:
+  * `rectPositionX` : x offset of the rectangle
+  * `rectPositionY` : y offset of the rectangle
+  * `rectwidth` : width of the rectangle
+  * `rectheight` : height of the rectangle
+  * `triPositionX` : x offset of the triangle
+  * `triPositionY` : y offset of the triangle
+  * `triangleScale` : size of the triangle
+  * `triangleRotate` : rotation of the triangle
