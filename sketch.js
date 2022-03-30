@@ -16,8 +16,8 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx": 33,
+  "offsety": 70
 }
 
 const letterB = {
@@ -28,8 +28,8 @@ const letterB = {
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": 20
 }
 
 const backgroundColor  = "#cfcfcf";
@@ -45,7 +45,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(0);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -71,7 +71,7 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
+  // draw two rects
   fill(darkBlue);
   rect(posx, posy, 150, 150);
   fill(lightBlue);
