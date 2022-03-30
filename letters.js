@@ -1,188 +1,188 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "lenA": 200,
+    "lenB": 200,
+    "leanB": -50
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 100,
+    "lenB": 150,
+    "leanB": -50
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "lenA": 150,
+    "lenB": 50,
+    "leanB": 0
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 10,
+    "leanB": 30
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 50,
+    "lenB": 150,
+    "leanB": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -10,
+    "leanB": -50
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 150,
+    "lenB": 200,
+    "leanB": -90
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -100,
+    "leanB": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 150,
+    "lenB": 100,
+    "leanB": -50
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 90,
+    "lenB": 0,
+    "leanB": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 1,
+    "lenB": -100,
+    "leanB": -50
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 200,
+    "lenB": 100,
+    "leanB": -60
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 150,
+    "lenB": 0,
+    "leanB": -50
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 100,
+    "leanB": 30
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 100,
+    "leanB": -50
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 100,
+    "leanB": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": -100,
+    "lenB": 100,
+    "leanB": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -100,
+    "leanB": -10
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 90,
+    "lenB": 80,
+    "leanB": -60
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 60,
+    "lenB": -50,
+    "leanB": -50
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 150,
+    "lenB": 50,
+    "leanB": -100
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 120,
+    "leanB": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -10,
+    "leanB": -50
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 100,
+    "leanB": -20
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": 100,
+    "leanB": -100
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -100,
+    "leanB": -100
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lenA": 100,
+    "lenB": -10,
+    "leanB": -50
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 200,
+    "lenB": 200,
+    "leanB": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 200,
+    "lenB": 0,
+    "leanB": -100
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 150,
+    "lenB": -10,
+    "leanB": -50
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 150,
+    "lenB": -10,
+    "leanB": -100
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 100,
+    "lenB": -50,
+    "leanB": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 120,
+    "lenB": -100,
+    "leanB": -50
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 200,
+    "lenB": 100,
+    "leanB": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 200,
+    "lenB": 200,
+    "leanB": -100
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 200,
+    "lenB": 200,
+    "leanB": -90
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lenA": 150,
+    "lenB": -100,
+    "leanB": 0
   }
 
 }

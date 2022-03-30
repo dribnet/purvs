@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#FFA46B";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
+const strokeColor      = "#E861C5";
 const darkBlue  = "#0077b6";
 const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
 
 /*
  * Draw the letter given the letterData
@@ -19,24 +19,26 @@ function drawLetter(letterData) {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
+  let posx = 30;
+  let posy = 200;
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let lenA = letterData["lenA"];
+  let lenB = letterData["lenB"];
+  let leanB = letterData["leanB"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw two lines
+  strokeWeight(10);
+  line(posx, posy, posx+0, posy-lenA);
+  strokeWeight(5);
+  line(posx+50, posy, posx+50+leanB, posy-lenB);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["lenA"]    = map(percent, 0, 100, oldObj["lenA"], newObj["lenA"]);
+  new_letter["lenB"] = map(percent, 0, 100, oldObj["lenB"], newObj["lenB"]);
+  new_letter["leanB"] = map(percent, 0, 100, oldObj["leanB"], newObj["leanB"]);
   return new_letter;
 }
 
