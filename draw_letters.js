@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#FFFFF0";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -16,20 +16,51 @@ const strokeColor  = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
+  const backgroundColor  = "#FFFFF0";
+  const strokeColor = "#000000";
+  const squareColour = "#FF0000";
+  const rectColour = "#0000FF";
+
+  push();
+  rectMode(CENTER);
+
+  strokeWeight(3);
   stroke(strokeColor);
-  strokeWeight(4);
+
+  let posx = 50;
+  let posy = 150;
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let squareSize = letterData["squareSize"];
+  let squareX = posx + letterData["squareX"];
+  let squareY = posy + letterData["squareY"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let rectWidth = letterData["rectWidth"];
+  let rectHeight = letterData["rectHeight"];
+  let rectX = posx + letterData["rectX"];
+  let rectY = posy + letterData["rectY"];
+
+  let lineX = posx + letterData["lineX"];
+  let lineY = posy + letterData["lineY"];
+  let lineLength = letterData['lineLength'];
+
+  fill(squareColour);
+  rect(squareX, squareY, squareSize);
+  fill(rectColour);
+  rect(rectX, rectY, rectWidth, rectHeight);
+
+  //strokeWeight(5);
+  if(letterData['lineAngle'] == "vertical"){
+  //  line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+    line(lineX, lineY, lineX, lineY+lineLength);
+
+  }
+  else{
+    //line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+    line(lineX, lineY, lineX+lineLength, lineY);
+
+  }
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

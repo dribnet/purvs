@@ -1,10 +1,8 @@
 ## MDDN 242 2022 Assignment 2
 
-### 29/03/22 - FIRST ABC
+### 01/04/22 - STARTING THE ALPHABET
 
-In today's class, I worked on the first part of the project, creating an A, B and C letterform.
-
-I have based my letters off the Mondrian art style, which uses squares, rectangles and lines in primary colours to create abstract artwork. Each letter has a red square, a blue rectangle and a black line in varying sizes and orientations. I have made 11 variables for each my letters, encompassing the size, orientation and position of each element of the letter. I could probably refine this and so that some of the variables rely on each other or are more constant, but for now I am just getting a feel for the project and the code framework.
+In yesterday's class, I imported the code from my ABC code into the code for the rest of the alphabet. I adjusted some of the values in each of the variables so that they would fit within the bounding boxes. I now need to start creating the rest of my letters for the alphabet. At this point I think I am going to continue with my Mondrian style letters, unless I have a brainwave for any new ideas. I will do some research into the style to learn more about the proportions and colours so that I can make it true to style.
 
 The 11 parameters per letter:
   * `squareX` : x offset of the red square
@@ -19,4 +17,4 @@ The 11 parameters per letter:
   * `lineLength` : length of the line
   * `lineAngle` : orientation of the line (either vertical or horizontal)
 
-I am not sure yet if this will be the idea I continue with for the rest of the project but I think it could look really cool. I could add more shapes to it or add in some yellow to create more variation in the letters. I will have to do some more research into the Mondrian art style.
+My next step will be to set up the editor file to make it easier to create new letters.
