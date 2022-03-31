@@ -1,10 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+## Hexagons - The Bestagons
+Today I created a hexagonal design for my font, the idea came from [CGP Gray's "Hexagons are the Bestagons"](https://www.youtube.com/watch?v=thOifuHs6eY) video. I'm not sure about how it will work with interpolation and how some letters like e could be improved, so this is definitely not the final idea.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `visible` : 10 length array of numbers denoting the visibility of each of the hexagons

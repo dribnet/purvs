@@ -4,9 +4,8 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
+const darkYellow  = "#deaa28";
+const strokeYellow  = "#dec028";
 
 /*
  * Draw the letter given the letterData
@@ -17,19 +16,71 @@ const strokeColor  = "#03045e";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  stroke(strokeYellow);
+  strokeWeight(0.2);
+  fill(darkYellow);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let visible = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+  if (letterData['visible'] != null) { visible = letterData['visible']; }
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  drawHexagonagon(50, 100, 60, visible);
+}
+
+function drawHexagonagon(x, y, size, visible) {
+  translate(x, y);
+  
+  // Center
+  visible[4] && drawHexagon(0, 0, (size/3) * visible[4]);
+  
+  // Center top
+  visible[7] && drawHexagon(0, size/2/hexagonHeightRatio, (size/3) * visible[7]);
+  
+  // Center Bottom
+  visible[1] && drawHexagon(0, -size/2/hexagonHeightRatio, (size/3) * visible[1]);
+  
+  // Top right
+  visible[2] && drawHexagon(size/2, -size/4/hexagonHeightRatio, (size/3) * visible[2]);
+
+  // Top left
+  visible[0] && drawHexagon(-size/2, -size/4/hexagonHeightRatio, (size/3) * visible[0]);
+
+  // Center right
+  visible[5] && drawHexagon(size/2, size/4/hexagonHeightRatio, (size/3) * visible[5]);
+
+  // Center left
+  visible[3] && drawHexagon(-size/2, size/4/hexagonHeightRatio, (size/3) * visible[3]);
+  
+  // Bottom right
+  visible[8] && drawHexagon(size/2, size*hexagonHeightRatio, (size/3) * visible[8]);
+
+  // Bottom left
+  visible[6] && drawHexagon(-size/2, size*hexagonHeightRatio, (size/3) * visible[6]);
+
+  // Bottom bottom
+  visible[9] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * visible[9]);
+
+  translate(-x, -y);
+}
+
+const hexagonHeightRatio = 0.8660;
+
+function drawHexagon(x, y, size) {
+  console.log(size)
+  push();
+  translate(x, y);
+  scale(size*1);
+
+  beginShape();
+  vertex(-1, 0);
+  vertex(-0.5, -hexagonHeightRatio);
+  vertex(0.5, -hexagonHeightRatio);
+  vertex(1, 0);
+  vertex(0.5, hexagonHeightRatio);
+  vertex(-0.5, hexagonHeightRatio);
+  endShape(CLOSE);
+
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
