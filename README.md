@@ -1,10 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+As the starting point for this project, I've decided to play around with rounded shapes. The initial idea was inspired by typography from the early 2000s. I used basic shapes to create the letterforms in this iteration but I would like to translate it into custom shapes so I can play around with fill and contour while still keeping that elegant and sophisticated feel. The letter 'C' is a challenge, it doesn't look quite right but hopefully when I use custom shapes, I'll be able to communicate it better. 

@@ -12,29 +12,10 @@ const canvasHeight = 500;
  *
  */
 
-const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
-}
 
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
-}
-
-const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
-}
-
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
-
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const backgroundColor  = "#161513";
+const strokeColor      = "#eaebe3";
+const roundCorner = 100;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,38 +23,75 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
-
+  strokeWeight(1);
+  ellipseMode(CORNER);
+  noFill();
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
+const letterA = {
+  "vertRectX": -215, 
+  "vertRectY": -75, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": -300, 
+  "circleY": -75, 
+  "circleSize": 100, 
+  "horizRectX": -300, 
+  "horizRectY": -35,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
+}
+
+const letterB = {
+  "vertRectX": -55, 
+  "vertRectY": -100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 125, 
+  "circleX": -55, 
+  "circleY": -75, 
+  "circleSize": 100, 
+  "horizRectX": -55, 
+  "horizRectY": -35,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
+}
+
+const letterC = {
+  "vertRectX": 200, 
+  "vertRectY": -55, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 65, 
+  "circleX": 150, 
+  "circleY": -75, 
+  "circleSize": 100, 
+  "horizRectX": 175, 
+  "horizRectY": -35,
+  "horizRectWidth": 75,  
+  "horizRectHeight": 25  
+}
+
 function draw () {
   // clear screen
+  push();
   background(backgroundColor);
-
+  stroke(strokeColor);
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
-
+  translate(center_x,center_y);
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
+  pop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(letterData["vertRectX"],letterData["vertRectY"],letterData["vertRectWidth"],letterData["vertRectHeight"], roundCorner);
+  circle(letterData["circleX"],letterData["circleY"],letterData["circleSize"]);
+  rect(letterData["horizRectX"],letterData["horizRectY"],letterData["horizRectWidth"],letterData["horizRectHeight"], roundCorner);
 }
 
 function keyTyped() {
