@@ -45,7 +45,7 @@ const letterA = {
 }
 
 const letterB = {
-  "vertRectX": -55, 
+  "vertRectX": -65, 
   "vertRectY": -100, 
   "vertRectWidth": 25, 
   "vertRectHeight": 125, 
