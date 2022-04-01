@@ -14,7 +14,7 @@ const canvasHeight = 500;
 
 
 const backgroundColor  = "#161513";
-const strokeColor      = "#eaebe3";
+const strokeColor      = "#5a5137";
 const roundCorner = 100;
 
 function setup () {
@@ -59,10 +59,10 @@ const letterB = {
 }
 
 const letterC = {
-  "vertRectX": 200, 
-  "vertRectY": -55, 
+  "vertRectX": 175, 
+  "vertRectY": -50, 
   "vertRectWidth": 25, 
-  "vertRectHeight": 65, 
+  "vertRectHeight": 55, 
   "circleX": 150, 
   "circleY": -75, 
   "circleSize": 100, 
@@ -80,7 +80,7 @@ function draw () {
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
-  translate(center_x,center_y);
+  translate(center_x+25,center_y);
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
