@@ -5,19 +5,43 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 100, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 15, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 15, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25 
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "vertRectX": 100, 
+  "vertRectY": 75, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 125, 
+  "circleX": 115, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 115, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 200, 
+  "vertRectY": 140, 
+  "vertRectWidth": 45, 
+  "vertRectHeight": 25, 
+  "circleX": 200, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 200, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   },
   "D": {
     "size": 50,

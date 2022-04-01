@@ -1,12 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#161513";
+var systemLineColor = "#5a5137";
+var systemBoxColor = "#161513";
 
 /* internal constants */
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
+const darkBlue  = "#e1ddd3";
+const lightBlue  = "#161513";
+const strokeColor  = "#e1ddd3";
+const roundCorner = 100;
+
 
 /*
  * Draw the letter given the letterData
@@ -15,21 +17,16 @@ const strokeColor  = "#03045e";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
-  // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(3);
+  noFill();
+  ellipseMode(CORNER);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(letterData["vertRectX"],letterData["vertRectY"],letterData["vertRectWidth"],letterData["vertRectHeight"], roundCorner);
+  circle(letterData["circleX"],letterData["circleY"],letterData["circleSize"]);
+  rect(letterData["horizRectX"],letterData["horizRectY"],letterData["horizRectWidth"],letterData["horizRectHeight"], roundCorner);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
