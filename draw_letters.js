@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#161513";
 var systemLineColor = "#5a5137";
-var systemBoxColor = "#161513";
+var systemBoxColor = "#8FAF6F";
 
 /* internal constants */
 const darkBlue  = "#e1ddd3";
