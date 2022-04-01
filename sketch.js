@@ -60,9 +60,9 @@ const letterB = {
 
 const letterC = {
   "vertRectX": 175, 
-  "vertRectY": -50, 
-  "vertRectWidth": 25, 
-  "vertRectHeight": 55, 
+  "vertRectY": -35, 
+  "vertRectWidth": 75, 
+  "vertRectHeight": 25, 
   "circleX": 150, 
   "circleY": -75, 
   "circleSize": 100, 
