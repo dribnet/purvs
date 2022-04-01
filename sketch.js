@@ -59,16 +59,16 @@ const letterB = {
 }
 
 const letterC = {
-  "vertRectX": 175, 
+  "vertRectX": 150, 
   "vertRectY": -35, 
-  "vertRectWidth": 75, 
+  "vertRectWidth": 45, 
   "vertRectHeight": 25, 
   "circleX": 150, 
   "circleY": -75, 
   "circleSize": 100, 
-  "horizRectX": 175, 
+  "horizRectX": 150, 
   "horizRectY": -35,
-  "horizRectWidth": 75,  
+  "horizRectWidth": 100,  
   "horizRectHeight": 25  
 }
 
@@ -81,6 +81,7 @@ function draw () {
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
   translate(center_x+25,center_y+20);
+  scale(1.25);
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
