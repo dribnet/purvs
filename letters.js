@@ -83,7 +83,7 @@ const alphabet = {
   "horizRectHeight": 25  
   },
   "G": {
-    "vertRectX": 0, 
+  "vertRectX": 0, 
   "vertRectY": 215, 
   "vertRectWidth": 100, 
   "vertRectHeight": 25, 
@@ -122,17 +122,17 @@ const alphabet = {
   "horizRectHeight": 100 
   },
   "J": {
-  "vertRectX": 10, 
+  "vertRectX": 33, 
   "vertRectY": 200, 
   "vertRectWidth": 25, 
-  "vertRectHeight": 40, 
-  "circleX": 5, 
+  "vertRectHeight": 25, 
+  "circleX": -15, 
   "circleY": 100, 
-  "circleSize": 100, 
-  "horizRectX": 43, 
-  "horizRectY": 75,
+  "circleSize": 125, 
+  "horizRectX": 45, 
+  "horizRectY": 100,
   "horizRectWidth": 25,  
-  "horizRectHeight": 165 
+  "horizRectHeight": 125 
   },
   "K": {
    "vertRectX": 0, 
@@ -148,95 +148,199 @@ const alphabet = {
   "horizRectHeight": 25  
   },
   "L": {
-    "vertRectX": 40, 
+  "vertRectX": 45, 
   "vertRectY": 175, 
   "vertRectWidth": 25, 
   "vertRectHeight": 25, 
-  "circleX": 0, 
-  "circleY": 100, 
-  "circleSize": 100, 
+  "circleX": -15, 
+  "circleY": 75, 
+  "circleSize": 125, 
   "horizRectX": 33, 
   "horizRectY": 75,
   "horizRectWidth": 25,  
   "horizRectHeight": 125 
   },
-  "M": {
- "vertRectX": 0, 
+  "M": {//
+ "vertRectX": -15, 
   "vertRectY": 100, 
   "vertRectWidth": 25, 
   "vertRectHeight": 100, 
-  "circleX": 15, 
+  "circleX": 2.5, 
   "circleY": 100, 
-  "circleSize": 75, 
-  "horizRectX": 80, 
+  "circleSize": 90, 
+  "horizRectX": 85, 
   "horizRectY": 100,
   "horizRectWidth": 25,  
   "horizRectHeight": 100  
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 0, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 15, 
+  "circleY": 95, 
+  "circleSize": 100, 
+  "horizRectX": 90, 
+  "horizRectY": 145,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 55  
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX":41, 
+  "vertRectY": 140, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 25, 
+  "circleX": 5, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 5, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "vertRectX": 0, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 125, 
+  "circleX": 15, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 15, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25 
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 85, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 125, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 15, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 25, 
+  "circleY": 110, 
+  "circleSize": 80, 
+  "horizRectX": 15, 
+  "horizRectY": 100,
+  "horizRectWidth": 95,  
+  "horizRectHeight": 25 
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 50, 
+  "vertRectY": 120, 
+  "vertRectWidth": 45, 
+  "vertRectHeight": 25, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 4, 
+  "horizRectY": 155,
+  "horizRectWidth": 60,  
+  "horizRectHeight": 25 
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 0, 
+  "vertRectY": 45, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 125, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 16, 
+  "horizRectY": 65,
+  "horizRectWidth": 35,  
+  "horizRectHeight": 25 
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": -10, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 75, 
+  "circleX": -10, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 65, 
+  "horizRectY": 100,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 75  
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": -15, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 75, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 90, 
+  "horizRectY": 100,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 75  
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 0, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 17.5, 
+  "circleY": 115, 
+  "circleSize": 90, 
+  "horizRectX": 100, 
+  "horizRectY": 100,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 100  
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX":15, 
+  "vertRectY": 140, 
+  "vertRectWidth": 75, 
+  "vertRectHeight": 25, 
+  "circleX": 15, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 40, 
+  "horizRectY": 140,
+  "horizRectWidth": 75,  
+  "horizRectHeight": 25 
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 0, 
+  "vertRectY": 215, 
+  "vertRectWidth": 100, 
+  "vertRectHeight": 25, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 38, 
+  "horizRectY": 100,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 75 
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "vertRectX": 25, 
+  "vertRectY": 175, 
+  "vertRectWidth": 75, 
+  "vertRectHeight": 25, 
+  "circleX": 10, 
+  "circleY": 110, 
+  "circleSize": 80, 
+  "horizRectX": 0, 
+  "horizRectY": 100,
+  "horizRectWidth": 75,  
+  "horizRectHeight": 25 
   },
   "0": {
     "size": 40,
