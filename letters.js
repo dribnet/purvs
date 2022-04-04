@@ -15,7 +15,7 @@ const alphabet = {
     "lineX": -47,
     "lineY": -38,
     "lineLength": 90,
-    "lineAngle": "vertical"
+    "lineAngle": 0
   },
   "B": {
     "squareX": 5,
@@ -28,7 +28,7 @@ const alphabet = {
     "lineX": -50,
     "lineY": -150,
     "lineLength": 200,
-    "lineAngle": "vertical"
+    "lineAngle": 0
   },
   "C": {
     "squareX": 25,
@@ -41,7 +41,7 @@ const alphabet = {
     "lineX": 0,
     "lineY": -147,
     "lineLength": 50,
-    "lineAngle": "horizonal"
+    "lineAngle": 1
   },
   "D": {
     "size": 50,
@@ -64,9 +64,17 @@ const alphabet = {
     "offsety": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareX": -1,
+    "squareY": -60,
+    "squareSize": 48,
+    "rectX": 40,
+    "rectY": -50,
+    "rectWidth": 20,
+    "rectHeight": 200,
+    "lineX": -32,
+    "lineY": -150,
+    "lineLength": 200,
+    "lineAngle": 0
   },
   "I": {
     "size": 50,
@@ -99,14 +107,30 @@ const alphabet = {
     "offsety": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareX": 0,
+    "squareY": -100,
+    "squareSize": 78,
+    "rectX": 0,
+    "rectY": -32,
+    "rectWidth": 76,
+    "rectHeight": 46,
+    "lineX": 46,
+    "lineY": -140,
+    "lineLength": 132,
+    "lineAngle": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareX": 26,
+    "squareY": -117,
+    "squareSize": 65,
+    "rectX": -30,
+    "rectY": -50,
+    "rectWidth": 32,
+    "rectHeight": 200,
+    "lineX": -6,
+    "lineY": -76,
+    "lineLength": 64,
+    "lineAngle": 1
   },
   "Q": {
     "size": 50,
@@ -129,9 +153,17 @@ const alphabet = {
     "offsety": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareX": -10,
+    "squareY": 22,
+    "squareSize": 50,
+    "rectX": 40,
+    "rectY": -50,
+    "rectWidth": 22,
+    "rectHeight": 200,
+    "lineX": -50,
+    "lineY": -150,
+    "lineLength": 200,
+    "lineAngle": 0
   },
   "V": {
     "size": 50,

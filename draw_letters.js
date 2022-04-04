@@ -50,7 +50,7 @@ function drawLetter(letterData) {
   rect(rectX, rectY, rectWidth, rectHeight);
 
   //strokeWeight(5);
-  if(letterData['lineAngle'] == "vertical"){
+  if(letterData['lineAngle'] == 0){
   //  line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
     line(lineX, lineY, lineX, lineY+lineLength);
 
