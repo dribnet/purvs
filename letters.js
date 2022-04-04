@@ -5,19 +5,25 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
+    "size": 50,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 25,
+    "offsetx2": -13,
+    "offsety2": 13
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "size": 50,
+    "offsetx": -13,
+    "offsety": -22,
+    "offsetx2": 18,
+    "offsety2": 0,
   },
   "C": {
     "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 25,
+    "offsety": 0,
+    "offsetx2": 18,
+    "offsety2": 0
   },
   "D": {
     "size": 50,
