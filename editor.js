@@ -5,8 +5,8 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["lenA",       0, 100],
-  ["lenB",  -30,  30],
+  ["lenA",       -50, 150],
+  ["lenB",  -100,  150],
   ["leanB", -100, 100]
 ];
 

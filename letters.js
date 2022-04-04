@@ -30,9 +30,9 @@ const alphabet = {
     "leanB": -50
   },
   "F": {
-    "lenA": 150,
-    "lenB": 200,
-    "leanB": -90
+    "lenA": 120,
+    "lenB": 80,
+    "leanB": -80
   },
   "G": {
     "lenA": 100,
@@ -65,9 +65,9 @@ const alphabet = {
     "leanB": -50
   },
   "M": {
-    "lenA": 100,
-    "lenB": 100,
-    "leanB": 30
+    "lenA": 20,
+    "lenB": 10,
+    "leanB": -90
   },
   "N": {
     "lenA": 100,
@@ -110,14 +110,14 @@ const alphabet = {
     "leanB": 0
   },
   "V": {
-    "lenA": 100,
+    "lenA": 90,
     "lenB": -10,
     "leanB": -50
   },
   "W": {
-    "lenA": 100,
-    "lenB": 100,
-    "leanB": -20
+    "lenA": 50,
+    "lenB": -10,
+    "leanB": -90
   },
   "X": {
     "lenA": 100,
@@ -150,8 +150,8 @@ const alphabet = {
     "leanB": -50
   },
   "3": {
-    "lenA": 150,
-    "lenB": -10,
+    "lenA": 50,
+    "lenB": 100,
     "leanB": -100
   },
   "4": {
@@ -170,9 +170,9 @@ const alphabet = {
     "leanB": 0
   },
   "7": {
-    "lenA": 200,
-    "lenB": 200,
-    "leanB": -100
+    "lenA": 0,
+    "lenB": 150,
+    "leanB": 50
   },
   "8": {
     "lenA": 200,
