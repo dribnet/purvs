@@ -16,8 +16,8 @@ const letterA = {
   "size": 100,
   "offsetx": 0,
   "offsety": 67.5,
-  "offsetx2": -35,
-  "offsety2": 35
+  "offsetx2": -38,
+  "offsety2": 36
 }
 
 const letterB = {

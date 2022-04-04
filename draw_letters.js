@@ -22,7 +22,7 @@ function drawLetter(letterData) {
   let size2 = size*2/3;
   let size3 = size2/2;
   let posx = 50;
-  let posy = 150;
+  let posy = 125;
   let pos2x = posx  + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let pos3x = posx + letterData["offsetx2"];
@@ -32,12 +32,12 @@ function drawLetter(letterData) {
 
   //Ellipse 1
   fill(backgroundColor)
-  strokeWeight(4);
+  strokeWeight(3);
   stroke(gold);
   ellipse(posx, posy, size, size);
 
   //Ellipse 2
-  strokeWeight(5);
+  strokeWeight(4);
   stroke(black);
   ellipse(pos2x, pos2y, size2, size2);
 
