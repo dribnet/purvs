@@ -1,7 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
-## April 1st
+## April 4th
 
-I still don't know what I want to do with this project yet.  I should after today.
-After hearing Phebe mention the Unown alphabet.  I thought that would be pretty cool to see.
-So I just did the letter B.
+I have updated the preview and thumbnail photos.
+The Preview and the Thumbnail have been updated with a new idea and a new alphabet.
+I have not had time to make these changes in code yet.  The idea of the new alphabet is to break down the shapes into separate shapes.
