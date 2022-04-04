@@ -13,28 +13,35 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 67.5,
+  "offsetx2": -35,
+  "offsety2": 35
 }
 
 const letterB = {
-  "size": 150,
+  "size": 100,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -67.5,
+  "offsetx2": 10,
+  "offsety2": -49,
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 67.5,
+  "offsety": 0,
+  "offsetx2": 50,
+  "offsety2": 0
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor  = "#292929";
+const strokeColor      = "#0d0d0d";
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const gold  = "#f5ce42";
+const black  = "#0d0d0d";
+const white = "ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,7 +50,8 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  rectMode(CENTER);
+  ellipseMode(CENTER);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -68,12 +76,26 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let pos3x = posx + letterData["offsetx2"];
+  let pos3y = posy + letterData["offsety2"];
 
   // draw two circles
-  fill(darkBlue);
+
+  //Ellipse 1
+  fill(backgroundColor)
+  strokeWeight(4);
+  stroke(gold);
   ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
+
+  //Ellipse 2
+  strokeWeight(5);
+  stroke(black);
   ellipse(pos2x, pos2y, size2, size2);
+
+  //Ellipse
+  noStroke();
+  fill(white);
+  ellipse(pos3x, pos3y, size2/2, size2/2);
 }
 
 function keyTyped() {
