@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#12c4ff";
+var systemBackgroundColor = "#caf0f8";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#ff8112";
-const lightBlue  = "#ff3612";
-const strokeColor  = "#ebd834";
+const darkBlue  = "#0077b6";
+const lightBlue  = "#90e0ef";
+const strokeColor  = "#03045e";
 
 /*
  * Draw the letter given the letterData
@@ -27,9 +27,9 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(darkBlue);
-  rect(50, 150, 75, 75);
+  ellipse(50, 150, 75, 75);
   fill(lightBlue);
-  rect(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
