@@ -2,12 +2,13 @@ const alphabet = {
   "default": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 0,
+    "height": 50
   },
   "A": {
     "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 20,
+    "offsety": 35
   },
   "B": {
     "size": 75,
@@ -16,8 +17,8 @@ const alphabet = {
   },
   "C": {
     "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 25,
+    "offsety": 10
   },
   "D": {
     "size": 50,
