@@ -1,5 +1,11 @@
 ## MDDN 242 2022 Assignment 2
 
+What was done today:
+Now that my editor is working, I have gone ahead and started making my alphabet! Yay!
+I am up to the letter 'F'
+Got a bit to go but now creating letters hasn't been more easier!
+
+
 My Alphabet
 I want to make a square/futuristic font.
 This font uses 5 squares.

@@ -97,7 +97,7 @@ const backgroundColor  = "#1B1918";
 const strokeColor      = "#1B1918";
 
 const white  = "#ffffff";
-const black  = "#ffffff";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element

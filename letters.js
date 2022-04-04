@@ -1,188 +1,780 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 17.6,
+    "Rect1y": 2,
+    "Rect1h": 166,
+    "Rect1r": 7.2,
+
+    "Rect2x": 63.2,
+    "Rect2y": -1,
+    "Rect2h": 164,
+    "Rect2r": 172.798,
+
+    "Rect3x": 40.8,
+    "Rect3y": 24,
+    "Rect3h": 18,
+    "Rect3r": 90,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "Rect1x": 12.8,
+    "Rect1y": -20,
+    "Rect1h": 146,
+    "Rect1r": 183.6,
+
+    "Rect2x": 68.8,
+    "Rect2y": 36,
+    "Rect2h": 98,
+    "Rect2r": 183.6,
+
+    "Rect3x": 41.6,
+    "Rect3y": 64,
+    "Rect3h": 48,
+    "Rect3r": 273.6,
+
+    "Rect4x": 38.4,
+    "Rect4y": -22,
+    "Rect4h": 64,
+    "Rect4r": 90
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 11.2,
+    "Rect1y": 2,
+    "Rect1h": 120,
+    "Rect1r": 183.6,
+
+    "Rect2x": 56.8,
+    "Rect2y": -64,
+    "Rect2h": 62,
+    "Rect2r": 270,
+
+    "Rect3x": 54.4,
+    "Rect3y": 64,
+    "Rect3h": 74,
+    "Rect3r": 270,
+
+    "Rect4x": 80,
+    "Rect4y": -42,
+    "Rect4h": 24,
+    "Rect4r": 183.6
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 12,
+    "Rect1y": 12,
+    "Rect1h": 136,
+    "Rect1r": 183.6,
+
+    "Rect2x": 41.6,
+    "Rect2y": 64,
+    "Rect2h": 44,
+    "Rect2r": 270,
+
+    "Rect3x": 72,
+    "Rect3y": 0,
+    "Rect3h": 108,
+    "Rect3r": 180,
+
+    "Rect4x": 32.8,
+    "Rect4y": -58,
+    "Rect4h": 62,
+    "Rect4r": 273.6
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 12,
+    "Rect1y": 0,
+    "Rect1h": 132,
+    "Rect1r": 183.6,
+
+    "Rect2x": 50.4,
+    "Rect2y": 64,
+    "Rect2h": 80,
+    "Rect2r": 270,
+
+    "Rect3x": 49.6,
+    "Rect3y": -64,
+    "Rect3h": 74,
+    "Rect3r": 270,
+
+    "Rect4x": 44.8,
+    "Rect4y": 0,
+    "Rect4h": 92,
+    "Rect4r": 270
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Rect1x": 0,
+    "Rect1y": 0,
+    "Rect1h": 0,
+    "Rect1r": 0,
+
+    "Rect2x": 0,
+    "Rect2y": 0,
+    "Rect2h": 0,
+    "Rect2r": 0,
+
+    "Rect3x": 0,
+    "Rect3y": 0,
+    "Rect3h": 0,
+    "Rect3r": 0,
+
+    "Rect4x": 0,
+    "Rect4y": 0,
+    "Rect4h": 0,
+    "Rect4r": 0
   }
 
 }
