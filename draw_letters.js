@@ -35,11 +35,12 @@ function drawLetter(letterData) {
   let peaks2H = letterData["peak2H"];
 
   //rect(posx, posy, 150, 250); //bounding box?
-  pop();
+
   fill(lightBlue);
   strokeWeight(15);
   strokeCap(SQUARE);
   stroke(0);
+
   push();
   translate(pos1x, pos1y);
   angleMode(DEGREES);
@@ -71,7 +72,7 @@ function drawLetter(letterData) {
   }
   endShape();
   pop();
-
+pop();
 
 }
 function interpolate_letter(percent, oldObj, newObj) {

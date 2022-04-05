@@ -7,16 +7,16 @@
 const sliderInfo = [
 
 
-  ["offsetx",  0,  100],
+  ["offsetx",  -100,  100],
   ["offsety", 0, 200],
-  ["waveL1", 1, 2],
-  ["rotate1", 0, 360],
+  ["waveL1", 0, 2],
+  ["rotate1", -360, 360],
   ["peaks1", -10, 10],
   ["peak1H", -100, 100],
-  ["offsetx2",  0,  100],
+  ["offsetx2",  -100,  100],
   ["offsety2", 0, 200],
-  ["waveL2", 1, 2],
-  ["rotate2", 0, 360],
+  ["waveL2", 0, 2],
+  ["rotate2", -360, 360],
   ["peaks2", -10, 10],
   ["peak2H", -100, 100]
 
@@ -67,7 +67,13 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 50)
+    let cur_slider = createSlider(0, 100, 50);
+/*
+    if( i == 3 ||  i == 9){ //set certain sliders to 0
+      cur_slider = createSlider(0, 100, 0);
+    }
+*/
+
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
