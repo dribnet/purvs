@@ -1,19 +1,21 @@
 ## MDDN 242 2022 Assignment 2
 
-Part 1: Initial Ideas
-My letters are made up of three rectangles. The size and proportion of the darkest/largest rectangle is fixed, and essentially acts as a 4 x 3 grid (each square being 50 x 50px) for the positions of the second and third rectangles. These rectangles are controlled by four parameters per rectangle; a total of eight parameters per letter.
+Part 2: Design the Alphabet
+31/3
+So I've changed from my initial idea quite a lot. I'm a lot happier with this design and overall I think it's just more interesting to look at. In this design the location/centre point & the size of the arc are set as constants. There is only one parameter involved with this shape which will effect the stoping point/angle of the arc.
 
-The eight parameters per letter:
-* `R2posX` : X position of the second rectangle relative to the first one
-* `R2posY` : Y position of the second rectangle relative to the first one
-* `Rheight2` : height of the second rectangle
-* `Rwidth2` : width of the second rectangle
+The two lines move and stretch the most. At this stage most of the letters have them being either horizontal or vertical. There are a few design using diagonals, but I think within the next week I may potentially change this if I do the optional Part 2b: Editor, so theres not an excessive amount of sliders etc. There are currently four parameters involving the two lines; these are just the basic x,y, start & stop point coordinates. Moving forward I think I'd like to simplify the parameters a bit or like tie them to a couple different variables so your not having to map & plan each individual coordinate set.
 
-* `R3posX` : X position of the third rectangle relative to the first one
-* `R3posY` : Y position of the third rectangle relative to the first one
-* `Rheight3` : height of the third rectangle
-* `Rwidth3` : width of the third rectangle
+I also added in a nice golden yellow colour just to add a bit of flavour to the colour palette, though nothing's set in stone. Moving forward I want to finalise the individual designs that I mentioned earlier & start refining the parameters.
 
-These parameters should be adjusted in "50's" according to the first rectangle grid, and shouldn't exceed the proportions of the first rectangle. Currently the rectMode(CENTER);, however if I do stick with this idea in the future I think I'd change that so the positioning of the second and third rectangles is more consistent with the grid as I'm having to adjust the position in "25's" and the proportions in "50's" - not that it's that complicated but I can sense a small headache in my future if I keep it this way.
+There are currently nine parameters per letter:
+* `arcStopAngle` : this is the 'stop' angle that the arc will stop at
+* `Line1_X_startcoord` : x coordinate of the starting line point
+* `Line1_Y_startcoord` : y coordinate of the starting line point
+* `Line1_X_stopcoord` : x coordinate of the stopping line point
+* `Line1_Y_stopcoord` : y coordinate of the stopping line point
 
-I think if I do stick with this idea I'd like to do a lot of development and make it more abstract and interesting; but for now this was a good way to get familiar with the code etc., so I'm not too mad at it. :))
+* `Line2_X_startcoord` : x coordinate of the starting line point
+* `Line2_Y_startcoord` : y coordinate of the starting line point
+* `Line2_X_stopcoord` : x coordinate of the stopping line point
+* `Line2_Y_stopcoord` : y coordinate of the stopping line point

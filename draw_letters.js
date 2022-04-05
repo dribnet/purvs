@@ -1,13 +1,15 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#f2d4ff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
+// colours
+const backgroundColor = "#f2d4ff"; // pastel purple
 
+const darkPurple = "#7a1da3";
+const lightPurple = "#cb4fff";
+const golden = "#ffc800";
 /*
  * Draw the letter given the letterData
  *
@@ -16,20 +18,38 @@ const strokeColor  = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  angleMode(DEGREES);
+  const archSize = 100;
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  // determine parameters for the arch angle and the position of the two lines
+  let arcStopA = letterData["arcStopAngle"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // x,y start point coordinates of line 1
+  let L1Xstartcoord = letterData["Line1_X_startcoord"];
+  let L1Ystartcoord = letterData["Line1_Y_startcoord"];
+
+  // x,y stop point coordinates of line 1
+  let L1Xstopcoord = letterData["Line1_X_stopcoord"];
+  let L1Ystopcoord = letterData["Line1_Y_stopcoord"];
+
+  // x,y start point coordinates of line 2
+  let L2Xstartcoord = letterData["Line2_X_startcoord"];
+  let L2Ystartcoord = letterData["Line2_Y_startcoord"];
+
+  // x,y stop point coordinates of line 2
+  let L2Xstopcoord = letterData["Line2_X_stopcoord"];
+  let L2Ystopcoord = letterData["Line2_Y_stopcoord"];
+
+  stroke(lightPurple);
+  strokeWeight(8);
+  line(L1Xstartcoord, L1Ystartcoord, L1Xstopcoord, L1Ystopcoord);
+  line(L2Xstartcoord, L2Ystartcoord, L2Xstopcoord, L2Ystopcoord);
+
+  stroke(golden);
+  strokeWeight(10);
+  noFill();
+  arc(50, 150, archSize, archSize, 0, arcStopA);
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
