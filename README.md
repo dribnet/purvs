@@ -1,5 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-I have just started to customize sketch.js and get an understanding of the codebase and how to change the letters. I was a little confused at first but I am starting to get the hang of it.
+It has been a little while since I updated my code. I have had an extremely busy week with hand ins for my primary papers and general life stuff but I am ready to get back into this project now. I have updated my preview and thumbnail to show a show I sketch I made last week. In previous readmes I have talked about the pixel example from 'Type me, Type me not' and I still consider that to be my main precedent currently. I have always quite enjoyed pixel fonts like [The Windows Command Prompt Font](https://www.dafont.com/windows-command-prompt.font?text=Henry+Bethwaite+-+INDN+211%2C+Project+%231) or [The ZX Spectrum Font](https://www.dafont.com/zx-spectrum.font?text=Henry+Bethwaite+-+INDN+211%2C+Project+%231) so I want to do something along those lines.
 
-I really liked the example of the pixel text in 'Type me, Type me not'. I found it very interesting and it makes me want to have a think about how I could create an unique twist on the idea of a pixelated font. Maybe I could do something that 'falls' down when I type it.
+I am currently quite a bit behind where I should be for this project so the next steps I will have to take is creating an MVP (minimal viable product) to see how much I like the idea of the cascading/ growing pixel fonts. 
