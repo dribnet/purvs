@@ -2,4 +2,10 @@
 
 Sketch of my project2.
 
-Each of my letters is composed with two arcs and two rects (with round corner). All the sizes and positions of these shapes are controlled by several parameters. The thin arc is in offset position of thick arc. The two rect are set in 'center' mode and same position with different sizes.
+So I have an issue about my alphabet display that most of my bounding boxes are off set their position. I checked the console error which said:
+
+DevTools failed to load source map: Could not load content for chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/js/xl-content.js.map: System error: net::ERR_BLOCKED_BY_CLIENT
+
+I reckon it's my Chrome's problem and tried to update my browser but failed.
+
+I also did finished my letters design based on my sketch style for now but haven't got time to put them in digit form. I'll fix the bounding box first.
