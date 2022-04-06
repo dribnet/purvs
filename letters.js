@@ -1,8 +1,16 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "vertRectX": 38, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 138,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25
   },
   "A": {
   "vertRectX": 85, 
@@ -96,7 +104,7 @@ const alphabet = {
   "horizRectHeight": 25 
   },
   "H": {
-    "vertRectX": 0, 
+  "vertRectX": 0, 
   "vertRectY": 75, 
   "vertRectWidth": 25, 
   "vertRectHeight": 125, 
@@ -187,9 +195,9 @@ const alphabet = {
   "horizRectHeight": 55  
   },
   "O": {
-  "vertRectX":41, 
+  "vertRectX":5, 
   "vertRectY": 140, 
-  "vertRectWidth": 25, 
+  "vertRectWidth": 100, 
   "vertRectHeight": 25, 
   "circleX": 5, 
   "circleY": 100, 
@@ -343,54 +351,134 @@ const alphabet = {
   "horizRectHeight": 25 
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 0, 
+  "vertRectY": 175, 
+  "vertRectWidth": 75, 
+  "vertRectHeight": 25, 
+  "circleX": 0, 
+  "circleY": 75, 
+  "circleSize": 100, 
+  "horizRectX": 33, 
+  "horizRectY": 175,
+  "horizRectWidth": 75,  
+  "horizRectHeight": 25 
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 33, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 75, 
+  "circleX": 0, 
+  "circleY": 75, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 175,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "vertRectX": 33, 
+  "vertRectY": 100, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 75, 
+  "circleX": 0, 
+  "circleY": 75, 
+  "circleSize": 100, 
+  "horizRectX": 33, 
+  "horizRectY": 175,
+  "horizRectWidth": 75,  
+  "horizRectHeight": 25
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 0, 
+  "vertRectY": 75, 
+  "vertRectWidth": 100, 
+  "vertRectHeight": 25, 
+  "circleX": 15, 
+  "circleY": 93, 
+  "circleSize": 90, 
+  "horizRectX": 0, 
+  "horizRectY": 175,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 0, 
+  "vertRectY": 75, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 100, 
+  "circleX": 15, 
+  "circleY": 100, 
+  "circleSize": 75, 
+  "horizRectX": 80, 
+  "horizRectY": 75,
+  "horizRectWidth": 25,  
+  "horizRectHeight": 120  
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 0, 
+  "vertRectY": 75, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 75, 
+  "circleX": 10, 
+  "circleY": 100, 
+  "circleSize": 90, 
+  "horizRectX": 0, 
+  "horizRectY": 75,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 0, 
+  "vertRectY": 75, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 90, 
+  "circleX": 0, 
+  "circleY": 100, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 140,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+      "vertRectX": 85, 
+  "vertRectY": 85, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 115, 
+  "circleX": 0, 
+  "circleY": 90, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 75,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25 
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "vertRectX":0, 
+  "vertRectY": 175, 
+  "vertRectWidth": 100, 
+  "vertRectHeight": 25, 
+  "circleX": 0, 
+  "circleY": 87, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 75,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25 
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "vertRectX": 75, 
+  "vertRectY": 114, 
+  "vertRectWidth": 25, 
+  "vertRectHeight": 90, 
+  "circleX": 0, 
+  "circleY": 75, 
+  "circleSize": 100, 
+  "horizRectX": 0, 
+  "horizRectY": 115,
+  "horizRectWidth": 100,  
+  "horizRectHeight": 25  
   }
 
 }
