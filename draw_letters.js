@@ -1,13 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#ccecec"; //"#caf0f8";
+var systemLineColor = "#6003ab";// purple
+var systemBoxColor = "#04d9d9";// blueGreen
 
 /* internal constants */
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
-
+const backgroundColor  = "#ccecec";//light blue
+const strokeColor      = "#c4c6c0";//gray
+const peach  = "#f7cabe";// peach, letter colour
+const lightBlue  = "#ccecec";//light blue,colour of the cutter circle
+const darkGreen = "#014d4a"//eyes colour
 /*
  * Draw the letter given the letterData
  *
@@ -15,28 +16,53 @@ const strokeColor  = "#03045e";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+ function drawLetter(letterData) {
+   let ell_x = 50;
+   let ell_y = 150;
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+   let ellSize = 90;//size of main circles
+   let handleSize_x = 20// width of handle
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-}
+   // determine parameters for other circles
+   let cntrSize = letterData["cntrSize"];
+   let handleHeight = letterData["handleHeight"];
+   let eyeSize = letterData["eyeSize"];
+   let cutSize_x = letterData["cutSize_x"];
+   let cutSize_y = letterData["cutSize_y"];
+   let ell1_x = ell_x + letterData["locCntr_x"];
+   let ell1_y = ell_y + letterData["locCntr_y"];
+   let ell2_x = ell_x + letterData["locHandl_x"];
+   let ell2_y = ell_y + letterData["locHandl_y"];
+   let ell3_x = ell_x + letterData["locEyes_x"];
+   let ell3_y = ell_y + letterData["locEyes_y"];
+   let ell4_x = ell_x + letterData["loc4X"];
+   let ell4_y = ell_y + letterData["loc4Y"];
+   let eyesSpace = letterData["eyesSpace"];
+
+
+
+   // draw 6 circles/ovel
+   noStroke();
+   fill(peach);
+   ellipse(ell2_x, ell2_y, handleSize_x, handleHeight);//handle shape
+   fill(peach);
+   ellipse(ell_x, ell_y, ellSize, ellSize);//main Circle
+   fill(lightBlue);
+   ellipse(ell1_x, ell1_y, cntrSize, cntrSize);// circle in midlle
+   fill(lightBlue);
+   ellipse(ell4_x, ell4_y, cutSize_x, cutSize_y);// cutter
+   fill(darkGreen);
+   ellipse(ell3_x, ell3_y, eyeSize);//left eye
+   ellipse(ell3_x + eyesSpace, ell3_y, eyeSize);//right eye
+
+ }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["size_x"]    = map(percent, 0, 100, oldObj["size_x"], newObj["size_x"]);
+  new_letter["size_y"]    = map(percent, 0, 100, oldObj["size_y"], newObj["size_y"]);
+  new_letter["locX"] = map(percent, 0, 100, oldObj["locX"], newObj["locX"]);
+  new_letter["locY"] = map(percent, 0, 100, oldObj["locY"], newObj["locY"]);
   return new_letter;
 }
 
