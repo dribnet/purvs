@@ -2,6 +2,8 @@
 Editor works
 I changed the editor.js file a bit so I could have certain sliders set to 0 by default. (and in the end didn't need it)
 
+Added interpolation but it is very, very broken.
+
 A rule I've set for myself is that I can't have a straight 'wave', it needs to bend even if it's just a little bit.
 Another rule is to not change wavelength too extremely.
 

@@ -77,9 +77,19 @@ pop();
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetx"]    = map(percent, -100, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0, 200, oldObj["offsety"], newObj["offsety"]);
+  new_letter["waveL1"] = map(percent, 0, 2, oldObj["waveL1"], newObj["waveL1"]);
+  new_letter["rotate1"] = map(percent, -360, 360, oldObj["rotate1"], newObj["rotate1"]);
+  new_letter["peaks1"] = map(percent, -10, 10, oldObj["peaks1"], newObj["peaks1"]);
+  new_letter["peak1H"] = map(percent, -100, 100, oldObj["peak1H"], newObj["peak1H"]);
+  new_letter["offsetx2"] = map(percent, -100, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 200, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["waveL2"] = map(percent, 0, 2, oldObj["waveL2"], newObj["waveL2"]);
+  new_letter["rotate2"] = map(percent, -360, 360, oldObj["rotate2"], newObj["rotate2"]);
+  new_letter["peaks2"] = map(percent, -10, 10, oldObj["peaks2"], newObj["peaks2"]);
+  new_letter["peak2H"] = map(percent, -100, 100, oldObj["peak2H"], newObj["peak2H"]);
+  
   return new_letter;
 }
 
