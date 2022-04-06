@@ -13,48 +13,45 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "sizeEll_x1":100,
-  "sizeEll_y1":100,
-  "sizeEll_x2":30,
-  "sizeEll_y2":140,
-  "sizeEll_x3":25,
-  "sizeEll_y3":25,
-  "loc1X": 0,
-  "loc1Y": 0,
-  "loc2X": 60,
-  "loc2Y": 0,
-  "loc3X": -23,
-  "loc3Y": -20,
+  "cntrSize_x":100,
+  "cntrSize_y":100,
+  "handleSize_x":30,
+  "handleSize_y":140,
+  "eyeSize":25,
+  "locCntr_x": 0,
+  "locCntr_y": 0,
+  "locHandl_x": 60,
+  "locHandl_y": 0,
+  "locEye_x": -23,
+  "locEye_y": -20,
 }
 
 const letterB = {
-  "sizeEll_x1":100,
-  "sizeEll_y1":100,
-  "sizeEll_x2":30,
-  "sizeEll_y2":250,
-  "sizeEll_x3":25,
-  "sizeEll_y3":25,
-  "loc1X": 0,
-  "loc1Y": -1,
-  "loc2X": -65,
-  "loc2Y": -50,
-  "loc3X": -23,
-  "loc3Y": -20,
+  "cntrSize_x":100,
+  "cntrSize_y":100,
+  "handleSize_x":30,
+  "handleSize_y":250,
+  "eyeSize":25,
+  "locCntr_x": 0,
+  "locCntr_y": -1,
+  "locHandl_x": -65,
+  "locHandl_y": -50,
+  "locEye_x": -23,
+  "locEye_y": -20,
 }
 
 const letterC = {
-  "sizeEll_x1":100,
-  "sizeEll_y1":100,
-  "sizeEll_x3":25,
-  "sizeEll_y3":25,
-  "sizeEll_x4":100,
-  "sizeEll_y4":100,
-  "loc1X": 0,
-  "loc1Y": 0,
-  "loc3X": -23,
-  "loc3Y": -20,
-  "loc4X": 50,
-  "loc4Y": -1,
+  "handleSize_x":30,
+  "handleSize_y":140,
+  "cntrSize_x":130,
+  "cntrSize_y":110,
+  "eyeSize":25,
+  "locHandl_x": 50,
+  "locHandl_y": 0,
+  "locCntr_x": 20,
+  "locCntr_y": 0,
+  "locEye_x": -10,
+  "locEye_y": -20,
 }
 
 const backgroundColor  = "#ccecec";//light blue
@@ -92,40 +89,39 @@ function draw () {
 }
 
 function drawLetter(ell_x, ell_y, letterData) {
-  // determine parameters for second circle
-  let sizeEll_x1 = letterData["sizeEll_x1"];
-  let sizeEll_y1 = letterData["sizeEll_y1"];
-  let sizeEll_x2 = letterData["sizeEll_x2"];
-  let sizeEll_y2 = letterData["sizeEll_y2"];
-  let sizeEll_x3 = letterData["sizeEll_x3"];
-  let sizeEll_y3 = letterData["sizeEll_y3"];
-  let sizeEll_x4 = letterData["sizeEll_x4"];
-  let sizeEll_y4 = letterData["sizeEll_y4"];
-  let ell1_x = ell_x + letterData["loc1X"];
-  let ell1_y = ell_y + letterData["loc1Y"];
-  let ell2_x = ell_x + letterData["loc2X"];
-  let ell2_y = ell_y + letterData["loc2Y"];
-  let ell3_x = ell_x + letterData["loc3X"];
-  let ell3_y = ell_y + letterData["loc3Y"];
+  // determine parameters for other circles
+
+  let cntrSize_x = letterData["cntrSize_x"];
+  let cntrSize_y = letterData["cntrSize_y"];
+  let handleSize_x = letterData["handleSize_x"];
+  let handleSize_y = letterData["handleSize_y"];
+  let eyeSize = letterData["eyeSize"];
+  let cutSize_x = letterData["cutSize_x"];
+  let cutSize_y = letterData["cutSize_y"];
+  let ell1_x = ell_x + letterData["locCntr_x"];
+  let ell1_y = ell_y + letterData["locCntr_y"];
+  let ell2_x = ell_x + letterData["locHandl_x"];
+  let ell2_y = ell_y + letterData["locHandl_y"];
+  let ell3_x = ell_x + letterData["locEye_x"];
+  let ell3_y = ell_y + letterData["locEye_y"];
   let ell4_x = ell_x + letterData["loc4X"];
   let ell4_y = ell_y + letterData["loc4Y"];
 
 
 
-  // draw two circles
+  // draw 6 circles/ovel
   noStroke();
   fill(peach);
-  ellipse(ell2_x, ell2_y, sizeEll_x2, sizeEll_y2);
+  ellipse(ell2_x, ell2_y, handleSize_x, handleSize_y);//handle shape
   fill(peach);
-  ellipse(ell_x, ell_y, 150, 150);
+  ellipse(ell_x, ell_y, 150, 150);//main Circle
   fill(lightBlue);
-  ellipse(ell1_x, ell1_y, sizeEll_x1, sizeEll_y1);
+  ellipse(ell1_x, ell1_y, cntrSize_x, cntrSize_y);// circle in midlle
   fill(lightBlue);
-  ellipse(ell4_x, ell4_y, sizeEll_x4, sizeEll_y4);
+  ellipse(ell4_x, ell4_y, cutSize_x, cutSize_y);// cutter
   fill(darkGreen);
-  ellipse(ell3_x, ell3_y, sizeEll_x3, sizeEll_y3);
-  ellipse(ell3_x + 50, ell3_y, sizeEll_x3, sizeEll_y3);
-
+  ellipse(ell3_x, ell3_y, eyeSize);//left eye
+  ellipse(ell3_x + 50, ell3_y, eyeSize);//right eye
 
 }
 
