@@ -13,28 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 150,
+  "offsetx": 10,
+  "offsety": 3
 }
 
 const letterB = {
   "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx": 20,
+  "offsety": +60//-145
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 50, //30
+  "size": 150,
+  "offsetx": 30
   "offsety": 0
+
+
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor  = "#fddeef";  //hexcolortool.com/fddeef  //#caf0f8
+const strokeColor      = "#550632"; //(burgundy) //#03045e
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+//const darkBlue  = "#0077b6";
+const pink  = "#d572b5"; //https://www.hexcolortool.com/#d572b5  //"#90e0ef";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,7 +45,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(6); //4
+  strokeWeight(15); //4
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -65,15 +67,36 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  //let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  fill(255, 10, 177); //darkBlue
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // fill(255, 10, 177); //darkBlue
+  // ellipse(posx, posy, 150, 150);
+  // fill(lightBlue);
+  // ellipse(pos2x, pos2y, size2, size2);
+
+
+  if ("offsetx": 10) {
+    //line(posx, posy-20, posx, posy+26);
+    fill(pink);
+    rect(pos2x, pos2y,50, 50, 20, 20, 20, 0);
+    //triangle(pos2x-45, pos2y, pos2x-20, pos2y-20, pos2x-20, pos2y+20)
+  }
+  if ("offsetx": 20) {
+    line(posx, posy-20, posx, posy+26);
+    fill(pink);
+    rect(pos2x, pos2y,50, 50, 0, 20, 20, 0);
+  }
+  if ("offsetx": 30) {
+    fill(pink);
+    rect(pos2x, pos2y,50, 50, 20, 0, 0, 20);
+  }
+  else {
+    fill(pink);
+    rect(pos2x, pos2y,50, 50, 20, 20, 20, 20);
+  }
 }
 
 function keyTyped() {

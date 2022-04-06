@@ -10,4 +10,4 @@ The three parameters per letter:
   * `offsety` : y offset of the second circle relative to the first one
 
 
-I changed a few things about the sketch using the same code. Changed darkBlue fill to pink. Changed space between letters from 250 to 200. Changed strokeWeight from 4 to 6.
+First time working on this Project 2. I changed a few things about the sketch using the same code. Changed darkBlue fill to pink. Changed space between letters from 250 to 200. Changed strokeWeight from 4 to 6.
