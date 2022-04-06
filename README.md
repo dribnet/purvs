@@ -2,32 +2,31 @@
 
 6 / 4 / 22:
 
-I updated "sketch.js", "draw_letters.js", and "editor.js". 
-I think this code need to upgrad with extra parameters for the shapes 
-because some letters complete with more shapes with different sizes and locations so those need parameterizing.
+This is my recent work with updating "letters.js", "draw_letters.js", and "sketch.js".
+I've changed my parameters with consideration of the letter requiring.
+I have completed the letters A-H. I have difficulty in some letters with my recent parameters. So I'm still thinking about some little changes in parameters to draw the letters easier with the lower number of parameters. Maybe, I can add 2 extra shapes with fixed locations and flexible sizes. With this structure, I can create all the letters easier and with fewer parameters. This way can be helpful for the numbers too.
 
-this is my recent parameters for this stage:
+recent parameters:
 
-   let ell_x = 50;
-   let ell_y = 150;
-
-   let ellSize = 90;//size of main circles
-   let handleSize_x = 20// width of handle
-
-   // determine parameters for other circles
-   let cntrSize = letterData["cntrSize"];
-   let handleHeight = letterData["handleHeight"];
-   let eyeSize = letterData["eyeSize"];
-   let cutSize_x = letterData["cutSize_x"];
-   let cutSize_y = letterData["cutSize_y"];
-   let ell1_x = ell_x + letterData["locCntr_x"];
-   let ell1_y = ell_y + letterData["locCntr_y"];
-   let ell2_x = ell_x + letterData["locHandl_x"];
-   let ell2_y = ell_y + letterData["locHandl_y"];
-   let ell3_x = ell_x + letterData["locEyes_x"];
-   let ell3_y = ell_y + letterData["locEyes_y"];
-   let ell4_x = ell_x + letterData["loc4X"];
-   let ell4_y = ell_y + letterData["loc4Y"];
-   let eyesSpace = letterData["eyesSpace"];
-
-I still think about it how can I build my letters with less parametersand I hope to find some way.
+ let ell_x = 85;
+   let ell_y = 260;
+    push();
+   scale(0.57)
+   // let ellSize = 90;//size of main circles
+   let handleWidth = 25// width of handle
+ // determine parameters for other circles
+ let cntrSize_x = letterData["cntrSize_x"];
+ let cntrSize_y = letterData["cntrSize_y"];
+ let handleHeight = letterData["handleHeight"];
+ let eyeSize = letterData["eyeSize"];
+ let cutSize_x = letterData["cutSize_x"];
+ let cutSize_y = letterData["cutSize_y"];
+ let ell1_x = ell_x + letterData["locCntr_x"];
+ let ell1_y = ell_y + letterData["locCntr_y"];
+ let ell2_x = ell_x + letterData["locHandl_x"];
+ let ell2_y = ell_y + letterData["locHandl_y"];
+ let ell3_x = ell_x + letterData["locEye_x"];
+ let ell3_y = ell_y + letterData["locEye_y"];
+ let ell4_x = ell_x + letterData["locCut_x"];
+ let ell4_y = ell_y + letterData["locCut_y"];
+ let eyesSpace = letterData["eyesSpace"];
