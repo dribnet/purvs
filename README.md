@@ -1,13 +1,8 @@
 ## MDDN 242 2022 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Still trying to sort out my code to draw the letters in the form I want. I'm using a line and rounded rectangle to draw the letters. At the moment my code doesn't seem to be working so I need to figure out a way forward so that I can update my thumbnail and sketch.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
 
 First time working on this Project 2. I changed a few things about the sketch using the same code. Changed darkBlue fill to pink. Changed space between letters from 250 to 200. Changed strokeWeight from 4 to 6.
