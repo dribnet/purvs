@@ -5,150 +5,212 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    visible: [
-      1, 1, 1,
-      1, 0, 1,
-      0, 1, 1,
-         0]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "B": {
-    visible: [
-      1, 0, 0,
-      1, 1, 1,
-      1, 0, 1,
-         1]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 1, tile15: 1,
   },
   "C": {
-    visible: [
-      0, 0, 0,
-      1, 1, 0,
-      1, 0, 1,
-         1]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 1, tile9: 0, tile10: 0,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "D": {
-    visible: [
-      0, 0, 1,
-      1, 1, 1,
-      1, 0, 1,
-         1]
+    tile1: 1,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 1, tile15: 1,
   },
   "E": {
-    visible: [
-      1, 1, 1,
-      1, 0, 0,
-      1, 0, 0,
-         1]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "F": {
-    visible: [
-      1, 1, 0,
-      1, 0, 0,
-      1, 1, 0,
-         0]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 0, tile13: 0,
+    tile14: 0, tile15: 0,
   },
   "G": {
-    visible: [
-      1, 1, 1,
-      1, 0, 1,
-      0, 0, 1,
-         1]
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "H": {
-    visible: [
-      1, 0, 0,
-      1, 0, 0,
-      1, 1, 1,
-         0]
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 0, tile6: 1, tile7: 0,
+    tile8: 0, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 0, tile3: 0, tile4: 1,
+    tile5: 0, tile6: 0, tile7: 1,
+    tile8: 0, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 0,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 1, tile9: 0, tile10: 0,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 1, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 0,
+    tile5: 1, tile6: 1, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 0, tile13: 0,
+    tile14: 0, tile15: 0,
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 0, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 0,
+    tile8: 0, tile9: 1, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 0, tile6: 1, tile7: 0,
+    tile8: 0, tile9: 1, tile10: 0,
+    tile11: 0, tile12: 1, tile13: 0,
+    tile14: 0, tile15: 1,
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 0, tile12: 1, tile13: 0,
+    tile14: 0, tile15: 1,
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 0, tile10: 1,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 0, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 1, tile13: 1,
+    tile14: 0, tile15: 0,
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 1,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 0, tile9: 1, tile10: 0,
+    tile11: 0, tile12: 1, tile13: 0,
+    tile14: 0, tile15: 1,
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    tile1: 0,
+    tile2: 1, tile3: 1, tile4: 1,
+    tile5: 0, tile6: 0, tile7: 1,
+    tile8: 1, tile9: 1, tile10: 0,
+    tile11: 1, tile12: 0, tile13: 1,
+    tile14: 0, tile15: 1,
   },
   "0": {
     "size": 40,

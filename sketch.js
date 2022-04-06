@@ -13,43 +13,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35,
-  "rectangle_x": -40,
-  "rectangle_y": 30,
-  "rectangle_width": 80,
-  "rectangle_height": 10,
-  "rectangle_first": false
+  tile1: 1, tile2: 1, tile3: 1,
+  tile4: 1, tile5: 0, tile6: 1,
+  tile7: 0, tile8: 1, tile9: 1,
+            tile10: 0,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145,
-  "rectangle_x": -70,
-  "rectangle_y": -120,
-  "rectangle_width": 80,
-  "rectangle_height": 150,
-  "rectangle_first": true
+  tile1: 1, tile2: 0, tile3: 0,
+  tile4: 1, tile5: 1, tile6: 1,
+  tile7: 1, tile8: 0, tile9: 1,
+            tile10: 1,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0,
-  "rectangle_x": 0,
-  "rectangle_y": 0,
-  "rectangle_width": 0,
-  "rectangle_height": 0,
-  "rectangle_first": false
+  tile1: 0, tile2: 0, tile3: 0,
+  tile4: 1, tile5: 1, tile6: 0,
+  tile7: 1, tile8: 0, tile9: 1,
+            tile10: 1,
 }
 
 const backgroundColor  = "#caf0f8";
 const strokeColor      = "#03045e";
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const darkYellow  = "#deaa28";
+const strokeYellow  = "#dec028";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -77,29 +65,85 @@ function draw () {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
+
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+
+  push();
+  translate(posx, posy);
+
+  // color/stroke setup
+  stroke(strokeYellow);
+  strokeWeight(0.2);
+  fill(darkYellow);
+
+  let visible = [
+    letterData.tile1, letterData.tile2, letterData.tile3,
+    letterData.tile4, letterData.tile5, letterData.tile6,
+    letterData.tile7, letterData.tile8, letterData.tile9,
+    letterData.tile10];
+    
+  if (letterData['visible'] != null) { visible = letterData['visible']; }
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
+  drawHexagonagon(50, 100, 60, visible);
 
-  // If we draw the rectangle first then draw!
-  if (letterData["rectangle_first"]) {
-    rect(posx + letterData["rectangle_x"], posy + letterData["rectangle_y"], letterData["rectangle_width"], letterData["rectangle_height"]);
-  }
+  pop();
+}
 
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+function drawHexagonagon(x, y, size, visible) {
+  translate(x, y);
+  
+  // Center
+  visible[4] && drawHexagon(0, 0, (size/3) * visible[4]);
+  
+  // Center top
+  visible[7] && drawHexagon(0, size/2/hexagonHeightRatio, (size/3) * visible[7]);
+  
+  // Center Bottom
+  visible[1] && drawHexagon(0, -size/2/hexagonHeightRatio, (size/3) * visible[1]);
+  
+  // Top right
+  visible[2] && drawHexagon(size/2, -size/4/hexagonHeightRatio, (size/3) * visible[2]);
 
-  // If we draw the rectangle last then draw!
-  if (!letterData["rectangle_first"]) {
-    fill(darkBlue);
-    rect(posx + letterData["rectangle_x"], posy + letterData["rectangle_y"], letterData["rectangle_width"], letterData["rectangle_height"]);
-  }
+  // Top left
+  visible[0] && drawHexagon(-size/2, -size/4/hexagonHeightRatio, (size/3) * visible[0]);
+
+  // Center right
+  visible[5] && drawHexagon(size/2, size/4/hexagonHeightRatio, (size/3) * visible[5]);
+
+  // Center left
+  visible[3] && drawHexagon(-size/2, size/4/hexagonHeightRatio, (size/3) * visible[3]);
+  
+  // Bottom right
+  visible[8] && drawHexagon(size/2, size*hexagonHeightRatio, (size/3) * visible[8]);
+
+  // Bottom left
+  visible[6] && drawHexagon(-size/2, size*hexagonHeightRatio, (size/3) * visible[6]);
+
+  // Bottom bottom
+  visible[9] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * visible[9]);
+
+  translate(-x, -y);
+}
+
+const hexagonHeightRatio = 0.8660;
+
+function drawHexagon(x, y, size) {
+  console.log(size)
+  push();
+  translate(x, y);
+  scale(size*1);
+
+  beginShape();
+  vertex(-1, 0);
+  vertex(-0.5, -hexagonHeightRatio);
+  vertex(0.5, -hexagonHeightRatio);
+  vertex(1, 0);
+  vertex(0.5, hexagonHeightRatio);
+  vertex(-0.5, hexagonHeightRatio);
+  endShape(CLOSE);
+
+  pop();
 }
 
 function keyTyped() {

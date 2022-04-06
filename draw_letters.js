@@ -20,8 +20,12 @@ function drawLetter(letterData) {
   strokeWeight(0.2);
   fill(darkYellow);
 
-  let visible = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
-  if (letterData['visible'] != null) { visible = letterData['visible']; }
+  let visible = [];
+  for (let i = 1; i < 16; i++) {
+    visible.push(letterData['tile' + i]);
+  }
+    
+  if (letterData['tile1'] == null) { pop(); return; }
 
   // draw two circles
   drawHexagonagon(50, 100, 60, visible);
@@ -30,35 +34,55 @@ function drawLetter(letterData) {
 function drawHexagonagon(x, y, size, visible) {
   translate(x, y);
   
-  // Center
-  visible[4] && drawHexagon(0, 0, (size/3) * visible[4]);
+  // Top top left
+  visible[0] && drawHexagon(-size/2, -size*1.25/hexagonHeightRatio, (size/3) * visible[0]);
   
-  // Center top
-  visible[7] && drawHexagon(0, size/2/hexagonHeightRatio, (size/3) * visible[7]);
-  
-  // Center Bottom
-  visible[1] && drawHexagon(0, -size/2/hexagonHeightRatio, (size/3) * visible[1]);
-  
-  // Top right
-  visible[2] && drawHexagon(size/2, -size/4/hexagonHeightRatio, (size/3) * visible[2]);
 
   // Top left
-  visible[0] && drawHexagon(-size/2, -size/4/hexagonHeightRatio, (size/3) * visible[0]);
-
-  // Center right
-  visible[5] && drawHexagon(size/2, size/4/hexagonHeightRatio, (size/3) * visible[5]);
-
-  // Center left
-  visible[3] && drawHexagon(-size/2, size/4/hexagonHeightRatio, (size/3) * visible[3]);
+  visible[1] && drawHexagon(-size/2, -size*0.75/hexagonHeightRatio, (size/3) * visible[1]);
   
-  // Bottom right
-  visible[8] && drawHexagon(size/2, size*hexagonHeightRatio, (size/3) * visible[8]);
+  // Top Center
+  visible[2] && drawHexagon(0, -size/hexagonHeightRatio, (size/3) * visible[2]);
+  
+  // Top Right
+  visible[3] && drawHexagon(size/2, -size*0.75/hexagonHeightRatio, (size/3) * visible[3]);
 
-  // Bottom left
-  visible[6] && drawHexagon(-size/2, size*hexagonHeightRatio, (size/3) * visible[6]);
+  
+  // Top Middle Left
+  visible[4] && drawHexagon(-size/2, -size*0.25/hexagonHeightRatio, (size/3) * visible[4]);
+  
+  // Top Middle Center
+  visible[5] && drawHexagon(0, -size*0.5/hexagonHeightRatio, (size/3) * visible[5]);
+  
+  // Top Middle Right
+  visible[6] && drawHexagon(size/2, -size*0.25/hexagonHeightRatio, (size/3) * visible[6]);
 
-  // Bottom bottom
-  visible[9] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * visible[9]);
+  
+  // Middle Left
+  visible[7] && drawHexagon(-size/2, size*0.25/hexagonHeightRatio, (size/3) * visible[7]);
+  
+  // Middle Center
+  visible[8] && drawHexagon(0, 0, (size/3) * visible[8]);
+  
+  // Middle Right
+  visible[9] && drawHexagon(size/2, size*0.25/hexagonHeightRatio, (size/3) * visible[9]);
+
+  
+  // Bottom Middle Left
+  visible[10] && drawHexagon(-size/2, size*0.75/hexagonHeightRatio, (size/3) * visible[10]);
+  
+  // Bottom Middle Center
+  visible[11] && drawHexagon(0, size*0.5/hexagonHeightRatio, (size/3) * visible[11]);
+  
+  // Bottom Middle Right
+  visible[12] && drawHexagon(size/2, size*0.75/hexagonHeightRatio, (size/3) * visible[12]);
+
+  
+  // Bottom Left
+  visible[13] && drawHexagon(-size/2, size*1.25/hexagonHeightRatio, (size/3) * visible[13]);
+  
+  // Bottom Center
+  visible[14] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * visible[14]);
 
   translate(-x, -y);
 }
@@ -93,6 +117,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "ABBAABBA",
+  "12345678",
   "CAB?CAB?",
   "BAAAAAAA"
 ]

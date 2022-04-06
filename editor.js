@@ -5,9 +5,16 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["tile1",  0, 1],
+  ["tile2",  0, 1],
+  ["tile3",  0, 1],
+  ["tile4",  0, 1],
+  ["tile5",  0, 1],
+  ["tile6",  0, 1],
+  ["tile7",  0, 1],
+  ["tile8",  0, 1],
+  ["tile9",  0, 1],
+  ["tile10", 0, 1],
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
@@ -53,7 +60,7 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 50)
+    let cur_slider = createSlider(0, 100, 100)
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
