@@ -18,13 +18,14 @@ const strokeColor  = "#03045e";
 function drawLetter(letterData) {
   const backgroundColor  = "#FFFFF0";
   const strokeColor = "#000000";
-  const squareColour = "#FF0000";
-  const rectColour = "#0000FF";
+  const redColour = "#FF0000";
+  const blueColour = "#0000FF";
+  const yellowColour = "#FFFF00";
 
   push();
   rectMode(CENTER);
 
-  strokeWeight(3);
+  strokeWeight(5);
   stroke(strokeColor);
 
   let posx = 50;
@@ -43,31 +44,84 @@ function drawLetter(letterData) {
   let lineX = posx + letterData["lineX"];
   let lineY = posy + letterData["lineY"];
   let lineLength = letterData['lineLength'];
+  let lineHeight = letterData['lineHeight'];
 
-  fill(squareColour);
+
+  let squareArea = squareSize*squareSize;
+  let rectArea = rectWidth*rectHeight;
+  let lineArea = lineLength*lineHeight;
+
+  let colour1;
+  let colour2;
+  let colour3;
+
+  // if(squareArea<rectArea<lineArea){
+  //   colour1 = redColour;
+  //   colour2 = blueColour;
+  //   colour3 = yellowColour;
+  // }
+  // else if(rectArea<squareArea<lineArea){
+  //   colour1 = blueColour;
+  //   colour2 = redColour;
+  //   colour3 = yellowColour;
+  // }
+  // else if(squareArea<lineArea<rectArea){
+  //   colour1 = redColour;
+  //   colour2 = yellowColour;
+  //   colour3 = blueColour;
+  // }
+  // else if(rectArea<lineArea<squareArea){
+  //   colour1 = blueColour;
+  //   colour2 = yellowColour;
+  //   colour3 = redColour;
+  // }
+  // else if(lineArea<squareArea<rectArea){
+  //   colour1 = yellowColour;
+  //   colour2 = redColour;
+  //   colour3 = blueColour;
+  // }
+  // else{
+  //   colour1 = yellowColour;
+  //   colour2 = blueColour;
+  //   colour3 = redColour;
+  // }
+
+
+
+  fill(redColour);
   rect(squareX, squareY, squareSize);
-  fill(rectColour);
+  fill(blueColour);
   rect(rectX, rectY, rectWidth, rectHeight);
+  fill(yellowColour);
+  rect(lineX, lineY, lineLength, lineHeight);
 
-  //strokeWeight(5);
-  if(letterData['lineAngle'] == 0){
-  //  line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
-    line(lineX, lineY, lineX, lineY+lineLength);
-
-  }
-  else{
-    //line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
-    line(lineX, lineY, lineX+lineLength, lineY);
-
-  }
+  // //strokeWeight(5);
+  // if(letterData['lineAngle'] == 0){
+  // //  line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+  //   line(lineX, lineY, lineX, lineY+lineLength);
+  //
+  // }
+  // else{
+  //   //line(squareX-squareSize/2+3, rectY-rectHeight/2, squareX-squareSize/2+3, rectY+lineLength);
+  //   line(lineX, lineY, lineX+lineLength, lineY);
+  //
+  // }
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["squareX"]    = map(percent, 0, 100, oldObj["squareX"], newObj["squareX"]);
+  new_letter["squareY"] = map(percent, 0, 100, oldObj["squareY"], newObj["squareY"]);
+  new_letter["squareSize"] = map(percent, 0, 100, oldObj["squareSize"], newObj["squareSize"]);
+  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+  new_letter["rectWidth"] = map(percent, 0, 100, oldObj["rectWidth"], newObj["rectWidth"]);
+  new_letter["rectHeight"] = map(percent, 0, 100, oldObj["rectHeight"], newObj["rectHeight"]);
+  new_letter["lineX"] = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
+  new_letter["lineY"] = map(percent, 0, 100, oldObj["lineY"], newObj["lineY"]);
+  new_letter["lineLength"] = map(percent, 0, 100, oldObj["lineLength"], newObj["lineLength"]);
+  new_letter["lineHeight"] = map(percent, 0, 100, oldObj["lineHeight"], newObj["lineHeight"]);
   return new_letter;
 }
 

@@ -12,10 +12,11 @@ const sliderInfo = [
   ["rectY", -100, 100],
   ["rectWidth", 0, 100],
   ["rectHeight", 0, 200],
-  ["lineX", -100, 100],
-  ["lineY", -200, 100],
-  ["lineLength", 0, 200],
-  ["lineAngle", 0, 1]
+  ["lineX", -50, 50],
+  ["lineY", -100, 100],
+  ["lineLength", 0, 100],
+  //["lineAngle", 0, 1]
+  ["lineHeight", 0, 200]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
