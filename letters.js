@@ -1,188 +1,669 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "arcA_PosX": 0,
+    "arcA_PosY": 0,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 0,
+    "arcA_PosY": 0,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "arcA_PosX": 0,
+    "arcA_PosY": 0,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 0,
+    "arcA_PosY": 0,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcA_PosX": 50,
+    "arcA_PosY": 100,
+    "arcA_SizeX": 50,
+    "arcA_SizeY": 50,
+    "arcA_Begin": 140,
+    "arcA_End": 200,
+
+    "rectA_PosX": 0,
+    "rectA_PosY": 0,
+    "rectA_SizeX": 50,
+    "rectA_SizeY": 100,
+
+    "rectB_PosX": 100,
+    "rectB_PosY": 0,
+    "rectB_SizeX": 50,
+    "rectB_SizeY": 100
   }
 
 }

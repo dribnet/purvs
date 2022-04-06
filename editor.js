@@ -4,10 +4,26 @@
  * and each row should be:
  * ["object_field", minimum_bound, maximum_bound]
  */
+
+
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["arcA_PosX", 0, 100],
+  ["arcA_PosY", 0, 200],
+  ["arcA_SizeX", 0, 100],
+  ["arcA_SizeY", 0, 200],
+  ["arcA_Begin", 0, 360],
+  ["arcA_End", 0, 360],
+
+  ["rectA_PosX", 0, 100],
+  ["rectA_PosY", 0, 200],
+  ["rectA_SizeX", 0, 100],
+  ["rectA_SizeY", 0, 200],
+
+  ["rectB_PosX", 0, 100],
+  ["rectB_PosY", 0, 200],
+  ["rectB_SizeX", 0, 100],
+  ["rectB_SizeY", 0, 200]
+
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
