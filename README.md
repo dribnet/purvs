@@ -1,5 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
+Alphabet updated up to the letter D. The next ones going forward a bit of a challenge at present. Still need to do some more thinking.
+
 Finally managed to sort out the code. I had to add another rounded rectangle which has the same colour as the background, which is cutting through the first rectangle in order to form the letter C.
 
 
