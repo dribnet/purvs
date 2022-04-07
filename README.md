@@ -1,19 +1,18 @@
 ## MDDN 242 2022 Assignment 2
-Editor works
-I changed the editor.js file a bit so I could have certain sliders set to 0 by default. (and in the end didn't need it)
 
-Added interpolation but it is very, very broken.
+Fixed interpolation, I just did the maps wrong thinking I needed to set the lower and upper numbers of the map to what the parameters were.
 
-A rule I've set for myself is that I can't have a straight 'wave', it needs to bend even if it's just a little bit.
-Another rule is to not change wavelength too extremely.
+Added numbers, read by the amount of 'peaks' on the line, 0 no peak, 9 = 5 + 4 peaks.
 
-Added more functionality like having negative x and rotation when I need it and shorter wavelengths.
-Letters before P didn't have this so I could go back and update these if I could improve them.
+I made a new H but it looks like an X, I can't figure out how I would make a capital H
+
 
 Letters I don't like atm (maybe it needs a third wave):
-H - lowercase, might need another wave
+H - idk whats worse, lower case H or upper case H that looks like an X
 I - needs its top, another wave
-M - feels like it doesn't fit in
-Q - ugly
+Q - respect its ugliness
 U,V - very similar
-W - same as M
+
+Todo:
+Colour scheme
+Perhaps colour based on how many peaks, length
