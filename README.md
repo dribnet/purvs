@@ -1,5 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
+Finally managed to sort out the code. I had to add another rounded rectangle which has the same colour as the background, which is cutting through the first rectangle in order to form the letter C.
+
 
 Still trying to sort out my code to draw the letters in the form I want. I'm using a line and rounded rectangle to draw the letters. At the moment my code doesn't seem to be working so I need to figure out a way forward so that I can update my thumbnail and sketch.
 
