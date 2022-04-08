@@ -19,7 +19,7 @@ const alphabet = {
     "offsety2": 0,
   },
   "C": {
-    "size": 50,
+    "size": 60,
     "offsetx": 25,
     "offsety": 0,
     "offsetx2": 18,
