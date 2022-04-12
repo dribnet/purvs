@@ -1,8 +1,6 @@
 ## MDDN 242 2022 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+ Today is the first time that I start this project. After watching tutorials, I starting to make design of my letters. I decide to make a leter from an arc and a triangle which it's variable could be moved. Now I am trying to make triangle's variables moving by itself. I want to make the triangle's height move by itself.
 
 The three parameters per letter:
   * `size` : radius of the second circle
