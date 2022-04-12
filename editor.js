@@ -6,8 +6,8 @@
  */
 const sliderInfo = [
   ["size",  0, 120],
-  ["offsetx",  -30,  30],
-  ["offsety", -30, 30],
+  ["angle1",  0,  360],
+  ["angle2", 0, 360]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

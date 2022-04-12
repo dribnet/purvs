@@ -59,8 +59,8 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["angle1"] = map(percent, 0, 100, oldObj["angle1"], newObj["angle1"]);
+  new_letter["angle2"] = map(percent, 0, 100, oldObj["angle2"], newObj["angle2"]);
   return new_letter;
 }
 
