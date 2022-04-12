@@ -45,7 +45,7 @@ function drawLetter(letterData) {
   ellipse(0, -25, size2, size2);
   pop();
 
-  //Ellipse
+  //Ellipse 3
   push();
   translate(posx, posy);
   noStroke();
