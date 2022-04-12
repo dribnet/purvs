@@ -8,8 +8,6 @@ const sliderInfo = [
   ["size",  0, 120],
   ["offsetx",  -30,  30],
   ["offsety", -30, 30],
-  ["offsetx2", -22, 22],
-  ["offsety2", -22, 22]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
