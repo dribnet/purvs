@@ -1,18 +1,24 @@
 ## MDDN 242 2022 Assignment 2
 
-Fixed interpolation, I just did the maps wrong thinking I needed to set the lower and upper numbers of the map to what the parameters were.
+Looking at oscilloscopes as inspiration now.
 
-Added numbers, read by the amount of 'peaks' on the line, 0 no peak, 9 = 5 + 4 peaks.
+Changed the bottom line for I to be shorter to help it look less like an upside down T.
 
-I made a new H but it looks like an X, I can't figure out how I would make a capital H
+Worked on a capital H again but just went back to the lowercase one.
 
+Added a lerp colour, depending on the peak height it changes from blue to yellow. Blue low height, yellow most height.
 
-Letters I don't like atm (maybe it needs a third wave):
-H - idk whats worse, lower case H or upper case H that looks like an X
-I - needs its top, another wave
+I think for the numbers it would be good to do the same but with the amount of peaks instead of height.
+
+Changed the background colour to off black.
+
+Tried changing the stroke cap to round, but I don't think I like it rounded so I changed it back to square.
+
+Letters I don't like:
+H - Needs a third wave but want to stick with just having 2 lines
+I - same with H
 Q - respect its ugliness
 U,V - very similar
 
 Todo:
-Colour scheme
-Perhaps colour based on how many peaks, length
+Separate colour map for numbers based on amount of peaks.

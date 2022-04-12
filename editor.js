@@ -106,7 +106,7 @@ function draw () {
   if (debugBox) {
     noFill()
     strokeWeight(4);
-    stroke(0, 200, 0);
+    stroke(255,0,0); //changed to red
     rect(0, 0, 100, 200);
     rect(0,50, 100,100); //added boxes, lines
     strokeWeight(2);

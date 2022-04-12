@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#101010";
+var systemLineColor = "#D4D4D4";
+var systemBoxColor = "#FCFCFC";
 
 /* internal constants */
 const darkBlue  = "#0077b6";
@@ -33,12 +33,25 @@ function drawLetter(letterData) {
   let peaks2 = letterData["peaks2"];
   let peaks1H = letterData["peak1H"];
   let peaks2H = letterData["peak2H"];
-
+  //lerpColor setup
+  let Lcolor1 = color(0, 232, 232); //blue
+  let Lcolor2 = color(232, 232, 27); //yellow
+  //maps for calculating peak height
+  let PosPeakHLerpMap1 = map(peaks1H, 0, 100, 0, 1); //postive peak1 height
+  let NegPeakHLerpMap1 = map(peaks1H, 0, -100, 0, 1); //negative peak1 height
+  let PosPeakHLerpMap2 = map(peaks2H, 0, 100, 0, 1); //postive peak2 height
+  let NegPeakHLerpMap2 = map(peaks2H, 0, -100, 0, 1); //negative peak2 height
+  //maps for lerp colour
+  let PosLerpColor1 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap1); //pos peak1 color
+  let NegLerpColor1 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap1); //neg peak1 color
+  let PosLerpColor2 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap2); //pos peak2 color
+  let NegLerpColor2 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap2); //neg peak2 color
   //rect(posx, posy, 150, 250); //bounding box?
 
-  fill(lightBlue);
+  //fill(lightBlue);
   strokeWeight(15);
   strokeCap(SQUARE);
+  //strokeCap(ROUND);
   stroke(0);
 
   push();
@@ -47,6 +60,12 @@ function drawLetter(letterData) {
   rotate(rotate1);
   angleMode(RADIANS);
   noFill();
+  if(peaks1H >= 0){
+      stroke(PosLerpColor1);
+  }else{
+    stroke(NegLerpColor1);
+  }
+
   beginShape();
   for (let i = 0; i < 100; i++) { //sets length
 
@@ -63,6 +82,11 @@ function drawLetter(letterData) {
   rotate(rotate2);
   angleMode(RADIANS);
   noFill();
+  if(peaks2H >= 0){
+      stroke(PosLerpColor2);
+  }else{
+    stroke(NegLerpColor2);
+  }
   beginShape();
   for (let i = 0; i < 100; i++) { //2 pixel spacing on the x - axis.
 
