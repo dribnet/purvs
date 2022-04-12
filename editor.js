@@ -9,16 +9,21 @@ const sliderInfo = [
   // ["offsetx",  -30,  30],
   // ["offsety", -100, 100]
 
-  ["cntrSize", 0, 100],
-  ["handleHeight", 0 ,100],
-  ["eyeSize", 0, 30],
-  ["locCntr_x", 0, 100],
-  ["locCntr_y", 0, 25],
-  ["locHandl_x", -30, 50],
-  ["locHandl_y", -30, 50],
-  ["locEyes_x", -20, 80],
-  ["locEyes_y", -20, 20],
-  ["eyesSpace", -30, 30]
+  ["cntr_w", 0, 200],
+  ["cntr_h", 0 ,200],
+  ["cntr_xpos", -100, 300],
+  ["cntr_ypos", -300, 300],
+  ["handle_h", 0, -300],
+  ["handle_w", 0, 300],
+  ["main_ypos", -300, 0],
+  ["handl_xpos", -100, 300],
+  ["handl_ypos", -300, 200],
+  ["eyes_xpos", -100, 100],
+  ["eyes_ypos", -300, 200],
+  ["cutter_w", 0, 300],
+  ["cutter_h", 0, 300],
+  ["cutter_xpos", -200, 200],
+  ["cutter_ypos", -300, 300]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

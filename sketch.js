@@ -13,58 +13,58 @@ const canvasHeight = 500;
  */
 
  const letterA = {
-   "cntrSize_x":100,
-   "cntrSize_y":100,
-   "locCntr_x": 0,
-   "locCntr_y": 0,
-   "handleHeight":140,
-   "locHandl_x": 63,
-   "locHandl_y": 0,
-   "eyeSize":25,
-   "locEye_x": -20,
-   "locEye_y": -20,
-   "eyesSpace": 40,
-   "cutSize_x": 110,
-   "cutSize_y": 110,
-   "locCut_x": 0,
-   "locCut_y": 0
+   "cntr_w":100,
+   "cntr_h":100,
+   "cntr_xpos": 0,
+   "cntr_ypos": 0,
+   "handle_h":140,
+   "handle_w": 25,
+   "main_ypos": 250,
+   "handl_xpos": 63,
+   "handl_ypos": 0,
+   "eyes_xpos": -20,
+   "eyes_ypos": -20,
+   "cutter_w": 110,
+   "cutter_h": 110,
+   "cutter_xpos": 0,
+   "cutter_ypos": 0
 
  }
 
  const letterB = {
-   "cntrSize_x":100,
-   "cntrSize_y":100,
-   "locCntr_x": 0,
-   "locCntr_y": -1,
-   "handleHeight":250,
-   "locHandl_x": -65,
-   "locHandl_y": -50,
-   "eyeSize":25,
-   "locEye_x": -20,
-   "locEye_y": -20,
-   "eyesSpace": 40,
-   "cutSize_x": 110,
-   "cutSize_y": 110,
-   "locCut_x": 0,
-   "locCut_y": 0
+   "cntr_w":100,
+   "cntr_h":100,
+   "cntr_xpos": 0,
+   "cntr_ypos": -1,
+   "handle_h":270,
+   "handle_w": 25,
+   "main_ypos": 250,
+   "handl_xpos": -65,
+   "handl_ypos": -65,
+   "eyes_xpos": -20,
+   "eyes_ypos": -20,
+   "cutter_w": 110,
+   "cutter_h": 110,
+   "cutter_xpos": 0,
+   "cutter_ypos": 0
  }
 
  const letterC = {
-   "cntrSize_x":130,
-   "cntrSize_y":110,
-   "locCntr_x": 20,
-   "locCntr_y": 0,
-   "handleHeight":140,
-   "locHandl_x": 50,
-   "locHandl_y": 0,
-   "eyeSize":25,
-   "locEye_x": -10,
-   "locEye_y": -20,
-   "eyesSpace": 40,
-   "cutSize_x": 110,
-   "cutSize_y": 110,
-   "locCut_x": 0,
-   "locCut_y": 0
+   "cntr_w":130,
+   "cntr_h":110,
+   "cntr_xpos": 20,
+   "cntr_ypos": 0,
+   "handle_h":140,
+   "handle_w": 25,
+   "main_ypos": 250,
+   "handl_xpos": 50,
+   "handl_ypos": 0,
+   "eyes_xpos": -10,
+   "eyes_ypos": -20,
+   "cutter_w": 110,
+   "cutter_h": 110,
+   "cutter_xpos": 0,
+   "cutter_ypos": 0
  }
 
 const backgroundColor  = "#ccecec";//light blue
@@ -102,40 +102,43 @@ function draw () {
 }
 
 function drawLetter(ell_x, ell_y, letterData) {
+  let eyesSize = 25;
+  let eyesSpace = 40;
 
-  let handleWidth = 25// width of handle
 // determine parameters for other circles
-  let cntrSize_x = letterData["cntrSize_x"];
-  let cntrSize_y = letterData["cntrSize_y"];
-  let handleHeight = letterData["handleHeight"];
-  let eyeSize = letterData["eyeSize"];
-  let cutSize_x = letterData["cutSize_x"];
-  let cutSize_y = letterData["cutSize_y"];
-  let ell1_x = ell_x + letterData["locCntr_x"];
-  let ell1_y = ell_y + letterData["locCntr_y"];
-  let ell2_x = ell_x + letterData["locHandl_x"];
-  let ell2_y = ell_y + letterData["locHandl_y"];
-  let ell3_x = ell_x + letterData["locEye_x"];
-  let ell3_y = ell_y + letterData["locEye_y"];
-  let ell4_x = ell_x + letterData["locCut_x"];
-  let ell4_y = ell_y + letterData["locCut_y"];
-  let eyesSpace = letterData["eyesSpace"];
+
+  let cntrWidth = letterData["cntr_w"];
+  let cntrHeight = letterData["cntr_h"];
+  let handle_width = letterData["handle_w"];
+  let handle_height = letterData["handle_h"];
+  let cutterWidth = letterData["cutter_w"];
+  let cutterHeight = letterData["cutter_h"];
+  let ellMain_y = letterData["main_ypos"];
+  let ell1_x = ell_x + letterData["cntr_xpos"];
+  let ell1_y = ell_y + letterData["cntr_ypos"];
+  let ell2_x = ell_x + letterData["handl_xpos"];
+  let ell2_y = ell_y + letterData["handl_ypos"];
+  let ell3_x = ell_x + letterData["eyes_xpos"];
+  let ell3_y = ell_y + letterData["eyes_ypos"];
+  let ell4_x = ell_x + letterData["cutter_xpos"];
+  let ell4_y = ell_y + letterData["cutter_ypos"];
+
 
 
 
   // draw 6 circles/ovel
   noStroke();
  fill(peach);
- ellipse(ell2_x, ell2_y, handleWidth, handleHeight);//handle shape
+ ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
  fill(peach);
- ellipse(ell_x, ell_y, 150, 150);//main Circle
+ ellipse(ell_x, ellMain_y, 150, 150);// main Circle
  fill(lightBlue);
- ellipse(ell1_x, ell1_y, cntrSize_x, cntrSize_y);// circle in midlle
+ ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
  fill(lightBlue);
- ellipse(ell4_x, ell4_y, cutSize_x, cutSize_y);// cutter
+ ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
  fill(darkGreen);
- ellipse(ell3_x, ell3_y, eyeSize);//left eye
- ellipse(ell3_x + eyesSpace, ell3_y, eyeSize);//right eye
+ ellipse(ell3_x, ell3_y, eyesSize);//left eye
+ ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
 
 }
 

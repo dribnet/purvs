@@ -1,32 +1,30 @@
 ## MDDN 242 2022 Assignment 2
 
-6 / 4 / 22:
+6 - 12 / 4 / 22:
 
-This is my recent work with updating "letters.js", "draw_letters.js", and "sketch.js".
-I've changed my parameters with consideration of the letter requiring.
-I have completed the letters A-H. I have difficulty in some letters with my recent parameters. So I'm still thinking about some little changes in parameters to draw the letters easier with the lower number of parameters. Maybe, I can add 2 extra shapes with fixed locations and flexible sizes. With this structure, I can create all the letters easier and with fewer parameters. This way can be helpful for the numbers too.
+I'm updating the "sketch.js", "draw_letter.js", "editor.js", and "letters.js". This is my recent result from 6 - 12th April 3/5 hours daily. 
 
-recent parameters:
+I have completed my alphabet and numbers with considration of feedback design. I've chaned my prameters with adding a fix shapes and some flaxible shapes. 
 
- let ell_x = 85;
-   let ell_y = 260;
-    push();
-   scale(0.57)
-   // let ellSize = 90;//size of main circles
-   let handleWidth = 25// width of handle
- // determine parameters for other circles
- let cntrSize_x = letterData["cntrSize_x"];
- let cntrSize_y = letterData["cntrSize_y"];
- let handleHeight = letterData["handleHeight"];
- let eyeSize = letterData["eyeSize"];
- let cutSize_x = letterData["cutSize_x"];
- let cutSize_y = letterData["cutSize_y"];
- let ell1_x = ell_x + letterData["locCntr_x"];
- let ell1_y = ell_y + letterData["locCntr_y"];
- let ell2_x = ell_x + letterData["locHandl_x"];
- let ell2_y = ell_y + letterData["locHandl_y"];
- let ell3_x = ell_x + letterData["locEye_x"];
- let ell3_y = ell_y + letterData["locEye_y"];
- let ell4_x = ell_x + letterData["locCut_x"];
- let ell4_y = ell_y + letterData["locCut_y"];
- let eyesSpace = letterData["eyesSpace"];
+I have plan to change the colours of the background and the the letters in next step and edit some letters as I'm still think about those.
+
+Now my recent parameters are:
+
+let cntrWidth = letterData["cntr_w"];
+  let cntrHeight = letterData["cntr_h"];
+  let handle_width = letterData["handle_w"];
+  let handle_height = letterData["handle_h"];
+  let cutterWidth = letterData["cutter_w"];
+  let cutterHeight = letterData["cutter_h"];
+  let ellMain_y = letterData["main_ypos"];
+  let ell1_x = ell_x + letterData["cntr_xpos"];
+  let ell1_y = ell_y + letterData["cntr_ypos"];
+  let ell2_x = ell_x + letterData["handl_xpos"];
+  let ell2_y = ell_y + letterData["handl_ypos"];
+  let ell3_x = ell_x + letterData["eyes_xpos"];
+  let ell3_y = ell_y + letterData["eyes_ypos"];
+  let ell4_x = ell_x + letterData["cutter_xpos"];
+  let ell4_y = ell_y + letterData["cutter_ypos"];
+
+
+I'm still think about the letters and their edit. so might be change the parameters again. 
