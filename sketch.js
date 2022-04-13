@@ -14,24 +14,36 @@ const canvasHeight = 500;
 
 const letterA = {
   "arcRotation": 180,
-  "arcX": 0,
-  "arcY": 0,//arc
-
-
-  "triangleRotation":90,
-"triangleY":0,
-"triangleX":0,
-"triangleScale":1.1
-
+  "arcX": -15,
+  "arcY": 35,
+  "arcScale": 0.8,
+  "triangleRotation": 180,
+  "triangleScale": 1.4,
+  "triangleY": 40,
+  "triangleX": 4
 
 }
 
 const letterB = {
-
+  "arcRotation": 270,
+"arcX": -12.599999999999994,
+"arcY": -76,
+"arcScale": 1,
+"triangleRotation": 270,
+"triangleScale": 1.2,
+"triangleY": 132,
+"triangleX": -78.7
 }
 
 const letterC = {
-
+  "arcRotation": 90,
+"arcX": 35,
+"arcY": 10,
+"arcScale": 1.3,
+"triangleRotation": 270,
+"triangleScale": 0.7,
+"triangleY": 51,
+"triangleX": -95.2
 
 }
 
@@ -74,14 +86,11 @@ function draw() {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
 
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
   let arcrotation = letterData["arcRotation"];
 
   let arcx = posx + letterData["arcX"];
   let arcy = posy + letterData["arcY"];
-
+let arcscale = letterData["arcScale"]
 
   let trianglerotation = letterData["triangleRotation"]
   let trianglescale = letterData["triangleScale"]
@@ -94,43 +103,46 @@ function drawLetter(posx, posy, letterData) {
 
 
   // draw two circles
-
-  //ellipse(posx, posy, 150, 150);
   noFill()
-  strokeWeight(8)
 
-  push() //A triangle
-
-  stroke(darkBlue);
-
-  translate(trianglex, triangley)
-  translate(65,0)
-
- rotate(trianglerotation)
-
-scale(trianglescale)
-
-  triangle(0, 0, 60, 60, 120, 0);
-
-  stroke(lightBlue)
-  point(60,0)
-  pop()
+strokeWeight(6)
 
 
-
-  push()
+  push()//arc
 
   stroke(lightBlue);
   translate(arcx, arcy)
   rotate(arcrotation)
+scale(arcscale)
 
   arc(0, 0, 120, 120, 0, 180, OPEN)
 
   pop()
 
 
-  //
-  //ellipse(pos2x, pos2y, size2, size2);
+  push() //A triangle
+
+  stroke(darkBlue);
+  translate(trianglex, triangley)
+  translate(65,0)
+ rotate(trianglerotation)
+scale(trianglescale)
+
+  triangle(0, 0, 60, 60, 120, 0);
+
+  stroke(lightBlue)
+
+  pop()
+
+
+
+
+
+  // draw two circles
+  fill(darkBlue);
+//  ellipse(50, 150, 75, 75);
+  fill(lightBlue);
+//  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function keyTyped() {

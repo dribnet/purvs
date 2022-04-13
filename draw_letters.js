@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#ede5e5";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -43,18 +43,18 @@ let arcscale = letterData["arcScale"]
   // draw two circles
 
   //ellipse(posx, posy, 150, 150);
-  noFill()
 
 
 
 
   push()//arc
 
-  stroke(lightBlue);
+  stroke(186, 28, 10);
   translate(arcx, arcy)
   rotate(arcrotation)
 scale(arcscale)
 
+fill(186, 28, 10,180)
   arc(0, 0, 120, 120, 0, 180, OPEN)
 
   pop()
@@ -62,15 +62,16 @@ scale(arcscale)
 
   push() //A triangle
 
-  stroke(darkBlue);
+  stroke(116, 193, 198);
   translate(trianglex, triangley)
   translate(65,0)
  rotate(trianglerotation)
 scale(trianglescale)
 
+fill(116, 193, 198,180)
   triangle(0, 0, 60, 60, 120, 0);
 
-  stroke(lightBlue)
+
 
   pop()
 
@@ -78,11 +79,7 @@ scale(trianglescale)
 
 
 
-  // draw two circles
-  fill(darkBlue);
-//  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-//  ellipse(pos2x, pos2y, size2, size2);
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -94,7 +91,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "MEOWMEOW",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
