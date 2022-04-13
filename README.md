@@ -1,26 +1,34 @@
 ## MDDN 242 2022 Assignment 2
 
-### 01/04/22 - MORE LETTERS AND RECTANGLES
+### 01/04/22 - CHANGING MY DESIGN A BIT
 
-In today's class, I continued to work on my letters, creating the T and the F. I have changed my design slightly, replacing the line with a yellow rectangle. I have done this to add more room for variation as I can still make it a line if I give it a width of 0. Developing my Mondrian/De Stijl theme, I have used a chair by Gerrit Rietveld as inspiration, using the colours and black joining lines in the letters. I also removed the gaps between shapes so that all parts of the letter are connected.
+Today, I decided to change my letterforms a bit. I wasn't happy with what I had been doing previously so I went looking for some more inspiration, still around the Mondrian/Bauhaus aesthetic. I came across the image below on Pinterest and I could see a sort of F shape in it. It made me think that what my design was missing was some white squares, which are quite a main part of Mondrian art.
 
-![Red Blue Chair](https://www.moma.org/media/W1siZiIsIjQwMjU2OSJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=465daf6d624bd1c5)
+![Bauhaus minimalist print](https://i.pinimg.com/564x/4d/53/06/4d5306f3c8ee77fe81b5888cca29b3a2.jpg)
 
-I feel this extra rectangle has added to my design as now I have all of the primary colours, not just two.
+As a result, I have created a for loop that creates a stack of squares, the number of squares based on a variable. This means I can have lots of squares without having lots of variables. I initially had an if statement that decided if the line of squares was horizontal or vertical, dictated by a variable that was set to either 0 or 1. As I was coding, however, I found that all of the letters I was making used a vertical line, so I decided to get rid of the variable and make the line in all of the letters vertical. The second square drawn in the line is coloured blue while the rest are white.
 
-I need to change the names of some of my variables if I am keeping the yellow rectangles (change from line to rect).
+I have got two rectangles, one red and one yellow, that have changeable heights and widths (meaning they can also be squares), and two white squares, which are sometimes hidden behind other squares or each other if they aren't needed to make the letter.
 
-The 11 parameters per letter:
-  * `squareX` : x offset of the red square
-  * `squareY` : y offset of the red square
-  * `squareSize` : the length of the sides of the red square
-  * `rectX` : x offset of the blue rectangle
-  * `rectY` : y offset of the blue rectangle
-  * `rectWidth` : width of the blue rectangle
-  * `rectHeight` : height of the blue rectangle
-  * `lineX` : x offset of the yellow rectangle
-  * `lineY` : y offset of the yellow rectangle
-  * `lineLength` : the width of the yellow rectangle
-  * `lineHeight` : the height of the yellow rectangle
+I also changed the colours to make them less default and slightly brighter and more pastel-like. I think these colours look a lot better. I have made the background grey mostly just for contrast to the letters so I might change this later, however I do quite like this colour.
 
-I am still not entirely happy with my letters so I need to continue to play around with them. I know I am going to get into some trouble with some letters such as X and V due to the lack of angles, so I might have to chnage some things around.
+The 15 parameters per letter:
+  * `numLineSquares` : The number of squares to be drawn in the array
+  * `lineSquaresX`: The x position of the square array
+  * `lineSquaresY`: The y position of the square array
+  * `rect1X`: The x position of the yellow rectangle
+  * `rect1Y`: The y position of the yellow rectangle
+  * `rect1Width`: The width of the yellow rectangle
+  * `rect1Height`: The height of the yellow rectangle
+  * `rect2X`: The x position of the red rectangle
+  * `rect2Y`: The y position of the red rectangle
+  * `rect2Width`: The width of the red rectangle
+  * `rect2Height`: The height of the red rectangle
+  * `square1X`: The x position of one of the first white squares
+  * `square1Y`: The y position of the first white square
+  * `square2X`: The x position of the second white square
+  * `square2Y`: The y position of the second white square
+
+I am much happier with my design now so I will continue to make the rest of the letters and numbers. There are going to be a few that will be a bit harder, particularly the wider letters as currently all of my letters are three squares wide. You can see this issue with my M.
+
+I will also try to decrease the number of parameters I have. The current 15 is quite a few but I can see that all of my rectangles are the same width as my squares so I could make that a constant value instead, I would just have to make sure the orientation was still correct.

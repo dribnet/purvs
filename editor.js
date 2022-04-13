@@ -5,18 +5,36 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["squareX",   -50, 50],
-  ["squareY",  -100,  100],
-  ["squareSize", 0, 100],
-  ["rectX", -50, 50],
-  ["rectY", -100, 100],
-  ["rectWidth", 0, 100],
-  ["rectHeight", 0, 200],
-  ["lineX", -50, 50],
-  ["lineY", -100, 100],
-  ["lineLength", 0, 100],
-  //["lineAngle", 0, 1]
-  ["lineHeight", 0, 200]
+  // ["squareX",   -50, 50],
+  // ["squareY",  -100,  100],
+  // ["squareSize", 0, 100],
+  // ["rectX", -50, 50],
+  // ["rectY", -100, 100],
+  // ["rectWidth", 0, 100],
+  // ["rectHeight", 0, 200],
+  // ["lineX", -50, 50],
+  // ["lineY", -100, 100],
+  // ["lineLength", 0, 100],
+  // //["lineAngle", 0, 1]
+  // ["lineHeight", 0, 200]
+
+
+  ["numLineSquares", 0, 5],
+  ["lineSquaresX", -0, 70],
+  ["lineSquaresY", -0,  170],
+  ["rect1X", -0, 100],
+  ["rect1Y", -0, 200],
+  ["rect1Width", 0, 100],
+  ["rect1Height", 0, 200],
+  ["rect2X", -0, 100],
+  ["rect2Y", -0, 200],
+  ["rect2Width", 0, 100],
+  ["rect2Height", 0, 200],
+  ["square1X",   -0, 70],
+  ["square1Y",  -0,  170],
+  ["square2X",   -0, 70],
+  ["square2Y",  -0,  170]
+//  ["direction", 0, 1]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
