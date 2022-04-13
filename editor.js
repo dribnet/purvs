@@ -5,9 +5,19 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["arcRotation", 0, 360],
+  ["arcX",  -90, 90],
+  ["arcY", -10, 150],
+  ["arcScale", 0.2, 1.3],
+  //arc
+  ["triangleRotation", 0, 360],
+  ["triangleScale",  0.2,  1.3],
+  ["triangleY", -100, 150],
+  ["triangleX", -115, 50]
+
+
+
+
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

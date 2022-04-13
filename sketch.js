@@ -13,33 +13,25 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35,
   "arcRotation": 180,
   "arcX": 0,
-  "arcY": 0,
-  "triangleHeight": -130,
-  "triangleScale": 1.3,
-  "triangleRotation":0,
-"triangleY":0,
-"triangleX":-60
+  "arcY": 0,//arc
 
+
+  "triangleRotation":90,
+"triangleY":0,
+"triangleX":0,
+"triangleScale":1.1
 
 
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145,
-  "arcRotation": 90
+
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0,
+
 
 }
 
@@ -91,13 +83,12 @@ function drawLetter(posx, posy, letterData) {
   let arcy = posy + letterData["arcY"];
 
 
-  let trianglescale = letterData["triangleScale"]
   let trianglerotation = letterData["triangleRotation"]
+  let trianglescale = letterData["triangleScale"]
 
   let triangley = posy + letterData["triangleY"]
   let trianglex =  posx +letterData["triangleX"]
 
-  let triangleheight = posy + letterData["triangleHeight"]
 
 
 
@@ -105,28 +96,34 @@ function drawLetter(posx, posy, letterData) {
   // draw two circles
 
   //ellipse(posx, posy, 150, 150);
-  push() //A triangle
   noFill()
-  stroke(darkBlue);
   strokeWeight(8)
+
+  push() //A triangle
+
+  stroke(darkBlue);
+
   translate(trianglex, triangley)
-  translate(triangleheight)
-  scale(trianglescale)
+  translate(65,0)
+
  rotate(trianglerotation)
 
-  triangle(0, 0, 60, triangleheight, 120, 0);
+scale(trianglescale)
 
+  triangle(0, 0, 60, 60, 120, 0);
+
+  stroke(lightBlue)
+  point(60,0)
   pop()
 
 
 
   push()
 
-  noFill()
-  strokeWeight(8)
   stroke(lightBlue);
   translate(arcx, arcy)
   rotate(arcrotation)
+
   arc(0, 0, 120, 120, 0, 180, OPEN)
 
   pop()

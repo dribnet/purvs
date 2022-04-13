@@ -17,19 +17,72 @@ const strokeColor  = "#03045e";
  */
 function drawLetter(letterData) {
   // color/stroke setup
+  angleMode(DEGREES)
+  strokeJoin(ROUND);
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(6);
+let posx=50
+let posy=50
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let arcrotation = letterData["arcRotation"];
+
+  let arcx = posx + letterData["arcX"];
+  let arcy = posy + letterData["arcY"];
+let arcscale = letterData["arcScale"]
+
+  let trianglerotation = letterData["triangleRotation"]
+  let trianglescale = letterData["triangleScale"]
+
+  let triangley = posy + letterData["triangleY"]
+  let trianglex =  posx +letterData["triangleX"]
+
+
+
+
+
+  // draw two circles
+
+  //ellipse(posx, posy, 150, 150);
+  noFill()
+
+
+
+
+  push()//arc
+
+  stroke(lightBlue);
+  translate(arcx, arcy)
+  rotate(arcrotation)
+scale(arcscale)
+
+  arc(0, 0, 120, 120, 0, 180, OPEN)
+
+  pop()
+
+
+  push() //A triangle
+
+  stroke(darkBlue);
+  translate(trianglex, triangley)
+  translate(65,0)
+ rotate(trianglerotation)
+scale(trianglescale)
+
+  triangle(0, 0, 60, 60, 120, 0);
+
+  stroke(lightBlue)
+
+  pop()
+
+
+
+
 
   // draw two circles
   fill(darkBlue);
-  ellipse(50, 150, 75, 75);
+//  ellipse(50, 150, 75, 75);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+//  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
