@@ -36,14 +36,8 @@ function drawLetter(letterData) {
   let triangley = posy + letterData["triangleY"]
   let trianglex = posx + letterData["triangleX"]
 
-
-
-
-
-  // draw two circles
-
-  //ellipse(posx, posy, 150, 150);
-
+//  let triangleheighty = posy + letterData["triangleHeighty"]
+//  let triangleheightx = posx + letterData["triangleHeightx"]
 
 
 
@@ -70,8 +64,6 @@ function drawLetter(letterData) {
 
   fill(255, 199, 201, 180)
   triangle(0, 0, 60, 60, 120, 0);
-
-
 
   pop()
 
@@ -101,5 +93,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "MEOWMEOW",
   "ACDCACDC",
-  "BASBASBE"
+  "BASBASBE",
+  "ICECWEAM",
+  "DEATH13N"
+
+
+
 ]
