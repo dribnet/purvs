@@ -11,32 +11,48 @@ const canvasHeight = 500;
             relative to the first one
  *
  */
-
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
-}
-
-const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": 0,
+  "curveX": 10,
+  "curveMidX":-500,
+  "curveMidY":200,
+  "curveY": 80,
+  "translateX":50,
+  "translateY":15
+}
+const letterB = {
+  "size": 150,
+  "offsetx": 20,
+  "offsety": 20,
+  "curveX": 0,
+  "curveMidX":500,
+  "curveMidY":500,
+  "curveY": 130,
+  "translateX":-7,
+  "translateY":-40
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 60,
+  "offsetx": 0,
+  "offsety": 0,
+  "curveX": 20,
+  "curveMidX":400,
+  "curveMidY":200,
+  "curveY": 80,
+  "translateX":10,
+  "translateY":50
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor = "#aeffab";
+const strokeColor = "#03045e";
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const frontColour = "#af94ff";
+const backColour = "#fb94ff";
 
-function setup () {
+function setup() {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -49,7 +65,7 @@ function setup () {
   noLoop();
 }
 
-function draw () {
+function draw() {
   // clear screen
   background(backgroundColor);
 
@@ -59,28 +75,48 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x, center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
+  let offX = letterData["offsetx"];
+  let offY = letterData["offsety"];
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-
+  let bStroke = posx + letterData["curveX"];
+  let bStroke2 = posy + letterData["curveY"];
+  let bMidX = posx + letterData["curveMidX"];
+  let bMidY = posy + letterData["curveMidY"];
+  let minusBS = pos2x - letterData["curveX"];
+  let minusBS2 = posy - letterData["curveY"];
+  let transX = letterData["translateX"];
+  let transY = letterData ["translateY"];
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
+  fill(frontColour);
+  strokeWeight(0);
   ellipse(pos2x, pos2y, size2, size2);
+  // fill(backColour);//back circle
+  // ellipse(posx+10, posy+15, 150);
+  // fill(frontColour);//front cirlce
+  translate(transX,transY);
+  beginShape();
+  // curveVertex(posx,posy);
+  curveVertex(bMidX, bMidY);
+  // vertex(posx,posy);
+  curveVertex(bStroke, bStroke2);//bottom vertex
+  curveVertex(minusBS, minusBS2);//top wertex
+  curveVertex(bMidX, minusBS2)
+  endShape();
+
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
-  }
-  else if (key == '@') {
+  } else if (key == '@') {
     saveBlocksImages(true);
   }
 }
