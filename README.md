@@ -1,15 +1,18 @@
 ## MDDN 242 2022 Assignment 2
 
-Today I didn't change anything related to my sketch or idea, however I did copy my code over from sketch.js to draw_letters.js so that they would display in the alphabet section. To make this work I had to rewrite some small parts of the code to get them all sorted for the new draw_letters file, but now that I've done that I can work from this file for most of the rest of the project.
+Today I worked on adding in some more parameters to give me more control when drawing each letter. I added in parameters for changing the width / height of both the first and second rectangle, plus the functionality to change the X / Y position of not only the first rectangle but also the second one too. After updating the editor to work with these new parameters, I am now able to create letters with far more control and ease.
 
-I also got the editor set up and working. It seems like a really useful and powerful tool and I will be sure to make the most of it.
-
-I am pretty much at the stage where I can knuckle down and get to work on finishing all my letters. Before this, I want to make sure my idea is set in stone. I do like the idea of using only two rectangles, as I think it will be an interesting challenge, however I am slightly worried it will be too simple in terms of the look. Maybe I could add one more element in to spice things up? Something for me to think about over the next few days.  
+My next mission is to figure out how I am going to draw some of the more complex letters with my two rectangle mission statement in mind. Pretty much all letters of the alphabet I have already theorized to be possible, however there are a few that may prove challenging. Mainly, I think I will run into trouble with the letter E, F, H, M, W (among others). Using only two rectangles makes these especially hard to create, even with the added parameters. I am considering three options; either add a third rectangle in and switch my goal to include only three rectangles, switch my goal to being using only one of each primary shape (square, circle, triangle), or to use quad() to give me further control. I'll have to think about these over the next few days before continuing to work on the project. 
 
 The parameters per letter:
-  * `size` : size of the second rectangle
-  * `offsetx` : x offset of the second rectangle relative to the first one
-  * `offsety` : y offset of the second rectangle relative to the first one
+  * `width1` : width of the first rectangle
+  * `height1` : height of the first rectangle
+  * `width2` : width of the second rectangle
+  * `height2` : height of the second rectangle
+  * `offsetX1` : x offset of the first rectangle
+  * `offsetY1` : y offset of the first rectangle
+  * `offsetX2` : x offset of the second rectangle
+  * `offsetY2` : y offset of the second rectangle
   * `corner1` : how curved is the first corner
   * `corner2` : how curved is the second corner
   * `corner3` : how curved is the third corner

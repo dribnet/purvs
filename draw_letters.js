@@ -27,13 +27,15 @@ function drawLetter(letterData) {
   push();
   scale(0.6)
   // determine parameters for second circle
-  let posx = 85
-  let posy = 250
 
-
-  let size2 = letterData["size"];
-  pos2x = posx + letterData["offsetx"];
-  pos2y = posy + letterData["offsety"];
+  let w1 = letterData["width1"];
+  let h1 = letterData["height1"];
+  let w2 = letterData["width2"];
+  let h2 = letterData["height2"];
+  let posX = letterData["offsetX1"];
+  let posY = letterData["offsetY1"];
+  let posX2 = letterData["offsetX2"];
+  let posY2 = letterData["offsetY2"];
   let cor1 = letterData["corner1"];
   let cor2 = letterData["corner2"];
   let cor3 = letterData["corner3"];
@@ -41,10 +43,11 @@ function drawLetter(letterData) {
 
   // draw two circles
   rectMode(CENTER)
+  noStroke()
   fill(orange);
-  rect(posx, posy, 150, 150, cor1, cor2, cor3, cor4);
+  rect(posX, posY, w1, h1, cor1, cor2, cor3, cor4);
   fill(yellow);
-  rect(pos2x, pos2y, size2, size2, cor1, cor2, cor3, cor4);
+  rect(posX2, posY2, w2, h2, cor1, cor2, cor3, cor4);
   pop();
 }
 

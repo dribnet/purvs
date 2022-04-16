@@ -5,9 +5,14 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size", 0, 150],
-  ["offsetx", -30, 30],
-  ["offsety", -100, 100],
+  ["width1", 0, 150],
+  ["height1", 0, 150],
+  ["width2", 0, 150],
+  ["height2", 0, 150],
+  ["offsetX1", -200, 200],
+  ["offsetY1", -200, 200],
+  ["offsetX2", -200, 200],
+  ["offsetY2", -200, 200],
   ["corner1", 0, 40],
   ["corner2", 0, 40],
   ["corner3", 0, 40],
@@ -94,7 +99,6 @@ function draw () {
     stroke(0, 200, 0);
     rect(0, 0, 100, 200);
   }
-
   let obj = sliderToDataObject();
   drawLetter(obj);
   pop();
