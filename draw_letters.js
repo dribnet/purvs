@@ -15,6 +15,8 @@ const backgroundColor  = "#908aff";
 const orange  = "#eb5e34";
 const yellow  = "#ebab34";
 
+const test = 20;
+
 /*
  * Draw the letter given the letterData
  *
@@ -40,11 +42,16 @@ function drawLetter(letterData) {
   let cor2 = letterData["corner2"];
   let cor3 = letterData["corner3"];
   let cor4 = letterData["corner4"];
+  let col1 = letterData["colour1"];
+  let col2 = letterData["colour2"];
+  let col3 = letterData["colour3"];
 
   // draw two circles
   rectMode(CENTER)
   noStroke()
   fill(orange);
+  rect(83, 250, 155, 155, 20, 20, 20, 20);
+  fill(yellow);
   rect(posX, posY, w1, h1, cor1, cor2, cor3, cor4);
   fill(yellow);
   rect(posX2, posY2, w2, h2, cor1, cor2, cor3, cor4);

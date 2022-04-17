@@ -1,8 +1,9 @@
 ## MDDN 242 2022 Assignment 2
 
-Today I worked on adding in some more parameters to give me more control when drawing each letter. I added in parameters for changing the width / height of both the first and second rectangle, plus the functionality to change the X / Y position of not only the first rectangle but also the second one too. After updating the editor to work with these new parameters, I am now able to create letters with far more control and ease.
+After some thought and consideration, I have changed my goals for this project. Instead of limiting myself to only using two rectangles, I am instead changing to drawing each letter with 3 rectangles that are within a solid square that will stay consistent throughout each letter. This keeps a fun design challenge, only using three rectangles and keeping them within a square, and also frees me up to be able to make the more complex letters I was having some trouble with before. I feel it is also a unique look and fits with the "80s / 70s Title Card" aesthetic.
 
-My next mission is to figure out how I am going to draw some of the more complex letters with my two rectangle mission statement in mind. Pretty much all letters of the alphabet I have already theorized to be possible, however there are a few that may prove challenging. Mainly, I think I will run into trouble with the letter E, F, H, M, W (among others). Using only two rectangles makes these especially hard to create, even with the added parameters. I am considering three options; either add a third rectangle in and switch my goal to include only three rectangles, switch my goal to being using only one of each primary shape (square, circle, triangle), or to use quad() to give me further control. I'll have to think about these over the next few days before continuing to work on the project. 
+Today I made some changes to the code to reflect this new goal, adding in the background square and playing around with the editor to get each value range correct and useable. I also tried to make the colour for each rectangle able to change for each letter, however I ran into a few issues with this and will need to work some more to get this working. 
+
 
 The parameters per letter:
   * `width1` : width of the first rectangle
