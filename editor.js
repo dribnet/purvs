@@ -7,7 +7,7 @@
 
 
 const sliderInfo = [
-  ["arcA_PosX", 0, 100],
+  ["arcA_PosX", -50, 150],
   ["arcA_PosY", 0, 200],
   ["arcA_SizeX", 0, 100],
   ["arcA_SizeY", 0, 200],

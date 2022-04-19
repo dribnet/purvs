@@ -25,7 +25,7 @@ function drawLetter(letterData) {
   // let rectPosX = posx + letterData["rectLocatL"];
   // let rectPosY = posy + letterData["rectLocatS"];
 
-
+push();
   angleMode(DEGREES);
   //fill(darkBlue);
   noFill();
@@ -38,6 +38,7 @@ function drawLetter(letterData) {
   rect(letterData["rectA_PosX"], letterData["rectA_PosY"], letterData["rectA_SizeX"], letterData["rectA_SizeY"], 14);
   strokeWeight(4);
   rect(letterData["rectB_PosX"], letterData["rectB_PosY"], letterData["rectB_SizeX"], letterData["rectB_SizeY"], 14);
+pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

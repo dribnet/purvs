@@ -1,11 +1,25 @@
 ## MDDN 242 2022 Assignment 2
 
-Sketch of my project2.
+I've finished my editor and sketch letters set.
+They are composed of two rects and one arc(with one offset arc).
+Totally 14 parameters to control the shape of letter:
+(6 for arc, 4 for each rect)
+Arc param
+  arcA_PosX": position X
+  arcA_PosY": position Y
+  arcA_SizeX": size X
+  arcA_SizeY": size Y
+  arcA_Begin": where arc begins
+  arcA_End": where arc ends
 
-So I have an issue about my alphabet display that most of my bounding boxes are off set their position. I checked the console error which said:
+Rect 1 param
+  rectA_PosX": position X
+  rectA_PosY": position Y
+  rectA_SizeX": size X
+  rectA_SizeY": size Y
 
-DevTools failed to load source map: Could not load content for chrome-extension://ncennffkjdiamlpmcbajkmaiiiddgioo/js/xl-content.js.map: System error: net::ERR_BLOCKED_BY_CLIENT
-
-I reckon it's my Chrome's problem and tried to update my browser but failed.
-
-I also did finished my letters design based on my sketch style for now but haven't got time to put them in digit form. I'll fix the bounding box first.
+Rect 2 param
+  rectB_PosX": position X
+  rectB_PosY": position Y
+  rectB_SizeX": size X
+  rectB_SizeY": size Y
