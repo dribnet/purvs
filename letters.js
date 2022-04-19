@@ -1,188 +1,404 @@
 const alphabet = {
   "default": {
-    "size": 40,
+    "size": 70,
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 00
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 74,
+    "offsetx": 11,
+    "offsety": 58,
+    "curveX": 12.5,
+    "curveMidX": -102,
+    "curveMidY": 135,
+    "curveY": 44,
+    "translateX": 38,
+    "translateY": 56
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "size": 77,
+    "offsetx": 22.7,
+    "offsety": 60,
+    "curveMidX": 120,
+    "curveMidY": 0,
+    "curveX": 1,
+    "curveY": 98,
+    "translateX": -7,
+    "translateY": -1
   },
   "C": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 70,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 74,
+    "offsetx": 13.2,
+    "offsety": 58,
+    "curveMidX": -150,
+    "curveMidY":  25,
+    "curveX": 3,
+    "curveY": 100,
+    "translateX": 38,
+    "translateY": -1
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 76,
+    "offsetx": 17.4,
+    "offsety": 14,
+    "curveMidX": 114,
+    "curveMidY": -500,
+    "curveX": 43,
+    "curveY": 0,
+    "translateX": 20,
+    "translateY": 56
   },
   "F": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 86,
+    "offsetx": 15.6,
+    "offsety": 55,
+    "curveMidX": -186,
+    "curveMidY": -500,
+    "curveX": -30,
+    "curveY": 70,
+    "translateX":26,
+    "translateY": 70
   },
   "H": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "I": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "J": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "K": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "L": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "M": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "N": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "O": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "P": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Q": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "R": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "S": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "T": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "U": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "V": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "W": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "X": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Y": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "Z": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "0": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "1": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "2": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "3": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "4": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "5": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "6": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "7": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "8": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   },
   "9": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 17,
+    "curveX": 0,
+    "curveMidX": 00,
+    "curveMidY": 00,
+    "curveY": 0,
+    "translateX": 0,
+    "translateY": 0
   }
 
 }

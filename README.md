@@ -1,7 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-For my first idea I wanted to do a paintbrush stroke. I had the idea after playing around with some sketches and one of them ended up looking vaguely like a stroke. I wanted to do each stroke a different colour using either random numbers or a colour picker kind of thing. The colour palette would be derived from the pop art era, with the bold, bright, and complimentary colours.
+I've started to develop my idea further and start to make the actual letters in the alphabet.js. I'm going to try to just stick to making them all actually look like letter first, and then I'm going to play around with different colours and perhaps use an arc and offset it from the shape a little bit. This extra little shape will help it to pop, and look more abstract.
 
-I have had a bit of trouble with github so far, I though I had already forked this project, but it turns out I hadn't, so I have had to re-do a bunch of my progress. Although annoying, it i not too much of a worry, because I had just been experimenting with shapes and colours anyway.
-
-I hope to get the full shape and most of the letters done before the we return to classes, because it will make life a whole lot easier. 
+So far I only have 9 parameters, and at this stage I don't think I need to add anymore. When I do the arc however, I think I might need to add some.

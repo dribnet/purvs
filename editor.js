@@ -7,9 +7,21 @@
 const sliderInfo = [
   ["size",       0, 100],
   ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["offsety", -100, 100],
+  ["curveMidX",-300,300],
+  ["curveMidY",-500,500],
+  ["curveX",-100,100],
+  ["curveY",0,200],
+  ["translateX", -100,200],
+  ["translateY",-100,200]
 ];
-
+// "size": 50,
+// "offsetx": 0,
+// "offsety": 30,
+// "curveX": 20,
+// "curveMidX":-100,
+// "curveMidY":100,
+// "curveY": 50
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
 
 const numSliders = sliderInfo.length;
