@@ -13,21 +13,46 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 35,
-  "offsety": 70
+  "sizex": 1, // first square
+    "sizey": 1,
+    "offsetx": 20,
+    "offsety": 35,
+    "sizexT": 0, // second square
+    "sizeyT": 0,
+    "offsetxT": 20,
+    "offsetyT": 35,
+    "offsetx3": 0, // arc
+    "offsety3": 0,
+    "angleR":2, //red
+    "angleL":0,
+    "angleR":1.9, // orange
+    "angleL":1.1
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "sizex": 1,
+    "sizey": 1,
+    "offsetx": 100,
+    "offsety": -35, // red
+    "offsetx3": 100, //orange
+    "offsety3": 45,
+    "angleR":-1.57, // orange
+    "angleL":0,
+    "angleR2":0, // red 
+    "angleL2":-4.7
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 50,
-  "offsety": 30
+  "sizex": 1,
+    "sizey": 1,
+    "offsetx": 200, //red
+    "offsety": 0,
+    "offsetx3": 200, // orange
+    "offsety3": 0,
+    "angleR":-1.57, 
+    "angleL":1.57,
+    "angleR2":0, // red
+    "angleL2":0
 }
 
 const backgroundColor  = "#12c4ff";
@@ -65,15 +90,33 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let size1 = letterData["sizex"];
+  let size2 = letterData["sizey"];
+  let pos2x = 50  + letterData["offsetx"];
+  let pos2y = 150 + letterData["offsety"];
+
+  let pos3x = 50  + letterData["offsetx3"];
+  let pos3y = 150 + letterData["offsety3"];
+  let rightAngle = letterData["angleR"];
+  let leftAngle = letterData["angleL"];
+  let rightAngle2 = letterData["angleR2"];
+  let leftAngle2 = letterData["angleL2"];
+
+  let size1T = letterData["sizexT"]; // second square
+  let size2T = letterData["sizeyT"];
+  let pos2xT = 50  + letterData["offsetxT"];
+  let pos2yT = 150 + letterData["offsetyT"];
 
   // draw two circles
+  arc(pos2x, pos2y, 80, 80, rightAngle2, leftAngle2, PIE);
+  
   fill(darkBlue);
-  rect(posx, posy, 150, 150);
+  arc(pos3x, pos3y, 80, 80, rightAngle, leftAngle, PIE);
   fill(lightBlue);
-  rect(pos2x, pos2y, size2, size2);
+  
+  rect(pos2x, pos2y, size1, size2);
+  fill(darkBlue);
+  rect(pos2xT, pos2yT, size1T, size2T);
 }
 
 function keyTyped() {

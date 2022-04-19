@@ -5,11 +5,47 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100],
-  ["height", 0, 100]
+  ["sizex", 0, 100],
+  ["sizey", 0, 100],
+  ["offsetx", -50, 50],
+  ["offsety", -50, 50],
+  ["sizexT",0, 100], // second square
+  ["sizeyT", 0, 100],
+  ["offsetxT", -50, 50],
+  ["offsetyT", -50, 50],
+  ["offsetx3", -50, 50],
+  ["offsety3", -50, 50],
+  ["angleR",  -3.14, 3.14],
+  ["angleL",  -3.14, 3.14],
+  ["angleR2", -3.14, 3.14],
+  ["angleL2", -3.14, 3.14]
+
 ];
+
+    
+
+
+    // "sizex": 40, // first square
+    // "sizey": 80,
+    // "offsetx": -30,
+    // "offsety": -40,
+    // "sizexT": 80, // second square
+    // "sizeyT": 40,
+    // "offsetxT": -30,
+    // "offsetyT": -40,
+    // "offsetx3": 0, // arc
+    // "offsety3": 0,
+    // "angleR":0, //red
+    // "angleL":0,
+    // "angleR":0, // orange
+    // "angleL":0
+
+
+
+  //   ["size",       0, 100],
+  // ["offsetx",  -30,  30],
+  // ["offsety", -100, 100],
+  // ["height", 0, 100]
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
 
@@ -49,7 +85,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // rotation in degrees (more slider friendly)
-  angleMode(DEGREES);
+  
 
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
@@ -85,10 +121,15 @@ function draw () {
   translate(width/4 - 50, 25);
 
   if (debugBox) {
-    noFill()
-    strokeWeight(4);
-    stroke(0, 200, 0);
-    rect(0, 0, 100, 200);
+  arc(pos2x, pos2y, 80, 80, rightAngle2, leftAngle2, PIE);
+  
+  fill(darkBlue);
+  arc(pos3x, pos3y, 80, 80, rightAngle, leftAngle, PIE);
+  fill(lightBlue);
+  
+  rect(pos2x, pos2y, size1, size2);
+  fill(darkBlue);
+  rect(pos2xT, pos2yT, size1T, size2T);
   }
 
   let obj = sliderToDataObject();
