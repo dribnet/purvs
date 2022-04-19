@@ -8,6 +8,7 @@ After exploring iterations, I am starting to implement the code. I wanted to pas
 
 My current challenge is dealing with the interpolation as it is currently not satisfying. Another challenge is that the kerning is off because the letterforms are not all the same widths. 
 
+![exploration0](https://i.imgur.com/bYBc2oJ.png)
 ![exploration1](https://i.imgur.com/Nkbd6X3.png)
 ![exploration2](https://i.imgur.com/CTPJFww.png)
 *hopefully that worked*
