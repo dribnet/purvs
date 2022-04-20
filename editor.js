@@ -5,18 +5,21 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["angle",-360,360], 
-  ["reflected",-1,1], 
-  ["round",-1,1], 
-  ["inverted",-1,1],
+  ["size",10,75],
+  ["orientation1",-1,1],
+  ["orientation2",-1,1],
+  ["edge1",0,50],
+  ["edge2",0,50],
+  ["angle1",0,360], 
+  ["angle2",0,360],
   ["offsetX1",-200,200], 
-  ["offsetY1",-200,200], 
+  ["offsetY1",-400,400], 
   ["offsetX2",-200,200], 
-  ["offsetY2",-200,200],
+  ["offsetY2",-400,400],
   ["rX",0,100], 
   ["rY",0,200],
-  ["rW",10,100], 
-  ["rH",10,200]
+  ["rW",0,100], 
+  ["rH",0,150]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

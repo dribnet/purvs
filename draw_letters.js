@@ -20,157 +20,67 @@ const roundCorner = 100;
 
 function drawLetter(letterData) {
   push();
-  fill(strokeColor);
   noStroke();
-  letterform(letterData["size"],letterData["angle"],letterData["reflected"],
-             letterData["round"],letterData["inverted"],
+  fill(strokeColor);
+  letterform(letterData["size"],
+             letterData["orientation1"],letterData["orientation2"],
+             letterData["edge1"],letterData["edge2"],
+             letterData["angle1"],letterData["angle2"],
              letterData["offsetX1"],letterData["offsetY1"],
              letterData["offsetX2"],letterData["offsetY2"],
              letterData["rX"],letterData["rY"],
              letterData["rW"],letterData["rH"]);
   pop();
 }
-
-function letterform(
-  size,
-  angle,
-  reflected,
-  round,
-  inverted,
-  offsetX1,
-  offsetY1,
-  offsetX2,
-  offsetY2,
-  rX,
-  rY,
-  rW,
-  rH
-) {
-  push();
+function letterform(size,
+                    orientation1,orientation2,
+                    edge1, edge2,
+                    angle1,angle2,
+                    offsetX1,offsetY1,
+                    offsetX2,offsetY2,
+                    rX,rY,rW,rH){
   rect(rX,rY,rW,rH);
-  scale(size);
-  rotate(radians(angle));
-  if (reflected>0) {
-    if (round>0) {
-      if (inverted>0) {
-        makeRight(1, offsetY1, offsetX1, 90);
-        makeLeft(-1, offsetY2, offsetX2, -90);
-      } else {
-        makeRight(1, offsetY1, offsetX1, 90);
-        makeLeft(1, offsetY2, offsetX2, -90);
-      }
-    } else {
-      if (inverted>0) {
-        makeRight(-1, offsetY1, offsetX1, 90);
-        makeLeft(-1, offsetY2, offsetX2, -90);
-      } else {
-        makeLeft(-1, offsetY1, offsetX1, 90);
-        makeLeft(-1, offsetY2, offsetX2, -90);
-      }
-    }
-  } else {
-    if (round>0) {
-    if (inverted>0) {
-    makeRight(-1, offsetX1, offsetY1, 90);
-    makeRight(-1, offsetX2, offsetY2, -90);
-    } else {
-    
-    makeLeft(-1, offsetX1, offsetY1, 90);
-    makeLeft(-1, offsetX2, offsetY2, 90); 
-    
-    }
-    } else {
-    makeRight(-1, offsetX1, offsetY1, 90);
-    makeRight(-1, offsetX2, offsetY2, 90);  
-    }
-  }
-  pop();
-  
-}
-function makeRight(round, offsetX, offsetY, angle) {
-  let radius = 50;
-  let offset = dist(radius, radius / 4, radius - radius / 4, radius / 4);
   push();
-  rotate(radians(angle));
+  customShape(angle1,edge1,orientation1,offsetX1,offsetY1,size);
+  customShape(angle2,edge2,orientation2,offsetX2,offsetY2,size);
+  pop();
+}
+function customShape (angle,edge,orientation,offsetX,offsetY,size){ 
+  // right = 1, left = -1
+  let radius = size;
+  let offset = dist(radius, radius / 5, radius - radius / 5, radius / 5);
+  push();
+  angleMode(DEGREES); 
+  rotate(angle);
   beginShape();
   vertex(offsetX - radius, offsetY + 0);
   quadraticVertex(
     offsetX - radius,
-    offsetY + offset,
+    offsetY - offset * orientation,
     offsetX - radius + offset,
-    offsetY + offset
+    offsetY - offset * orientation
   );
-  vertex(offsetX + radius - offset, offsetY + offset);
+  vertex(offsetX + radius - offset, offsetY - offset * orientation);
   quadraticVertex(
     offsetX + radius,
-    offsetY + offset,
+    offsetY - offset * orientation,
     offsetX + radius,
-    offsetY + 0
+    offsetY - 0
   );
-  vertex(offsetX + radius, offsetY + 0);
-  if (round > 0) {
-    quadraticVertex(
+  vertex(offsetX + radius, offsetY - offset * orientation);
+  quadraticVertex(
       offsetX + radius,
-      offsetY + radius,
+      offsetY - radius * orientation,
       offsetX + 0,
-      offsetY + radius
+      offsetY - radius * orientation
     );
+    vertex(offsetX - edge,offsetY - radius * orientation);
     quadraticVertex(
       offsetX - radius,
-      offsetY + radius,
+      offsetY - radius * orientation,
       offsetX - radius,
       offsetY + 0
-    );
-  } else {
-    vertex(offsetX + radius, offsetY + radius);
-    vertex(offsetX + 0, offsetY + radius);
-    quadraticVertex(
-      offsetX - radius,
-      offsetY + radius,
-      offsetX - radius,
-      offsetY + 0
-    );
-  }
-  endShape(CLOSE);
-  pop();
-}
-function makeLeft(round, offsetX, offsetY, angle) {
-  let radius = 50;
-  let offset = dist(radius, radius / 4, radius - radius / 4, radius / 4);
-  push();
-  rotate(radians(angle));
-  beginShape();
-  vertex(offsetX - radius, offsetY + 0);
-  quadraticVertex(
-    offsetX - radius,
-    offsetY + offset,
-    offsetX - radius + offset,
-    offsetY + offset
-  );
-  vertex(offsetX + radius - offset, offsetY + offset);
-  quadraticVertex(
-    offsetX + radius,
-    offsetY + offset,
-    offsetX + radius,
-    offsetY + 0
-  );
-  vertex(offsetX + radius, offsetY + 0);
-  quadraticVertex(
-    offsetX + radius,
-    offsetY + radius,
-    offsetX + 0,
-    offsetY + radius
-  );
-  if (round > 0) {
-    quadraticVertex(
-      offsetX - radius,
-      offsetY + radius,
-      offsetX - radius,
-      offsetY + 0
-    );
-  } else {
-    vertex(offsetX - radius, offsetY + radius);
-  }
+    ); 
   endShape(CLOSE);
   pop();
 }
@@ -178,10 +88,12 @@ function makeLeft(round, offsetX, offsetY, angle) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["angle"]    = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
-  new_letter["reflected"] = map(percent, 0, 100, oldObj["reflected"], newObj["reflected"]);
-  new_letter["round"] = map(percent, 0, 100, oldObj["round"], newObj["round"]);
-  new_letter["inverted"]    = map(percent, 0, 100, oldObj["inverted"], newObj["inverted"]);
+  new_letter["orientation1"]    = map(percent, 0, 100, oldObj["orientation1"], newObj["orientation1"]);
+  new_letter["orientation2"] = map(percent, 0, 100, oldObj["orientation2"], newObj["orientation2"]);
+  new_letter["edge1"] = map(percent, 0, 100, oldObj["edge1"], newObj["edge1"]);
+  new_letter["edge2"]    = map(percent, 0, 100, oldObj["edge2"], newObj["edge2"]);
+  new_letter["angle1"] = map(percent, 0, 100, oldObj["angle1"], newObj["angle1"]);
+  new_letter["angle2"]    = map(percent, 0, 100, oldObj["angle2"], newObj["angle2"]);
   new_letter["offsetX1"] = map(percent, 0, 100, oldObj["offsetX1"], newObj["offsetX1"]);
   new_letter["offsetY1"] = map(percent, 0, 100, oldObj["circleY"], newObj["circleY"]);
   new_letter["offsetX2"]    = map(percent, 0, 100, oldObj["offsetX2"], newObj["offsetX2"]);
