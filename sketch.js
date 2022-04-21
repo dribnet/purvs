@@ -50,9 +50,9 @@ const canvasHeight = 500;
  }
 
  const letterC = {
-   "cntr_w":130,
+   "cntr_w":150,
    "cntr_h":110,
-   "cntr_xpos": 20,
+   "cntr_xpos": 15,
    "cntr_ypos": 0,
    "handle_h":140,
    "handle_w": 25,
@@ -61,18 +61,18 @@ const canvasHeight = 500;
    "handl_ypos": 0,
    "eyes_xpos": -10,
    "eyes_ypos": -20,
-   "cutter_w": 110,
+   "cutter_w": 120,
    "cutter_h": 110,
-   "cutter_xpos": 0,
+   "cutter_xpos": 15,
    "cutter_ypos": 0
  }
 
-const backgroundColor  = "#ccecec";//light blue
-const strokeColor      = "#c4c6c0";//gray
+ const backgroundColor  = "#b8d9d4";//light green
+  const strokeColor      = "#713191";//purple
 
-const peach  = "#f7cabe";// peach
-const lightBlue  = "#ccecec";//"#90e0ef";//light blue
-const darkGreen = "#014d4a"
+  const purple  = "#713191";//purple
+  const green = "#078774"; // green
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -128,15 +128,15 @@ function drawLetter(ell_x, ell_y, letterData) {
 
   // draw 6 circles/ovel
   noStroke();
- fill(peach);
+ fill(purple);
  ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
- fill(peach);
+ fill(purple);
  ellipse(ell_x, ellMain_y, 150, 150);// main Circle
- fill(lightBlue);
+ fill(backgroundColor);
  ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
- fill(lightBlue);
+ fill(backgroundColor);
  ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
- fill(darkGreen);
+ fill(green);
  ellipse(ell3_x, ell3_y, eyesSize);//left eye
  ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
 

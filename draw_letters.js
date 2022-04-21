@@ -1,14 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ccecec"; //"#caf0f8";
-var systemLineColor = "#6003ab";// purple
+var systemBackgroundColor = "#b8d9d4"; //"#caf0f8";
+var systemLineColor = "#713191";// purple
 var systemBoxColor = "#04d9d9";// blueGreen
 
 /* internal constants */
-const backgroundColor  = "#ccecec";//light blue
-const strokeColor      = "#c4c6c0";//gray
-const peach  = "#f7cabe";// peach, letter colour
-const lightBlue  = "#ccecec";//light blue,colour of the cutter circle
-const darkGreen = "#014d4a"//eyes colour
+const backgroundColor  = "#b8d9d4";//light green
+ const strokeColor      = "#713191";//purple
+
+ const purple  = "#713191";//purple
+ const green = "#078774"; // green
 /*
  * Draw the letter given the letterData
  *
@@ -50,18 +50,18 @@ const darkGreen = "#014d4a"//eyes colour
 
    // draw 6 circles/ovel
    noStroke();
-  fill(peach);
+  fill(purple);
   ellipse(ell_x, ellMain_y, 150, 150);// main Circle
-  fill(lightBlue);
+  fill(backgroundColor);
   ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
-  fill(peach);
+  fill(backgroundColor);
+  fill(purple);
   ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
-  fill(lightBlue);
+  fill(backgroundColor);
   ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
-  fill(darkGreen);
+  fill(green);
   ellipse(ell3_x, ell3_y, eyesSize);//left eye
   ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
-
 pop();
  }
 
