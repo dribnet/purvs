@@ -13,30 +13,36 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "RectWidth": 90,
+  "RectHeight": 90,
+  "offsetx": -50,
+  "offsety": 35,
+  "rectBehind": false
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "RectWidth": 40,
+  "RectHeight": 150,
+  "offsetx": -40,
+  "offsety": -60,
+  "rectBehind": true
 }
 
 const letterC = {
-  "size": 100,
+  "RectWidth": 100,
+  "RectHeight": 100,
   "offsetx": 30,
-  "offsety": 0
+  "offsety": 0,
+  "rectBehind": false
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
+const backgroundColor = "#caf0f8";
+const strokeColor = "#03045e";
 
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const darkBlue = "#0077b6";
+const lightBlue = "#90e0ef";
 
-function setup () {
+function setup() {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -49,7 +55,7 @@ function setup () {
   noLoop();
 }
 
-function draw () {
+function draw() {
   // clear screen
   background(backgroundColor);
 
@@ -59,28 +65,39 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x, center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let rectWidth = letterData["RectWidth"];
+  let rectHeight = letterData["RectHeight"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let drawOrderModifier = letterData["rectBehind"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  if (drawOrderModifier) {
+    rectMode(CENTER)
+    fill(lightBlue);
+    rect(pos2x, pos2y, rectWidth, rectHeight);
+    fill(darkBlue);
+    ellipse(posx, posy, 150, 150);
+  } else {
+    fill(darkBlue);
+    ellipse(posx, posy, 150, 150);
+
+    rectMode(CENTER)
+    fill(lightBlue);
+    rect(pos2x, pos2y, rectWidth, rectHeight);
+  }
+
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
-  }
-  else if (key == '@') {
+  } else if (key == '@') {
     saveBlocksImages(true);
   }
 }

@@ -5,39 +5,81 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "Width": 60,
+    "Height": 150,
+    "offsetx": -40,
+    "offsety": -150,
+    "RotateAngle": -180,
+    "H": -35,
+    "W": -15,
+    "H2": 35,
+    "RotateAngle2": -90,
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "Width": 80,
+    "Height": 80,
+    "offsetx": -115,
+    "offsety": 30,
+    "RotateAngle": -90,
+    "H": -55,
+    "W": -10,
+    "H2": 35,
+    "RotateAngle2": 0,
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": 115,
+    "offsety": -60,
+    "RotateAngle": -270,
+    //"H": -55,
+    //"W": 15,
+    //"H2": 35,
+    //"RotateAngle2": 0,
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": -115,
+    "offsety": 30,
+    "RotateAngle": -90,
+    "H": -55,
+    "W": -10,
+    "H2": 35,
+    "RotateAngle2": 0,
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": 115,
+    "offsety": -60,
+    "RotateAngle": -270,
+    //"H": -55,
+    //"W": 15,
+    //"H2": 35,
+    //"RotateAngle2": 0,
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": 115,
+    "offsety": -60,
+    "RotateAngle": -270,
+    //"H": -55,
+    //"W": 15,
+    //"H2": 35,
+    //"RotateAngle2": 0,
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": 115,
+    "offsety": -60,
+    "RotateAngle": -270,
+    //"H": -55,
+    //"W": 15,
+    //"H2": 35,
+    //"RotateAngle2": 0,
   },
   "H": {
     "size": 50,
@@ -65,9 +107,15 @@ const alphabet = {
     "offsety": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 60,
+    "Height": 150,
+    "offsetx": -40,
+    "offsety": -150,
+    "RotateAngle": -180,
+    "H": -35,
+    "W": -15,
+    "H2": 35,
+    "RotateAngle2": -90,
   },
   "N": {
     "size": 50,
@@ -80,9 +128,15 @@ const alphabet = {
     "offsety": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": -115,
+    "offsety": 30,
+    "RotateAngle": -90,
+    "H": -55,
+    "W": -10,
+    "H2": 35,
+    "RotateAngle2": 0,
   },
   "Q": {
     "size": 50,
@@ -90,9 +144,15 @@ const alphabet = {
     "offsety": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 80,
+    "Height": 90,
+    "offsetx": -115,
+    "offsety": 30,
+    "RotateAngle": -90,
+    "H": -55,
+    "W": -10,
+    "H2": 35,
+    "RotateAngle2": 0,
   },
   "S": {
     "size": 50,
@@ -110,9 +170,15 @@ const alphabet = {
     "offsety": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "Width": 60,
+    "Height": 150,
+    "offsetx": -40,
+    "offsety": -150,
+    "RotateAngle": -180,
+    "H": -35,
+    "W": -15,
+    "H2": 35,
+    "RotateAngle2": -90,
   },
   "W": {
     "size": 50,
