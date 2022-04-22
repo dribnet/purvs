@@ -41,8 +41,8 @@ const alphabet = {
   },
   "H": {
     "size": 60,
-    "angle1": 0,
-    "angle2": 180
+    "angle1": 180,
+    "angle2": 0
   },
   "I": {
     "size": 60,
@@ -61,7 +61,7 @@ const alphabet = {
   },
   "L": {
     "size": 60,
-    "angle1": 0,
+    "angle1": 315,
     "angle2": 0
   },
   "M": {
@@ -96,28 +96,28 @@ const alphabet = {
   },
   "S": {
     "size": 60,
-    "angle1": 25,
+    "angle1": 205,
     "angle2": 25
   },
   "T": {
     "size": 60,
-    "angle1": 25,
-    "angle2": 25
+    "angle1": 335,
+    "angle2": 335
   },
   "U": {
     "size": 60,
-    "angle1": 25,
-    "angle2": 25
+    "angle1": 0,
+    "angle2": 0
   },
   "V": {
     "size": 60,
-    "angle1": 25,
-    "angle2": 25
+    "angle1": 340,
+    "angle2": 30
   },
   "W": {
     "size": 60,
-    "angle1": 25,
-    "angle2": 25
+    "angle1": 45,
+    "angle2": 315
   },
   "X": {
     "size": 60,
