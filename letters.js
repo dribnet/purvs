@@ -175,7 +175,7 @@ const alphabet = {
     "rectA_SizeY": 30,
 
     "rectB_PosX": 50,
-    "rectB_PosY": 60,
+    "rectB_PosY": 65,
     "rectB_SizeX": 20,
     "rectB_SizeY": 20
   },
@@ -193,7 +193,7 @@ const alphabet = {
     "rectA_SizeY": 30,
 
     "rectB_PosX": 50,
-    "rectB_PosY": 60,
+    "rectB_PosY": 65,
     "rectB_SizeX": 20,
     "rectB_SizeY": 20
   },

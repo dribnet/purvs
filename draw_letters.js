@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#F2DBAE";
+var systemLineColor = "#734567";
+var systemBoxColor = "#4B50BF";
 
 /* internal constants */
 const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
-const strokeColor  = "#03045e";
+const lightBlue  = "#D2E8E3";
+const strokeColor  = "#0F6466";
 
 /*
  * Draw the letter given the letterData
@@ -20,24 +20,46 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(4);
 
-  //let rectSizeA = letterData["rectSizeL"];
-  //let rectSizeB = letterData["rectSizeS"];
-  // let rectPosX = posx + letterData["rectLocatL"];
-  // let rectPosY = posy + letterData["rectLocatS"];
+  let arcPosx = letterData["arcA_PosX"];
+  let arcPosY = letterData["arcA_PosY"];
+  let arcWidth = letterData["arcA_SizeX"];
+  let arcHeight = letterData["arcA_SizeY"];
+  let arcBegin = letterData["arcA_Begin"];
+  let arcEnd = letterData["arcA_End"];
+
+  let rectAPosX = letterData["rectA_PosX"];
+  let rectAPosY = letterData["rectA_PosY"];
+  let rectAWidth = letterData["rectA_SizeX"];
+  let rectAHeight = letterData["rectA_SizeY"];
+
+  let rectBPosX = letterData["rectB_PosX"];
+  let rectBPosY = letterData["rectB_PosY"];
+  let rectBWidth = letterData["rectB_SizeX"];
+  let rectBHeight = letterData["rectB_SizeY"];
 
 push();
   angleMode(DEGREES);
   //fill(darkBlue);
   noFill();
+  strokeWeight(8);
+  arc(arcPosx, arcPosY, arcWidth, arcHeight, arcBegin, arcEnd);
   strokeWeight(4);
-  arc(letterData["arcA_PosX"], letterData["arcA_PosY"], letterData["arcA_SizeX"], letterData["arcA_SizeY"], letterData["arcA_Begin"], letterData["arcA_End"]);
-  strokeWeight(2);
-  //arc(letterData["arcA_PosX"]*1.05, letterData["arcA_PosY"]*0.95, letterData["arcA_SizeX"], letterData["arcA_SizeY"], letterData["arcA_Begin"], letterData["arcA_End"]);
-  fill(lightBlue);
+  if (arcBegin <= arcEnd){
+    stroke("#D9967E");
+  arc(arcPosx*1.06, arcPosY*0.96, arcWidth, arcHeight, arcBegin, arcEnd);
+} else {
+  stroke("#AFBF34");
+  arc(arcPosx*0.9, arcPosY*0.92, arcWidth, arcHeight, arcBegin, arcEnd);
+}
+  stroke(strokeColor);
+  strokeWeight(4);
+  //noStroke();
+  fill("#7D8C0B");
   rectMode(CENTER);
-  rect(letterData["rectA_PosX"], letterData["rectA_PosY"], letterData["rectA_SizeX"], letterData["rectA_SizeY"], 14);
-  strokeWeight(4);
-  rect(letterData["rectB_PosX"], letterData["rectB_PosY"], letterData["rectB_SizeX"], letterData["rectB_SizeY"], 14);
+  rect(rectAPosX, rectAPosY, rectAWidth, rectAHeight, 14);
+  strokeWeight(6);
+  fill("#D9863D");
+  rect(rectBPosX, rectBPosY, rectBWidth, rectBHeight, 14);
 pop();
 }
 
@@ -64,7 +86,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ORGANIZE",
+  "INDUSTRY",
+  "1234567?"
 ]
