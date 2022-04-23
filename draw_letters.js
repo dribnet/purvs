@@ -32,7 +32,7 @@ push();
   strokeWeight(4);
   arc(letterData["arcA_PosX"], letterData["arcA_PosY"], letterData["arcA_SizeX"], letterData["arcA_SizeY"], letterData["arcA_Begin"], letterData["arcA_End"]);
   strokeWeight(2);
-  arc(letterData["arcA_PosX"]*1.05, letterData["arcA_PosY"]*0.95, letterData["arcA_SizeX"], letterData["arcA_SizeY"], letterData["arcA_Begin"], letterData["arcA_End"]);
+  //arc(letterData["arcA_PosX"]*1.05, letterData["arcA_PosY"]*0.95, letterData["arcA_SizeX"], letterData["arcA_SizeY"], letterData["arcA_Begin"], letterData["arcA_End"]);
   fill(lightBlue);
   rectMode(CENTER);
   rect(letterData["rectA_PosX"], letterData["rectA_PosY"], letterData["rectA_SizeX"], letterData["rectA_SizeY"], 14);
@@ -43,9 +43,23 @@ pop();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcA_PosX"] = map(percent, 0, 100, oldObj["arcA_PosX"], newObj["arcA_PosX"]);
+  new_letter["arcA_PosY"] = map(percent, 0, 100, oldObj["arcA_PosY"], newObj["arcA_PosY"]);
+  new_letter["arcA_SizeX"] = map(percent, 0, 100, oldObj["arcA_SizeX"], newObj["arcA_SizeX"]);
+  new_letter["arcA_SizeY"] = map(percent, 0, 100, oldObj["arcA_SizeY"], newObj["arcA_SizeY"]);
+  new_letter["arcA_Begin"] = map(percent, 0, 100, oldObj["arcA_Begin"], newObj["arcA_Begin"]);
+  new_letter["arcA_End"] = map(percent, 0, 100, oldObj["arcA_End"], newObj["arcA_End"]);
+
+  new_letter["rectA_PosX"] = map(percent, 0, 100, oldObj["rectA_PosX"], newObj["rectA_PosX"]);
+  new_letter["rectA_PosY"] = map(percent, 0, 100, oldObj["rectA_PosY"], newObj["rectA_PosY"]);
+  new_letter["rectA_SizeX"] = map(percent, 0, 100, oldObj["rectA_SizeX"], newObj["rectA_SizeX"]);
+  new_letter["rectA_SizeY"] = map(percent, 0, 100, oldObj["rectA_SizeY"], newObj["rectA_SizeY"]);
+
+  new_letter["rectB_PosX"] = map(percent, 0, 100, oldObj["rectB_PosX"], newObj["rectB_PosX"]);
+  new_letter["rectB_PosY"] = map(percent, 0, 100, oldObj["rectB_PosY"], newObj["rectB_PosY"]);
+  new_letter["rectB_SizeX"] = map(percent, 0, 100, oldObj["rectB_SizeX"], newObj["rectB_SizeX"]);
+  new_letter["rectB_SizeY"] = map(percent, 0, 100, oldObj["rectB_SizeY"], newObj["rectB_SizeY"]);
+
   return new_letter;
 }
 
