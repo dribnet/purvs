@@ -5,9 +5,30 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100],
+  ["Width", 0, 360],   // Arc1 width
+  ["Height", 0, 360],    // Arc1 Height
+  ["Width1", 0, 360],    // Arc2 width
+  ["Height1", 0, 360],    // Arc2 Height
+  ["Lx", 0, -100],  // Line x
+  ["Ly", -100, 100],  // Line y
+  ["Ly1", -100, 100],  // Line y2
+  ["offsetx0", 70, 230],  // Arrow position
+  ["offsety0", 240, 440],
+  ["offsetx1", -50, 50],  // Line position
+  ["offsety1", 0, 200],
+  ["offsetx2", -5, -80],   // Arc1 position
+  ["offsety2", -160, -90],
+  ["offsetx3",-5, -80],// Arc2 position
+  ["offsety3", -160, -90],
+  ["RotateAngle", 0, 360],// Arc1 angle
+  ["RotateAngle2", 0, 360],// Line angle
+  ["RotateAngle3", 0, 360],  // Arrow angle
+  ["RotateAngle4", 0, 360],  // Arc2 angle
+
+
+
+
+
 
 ];
 
@@ -16,7 +37,7 @@ const sliderInfo = [
 const numSliders = sliderInfo.length;
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+  var systemBackgroundColor = "#e3eded";
 }
 
 // this will use variables if they are already defined
@@ -25,7 +46,7 @@ if (typeof systemBackgroundColor === 'undefined') {
 // if everything is defined above, this should just work
 function sliderToDataObject() {
   let obj = {};
-  for (let i=0; i<numSliders; i=i+1) {
+  for (let i = 0; i < numSliders; i = i + 1) {
     o_name = sliderInfo[i][0]
     bounds_low = sliderInfo[i][1]
     bounds_high = sliderInfo[i][2]
@@ -43,7 +64,7 @@ const canvasHeight = 500;
 
 let debugBox = false;
 
-function setup () {
+function setup() {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -51,11 +72,11 @@ function setup () {
   // rotation in degrees (more slider friendly)
   angleMode(DEGREES);
 
-  for(let i=0; i<numSliders; i++) {
-    let cur_row = select("#row" + (i+1))
+  for (let i = 0; i < numSliders; i++) {
+    let cur_row = select("#row" + (i + 1))
     cur_row.show();
     let cur_slider = createSlider(0, 100, 50)
-    let containerString = "slider" + (i+1) + "Container"
+    let containerString = "slider" + (i + 1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
   }
@@ -71,7 +92,7 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-function draw () {
+function draw() {
   // clear screen
   background(systemBackgroundColor);
 
@@ -82,7 +103,7 @@ function draw () {
   // draw the letters A, B, C from saved data
   push();
   scale(2);
-  translate(width/4 - 50, 25);
+  translate(width / 4 - 50, 25);
 
   if (debugBox) {
     noFill()
@@ -99,16 +120,13 @@ function draw () {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
-  }
-  else if (key == '@') {
+  } else if (key == '@') {
     saveBlocksImages(true);
-  }
-  else if (key == 'd') {
+  } else if (key == 'd') {
     debugBox = !debugBox;
     // console.log("debugBox is now: " + debugBox);
     redraw();
-  }
-  else if (key == ' ') {
+  } else if (key == ' ') {
     let obj = sliderToDataObject();
     json = JSON.stringify(obj, null, 2);
     console.log(json);
