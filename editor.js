@@ -13,7 +13,7 @@ const sliderInfo = [
   ["Ly", -100, 100],
   ["Ly1", -100, 100],
   ["offsetx0", -500, 800],
-  ["offsety0", -20, 800],
+  ["offsety0", -140, 800],
   ["offsetx1", -200, 800],
   ["offsety1", -30, 600],
   ["offsetx2", -350, 300],
