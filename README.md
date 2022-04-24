@@ -12,3 +12,6 @@ The three parameters per letter:
 29/3
  I've changed this to draw triangles in place of the second circle. Because these draw via each point rather anan dimensions, points are fixed and transformations (offset) is defined with translate() and (shape) with rotate()
  I also made the colour pallette sleek white-on-black-on-white so you can see letters as fully defined by the negative space created with the 2 shapes.
+
+24/4
+Forked onto my home PC while my laptop is fixed, files copied over. Test push!
