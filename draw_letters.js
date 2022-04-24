@@ -19,23 +19,67 @@ const white = "ffffff";
 function drawLetter(letterData) {
   // determine parameters
   let size = letterData["size"];
+
   let posx = 50;
   let posy = 100;
 
-  rectMode(CENTER);
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
 
+  let pos3x = posx + letterData["offsetx2"];
+  let pos3y = posy + letterData["offsety2"];
+
+  let pos4x = posx - letterData["offsetx"];
+  let pos4y = posy - letterData["offsety"];
+
+  let pos5x = posx - letterData["offsetx2"];
+  let pos5y = posy - letterData["offsety2"];
+
+  let centerValX = letterData["centerValX"];
+  let centerValY = letterData["centerValY"];
+  let leftVal = letterData["leftVal"];
+  let rightVal = letterData["rightVal"];
+  let topVal = letterData["topVal"];
+  let bottomVal = letterData["bottomVal"];
+
+  push();
+  rectMode(CENTER);
+  //Center
+  noStroke()
+  fill(gold);
+  rect(posx, posy, size + centerValX, size);
+
+  //Center 2
+  noStroke()
+  fill(gold);
+  rect(posx, posy, size, size + centerValY);
+
+  //Right
+  fill(white);
+  rect(pos3x, pos3y, size, size + rightVal);
+
+  //Bottom
+  fill(black);
+  rect(pos2x, pos2y, size + bottomVal, size);
+
+  //Top
+  fill(white);
+  rect(pos4x, pos4y, size + topVal, size);
+
+  //Left
+  fill(black);
+  rect(pos5x, pos5y, size, size + leftVal);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["angle1"] = map(percent, 0, 100, oldObj["angle1"], newObj["angle1"]);
-  new_letter["angle2"] = map(percent, 0, 100, oldObj["angle2"], newObj["angle2"]);
   return new_letter;
 }
 
 var swapWords = [
-  "OLYMPIUM",
-  "JAVELINS",
-  "ZOIDBERG"
+  "BOXFRONT",
+  "SQUAREME",
+  "FIVECORN"
 ]

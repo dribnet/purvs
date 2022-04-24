@@ -12,7 +12,7 @@ const letterA = {
   "leftVal": 100,
   "rightVal": 100,
   "topVal": 100,
-  "bottomVal": 0,
+  "bottomVal": 0
 }
 
 const letterB = {
@@ -26,7 +26,7 @@ const letterB = {
   "leftVal": 100,
   "rightVal": 60,
   "topVal": 60,
-  "bottomVal": 60,
+  "bottomVal": 60
 }
 
 const letterC = {
@@ -40,7 +40,7 @@ const letterC = {
   "leftVal": 100,
   "rightVal": 0,
   "topVal": 100,
-  "bottomVal": 100,
+  "bottomVal": 100
 }
 
 const backgroundColor  = "#808080";
