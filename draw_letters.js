@@ -19,41 +19,11 @@ const white = "ffffff";
 function drawLetter(letterData) {
   // determine parameters
   let size = letterData["size"];
-  let size2 = size*2/3;
-  let size3 = size2/2;
   let posx = 50;
-  let posy = 125;
-  let angle1 = letterData["angle1"];
-  let angle2 = letterData["angle2"];
+  let posy = 100;
 
-  ellipseMode(CENTER);
-  angleMode(DEGREES);
+  rectMode(CENTER);
 
-  //Ellipse 1
-  fill(backgroundColor)
-  strokeWeight(4);
-  stroke(gold);
-  ellipse(posx, posy, size, size);
-
-  //Ellipse 2
-  push();
-  translate(posx, posy);
-  strokeWeight(4);
-  stroke(black);
-  rotate(angle1);
-
-  ellipse(0, -25, size2, size2);
-  pop();
-
-  //Ellipse 3
-  push();
-  translate(posx, posy);
-  noStroke();
-  fill(white);
-  rotate(angle2);
-
-  ellipse(0, -22, size3, size3);
-  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

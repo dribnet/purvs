@@ -1,44 +1,49 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
-  "size": 100,
+  "size": 20,
   "offsetx": 0,
-  "offsety": 67.5,
-  "offsetx2": -38,
-  "offsety2": 36
+  "offsety": 50,
+  "offsetx2": 50,
+  "offsety2": 0,
+  "centerValX": 100,
+  "centerValY": 0,
+  "leftVal": 100,
+  "rightVal": 100,
+  "topVal": 100,
+  "bottomVal": 0,
 }
 
 const letterB = {
-  "size": 100,
+  "size": 20,
   "offsetx": 0,
-  "offsety": -67.5,
-  "offsetx2": 10,
-  "offsety2": -49,
+  "offsety": 50,
+  "offsetx2": 50,
+  "offsety2": 0,
+  "centerValX": 100,
+  "centerValY": 0,
+  "leftVal": 100,
+  "rightVal": 60,
+  "topVal": 60,
+  "bottomVal": 60,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 67.5,
-  "offsety": 0,
+  "size": 20,
+  "offsetx": 0,
+  "offsety": 50,
   "offsetx2": 50,
-  "offsety2": 0
+  "offsety2": 0,
+  "centerValX": 0,
+  "centerValY": 0,
+  "leftVal": 100,
+  "rightVal": 0,
+  "topVal": 100,
+  "bottomVal": 100,
 }
 
-const backgroundColor  = "#292929";
-const strokeColor      = "#0d0d0d";
-
+const backgroundColor  = "#808080";
 const gold  = "#f5ce42";
 const black  = "#0d0d0d";
 const white = "ffffff";
@@ -49,7 +54,6 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
   rectMode(CENTER);
   ellipseMode(CENTER);
 
@@ -73,29 +77,53 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let size = letterData["size"];
+
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+
   let pos3x = posx + letterData["offsetx2"];
   let pos3y = posy + letterData["offsety2"];
 
-  // draw two circles
+  let pos4x = posx - letterData["offsetx"];
+  let pos4y = posy - letterData["offsety"];
 
-  //Ellipse 1
-  fill(backgroundColor)
-  strokeWeight(4);
-  stroke(gold);
-  ellipse(posx, posy, 150, 150);
+  let pos5x = posx - letterData["offsetx2"];
+  let pos5y = posy - letterData["offsety2"];
 
-  //Ellipse 2
-  strokeWeight(5);
-  stroke(black);
-  ellipse(pos2x, pos2y, size2, size2);
+  let centerValX = letterData["centerValX"];
+  let centerValY = letterData["centerValY"];
+  let leftVal = letterData["leftVal"];
+  let rightVal = letterData["rightVal"];
+  let topVal = letterData["topVal"];
+  let bottomVal = letterData["bottomVal"];
 
-  //Ellipse
-  noStroke();
+
+  //Center
+  noStroke()
+  fill(gold);
+  rect(posx, posy, size + centerValX, size);
+
+  //Center 2
+  noStroke()
+  fill(gold);
+  rect(posx, posy, size, size + centerValY);
+
+  //Right
   fill(white);
-  ellipse(pos3x, pos3y, size2/2, size2/2);
+  rect(pos3x, pos3y, size, size + rightVal);
+
+  //Bottom
+  fill(black);
+  rect(pos2x, pos2y, size + bottomVal, size);
+
+  //Top
+  fill(white);
+  rect(pos4x, pos4y, size + topVal, size);
+
+  //Left
+  fill(black);
+  rect(pos5x, pos5y, size, size + leftVal);
 }
 
 function keyTyped() {

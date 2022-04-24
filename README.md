@@ -1,5 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-Finally worked out scaling and was able to rewrite the positioning code. I'm going to now be using a rotate function to change the circle positioning to make use of the ring formation.
-
-Now I will look to make the layer that make the rings appear on top of each other.
+Restarted due to legibility issues, now doing a rectangle based "calculator" look based on 5 points using the same colour palette. Already think it looks way better than the last design so looking forward to fleshing it out.
