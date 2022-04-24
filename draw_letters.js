@@ -8,6 +8,7 @@ const darkBlue = "#0077b6";
 const lightBlue = "#90e0ef";
 const strokeColor = "#03045e";
 
+
 /*
  * Draw the letter given the letterData
  *
@@ -19,6 +20,7 @@ function drawLetter(letterData) {
 
   let T1 = 32;
   let T2 = 100;
+
   // determine parameters for second circle
   let Width = letterData["Width"]; // Arc1 width
   let Height = letterData["Height"]; // Arc1 Height
@@ -56,7 +58,7 @@ function drawLetter(letterData) {
   translate(pos1x, pos1y);
   rotate(angle2)
   stroke(0);
-  strokeWeight(2);
+  strokeWeight(5);
   line(Lx, Ly, Lx, Ly1);
   pop()
 

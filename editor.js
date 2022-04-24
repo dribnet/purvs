@@ -5,30 +5,25 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["Width", 0, 360],   // Arc1 width
-  ["Height", 0, 360],    // Arc1 Height
-  ["Width1", 0, 360],    // Arc2 width
-  ["Height1", 0, 360],    // Arc2 Height
-  ["Lx", 0, -100],  // Line x
-  ["Ly", -100, 100],  // Line y
-  ["Ly1", -100, 100],  // Line y2
-  ["offsetx0", 70, 230],  // Arrow position
-  ["offsety0", 240, 440],
-  ["offsetx1", -50, 50],  // Line position
-  ["offsety1", 0, 200],
-  ["offsetx2", -5, -80],   // Arc1 position
-  ["offsety2", -160, -90],
-  ["offsetx3",-5, -80],// Arc2 position
-  ["offsety3", -160, -90],
-  ["RotateAngle", 0, 360],// Arc1 angle
-  ["RotateAngle2", 0, 360],// Line angle
-  ["RotateAngle3", 0, 360],  // Arrow angle
-  ["RotateAngle4", 0, 360],  // Arc2 angle
-
-
-
-
-
+  ["Width", 0, 360],
+  ["Height", 0, 360],
+  ["Width1", 0, 360],
+  ["Height1", 0, 360],
+  ["Lx", 200, -400],
+  ["Ly", -100, 100],
+  ["Ly1", -100, 100],
+  ["offsetx0", -500, 800],
+  ["offsety0", -20, 800],
+  ["offsetx1", -200, 800],
+  ["offsety1", -30, 600],
+  ["offsetx2", -350, 300],
+  ["offsety2", 300, -300],
+  ["offsetx3",-350, 300],
+  ["offsety3", 200, -300],
+  ["RotateAngle", 0, 360],
+  ["RotateAngle2", 0, 360],
+  ["RotateAngle3", 0, 360],
+  ["RotateAngle4", 0, 360],
 
 ];
 
