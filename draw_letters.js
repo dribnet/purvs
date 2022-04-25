@@ -6,7 +6,7 @@ var systemBoxColor = "#00c800";
 /* internal constants */
 const backgroundColor  = "#808080";
 const gold  = "#f5ce42";
-const black  = "#0d0d0d";
+const black = "#0d0d0d";
 const white = "ffffff";
 
 /*
@@ -37,10 +37,10 @@ function drawLetter(letterData) {
 
   let centerValX = letterData["centerValX"];
   let centerValY = letterData["centerValY"];
-  let leftVal = letterData["leftVal"];
-  let rightVal = letterData["rightVal"];
-  let topVal = letterData["topVal"];
-  let bottomVal = letterData["bottomVal"];
+  let leftVal    = letterData["leftVal"];
+  let rightVal   = letterData["rightVal"];
+  let topVal     = letterData["topVal"];
+  let bottomVal  = letterData["bottomVal"];
 
   push();
   scale(0.8);
@@ -75,7 +75,7 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["size"]          = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetBottom"]  = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
   new_letter["offsetTop"]     = map(percent, 0, 100, oldObj["offsetTop"], newObj["offsetTop"]);
   new_letter["offsetRight"]   = map(percent, 0, 100, oldObj["offsetRight"], newObj["offsetRight"]);
@@ -92,7 +92,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "BOXFRONT",
   "SQUAREME",
-  "FIVESPOT",
+  "5POINTS!",
   "ZOIDBERG",
-  "DEEZNUTS"
+  "ARCHITEC"
 ]
