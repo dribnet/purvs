@@ -1,21 +1,34 @@
 ## MDDN 242 2022 Assignment 2
 
 Part 2: Design the Alphabet
-31/3
-So I've changed from my initial idea quite a lot. I'm a lot happier with this design and overall I think it's just more interesting to look at. In this design the location/centre point & the size of the arc are set as constants. There is only one parameter involved with this shape which will effect the stoping point/angle of the arc.
+Part 2b: Editor
+26/4
+Unfortunately I have not made much progress over the break but I did make a good amount of changes after our receiving feedback.
 
-The two lines move and stretch the most. At this stage most of the letters have them being either horizontal or vertical. There are a few design using diagonals, but I think within the next week I may potentially change this if I do the optional Part 2b: Editor, so theres not an excessive amount of sliders etc. There are currently four parameters involving the two lines; these are just the basic x,y, start & stop point coordinates. Moving forward I think I'd like to simplify the parameters a bit or like tie them to a couple different variables so your not having to map & plan each individual coordinate set.
+The core critiques included:
+- the colour scheme
+- the tangents
+- the ascender/descender heights
+- overall consistency across the letters
 
-I also added in a nice golden yellow colour just to add a bit of flavour to the colour palette, though nothing's set in stone. Moving forward I want to finalise the individual designs that I mentioned earlier & start refining the parameters.
+I completely changed the colour scheme to a light and navy shade of blue. I think the simplistic choice of colouring looks quite nice with the design so far. I's also like to add in some more details so it looks like the letters are glowing (kind of Atlantis: The Lost Empire vibes).
+---
+For the tangents, I'm experimenting with the lines and how they look when they're not fully touching. So far I like this look but I need to refine it more still.
+---
+To make the height of the letters more consistent and appealing to the eye, I moved all the median height of the letters up to the middle of the bounding box (100). Subsequently, the ascender/descender heights are now the same - I think this looks far more appealing as everything just looks more equal/even.
+---
+Some inconsistency in my design was the angles of the lines. The varying lengths of the lines also contributed to making the angles in question look super acute/obtuse. To 'solve' this I just took the angles away. I was already thinking of doing this for the editor though, so it didn't impede me too much. I've simplified it to just a horizontal and vertical line, and also added in a parameter so you can change the starting angle of the arc; so far this is working out better in the overall design.
+---
+These are the new parameters I'm currently working with:
+* `arcStartAngle` : this is the 'start' angle that the arc will start at.
+* `arcStopAngle` : this is the 'stop' angle that the arc will stop at.
 
-There are currently nine parameters per letter:
-* `arcStopAngle` : this is the 'stop' angle that the arc will stop at
-* `Line1_X_startcoord` : x coordinate of the starting line point
-* `Line1_Y_startcoord` : y coordinate of the starting line point
-* `Line1_X_stopcoord` : x coordinate of the stopping line point
-* `Line1_Y_stopcoord` : y coordinate of the stopping line point
+* `Line1_X_startcoord` : x coordinate of the starting line point.
+* `Line1_X_stopcoord` : x coordinate of the stopping line point.
+* `horizontalLineY` : y position of the whole line.
 
-* `Line2_X_startcoord` : x coordinate of the starting line point
-* `Line2_Y_startcoord` : y coordinate of the starting line point
-* `Line2_X_stopcoord` : x coordinate of the stopping line point
-* `Line2_Y_stopcoord` : y coordinate of the stopping line point
+* `verticalLineX` : x position of the whole line.
+* `Line2_Y_startcoord` : y coordinate of the starting line point.
+* `Line2_Y_stopcoord` : y coordinate of the stopping line point.
+
+I've also added in the Editor. This corresponds with the above parameters and has been a big help the the new design. Moving forward I need to get my shit together and finish the alphabet - I don't have much more to do especially since I've got my previous design to go off, but regardless I need to get it done ASAP to get started on the interpolation and exhibition.
