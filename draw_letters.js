@@ -1,10 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#292929";
+var systemBackgroundColor = "#808080";
 var systemLineColor = "#ffffff";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor  = "#292929";
+const backgroundColor  = "#808080";
 const gold  = "#f5ce42";
 const black  = "#0d0d0d";
 const white = "ffffff";
@@ -23,17 +23,17 @@ function drawLetter(letterData) {
   let posx = 50;
   let posy = 100;
 
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos2x = posx + letterData["offsetBottom"];
+  let pos2y = posy + 50;
 
-  let pos3x = posx + letterData["offsetx2"];
-  let pos3y = posy + letterData["offsety2"];
+  let pos3x = posx + 50;
+  let pos3y = posy + letterData["offsetRight"];
 
-  let pos4x = posx - letterData["offsetx"];
-  let pos4y = posy - letterData["offsety"];
+  let pos4x = posx + letterData["offsetTop"];
+  let pos4y = posy - 50;
 
-  let pos5x = posx - letterData["offsetx2"];
-  let pos5y = posy - letterData["offsety2"];
+  let pos5x = posx - 50;
+  let pos5y = posy + letterData["offsetLeft"];;
 
   let centerValX = letterData["centerValX"];
   let centerValY = letterData["centerValY"];
