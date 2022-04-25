@@ -6,6 +6,20 @@ const alphabet = {
   },
   "A": {
     "offsetx": 0,
+     "offsety": 152,
+     "waveL1": 1,
+     "rotate1": 0,
+     "peaks1": -1.8000000000000007,
+     "peak1H": 100,
+     "offsetx2": 0,
+     "offsety2": 120,
+     "waveL2": 1,
+     "rotate2": 0,
+     "peaks2": 1.799999999999999,
+     "peak2H": 22,
+     "number": 0
+  /*  old a
+    "offsetx": 0,
   "offsety": 100,
   "waveL1": 1,
   "rotate1": 0,
@@ -17,6 +31,7 @@ const alphabet = {
   "rotate2": 0,
   "peaks2": -5.2,
   "peak2H": 42
+  */
   },
   "B": {
     "offsetx": 21,
@@ -30,7 +45,8 @@ const alphabet = {
      "waveL2": 1,
      "rotate2": 90,
      "peaks2": 6,
-     "peak2H": 40
+     "peak2H": 40,
+     "number": 0
   },
   "C": {
     "offsetx": 84,
@@ -44,7 +60,8 @@ const alphabet = {
      "waveL2": 1,
      "rotate2": 90,
      "peaks2": 1.8,
-     "peak2H": -70
+     "peak2H": -70,
+     "number": 0
   },
   "D": {
     "offsetx": 16,
@@ -58,7 +75,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 90,
   "peaks2": 1.8,
-  "peak2H": 62
+  "peak2H": 62,
+  "number": 0
   },
   "E": {
     "offsetx": 84,
@@ -73,6 +91,7 @@ const alphabet = {
      "rotate2": 0,
      "peaks2": 1.8,
      "peak2H": 6,
+     "number": 0
   },
   "F": {
     "offsetx": 81,
@@ -86,7 +105,8 @@ const alphabet = {
  "waveL2": 1,
  "rotate2": 0,
  "peaks2": 1.9,
- "peak2H": 4
+ "peak2H": 4,
+ "number": 0
   },
   "G": {
     "offsetx": 84,
@@ -100,7 +120,8 @@ const alphabet = {
  "waveL2": 1,
  "rotate2": 122.4,
  "peaks2": 2.2,
- "peak2H": 46
+ "peak2H": 46,
+ "number": 0
   },
   "H": {
     /* backwards U
@@ -129,7 +150,8 @@ const alphabet = {
     "waveL2": 1,
     "rotate2": 46.8,
     "peaks2": 1.8,
-    "peak2H": 44
+    "peak2H": 44,
+    "number": 0
 
   },
   "I": {
@@ -144,7 +166,8 @@ const alphabet = {
     "waveL2": 0.7,
     "rotate2": 0,
     "peaks2": 1.799999999999999,
-    "peak2H": 2
+    "peak2H": 2,
+    "number": 0
   },
   "J": {
     "offsetx": 0,
@@ -158,7 +181,8 @@ const alphabet = {
     "waveL2": 1,
     "rotate2": 118.8,
     "peaks2": 1.8,
-    "peak2H": 54
+    "peak2H": 54,
+    "number": 0
   },
   "K": {
     "offsetx": 12,
@@ -172,7 +196,8 @@ const alphabet = {
  "waveL2": 1,
  "rotate2": 90,
  "peaks2": 1.8,
- "peak2H": -82
+ "peak2H": -82,
+ "number": 0
   },
   "L": {
     "offsetx": 10,
@@ -187,8 +212,23 @@ const alphabet = {
   "rotate2": 43.2,
   "peaks2": -1.6,
   "peak2H": 48,
+  "number": 0
   },
   "M": {
+    "offsetx": 2,
+    "offsety": 152,
+    "waveL1": 0.48,
+    "rotate1": 0,
+    "peaks1": -1.5999999999999996,
+    "peak1H": 100,
+    "offsetx2": 42,
+    "offsety2": 152,
+    "waveL2": 0.58,
+    "rotate2": 0,
+    "peaks2": 1.799999999999999,
+    "peak2H": 100,
+    "number": 0
+    /* old m
     "offsetx": 0,
       "offsety": 100,
       "waveL1": 1,
@@ -201,6 +241,7 @@ const alphabet = {
       "rotate2": 0,
       "peaks2": 9,
       "peak2H": -46
+      */
   },
   "N": {
     "offsetx": -8,
@@ -215,6 +256,7 @@ const alphabet = {
 "rotate2": 349.2,
 "peaks2": -6.2,
 "peak2H": 46,
+"number": 0
   },
   "O": {
     "offsetx": 50,
@@ -228,7 +270,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 90,
   "peaks2": 1.8,
-  "peak2H": 44
+  "peak2H": 44,
+  "number": 0
   },
   "P": {
     "offsetx": 8,
@@ -242,7 +285,8 @@ const alphabet = {
   "waveL2": 0.66,
   "rotate2": 75.6,
   "peaks2": 1.8,
-  "peak2H": 80
+  "peak2H": 80,
+  "number": 0
   },
   "Q": {
 
@@ -257,7 +301,8 @@ const alphabet = {
   "waveL2": 1.2,
   "rotate2": 46.8,
   "peaks2": 3.4,
-  "peak2H": 22
+  "peak2H": 22,
+  "number": 0
   },
   "R": {
     "offsetx": 2,
@@ -271,7 +316,8 @@ const alphabet = {
   "waveL2": 0.82,
   "rotate2": 334.8,
   "peaks2": 2.4,
-  "peak2H": 46
+  "peak2H": 46,
+  "number": 0
   },
   "S": {
     "offsetx": 30,
@@ -286,6 +332,7 @@ const alphabet = {
 "rotate2": -64.8,
 "peaks2": -3.6,
 "peak2H": 52,
+"number": 0
   },
   "T": {
     "offsetx": 54,
@@ -299,7 +346,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 0,
   "peaks2": 1.8,
-  "peak2H": -2
+  "peak2H": -2,
+  "number": 0
   },
   "U": {
     "offsetx": 4,
@@ -314,6 +362,7 @@ const alphabet = {
 "rotate2": 0,
 "peaks2": -1.8,
 "peak2H": 92,
+"number": 0
   },
   "V": {
     "offsetx": 20,
@@ -328,8 +377,23 @@ const alphabet = {
 "rotate2": 0,
 "peaks2": -1.8,
 "peak2H": 92,
+"number": 0
   },
   "W": {
+    "offsetx": -4,
+    "offsety": 44,
+    "waveL1": 0.56,
+    "rotate1": 0,
+    "peaks1": 1.5999999999999996,
+    "peak1H": 100,
+    "offsetx2": 44,
+    "offsety2": 44,
+    "waveL2": 0.56,
+    "rotate2": 0,
+    "peaks2": -1.8000000000000007,
+    "peak2H": 100,
+    "number": 0
+    /* old w
     "offsetx": 0,
   "offsety": 100,
   "waveL1": 1,
@@ -342,6 +406,7 @@ const alphabet = {
 "rotate2": 0,
 "peaks2": 9,
 "peak2H": 42,
+*/
   },
   "X": {
     "offsetx": 12,
@@ -355,7 +420,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 86.4,
   "peaks2": -1.8,
-  "peak2H": 34
+  "peak2H": 34,
+  "number": 0
   },
   "Y": {
     "offsetx": 0,
@@ -369,7 +435,8 @@ const alphabet = {
  "waveL2": 1.06,
  "rotate2": -50.39999999999998,
  "peaks2": 1.5999999999999996,
- "peak2H": -24
+ "peak2H": -24,
+ "number": 0
   },
   "Z": {
     "offsetx": 54,
@@ -383,7 +450,8 @@ const alphabet = {
     "waveL2": 0.52,
     "rotate2": 72,
     "peaks2": -2.1999999999999993,
-    "peak2H": 58
+    "peak2H": 58,
+    "number": 0
   },
   "0": {
     "offsetx": 50,
@@ -397,7 +465,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 90,
   "peaks2": 0,
-  "peak2H": 0
+  "peak2H": 0,
+  "number": 1
   },
   "1": {
     "offsetx": 50,
@@ -412,6 +481,7 @@ const alphabet = {
   "rotate2": 90,
   "peaks2": -1.8,
   "peak2H": 16,
+  "number": 1
   },
   "2": {
     "offsetx": 50,
@@ -426,6 +496,7 @@ const alphabet = {
       "rotate2": 90,
       "peaks2": -4,
       "peak2H": 16,
+      "number": 1
   },
   "3": {
     "offsetx": 50,
@@ -440,6 +511,7 @@ const alphabet = {
       "rotate2": 90,
       "peaks2": -5.6,
       "peak2H": 16,
+      "number": 1
   },
   "4": {
     "offsetx": 50,
@@ -454,6 +526,7 @@ const alphabet = {
       "rotate2": 90,
       "peaks2": -7.6,
       "peak2H": 16,
+      "number": 1
   },
   "5": {
     "offsetx": 50,
@@ -468,6 +541,7 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -9.2,
     "peak2H": 16,
+    "number": 1
   },
   "6": {
     "offsetx": 25,
@@ -481,7 +555,8 @@ const alphabet = {
     "waveL2": 1,
     "rotate2": 90,
     "peaks2": -2,
-    "peak2H": -16
+    "peak2H": -16,
+    "number": 1
   },
   "7": {
     "offsetx": 25,
@@ -495,7 +570,8 @@ const alphabet = {
       "waveL2": 1,
       "rotate2": 90,
       "peaks2": -3.8,
-      "peak2H": -16
+      "peak2H": -16,
+      "number": 1
   },
   "8": {
     "offsetx": 25,
@@ -509,7 +585,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 90,
   "peaks2": -6,
-  "peak2H": -16
+  "peak2H": -16,
+  "number": 1
   },
   "9": {
     "offsetx": 25,
@@ -523,7 +600,8 @@ const alphabet = {
   "waveL2": 1,
   "rotate2": 90,
   "peaks2": -7.6,
-  "peak2H": -16
+  "peak2H": -16,
+  "number": 1
   }
 
 }

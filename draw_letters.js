@@ -33,6 +33,7 @@ function drawLetter(letterData) {
   let peaks2 = letterData["peaks2"];
   let peaks1H = letterData["peak1H"];
   let peaks2H = letterData["peak2H"];
+  let num = letterData["number"];
   //lerpColor setup
   let Lcolor1 = color(0, 232, 232); //blue
   let Lcolor2 = color(232, 232, 27); //yellow
@@ -41,11 +42,18 @@ function drawLetter(letterData) {
   let NegPeakHLerpMap1 = map(peaks1H, 0, -100, 0, 1); //negative peak1 height
   let PosPeakHLerpMap2 = map(peaks2H, 0, 100, 0, 1); //postive peak2 height
   let NegPeakHLerpMap2 = map(peaks2H, 0, -100, 0, 1); //negative peak2 height
+
+  let PeakALerpMap = map(peaks1, 0, 10, 0, 1); //postive peak1 amount
+  let Peak2ALerpMap = map(peaks2, 0, -10, 0, 1); //negative peak2 amount
   //maps for lerp colour
   let PosLerpColor1 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap1); //pos peak1 color
   let NegLerpColor1 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap1); //neg peak1 color
   let PosLerpColor2 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap2); //pos peak2 color
   let NegLerpColor2 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap2); //neg peak2 color
+
+  let PAmountLerpColor1 = lerpColor(Lcolor1, Lcolor2, PeakALerpMap); //peak1 amount color
+  let PAmount2LerpColor1 = lerpColor(Lcolor1, Lcolor2, Peak2ALerpMap); //peak2 amount color
+
   //rect(posx, posy, 150, 250); //bounding box?
 
   //fill(lightBlue);
@@ -65,6 +73,10 @@ function drawLetter(letterData) {
   }else{
     stroke(NegLerpColor1);
   }
+  if(num == 1 && peaks1 > 0){
+    stroke(PAmountLerpColor1);
+  }
+
 
   beginShape();
   for (let i = 0; i < 100; i++) { //sets length
@@ -86,6 +98,9 @@ function drawLetter(letterData) {
       stroke(PosLerpColor2);
   }else{
     stroke(NegLerpColor2);
+  }
+  if(num == 1 && peaks2 < 0){
+    stroke(PAmount2LerpColor1);
   }
   beginShape();
   for (let i = 0; i < 100; i++) { //2 pixel spacing on the x - axis.

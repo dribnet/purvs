@@ -1,24 +1,19 @@
 ## MDDN 242 2022 Assignment 2
 
-Looking at oscilloscopes as inspiration now.
+Changed A, M and W to fit more with the rest of the letters based on feedback.
 
-Changed the bottom line for I to be shorter to help it look less like an upside down T.
+M looks like McDonalds now especially since it's yellow. I made the first stroke cut off a bit and merge with the other so it would look less like the logo but the colour association is too strong.
 
-Worked on a capital H again but just went back to the lowercase one.
+I didn't want to change them from the old way I did it because I liked the interpolation but I like these new interpolations as well.
 
-Added a lerp colour, depending on the peak height it changes from blue to yellow. Blue low height, yellow most height.
-
-I think for the numbers it would be good to do the same but with the amount of peaks instead of height.
-
-Changed the background colour to off black.
-
-Tried changing the stroke cap to round, but I don't think I like it rounded so I changed it back to square.
+To make the numbers colour system work I added another parameter which checks if the current letter is a number or not with 0 and 1. I don't know if there's a better way to do this, but I thought of this way first and it works :man_shrugging:.
 
 Letters I don't like:
 H - Needs a third wave but want to stick with just having 2 lines
 I - same with H
-Q - respect its ugliness
+M - McDonalds
 U,V - very similar
 
 Todo:
-Separate colour map for numbers based on amount of peaks.
+The rotation of some letters when interpolating looks janky so maybe I could redraw them with a better rotation number?
+N, R, Z
