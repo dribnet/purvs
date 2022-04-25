@@ -7,27 +7,27 @@ const alphabet = {
     "height": 50
   },
   "A": {
-    "sizex": 1, // first square
-    "sizey": 1,
-    "offsetx": 20,
-    "offsety": 35,
-    "sizexT": 0, // second square
-    "sizeyT": 0,
-    "offsetxT": 20,
-    "offsetyT": 35,
-    "offsetx3": 0, // arc
-    "offsety3": 0,
-    "angleR":2, //red
-    "angleL":0,
-    "angleR":1.9, // orange
-    "angleL":1.1
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 2.1351999999999998,
+  "angleL": 1.0048,
+  "angleR2": 0,
+  "angleL2": 0
   },
   "B": {
     "sizex": 1,
     "sizey": 1,
     "offsetx": 0,
     "offsety": -35, // red
-    "offsetx3": 0, //orange
+    "offsetx3": -0.5, //orange
     "offsety3": 45,
     "angleR":-1.57, // orange
     "angleL":0,
@@ -35,28 +35,36 @@ const alphabet = {
     "angleL2":-4.7
   },
   "C": {
-    "sizex": 1,
-    "sizey": 1,
-    "offsetx": 0, //red
-    "offsety": 0,
-    "offsetx3": 0, // orange
-    "offsety3": 0,
-    "angleR":-1.57, 
-    "angleL":1.57,
-    "angleR2":0, // red
-    "angleL2":0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 1.5699999999999998,
+  "angleL": -1.57,
+  "angleR2": 0,
+  "angleL2": 0
   },
   "D": {
-   "sizex": 1,
-    "sizey": 1,
-    "offsetx": 0, //red
-    "offsety": 0,
-    "offsetx3": 0, // orange
-    "offsety3": 0,
-    "angleR":1.57, 
-    "angleL":-1.57,
-    "angleL2":0,
-    "angleR2":0 // red
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": -1.57,
+  "angleL": 1.5699999999999998,
+  "angleR2": 0,
+  "angleL2": 0
   },
   "E": {
     "sizex": 1,
@@ -184,14 +192,36 @@ const alphabet = {
   "angleL2": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": -4,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 1,
+  "offsetyT": 0,
+  "offsetx3": 1,
+  "offsety3": 0,
+  "angleR": -1.3188000000000002,
+  "angleL": -0.3767999999999998,
+  "angleR2": -2.7004,
+  "angleL2": -1.8212000000000002
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 28.999999999999996,
+  "sizey": 85,
+  "offsetx": 22,
+  "offsety": -35,
+  "sizexT": 27,
+  "sizeyT": 85,
+  "offsetxT": -29,
+  "offsetyT": -35,
+  "offsetx3": -1,
+  "offsety3": -6,
+  "angleR": 0.5023999999999997,
+  "angleL": 1.0048,
+  "angleR2": 0,
+  "angleL2": 0
   },
   "O": {
      "sizex": 0,
@@ -306,44 +336,132 @@ const alphabet = {
   "angleL2": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 1.0676,
+  "angleL": 2.0095999999999994,
+  "angleR2": 0.43959999999999955,
+  "angleL2": 0.43959999999999955
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 5.000000000000007,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 1.7584000000000004,
+  "angleL": 2.7004000000000006,
+  "angleR2": 0.43959999999999955,
+  "angleL2": 1.3816000000000002
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": -2.4492000000000003,
+  "angleL": -0.8164000000000002,
+  "angleR2": 0.7536,
+  "angleL2": 2.3236000000000003
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 2,
+  "offsety": -2,
+  "sizexT": 33,
+  "sizeyT": 68,
+  "offsetxT": -15,
+  "offsetyT": 2,
+  "offsetx3": 2,
+  "offsety3": -1,
+  "angleR": -0.6279999999999997,
+  "angleL": -0.6279999999999997,
+  "angleR2": -2.512,
+  "angleL2": -0.6279999999999997
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": -2.4492000000000003,
+  "angleL": -1.57,
+  "angleR2": 0.6907999999999999,
+  "angleL2": 1.5699999999999998
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 1.5699999999999998,
+  "angleL": -1.57,
+  "angleR2": -1.57,
+  "angleL2": 1.6328
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 50,
+  "sizey": 50,
+  "offsetx": 0,
+  "offsety": -10,
+  "sizexT": 50,
+  "sizeyT": 100,
+  "offsetxT": 0,
+  "offsetyT": -50,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 0,
+  "angleL": 0,
+  "angleR2": 3.14,
+  "angleL2": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": -26,
+  "offsety": 41,
+  "sizexT": 44,
+  "sizeyT": 41,
+  "offsetxT": -4,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 3.14,
+  "angleL": 0,
+  "angleR2": -1.0048,
+  "angleL2": 0
   },
   "3": {
     "size": 40,
@@ -361,24 +479,68 @@ const alphabet = {
     "offsety": 17
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 0,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 0,
+  "angleL": -3.14,
+  "angleR2": -3.14,
+  "angleL2": -1.57
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 50,
+  "offsety": 21,
+  "sizexT": 100,
+  "sizeyT": 50,
+  "offsetxT": -10,
+  "offsetyT": -27,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 0,
+  "angleL": 0.12559999999999993,
+  "angleR2": 0.06280000000000019,
+  "angleL2": 1.5699999999999998
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 21,
+  "offsety": 44,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 24,
+  "offsetyT": 0,
+  "offsetx3": 21,
+  "offsety3": -40,
+  "angleR": 0,
+  "angleL": 3.14,
+  "angleR2": -3.14,
+  "angleL2": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "sizex": 50,
+  "sizey": 50,
+  "offsetx": 0,
+  "offsety": 0,
+  "sizexT": 50,
+  "sizeyT": 98,
+  "offsetxT": 0,
+  "offsetyT": -40,
+  "offsetx3": 0,
+  "offsety3": 0,
+  "angleR": 0,
+  "angleL": 0,
+  "angleR2": -3.14,
+  "angleL2": 0
   }
 
 }
