@@ -145,13 +145,13 @@ const alphabet = {
   "K": {
     "size": 20,
     "offsetLeft": 0,
-    "offsetRight": 25,
-    "offsetTop": 0,
-    "offsetBottom": 0,
-    "centerValX": 100,
-    "centerValY": 100,
+    "offsetRight": 35,
+    "offsetTop": 20,
+    "offsetBottom": -50,
+    "centerValX": 60,
+    "centerValY": 60,
     "leftVal": 100,
-    "rightVal": 50,
+    "rightVal": 30,
     "topVal": 0,
     "bottomVal": 0
   },
@@ -478,7 +478,7 @@ const alphabet = {
     "leftVal": 50,
     "rightVal": 100,
     "topVal": 100,
-    "bottomVal": 0
+    "bottomVal": 100
   }
 
 }

@@ -20,8 +20,8 @@ function drawLetter(letterData) {
   // determine parameters
   let size = letterData["size"];
 
-  let posx = 50;
-  let posy = 100;
+  let posx = 62.5;
+  let posy = 130;
 
   let pos2x = posx + letterData["offsetBottom"];
   let pos2y = posy + 50;
@@ -43,6 +43,7 @@ function drawLetter(letterData) {
   let bottomVal = letterData["bottomVal"];
 
   push();
+  scale(0.8);
   rectMode(CENTER);
   //Center
   noStroke()
@@ -75,11 +76,23 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["offsetBottom"]  = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
+  new_letter["offsetTop"]     = map(percent, 0, 100, oldObj["offsetTop"], newObj["offsetTop"]);
+  new_letter["offsetRight"]   = map(percent, 0, 100, oldObj["offsetRight"], newObj["offsetRight"]);
+  new_letter["offsetLeft"]    = map(percent, 0, 100, oldObj["offsetLeft"], newObj["offsetLeft"]);
+  new_letter["centerValX"]    = map(percent, 0, 100, oldObj["centerValX"], newObj["centerValX"]);
+  new_letter["centerValY"]    = map(percent, 0, 100, oldObj["centerValY"], newObj["centerValY"]);
+  new_letter["leftVal"]       = map(percent, 0, 100, oldObj["leftVal"], newObj["leftVal"]);
+  new_letter["rightVal"]      = map(percent, 0, 100, oldObj["rightVal"], newObj["rightVal"]);
+  new_letter["topVal"]        = map(percent, 0, 100, oldObj["topVal"], newObj["topVal"]);
+  new_letter["bottomVal"]     = map(percent, 0, 100, oldObj["bottomVal"], newObj["bottomVal"]);
   return new_letter;
 }
 
 var swapWords = [
   "BOXFRONT",
   "SQUAREME",
-  "FIVECORN"
+  "FIVESPOT",
+  "ZOIDBERG",
+  "DEEZNUTS"
 ]
