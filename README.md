@@ -1,3 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-With the interpolation very roughly done I am now looking into how I can add more details and stuff to make the design more interesting. Want to change the background up to make the colours stand out more and maybe add small details to the background to create a more dynamic visual.
+Quick change of colour palette now that my shapes are refined. Makes the letters stand out more. The hollow shapes make it appear a bit more layered and changed a couple of symbols to make it more 'harmonious'. Also reshuffled more of the code so i can rotate for some of the interpolation and the letter x.

@@ -6,6 +6,10 @@
  */
 const sliderInfo = [
   ["size",  20,  20],
+  ["offsetLeft",  -50,  50],
+  ["offsetRight",  -50,  50],
+  ["offsetTop",  -50,  50],
+  ["offsetBottom",  -50,  50],
   ["centerValX",  0,  100],
   ["centerValY", 0, 100],
   ["leftVal", 0, 100],
@@ -58,7 +62,7 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 0)
+    let cur_slider = createSlider(0, 100, 50)
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
