@@ -4,7 +4,7 @@
 
 Today, I continued to make more of my letters and numbers, completing all of them apart from the letters N, W, X and the default, which are a bit harder to figure out. It was quite easy to create the new letters as all of them are made within a similar grid system so it was just a matter of repositioning the squares and rectangles. I have been sketching them as I go so I know where to move each of my squares. The image below shows these sketches, as well as some of my other ideas I had from my last push that I didn't upload then and some notes on variables.
 
-![Alphabet sketches](http://url/to/20220420_131544.jpg)
+**See image alphabet_sketches.jpg for sketch. I couldn't manage to link it in the README file.**
 
 The letters I have left are a bit wider and/or might need more squares than I have to complete so I will have to think a bit more on how to do them. You can see this issue with the M as I would have liked to have more space between the side lines and the center square. I could make the middle square thinner to add some white space but that could upset the balance of the letter compared to all the others.
 
