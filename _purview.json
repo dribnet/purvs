@@ -5,12 +5,20 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "f78de331a4c0787da6c216446fac8962aa79b9bc",
+      "name": "Idea 2 - Hours of reshuffle"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "6264addd1760aa997632c833a51c99a035dc00ee",
+      "name": "Idea 2 - New beginnings and speedy progress"
+    },
+    {
+      "sha": "bdf2a20074aa2ee583d6afbf8ceb3d6a7761cc42",
+      "name": "Idea 1 - As far as I took it"
+    },
+    {
+      "sha": "cde33a2488dcdcf08dc77d9b77032a6b1db4c8",
+      "name": "Idea 1 - Starting out"
     }
   ]
 }
