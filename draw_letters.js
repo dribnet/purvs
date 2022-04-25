@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#2b2626";
+var systemBackgroundColor = "#3d3737";
 var systemLineColor = "#8ce6aa";
 var systemBoxColor = "#f74f4f";
 
@@ -145,7 +145,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "HENRY",
-  "HOWDY",
-  "YEE-HAW"
+  "HENRY_BE",
+  "HOWDYALL",
+  "PIXELSSS"
 ]
