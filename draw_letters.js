@@ -17,8 +17,6 @@ const strokeColor  = "#03045e";
  */
 function drawLetter(letterData) {
   push()
-  let posx = 50;
-  let posy = 50;
   // determine parameters for red circle
   let circleR1 = letterData["circleR1"];
   let circleR2 = letterData["circleR2"];
