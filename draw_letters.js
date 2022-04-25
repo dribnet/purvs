@@ -17,6 +17,8 @@ const backColour = "#fb94ff";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  angleMode(DEGREES);
+  // ellipseMode(CENTER);
   // determine parameters for second circle
   let posx = 30
   let posy = 100
@@ -32,30 +34,40 @@ function drawLetter(letterData) {
   let minusBS = posx - letterData["curveX"];
   let minusBS2 = posy - letterData["curveY"];
   let transX = letterData["translateX"];
-  let transY = letterData ["translateY"];
-  let sizexx = letterData ["sizeX"];
-  let sizeyy = letterData ["sizeY"];
+  let transY = letterData["translateY"];
+  let sizexx = letterData["sizeX"];
+  let sizeyy = letterData["sizeY"];
+  let rotate1 = letterData["rotate"];
+  let sizex2 = letterData["2sizeX"];
+  let sizey2 = letterData["2sizeY"];
+  let offX2 = letterData["2offsetx"];
+  let offY2 = letterData["2offsety"];
+  let rotate2 = letterData["2rotate"];
 
   // draw two circles
   fill(frontColour);
   strokeWeight(2);
   stroke("#03045e");
-  // strokeWeight(0);
-  ellipse(pos2x, pos2y, sizexx, sizeyy);
   push();
-  translate(transX,transY);
+  // translate(offX2,offY2);
+  rotate(rotate2);
+  ellipse(offX2, offY2, sizex2, sizey2);
+  pop();
+  push();
+  // translate(pos2x,pos2y);
+  rotate(rotate1);
+  ellipse(pos2x, pos2y, sizexx, sizeyy);
+  pop();
+  rotate(0);
+  push();
+  translate(transX, transY);
   beginShape();
   curveVertex(bMidX, bMidY);
-  curveVertex(bStroke, bStroke2);//bottom vertex
-  curveVertex(minusBS, minusBS2);//top wertex
+  curveVertex(bStroke, bStroke2); //bottom vertex
+  curveVertex(minusBS, minusBS2); //top wertex
   curveVertex(bMidX, minusBS2)
   endShape();
   pop();
-//   push();
-//     stroke("#03045e");
-//   arc(pos2x,pos2y,size2,size2,offY*2,offX*2);
-// pop();
-
 
 
 
@@ -65,7 +77,7 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   return new_letter;

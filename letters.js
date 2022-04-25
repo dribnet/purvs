@@ -14,7 +14,13 @@ const alphabet = {
     "curveMidY": 135,
     "curveY": 44,
     "translateX": 38,
-    "translateY": 56
+    "translateY": 56,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "B": {
     "sizeX": 77,
@@ -26,7 +32,13 @@ const alphabet = {
     "curveX": 1,
     "curveY": 98,
     "translateX": -7,
-    "translateY": -1
+    "translateY": -1,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "C": {
     "sizeX": 50,
@@ -38,7 +50,13 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "D": {
     "sizeX": 74,
@@ -50,7 +68,13 @@ const alphabet = {
     "curveX": 3,
     "curveY": 100,
     "translateX": 38,
-    "translateY": -1
+    "translateY": -1,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "E": {
     "sizeX": 76,
@@ -62,7 +86,13 @@ const alphabet = {
     "curveX": 43,
     "curveY": 0,
     "translateX": 20,
-    "translateY": 56
+    "translateY": 56,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "F": {
     "sizeX": 50,
@@ -74,7 +104,13 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "G": {
     "sizeX": 86,
@@ -86,12 +122,17 @@ const alphabet = {
     "curveX": -30,
     "curveY": 70,
     "translateX": 26,
-    "translateY": 70
+    "translateY": 70,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "H": {
     "sizeX": 50,
     "sizeY": 15,
-
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -99,12 +140,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "I": {
     "sizeX": 28,
     "sizeY": 28,
-
     "offsetx": 17.4,
     "offsety": -18,
     "curveMidX": -144,
@@ -112,7 +158,13 @@ const alphabet = {
     "curveX": 0,
     "curveY": 48,
     "translateX": 14,
-    "translateY": 50
+    "translateY": 50,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "J": {
     "sizeX": 29,
@@ -124,12 +176,17 @@ const alphabet = {
     "curveX": -28,
     "curveY": 48,
     "translateX": 8,
-    "translateY": 74
+    "translateY": 74,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "K": {
     "sizeX": 50,
     "sizeY": 15,
-
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -137,7 +194,13 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "L": {
     "sizeX": 0,
@@ -149,7 +212,13 @@ const alphabet = {
     "curveX": 0,
     "curveY": 94,
     "translateX": 26,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "M": {
     "sizeX": 50,
@@ -161,19 +230,31 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "N": {
     "sizeX": 12,
-    "sizeY": 96,
-    "offsetx": -9,
-    "offsety": 48,
-    "curveMidX": -84,
-    "curveMidY": 480,
+    "sizeY": 100,
+    "offsetx": -13.2,
+    "offsety": 46,
+    "curveMidX": -186,
+    "curveMidY": 500,
     "curveX": 34,
-    "curveY": 44,
-    "translateX": 29,
-    "translateY": 53
+    "curveY": 46,
+    "translateX": 20,
+    "translateY": 50,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "O": {
     "sizeX": 88,
@@ -185,7 +266,13 @@ const alphabet = {
     "curveX": 0,
     "curveY": 10,
     "translateX": 20,
-    "translateY": 41
+    "translateY": 41,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "P": {
     "sizeX": 80,
@@ -197,7 +284,13 @@ const alphabet = {
     "curveX": 0,
     "curveY": 88,
     "translateX": -4,
-    "translateY": 95
+    "translateY": 95,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "Q": {
     "sizeX": 80,
@@ -209,19 +302,31 @@ const alphabet = {
     "curveX": -2,
     "curveY": 92,
     "translateX": 47,
-    "translateY": 104
+    "translateY": 104,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "R": {
     "sizeX": 13,
     "sizeY": 94,
-    "offsetx":-15,
+    "offsetx": -15,
     "offsety": 48,
     "curveMidX": 96,
     "curveMidY": 250,
     "curveX": 36,
     "curveY": 8,
     "translateX": 26,
-    "translateY": 23
+    "translateY": 23,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "S": {
     "sizeX": 50,
@@ -230,22 +335,34 @@ const alphabet = {
     "offsety": 0,
     "curveMidX": 00,
     "curveMidY": 00,
-    "curveX": 0 ,
+    "curveX": 0,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "T": {
     "sizeX": 65,
     "sizeY": 13,
     "offsetx": 15.5,
-    "offsety":-16,
+    "offsety": -16,
     "curveMidX": 96,
     "curveMidY": -160,
     "curveX": 2,
     "curveY": 84,
     "translateX": 20,
-    "translateY": 11
+    "translateY": 11,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "U": {
     "sizeX": 15,
@@ -257,7 +374,13 @@ const alphabet = {
     "curveX": -26,
     "curveY": 38,
     "translateX": 20,
-    "translateY": 50
+    "translateY": 50,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "V": {
     "sizeX": 15,
@@ -269,7 +392,13 @@ const alphabet = {
     "curveX": -36,
     "curveY": 44,
     "translateX": 29,
-    "translateY": 50
+    "translateY": 50,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "W": {
     "sizeX": 50,
@@ -282,7 +411,13 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "X": {
     "sizeX": 15,
@@ -294,12 +429,17 @@ const alphabet = {
     "curveX": -40,
     "curveY": 44,
     "translateX": 20,
-    "translateY": 50
+    "translateY": 50,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "Y": {
     "sizeX": 50,
     "sizeY": 15,
-
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -307,7 +447,13 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "Z": {
     "sizeX": 50,
@@ -320,12 +466,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "0": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -333,12 +484,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "1": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -346,12 +502,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "2": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -359,12 +520,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "3": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -372,12 +538,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "4": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -385,12 +556,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "5": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -398,12 +574,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "6": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -411,12 +592,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "7": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -424,12 +610,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "8": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -437,12 +628,17 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
   },
   "9": {
     "sizeX": 40,
     "sizeY": 15,
-
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -450,7 +646,14 @@ const alphabet = {
     "curveMidY": 00,
     "curveY": 0,
     "translateX": 0,
-    "translateY": 0
+    "translateY": 0,
+    "rotate": 0,
+    "2sizeX": 0,
+    "2sizeY": 0,
+    "2offsetx": 0,
+    "2offsety": 0,
+    "2rotate": 0
+
   }
 
 }

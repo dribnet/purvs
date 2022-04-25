@@ -1,20 +1,11 @@
 ## MDDN 242 2022 Assignment 2
 
-I've been slowly making progress with the letters, and I've changed the sizing, and made it so that I can alter the ellipse horizontally and vertically. So far I have 10 parameters, and I don't really plan on adding more, unless I have to.
+I'm just now realizing that I might need to change around my design, and mess around with the custom shape I have made. It works fine, but I feel like if I tweak it a little bit I could make it a whole lot better.
 
-what I have currently for the letter A, which are quite self explanatory
+I feel like at the moment it just looks a bit ugly, and like it was rushed, so I want to see if I could improve this anyway before I go ahead and start doing the rest of the stuff.
 
-"sizeX": 74,
-"sizeY": 74,
-"offsetx": 11,
-"offsety": 58,
-"curveX": 12.5,
-"curveMidX": -102,
-"curveMidY": 135,
-"curveY": 44,
-"translateX": 38,
-"translateY": 56
+I will first just add in the ellipse that I was going to add, and I'm going to add parameters to rotate the ellipses. If this ends up looking good, then I'm going to stick with this and not bother trying to fix the custom shape. This will add probably 6 parameters, bringing me to 16, which is still under the limit.
 
-I'm still making my way through the alphabet, and once I finish the letters, I will begin the interpolation part, and then finish with the polshing and refining colours and general aesthetics.
+I've successfully added in the next ellipse, but now I am having trouble with the rotate part. I want it to rotate at the center of the shape, but it is rotating around a different point. I should be able to fix this easily, so I think I'm just going to stick with this solution instead of trying to fix the custom shape.
 
-After working further on my letters, I realize that I am going to need to add in another ellipse, as I need it to make more complex letters like M, W, Z, and S. This will add 4 more parameters.
+The next step for me is to fix up the rotate, finish the full alphabet/numbers and get them to a standard I am happy with. After that it is the general aesthetics and the interpolation stuff etc.
