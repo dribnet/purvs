@@ -95,20 +95,20 @@ const letterC = {
   "rl2x": 0,
   "rl2y": 0,
   "circleY1": 30,
-  "y1x": -20,
-  "y1y": 0,
+  "y1x": 0,
+  "y1y": -35,
   "circleY2": 0,
   "y2x": 0,
   "y2y": 0,
   "circleY3": 30,
-  "y3x": -20,
+  "y3x": 0,
   "y3y": 50,
-//   "yellowline1": 40,
-//   "yl1x": -30,
-//   "yl1y": -10,
-//   "yellowline2": 40,
-//   "yl2x": 30,
-//   "yl2y": 0
+  "yellowline1": 40,
+  "yl1x": -30,
+  "yl1y": -40,
+  "yellowline2": 20,
+  "yl2x": 0,
+  "yl2y": 50
   }
 
 const backgroundColor  = "#16041c";
@@ -139,7 +139,7 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 220, center_y, letterA);
+  drawLetter(center_x - 230, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 200, center_y, letterC);
 }
@@ -187,7 +187,7 @@ function drawLetter(posx, posy, letterData) {
   ellipse(posY2x, posY2y, circleY2, circleY2);
   ellipse(posY3x, posY3y, circleY3, circleY3);
   //yellow lines
-  rect(yl1x, yl1y, 10, yellowline1);
+  rect(yl1x, yl1y, yellowline1, 10);
   rect(yl2x, yl2y, 10, yellowline2);
   // red
   fill(lightRed);
