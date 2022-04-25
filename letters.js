@@ -1,11 +1,12 @@
 const alphabet = {
   "default": {
-    "size": 70,
+    "sizeX": 70,
     "offsetx": 0,
     "offsety": 00
   },
   "A": {
-    "size": 74,
+    "sizeX": 74,
+    "sizeY": 74,
     "offsetx": 11,
     "offsety": 58,
     "curveX": 12.5,
@@ -16,7 +17,8 @@ const alphabet = {
     "translateY": 56
   },
   "B": {
-    "size": 77,
+    "sizeX": 77,
+    "sizeY": 77,
     "offsetx": 22.7,
     "offsety": 60,
     "curveMidX": 120,
@@ -27,7 +29,8 @@ const alphabet = {
     "translateY": -1
   },
   "C": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 50,
     "offsetx": 15,
     "offsety": 70,
     "curveX": 0,
@@ -38,18 +41,20 @@ const alphabet = {
     "translateY": 0
   },
   "D": {
-    "size": 74,
+    "sizeX": 74,
+    "sizeY": 74,
     "offsetx": 13.2,
     "offsety": 58,
     "curveMidX": -150,
-    "curveMidY":  25,
+    "curveMidY": 25,
     "curveX": 3,
     "curveY": 100,
     "translateX": 38,
     "translateY": -1
   },
   "E": {
-    "size": 76,
+    "sizeX": 76,
+    "sizeY": 15,
     "offsetx": 17.4,
     "offsety": 14,
     "curveMidX": 114,
@@ -60,7 +65,8 @@ const alphabet = {
     "translateY": 56
   },
   "F": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -71,18 +77,21 @@ const alphabet = {
     "translateY": 0
   },
   "G": {
-    "size": 86,
+    "sizeX": 86,
+    "sizeY": 86,
     "offsetx": 15.6,
     "offsety": 55,
     "curveMidX": -186,
     "curveMidY": -500,
     "curveX": -30,
     "curveY": 70,
-    "translateX":26,
+    "translateX": 26,
     "translateY": 70
   },
   "H": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
+
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -93,29 +102,34 @@ const alphabet = {
     "translateY": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+    "sizeX": 28,
+    "sizeY": 28,
+
+    "offsetx": 17.4,
+    "offsety": -18,
+    "curveMidX": -144,
+    "curveMidY": 60,
     "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "curveY": 48,
+    "translateX": 14,
+    "translateY": 50
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
+    "sizeX": 29,
+    "sizeY": 29,
+    "offsetx": 36.5,
     "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "curveMidX": -300,
+    "curveMidY": -500,
+    "curveX": -28,
+    "curveY": 48,
+    "translateX": 8,
+    "translateY": 74
   },
   "K": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
+
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -126,18 +140,20 @@ const alphabet = {
     "translateY": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
+    "sizeX": 0,
+    "sizeY": 0,
+    "offsetx": 16.8,
     "offsety": 0,
+    "curveMidX": 132,
+    "curveMidY": 190,
     "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
+    "curveY": 94,
+    "translateX": 26,
     "translateY": 0
   },
   "M": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -148,106 +164,117 @@ const alphabet = {
     "translateY": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 12,
+    "sizeY": 96,
+    "offsetx": -9,
+    "offsety": 48,
+    "curveMidX": -84,
+    "curveMidY": 480,
+    "curveX": 34,
+    "curveY": 44,
+    "translateX": 29,
+    "translateY": 53
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
+    "sizeX": 88,
+    "sizeY": 100,
+    "offsetx": 20.4,
+    "offsety": 42,
+    "curveMidX": 0,
     "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "curveX": 0,
+    "curveY": 10,
+    "translateX": 20,
+    "translateY": 41
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+    "sizeX": 80,
+    "sizeY": 80,
+    "offsetx": 26.7,
+    "offsety": 56,
+    "curveMidX": 120,
+    "curveMidY": 10,
     "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "curveY": 88,
+    "translateX": -4,
+    "translateY": 95
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 80,
+    "sizeY": 80,
+    "offsetx": 19.9,
+    "offsety": 56,
+    "curveMidX": -132,
+    "curveMidY": -20,
+    "curveX": -2,
+    "curveY": 92,
+    "translateX": 47,
+    "translateY": 104
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 13,
+    "sizeY": 94,
+    "offsetx":-15,
+    "offsety": 48,
+    "curveMidX": 96,
+    "curveMidY": 250,
+    "curveX": 36,
+    "curveY": 8,
+    "translateX": 26,
+    "translateY": 23
   },
   "S": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
     "offsetx": 15,
     "offsety": 0,
-    "curveX": 0,
     "curveMidX": 00,
     "curveMidY": 00,
+    "curveX": 0 ,
     "curveY": 0,
     "translateX": 0,
     "translateY": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 65,
+    "sizeY": 13,
+    "offsetx": 15.5,
+    "offsety":-16,
+    "curveMidX": 96,
+    "curveMidY": -160,
+    "curveX": 2,
+    "curveY": 84,
+    "translateX": 20,
+    "translateY": 11
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 15,
+    "sizeY": 90,
+    "offsetx": -11.1,
+    "offsety": 52,
+    "curveMidX": -270,
+    "curveMidY": -290,
+    "curveX": -26,
+    "curveY": 38,
+    "translateX": 20,
+    "translateY": 50
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 15,
+    "sizeY": 90,
+    "offsetx": -11.1,
+    "offsety": 52,
+    "curveMidX": -78,
+    "curveMidY": -160,
+    "curveX": -36,
+    "curveY": 44,
+    "translateX": 29,
+    "translateY": 50
   },
   "W": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
+
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -258,18 +285,21 @@ const alphabet = {
     "translateY": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "curveX": 0,
-    "curveMidX": 00,
-    "curveMidY": 00,
-    "curveY": 0,
-    "translateX": 0,
-    "translateY": 0
+    "sizeX": 15,
+    "sizeY": 90,
+    "offsetx": 27.4,
+    "offsety": 52,
+    "curveMidX": -102,
+    "curveMidY": -80,
+    "curveX": -40,
+    "curveY": 44,
+    "translateX": 20,
+    "translateY": 50
   },
   "Y": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
+
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -280,7 +310,9 @@ const alphabet = {
     "translateY": 0
   },
   "Z": {
-    "size": 50,
+    "sizeX": 50,
+    "sizeY": 15,
+
     "offsetx": 15,
     "offsety": 0,
     "curveX": 0,
@@ -291,7 +323,9 @@ const alphabet = {
     "translateY": 0
   },
   "0": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -302,7 +336,9 @@ const alphabet = {
     "translateY": 0
   },
   "1": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -313,7 +349,9 @@ const alphabet = {
     "translateY": 0
   },
   "2": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -324,7 +362,9 @@ const alphabet = {
     "translateY": 0
   },
   "3": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -335,7 +375,9 @@ const alphabet = {
     "translateY": 0
   },
   "4": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -346,7 +388,9 @@ const alphabet = {
     "translateY": 0
   },
   "5": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -357,7 +401,9 @@ const alphabet = {
     "translateY": 0
   },
   "6": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -368,7 +414,9 @@ const alphabet = {
     "translateY": 0
   },
   "7": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -379,7 +427,9 @@ const alphabet = {
     "translateY": 0
   },
   "8": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,
@@ -390,7 +440,9 @@ const alphabet = {
     "translateY": 0
   },
   "9": {
-    "size": 40,
+    "sizeX": 40,
+    "sizeY": 15,
+
     "offsetx": 0,
     "offsety": 17,
     "curveX": 0,

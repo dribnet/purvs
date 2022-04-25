@@ -33,13 +33,15 @@ function drawLetter(letterData) {
   let minusBS2 = posy - letterData["curveY"];
   let transX = letterData["translateX"];
   let transY = letterData ["translateY"];
+  let sizexx = letterData ["sizeX"];
+  let sizeyy = letterData ["sizeY"];
 
   // draw two circles
   fill(frontColour);
   strokeWeight(2);
   stroke("#03045e");
   // strokeWeight(0);
-  ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, sizexx, sizeyy);
   push();
   translate(transX,transY);
   beginShape();
