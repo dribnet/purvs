@@ -24,12 +24,12 @@ const alphabet = {
     "Rect1x": 17.6,
     "Rect1y": 2,
     "Rect1h": 166,
-    "Rect1r": 7.2,
+    "Rect1r": 185.2,
 
     "Rect2x": 63.2,
     "Rect2y": -1,
     "Rect2h": 164,
-    "Rect2r": 172.798,
+    "Rect2r": 174.798,
 
     "Rect3x": 40.8,
     "Rect3y": 24,
@@ -68,14 +68,14 @@ const alphabet = {
     "Rect1h": 120,
     "Rect1r": 183.6,
 
-    "Rect2x": 56.8,
-    "Rect2y": -64,
-    "Rect2h": 62,
+    "Rect2x": 54.4,
+    "Rect2y": 64,
+    "Rect2h": 74,
     "Rect2r": 270,
 
-    "Rect3x": 54.4,
-    "Rect3y": 64,
-    "Rect3h": 74,
+    "Rect3x": 56.8,
+    "Rect3y": -64,
+    "Rect3h": 62,
     "Rect3r": 270,
 
     "Rect4x": 80,
@@ -94,15 +94,15 @@ const alphabet = {
     "Rect2h": 44,
     "Rect2r": 270,
 
-    "Rect3x": 72,
-    "Rect3y": 0,
-    "Rect3h": 108,
-    "Rect3r": 180,
+    "Rect3x": 32.8,
+    "Rect3y": -58,
+    "Rect3h": 62,
+    "Rect3r": 273.6,
 
-    "Rect4x": 32.8,
-    "Rect4y": -58,
-    "Rect4h": 62,
-    "Rect4r": 273.6
+    "Rect4x": 72,
+    "Rect4y": 0,
+    "Rect4h": 108,
+    "Rect4r": 180
   },
   "E": {
     "Rect1x": 12,
@@ -215,14 +215,14 @@ const alphabet = {
     "Rect1h": 160,
     "Rect1r": 187.2,
 
-    "Rect2x": 25.6,
-    "Rect2y": 64,
-    "Rect2h": 70,
+    "Rect2x": 40,
+    "Rect2y": -64,
+    "Rect2h": 102,
     "Rect2r": 270,
 
-    "Rect3x": 40,
-    "Rect3y": -64,
-    "Rect3h": 102,
+    "Rect3x": 25.6,
+    "Rect3y": 64,
+    "Rect3h": 70,
     "Rect3r": 270,
 
     "Rect4x": 8,
@@ -278,20 +278,20 @@ const alphabet = {
     "Rect1h": 158,
     "Rect1r": 180,
 
-    "Rect2x": 77.6,
-    "Rect2y": 0,
-    "Rect2h": 160,
-    "Rect2r": 180,
+    "Rect2x": 44.8, 
+    "Rect2y": -38,
+    "Rect2h": 88,
+    "Rect2r": 183.6,
 
-    "Rect3x": 35.2,
-    "Rect3y": -40,
-    "Rect3h": 92,
-    "Rect3r": 176.4,
+    "Rect3x": 77.6,
+    "Rect3y": 0,  
+    "Rect3h": 160,
+    "Rect3r": 180, 
 
-    "Rect4x": 44.8,
-    "Rect4y": -38,
-    "Rect4h": 88,
-    "Rect4r": 183.6
+    "Rect4x": 35.2,
+    "Rect4y": -40,
+    "Rect4h": 92,
+    "Rect4r": 176.4
   },
   "N": {
     "Rect1x": 4.8,
@@ -299,17 +299,17 @@ const alphabet = {
     "Rect1h": 168,
     "Rect1r": 180,
 
-    "Rect2x": 75.2,
+    "Rect2x": 40,
     "Rect2y": 0,
-    "Rect2h": 158,
-    "Rect2r": 180,
+    "Rect2h": 160,
+    "Rect2r": 176.4,
 
-    "Rect3x": 40,
+    "Rect3x": 75.2,
     "Rect3y": 0,
-    "Rect3h": 172,
-    "Rect3r": 176.4,
+    "Rect3h": 158,
+    "Rect3r": 180,
 
-    "Rect4x": 39.2,
+    "Rect4x": 40,
     "Rect4y": 0,
     "Rect4h": 0,
     "Rect4r": 180
@@ -470,7 +470,7 @@ const alphabet = {
     "Rect2x": 63.2,
     "Rect2y": -1,
     "Rect2h": 164,
-    "Rect2r": 7.2,
+    "Rect2r": 187.2,
 
     "Rect3x": 40,
     "Rect3y": 0,
@@ -488,20 +488,20 @@ const alphabet = {
     "Rect1h": 168,
     "Rect1r": 180,
 
-    "Rect2x": 80,
-    "Rect2y": 0,
-    "Rect2h": 168,
-    "Rect2r": 180,
+    "Rect2x": 47.2,
+    "Rect2y": 32,
+    "Rect2h": 100,
+    "Rect2r": 176.4,
 
-    "Rect3x": 32.8,
-    "Rect3y": 32,
-    "Rect3h": 100,
-    "Rect3r": 183.6,
+    "Rect3x": 80,
+    "Rect3y": 0,
+    "Rect3h": 168,
+    "Rect3r": 180,
 
-    "Rect4x": 47.2,
+    "Rect4x": 32.8,
     "Rect4y": 32,
     "Rect4h": 100,
-    "Rect4r": 176.4
+    "Rect4r": 183.6
   },
   "X": {
     "Rect1x": 40,

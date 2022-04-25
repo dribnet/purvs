@@ -100,10 +100,10 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["Rect2h"] = map(percent, 0, 100, oldObj["Rect2h"], newObj["Rect2h"]);
   new_letter["Rect3h"] = map(percent, 0, 100, oldObj["Rect3h"], newObj["Rect3h"]);
   new_letter["Rect4h"] = map(percent, 0, 100, oldObj["Rect4h"], newObj["Rect4h"]);
-  new_letter["Rect1r"] = map(percent, 0, 100, oldObj["Rect1h"], newObj["Rect1h"]);
-  new_letter["Rect2r"] = map(percent, 0, 100, oldObj["Rect2h"], newObj["Rect2h"]);
-  new_letter["Rect3r"] = map(percent, 0, 100, oldObj["Rect3h"], newObj["Rect3h"]);
-  new_letter["Rect4r"] = map(percent, 0, 100, oldObj["Rect4h"], newObj["Rect4h"]);
+  new_letter["Rect1r"] = map(percent, 0, 100, oldObj["Rect1r"], newObj["Rect1r"]);
+  new_letter["Rect2r"] = map(percent, 0, 100, oldObj["Rect2r"], newObj["Rect2r"]);
+  new_letter["Rect3r"] = map(percent, 0, 100, oldObj["Rect3r"], newObj["Rect3r"]);
+  new_letter["Rect4r"] = map(percent, 0, 100, oldObj["Rect4r"], newObj["Rect4r"]);
   return new_letter;
 }
 
