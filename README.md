@@ -1,3 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-Restarted due to legibility issues, now doing a rectangle based "calculator" look based on 5 points using the same colour palette. Already think it looks way better than the last design so looking forward to fleshing it out.
+Got the letters to a base design each, may have to switch up a couple to make it more pleasing to look at but will see how it goes from here on out. Going to start on the interpolation so I can see how the transition looks from each letter.
