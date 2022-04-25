@@ -15,6 +15,11 @@ const sliderInfo = [
   ["tile8",  0, 1],
   ["tile9",  0, 1],
   ["tile10", 0, 1],
+  ["tile11", 0, 1],
+  ["tile12", 0, 1],
+  ["tile13", 0, 1],
+  ["tile14", 0, 1],
+  ["tile15", 0, 1],
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
