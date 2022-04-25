@@ -1,11 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#ffd60a";
+var systemLineColor = "#ffc300";
+var systemBoxColor = "#ffc300";
 
 /* internal constants */
-const white  = "#ffffff";
-const strokeColor  = "#baf0f8";
+const white  = "#000814";
+const strokeColor  = "#ffc300"; //temp = #ffc300
+
+
 
 /*
  * Draw the letter given the letterData

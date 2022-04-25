@@ -1,8 +1,8 @@
 ## MDDN 242 2022 Assignment 2
 
-What was done today:
-Interaction/interpolation is glitchy... Completed letters F-P
-Almost there!
+What was done today/over the break:
+I have completed my font! That means all letters and numbers are done!
+Now I just have to fix the transitions between characters.
 
 
 My Alphabet
