@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#ffa414";
 var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBoxColor = "#fcbb15";
 
 /* internal constants */
 const darkBlue = "#0077b6";
@@ -47,8 +47,8 @@ function drawLetter(letterData) {
   scale(0.5);
   translate(posx, posy + 15);
   rotate(angle3)
-  stroke(0);
-  fill(0);
+  stroke(255);
+  noFill();
   strokeWeight(5);
   triangle(T1, T2, T1 + 18, T2 - 45, T1 + 36, T2);
   line(T1 + 18, T2, T1 + 18, T2 * 2.5);
@@ -57,7 +57,7 @@ function drawLetter(letterData) {
   push() //line
   translate(pos1x, pos1y);
   rotate(angle2)
-  stroke(0);
+  stroke(255);
   strokeWeight(5);
   line(Lx, Ly, Lx, Ly1);
   pop()
@@ -66,7 +66,7 @@ function drawLetter(letterData) {
   scale(1.2)
   angleMode(DEGREES);
   noFill();
-  stroke(0);
+  stroke(67, 171, 174);
   strokeWeight(10);
   rotate(angle)
   arc(pos2x, pos2y, Width, Height, 0, 180, OPEN);
@@ -76,7 +76,7 @@ function drawLetter(letterData) {
   scale(1.2)
   angleMode(DEGREES);
   noFill();
-  stroke(0);
+  stroke(255);
   strokeWeight(5);
   rotate(angle4)
   arc(pos3x, pos3y, Width1, Height1, 0, 180, OPEN);
