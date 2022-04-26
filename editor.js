@@ -5,18 +5,26 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["width1", 0, 150],
-  ["height1", 0, 150],
-  ["width2", 0, 150],
-  ["height2", 0, 150],
+  ["width1", 0, 200],
+  ["height1", 0, 200],
   ["offsetX1", -30, 200],
   ["offsetY1", -30, 400],
+  ["width2", 0, 200],
+  ["height2", 0, 200],
   ["offsetX2", -30, 200],
   ["offsetY2", -30, 400],
-  ["corner1", 0, 40],
-  ["corner2", 0, 40],
-  ["corner3", 0, 40],
-  ["corner4", 0, 40]
+  ["width3", 0, 200],
+  ["height3", 0, 200],
+  ["offsetX3", -30, 200],
+  ["offsetY3", -30, 400],
+  ["cornerA1", 0, 40],
+  ["cornerA2", 0, 40],
+  ["cornerA3", 0, 40],
+  ["cornerA4", 0, 40],
+  ["cornerB1", 0, 40],
+  ["cornerB2", 0, 40],
+  ["cornerB3", 0, 40],
+  ["cornerB4", 0, 40]
 
 ];
 

@@ -28,33 +28,60 @@ const test = 20;
 function drawLetter(letterData) {
   push();
   scale(0.6)
-  // determine parameters for second circle
+
+  // parameters for rect 1
 
   let w1 = letterData["width1"];
   let h1 = letterData["height1"];
-  let w2 = letterData["width2"];
-  let h2 = letterData["height2"];
   let posX = letterData["offsetX1"];
   let posY = letterData["offsetY1"];
+
+
+  // parameters for rect 2
+
+  let w2 = letterData["width2"];
+  let h2 = letterData["height2"];
   let posX2 = letterData["offsetX2"];
   let posY2 = letterData["offsetY2"];
-  let cor1 = letterData["corner1"];
-  let cor2 = letterData["corner2"];
-  let cor3 = letterData["corner3"];
-  let cor4 = letterData["corner4"];
-  let col1 = letterData["colour1"];
-  let col2 = letterData["colour2"];
-  let col3 = letterData["colour3"];
+  let corA1 = letterData["cornerA1"];
+  let corA2 = letterData["cornerA2"];
+  let corA3 = letterData["cornerA3"];
+  let corA4 = letterData["cornerA4"];
 
-  // draw two circles
+
+  // parameters for rect 3
+
+  let w3 = letterData["width3"];
+  let h3 = letterData["height3"];
+  let posX3 = letterData["offsetX3"];
+  let posY3 = letterData["offsetY3"];
+  let corB1 = letterData["cornerB1"];
+  let corB2 = letterData["cornerB2"];
+  let corB3 = letterData["cornerB3"];
+  let corB4 = letterData["cornerB4"];
+
+
+  // draw rectangles
+
   rectMode(CENTER)
   noStroke()
+
+  // background rect
   fill(orange);
   rect(83, 250, 155, 155, 20, 20, 20, 20);
+
+  // rect 01
   fill(yellow);
-  rect(posX, posY, w1, h1, cor1, cor2, cor3, cor4);
+  rect(posX, posY, w1, h1);
+
+  // rect 02
   fill(yellow);
-  rect(posX2, posY2, w2, h2, cor1, cor2, cor3, cor4);
+  rect(posX2, posY2, w2, h2, corA1, corA2, corA3, corA4);
+
+  // rect 03
+  fill(yellow);
+  rect(posX3, posY3, w3, h3, corB1, corB2, corB3, corB4);
+  
   pop();
 }
 

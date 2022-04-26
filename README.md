@@ -1,20 +1,40 @@
 ## MDDN 242 2022 Assignment 2
+--------------------------------------------------------------------
+README
+--------------------------------------------------------------------
 
-After some thought and consideration, I have changed my goals for this project. Instead of limiting myself to only using two rectangles, I am instead changing to drawing each letter with 3 rectangles that are within a solid square that will stay consistent throughout each letter. This keeps a fun design challenge, only using three rectangles and keeping them within a square, and also frees me up to be able to make the more complex letters I was having some trouble with before. I feel it is also a unique look and fits with the "80s / 70s Title Card" aesthetic.
+After some quite heavy reworking and rethinking of my code and concept, I have finally come to a point where I can knuckle down and get my letters done (tomorrows job!).
 
-Today I made some changes to the code to reflect this new goal, adding in the background square and playing around with the editor to get each value range correct and useable. I also tried to make the colour for each rectangle able to change for each letter, however I ran into a few issues with this and will need to work some more to get this working. 
+As I stated last time, my concept has changed. Now my design goals / challenges are to:
+- Confine all of my letter within a rounded square rectangle
+- Use a maximum of three rectangles of the same colour within the rounded rectangle to create my letters
+- Keep a somewhat "70s Title Card" style to each letter (as best I can)
 
+With these new challenges in mind, I got to work sketching out each of my letter on some papers to get a rough idea about how each letter could look. I got most of them done to a good level, however I had some trouble with a few letters in particular; "S","G", "W" (to name a few). I'll have to work on those some more.
 
-The parameters per letter:
+After that, I got to work refactoring my code to work with these new constraints, including adding a third rectangle to use and adding new parameters for each of the individual rectangles so I could change them as I saw fit (see below for the list). Some work will need to be done to make everything a little more readable and efficient, but for now it will do. The main hassle was fixing the editor up and getting it to a usable state with my HUGE list of parameters, but after some work I managed to get everything working as I wanted. Now I can easily create new letters, which will be my main goal now. I just need to get a rough version of each letter finished, then I can move onto polish and make the interpolation look nice.
+
+--------------------------------------------------------------------
+Parameters:
+--------------------------------------------------------------------
   * `width1` : width of the first rectangle
   * `height1` : height of the first rectangle
-  * `width2` : width of the second rectangle
-  * `height2` : height of the second rectangle
   * `offsetX1` : x offset of the first rectangle
   * `offsetY1` : y offset of the first rectangle
+  * `width2` : width of the second rectangle
+  * `height2` : height of the second rectangle
   * `offsetX2` : x offset of the second rectangle
   * `offsetY2` : y offset of the second rectangle
-  * `corner1` : how curved is the first corner
-  * `corner2` : how curved is the second corner
-  * `corner3` : how curved is the third corner
-  * `corner4` : how curved is the fourth corner
+  * `width3` : width of the third rectangle
+  * `height3` : height of the third rectangle
+  * `offsetX3` : x offset of the third rectangle
+  * `offsetY3` : y offset of the third rectangle
+  * `cornerA1` : how curved is the first corner of rectangle 2
+  * `cornerA2` : how curved is the second corner of rectangle 2
+  * `cornerA3` : how curved is the third corner of rectangle 2
+  * `cornerA4` : how curved is the fourth corner of rectangle 2
+  * `cornerB1` : how curved is the first corner of rectangle 3
+  * `cornerB2` : how curved is the second corner of rectangle 3
+  * `cornerB3` : how curved is the third corner of rectangle 3
+  * `cornerB4` : how curved is the fourth corner of rectangle 3
+--------------------------------------------------------------------
