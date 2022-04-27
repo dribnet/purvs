@@ -14,30 +14,21 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 100,
-  "offsety": 240,
-  "coordX1": 30,
-  "coordX2": 58,
-  "coordX3": 86,
-  "coordY1": 75,
-  "coordY2": 20,
-  "coordY3": 75,
-  "rectX1": 0,
-  "rectY1": 0
+  "offsetx": 0,
+  "offsety": 0
+
 }
 
 const letterB = {
   "size": 75,
-  "offsetx": 20,
-  "offsety": 0,
-  "rectwidth": 15,
-  "rectheight": 118
+  "offsetx": 0,
+  "offsety": 500
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 20,
+  "offsety": 530
 }
 
 const backgroundColor  = "#caf0f8";
@@ -78,34 +69,41 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let pos3x = letterB["offsetx"];//letter b
-  let pos3y = letterB["offsety"];//letter B
-  let rectwidth =  letterB["rectwidth"];
-  let rectheight = letterB["rectheight"];
+  // let pos3x = letterB["offsetx"];//letter b
+  // let pos3y = letterB["offsety"];//letter B
+  // let rectwidth =  letterB["rectwidth"];
+  // let rectheight = letterB["rectheight"];
 
-  let trix1 = letterA["coordX1"];//triangle x coord 1
-  let trix2 = letterA["coordX2"];//triangle x coord 2
-  let trix3 = letterA["coordX3"];//triangle x coord 3
-
-  let triy1 = letterA["offsety"];//triangle y coord 1
-  let triy2 = letterA["offsety"];//triangle y coord 2
-  let triy3 = letterA["offsety"];//triangle y coord 3
-
-  let rectx1 = letterA["rectX1"];
-  let recty1 = letterA["rectY1"];
+  // let trix1 = letterA["coordX1"];//triangle x coord 1
+  // let trix2 = letterA["coordX2"];//triangle x coord 2
+  // let trix3 = letterA["coordX3"];//triangle x coord 3
+  //
+  // let triy1 = letterA["offsety"];//triangle y coord 1
+  // let triy2 = letterA["offsety"];//triangle y coord 2
+  // let triy3 = letterA["offsety"];//triangle y coord 3
+  //
+  // let rectx1 = letterA["rectX1"];
+  // let recty1 = letterA["rectY1"];
 
   // draw two circles
   fill(lightPink);
   stroke(darkPink);
-  rect(pos3x+386,pos3y+50,rectwidth,rectheight+100);
-  rect(rectx1+247, recty1+265, rectwidth, rectheight-80);
-  rect(rectx1+194, recty1+265, rectwidth, rectheight-80);
-  triangle(trix1+165, triy1+25, trix2+170, triy2-15, trix3+175, triy3+25);
-  noFill();
-  stroke(darkPink);
-  ellipse(posx-2.5, posy, 150, 150);
-  stroke(lightPink);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(pos2x-30, pos2y, pos2x-5, pos2y-50, pos2x+20, pos2y);//top of the house
+
+  rect(pos2x-31,pos2y,10,30);//left side of the A
+  rect(pos2x+10.4, pos2y+.5, 10, 30);//right side of the A
+
+  rect(pos2x, pos2y-500, 30, 30, 5, 5, 5, 5);//This should end up being apart of the "b"...
+
+  rect(posx, pos2y-520,10,50);
+  rect(pos2x+5, pos2y-520,50,10);
+  // triangle(posx-30, posy, posx-5, posy-15, posx+20, posy);
+
+  // noFill();
+  // stroke(darkPink);
+  // ellipse(posx-2.5, posy, 150, 150);
+  // stroke(lightPink);
+  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function keyTyped() {
