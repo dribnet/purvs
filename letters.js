@@ -1,93 +1,200 @@
 const alphabet = {
-  "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "rectPositionX": 0,
+  "rectPositionY": 60,
+  "rectwidth": 80,
+  "rectheight": 90,
+
+  "triPositionX": 0,
+  "triPositionY": -70
+  "triangleScale": 1,
+  "triangleRotate": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "rectPositionX": 0,
+    "rectPositionY": 50,
+    "rectwidth": 80,
+    "rectheight": 50,
+
+    "triPositionX": 20,
+    "triPositionY": -40,
+    "triangleScale": 1,
+    "triangleRotate": 90
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triangleScale": 2,
+    "triangleRotate": -90,
+    "triPositionX": -40,
+    "triPositionY": 0,
+
+    "triPositionX": 20,
+    "triPositionY": -40,
+    "triangleScale": 1,
+    "triangleRotate": 90
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "R": {
     "size": 50,
@@ -95,94 +202,202 @@ const alphabet = {
     "offsety": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectPositionX": 0,
+    "rectPositionY": 60,
+    "rectwidth": 80,
+    "rectheight": 90,
+
+    "triPositionX": 0,
+    "triPositionY": -70
+    "triangleScale": 1,
+    "triangleRotate": 0
   }
 
 }

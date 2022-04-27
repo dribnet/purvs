@@ -1,15 +1,18 @@
 ## MDDN 242 2022 Assignment 2
 
-### 31/03/22 Sketch
+### 28/04/22 Sketch
 
-I started working on the assignment 2. Letters are made with black and white simple shapes such as triangles and rectangles. White shapes are empty space in the letter.
+I changed parameters for triangle because for some reason I get error if I use scale or angle parameter for just letter A. So I changed triangle to vertex instead so it doesn't care about scale or angle anymore. Along with that change, I shapes are bit different from before.
 
 The parameters per letter:
-  * `rectPositionX` : x offset of the rectangle
-  * `rectPositionY` : y offset of the rectangle
-  * `rectwidth` : width of the rectangle
-  * `rectheight` : height of the rectangle
-  * `triPositionX` : x offset of the triangle
-  * `triPositionY` : y offset of the triangle
-  * `triangleScale` : size of the triangle
-  * `triangleRotate` : rotation of the triangle
+  * `rectPositionX`
+  * `rectPositionY`
+  * `rectwidth`
+  * `rectheight`
+
+  * `triPosition1X`
+  * `triPosition1Y`
+  * `triPosition2X`
+  * `triPosition2Y`
+  * `triPosition3X`
+  * `triPosition3Y`

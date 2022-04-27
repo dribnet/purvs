@@ -21,22 +21,46 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let rectPosX = posx + letterData["rectPositionX"];
+  let rectPosY = posy + letterData["rectPositionY"];
+  let rectWidth = letterData["rectwidth"];
+  let rectHeight = letterData["rectheight"];
+  let triPosX = posx + letterData["triPositionX"];
+  let triPosY = posy + letterData["triPositionY"];
+  let triscale = letterData["triangleScale"];
+  let triRotate = letterData["triangleRotate"];
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  rectMode(CENTER);
+  noStroke();
+  angleMode(DEGREES);
+
+  fill(black);
+  rect(posx, posy, 150, 200);
+
+  fill(white);
+  rect(rectPosX, rectPosY, rectWidth, rectHeight);
+
+  push();
+  translate(triPosX, triPosY);
+  fill(white);
+  scale(triscale);
+  rotate(triRotate);
+  triangle(0, 0, 40, 60, - 40, 60);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["rectPositionX"]    = map(percent, 0, 100, oldObj["rectPositionX"], newObj["rectPositionX"]);
+  new_letter["rectPositionY"] = map(percent, 0, 100, oldObj["rectPositionY"], newObj["rectPositionY"]);
+  new_letter["rectwidth"] = map(percent, 0, 100, oldObj["rectwidth"], newObj["rectwidth"]);
+  new_letter["rectheight"] = map(percent, 0, 100, oldObj["rectheight"], newObj["rectheight"]);
+
+  new_letter["triPositionX"] = map(percent, 0, 100, oldObj["triPositionX"], newObj["triPositionX"]);
+  new_letter["triPositionY"] = map(percent, 0, 100, oldObj["triPositionY"], newObj["triPositionY"]);
+  new_letter["triangleScale"] = map(percent, 0, 100, oldObj["triangleScale"], newObj["triangleScale"]);
+  new_letter["triangleRotate"] = map(percent, 0, 100, oldObj["triangleRotate"], newObj["triangleRotate"]);
   return new_letter;
 }
 

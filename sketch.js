@@ -18,8 +18,13 @@ const letterA = {
   "rectwidth": 80,
   "rectheight": 90,
 
-  "triPositionX": 0,
-  "triPositionY": -70
+  "triPosition1X": 0,
+  "triPosition1Y": -70,
+  "triPosition2X": 40,
+  "triPosition2Y": -10,
+  "triPosition3X": -40,
+  "triPosition3Y": -10
+
 }
 
 const letterB = {
@@ -28,16 +33,26 @@ const letterB = {
   "rectwidth": 80,
   "rectheight": 50,
 
-  "triangleRotate": 90,
-  "triPositionX": 20,
-  "triPositionY": -40
+  "triPosition1X": -40,
+  "triPosition1Y": -10,
+  "triPosition2X": -40,
+  "triPosition2Y": -70,
+  "triPosition3X": 40,
+  "triPosition3Y": -40
 }
 
 const letterC = {
-  "triangleScale": 2,
-  "triangleRotate": -90,
-  "triPositionX": -40,
-  "triPositionY": 0
+  "rectPositionX": 0,
+  "rectPositionY": 0,
+  "rectwidth": 0,
+  "rectheight": 0,
+  
+  "triPosition1X": -75,
+  "triPosition1Y": 0,
+  "triPosition2X": 75,
+  "triPosition2Y": -100,
+  "triPosition3X": 75,
+  "triPosition3Y": 100
 }
 
 const backgroundColor  = "#ffffff";
@@ -81,10 +96,13 @@ function drawLetter(posx, posy, letterData) {
   let rectPosY = posy + letterData["rectPositionY"];
   let rectWidth = letterData["rectwidth"];
   let rectHeight = letterData["rectheight"];
-  let triPosX = posx + letterData["triPositionX"];
-  let triPosY = posy + letterData["triPositionY"];
-  let triscale = letterData["triangleScale"];
-  let triRotate = letterData["triangleRotate"];
+
+  let tri1X = posx + letterData["triPosition1X"];
+  let tri1Y = posy + letterData["triPosition1Y"];
+  let tri2X = posx + letterData["triPosition2X"];
+  let tri2Y = posy + letterData["triPosition2Y"];
+  let tri3X = posx + letterData["triPosition3X"];
+  let tri3Y = posy + letterData["triPosition3Y"];
 
   // draw two circles
   rectMode(CENTER);
@@ -98,11 +116,13 @@ function drawLetter(posx, posy, letterData) {
   rect(rectPosX, rectPosY, rectWidth, rectHeight);
 
   push();
-  translate(triPosX, triPosY);
   fill(white);
-  scale(triscale);
-  rotate(triRotate);
-  triangle(0, 0, 40, 60, - 40, 60);
+  beginShape();
+  vertex(tri1X, tri1Y);
+  vertex(tri2X, tri2Y);
+  vertex(tri3X, tri3Y);
+  endShape();
+  //triangle(0, 0, 40, 60, - 40, 60);
   pop();
 
 }
