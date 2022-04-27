@@ -129,7 +129,6 @@ function drawHexagonagon(x, y, size, visible) {
 const hexagonHeightRatio = 0.8660;
 
 function drawHexagon(x, y, size) {
-  console.log(size)
   push();
   translate(x, y);
   scale(size*1);

@@ -135,8 +135,6 @@ function draw () {
     }
 
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
-      curLetterObj.hexBorderColor = '#dec028';
-      curLetterObj.hexBackgroundColor = '#a89423';
       drawLetter(curLetterObj);
     }
     stroke(systemLineColor);
@@ -178,8 +176,6 @@ function draw () {
   push();
   translate(center_x, center_y);
   let cur_obj = computeCurrentSoloChar();
-  cur_obj.hexBorderColor = '#dec028';
-  cur_obj.hexBackgroundColor = '#a89423';
   drawLetter(cur_obj);
   pop();
 }

@@ -10,29 +10,23 @@ var systemBoxColor = "#00c800";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function drawLetter(letterData) {console.log(letterData)
+function drawLetter(letterData) {
   // color/stroke setup
-  stroke(letterData.hexBorderColor);
+  stroke(letterData.style ? '#a89423' : '#deaa28');
   strokeWeight(0.2);
-  fill(letterData.hexBackgroundColor);
+  fill(letterData.style ? '#dec028' : '#dec028');
 
   let visible = [];
   for (let i = 1; i < 16; i++) {
     visible.push(letterData['tile' + i]);
   }
-    
-  if (letterData['tile1'] == null) { pop(); return; }
 
   // draw two circles
   drawHexagonagon(50, 100, 60, visible);
 }
 
 function drawHexagonagon(x, y, size, visible) {
-  translate(x, y);
-  
-  // Top top left
-  visible[0] && drawHexagon(-size/2, -size*1.25/hexagonHeightRatio, (size/3) * visible[0]);
-  
+  translate(x, y);  
 
   // Top left
   visible[1] && drawHexagon(-size/2, -size*0.75/hexagonHeightRatio, (size/3) * visible[1]);
@@ -86,7 +80,6 @@ function drawHexagonagon(x, y, size, visible) {
 const hexagonHeightRatio = 0.8660;
 
 function drawHexagon(x, y, size) {
-  console.log(size)
   push();
   translate(x, y);
   scale(size*1);
@@ -105,9 +98,9 @@ function drawHexagon(x, y, size) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   return new_letter;
 }
 
