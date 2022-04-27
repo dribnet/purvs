@@ -90,30 +90,43 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   let defaultPositioning = 0;
 
-  if(percent < 50){
-    new_letter["angle"]         = map(percent, 0, 50, oldObj["angle"], defaultPositioning);
-    new_letter["offsetBottom"]  = map(percent, 0, 50, oldObj["offsetBottom"], defaultPositioning);
-    new_letter["offsetTop"]     = map(percent, 0, 50, oldObj["offsetTop"], defaultPositioning);
-    new_letter["offsetRight"]   = map(percent, 0, 50, oldObj["offsetRight"], defaultPositioning);
-    new_letter["offsetLeft"]    = map(percent, 0, 50, oldObj["offsetLeft"], defaultPositioning);
-    new_letter["centerValX"]    = map(percent, 0, 50, oldObj["centerValX"], defaultPositioning);
-    new_letter["centerValY"]    = map(percent, 0, 50, oldObj["centerValY"], defaultPositioning);
-    new_letter["leftVal"]       = map(percent, 0, 50, oldObj["leftVal"], defaultPositioning);
-    new_letter["rightVal"]      = map(percent, 0, 50, oldObj["rightVal"], defaultPositioning);
-    new_letter["topVal"]        = map(percent, 0, 50, oldObj["topVal"], defaultPositioning);
-    new_letter["bottomVal"]     = map(percent, 0, 50, oldObj["bottomVal"], defaultPositioning);
-  }else{
-    new_letter["angle"]         = map(percent, 51, 100, defaultPositioning, newObj["angle"]);
-    new_letter["offsetBottom"]  = map(percent, 51, 100, defaultPositioning, newObj["offsetBottom"]);
-    new_letter["offsetTop"]     = map(percent, 51, 100, defaultPositioning, newObj["offsetTop"]);
-    new_letter["offsetRight"]   = map(percent, 51, 100, defaultPositioning, newObj["offsetRight"]);
-    new_letter["offsetLeft"]    = map(percent, 51, 100, defaultPositioning, newObj["offsetLeft"]);
-    new_letter["centerValX"]    = map(percent, 51, 100, defaultPositioning, newObj["centerValX"]);
-    new_letter["centerValY"]    = map(percent, 51, 100, defaultPositioning, newObj["centerValY"]);
-    new_letter["leftVal"]       = map(percent, 51, 100, defaultPositioning, newObj["leftVal"]);
-    new_letter["rightVal"]      = map(percent, 51, 100, defaultPositioning, newObj["rightVal"]);
-    new_letter["topVal"]        = map(percent, 51, 100, defaultPositioning, newObj["topVal"]);
-    new_letter["bottomVal"]     = map(percent, 51, 100, defaultPositioning, newObj["bottomVal"]);
+  if(percent < 40){
+    new_letter["angle"]         = map(percent, 0, 40, oldObj["angle"], defaultPositioning);
+    new_letter["offsetBottom"]  = map(percent, 0, 40, oldObj["offsetBottom"], defaultPositioning);
+    new_letter["offsetTop"]     = map(percent, 0, 40, oldObj["offsetTop"], defaultPositioning);
+    new_letter["offsetRight"]   = map(percent, 0, 40, oldObj["offsetRight"], defaultPositioning);
+    new_letter["offsetLeft"]    = map(percent, 0, 40, oldObj["offsetLeft"], defaultPositioning);
+    new_letter["centerValX"]    = map(percent, 0, 40, oldObj["centerValX"], defaultPositioning);
+    new_letter["centerValY"]    = map(percent, 0, 40, oldObj["centerValY"], defaultPositioning);
+    new_letter["leftVal"]       = map(percent, 0, 40, oldObj["leftVal"], defaultPositioning);
+    new_letter["rightVal"]      = map(percent, 0, 40, oldObj["rightVal"], defaultPositioning);
+    new_letter["topVal"]        = map(percent, 0, 40, oldObj["topVal"], defaultPositioning);
+    new_letter["bottomVal"]     = map(percent, 0, 40, oldObj["bottomVal"], defaultPositioning);
+  }else if(40 < percent && percent < 60){
+    new_letter["angle"]         = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["offsetBottom"]  = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["offsetTop"]     = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["offsetRight"]   = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["offsetLeft"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["centerValX"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["centerValY"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["leftVal"]       = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["rightVal"]      = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["topVal"]        = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["bottomVal"]     = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+  }
+  else if (percent > 60){
+    new_letter["angle"]         = map(percent, 61, 100, defaultPositioning, newObj["angle"]);
+    new_letter["offsetBottom"]  = map(percent, 61, 100, defaultPositioning, newObj["offsetBottom"]);
+    new_letter["offsetTop"]     = map(percent, 61, 100, defaultPositioning, newObj["offsetTop"]);
+    new_letter["offsetRight"]   = map(percent, 61, 100, defaultPositioning, newObj["offsetRight"]);
+    new_letter["offsetLeft"]    = map(percent, 61, 100, defaultPositioning, newObj["offsetLeft"]);
+    new_letter["centerValX"]    = map(percent, 61, 100, defaultPositioning, newObj["centerValX"]);
+    new_letter["centerValY"]    = map(percent, 61, 100, defaultPositioning, newObj["centerValY"]);
+    new_letter["leftVal"]       = map(percent, 61, 100, defaultPositioning, newObj["leftVal"]);
+    new_letter["rightVal"]      = map(percent, 61, 100, defaultPositioning, newObj["rightVal"]);
+    new_letter["topVal"]        = map(percent, 61, 100, defaultPositioning, newObj["topVal"]);
+    new_letter["bottomVal"]     = map(percent, 61, 100, defaultPositioning, newObj["bottomVal"]);
 }
   return new_letter;
 }
