@@ -19,10 +19,10 @@ const white = "ffffff";
  */
 function drawLetter(letterData) {
   // determine parameters
-  let size = 20;
+  let size = 18;
   let angle = letterData["angle"];
-  let posx = 62.5;
-  let posy = 130;
+  let posx = 50;
+  let posy = 100;
 
 
   let pos2x = letterData["offsetBottom"];
@@ -47,20 +47,22 @@ function drawLetter(letterData) {
   push();
   translate(posx, posy)
   scale(0.8);
-  rotate(angle);
   rectMode(CENTER);
   angleMode(DEGREES);
   strokeWeight(4.5);
+  push();
+  rotate(angle);
 
   //Center
   stroke(gold);
-  fill(gold);
+  fill(backgroundColor);
   rect(0, 0, size, size + centerValY);
 
   //Center 2
   stroke(gold);
   fill(gold);
   rect(0, 0, size + centerValX, size);
+  pop();
 
   //Right
   stroke(white);
@@ -86,24 +88,41 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["angle"]         = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
-  new_letter["offsetBottom"]  = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
-  new_letter["offsetTop"]     = map(percent, 0, 100, oldObj["offsetTop"], newObj["offsetTop"]);
-  new_letter["offsetRight"]   = map(percent, 0, 100, oldObj["offsetRight"], newObj["offsetRight"]);
-  new_letter["offsetLeft"]    = map(percent, 0, 100, oldObj["offsetLeft"], newObj["offsetLeft"]);
-  new_letter["centerValX"]    = map(percent, 0, 100, oldObj["centerValX"], newObj["centerValX"]);
-  new_letter["centerValY"]    = map(percent, 0, 100, oldObj["centerValY"], newObj["centerValY"]);
-  new_letter["leftVal"]       = map(percent, 0, 100, oldObj["leftVal"], newObj["leftVal"]);
-  new_letter["rightVal"]      = map(percent, 0, 100, oldObj["rightVal"], newObj["rightVal"]);
-  new_letter["topVal"]        = map(percent, 0, 100, oldObj["topVal"], newObj["topVal"]);
-  new_letter["bottomVal"]     = map(percent, 0, 100, oldObj["bottomVal"], newObj["bottomVal"]);
+  let defaultPositioning = 0;
+
+  if(percent < 50){
+    new_letter["angle"]         = map(percent, 0, 50, oldObj["angle"], defaultPositioning);
+    new_letter["offsetBottom"]  = map(percent, 0, 50, oldObj["offsetBottom"], defaultPositioning);
+    new_letter["offsetTop"]     = map(percent, 0, 50, oldObj["offsetTop"], defaultPositioning);
+    new_letter["offsetRight"]   = map(percent, 0, 50, oldObj["offsetRight"], defaultPositioning);
+    new_letter["offsetLeft"]    = map(percent, 0, 50, oldObj["offsetLeft"], defaultPositioning);
+    new_letter["centerValX"]    = map(percent, 0, 50, oldObj["centerValX"], defaultPositioning);
+    new_letter["centerValY"]    = map(percent, 0, 50, oldObj["centerValY"], defaultPositioning);
+    new_letter["leftVal"]       = map(percent, 0, 50, oldObj["leftVal"], defaultPositioning);
+    new_letter["rightVal"]      = map(percent, 0, 50, oldObj["rightVal"], defaultPositioning);
+    new_letter["topVal"]        = map(percent, 0, 50, oldObj["topVal"], defaultPositioning);
+    new_letter["bottomVal"]     = map(percent, 0, 50, oldObj["bottomVal"], defaultPositioning);
+  }else{
+    new_letter["angle"]         = map(percent, 51, 100, defaultPositioning, newObj["angle"]);
+    new_letter["offsetBottom"]  = map(percent, 51, 100, defaultPositioning, newObj["offsetBottom"]);
+    new_letter["offsetTop"]     = map(percent, 51, 100, defaultPositioning, newObj["offsetTop"]);
+    new_letter["offsetRight"]   = map(percent, 51, 100, defaultPositioning, newObj["offsetRight"]);
+    new_letter["offsetLeft"]    = map(percent, 51, 100, defaultPositioning, newObj["offsetLeft"]);
+    new_letter["centerValX"]    = map(percent, 51, 100, defaultPositioning, newObj["centerValX"]);
+    new_letter["centerValY"]    = map(percent, 51, 100, defaultPositioning, newObj["centerValY"]);
+    new_letter["leftVal"]       = map(percent, 51, 100, defaultPositioning, newObj["leftVal"]);
+    new_letter["rightVal"]      = map(percent, 51, 100, defaultPositioning, newObj["rightVal"]);
+    new_letter["topVal"]        = map(percent, 51, 100, defaultPositioning, newObj["topVal"]);
+    new_letter["bottomVal"]     = map(percent, 51, 100, defaultPositioning, newObj["bottomVal"]);
+}
   return new_letter;
 }
 
 var swapWords = [
   "BOXFRONT",
   "SQUAREME",
-  "5POINTS!",
-  "ZOIDBERG",
-  "ARCHITEC"
+  "5POINTS?",
+  "WHOASKED",
+  "NATHANP?",
+  "MADBRO??"
 ]

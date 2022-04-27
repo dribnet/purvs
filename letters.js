@@ -317,8 +317,8 @@ const alphabet = {
     "offsetRight": -50,
     "offsetTop": -50,
     "offsetBottom": 50,
-    "centerValX": 60,
-    "centerValY": 60,
+    "centerValX": 80,
+    "centerValY": 80,
     "leftVal": 0,
     "rightVal": 0,
     "topVal": 0,
@@ -420,13 +420,13 @@ const alphabet = {
     "offsetLeft": -25,
     "offsetRight": 25,
     "offsetTop": 0,
-    "offsetBottom": -10,
+    "offsetBottom": 0,
     "centerValX": 100,
     "centerValY": 0,
     "leftVal": 50,
     "rightVal": 50,
     "topVal": 100,
-    "bottomVal": 80
+    "bottomVal": 100
   },
   "6": {
     "angle": 0,
