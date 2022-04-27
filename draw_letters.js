@@ -37,6 +37,7 @@ function drawLetter(letterData) {
   //lerpColor setup
   let Lcolor1 = color(0, 232, 232); //blue
   let Lcolor2 = color(232, 232, 27); //yellow
+  let Lcolor3 = color(240, 2, 49); //red
   //maps for calculating peak height
   let PosPeakHLerpMap1 = map(peaks1H, 0, 100, 0, 1); //postive peak1 height
   let NegPeakHLerpMap1 = map(peaks1H, 0, -100, 0, 1); //negative peak1 height
@@ -51,8 +52,8 @@ function drawLetter(letterData) {
   let PosLerpColor2 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap2); //pos peak2 color
   let NegLerpColor2 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap2); //neg peak2 color
 
-  let PAmountLerpColor1 = lerpColor(Lcolor1, Lcolor2, PeakALerpMap); //peak1 amount color
-  let PAmount2LerpColor1 = lerpColor(Lcolor1, Lcolor2, Peak2ALerpMap); //peak2 amount color
+  let PAmountLerpColor1 = lerpColor(Lcolor2, Lcolor3, PeakALerpMap); //peak1 amount color
+  let PAmount2LerpColor1 = lerpColor(Lcolor2, Lcolor3, Peak2ALerpMap); //peak2 amount color
 
   //rect(posx, posy, 150, 250); //bounding box?
 
@@ -74,6 +75,9 @@ function drawLetter(letterData) {
     stroke(NegLerpColor1);
   }
   if(num == 1 && peaks1 > 0){
+    stroke(PAmountLerpColor1);
+  }
+  if(num == 1 && peaks1 == 0){
     stroke(PAmountLerpColor1);
   }
 
@@ -101,6 +105,9 @@ function drawLetter(letterData) {
   }
   if(num == 1 && peaks2 < 0){
     stroke(PAmount2LerpColor1);
+  }
+  if(num == 1 && peaks2 == 0){
+    stroke(PAmountLerpColor1);
   }
   beginShape();
   for (let i = 0; i < 100; i++) { //2 pixel spacing on the x - axis.

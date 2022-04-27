@@ -18,7 +18,8 @@ const sliderInfo = [
   ["waveL2", 0, 2],
   ["rotate2", -360, 360],
   ["peaks2", -10, 10],
-  ["peak2H", -100, 100]
+  ["peak2H", -100, 100],
+  ["number", 0, 1]
 
 
 
@@ -68,11 +69,11 @@ function setup () {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
     let cur_slider = createSlider(0, 100, 50);
-/*
-    if( i == 3 ||  i == 9){ //set certain sliders to 0
+
+    if( i == 12 ){ //set certain sliders to 0
       cur_slider = createSlider(0, 100, 0);
     }
-*/
+
 
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
