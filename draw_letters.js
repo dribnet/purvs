@@ -10,7 +10,7 @@ var systemBoxColor = "#00c800";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function drawLetter(letterData) {
+function drawLetter(letterData) {console.log(letterData)
   // color/stroke setup
   stroke(letterData.hexBorderColor);
   strokeWeight(0.2);

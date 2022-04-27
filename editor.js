@@ -103,6 +103,8 @@ function draw () {
   }
 
   let obj = sliderToDataObject();
+  obj.hexBorderColor = '#dec028';
+  obj.hexBackgroundColor = '#a89423';
   drawLetter(obj);
   pop();
 }
