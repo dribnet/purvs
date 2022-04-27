@@ -13,28 +13,28 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "sizex": 1, // first square
-    "sizey": 1,
-    "offsetx": 20,
-    "offsety": 35,
-    "sizexT": 0, // second square
-    "sizeyT": 0,
-    "offsetxT": 20,
-    "offsetyT": 35,
-    "offsetx3": 0, // arc
-    "offsety3": 0,
-    "angleR":2, //red
-    "angleL":0,
-    "angleR":1.9, // orange
-    "angleL":1.1
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 0,
+  "offsety": 10,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 0,
+  "offsetyT": 10,
+  "offsetx3": 0,
+  "offsety3": 10,
+  "angleR": 2.1351999999999998,
+  "angleL": 1.0048,
+  "angleR2": 0,
+  "angleL2": 0
 }
 
 const letterB = {
   "sizex": 1,
     "sizey": 1,
-    "offsetx": 100,
+    "offsetx": -19+100,
     "offsety": -35, // red
-    "offsetx3": 100, //orange
+    "offsetx3": -20+100, //orange
     "offsety3": 45,
     "angleR":-1.57, // orange
     "angleL":0,
@@ -43,23 +43,27 @@ const letterB = {
 }
 
 const letterC = {
-  "sizex": 1,
-    "sizey": 1,
-    "offsetx": 200, //red
-    "offsety": 0,
-    "offsetx3": 200, // orange
-    "offsety3": 0,
-    "angleR":-1.57, 
-    "angleL":1.57,
-    "angleR2":0, // red
-    "angleL2":0
+  "sizex": 0,
+  "sizey": 0,
+  "offsetx": 20+200,
+  "offsety": 0,
+  "sizexT": 0,
+  "sizeyT": 0,
+  "offsetxT": 20+200,
+  "offsetyT": 0,
+  "offsetx3": 20+200,
+  "offsety3": 0,
+  "angleR": 1.5699999999999998,
+  "angleL": -1.57,
+  "angleR2": 0,
+  "angleL2": 0
 }
 
-const backgroundColor  = "#12c4ff";
-const strokeColor      = "#ebd834";
+const backgroundColor  = "#000000";
+const strokeColor      = "#ffffff";
 
-const darkBlue  = "#ff8112";
-const lightBlue  = "#ff3612";
+const darkBlue  = "#000000";
+const lightBlue  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
