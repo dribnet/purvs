@@ -1,16 +1,10 @@
 ## MDDN 242 2022 Assignment 2
 
-### 20/04/22 - FINISHING MY LETTERS
+### 28/04/22 - FEEDBACK
 
-Today, I created the last few letters of my alphabet - N, W, X and the default value.
+Today, I got some feedback on my design. Hazel liked my design and thought the style I am going for was clear. When I asked about the M, N and W, she said that she didn't think it was a massive issue. She said it was clear enough to read when in context of a word or in the alphabet so I am not as worried about it now.
 
-I am quite happy with the shape of the X as this was one I was struggling to figure out how to do. The way I have my code set up doesn't allow me to have a vertically symmetrical letter (like the K but with the left side separated in the middle). So, I have moved the center of the letter up so that the bottom legs are longer than the top legs. I think this looks good and has a similar balance to the Y shape wise.
-
-I have made the M, N and W by repositioning the middle shape and changing its length to have a similar length to the diagonal line that would join the two legs (the N line is longer as it joins the two legs, whereas the M and W middle point is only half the height of the legs). I am still not 100% happy with this so I might get some feedback to see what I could do differently.
-
-The default is just a single red square.
-
-I also changed a few of my variable names to make them more descriptive. I changed all of the rect1 variables to rectYellow as that is the yellow rectangle, and rect2 to rectRed as that is the red rectangle.
+She also suggested that I could add individual backgrounds to each of my letters to make them look like each letter was on its own canvas. I thought this could look cool so I have tried it and quite like the effect it gives. I still need to play around with the colours and stroke but I think it will suit the project. I also added a little nail and rope above the letter to make it look like the canvas is hanging on a wall (this also still needs some refinement).
 
 The 15 parameters per letter:
   * `numLineSquares` : The number of squares to be drawn in the array
@@ -29,4 +23,8 @@ The 15 parameters per letter:
   * `square2X`: The x position of the second white square
   * `square2Y`: The y position of the second white square
 
-My next steps are to further develop my letters and fix the ones I am not quite happy with. I also want to look more at the interpolations of my letters to see if I can make it more interesting. I still need to cut down the number of variables I have, but now that I have all of my letters done this will be easier to do.
+My next steps are to work on making the interpolations between letters nicer. Having the canvas in the background means that I need to make sure no parts of the letters move off the canvas as they change, which is something that is currently happening. I do quite like the way the letters change but I could still make it a bit cleaner.
+
+Phoebe mentioned to me that the Mondrian art movement was heavily influenced by the golden ratio for where each of the squares are positioned. I had not considered this when creating my shapes but I might see if any of the letters use this and try to change some others to use the ratio more.
+
+Overall I am happy with where I am at and I feel that I am on track to finish for hand in next week.

@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#cfcec6";
+var systemBackgroundColor = "#FFFFFA"//"#e7e8e0";//"#ebdbbc"//"#cfcec6";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -20,10 +20,8 @@ function drawLetter(letterData) {
   const redColour = "#ff4242";
   const blueColour = "#79d8f2";
   const yellowColour = "#fcfa58";
+  const greyColour = "#e7e8e0";
   const squareSize = 30;
-
-  strokeWeight(3);
-  stroke(strokeColor);
 
   let posx = -50;
   let posy = 30;
@@ -49,6 +47,21 @@ function drawLetter(letterData) {
   let direction = letterData['direction'];
 
 
+
+
+  fill(0);
+  ellipse(50, 10, 5, 5);
+
+  strokeWeight(2);
+  line(50, 10, 20, 40);
+  line(50, 10, 80, 40);
+
+  fill(greyColour);
+  rect(-5, 40, 110, 170);
+
+  strokeWeight(4);
+  stroke(strokeColor);
+
   fill(255);
   rect(square1X, square1Y, squareSize, squareSize);
 
@@ -71,8 +84,6 @@ function drawLetter(letterData) {
 
   fill(redColour);
   rect(rectRedX, rectRedY, rectRedWidth, rectRedHeight);
-
-
 
 }
 
@@ -99,8 +110,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "MONDRIAN",
   "DE STIJL",
+  "MONDRIAN",
   "ARTWORKS",
-  "PAINTING"
+  "PAINTERS"
 ]
