@@ -19,9 +19,10 @@ const canvasHeight = 500;
    "cntr_ypos": 0,
    "handle_h":140,
    "handle_w": 25,
-   "main_ypos": 250,
    "handl_xpos": 63,
    "handl_ypos": 0,
+   "mainSize": 150,
+   "main_ypos": 250,
    "eyes_xpos": -20,
    "eyes_ypos": -20,
    "cutter_w": 110,
@@ -38,9 +39,10 @@ const canvasHeight = 500;
    "cntr_ypos": -1,
    "handle_h":270,
    "handle_w": 25,
-   "main_ypos": 250,
    "handl_xpos": -65,
    "handl_ypos": -65,
+   "mainSize": 150,
+   "main_ypos": 250,
    "eyes_xpos": -20,
    "eyes_ypos": -20,
    "cutter_w": 110,
@@ -56,9 +58,10 @@ const canvasHeight = 500;
    "cntr_ypos": 0,
    "handle_h":140,
    "handle_w": 25,
-   "main_ypos": 250,
    "handl_xpos": 50,
    "handl_ypos": 0,
+   "mainSize": 150,
+   "main_ypos": 250,
    "eyes_xpos": -10,
    "eyes_ypos": -20,
    "cutter_w": 120,
@@ -113,6 +116,7 @@ function drawLetter(ell_x, ell_y, letterData) {
   let handle_height = letterData["handle_h"];
   let cutterWidth = letterData["cutter_w"];
   let cutterHeight = letterData["cutter_h"];
+   let ellMain_size = letterData["mainSize"];
   let ellMain_y = letterData["main_ypos"];
   let ell1_x = ell_x + letterData["cntr_xpos"];
   let ell1_y = ell_y + letterData["cntr_ypos"];
@@ -126,12 +130,15 @@ function drawLetter(ell_x, ell_y, letterData) {
 
 
 
+
+
   // draw 6 circles/ovel
+
   noStroke();
  fill(purple);
  ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
  fill(purple);
- ellipse(ell_x, ellMain_y, 150, 150);// main Circle
+ ellipse(ell_x, ellMain_y, ellMain_size, ellMain_size);// main Circle
  fill(backgroundColor);
  ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
  fill(backgroundColor);
