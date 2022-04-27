@@ -17,7 +17,7 @@ const strokeColor  = "#03045e";
  */
 function drawLetter(letterData) {
   push();
-  let posx= 0;
+  let posx= 0; //I think these are needed for the original draw_letters
   let posy= 0;
   // determine parameters for second circle
 
@@ -64,57 +64,50 @@ function drawLetter(letterData) {
   stroke(0);
 
   push();
-  translate(pos1x, pos1y);
+  translate(pos1x, pos1y); //set x and y of wave 1
   angleMode(DEGREES);
-  rotate(rotate1);
-  angleMode(RADIANS);
+  rotate(rotate1); //rotation for wave 1
+  angleMode(RADIANS); //changes back to radians for sinewave loop
   noFill();
-  if(peaks1H >= 0){
-      stroke(PosLerpColor1);
-  }else{
-    stroke(NegLerpColor1);
+  if(peaks1H >= 0){ //if peaks are positive
+      stroke(PosLerpColor1); //set positive map
+  }else{ //if peaks are negative
+    stroke(NegLerpColor1); //set negative map
   }
-  if(num == 1 && peaks1 > 0){
-    stroke(PAmountLerpColor1);
-  }
-  if(num == 1 && peaks1 == 0){
-    stroke(PAmountLerpColor1);
+  if(num == 1 && peaks1 >= 0){ //if its a number & wave 1 peaks are always postive
+    stroke(PAmountLerpColor1); //set number map colour
   }
 
 
   beginShape();
-  for (let i = 0; i < 100; i++) { //sets length
-
-    const x = i * waveL1; //also sets length
-    const y = sin(i * radians(peaks1)) * peaks1H; //height of curve
-    vertex(x, y);
+  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+    const x = i * waveL1; //sets wave 1 length
+    const y = sin(i * radians(peaks1)) * peaks1H; //sets peak amount and peak height
+    vertex(x, y); //draws line
   }
   endShape();
   pop();
 
   push();
-  translate(pos2x, pos2y);
+  translate(pos2x, pos2y); //set x and y of wave 2
   angleMode(DEGREES);
-  rotate(rotate2);
-  angleMode(RADIANS);
+  rotate(rotate2); //rotation for wave 1
+  angleMode(RADIANS); //changes back to radians for sinewave loop
   noFill();
-  if(peaks2H >= 0){
-      stroke(PosLerpColor2);
-  }else{
-    stroke(NegLerpColor2);
+  if(peaks2H >= 0){ //if peaks are positive
+      stroke(PosLerpColor2); //set positive map
+  }else{ //if peaks are negative
+    stroke(NegLerpColor2); //set negative map
   }
-  if(num == 1 && peaks2 < 0){
-    stroke(PAmount2LerpColor1);
+  if(num == 1 && peaks2 <= 0){ //if its a number & wave 2 peaks are always negative
+    stroke(PAmount2LerpColor1); //set number map colour
   }
-  if(num == 1 && peaks2 == 0){
-    stroke(PAmountLerpColor1);
-  }
-  beginShape();
-  for (let i = 0; i < 100; i++) { //2 pixel spacing on the x - axis.
 
-    const x = i * waveL2; //200 pixel high waveform on the y - axis.
-    const y = -sin(i * radians(peaks2)) * peaks2H; //radians sets how many peaks
-    vertex(x, y);
+  beginShape();
+  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+    const x = i * waveL2; //sets wave 2 length
+    const y = -sin(i * radians(peaks2)) * peaks2H; //sets peak amount and peak height
+    vertex(x, y); //draws line
   }
   endShape();
   pop();

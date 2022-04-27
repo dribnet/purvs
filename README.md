@@ -1,5 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
+Updated draw_letters.js with comments explaining what things do.
+
 The M looking kind of like McDonalds wasn't noticed during a crit, so I guess it's not as bad as I thought.
 
 I added a new colour for the numbers to help differentiate them from the letters based on feedback. I already had this red colour ready to go when I was researching what digital oscilloscopes typically look like.
