@@ -19,7 +19,6 @@ function drawLetter(letterData) {
   // color/stroke setup
 noStroke();
 
-
   // determine parameters for second circle
   let sq1_posx = 0 + letterData["sq1_posx"];
   let sq1_posy = 0 + letterData["sq1_posy"];
@@ -81,7 +80,7 @@ fill(240, 100, 100, 75);
           rect(77.5, 102.5, 20, 20);
 */
 
-fill(0, 0, 255, 175);
+fill(50, 50, 200, 175);
 rect(sq1_posx+2, sq1_posy+2, 20, 20);
 rect(sq2_posx+2, sq2_posy+2, 20, 20);
 rect(sq3_posx+2, sq3_posy+2, 20, 20);
