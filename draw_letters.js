@@ -3,10 +3,6 @@ var systemBackgroundColor = "#caf0f8";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-/* internal constants */
-const darkYellow  = "#deaa28";
-const strokeYellow  = "#dec028";
-
 /*
  * Draw the letter given the letterData
  *
@@ -16,9 +12,9 @@ const strokeYellow  = "#dec028";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(strokeYellow);
+  stroke(letterData.hexBorderColor);
   strokeWeight(0.2);
-  fill(darkYellow);
+  fill(letterData.hexBackgroundColor);
 
   let visible = [];
   for (let i = 1; i < 16; i++) {
