@@ -50,17 +50,17 @@ function drawLetter(letterData) {
   rotate(angle);
   rectMode(CENTER);
   angleMode(DEGREES);
-  strokeWeight(5);
+  strokeWeight(4.5);
 
   //Center
   stroke(gold);
   fill(gold);
-  rect(0, 0, size + centerValX, size);
+  rect(0, 0, size, size + centerValY);
 
   //Center 2
   stroke(gold);
   fill(gold);
-  rect(0, 0, size, size + centerValY);
+  rect(0, 0, size + centerValX, size);
 
   //Right
   stroke(white);
