@@ -40,11 +40,11 @@ const alphabet = {
 
   "C": {
     "arcStartAngle": 0,
-    "arcStopAngle": 90,
+    "arcStopAngle": 270,
 
-    "Line1_X_startcoord": 1,
-    "Line1_X_stopcoord": 50,
-    "horizontalLineY": 150,
+    "Line1_X_startcoord": 25,
+    "Line1_X_stopcoord": 75,
+    "horizontalLineY": 25,
 
     "verticalLineX": 0,
     "Line2_Y_startcoord": 100,
@@ -104,12 +104,12 @@ const alphabet = {
   },
 
   "H": {
-    "arcStartAngle": 180,
+    "arcStartAngle": -180,
     "arcStopAngle": 450,
 
-    "Line1_X_startcoord": 0,
-    "Line1_X_stopcoord": 50,
-    "horizontalLineY": 50,
+    "Line1_X_startcoord": 25,
+    "Line1_X_stopcoord": 75,
+    "horizontalLineY": 25,
 
     "verticalLineX": 0,
     "Line2_Y_startcoord": 0,
@@ -150,9 +150,9 @@ const alphabet = {
     "Line1_X_stopcoord": 50,
     "horizontalLineY": 50,
 
-    "verticalLineX": 50,
-    "Line2_Y_startcoord": 100,
-    "Line2_Y_stopcoord": 50
+    "verticalLineX": 0,
+    "Line2_Y_startcoord": 0,
+    "Line2_Y_stopcoord": 150
   },
 
   "L": {
@@ -391,36 +391,36 @@ const alphabet = {
 
   "3": {
     "arcStartAngle": 0,
-    "arcStopAngle": 360,
+    "arcStopAngle": 270,
 
     "Line1_X_startcoord": 0,
     "Line1_X_stopcoord": 50,
-    "horizontalLineY": 100,
+    "horizontalLineY": 50,
 
-    "verticalLineX": 0,
+    "verticalLineX": 50,
     "Line2_Y_startcoord": 100,
     "Line2_Y_stopcoord": 50
   },
 
   "4": {
     "arcStartAngle": 0,
-    "arcStopAngle": 90,
+    "arcStopAngle": 270,
 
-    "Line1_X_startcoord": 50,
-    "Line1_X_stopcoord": 0,
-    "horizontalLineY": 150,
+    "Line1_X_startcoord": 0,
+    "Line1_X_stopcoord": 50,
+    "horizontalLineY": 50,
 
-    "verticalLineX": 0,
-    "Line2_Y_startcoord": 150,
-    "Line2_Y_stopcoord": 150
+    "verticalLineX": 50,
+    "Line2_Y_startcoord": 100,
+    "Line2_Y_stopcoord": 50
   },
 
   "5": {
     "arcStartAngle": 0,
-    "arcStopAngle": 360,
+    "arcStopAngle": 270,
 
-    "Line1_X_startcoord": 50,
-    "Line1_X_stopcoord": 100,
+    "Line1_X_startcoord": 0,
+    "Line1_X_stopcoord": 50,
     "horizontalLineY": 50,
 
     "verticalLineX": 50,
@@ -430,54 +430,54 @@ const alphabet = {
 
   "6": {
     "arcStartAngle": 0,
-    "arcStopAngle": 360,
+    "arcStopAngle": 270,
 
     "Line1_X_startcoord": 0,
-    "Line1_X_stopcoord": 0,
-    "horizontalLineY": 150,
+    "Line1_X_stopcoord": 50,
+    "horizontalLineY": 50,
 
-    "verticalLineX": 0,
-    "Line2_Y_startcoord": 50,
+    "verticalLineX": 50,
+    "Line2_Y_startcoord": 100,
     "Line2_Y_stopcoord": 50
   },
 
   "7": {
     "arcStartAngle": 0,
-    "arcStopAngle": 180,
+    "arcStopAngle": 270,
 
-    "Line1_X_startcoord": 50,
-    "Line1_X_stopcoord": 100,
+    "Line1_X_startcoord": 0,
+    "Line1_X_stopcoord": 50,
     "horizontalLineY": 50,
 
     "verticalLineX": 50,
-    "Line2_Y_startcoord": 50,
+    "Line2_Y_startcoord": 100,
     "Line2_Y_stopcoord": 50
   },
 
   "8": {
     "arcStartAngle": 0,
-    "arcStopAngle": 360,
+    "arcStopAngle": 270,
 
     "Line1_X_startcoord": 0,
-    "Line1_X_stopcoord": 0,
-    "horizontalLineY": 150,
+    "Line1_X_stopcoord": 50,
+    "horizontalLineY": 50,
 
-    "verticalLineX": 100,
-    "Line2_Y_startcoord": 50,
-    "Line2_Y_stopcoord": 150
+    "verticalLineX": 50,
+    "Line2_Y_startcoord": 100,
+    "Line2_Y_stopcoord": 50
   },
 
   "9": {
     "arcStartAngle": 0,
-    "arcStopAngle": 360,
+    "arcStopAngle": 270,
 
-    "Line1_X_startcoord": 100,
-    "Line1_X_stopcoord": 100,
-    "horizontalLineY": 200,
+    "Line1_X_startcoord": 0,
+    "Line1_X_stopcoord": 50,
+    "horizontalLineY": 50,
 
     "verticalLineX": 50,
-    "Line2_Y_startcoord": 200,
-    "Line2_Y_stopcoord": 200
+    "Line2_Y_startcoord": 100,
+    "Line2_Y_stopcoord": 50
   }
 
 }
