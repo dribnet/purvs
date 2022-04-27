@@ -35,9 +35,9 @@ const alphabet = {
     hexBorderColor: '#deaa28',
   },
   "D": {
-    tile1: 1,
-    tile2: 1, tile3: 1, tile4: 1,
-    tile5: 1, tile6: 0, tile7: 1,
+    tile1: 0,
+    tile2: 1, tile3: 0, tile4: 0,
+    tile5: 1, tile6: 1, tile7: 1,
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 1, tile15: 1,
