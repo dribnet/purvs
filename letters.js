@@ -1,8 +1,13 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    tile1: 0,
+    tile2: 0, tile3: 0, tile4: 0,
+    tile5: 1, tile6: 0, tile7: 1,
+    tile8: 0, tile9: 1, tile10: 0,
+    tile11: 0, tile12: 1, tile13: 0,
+    tile14: 0, tile15: 0,
+    hexBackgroundColor: '#dec028',
+    hexBorderColor: '#deaa28',
   },
   "A": {
     tile1: 0,
