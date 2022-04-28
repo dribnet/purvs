@@ -15,14 +15,14 @@ const canvasHeight = 500;
 const letterA = {
   "rectPositionX": 0,
   "rectPositionY": 60,
-  "rectwidth": 80,
+  "rectwidth": 60,
   "rectheight": 90,
 
   "triPosition1X": 0,
   "triPosition1Y": -70,
-  "triPosition2X": 40,
+  "triPosition2X": 30,
   "triPosition2Y": -10,
-  "triPosition3X": -40,
+  "triPosition3X": -30,
   "triPosition3Y": -10
 
 }
@@ -30,14 +30,14 @@ const letterA = {
 const letterB = {
   "rectPositionX": 0,
   "rectPositionY": 50,
-  "rectwidth": 80,
+  "rectwidth": 60,
   "rectheight": 50,
 
-  "triPosition1X": -40,
+  "triPosition1X": -30,
   "triPosition1Y": -10,
-  "triPosition2X": -40,
+  "triPosition2X": -30,
   "triPosition2Y": -70,
-  "triPosition3X": 40,
+  "triPosition3X": 30,
   "triPosition3Y": -40
 }
 
@@ -46,12 +46,12 @@ const letterC = {
   "rectPositionY": 0,
   "rectwidth": 0,
   "rectheight": 0,
-  
-  "triPosition1X": -75,
+
+  "triPosition1X": -50,
   "triPosition1Y": 0,
-  "triPosition2X": 75,
+  "triPosition2X": 50,
   "triPosition2Y": -100,
-  "triPosition3X": 75,
+  "triPosition3X": 50,
   "triPosition3Y": 100
 }
 
@@ -104,13 +104,12 @@ function drawLetter(posx, posy, letterData) {
   let tri3X = posx + letterData["triPosition3X"];
   let tri3Y = posy + letterData["triPosition3Y"];
 
-  // draw two circles
   rectMode(CENTER);
   noStroke();
   angleMode(DEGREES);
 
   fill(black);
-  rect(posx, posy, 150, 200);
+  rect(posx, posy, 100, 200);
 
   fill(white);
   rect(rectPosX, rectPosY, rectWidth, rectHeight);
@@ -122,7 +121,6 @@ function drawLetter(posx, posy, letterData) {
   vertex(tri2X, tri2Y);
   vertex(tri3X, tri3Y);
   endShape();
-  //triangle(0, 0, 40, 60, - 40, 60);
   pop();
 
 }

@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#ffffff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -7,6 +7,8 @@ var systemBoxColor = "#00c800";
 const darkBlue  = "#0077b6";
 const lightBlue  = "#90e0ef";
 const strokeColor  = "#03045e";
+const black  = "#000000";
+const white  = "#ffffff";
 
 /*
  * Draw the letter given the letterData
@@ -20,33 +22,39 @@ function drawLetter(letterData) {
   stroke(strokeColor);
   strokeWeight(4);
 
+  let posx = 50;
+  let posy = 100;
+
   // determine parameters for second circle
   let rectPosX = posx + letterData["rectPositionX"];
   let rectPosY = posy + letterData["rectPositionY"];
   let rectWidth = letterData["rectwidth"];
   let rectHeight = letterData["rectheight"];
-  let triPosX = posx + letterData["triPositionX"];
-  let triPosY = posy + letterData["triPositionY"];
-  let triscale = letterData["triangleScale"];
-  let triRotate = letterData["triangleRotate"];
 
-  // draw two circles
+  let tri1X = posx + letterData["triPosition1X"];
+  let tri1Y = posy + letterData["triPosition1Y"];
+  let tri2X = posx + letterData["triPosition2X"];
+  let tri2Y = posy + letterData["triPosition2Y"];
+  let tri3X = posx + letterData["triPosition3X"];
+  let tri3Y = posy + letterData["triPosition3Y"];
+
   rectMode(CENTER);
   noStroke();
   angleMode(DEGREES);
 
   fill(black);
-  rect(posx, posy, 150, 200);
+  rect(posx, posy, 100, 200);
 
   fill(white);
   rect(rectPosX, rectPosY, rectWidth, rectHeight);
 
   push();
-  translate(triPosX, triPosY);
   fill(white);
-  scale(triscale);
-  rotate(triRotate);
-  triangle(0, 0, 40, 60, - 40, 60);
+  beginShape();
+  vertex(tri1X, tri1Y);
+  vertex(tri2X, tri2Y);
+  vertex(tri3X, tri3Y);
+  endShape();
   pop();
 }
 
