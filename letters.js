@@ -1,13 +1,33 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circle1x":0,
+    "circle1y":0,
+    "circle2x":0,
+    "circle2y":50,
+    "circle3x":0,
+    "circle3y":75,
+    "circle4x":25,
+    "circle4y":200,
+    "circle5x":50,
+    "circle5y":200,
+    "circle6x":25,
+    "circle6y":100,
+    "circle7x":50,
+    "circle7y":100,
+    "circle8x":100,
+    "circle8y":150,
+    "circle9x":100,
+    "circle9y":100,
+    "circle10x":100,
+    "circle10y":50,
+    "circle11x":
+    "circle11y":
+    "circle12x":
+    "circle12y":
+
   },
   "B": {
     "size": 75,

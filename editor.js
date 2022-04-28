@@ -5,9 +5,30 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["circle1x", 0, 100],
+  ["circle1y", 200, 0],
+  ["circle2x", 0, 100],
+  ["circle2y", 200, 0],
+  ["circle3x", 0, 100],
+  ["circle3y", 200, 0],
+  ["circle4x", 0, 100],
+  ["circle4y", 200, 0],
+  ["circle5x", 0, 100],
+  ["circle5y", 200, 0],
+  ["circle6x", 0, 100],
+  ["circle6y", 200, 0],
+  ["circle7x", 0, 100],
+  ["circle7y", 200, 0],
+  ["circle8x", 0, 100],
+  ["circle8y", 200, 0],
+  ["circle9x", 0, 100],
+  ["circle9y", 200, 0],
+  ["circle10x", 0, 100],
+  ["circle10y", 200, 0],
+  ["circle11x", 0, 100],
+  ["circle11y", 200, 0],
+  ["circle12x", 0, 100],
+  ["circle12y", 200, 0]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

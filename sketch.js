@@ -173,7 +173,6 @@ function drawLetter(posx, posy, letterData) {
   rect (posx-10, posy+20, 180, 200);
 
   fill('#A53D3C');// dark red
-  strokeWeight();
   ellipse (posx-7, posy-7, 0, 0); // circle 1
   ellipse (pos2x-7, pos2y-7, 20, 20); // circle 2
   ellipse (pos3x-7, pos3y-7, 20, 20); // circle 2
@@ -188,7 +187,21 @@ function drawLetter(posx, posy, letterData) {
   ellipse (pos12x-7, pos12y-7, 20, 20); // circle 2
   ellipse (pos13x-7, pos13y-7, 20, 20); // circle 2
 
-  fill('red');
+  ellipse (posx-10, posy-10, 0, 0); // circle 1
+  ellipse (pos2x-10, pos2y-10, 20, 20); // circle 2
+  ellipse (pos3x-10, pos3y-10, 20, 20); // circle 2
+  ellipse (pos4x-10, pos4y-10, 20, 20); // circle 2
+  ellipse (pos5x-10, pos5y-10, 20, 20); // circle 2
+  ellipse (pos6x-10, pos6y-10, 20, 20); // circle 2
+  ellipse (pos7x-10, pos7y-10, 20, 20); // circle 2
+  ellipse (pos8x-10, pos8y-10, 20, 20); // circle 2
+  ellipse (pos9x-10, pos9y-10, 20, 20); // circle 2
+  ellipse (pos10x-10, pos10y-10, 20, 20); // circle 2
+  ellipse (pos11x-10, pos11y-10, 20, 20); // circle 2
+  ellipse (pos12x-10, pos12y-10, 20, 20); // circle 2
+  ellipse (pos13x-10, pos13y-10, 20, 20); // circle 2
+
+  fill('#F2F0EB');
   ellipse (posx, posy, 0, 0); // circle 1
   ellipse (pos2x, pos2y, 20, 20); // circle 2
   ellipse (pos3x, pos3y, 20, 20); // circle 2
