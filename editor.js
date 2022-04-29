@@ -10,16 +10,13 @@ const sliderInfo = [
   ["orientation2",-1,1],
   ["edge1",0,50],
   ["edge2",0,50],
-  ["angle1",0,360], 
-  ["angle2",0,360],
+  ["angle",0,360],
   ["offsetX1",-200,200], 
   ["offsetY1",-400,400], 
   ["offsetX2",-200,200], 
   ["offsetY2",-400,400],
-  ["rX",0,100], 
-  ["rY",0,200],
-  ["rW",0,100], 
-  ["rH",0,150]
+  ["rPos",-1,1],
+  ["rLength",0,50]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
