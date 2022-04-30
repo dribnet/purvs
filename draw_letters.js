@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ffffff";
+var systemBackgroundColor = "#0077b6";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
