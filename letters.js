@@ -155,9 +155,9 @@ const alphabet = {
   "offsetX2": 99, 
   "offsetY2": -16,
   "rX": 27, 
-  "rY": 59, 
+  "rY": 59.5, 
   "rW": 39, 
-  "rH": 80
+  "rH": 79.5
   },
     "J": {
   "size": 52,
@@ -323,8 +323,8 @@ const alphabet = {
   "size": 30,
   "orientation1":  1, 
   "orientation2": -1,
-  "edge1": 35, 
-  "edge2": 35, 
+  "edge1": 33, 
+  "edge2": 33, 
   "angle": 90,  
   "offsetX1": 90, 
   "offsetY1": 0, 

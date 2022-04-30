@@ -6,7 +6,6 @@ var systemBoxColor = "#3d93e0";
 /* internal constants */
 const colWings = "#df8d9e";
 const colRect = "#718e00";
-const roundCorner = 100;
 
 /*
  * Draw the letter given the letterData
@@ -20,23 +19,19 @@ function drawLetter(letterData) {
   push();
     noStroke();
     rectShape(
-      letterData["rX"],
-      letterData["rY"],
-      letterData["rW"],
-      letterData["rH"]
-      );
+      letterData["rX"],letterData["rY"],
+      letterData["rW"],letterData["rH"]);
     customShape(
-      letterData["size"],
-      letterData["orientation1"],
-      letterData["orientation2"],
-      letterData["edge1"],
-      letterData["edge2"],
-      letterData["angle"],
-      letterData["offsetX1"],
+      letterData["size"],             // what is the size (radius) of shape?
+      letterData["orientation1"],     // is the first half on the left or right?
+      letterData["orientation2"],     // is the other half on the left or right?
+      letterData["edge1"],            // is this half rounded or not?
+      letterData["edge2"],            // is the other half rounded or not?
+      letterData["angle"],            // what is the rotational angle of shape?
+      letterData["offsetX1"],         // where is the shape positioned?
       letterData["offsetY1"],
       letterData["offsetX2"],
-      letterData["offsetY2"]
-    );
+      letterData["offsetY2"]);
   pop();
 }
 function rectShape(rX,rY,rW,rH){
@@ -61,55 +56,61 @@ function customShape(
     fill(colWings);
     angleMode(DEGREES);
     rotate(angle);
-    beginShape();
+    beginShape();                        /* anatomy of custom shape */
     halfShape(radius, offsetX1, offsetY1, orient1, edge1);
     halfShape(radius, offsetX2, offsetY2, orient2, edge2);
     endShape(CLOSE);
   pop();
-  }
+  }                                      /* anatomy of half the custom shape */
 function halfShape(radius, offsetX, offsetY, orientation, edge) {
-  let offset = dist(radius, radius / 5, radius - radius / 5, radius / 5);
-  // orient right = 1, left = -1
-  vertex(offsetX - radius, offsetY + 0);
-  quadraticVertex(
+  let roundCutStart  = radius;           // edge of shape, start of rounded edge 
+  let roundCutEnd    = radius / 5;       // end point of rounded edge
+  let roundCutCorner = roundCutStart - roundCutEnd; // perfectly rounded edge 
+  let cutout = dist(roundCutStart, roundCutEnd, roundCutCorner, roundCutEnd);
+                                         // calculate control point rounded edge
+                                         /* start of cutout */
+  vertex(offsetX - radius, offsetY + 0); // start edge of shape, base of shape
+  quadraticVertex(                       // make cutout, rounded edge
     offsetX - radius,
-    offsetY - offset * orientation,
-    offsetX - radius + offset,
-    offsetY - offset * orientation
+    offsetY - cutout * orientation,     
+    offsetX - radius + cutout,
+    offsetY - cutout * orientation
   );
-  vertex(offsetX + radius - offset, offsetY - offset * orientation);
-  quadraticVertex(
+                                         //  make a line until other rounded edge of cutout
+  vertex(offsetX + radius - cutout, offsetY - cutout * orientation); 
+  quadraticVertex(                       // other rounded edge of cutout
     offsetX + radius,
-    offsetY - offset * orientation,
+    offsetY - cutout * orientation,
     offsetX + radius,
     offsetY - 0
   );
-  vertex(offsetX + radius, offsetY - offset * orientation);
-  quadraticVertex(
+  vertex(offsetX + radius, offsetY - cutout * orientation); 
+                                          /* end of cutout */
+                                          /* start of body */        
+  quadraticVertex(                        // make shape rounded on one half
     offsetX + radius,
     offsetY - radius * orientation,
     offsetX + 0,
     offsetY - radius * orientation
   );
-  vertex(offsetX - edge, offsetY - radius * orientation);
+                                          // other half of shape rounded or not 
+  vertex(offsetX - edge, offsetY - radius * orientation); 
   quadraticVertex(
     offsetX - radius,
     offsetY - radius * orientation,
     offsetX - radius,
     offsetY + 0
   );
+                                          /* end of body */
+  // orientation controlled by letter data (right = 1), (left = -1)
+  // edge controlled by letter data (rounded = 0), (not = radius)
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  let targetWidth = 200;
-  let targetHeight = 200;
-  let targetX = 0;
-  let targetY = 50;
-  let size = 100;
-  let targetOrient = 1;
-  let targetEdge = 0;
-  let defaultChar = getObjFromChar("C");
+  let targetOrient = newObj["orientation1"];
+  let targetEdge = newObj["size"]/2; 
+  
 
   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
@@ -141,12 +142,12 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "WISTERIA","01010101","23456789","GENERATE","?WINGED?","CREATURE",
-  "PAPILLON","?NECTAR?","MARIPOSA","BLOOMING","?GARDEN?","INJURIES",
-  "FLOURISH","BEDAZZLE","SWEETEST","LOVINGLY","TENDERLY","CLUELESS",
-  "DAYDREAM","ROMANTIC","FOLKLORE","EVERMORE","ROTATION",
-  "ENVELOPE","FLIPPING","?UNFOLD?","SPINNING","DISASTER","ENVISION",
-  "MAXIMISE","EXTENDED","AUTONOMY","FRAGMENT","ILLUSION",
-  "EXERCISE","DIVISION","DESIGNER","HEADLINE","CAMPAIGN","NONSENSE",
-  "MOUNTAIN","CEMETERY","SCENARIO"
+  "?MEADOW?","01010101","23456789","GENERATE","?WINGED?","CREATURE",
+  "MARIPOSA","?NECTAR?","PAPILLON","WISTERIA","LEAFLETS","ILLUSION",
+  "DAYDREAM","ENVISION","BLOOMING","?GARDEN?","EXTENDED","SCENARIO",
+  "FLOURISH","BEDAZZLE","SWEETEST","?LOVING?","TENDERLY","CLUELESS",
+  "INFINITE","ROMANTIC","EVERMORE","ROTATION","ENVELOPE","FLIPPING",
+  "?UNFOLD?","SPINNING","DISASTER","MAXIMISE","AUTONOMY","FRAGMENT",
+  "INJURIES","EXERCISE","DIVISION","FOLKLORE","DESIGNER",
+  "NONSENSE","HEADLINE","MOUNTAIN","CEMETERY"
 ]
