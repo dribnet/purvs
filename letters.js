@@ -10,16 +10,16 @@ const alphabet = {
   "offsetY1": 0, 
   "offsetX2": 58, 
   "offsetY2": -48,
-  "rX": 0, 
-  "rY": 0, 
-  "rW": 0, 
-  "rH": 0 
+  "rX": 56, 
+  "rY": 20, 
+  "rW": 32, 
+  "rH": 77.8
   },
   "A": {
   "size": 40,
   "orientation1":  1, 
   "orientation2": -1,
-  "edge1": 0, 
+  "edge1": 40, 
   "edge2": 0, 
   "angle": 90, 
   "offsetX1": 100, 
@@ -74,9 +74,9 @@ const alphabet = {
   "offsetY1": -50, 
   "offsetX2": 100, 
   "offsetY2": -50,
-  "rX": 60, 
+  "rX": 57.8, 
   "rY": 20, 
-  "rW": 30, 
+  "rW": 32, 
   "rH": 120 
   },
   "E": {
@@ -102,9 +102,9 @@ const alphabet = {
   "edge1": 0, 
   "edge2": 45, 
   "angle": 90,  
-  "offsetX1": 60, 
+  "offsetX1": 65, 
   "offsetY1": -55, 
-  "offsetX2": 60, 
+  "offsetX2": 65, 
   "offsetY2": -105,
   "rX": 10.8, 
   "rY": 70, 
@@ -140,7 +140,7 @@ const alphabet = {
   "offsetY2": 50,
   "rX": 10, 
   "rY": 20, 
-  "rW": 32.2, 
+  "rW": 32, 
   "rH": 120 
   },
   "I": {
@@ -253,29 +253,29 @@ const alphabet = {
   "rX": 10.8, 
   "rY": 61, 
   "rW": 30, 
-  "rH": 30 
+  "rH": 78 
   },
   "P": {
   "size": 40,
   "orientation1":  -1, 
   "orientation2":  1,
-  "edge1": 0, 
+  "edge1": 40, 
   "edge2": 0, 
   "angle": 90, 
   "offsetX1": 100, 
-  "offsetY1": -58, 
+  "offsetY1": -50, 
   "offsetX2": 100, 
-  "offsetY2": -58,
-  "rX": 15, 
+  "offsetY2": -50,
+  "rX": 10, 
   "rY": 60, 
-  "rW": 34.3, 
+  "rW": 32, 
   "rH": 120 
   },
   "Q": {
   "size": 40,
   "orientation1":  1, 
   "orientation2":  -1,
-  "edge1": 0, 
+  "edge1": 40, 
   "edge2": 0, 
   "angle": 90, 
   "offsetX1": 100, 
@@ -284,7 +284,7 @@ const alphabet = {
   "offsetY2": -49,
   "rX": 57.8, 
   "rY": 60.8, 
-  "rW": 34.8, 
+  "rW": 31, 
   "rH": 120 
   },
   "R": {
@@ -300,7 +300,7 @@ const alphabet = {
   "offsetY2": -90,
   "rX": 10, 
   "rY": 60, 
-  "rW": 40, 
+  "rW": 43, 
   "rH": 80
   },
   "S": {
@@ -348,8 +348,8 @@ const alphabet = {
   "offsetY2": -48,
   "rX": 56, 
   "rY": 65, 
-  "rW": 31, 
-  "rH": 75
+  "rW": 30.8, 
+  "rH": 76
   },
   "V": {
   "size": 39,
@@ -362,10 +362,10 @@ const alphabet = {
   "offsetY1": -48, 
   "offsetX2": 103, 
   "offsetY2": -48,
-  "rX": 10.8, 
-  "rY": 111, 
-  "rW": 29, 
-  "rH": 30 
+  "rX": 9, 
+  "rY": 65, 
+  "rW": 31, 
+  "rH": 77
   },
   "W": {
   "size": 40,
@@ -522,10 +522,10 @@ const alphabet = {
   "offsetY1": 104, 
   "offsetX2": 52, 
   "offsetY2": 104,
-  "rX": 36, 
+  "rX": 13, 
   "rY": 20, 
-  "rW": 54, 
-  "rH": 35
+  "rW": 75, 
+  "rH": 36
   },
   "6": {
   "size": 40,
