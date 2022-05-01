@@ -1,11 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-I'm just now realizing that I might need to change around my design, and mess around with the custom shape I have made. It works fine, but I feel like if I tweak it a little bit I could make it a whole lot better.
+After trying for an hour to get the rotate to work, I ended up scrapping it. It only seemed to rotate around a fixed point, and no matter what I did, I just couldn't get it working. I tried to translate it around different parameters, I set the ellipseMode(CENTER), but it didn't wanna work for me. I'm sure there is a simple solution that I'm not seeing, but as I worked though the letters I realized that I would have only need it for a few of the letters anyway, so I just took it out.
 
-I feel like at the moment it just looks a bit ugly, and like it was rushed, so I want to see if I could improve this anyway before I go ahead and start doing the rest of the stuff.
-
-I will first just add in the ellipse that I was going to add, and I'm going to add parameters to rotate the ellipses. If this ends up looking good, then I'm going to stick with this and not bother trying to fix the custom shape. This will add probably 6 parameters, bringing me to 16, which is still under the limit.
-
-I've successfully added in the next ellipse, but now I am having trouble with the rotate part. I want it to rotate at the center of the shape, but it is rotating around a different point. I should be able to fix this easily, so I think I'm just going to stick with this solution instead of trying to fix the custom shape.
-
-The next step for me is to fix up the rotate, finish the full alphabet/numbers and get them to a standard I am happy with. After that it is the general aesthetics and the interpolation stuff etc.
+I swapped around some of the curveVertex's and I got a new shape that I much rather prefer for how I originally wanted it to turn out. It looks more like its written, or done in the traditional Japanese calligraphy style. It reminds me more of how kanji is written, and I really like it. I'm going to play around with different colours to see if I can channel this kind of theme better.

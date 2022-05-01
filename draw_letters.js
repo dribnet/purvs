@@ -18,7 +18,7 @@ const backColour = "#fb94ff";
  */
 function drawLetter(letterData) {
   angleMode(DEGREES);
-  // ellipseMode(CENTER);
+  ellipseMode(CENTER);
   // determine parameters for second circle
   let posx = 30
   let posy = 100
@@ -37,38 +37,48 @@ function drawLetter(letterData) {
   let transY = letterData["translateY"];
   let sizexx = letterData["sizeX"];
   let sizeyy = letterData["sizeY"];
-  let rotate1 = letterData["rotate"];
   let sizex2 = letterData["2sizeX"];
   let sizey2 = letterData["2sizeY"];
   let offX2 = letterData["2offsetx"];
   let offY2 = letterData["2offsety"];
-  let rotate2 = letterData["2rotate"];
+
+  let ibStroke = posx + letterData["2curveX"];
+  let ibStroke2 = posy + letterData["2curveY"];
+  let ibMidX = posx + letterData["2curveMidX"];
+  let ibMidY = posy + letterData["2curveMidY"];
+  let iminusBS = posx - letterData["2curveX"];
+  let iminusBS2 = posy - letterData["2curveY"];
+  let itransX = letterData["2translateX"];
+  let itransY = letterData["2translateY"];
 
   // draw two circles
   fill(frontColour);
   strokeWeight(2);
   stroke("#03045e");
-  push();
-  // translate(offX2,offY2);
-  rotate(rotate2);
-  ellipse(offX2, offY2, sizex2, sizey2);
-  pop();
-  push();
-  // translate(pos2x,pos2y);
-  rotate(rotate1);
-  ellipse(pos2x, pos2y, sizexx, sizeyy);
-  pop();
-  rotate(0);
+
+  // ellipse(offX2, offY2, sizex2, sizey2);
   push();
   translate(transX, transY);
   beginShape();
   curveVertex(bMidX, bMidY);
-  curveVertex(bStroke, bStroke2); //bottom vertex
   curveVertex(minusBS, minusBS2); //top wertex
+  curveVertex(bStroke, bStroke2); //bottom vertex
   curveVertex(bMidX, minusBS2)
   endShape();
+//  line()
   pop();
+  ellipse(pos2x, pos2y, sizexx, sizeyy);
 
+  push();
+  translate(itransX,itransY);
+  beginShape();
+  curveVertex(ibMidX, ibMidY);
+  curveVertex(iminusBS,iminusBS2); //top wertex
+  curveVertex(ibStroke, ibStroke2); //bottom vertex
+  curveVertex(ibMidX, iminusBS2)
+  endShape();
+//  line()
+  pop();
 
 
 

@@ -6,22 +6,27 @@
  */
 const sliderInfo = [
   ["sizeX", 0, 100],
-  ["sizeY", 0, 100],
-  ["offsetx", -5, 45],
+  ["sizeY", 0, 200],
+  ["offsetx", -50, 50],
   ["offsety", -100, 100],
-  ["curveMidX", -300, 300],
-  ["curveMidY", -500, 500],
+  ["curveMidX", -500, 500],
+  ["curveMidY", -500, 1000],
   ["curveX", -100, 100],
   ["curveY", 0, 200],
   ["translateX", -100, 200],
   ["translateY", -100, 200],
-  ["rotate", -180, 180],
-  ["2sizeX", 0, 100],
-  ["2sizeY", 0, 100],
-  ["2offsetx", 25,75],
-  ["2offsety", 00, 200],
-  ["2rotate", -180, 180]
+  ["2curveMidX", -500, 500],
+  ["2curveMidY", -500, 1000],
+  ["2curveX", -100, 100],
+  ["2curveY", 0, 200],
+  ["2translateX", -100, 200],
+  ["2translateY", -100, 200],
+
 ];
+// ["2sizeX", 0, 100],
+// ["2sizeY", 0, 100],
+// ["2offsetx", 25,75],
+// ["2offsety", 00, 200],
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
 
