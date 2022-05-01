@@ -1,6 +1,5 @@
 const alphabet = {
   "default": {
-    "angle": 0,
     "offsetLeft": -50,
     "offsetRight": -25,
     "offsetTop": 0,
@@ -13,7 +12,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "A": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -26,7 +24,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "B": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -39,7 +36,6 @@ const alphabet = {
     "bottomVal": 60
   },
   "C": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -52,7 +48,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "D": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -65,7 +60,6 @@ const alphabet = {
     "bottomVal": 60
   },
   "E": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -78,7 +72,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "F": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -91,7 +84,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "G": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 25,
     "offsetTop": 0,
@@ -104,7 +96,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "H": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -117,7 +108,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "I": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -130,7 +120,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "J": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -143,7 +132,7 @@ const alphabet = {
     "bottomVal": 50
   },
   "K": {
-    "angle": 0,
+
     "offsetLeft": 0,
     "offsetRight": 35,
     "offsetTop": 35,
@@ -156,7 +145,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "L": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -169,7 +157,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "M": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -182,7 +169,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "N": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -195,7 +181,7 @@ const alphabet = {
     "bottomVal": 0
   },
   "O": {
-    "angle": 0,
+
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -208,7 +194,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "P": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": -25,
     "offsetTop": 0,
@@ -221,7 +206,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "Q": {
-    "angle": 0,
     "offsetLeft": -25,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -234,7 +218,7 @@ const alphabet = {
     "bottomVal": 0
   },
   "R": {
-    "angle": 0,
+
     "offsetLeft": 0,
     "offsetRight": 10,
     "offsetTop": 0,
@@ -247,7 +231,7 @@ const alphabet = {
     "bottomVal": 0
   },
   "S": {
-    "angle": 0,
+
     "offsetLeft": -25,
     "offsetRight": 25,
     "offsetTop": 10,
@@ -260,7 +244,6 @@ const alphabet = {
     "bottomVal": 80
   },
   "T": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -273,7 +256,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "U": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -286,7 +268,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "V": {
-    "angle": 0,
     "offsetLeft": -10,
     "offsetRight": -10,
     "offsetTop": 0,
@@ -299,7 +280,7 @@ const alphabet = {
     "bottomVal": 60
   },
   "W": {
-    "angle": 0,
+
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -312,7 +293,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "X": {
-    "angle": 0,
     "offsetLeft": 50,
     "offsetRight": -50,
     "offsetTop": -50,
@@ -325,7 +305,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "Y": {
-    "angle": 0,
     "offsetLeft": -25,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -338,7 +317,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "Z": {
-    "angle": 0,
     "offsetLeft": 25,
     "offsetRight": -25,
     "offsetTop": 0,
@@ -351,7 +329,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "0": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -364,7 +341,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "1": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": -25,
@@ -377,7 +353,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "2": {
-    "angle": 0,
     "offsetLeft": 25,
     "offsetRight": -25,
     "offsetTop": -10,
@@ -390,7 +365,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "3": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -403,7 +377,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "4": {
-    "angle": 0,
     "offsetLeft": -25,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -416,7 +389,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "5": {
-    "angle": 0,
     "offsetLeft": -25,
     "offsetRight": 25,
     "offsetTop": 0,
@@ -429,7 +401,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "6": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 25,
     "offsetTop": 0,
@@ -442,7 +413,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "7": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -455,7 +425,6 @@ const alphabet = {
     "bottomVal": 0
   },
   "8": {
-    "angle": 0,
     "offsetLeft": 0,
     "offsetRight": 0,
     "offsetTop": 0,
@@ -468,7 +437,6 @@ const alphabet = {
     "bottomVal": 100
   },
   "9": {
-    "angle": 0,
     "offsetLeft": -25,
     "offsetRight": 0,
     "offsetTop": 0,

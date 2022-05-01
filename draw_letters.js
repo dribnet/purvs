@@ -20,7 +20,6 @@ const white = "ffffff";
 function drawLetter(letterData) {
   // determine parameters
   let size = 18;
-  let angle = letterData["angle"];
   let posx = 50;
   let posy = 100;
 
@@ -51,7 +50,6 @@ function drawLetter(letterData) {
   angleMode(DEGREES);
   strokeWeight(4.5);
   push();
-  rotate(angle);
 
   //Center
   stroke(gold);
@@ -88,45 +86,41 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  let defaultPositioning = 0;
 
   if(percent < 40){
-    new_letter["angle"]         = map(percent, 0, 40, oldObj["angle"], defaultPositioning);
-    new_letter["offsetBottom"]  = map(percent, 0, 40, oldObj["offsetBottom"], defaultPositioning);
-    new_letter["offsetTop"]     = map(percent, 0, 40, oldObj["offsetTop"], defaultPositioning);
-    new_letter["offsetRight"]   = map(percent, 0, 40, oldObj["offsetRight"], defaultPositioning);
-    new_letter["offsetLeft"]    = map(percent, 0, 40, oldObj["offsetLeft"], defaultPositioning);
-    new_letter["centerValX"]    = map(percent, 0, 40, oldObj["centerValX"], defaultPositioning);
-    new_letter["centerValY"]    = map(percent, 0, 40, oldObj["centerValY"], defaultPositioning);
-    new_letter["leftVal"]       = map(percent, 0, 40, oldObj["leftVal"], defaultPositioning);
-    new_letter["rightVal"]      = map(percent, 0, 40, oldObj["rightVal"], defaultPositioning);
-    new_letter["topVal"]        = map(percent, 0, 40, oldObj["topVal"], defaultPositioning);
-    new_letter["bottomVal"]     = map(percent, 0, 40, oldObj["bottomVal"], defaultPositioning);
+    new_letter["offsetBottom"]  = map(percent, 0, 40, oldObj["offsetBottom"], 0);
+    new_letter["offsetTop"]     = map(percent, 0, 40, oldObj["offsetTop"], 0);
+    new_letter["offsetRight"]   = map(percent, 0, 40, oldObj["offsetRight"], 0);
+    new_letter["offsetLeft"]    = map(percent, 0, 40, oldObj["offsetLeft"], 0);
+    new_letter["centerValX"]    = map(percent, 0, 40, oldObj["centerValX"], 0);
+    new_letter["centerValY"]    = map(percent, 0, 40, oldObj["centerValY"], 0);
+    new_letter["leftVal"]       = map(percent, 0, 40, oldObj["leftVal"], 0);
+    new_letter["rightVal"]      = map(percent, 0, 40, oldObj["rightVal"], 0);
+    new_letter["topVal"]        = map(percent, 0, 40, oldObj["topVal"], 0);
+    new_letter["bottomVal"]     = map(percent, 0, 40, oldObj["bottomVal"], 0);
   }else if(40 < percent && percent < 60){
-    new_letter["angle"]         = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["offsetBottom"]  = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["offsetTop"]     = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["offsetRight"]   = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["offsetLeft"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["centerValX"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["centerValY"]    = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["leftVal"]       = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["rightVal"]      = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["topVal"]        = map(percent, 41, 60, defaultPositioning, defaultPositioning);
-    new_letter["bottomVal"]     = map(percent, 41, 60, defaultPositioning, defaultPositioning);
+    new_letter["offsetBottom"]  = map(percent, 41, 60, 0, 0);
+    new_letter["offsetTop"]     = map(percent, 41, 60, 0, 0);
+    new_letter["offsetRight"]   = map(percent, 41, 60, 0, 0);
+    new_letter["offsetLeft"]    = map(percent, 41, 60, 0, 0);
+    new_letter["centerValX"]    = map(percent, 41, 60, 0, 0);
+    new_letter["centerValY"]    = map(percent, 41, 60, 0, 0);
+    new_letter["leftVal"]       = map(percent, 41, 60, 0, 0);
+    new_letter["rightVal"]      = map(percent, 41, 60, 0, 0);
+    new_letter["topVal"]        = map(percent, 41, 60, 0, 0);
+    new_letter["bottomVal"]     = map(percent, 41, 60, 0, 0);
   }
   else if (percent > 60){
-    new_letter["angle"]         = map(percent, 61, 100, defaultPositioning, newObj["angle"]);
-    new_letter["offsetBottom"]  = map(percent, 61, 100, defaultPositioning, newObj["offsetBottom"]);
-    new_letter["offsetTop"]     = map(percent, 61, 100, defaultPositioning, newObj["offsetTop"]);
-    new_letter["offsetRight"]   = map(percent, 61, 100, defaultPositioning, newObj["offsetRight"]);
-    new_letter["offsetLeft"]    = map(percent, 61, 100, defaultPositioning, newObj["offsetLeft"]);
-    new_letter["centerValX"]    = map(percent, 61, 100, defaultPositioning, newObj["centerValX"]);
-    new_letter["centerValY"]    = map(percent, 61, 100, defaultPositioning, newObj["centerValY"]);
-    new_letter["leftVal"]       = map(percent, 61, 100, defaultPositioning, newObj["leftVal"]);
-    new_letter["rightVal"]      = map(percent, 61, 100, defaultPositioning, newObj["rightVal"]);
-    new_letter["topVal"]        = map(percent, 61, 100, defaultPositioning, newObj["topVal"]);
-    new_letter["bottomVal"]     = map(percent, 61, 100, defaultPositioning, newObj["bottomVal"]);
+    new_letter["offsetBottom"]  = map(percent, 61, 100, 0, newObj["offsetBottom"]);
+    new_letter["offsetTop"]     = map(percent, 61, 100, 0, newObj["offsetTop"]);
+    new_letter["offsetRight"]   = map(percent, 61, 100, 0, newObj["offsetRight"]);
+    new_letter["offsetLeft"]    = map(percent, 61, 100, 0, newObj["offsetLeft"]);
+    new_letter["centerValX"]    = map(percent, 61, 100, 0, newObj["centerValX"]);
+    new_letter["centerValY"]    = map(percent, 61, 100, 0, newObj["centerValY"]);
+    new_letter["leftVal"]       = map(percent, 61, 100, 0, newObj["leftVal"]);
+    new_letter["rightVal"]      = map(percent, 61, 100, 0, newObj["rightVal"]);
+    new_letter["topVal"]        = map(percent, 61, 100, 0, newObj["topVal"]);
+    new_letter["bottomVal"]     = map(percent, 61, 100, 0, newObj["bottomVal"]);
 }
   return new_letter;
 }
