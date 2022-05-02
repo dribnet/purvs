@@ -110,7 +110,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   let targetOrient = newObj["orientation1"];
   let targetEdge = newObj["size"]/2; 
-  
 
   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
@@ -126,15 +125,11 @@ function interpolate_letter(percent, oldObj, newObj) {
   if (percent < 50) {
     new_letter["edge1"] = map(percent, 0, 50, oldObj["edge1"], targetEdge);
     new_letter["edge2"] = map(percent, 0, 50, oldObj["edge2"], targetEdge);
-  } else {
-    new_letter["edge1"] = map(percent, 51, 100, targetEdge, newObj["edge1"]);
-    new_letter["edge2"] = map(percent, 51, 100, targetEdge, newObj["edge2"]);
-  }
-
-  if (percent < 50) {
     new_letter["orientation1"] = map(percent,0,50,oldObj["orientation1"],targetOrient);
     new_letter["orientation2"] = map(percent,0,50,oldObj["orientation2"],targetOrient);
   } else {
+    new_letter["edge1"] = map(percent, 51, 100, targetEdge, newObj["edge1"]);
+    new_letter["edge2"] = map(percent, 51, 100, targetEdge, newObj["edge2"]);
     new_letter["orientation1"] = map(percent,51,100,targetOrient,newObj["orientation1"]);
     new_letter["orientation2"] = map(percent,51,100,targetOrient,newObj["orientation2"]);
   }
@@ -142,12 +137,12 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "?MEADOW?","01010101","23456789","GENERATE","?WINGED?","CREATURE",
-  "MARIPOSA","?NECTAR?","PAPILLON","WISTERIA","LEAFLETS","ILLUSION",
-  "DAYDREAM","ENVISION","BLOOMING","?GARDEN?","EXTENDED","SCENARIO",
-  "FLOURISH","BEDAZZLE","SWEETEST","?LOVING?","TENDERLY","CLUELESS",
-  "INFINITE","ROMANTIC","EVERMORE","ROTATION","ENVELOPE","FLIPPING",
-  "?UNFOLD?","SPINNING","DISASTER","MAXIMISE","AUTONOMY","FRAGMENT",
-  "INJURIES","EXERCISE","DIVISION","FOLKLORE","DESIGNER",
-  "NONSENSE","HEADLINE","MOUNTAIN","CEMETERY"
+  "?MEADOW?","01010101","GENERATE","23456789","MARIPOSA","?WINGED?",
+  "CREATURE","PAPILLON","?NECTAR?","INFINITE","WISTERIA","CUTTINGS",
+  "ILLUSION","DAYDREAM","ENVISION","BLOOMING","?GARDEN?","EXTENDED",
+  "FLOURISH","SCENARIO","BEDAZZLE","SWEETEST","?LOVING?","TENDERLY",
+  "CLUELESS","HOPELESS","ROMANTIC","EVERMORE","ROTATION","ENVELOPE",
+  "?UNFOLD?","SPINNING","DISASTER","MOUNTAIN","AUTONOMY","FRAGMENT",
+  "EXERCISE","INJURIES","DIVISION","BLINDING","DESIGNER","LEAFLETS",
+  "NONSENSE","HEADLINE","WWWWWWWW","MMMMMMMM","ZZZZZZZZ","XXXXXXXX"
 ]

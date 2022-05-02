@@ -1,5 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-Some minor changes in the interaction. I changed the target edge to be half the new size's radius. Before it was 0 which meant that the shape was rounded in between animation. Now it is set to be cornered halfway thru as I felt the cornered shape like in the 'M' looked more like a butterfly. I also changed the orientation to be the new letters' orientation1 variable to make the flipping transition smoother. I only chose to use one of the orientation variables to determine the flipping motion because I wanted to not distract from the butterfly effect in the animation. 
-
-Now I am starting to work on my exhibition. I have called the font 'meadow' and I have added relevant words to build the narrative of a meadow and also words to describe the font itself. A VERY COOL THING THO was that I made changes to the HTML file which allowed me to center my exhibition which worked better w/ the structure of the font. I also changed the colour to match the background which was very exciting!!!!!
+I am working on my exhibition and I have settled on the font name "MEADOW" because I think it fits the theme of the project. I've organised my code and added comments to hopefully make it make sense. I also added words for the exhibition to help build the narrative behind the font and also, words to describe the transitions. 
