@@ -1,8 +1,18 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": 36,
+ "offsety": 54,
+ "waveL1": 0.6,
+ "rotate1": 64.79999999999995,
+ "peaks1": -3.5999999999999996,
+ "peak1H": 22,
+ "offsetx2": 42,
+ "offsety2": 150,
+ "waveL2": 0.16,
+ "rotate2": 0,
+ "peaks2": 1.799999999999999,
+ "peak2H": 10.000000000000014,
+ "number": 0
   },
   "A": {
     "offsetx": 0,

@@ -74,10 +74,10 @@ function drawLetter(letterData) {
   }else{ //if peaks are negative
     stroke(NegLerpColor1); //set negative map
   }
-  if(num == 1 && peaks1 >= 0){ //if its a number & wave 1 peaks are always postive
+  if(num == 1 ){ //if its a number & wave 1 peaks are always postive
     stroke(PAmountLerpColor1); //set number map colour
   }
-
+//&& peaks1 >= 0
 
   beginShape();
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
@@ -86,6 +86,18 @@ function drawLetter(letterData) {
     vertex(x, y); //draws line
   }
   endShape();
+  push();
+
+  stroke("#101010"); //middle line colour
+  strokeWeight(5); //middle line weight
+  beginShape(); //middle line create
+  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+    const x = i * waveL1; //sets wave 1 length
+    const y = sin(i * radians(peaks1)) * peaks1H; //sets peak amount and peak height
+    vertex(x, y); //draws line
+  }
+  endShape();
+  pop();
   pop();
 
   push();
@@ -99,10 +111,10 @@ function drawLetter(letterData) {
   }else{ //if peaks are negative
     stroke(NegLerpColor2); //set negative map
   }
-  if(num == 1 && peaks2 <= 0){ //if its a number & wave 2 peaks are always negative
+  if(num == 1){ //if its a number & wave 2 peaks are always negative
     stroke(PAmount2LerpColor1); //set number map colour
   }
-
+  //  && peaks2 <= 0
   beginShape();
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
     const x = i * waveL2; //sets wave 2 length
@@ -110,6 +122,18 @@ function drawLetter(letterData) {
     vertex(x, y); //draws line
   }
   endShape();
+  push();
+  stroke("#101010"); //middle line colour
+  strokeWeight(5); //middle line weight
+  beginShape(); //middle line create
+  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+    const x = i * waveL2; //sets wave 2 length
+    const y = -sin(i * radians(peaks2)) * peaks2H; //sets peak amount and peak height
+    vertex(x, y); //draws line
+  }
+  endShape();
+
+  pop();
   pop();
 pop();
 
@@ -128,6 +152,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
   new_letter["peaks2"] = map(percent, 0, 100, oldObj["peaks2"], newObj["peaks2"]);
   new_letter["peak2H"] = map(percent, 0, 100, oldObj["peak2H"], newObj["peak2H"]);
+  new_letter["number"] = map(percent, 0, 100, oldObj["number"], newObj["number"]);
+
 
   return new_letter;
 }
