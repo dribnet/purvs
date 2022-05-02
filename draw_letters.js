@@ -17,21 +17,23 @@ const colRect = "#718e00";
 
 function drawLetter(letterData) {
   push();
+  let modSize = 1; 
+  // only added to experiment w/ size of letters w/o having to go thru entire letters
     noStroke();
     rectShape(
-      letterData["rX"],letterData["rY"],
-      letterData["rW"],letterData["rH"]);
+      letterData["rX"]/modSize,letterData["rY"]/modSize,
+      letterData["rW"]/modSize,letterData["rH"]/modSize);
     customShape(
-      letterData["size"],             // what is the size (radius) of shape?
+      letterData["size"]/modSize,             // what is the size (radius) of shape?
       letterData["orientation1"],     // is the first half on the left or right?
       letterData["orientation2"],     // is the other half on the left or right?
-      letterData["edge1"],            // is this half rounded or not?
-      letterData["edge2"],            // is the other half rounded or not?
+      letterData["edge1"]/modSize,            // is this half rounded or not?
+      letterData["edge2"]/modSize,            // is the other half rounded or not?
       letterData["angle"],            // what is the rotational angle of shape?
-      letterData["offsetX1"],         // where is the shape positioned?
-      letterData["offsetY1"],
-      letterData["offsetX2"],
-      letterData["offsetY2"]);
+      letterData["offsetX1"]/modSize,         // where is the shape positioned?
+      letterData["offsetY1"]/modSize,
+      letterData["offsetX2"]/modSize,
+      letterData["offsetY2"]/modSize);
   pop();
 }
 function rectShape(rX,rY,rW,rH){
