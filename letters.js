@@ -40,7 +40,7 @@ const alphabet = {
     "arcA_PosY": 80,
     "arcA_SizeX": 60,
     "arcA_SizeY": 120,
-    "arcA_Begin": 280,
+    "arcA_Begin": -80,
     "arcA_End": 80,
 
     "rectA_PosX": 50,
@@ -130,7 +130,7 @@ const alphabet = {
     "arcA_PosY": 120,
     "arcA_SizeX": 60,
     "arcA_SizeY": 120,
-    "arcA_Begin": 270,
+    "arcA_Begin": -90,
     "arcA_End": 120,
 
     "rectA_PosX": 50,
@@ -184,7 +184,7 @@ const alphabet = {
     "arcA_PosY": 120,
     "arcA_SizeX": 50,
     "arcA_SizeY": 120,
-    "arcA_Begin": 300,
+    "arcA_Begin": -60,
     "arcA_End": 120,
 
     "rectA_PosX": 50,
@@ -292,7 +292,7 @@ const alphabet = {
     "arcA_PosY": 120,
     "arcA_SizeX": 60,
     "arcA_SizeY": 120,
-    "arcA_Begin": 280,
+    "arcA_Begin": -80,
     "arcA_End": 80,
 
     "rectA_PosX": 50,
@@ -526,7 +526,7 @@ const alphabet = {
     "arcA_PosY": 50,
     "arcA_SizeX": 100,
     "arcA_SizeY": 60,
-    "arcA_Begin": 270,
+    "arcA_Begin": -90,
     "arcA_End": 90,
 
     "rectA_PosX": 30,
@@ -544,7 +544,7 @@ const alphabet = {
     "arcA_PosY": 50,
     "arcA_SizeX": 90,
     "arcA_SizeY": 60,
-    "arcA_Begin": 270,
+    "arcA_Begin": -90,
     "arcA_End": 90,
 
     "rectA_PosX": 50,
@@ -580,7 +580,7 @@ const alphabet = {
     "arcA_PosY": 105,
     "arcA_SizeX": 100,
     "arcA_SizeY": 60,
-    "arcA_Begin": 270,
+    "arcA_Begin": -90,
     "arcA_End": 90,
 
     "rectA_PosX": 30,
@@ -652,7 +652,7 @@ const alphabet = {
     "arcA_PosY": 70,
     "arcA_SizeX": 60,
     "arcA_SizeY": 120,
-    "arcA_Begin": 290,
+    "arcA_Begin": -70,
     "arcA_End": 90,
 
     "rectA_PosX": 50,

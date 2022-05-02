@@ -1,4 +1,4 @@
 ## MDDN 242 2022 Assignment 2
 
-I added some colour to my letters and tried to catch that natural plant feel as when I was searching colours I found that those offset lines looks like stems of plant.
-Still thinking of remove strokes of the rects, which may look a bit smooth.
+I updated the index page to alphabet.
+Also fixed the interaction animation of some letters ('b','g','j','p','2','3','5','9') by changing the arc begins to negative numbers so that the parameter 'arcBegin' is always smaller than the 'arcend', which will not make the arc disappear when transforming and the animation look smoother, but all the letters' colour pallet are same now. I'll do some colour change to the interaction part.
