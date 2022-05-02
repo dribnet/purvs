@@ -1,12 +1,12 @@
 ## MDDN 242 2022 Assignment 2
 
-1 / 5 / 22:
+2 / 5 / 22:
 
-Today I'm updating the last change of Letter F. I've changed the letter F because That was look like capital F but all of the letters are based on the lowercase style (according to the Hazel's feedback).
+Today, following of my plan I have completed the numbers alignment in same height. I'm really happy with this style for the numbers now.
 
-I have plan to work on alignment of some letters on the cut off parts, they are out of the box at some parts. Also,I'll working on the numbers height, some of those are taller and some shorter. I need to aline them in same height (shorter).
+next step of my plan is working on alignment of some letters on the cut off parts, they are out of the box at some parts.So I need carefully fix it and I hope this changes do not effect on the letter shapes.
 
-I'll come back by my process.
+I'll come back by process of changing  that parts need to.
 
 my parameters still are:
 
@@ -27,7 +27,7 @@ my parameters still are:
    let handle_height = letterData["handle_h"];
    let cutterWidth = letterData["cutter_w"];
    let cutterHeight = letterData["cutter_h"];
-   let ellMain_size = letterData["mainSize"];  //// new parameter
+   let ellMain_size = letterData["mainSize"];  
    let ellMain_y = letterData["main_ypos"];
    let ell1_x = ell_x + letterData["cntr_xpos"];
    let ell1_y = ell_y + letterData["cntr_ypos"];
