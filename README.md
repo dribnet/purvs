@@ -1,5 +1,11 @@
 ## MDDN 242 2022 Assignment 2
 
+## Getting things up to scratch
+
+Today I had feedback from crit on my design, I added a bee to my design that will be sitting on certain letters to differentiate them from the numbers! I changed my default character back to a circle, from a star because it looks more like a default character rather than a password star field. I removed the style change to make it consistent now that I have the bee. I played around with colours today also, which lead me to adding shine to my honey, it makes sense because honey is shiny and it adds a lot of character and fun to my font.
+
+I started basic interpolation today and have an idea on how to make it more visually interesting. I will make the bee fly away to the left and I will be 
+
 ## Numeric troubles
 
 I've implemented all letters and numbers into my font, however I am having a problem that the number 2 is exactly the same as Z, S is the same as 5 also 0 and O. For now I have given them different border colours, now using 17 data points. I'm still not set on the color scheme and that will be done after interpolation as the two will link to create my effect. 

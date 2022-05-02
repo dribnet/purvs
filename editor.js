@@ -20,7 +20,8 @@ const sliderInfo = [
   ["tile13", 0, 1],
   ["tile14", 0, 1],
   ["tile15", 0, 1],
-  ["style", 0, 1],
+  ["beeX", 0, 100],
+  ["beeY", 0, 150],
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

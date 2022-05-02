@@ -5,7 +5,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 0, tile12: 1, tile13: 0,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "A": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -13,7 +14,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "B": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -21,7 +23,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 1, tile15: 1,
-    style: 0
+    beeX: 80,
+    beeY: 27,
   },
   "C": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -29,7 +32,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 0,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "D": {
     tile2: 1, tile3: 0, tile4: 0,
@@ -37,7 +41,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 1, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "E": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -45,7 +50,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "F": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -53,7 +59,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 0, tile13: 0,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "G": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -61,7 +68,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "H": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -69,7 +77,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "I": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -77,7 +86,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 0,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "J": {
     tile2: 0, tile3: 0, tile4: 1,
@@ -85,7 +95,8 @@ const alphabet = {
     tile8: 0, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 20,
+    beeY: 120,
   },
   "K": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -93,7 +104,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "L": {
     tile2: 1, tile3: 0, tile4: 0,
@@ -101,7 +113,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 0,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 80,
+    beeY: 120,
   },
   "M": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -109,7 +122,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "N": {
     tile2: 1, tile3: 0, tile4: 0,
@@ -117,7 +131,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "O": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -125,7 +140,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 80,
+    beeY: 27,
   },
   "P": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -133,7 +149,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 0, tile13: 0,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "Q": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -141,7 +158,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 0, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "R": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -149,7 +167,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "S": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -157,7 +176,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 20,
+    beeY: 27,
   },
   "T": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -165,7 +185,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 0,
     tile11: 0, tile12: 1, tile13: 0,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "U": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -173,7 +194,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "V": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -181,7 +203,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 0, tile12: 1, tile13: 0,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "W": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -189,7 +212,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "X": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -197,7 +221,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 0,
     tile11: 1, tile12: 1, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "Y": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -205,7 +230,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 0,
     tile11: 0, tile12: 1, tile13: 0,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 0,
+    beeY: 0,
   },
   "Z": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -213,7 +239,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 0
+    beeX: 20,
+    beeY: 27,
   },
   "0": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -221,7 +248,8 @@ const alphabet = {
     tile8: 1, tile9: 0, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "1": {
     tile2: 1, tile3: 1, tile4: 0,
@@ -229,7 +257,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 0,
     tile11: 0, tile12: 1, tile13: 0,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "2": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -237,7 +266,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 0,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "3": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -245,7 +275,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "4": {
     tile2: 1, tile3: 0, tile4: 1,
@@ -253,7 +284,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 1,
     tile11: 0, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "5": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -261,7 +293,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "6": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -269,7 +302,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "7": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -277,7 +311,8 @@ const alphabet = {
     tile8: 0, tile9: 0, tile10: 1,
     tile11: 0, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "8": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -285,7 +320,8 @@ const alphabet = {
     tile8: 1, tile9: 1, tile10: 1,
     tile11: 1, tile12: 0, tile13: 1,
     tile14: 0, tile15: 1,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   },
   "9": {
     tile2: 1, tile3: 1, tile4: 1,
@@ -293,7 +329,8 @@ const alphabet = {
     tile8: 0, tile9: 1, tile10: 1,
     tile11: 0, tile12: 0, tile13: 1,
     tile14: 0, tile15: 0,
-    style: 1,
+    beeX: 0,
+    beeY: 0,
   }
 
 }
