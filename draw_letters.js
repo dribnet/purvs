@@ -52,6 +52,11 @@ function drawLetter(letterData) {
   let PosLerpColor2 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap2); //pos peak2 color
   let NegLerpColor2 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap2); //neg peak2 color
 
+  let CPosLerpColor1 = lerpColor(Lcolor2, Lcolor1, PosPeakHLerpMap1); //pos peak1 color
+  let CNegLerpColor1 = lerpColor(Lcolor2, Lcolor1, NegPeakHLerpMap1); //neg peak1 color
+  let CPosLerpColor2 = lerpColor(Lcolor2, Lcolor1, PosPeakHLerpMap2); //pos peak2 color
+  let CNegLerpColor2 = lerpColor(Lcolor2, Lcolor1, NegPeakHLerpMap2); //neg peak2 color
+
   let PAmountLerpColor1 = lerpColor(Lcolor2, Lcolor3, PeakALerpMap); //peak1 amount color
   let PAmount2LerpColor1 = lerpColor(Lcolor2, Lcolor3, Peak2ALerpMap); //peak2 amount color
 
@@ -88,7 +93,12 @@ function drawLetter(letterData) {
   endShape();
   push();
 
-  stroke("#101010"); //middle line colour
+  //stroke("#101010"); //middle line colour
+  if(peaks1H >= 0){ //if peaks are positive
+      stroke(CPosLerpColor1); //set positive map
+  }else{ //if peaks are negative
+    stroke(CNegLerpColor1); //set negative map
+  }
   strokeWeight(5); //middle line weight
   beginShape(); //middle line create
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
@@ -123,7 +133,12 @@ function drawLetter(letterData) {
   }
   endShape();
   push();
-  stroke("#101010"); //middle line colour
+  if(peaks2H >= 0){ //if peaks are positive
+      stroke(CPosLerpColor2); //set positive map
+  }else{ //if peaks are negative
+    stroke(CNegLerpColor2); //set negative map
+  }
+  //stroke("#101010"); //middle line colour
   strokeWeight(5); //middle line weight
   beginShape(); //middle line create
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave

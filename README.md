@@ -1,8 +1,11 @@
 ## MDDN 242 2022 Assignment 2
 
+Version with opposite map for middle fill
+
 Turns out it was an easy fix for the numbers not having the right colour while interpolating, I forgot to add its map to interpolate_letter.
 
 I added another line which follows the original to split up the line into two.
+This makes the letters more interesting rather than being a single line being drawn.
 
 
 Letters I don't like:
