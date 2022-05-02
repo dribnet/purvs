@@ -53,6 +53,7 @@ function customShape(
   offsetY2
   ) {
   push();
+    smooth();
     fill(colWings);
     angleMode(DEGREES);
     rotate(angle);
@@ -108,8 +109,8 @@ function halfShape(radius, offsetX, offsetY, orientation, edge) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  let targetOrient = newObj["orientation1"];
-  let targetEdge = newObj["size"]/2; 
+  let targetOrient = newObj["orientation1"]; // wing flap in between
+  let targetEdge = newObj["size"]/2; // cornered in between
 
   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
