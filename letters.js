@@ -1,8 +1,21 @@
 const alphabet = {
   "default": {
     "sizeX": 70,
-    "offsetx":20,
-    "offsety": 0
+    "sizeY": 70,
+    "offsetx": 20,
+    "offsety": 0,
+    "curveMidX": 0,
+    "curveMidY": 250,
+    "curveX": 0,
+    "curveY": 100,
+    "translateX": 50,
+    "translateY": 50,
+    "2curveMidX": 0,
+    "2curveMidY": 250,
+    "2curveX": 0,
+    "2curveY": 100,
+    "2translateX": 50,
+    "2translateY": 50
   },
   "A": {
     "sizeX": 65,

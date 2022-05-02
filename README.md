@@ -1,5 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-After trying for an hour to get the rotate to work, I ended up scrapping it. It only seemed to rotate around a fixed point, and no matter what I did, I just couldn't get it working. I tried to translate it around different parameters, I set the ellipseMode(CENTER), but it didn't wanna work for me. I'm sure there is a simple solution that I'm not seeing, but as I worked though the letters I realized that I would have only need it for a few of the letters anyway, so I just took it out.
+I've just finished all of the characters, and now I'm moving onto the animation stuff. I'm still thinking about the colour scheme/overall theme of the alphabet. I kind of want to keep the childish look and feel of the current iteration, but I also want to change it completely and go in the opposite direction, and make it more serious.
 
-I swapped around some of the curveVertex's and I got a new shape that I much rather prefer for how I originally wanted it to turn out. It looks more like its written, or done in the traditional Japanese calligraphy style. It reminds me more of how kanji is written, and I really like it. I'm going to play around with different colours to see if I can channel this kind of theme better.
+I think I might try to emulate how normal writing looks on paper when using those really thick caligraphy brushes. I would use an off white/light brown colour for a piece of card, and then I would use a dark colour or black for the ink.  
