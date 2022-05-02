@@ -4,7 +4,7 @@
 
 Today, I have been working on the interpolations between my letters. Phoebe had mentioned on Thursday that I could look into the use of the golden ration in Mondrian art and see if that fits with my letter forms. I did a little bit of research into it and found some examples which gave me the idea of incorporating it into my interpolations. I thought that I could make one letter translate to a standard golden ratio grid before moving to the next letter. I drew up a few different options to see how I would fit it within the 3x5 grid of my letters and settled on my second option as I felt it looked the most balanced and worked with my code base (the third option wouldn't work as I am unable to draw a white rectangle, only two squares).
 
-![Golden Ratio Sketches](Golden_ratio_sketches.jpg)
+See image Golden_ratio_sketches.jpg for sketch. I couldn't manage to link it in the README file.
 
 I tried a few different methods to get this working.
 
