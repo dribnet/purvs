@@ -6,36 +6,28 @@ var systemBoxColor = "#00c800";
 /* internal constants */
 const backgroundColor  = "#0d0d0d";
 const gold  = "#f5ce42";
-const black = "#917504";
-//const black = "#0d0d0d";
+const darkGold = "#917504";
 const white = "ffffff";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
   // determine parameters
-  let size = 18;
-  let posx = 50;
-  let posy = 100;
+  let size = 18;  //set one of the size the the squares
+  let posx = 50;  //center x position
+  let posy = 100; //center y position
 
+  let pos2x = letterData["offsetBottom"]; //changeable offset
+  let pos2y = 50;   //set from bottom
 
-  let pos2x = letterData["offsetBottom"];
-  let pos2y = 50;
+  let pos3x = 50;   //set from right
+  let pos3y = letterData["offsetRight"]; //changeable offset
 
-  let pos3x = 50;
-  let pos3y = letterData["offsetRight"];
+  let pos4x = letterData["offsetTop"]; //changeable offset
+  let pos4y = - 50; //set from center
 
-  let pos4x = letterData["offsetTop"];
-  let pos4y = - 50;
+  let pos5x = - 50; //set from center
+  let pos5y = letterData["offsetLeft"]; //changeable offset
 
-  let pos5x = - 50;
-  let pos5y = letterData["offsetLeft"];;
-
+  //Sizing of each square
   let centerValX = letterData["centerValX"];
   let centerValY = letterData["centerValY"];
   let leftVal    = letterData["leftVal"];
@@ -43,42 +35,40 @@ function drawLetter(letterData) {
   let topVal     = letterData["topVal"];
   let bottomVal  = letterData["bottomVal"];
 
+  //transforming the layout for lettering
   push();
-  translate(posx, posy)
-  scale(0.8);
+  translate(posx, posy);
   rectMode(CENTER);
   angleMode(DEGREES);
   strokeWeight(4.5);
-  push();
 
-  //Center
+  //Center square 1
   stroke(gold);
   fill(backgroundColor);
   rect(0, 0, size, size + centerValY);
 
-  //Center 2
+  //Center square 2
   stroke(gold);
   fill(gold);
   rect(0, 0, size + centerValX, size);
-  pop();
 
-  //Right
+  //Right square
   stroke(white);
   fill(backgroundColor);
   rect(pos3x, pos3y, size, size + rightVal);
 
-  //Bottom
-  stroke(black);
-  fill(black);
+  //Bottom square
+  stroke(darkGold);
+  fill(darkGold);
   rect(pos2x, pos2y, size + bottomVal, size);
 
-  //Top
+  //Top square
   stroke(white);
   fill(white);
   rect(pos4x, pos4y, size + topVal, size);
 
-  //Left
-  stroke(black)
+  //Left square
+  stroke(darkGold)
   fill(backgroundColor);
   rect(pos5x, pos5y, size, size + leftVal);
   pop();
