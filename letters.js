@@ -1,24 +1,24 @@
 const alphabet = {
   "default": {
-    "Rect1x": 0,
+    "Rect1x": 40,
     "Rect1y": 0,
-    "Rect1h": 0,
-    "Rect1r": 0,
+    "Rect1h": 116,
+    "Rect1r": 180,
 
-    "Rect2x": 0,
+    "Rect2x": 40,
     "Rect2y": 0,
-    "Rect2h": 0,
-    "Rect2r": 0,
+    "Rect2h": 124,
+    "Rect2r": 298.8,
 
-    "Rect3x": 0,
+    "Rect3x": 40,
     "Rect3y": 0,
-    "Rect3h": 0,
-    "Rect3r": 0,
+    "Rect3h": 138,
+    "Rect3r": 241.2,
 
-    "Rect4x": 0,
+    "Rect4x": 40,
     "Rect4y": 0,
     "Rect4h": 0,
-    "Rect4r": 0
+    "Rect4r": 180
   },
   "A": {
     "Rect1x": 17.6,
@@ -775,26 +775,5 @@ const alphabet = {
     "Rect4y": 64,
     "Rect4h": 94,
     "Rect4r": 270
-  },
-  "?": {
-    "Rect1x": 40,
-    "Rect1y": 10,
-    "Rect1h": 40,
-    "Rect1r": 180,
-
-    "Rect2x": 40,
-    "Rect2y": -54,
-    "Rect2h": 104,
-    "Rect2r": 100.8,
-
-    "Rect3x": 64.8,
-    "Rect3y": -8,
-    "Rect3h": 76,
-    "Rect3r": 255.6,
-
-    "Rect4x": 40,
-    "Rect4y": 64,
-    "Rect4h": 30,
-    "Rect4r": 180
   }
 }
