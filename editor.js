@@ -5,9 +5,10 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["size",       10, 100],
+  ["offsetx",  5,  50],
+  ["offsety", -60, 60],
+  ["letterRotation", 0, 360]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

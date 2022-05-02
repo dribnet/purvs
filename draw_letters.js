@@ -78,22 +78,38 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let letterMove = map(size2, -24, 30, 0, 360);
+  let letterAngle = letterMove + letterData["letterRotation"];
 
+
+
+
+  //stroke(230, 20, 100);
+  fill(strokeColor); //(255,40); //(pink);
+  noStroke();
+  rect(posx, posy, 50, 50, 20, 20, 20, 20);
+
+
+    push();
+    translate(posx/5, posy*2.5);
+    rotate(letterAngle);
+    noStroke();
+    fill (255);//(backgroundColor);
+    rect(pos2x+15, pos2y+10, size2/1.5, size2/1.5, 20, 20, 20, 20); //(posx+30, posy+15, size2, 15, 20, 20, 20, 20);
+    pop();
 
   //stroke(36, 71, 58, 1);
-  line(pos2x, pos2y+size2, pos2x, pos2y);
+  //push();
+  strokeWeight(10);
+  stroke(strokeColor);
+  //translate(5, -5);
+  //rotate(letterAngle);
+  line(pos2x, pos2y, pos2x, pos2y+size2/1.5);
+  //pop();
   //line(pos2x+100, pos2y+size2, pos2x+100, pos2y-30);
   //line(pos2x+300, pos2y+size2, pos2x+300, pos2y+10);
 
-  //stroke(230, 20, 100);
-  fill (255,40); //(pink);
-  rect(posx, posy, 50, 50, 20, 20, 20, 20);
 
-  push();
-  noStroke();
-  fill (backgroundColor);
-  rect(posx+30, posy+15, 50-size2, 20, 20, 20, 20, 20);
-  pop();
 
   // push();
   // translate (125,15);
@@ -101,6 +117,13 @@ function drawLetter(letterData) {
   // ellipse(posx+70, posy+45, size2/2, size2+10);
   // pop();
 }
+
+
+
+
+
+
+
 
 function keyTyped() {
   if (key == '!') {

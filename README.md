@@ -1,5 +1,9 @@
 ## MDDN 242 2022 Assignment 2
+I ended up having to change the way my alphabet looks because I got stuck on the letter D with the way I was previously forming the letters. I am still using the line and 2 rounded rectangles for the letter formation but I've had to add "letterRotation" as another parameter to be able to get more variations to make the letters.
 
+I used the editor to see what each letter would look like and then plugged in the data for each letter from there into the letters.js file. I managed to get through all the letters except S, V, X & Z; which I am finding quite challenging to create. One big problem that I have at the moment is that the letters in the alphabet are not showing the way they were showing in the editor. The second rounded rectangle is not appearing in the right place for each letter, which is a bit frustrating. I may need help figuring out why that is happening.
+
+---------------------------------------------
 Alphabet updated up to the letter D. The next ones going forward a bit of a challenge at present. Still need to do some more thinking.
 
 Finally managed to sort out the code. I had to add another rounded rectangle which has the same colour as the background, which is cutting through the first rectangle in order to form the letter C.
