@@ -1,5 +1,9 @@
 ## MDDN 242 2022 Assignment 2
 
+## Interpolation
+
+Today I got more interpolation working today and i'm so happy with it! I started with adding noise to when the hexagons animate in and out to make the animation fill in the length without just animating slowly like it was - which looked terrible. This gave such a fun look and massive improvement to the interpolation. I then added an "overshoot", which was just getting my map function to under estimate how long the animation runs for, which means it increases the size of the hexagon beyond 1, causing a bouncing effect when new hexagons are shown. I love this and it really plays into the playful aspect. Finally I needed to fix my bee just lerping from position to position, so I made it fly off the screen for the first half of the animation, then a new bee to fly in during the second half.
+
 ## Getting things up to scratch
 
 Today I had feedback from crit on my design, I added a bee to my design that will be sitting on certain letters to differentiate them from the numbers! I changed my default character back to a circle, from a star because it looks more like a default character rather than a password star field. I removed the style change to make it consistent now that I have the bee. I played around with colours today also, which lead me to adding shine to my honey, it makes sense because honey is shiny and it adds a lot of character and fun to my font.

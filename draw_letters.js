@@ -1,7 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#fffbe8";
+var systemBackgroundColor = "#f7faff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
+
+const hexStrokeColor = '#e3a619';
+const hexFillColor = '#f0ba07';
 
 /*
  * Draw the letter given the letterData
@@ -11,15 +14,17 @@ var systemBoxColor = "#00c800";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  // Use the same noise seed so it's not random
+  noiseSeed(0);
 
   // Fix editor mode being in degrees
   angleMode(RADIANS);
   strokeJoin(ROUND);
 
   // color/stroke setup
-  stroke('#deaa28');
+  stroke(hexStrokeColor);
   strokeWeight(0.2);
-  fill('#dec028');
+  fill(hexFillColor);
 
   let visible = [];
   for (let i = 1; i < 16; i++) {
@@ -217,20 +222,47 @@ function drawHexagon(x, y, size) {
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
+
+  
   let new_letter = {};
   for(let i = 2; i < 16; i++) {
-    new_letter["tile" + i] = map(percent, 0, 100, oldObj["tile" + i], newObj["tile" + i]);
+
+    // Calculate a period for the section to animate in, the animation takes 20% of the total time
+    let startPercent = map(noise(i), 0, 1, 0, 80);
+    let endPercent = startPercent + 20;
+    
+    // Animation hasn't started yet, so use old object
+    if (startPercent > percent) { new_letter["tile" + i] = oldObj['tile' + i]; continue; }
+
+    // Animation has finished, use new object 
+    if (endPercent < percent) { new_letter["tile" + i] = newObj['tile' + i]; continue; }
+
+    // Overshoot the required size by 5% of the animation to create a bounce back
+    let overshoot = 5;
+
+    // Map from the old object to the new object
+    new_letter["tile" + i] = map(percent, startPercent, endPercent-overshoot, oldObj["tile" + i], newObj["tile" + i]);
   }
 
-  new_letter["beeX"] = map(percent, 0, 100, oldObj["beeX"], newObj["beeX"]);
-  new_letter["beeY"] = map(percent, 0, 100, oldObj["beeY"], newObj["beeY"]);
+  // Make bee fly away for first half of animation
+  if ((oldObj['beeX'] || oldObj['beeY']) && percent <= 50) {
+    new_letter["beeX"] = map(percent, 0, 50, oldObj["beeX"], 0);
+    new_letter["beeY"] = map(percent, 0, 50, oldObj["beeY"], oldObj["beeY"] - 20);
+  }
+
+  // Make new bee fly in for first half of animation
+  if ((newObj['beeX'] || newObj['beeY']) && percent > 50) {
+    new_letter["beeX"] = map(percent, 50, 100, 100, newObj["beeX"]);
+    new_letter["beeY"] = map(percent, 50, 100, newObj["beeY"] - 20, newObj["beeY"]);
+  }
 
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "HONEY BZ",
   "12345678",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "IM A BEE",
+  "BZZZZZZZ"
 ]
