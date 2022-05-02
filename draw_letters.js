@@ -91,5 +91,5 @@ var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA",
-  "Quart"
+  "QUARTERS"
 ]
