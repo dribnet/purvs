@@ -1,10 +1,22 @@
 ## MDDN 242 2022 Assignment 2
 
-### 28/04/22 - FEEDBACK
+### 28/04/22 - INTERPOLATION AND FIBONACCI
 
-Today, I got some feedback on my design. Hazel liked my design and thought the style I am going for was clear. When I asked about the M, N and W, she said that she didn't think it was a massive issue. She said it was clear enough to read when in context of a word or in the alphabet so I am not as worried about it now.
+Today, I have been working on the interpolations between my letters. Phoebe had mentioned on Thursday that I could look into the use of the golden ration in Mondrian art and see if that fits with my letter forms. I did a little bit of research into it and found some examples which gave me the idea of incorporating it into my interpolations. I thought that I could make one letter translate to a standard golden ratio grid before moving to the next letter. I drew up a few different options to see how I would fit it within the 3x5 grid of my letters and settled on my second option as I felt it looked the most balanced and worked with my code base (the third option wouldn't work as I am unable to draw a white rectangle, only two squares).
 
-She also suggested that I could add individual backgrounds to each of my letters to make them look like each letter was on its own canvas. I thought this could look cool so I have tried it and quite like the effect it gives. I still need to play around with the colours and stroke but I think it will suit the project. I also added a little nail and rope above the letter to make it look like the canvas is hanging on a wall (this also still needs some refinement).
+![Golden Ratio Sketches](Golden_ratio_sketches.jpg)
+
+I tried a few different methods to get this working.
+
+Firstly, I created a second set of interpolation values so that one set change for the first 50% and the second did from 51-100%. I then hard coded the values I wanted it to change to based on my sketches. While this went through the golden ratio grid, the parts started at a weird position outside the bounding box and not at the first letter positions.
+
+I then decided to see what it would look like if rather than starting at the original letter, the interpolation started at the golden ratio grid and changed to the new letter from there. This worked better as the parts did not move randomly outside the bounding box and has a cool layering effect, however I can't decide if it looks a bit jolty as it is not a smooth transition between letters.
+
+As a third variation, I went back to the two step idea but instead of hard coding the variables I created a new letter in my letters.js file to act as a golden ratio grid middle letter. I changed the hard coded bits to the variables of the new letter to see if it would work better than the hard coded version, however they just did the same thing.
+
+I think my favourite option is the second one, where the letter starts from the golden ratio grid, but I think I will get some feedback and see if I can fix the other options.
+
+The rectangles still go outside the border of the canvases in the background, but an easier solution might be to change the shape of the canvases rather than try and fix the interpolation.
 
 The 15 parameters per letter:
   * `numLineSquares` : The number of squares to be drawn in the array
@@ -23,8 +35,4 @@ The 15 parameters per letter:
   * `square2X`: The x position of the second white square
   * `square2Y`: The y position of the second white square
 
-My next steps are to work on making the interpolations between letters nicer. Having the canvas in the background means that I need to make sure no parts of the letters move off the canvas as they change, which is something that is currently happening. I do quite like the way the letters change but I could still make it a bit cleaner.
-
-Phoebe mentioned to me that the Mondrian art movement was heavily influenced by the golden ratio for where each of the squares are positioned. I had not considered this when creating my shapes but I might see if any of the letters use this and try to change some others to use the ratio more.
-
-Overall I am happy with where I am at and I feel that I am on track to finish for hand in next week.
+My next steps are to fix this up a bit to make it nicer and to fix the canvases in the background as currently they make the exhibition page look a bit busy and the letters are a bit harder to read. I might make it one large canvas rather than eight separate ones if that is possible.

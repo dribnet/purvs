@@ -16,6 +16,23 @@ const alphabet = {
     "square2X": 85,
     "square2Y": 80
   },
+  "interpol": {
+    "numLineSquares": 2,
+    "lineSquaresX": 85,
+    "lineSquaresY": 110,
+    "rectYellowX": 55,
+    "rectYellowY": 20,
+    "rectYellowWidth": 30,
+    "rectYellowHeight": 150,
+    "rectRedX": 85,
+    "rectRedY": 20,
+    "rectRedWidth": 60,
+    "rectRedHeight": 90,
+    "square1X": 115,
+    "square1Y": 110,
+    "square2X": 115,
+    "square2Y": 140
+  },
   "A": {
     "numLineSquares": 4,
     "lineSquaresX": 115,
