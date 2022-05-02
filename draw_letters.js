@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#a8d9ec";
+var systemBackgroundColor = "#a8dadc";
 var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBoxColor = "#457b9d";
 
 /* internal constants */
 const darkBlue = "#0077b6";
@@ -43,12 +43,12 @@ function drawLetter(letterData) {
 
   push() //arc
 
-  stroke(218, 42, 71);
+  stroke(230, 57, 71);
   translate(arcx, arcy)
   rotate(arcrotation)
   scale(arcscale)
 
-  fill(218, 42, 71, 180)
+  fill(230, 57, 71, 180)
   arc(0, 0, 120, 120, 0, 180, OPEN)
 
   pop()
@@ -56,13 +56,13 @@ function drawLetter(letterData) {
 
   push() //A triangle
 
-  stroke(255, 199, 201);
+  stroke(241, 250, 238);
   translate(trianglex, triangley)
   translate(65, 0)
   rotate(trianglerotation)
   scale(trianglescale)
 
-  fill(255, 199, 201, 180)
+  fill(241, 250, 238, 180)
   triangle(0, 0, 60, 60, 120, 0);
 
   pop()
@@ -95,7 +95,20 @@ var swapWords = [
   "ACDCACDC",
   "BASBASBE",
   "ICECWEAM",
-  "DEATH13N"
+  "DEATH13N",
+  "EXPECTED",
+  "PROPERTY",
+  "ADDITION",
+  "FOLLOWED",
+  "PROVIDED",
+  "ALTHOUGH",
+  "HAPPENED",
+  "QUESTION",
+  "AMERICAN",
+  "INCREASE",
+  "RECEIVED",
+  "ANYTHING",
+  "INDUSTRY",
 
 
 
