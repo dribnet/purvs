@@ -13,34 +13,49 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "RectWidth": 90,
-  "RectHeight": 90,
-  "offsetx": -50,
-  "offsety": 35,
-  "rectBehind": false
+  "arcLocatx": -250,
+  "arcLocaty": -260,
+  "arcwidth": 100,
+  "archeight": 190,
+  "arcangle": -180,
+  "arrowlinea": 220,
+  "arrowlineb": 250,
+  "arrowlinec": 380,
+  "arrowlined": 250,
 }
 
 const letterB = {
-  "RectWidth": 40,
-  "RectHeight": 150,
-  "offsetx": -40,
-  "offsety": -60,
-  "rectBehind": true
+  "arcLocatx": -210,
+  "arcLocaty": 390,
+  "arcwidth": 100,
+  "archeight": 130,
+  "arcangle": -90,
+  "t_angle": 90,
+  "arrowlinea": 450,
+  "arrowlineb": 250,
+  "arrowlinec": 560,
+  "arrowlined": 250,
+  "arrowline1": 230,
+  "arrowline2": -570,
+
+  "linea": 480,
+  "lineb": 200,
+  "linec": 480,
+  "lined": 310
+
 }
 
 const letterC = {
-  "RectWidth": 100,
-  "RectHeight": 100,
-  "offsetx": 30,
-  "offsety": 0,
-  "rectBehind": false
+  "arcLocatx": 260,
+  "arcLocaty": -600,
+  "arcwidth": 100,
+  "archeight": 130,
+  "arcangle": 85,
+
 }
 
-const backgroundColor = "#caf0f8";
-const strokeColor = "#03045e";
-
-const darkBlue = "#0077b6";
-const lightBlue = "#90e0ef";
+const backgroundColor = "#000000";
+const strokeColor = "#ffffff";
 
 function setup() {
   // create the drawing canvas, save the canvas element
@@ -70,28 +85,41 @@ function draw() {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let rectWidth = letterData["RectWidth"];
-  let rectHeight = letterData["RectHeight"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let drawOrderModifier = letterData["rectBehind"];
 
-  if (drawOrderModifier) {
-    rectMode(CENTER)
-    fill(lightBlue);
-    rect(pos2x, pos2y, rectWidth, rectHeight);
-    fill(darkBlue);
-    ellipse(posx, posy, 150, 150);
-  } else {
-    fill(darkBlue);
-    ellipse(posx, posy, 150, 150);
+  let linea = letterData["linea"];
+  let lineb = letterData["lineb"];
+  let linec = letterData["linec"];
+  let lined = letterData["lined"];
+  let arrowlinea = letterData["arrowlinea"];
+  let arrowlineb = letterData["arrowlineb"];
+  let arrowlinec = letterData["arrowlinec"];
+  let arrowlined = letterData["arrowlined"];
+  let arrowline1 = letterData["arrowline1"];
+  let arrowline2 = letterData["arrowline2"];
+  let arcwidth = letterData["arcwidth"];
+  let archeight = letterData["archeight"];
+  let arcLocatx = posx + letterData["arcLocatx"];
+  let arcLocaty = posy + letterData["arcLocaty"];
+  let arcangle = letterData["arcangle"];
+  let t_angle = letterData["t_angle"];
 
-    rectMode(CENTER)
-    fill(lightBlue);
-    rect(pos2x, pos2y, rectWidth, rectHeight);
-  }
-
+  push()
+  angleMode(DEGREES);
+  //fill(darkBlue);
+  rotate(arcangle);
+  noFill();
+  scale(1.2);
+  strokeWeight(10);
+  arc(letterData["arcLocatx"], letterData["arcLocaty"], letterData["arcwidth"], letterData["archeight"], 0, 180, OPEN);
+  pop()
+  strokeWeight(6);
+  rectMode(CENTER);
+  line(letterData["linea"], letterData["lineb"], letterData["linec"], letterData["lined"]);
+  line(letterData["arrowlinea"], letterData["arrowlineb"], letterData["arrowlinec"], letterData["arrowlined"]);
+  push()
+  rotate(t_angle);
+  triangle(letterData["arrowline1"], letterData["arrowline2"], letterData["arrowline1"] + 18, letterData["arrowline2"] - 45, letterData["arrowline1"] + 36, letterData["arrowline2"]);
+  pop()
 }
 
 function keyTyped() {
