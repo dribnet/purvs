@@ -113,13 +113,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   let targetOrient = newObj["orientation1"]; // wing flap in between
   let targetEdge = newObj["size"]/2; // cornered in between
+  smooth();
 
-  new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
-  new_letter["offsetX1"] = map(percent,0,100,oldObj["offsetX1"],newObj["offsetX1"]);
-  new_letter["offsetY1"] = map(percent,0,100,oldObj["offsetY1"],newObj["offsetY1"]);
-  new_letter["offsetX2"] = map(percent,0,100,oldObj["offsetX2"],newObj["offsetX2"]);
-  new_letter["offsetY2"] = map(percent,0,100,oldObj["offsetY2"],newObj["offsetY2"]);
   new_letter["rX"] = map(percent, 0, 100, oldObj["rX"], newObj["rX"]);
   new_letter["rY"] = map(percent, 0, 100, oldObj["rY"], newObj["rY"]);
   new_letter["rW"] = map(percent, 0, 100, oldObj["rW"], newObj["rW"]);
@@ -130,22 +125,34 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["edge2"] = map(percent, 0, 50, oldObj["edge2"], targetEdge);
     new_letter["orientation1"] = map(percent,0,50,oldObj["orientation1"],targetOrient);
     new_letter["orientation2"] = map(percent,0,50,oldObj["orientation2"],targetOrient);
+    new_letter["angle"] = map(percent, 0, 110, oldObj["angle"], newObj["angle"]);
+    new_letter["size"] = map(percent, 0, 110, oldObj["size"], newObj["size"]);
+    new_letter["offsetX1"] = map(percent,0,110,oldObj["offsetX1"],newObj["offsetX1"]);
+    new_letter["offsetY1"] = map(percent,0,110,oldObj["offsetY1"],newObj["offsetY1"]);
+    new_letter["offsetX2"] = map(percent,0,110,oldObj["offsetX2"],newObj["offsetX2"]);
+    new_letter["offsetY2"] = map(percent,0,110,oldObj["offsetY2"],newObj["offsetY2"]);
   } else {
     new_letter["edge1"] = map(percent, 51, 100, targetEdge, newObj["edge1"]);
     new_letter["edge2"] = map(percent, 51, 100, targetEdge, newObj["edge2"]);
     new_letter["orientation1"] = map(percent,51,100,targetOrient,newObj["orientation1"]);
     new_letter["orientation2"] = map(percent,51,100,targetOrient,newObj["orientation2"]);
+    new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
+    new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+    new_letter["offsetX1"] = map(percent,0,100,oldObj["offsetX1"],newObj["offsetX1"]);
+    new_letter["offsetY1"] = map(percent,0,100,oldObj["offsetY1"],newObj["offsetY1"]);
+    new_letter["offsetX2"] = map(percent,0,100,oldObj["offsetX2"],newObj["offsetX2"]);
+    new_letter["offsetY2"] = map(percent,0,100,oldObj["offsetY2"],newObj["offsetY2"]);
   }
+
   return new_letter;
 }
 
 var swapWords = [
-  "?MEADOW?","01010101","GENERATE","23456789","MARIPOSA","?WINGED?",
-  "CREATURE","PAPILLON","?NECTAR?","INFINITE","WISTERIA","CUTTINGS",
-  "ILLUSION","DAYDREAM","ENVISION","BLOOMING","?GARDEN?","EXTENDED",
-  "FLOURISH","SCENARIO","BEDAZZLE","SWEETEST","?LOVING?","TENDERLY",
-  "CLUELESS","HOPELESS","ROMANTIC","EVERMORE","ROTATION","ENVELOPE",
-  "?UNFOLD?","SPINNING","DISASTER","MOUNTAIN","AUTONOMY","FRAGMENT",
-  "EXERCISE","INJURIES","DIVISION","BLINDING","DESIGNER","LEAFLETS",
-  "NONSENSE","HEADLINE","WWWWWWWW","MMMMMMMM","ZZZZZZZZ","XXXXXXXX"
+  "?MEADOW?","01010101","GENERATE","23456789","WWWWWWWW","MMMMMMMM","ZZZZZZZZ","XXXXXXXX",
+  "MARIPOSA","?WINGED?","CREATURE","PAPILLON","?NECTAR?","INFINITE",
+  "CUTTINGS","ILLUSION","DAYDREAM","ENVISION","BLOOMING","?GARDEN?",
+  "EXTENDED","FLOURISH","SCENARIO","BEDAZZLE","SWEETEST","CLUELESS",
+  "HOPELESS","ROMANTIC","?UNFOLD?","ROTATION","ENVELOPE",
+  "SPINNING","AUTONOMY","FRAGMENT","EXERCISE","INJURIES",
+  "NONSENSE","HEADLINE"
 ]
