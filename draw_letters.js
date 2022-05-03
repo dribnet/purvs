@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#FFFFFA"//"#e7e8e0";//"#ebdbbc"//"#cfcec6";
+var systemBackgroundColor = "#FFFFFA"
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -16,76 +16,105 @@ const strokeColor = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  const strokeColor = "#000000";
+  const strokeColor = "#000000"; // Colour of outlines of letters
   const redColour = "#ff4242";
   const blueColour = "#79d8f2";
   const yellowColour = "#fcfa58";
-  const greyColour = "#e7e8e0";
-  const squareSize = 30;
+  const squareSize = 30; // Width of white squares
 
+  // Relative position of letters
   let posx = -50;
   let posy = 30;
 
-  let square1X = posx + letterData["square1X"];
-  let square1Y = posy + letterData["square1Y"];
-  let square2X = posx + letterData["square2X"];
-  let square2Y = posy + letterData["square2Y"];
+  // White square 1 parameters
+  let square1X = posx + letterData["square1X"]; // X position of one white square
+  let square1Y = posy + letterData["square1Y"]; // Y position of one white square
 
-  let rectYellowWidth = letterData["rectYellowWidth"];
-  let rectYellowHeight = letterData["rectYellowHeight"];
-  let rectYellowX = posx + letterData["rectYellowX"];
-  let rectYellowY = posy + letterData["rectYellowY"];
+  // White square 2 parameters
+  let square2X = posx + letterData["square2X"]; // X position of the other white square
+  let square2Y = posy + letterData["square2Y"]; // Y position of the other white square
 
-  let rectRedWidth = letterData["rectRedWidth"];
-  let rectRedHeight = letterData["rectRedHeight"];
-  let rectRedX = posx + letterData["rectRedX"];
-  let rectRedY = posy + letterData["rectRedY"];
+  // Yellow rectangle parameters
+  let rectYellowX = posx + letterData["rectYellowX"]; // X position of the yellow rectangle
+  let rectYellowY = posy + letterData["rectYellowY"]; // Y position of the yellow rectangle
+  let rectYellowWidth = letterData["rectYellowWidth"]; // Width of the yellow rectangle
+  let rectYellowHeight = letterData["rectYellowHeight"]; // Height of the yellow rectangle
 
-  let numLineSquares = letterData["numLineSquares"];
-  let lineSquaresX = posx + letterData["lineSquaresX"];
-  let lineSquaresY = posy + letterData["lineSquaresY"];
-  let direction = letterData['direction'];
+  // Red rectangle parameters
+  let rectRedX = posx + letterData["rectRedX"]; // X position of the red rectangle
+  let rectRedY = posy + letterData["rectRedY"]; // Y position of the red rectangle
+  let rectRedWidth = letterData["rectRedWidth"]; // Width of the red rectangle
+  let rectRedHeight = letterData["rectRedHeight"]; // Height of the red rectangle
+
+  // Square stack parameters
+  let numLineSquares = letterData["numLineSquares"]; // Number of squares in the stack of squares
+  let lineSquaresX = posx + letterData["lineSquaresX"]; // X position of the stack of squares
+  let lineSquaresY = posy + letterData["lineSquaresY"]; // Y position of the stack of squares
 
 
+  //DRAW CANVAS
+  drawCanvas();
 
 
-  fill(0);
-  ellipse(50, 10, 5, 5);
-
-  strokeWeight(2);
-  line(50, 10, 20, 40);
-  line(50, 10, 80, 40);
-
-  fill(greyColour);
-  rect(-5, 40, 110, 170);
-  // strokeWeight(0);
-  // rect(-5, 40, 120, 170);
-
+  //DRAW LETTER
   strokeWeight(4);
   stroke(strokeColor);
 
+  // Two white squares
   fill(255);
   rect(square1X, square1Y, squareSize, squareSize);
-
-  fill(255);
   rect(square2X, square2Y, squareSize, squareSize);
 
-
+  // Stack of white squares with one blue square
   for (i = 0; i < numLineSquares; i++) {
+    // If the square is the second one being drawn make it blue. Otherwise make it white
     if (i == 1) {
       fill(blueColour);
     } else {
       fill(255);
     }
+
     rect(lineSquaresX, lineSquaresY + squareSize * i, squareSize, squareSize);
   }
 
-
+  // Draw the yellow rectangle
   fill(yellowColour);
   rect(rectYellowX, rectYellowY, rectYellowWidth, rectYellowHeight);
 
+  // Draw the red rectangle
   fill(redColour);
   rect(rectRedX, rectRedY, rectRedWidth, rectRedHeight);
+
+}
+
+/*
+ * Draw the grey canvas behind the letter.
+ */
+function drawCanvas(){
+  const lightGreyColour = "#e7e8e0"; // Grey for fill of canvas
+  const darkGreyColour = "#afb0ab"; // Grey for border of canvas, nail and strings
+
+  // Nail dot
+  stroke(darkGreyColour);
+  fill(darkGreyColour);
+  ellipse(50, -20, 5, 5);
+
+  // Strings
+  strokeWeight(2);
+  line(50, -20, 20, 10);
+  line(50, -20, 80, 10);
+
+  // Canvas
+  stroke(lightGreyColour);
+  fill(lightGreyColour);
+  rect(-5, 10, 110, 230);
+
+  // Border at top and bottom of canvas
+  strokeWeight(4);
+  stroke(darkGreyColour);
+  line(-5, 10, 105, 10);
+  line(-5, 240, 110, 240);
+
 
 }
 
@@ -145,21 +174,39 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter["square2Y"] = map(percent, 51, 100, 140, newObj["square2Y"]);
 
   //Grid to letter
-  new_letter["numLineSquares"] = map(percent, 0, 100, 2, newObj["numLineSquares"]);
-  new_letter["lineSquaresX"] = map(percent, 0, 100, 85, newObj["lineSquaresX"]);
-  new_letter["lineSquaresY"] = map(percent, 0, 100, 110, newObj["lineSquaresY"]);
-  new_letter["rectYellowX"] = map(percent, 0, 100, 55, newObj["rectYellowX"]);
-  new_letter["rectYellowY"] = map(percent, 0, 100, 20, newObj["rectYellowY"]);
-  new_letter["rectYellowWidth"] = map(percent, 0, 100, 30, newObj["rectYellowWidth"]);
-  new_letter["rectYellowHeight"] = map(percent, 0, 100, 150, newObj["rectYellowHeight"]);
-  new_letter["rectRedX"] = map(percent, 0, 100, 85, newObj["rectRedX"]);
-  new_letter["rectRedY"] = map(percent, 0, 100, 20, newObj["rectRedY"]);
-  new_letter["rectRedWidth"] = map(percent, 0, 100, 60, newObj["rectRedWidth"]);
-  new_letter["rectRedHeight"] = map(percent, 0, 100, 90, newObj["rectRedHeight"]);
-  new_letter["square1X"] = map(percent, 0, 100, 115, newObj["square1X"]);
-  new_letter["square1Y"] = map(percent, 0, 100, 110, newObj["square1Y"]);
-  new_letter["square2X"] = map(percent, 0, 100, 115, newObj["square2X"]);
-  new_letter["square2Y"] = map(percent, 0, 100, 140, newObj["square2Y"]);
+  // new_letter["numLineSquares"] = map(percent, 0, 100, 2, newObj["numLineSquares"]);
+  // new_letter["lineSquaresX"] = map(percent, 0, 100, 85, newObj["lineSquaresX"]);
+  // new_letter["lineSquaresY"] = map(percent, 0, 100, 110, newObj["lineSquaresY"]);
+  // new_letter["rectYellowX"] = map(percent, 0, 100, 55, newObj["rectYellowX"]);
+  // new_letter["rectYellowY"] = map(percent, 0, 100, 20, newObj["rectYellowY"]);
+  // new_letter["rectYellowWidth"] = map(percent, 0, 100, 30, newObj["rectYellowWidth"]);
+  // new_letter["rectYellowHeight"] = map(percent, 0, 100, 150, newObj["rectYellowHeight"]);
+  // new_letter["rectRedX"] = map(percent, 0, 100, 85, newObj["rectRedX"]);
+  // new_letter["rectRedY"] = map(percent, 0, 100, 20, newObj["rectRedY"]);
+  // new_letter["rectRedWidth"] = map(percent, 0, 100, 60, newObj["rectRedWidth"]);
+  // new_letter["rectRedHeight"] = map(percent, 0, 100, 90, newObj["rectRedHeight"]);
+  // new_letter["square1X"] = map(percent, 0, 100, 115, newObj["square1X"]);
+  // new_letter["square1Y"] = map(percent, 0, 100, 110, newObj["square1Y"]);
+  // new_letter["square2X"] = map(percent, 0, 100, 115, newObj["square2X"]);
+  // new_letter["square2Y"] = map(percent, 0, 100, 140, newObj["square2Y"]);
+
+  let interpolChar = getObjFromChar("interpol");
+  
+  new_letter["numLineSquares"] = map(percent, 0, 100, interpolChar["numLineSquares"], newObj["numLineSquares"]);
+  new_letter["lineSquaresX"] = map(percent, 0, 100, interpolChar["lineSquaresX"], newObj["lineSquaresX"]);
+  new_letter["lineSquaresY"] = map(percent, 0, 100, interpolChar["lineSquaresY"], newObj["lineSquaresY"]);
+  new_letter["rectYellowX"] = map(percent, 0, 100, interpolChar["rectYellowX"], newObj["rectYellowX"]);
+  new_letter["rectYellowY"] = map(percent, 0, 100, interpolChar["rectYellowY"], newObj["rectYellowY"]);
+  new_letter["rectYellowWidth"] = map(percent, 0, 100, interpolChar["rectYellowWidth"], newObj["rectYellowWidth"]);
+  new_letter["rectYellowHeight"] = map(percent, 0, 100, interpolChar["rectYellowHeight"], newObj["rectYellowHeight"]);
+  new_letter["rectRedX"] = map(percent, 0, 100, interpolChar["rectRedX"], newObj["rectRedX"]);
+  new_letter["rectRedY"] = map(percent, 0, 100, interpolChar["rectRedY"], newObj["rectRedY"]);
+  new_letter["rectRedWidth"] = map(percent, 0, 100, interpolChar["rectRedWidth"], newObj["rectRedWidth"]);
+  new_letter["rectRedHeight"] = map(percent, 0, 100, interpolChar["rectRedHeight"], newObj["rectRedHeight"]);
+  new_letter["square1X"] = map(percent, 0, 100, interpolChar["square1X"], newObj["square1X"]);
+  new_letter["square1Y"] = map(percent, 0, 100, interpolChar["square1Y"], newObj["square1Y"]);
+  new_letter["square2X"] = map(percent, 0, 100, interpolChar["square2X"], newObj["square2X"]);
+  new_letter["square2Y"] = map(percent, 0, 100, interpolChar["square2Y"], newObj["square2Y"]);
 
 
   // // New letter two step
@@ -206,5 +253,6 @@ var swapWords = [
   "DE STIJL",
   "MONDRIAN",
   "ARTWORKS",
-  "PAINTERS"
+  "PAINTERS",
+  "12345678"
 ]
