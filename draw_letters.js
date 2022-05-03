@@ -19,78 +19,34 @@ function drawLetter(letterData) {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
   let posx = 10;
-    let posy = 100;
-    stroke(strokeColor);
-    noStroke();
-    let pos1x = posx + letterData["Rect1x"];
-    let pos1y = posy + letterData["Rect1y"];
-    let pos2x = posx + letterData["Rect2x"];
-    let pos2y = posy + letterData["Rect2y"];
-    let pos3x = posx + letterData["Rect3x"];
-    let pos3y = posy + letterData["Rect3y"];
-    let pos4x = posx + letterData["Rect4x"];
-    let pos4y = posy + letterData["Rect4y"];
-    let pos5x = posx + 40;
-    let pos5y = posy + 0;
+  let posy = 100;
+  // determine parameters for second circle
+  let pos1x = posx + letterData["1Trix1"];
+  let pos1y = posy + letterData["1Triy1"];
+  let pos2x = posx + letterData["1Trix2"];
+  let pos2y = posy + letterData["1Triy2"];
+  let pos3x = posx + letterData["1Trix3"];
+  let pos3y = posy + letterData["1Triy3"];
 
-    let height1y = letterData["Rect1h"];
-    let height2y = letterData["Rect2h"];
-    let height3y = letterData["Rect3h"];
-    let height4y = letterData["Rect4h"];
-    let height5y = 178;
-    let width5x = 114;
+  let pos4x = posx + letterData["2Trix1"];
+  let pos4y = posy + letterData["2Triy1"];
+  let pos5x = posx + letterData["2Trix2"];
+  let pos5y = posy + letterData["2Triy2"];
+  let pos6x = posx + letterData["2Trix3"];
+  let pos6y = posy + letterData["2Triy3"];
 
-    let rot1 = letterData["Rect1r"];
-    let rot2 = letterData["Rect2r"];
-    let rot3 = letterData["Rect3r"];
-    let rot4 = letterData["Rect4r"];
-    // square 1
-    push();
-    strokeCap(SQUARE);
-    angleMode(DEGREES);
-    rectMode(CENTER);
-    noStroke();
-    fill(white);
-    push();
-    translate(pos1x, pos1y);
-    rotate(rot1);
-    rect(0, 0, 30, height1y);
-    pop();
+  // draw two circles
+  noStroke();
+  fill(darkBlue);
+  triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
+  //ellipse(posx, posy, 150, 150);
+  fill(lightBlue);
+  triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
+  //ellipse(pos2x, pos2y, size2, size2);
 
-    push();
-    translate(pos2x, pos2y);
-    rotate(rot2);
-    rect(0, 0, 30, height2y);
-    pop();
+  // draw two circles
 
-    push();
-    translate(pos3x, pos3y);
-    rotate(rot3);
-    rect(0, 0, 30, height3y);
-    pop();
-
-    push();
-    translate(pos4x, pos4y);
-    rotate(rot4);
-    rect(0, 0, 30, height4y);
-    pop();
-
-    push();
-    fill(0, 0, 0, 0);
-    stroke(strokeColor);
-    strokeWeight(20);
-    translate(pos5x, pos5y);
-    rect(0, 0, width5x, height5y);
-    pop();
-    pop();
-  }
 }
 
 

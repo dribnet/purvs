@@ -13,9 +13,19 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "1Trix1": 50,
+  "1Triy1": 120,
+  "1Trix2": 100,
+  "1Triy2": 40,
+  "1Trix3": 130,
+  "1Triy3": 120,
+
+  "2Trix1": 100,
+  "2Triy1": 200,
+  "2Trix2": 200,
+  "2Triy2": 100,
+  "2Trix3": 300,
+  "2Triy3": 200,
 }
 
 const letterB = {
@@ -65,15 +75,28 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos1x = posx + letterData["1Trix1"];
+  let pos1y = posy + letterData["1Triy1"];
+  let pos2x = posx + letterData["1Trix2"];
+  let pos2y = posy + letterData["1Triy2"];
+  let pos3x = posx + letterData["1Trix3"];
+  let pos3y = posy + letterData["1Triy3"];
+
+  let pos4x = posx + letterData["2Trix1"];
+  let pos4y = posy + letterData["2Triy1"];
+  let pos5x = posx + letterData["2Trix2"];
+  let pos5y = posy + letterData["2Triy2"];
+  let pos6x = posx + letterData["2Trix3"];
+  let pos6y = posy + letterData["2Triy3"];
 
   // draw two circles
+  noStroke();
   fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
+  triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
+  //ellipse(posx, posy, 150, 150);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
+  //ellipse(pos2x, pos2y, size2, size2);
 }
 
 function keyTyped() {
