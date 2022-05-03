@@ -15,7 +15,7 @@ let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
-let soloNumAnimationFrames = 100; //30 default, changed code approved by Phoebe
+let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
@@ -24,7 +24,7 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
-let chosenNumAnimationFrames = 90; //30 default, changed code approved by Phoebe
+let chosenNumAnimationFrames = 120; //30 default, changed code approved by Phoebe
 let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 

@@ -1,21 +1,18 @@
 ## MDDN 242 2022 Assignment 2
 
-Turns out it was an easy fix for the numbers not having the right colour while interpolating, I forgot to add its map to interpolate_letter.
+Got permission from Phoebe to change how many frames the animation has to slow it down.
+Updated the interpolation to 'hang' on the default in between character for 10% of the animation.
+I did this because I feel like it's a more satisfying transition between the two letters.
+I tried having the default character rotated 90 degrees. I felt it looked too much like an 8, and didn't interpolate as good.
 
-I added another line which follows the original to split up the line into two.
-This makes the letters more interesting rather than being a single line being drawn.
+Updated G to fit more with the other letters.
 
-I didn't have a default character, I've set this now as kind of infinity sign. I wanted it to be like a default sine wave look.
+I added another line to the middle, adding another coloured line. I feel like this adds more detail to the letters. The black middle line was a good start but I feel like this addition really adds on top of it.
+I've been experimenting with indenting this line, and if it should be round or straight edges but I can't decide.
 
-I'm using this default character as an in between for the interpolation. It changes from the original letter, to the default letter and then to the new letter.
-This in between helps break up the letters especially when switching to a number because the colour changes.
+I gave in and added a third wave, I won't update all the letters again with a third wave. I just really wanted the H to fit the rest of the letters. I also added the top to the I.
+The good thing about having this in between interpolation is that I don't have to add the third wave to every letter. I added it to the 'default' letter and it works. (I found out it was putting errors in the console, so I added values for wave 3 the same as wave 2 for every letter and number.)
+Adding this third wave brings the parameter count to 19, close to the limit.
 
-Because it was too quick to even see if really change to the default character I changed the interpolation speed so it's slower. (I don't know if I'm allowed to do this yet)
-
-Updated J,H,Y to change the layering of the two waves, Wave 2 is always on top so I essentially swapped the parameters between Wave 1 and Wave 2.
-
-Updated L,Q,S,T,U,V because they felt too small compared to the rest of the letters.
-Q was redesigned, I feel like this looks better and still is clear enough as a Q.
-S is basically a flipped version of the Z now.
-
-Cleaned up letters.js, quite a few had very long numbers for no reason with either multiple 0s or 9s so I rounded these numbers.
+I added maps for negative peak amounts because when shifting to the default letter the peak amounts could be negative which was making one of the waves always yellow.
+I don't know if there's an easier way to have the map be able to do positive and negative values in one map.

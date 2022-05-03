@@ -4,14 +4,20 @@ const alphabet = {
     "offsety": 100,
     "waveL1": 1,
     "rotate1": 0,
-    "peaks1": 3.6,
+    "peaks1": 3.65,
     "peak1H": 50,
     "offsetx2": 0,
     "offsety2": 100,
     "waveL2": 1,
     "rotate2": 0,
-    "peaks2": 3.6,
+    "peaks2": 3.65,
     "peak2H": 50,
+    "offsetx3": 0,
+    "offsety3": 100,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 3.65,
+    "peak3H": 50,
     "number": 0
   },
   "A": {
@@ -27,6 +33,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": 22,
+    "offsetx3": 0,
+    "offsety3": 120,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": 22,
     "number": 0
   },
   "B": {
@@ -42,6 +54,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 6,
     "peak2H": 40,
+    "offsetx3": 53,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 6,
+    "peak3H": 40,
     "number": 0
   },
   "C": {
@@ -57,6 +75,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 1.8,
     "peak2H": -70,
+    "offsetx3": 84,
+    "offsety3": 52,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 1.8,
+    "peak3H": -70,
     "number": 0
   },
   "D": {
@@ -72,6 +96,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 1.8,
     "peak2H": 62,
+    "offsetx3": 28,
+    "offsety3": 52,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 1.8,
+    "peak3H": 62,
     "number": 0
   },
   "E": {
@@ -87,6 +117,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": 6,
+    "offsetx3": 0,
+    "offsety3": 100,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": 6,
     "number": 0
   },
   "F": {
@@ -102,52 +138,76 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.9,
     "peak2H": 4,
+    "offsetx3": 0,
+    "offsety3": 100,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.9,
+    "peak3H": 4,
     "number": 0
   },
   "G": {
     "offsetx": 84,
-    "offsety": 52,
+    "offsety": 50,
     "waveL1": 1,
-    "rotate1": 90,
+    "rotate1": 86.4,
     "peaks1": 1.8,
-    "peak1H": 70,
-    "offsetx2": 75,
-    "offsety2": 82,
-    "waveL2": 1,
-    "rotate2": 122.4,
+    "peak1H": 84,
+    "offsetx2": 92,
+    "offsety2": 98,
+    "waveL2": 0.84,
+    "rotate2": 136.8,
     "peaks2": 2.2,
-    "peak2H": 46,
+    "peak2H": 34,
+    "offsetx3": 92,
+    "offsety3": 98,
+    "waveL3": 0.84,
+    "rotate3": 136.8,
+    "peaks3": 2.2,
+    "peak3H": 34,
     "number": 0
   },
   "H": {
-    "offsetx": 4,
-    "offsety": 100,
-    "waveL1": 0.98,
-    "rotate1": 43.2,
-    "peaks1": -1.6,
-    "peak1H": 56,
-    "offsetx2": 8,
+    "offsetx": 0,
+    "offsety": 96,
+    "waveL1": 1,
+    "rotate1": 0,
+    "peaks1": 1.8,
+    "peak1H": -4,
+    "offsetx2": 98,
     "offsety2": 152,
-    "waveL2": 1.06,
-    "rotate2": -86.4,
+    "waveL2": 1.08,
+    "rotate2": -93.6,
     "peaks2": 1.8,
-    "peak2H": 4,
+    "peak2H": 2,
+    "offsetx3": 2,
+    "offsety3": 152,
+    "waveL3": 1.08,
+    "rotate3": -86.4,
+    "peaks3": 1.8,
+    "peak3H": 2,
     "number": 0
 
   },
   "I": {
-    "offsetx": 46,
-    "offsety": 45,
+    "offsetx": 50,
+    "offsety": 150,
     "waveL1": 1,
-    "rotate1": 86.4,
-    "peaks1": 1.6,
-    "peak1H": -4,
-    "offsetx2": 16,
-    "offsety2": 144,
-    "waveL2": 0.7,
+    "rotate1": -93.6,
+    "peaks1": 1.8,
+    "peak1H": 6,
+    "offsetx2": 8,
+    "offsety2": 52,
+    "waveL2": 0.84,
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": 2,
+    "offsetx3": 8,
+    "offsety3": 146,
+    "waveL3": 0.84,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": 2,
     "number": 0
   },
   "J": {
@@ -163,6 +223,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": 2,
+    "offsetx3": 0,
+    "offsety3": 52,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": 2,
     "number": 0
   },
   "K": {
@@ -178,6 +244,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 1.8,
     "peak2H": -82,
+    "offsetx3": 95,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 1.8,
+    "peak3H": -82,
     "number": 0
   },
   "L": {
@@ -193,6 +265,12 @@ const alphabet = {
     "rotate2": 43.2,
     "peaks2": -1.8,
     "peak2H": 54,
+    "offsetx3": 4,
+    "offsety3": 46,
+    "waveL3": 1.38,
+    "rotate3": 43.2,
+    "peaks3": -1.8,
+    "peak3H": 54,
     "number": 0
   },
   "M": {
@@ -208,6 +286,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": 100,
+    "offsetx3": 42,
+    "offsety3": 152,
+    "waveL3": 0.58,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": 100,
     "number": 0
   },
   "N": {
@@ -223,6 +307,12 @@ const alphabet = {
     "rotate2": -7.2,
     "peaks2": -6.2,
     "peak2H": 50,
+    "offsetx3": -4,
+    "offsety3": 104,
+    "waveL3": 1,
+    "rotate3": -7.2,
+    "peaks3": -6.2,
+    "peak3H": 50,
     "number": 0
   },
   "O": {
@@ -238,6 +328,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 1.8,
     "peak2H": 44,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 1.8,
+    "peak3H": 44,
     "number": 0
   },
   "P": {
@@ -253,6 +349,12 @@ const alphabet = {
     "rotate2": 79.2,
     "peaks2": 1.8,
     "peak2H": 100,
+    "offsetx3": -6,
+    "offsety3": 54,
+    "waveL3": 0.56,
+    "rotate3": 79.2,
+    "peaks3": 1.8,
+    "peak3H": 100,
     "number": 0
   },
   "Q": {
@@ -268,6 +370,12 @@ const alphabet = {
     "rotate2": 72,
     "peaks2": 4,
     "peak2H": 46,
+    "offsetx3": 46,
+    "offsety3": 56,
+    "waveL3": 1.04,
+    "rotate3": 72,
+    "peaks3": 4,
+    "peak3H": 46,
     "number": 0
   },
   "R": {
@@ -283,6 +391,12 @@ const alphabet = {
     "rotate2": -28.8,
     "peaks2": 2.6,
     "peak2H": 42,
+    "offsetx3": 2,
+    "offsety3": 153,
+    "waveL3": 0.92,
+    "rotate3": -28.8,
+    "peaks3": 2.6,
+    "peak3H": 42,
     "number": 0
   },
   "S": {
@@ -298,6 +412,12 @@ const alphabet = {
     "rotate2": -72,
     "peaks2": -4,
     "peak2H": 56,
+    "offsetx3": 36,
+    "offsety3": 142,
+    "waveL3": 1,
+    "rotate3": -72,
+    "peaks3": -4,
+    "peak3H": 56,
     "number": 0
   },
   "T": {
@@ -313,6 +433,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 2,
     "peak2H": -2,
+    "offsetx3": 0,
+    "offsety3": 52,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 2,
+    "peak3H": -2,
     "number": 0
   },
   "U": {
@@ -328,6 +454,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": -100,
+    "offsetx3": 0,
+    "offsety3": 44,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": -100,
     "number": 0
   },
   "V": {
@@ -343,6 +475,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": -100,
+    "offsetx3": 22,
+    "offsety3": 44,
+    "waveL3": 0.58,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": -100,
     "number": 0
   },
   "W": {
@@ -358,6 +496,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": -1.8,
     "peak2H": 100,
+    "offsetx3": 44,
+    "offsety3": 44,
+    "waveL3": 0.56,
+    "rotate3": 0,
+    "peaks3": -1.8,
+    "peak3H": 100,
     "number": 0
   },
   "X": {
@@ -373,6 +517,12 @@ const alphabet = {
     "rotate2": 86.4,
     "peaks2": -1.8,
     "peak2H": 34,
+    "offsetx3": 88,
+    "offsety3": 48,
+    "waveL3": 1,
+    "rotate3": 86.4,
+    "peaks3": -1.8,
+    "peak3H": 34,
     "number": 0
   },
   "Y": {
@@ -388,6 +538,12 @@ const alphabet = {
     "rotate2": 0,
     "peaks2": 1.8,
     "peak2H": -42,
+    "offsetx3": 0,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 0,
+    "peaks3": 1.8,
+    "peak3H": -42,
     "number": 0
   },
   "Z": {
@@ -403,6 +559,12 @@ const alphabet = {
     "rotate2": -108,
     "peaks2": 4,
     "peak2H": 54,
+    "offsetx3": 62,
+    "offsety3": 140,
+    "waveL3": 0.96,
+    "rotate3": -108,
+    "peaks3": 4,
+    "peak3H": 54,
     "number": 0
   },
   "0": {
@@ -418,6 +580,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": 0,
     "peak2H": 0,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": 0,
+    "peak3H": 0,
     "number": 1
   },
   "1": {
@@ -433,6 +601,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -1.8,
     "peak2H": 16,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -1.8,
+    "peak3H": 16,
     "number": 1
   },
   "2": {
@@ -448,6 +622,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -4,
     "peak2H": 16,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -4,
+    "peak3H": 16,
     "number": 1
   },
   "3": {
@@ -463,6 +643,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -5.6,
     "peak2H": 16,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -5.6,
+    "peak3H": 16,
     "number": 1
   },
   "4": {
@@ -478,6 +664,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -7.6,
     "peak2H": 16,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -7.6,
+    "peak3H": 16,
     "number": 1
   },
   "5": {
@@ -493,6 +685,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -9.2,
     "peak2H": 16,
+    "offsetx3": 50,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -9.2,
+    "peak3H": 16,
     "number": 1
   },
   "6": {
@@ -508,6 +706,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -2,
     "peak2H": -16,
+    "offsetx3": 75,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -2,
+    "peak3H": -16,
     "number": 1
   },
   "7": {
@@ -523,6 +727,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -3.8,
     "peak2H": -16,
+    "offsetx3": 75,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -3.8,
+    "peak3H": -16,
     "number": 1
   },
   "8": {
@@ -538,6 +748,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -6,
     "peak2H": -16,
+    "offsetx3": 75,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -6,
+    "peak3H": -16,
     "number": 1
   },
   "9": {
@@ -553,6 +769,12 @@ const alphabet = {
     "rotate2": 90,
     "peaks2": -7.6,
     "peak2H": -16,
+    "offsetx3": 75,
+    "offsety3": 50,
+    "waveL3": 1,
+    "rotate3": 90,
+    "peaks3": -7.6,
+    "peak3H": -16,
     "number": 1
   }
 

@@ -19,6 +19,12 @@ const sliderInfo = [
   ["rotate2", -360, 360],
   ["peaks2", -10, 10],
   ["peak2H", -100, 100],
+  ["offsetx3",  -100,  100],
+  ["offsety3", 0, 200],
+  ["waveL3", 0, 2],
+  ["rotate3", -360, 360],
+  ["peaks3", -10, 10],
+  ["peak3H", -100, 100],
   ["number", 0, 1]
 
 
@@ -70,7 +76,7 @@ function setup () {
     cur_row.show();
     let cur_slider = createSlider(0, 100, 50);
 
-    if( i == 12 ){ //set certain sliders to 0
+    if( i == 18 ){ //set certain sliders to 0
       cur_slider = createSlider(0, 100, 0);
     }
 
