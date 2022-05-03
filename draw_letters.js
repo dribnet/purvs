@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#908aff";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -81,15 +81,32 @@ function drawLetter(letterData) {
   // rect 03
   fill(yellow);
   rect(posX3, posY3, w3, h3, corB1, corB2, corB3, corB4);
-  
+
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["width1"]    = map(percent, 0, 100, oldObj["width1"], newObj["width1"]);
+  new_letter["height1"] = map(percent, 0, 100, oldObj["height1"], newObj["height1"]);
+  new_letter["offsetX1"] = map(percent, 0, 100, oldObj["offsetX1"], newObj["offsetX1"]);
+  new_letter["offsetY1"] = map(percent, 0, 100, oldObj["offsetY1"], newObj["offsetY1"]);
+  new_letter["width2"] = map(percent, 0, 100, oldObj["width2"], newObj["width2"]);
+  new_letter["height2"] = map(percent, 0, 100, oldObj["height2"], newObj["height2"]);
+  new_letter["offsetX2"] = map(percent, 0, 100, oldObj["offsetX2"], newObj["offsetX2"]);
+  new_letter["offsetY2"] = map(percent, 0, 100, oldObj["offsetY2"], newObj["offsetY2"]);
+  new_letter["width3"] = map(percent, 0, 100, oldObj["width3"], newObj["width3"]);
+  new_letter["height3"] = map(percent, 0, 100, oldObj["height3"], newObj["height3"]);
+  new_letter["offsetX3"] = map(percent, 0, 100, oldObj["offsetX3"], newObj["offsetX3"]);
+  new_letter["offsetY3"] = map(percent, 0, 100, oldObj["offsetY3"], newObj["offsetY3"]);
+  new_letter["cornerA1"] = map(percent, 0, 100, oldObj["cornerA1"], newObj["cornerA1"]);
+  new_letter["cornerA2"] = map(percent, 0, 100, oldObj["cornerA2"], newObj["cornerA2"]);
+  new_letter["cornerA3"] = map(percent, 0, 100, oldObj["cornerA3"], newObj["cornerA3"]);
+  new_letter["cornerA3"] = map(percent, 0, 100, oldObj["cornerA3"], newObj["cornerA3"]);
+  new_letter["cornerB1"] = map(percent, 0, 100, oldObj["cornerB1"], newObj["cornerB1"]);
+  new_letter["cornerB2"] = map(percent, 0, 100, oldObj["cornerB2"], newObj["cornerB2"]);
+  new_letter["cornerB3"] = map(percent, 0, 100, oldObj["cornerB3"], newObj["cornerB3"]);
+  new_letter["cornerB4"] = map(percent, 0, 100, oldObj["cornerB4"], newObj["cornerB4"]);
   return new_letter;
 }
 

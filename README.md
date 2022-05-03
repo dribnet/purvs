@@ -3,20 +3,18 @@
 README
 --------------------------------------------------------------------
 
-After some quite heavy reworking and rethinking of my code and concept, I have finally come to a point where I can knuckle down and get my letters done (tomorrows job!).
+Be busy with life for the past week so spent today catching up and finally getting a base down for each of my letters. Not all of them are final and there are a couple I want to rethink (mainly the K), however it's great to have them all somewhat finished. Tonight I will catch up with the interpolation session from last week as I was busy at the time, and then I can spend tomorrow polishing things up before the hand in.
 
-As I stated last time, my concept has changed. Now my design goals / challenges are to:
-- Confine all of my letter within a rounded square rectangle
-- Use a maximum of three rectangles of the same colour within the rounded rectangle to create my letters
-- Keep a somewhat "70s Title Card" style to each letter (as best I can)
+Update: added in the base for the interpolation. Works pretty well already, however there is a slight issue that I plan to address tomorrow. Because I don't use every rect for each letter, when it changes from (or to) a letter that doesn't use the full 3 rectangles the extra one goes off into the distance (because by default when I don't use a rect I have it set to 0, 0 pos). To fix this I will probably just make the location for the unused rects to be in the center of the shape.
 
-With these new challenges in mind, I got to work sketching out each of my letter on some papers to get a rough idea about how each letter could look. I got most of them done to a good level, however I had some trouble with a few letters in particular; "S","G", "W" (to name a few). I'll have to work on those some more.
+Also added the numbers in and I am quite happy with them already, I also like the special character which I chose to be a "Space".
 
-After that, I got to work refactoring my code to work with these new constraints, including adding a third rectangle to use and adding new parameters for each of the individual rectangles so I could change them as I saw fit (see below for the list). Some work will need to be done to make everything a little more readable and efficient, but for now it will do. The main hassle was fixing the editor up and getting it to a usable state with my HUGE list of parameters, but after some work I managed to get everything working as I wanted. Now I can easily create new letters, which will be my main goal now. I just need to get a rough version of each letter finished, then I can move onto polish and make the interpolation look nice.
+My final job before hand in will be to refine each letter and polish them up, polish up the interpolation, and finally pick a colour scheme I like. To be honest I am already quite fond of the colours I already picked out at the start when making my sketch, so this may not change.
 
 --------------------------------------------------------------------
 Parameters:
 --------------------------------------------------------------------
+
   * `width1` : width of the first rectangle
   * `height1` : height of the first rectangle
   * `offsetX1` : x offset of the first rectangle
@@ -37,4 +35,5 @@ Parameters:
   * `cornerB2` : how curved is the second corner of rectangle 3
   * `cornerB3` : how curved is the third corner of rectangle 3
   * `cornerB4` : how curved is the fourth corner of rectangle 3
+
 --------------------------------------------------------------------
