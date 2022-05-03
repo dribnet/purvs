@@ -1,14 +1,14 @@
 const alphabet = {
   "default": {
-    "offsetLeft": -50,
-    "offsetRight": -25,
+    "offsetLeft": 0,
+    "offsetRight": 0,
     "offsetTop": 0,
     "offsetBottom": 0,
-    "centerValX": 60,
+    "centerValX": 0,
     "centerValY": 0,
     "leftVal": 0,
-    "rightVal": 50,
-    "topVal": 100,
+    "rightVal": 0,
+    "topVal": 0,
     "bottomVal": 0
   },
   "A": {

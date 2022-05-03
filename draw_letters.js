@@ -41,6 +41,7 @@ function drawLetter(letterData) {
   rectMode(CENTER);
   angleMode(DEGREES);
   strokeWeight(4.5);
+  scale(0.8); //only scaled so the values stay neat
 
   //Center square 1
   stroke(gold);
@@ -117,9 +118,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "BOXFRONT",
-  "SQUAREME",
-  "5POINTS?",
-  "WHOASKED",
-  "NATHANP?",
-  "MADBRO??"
+  "PROJECT2",
+  "?5POINT?",
+  "NATHAN?P",
+  "ZOIDBERG"
 ]

@@ -1,7 +1,3 @@
 ## MDDN 242 2022 Assignment 2
 
-Interpolation near complete, small bugs with it but it might just be due to the speed of javascript, or my computer. Now have the letters to return back to the 'default' position (the 5 points, not the question mark) then to the next letter.
-
-I've also decided that the X will be the only real standout character amongst the alphabet so I can have cleaner transitions between letters and one less variable to deal with.
-
-I also removed the fill from one of the 2 central squares. This is so that the characters feel more equally balanced due to the I, J and T looking a bit strange compared to the less shaded alphabet.
+Finishing touches, I changed back the default character to the 5 points, I thought using a form of punctuation would be better but upon seeing other examples and class examples, I think it would be better for me to use the 'default' settings for the letters as the last character. It also gives an opportunity to see the interaction from each letters mid swap stage if desired.
