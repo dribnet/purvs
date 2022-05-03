@@ -1,13 +1,13 @@
 const alphabet = {
   "default": {
     //"sq1_posx": 2.5,
-    //"sq1_posy": 77.5,
+    //"sq1_posy": 117.5,
     "sq2_posx": 27.5,
     "sq2_posy": 117.5,
     "sq3_posx": 52.5,
     "sq3_posy": 117.5,
     //"sq4_posx": 77.5,
-    //"sq4_posy": 77.5,
+    //"sq4_posy": 117.5,
     //"sq5_posx": 2.5,
     //"sq5_posy": 2.5,
     //"sq6_posx": 2.5,
@@ -21,7 +21,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "A": {
     "sq1_posx": 2.5,
@@ -45,7 +45,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "B": {
     "sq1_posx": 2.5,
@@ -67,7 +67,7 @@ const alphabet = {
     "sq9_posx": 27.5,
     "sq9_posy": 67.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "C": {
     "sq1_posx": 77.5,
@@ -87,7 +87,7 @@ const alphabet = {
     "sq9_posx": 77.5,
     "sq9_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "D": {
     "sq1_posx": 77.5,
@@ -111,7 +111,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 17.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "E": {
     "sq1_posx": 77.5,
@@ -135,7 +135,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "F": {
     "sq1_posx": 77.5,
@@ -157,7 +157,7 @@ const alphabet = {
     "sq9_posx": 52.5,
     "sq9_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "G": {
     "sq1_posx": 77.5,
@@ -181,7 +181,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "H": {
     "sq1_posx": 2.5,
@@ -205,7 +205,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "I": {
     "sq1_posx": 27.5,
@@ -229,7 +229,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "J": {
     "sq1_posx": 27.5,
@@ -253,7 +253,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "K": {
     "sq1_posx": 2.5,
@@ -277,7 +277,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "L": {
     "sq1_posx": 2.5,
@@ -301,7 +301,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "M": {
     "sq1_posx": 2.5,
@@ -325,7 +325,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "N": {
     "sq1_posx": 2.5,
@@ -349,7 +349,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "O": {
     "sq1_posx": 27.5,
@@ -373,7 +373,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "P": {
     "sq1_posx": 2.5,
@@ -397,7 +397,7 @@ const alphabet = {
     "sq10_posx": 2.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "Q": {
     "sq1_posx": 27.5,
@@ -421,7 +421,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "R": {
     "sq1_posx": 2.5,
@@ -445,7 +445,7 @@ const alphabet = {
     "sq10_posx": 2.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "S": {
     "sq1_posx": 2.5,
@@ -469,7 +469,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
      //"sq10_posy": 52.5,
      "lightPixelClr": 240,
-     "darkPixelClr": 40
+     "darkPixelClr": 27.5
   },
   "T": {
     "sq1_posx": 2.5,
@@ -493,7 +493,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "U": {
     "sq1_posx": 2.5,
@@ -517,7 +517,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "V": {
     "sq1_posx": 2.5,
@@ -541,7 +541,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "W": {
     "sq1_posx": 2.5,
@@ -565,7 +565,7 @@ const alphabet = {
     "sq10_posx": 27.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "X": {
     "sq1_posx": 2.5,
@@ -589,7 +589,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "Y": {
     "sq1_posx": 2.5,
@@ -613,7 +613,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "Z": {
     "sq1_posx": 2.5,
@@ -637,7 +637,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "0": {
     "sq1_posx": 27.5,
@@ -661,7 +661,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 67.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "1": {
     "sq1_posx": 2.5,
@@ -685,7 +685,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "2": {
     "sq1_posx": 2.5,
@@ -709,7 +709,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "3": {
     //"sq1_posx": 2.5,
@@ -733,7 +733,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "4": {
     "sq1_posx": 77.5,
@@ -757,31 +757,31 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "5": {
-    //"sq1_posx": 2.5,
-    //"sq1_posy": 42.5,
-    //"sq2_posx": 2.5,
-    //"sq2_posy": 42.5,
-    //"sq3_posx": 2.5,
-    //"sq3_posy": 42.5,
-    //"sq4_posx": 2.5,
-    //"sq4_posy": 42.5,
-    //"sq5_posx": 2.5,
-    //"sq5_posy": 42.5,
-    //"sq6_posx": 2.5,
-    //"sq6_posy": 42.5,
+    "sq1_posx": 77.5,
+    "sq1_posy": 42.5,
+    "sq2_posx": 52.5,
+    "sq2_posy": 42.5,
+    "sq3_posx": 27.5,
+    "sq3_posy": 42.5,
+    "sq4_posx": 2.5,
+    "sq4_posy": 62.5,
+    "sq5_posx": 52.5,
+    "sq5_posy": 92.5,
+    //"sq6_posx": 27.5,
+    //"sq6_posy": 92.5,
     //"sq7_posx": 2.5,
-    //"sq7_posy": 42.5,
+    //"sq7_posy": 67.5,
     //"sq8_posx": 2.5,
     //"sq8_posy": 42.5,
     //"sq9_posx": 2.5,
-    //"sq9_posy": 42.5,
+    //"sq9_posy": 2.5,
     //"sq10_posx": 2.5,
-    //"sq10_posy": 42.5,
+    //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "6": {
     "sq1_posx": 77.5,
@@ -805,7 +805,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "7": {
     "sq1_posx": 2.5,
@@ -829,7 +829,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "8": {
     "sq1_posx": 2.5,
@@ -853,7 +853,7 @@ const alphabet = {
     "sq10_posx": 2.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "darkPixelClr": 27.5
   },
   "9": {
     "sq1_posx": 2.5,
@@ -877,7 +877,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 40
+    "PixelClr": 27.5
   }
 
 }
