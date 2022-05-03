@@ -1,6 +1,6 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#000000";
-var systemLineColor = "#ffffff";
+var systemBackgroundColor = "#00307d";
+var systemLineColor = "#00307d";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
@@ -39,21 +39,22 @@ function drawLetter(letterData) {
   let tri3Y = posy + letterData["triPosition3Y"];
 
   push();
+  noStroke();
   rectMode(CENTER);
   angleMode(DEGREES);
 
-  fill(black);
-  stroke(200);
-  strokeWeight(2);
-  rect(posx, posy, 100, 200);
+  fill("#00307d");
+  //stroke(200);
+  //strokeWeight(2);
+  rect(posx, posy, 100, 200); //backgroundd for letters
 
   fill(white);
   noStroke();
-  rect(rectPosX, rectPosY, rectWidth, rectHeight);
+  rect(rectPosX, rectPosY, rectWidth, rectHeight); //rectangle for the empty space
 
 
   fill(white);
-  beginShape();
+  beginShape(); //triangle for the empty space
   vertex(tri1X, tri1Y);
   vertex(tri2X, tri2Y);
   vertex(tri3X, tri3Y);

@@ -455,17 +455,17 @@ const alphabet = {
     "triPosition3Y": 100
   },
   "8": {
-    "rectPositionX": 0,
+    "rectPositionX": 20,
     "rectPositionY": 0,
-    "rectwidth": 0,
-    "rectheight": 0,
+    "rectwidth": 20,
+    "rectheight": 200,
 
     "triPosition1X": -50,
     "triPosition1Y": -100,
     "triPosition2X": -10,
     "triPosition2Y": -100,
-    "triPosition3X": -30,
-    "triPosition3Y": 100
+    "triPosition3X": 50,
+    "triPosition3Y": 80
   },
   "9": {
     "rectPositionX": -40,
