@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#eee3d1";
 var systemLineColor = "#5f5e66";
-var systemBoxColor = "#3d93e0";
+var systemBoxColor = "#9CC9E8";
 
 /* internal constants */
 const colWings = "#df8d9e";
@@ -148,11 +148,11 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "?MEADOW?","01010101","GENERATE","23456789","WWWWWWWW","MMMMMMMM","ZZZZZZZZ","XXXXXXXX",
-  "MARIPOSA","?WINGED?","CREATURE","PAPILLON","?NECTAR?","INFINITE",
+  "?MEADOW?","WWWWWWWW","MMMMMMMM","ZZZZZZZZ","XXXXXXXX","GENERATE",
+  "?WINGED?","CREATURE","MARIPOSA","PAPILLON","?NECTAR?","INFINITE",
   "CUTTINGS","ILLUSION","DAYDREAM","ENVISION","BLOOMING","?GARDEN?",
-  "EXTENDED","FLOURISH","SCENARIO","BEDAZZLE","SWEETEST","CLUELESS",
-  "HOPELESS","ROMANTIC","?UNFOLD?","ROTATION","ENVELOPE",
+  "FLOURISH","SCENARIO","BEDAZZLE","SWEETEST","CLUELESS","SPEAKING",
+  "HOPELESS","ROMANTIC","?UNFOLD?","ROTATION","ENVELOPE","ACQUIRED",
   "SPINNING","AUTONOMY","FRAGMENT","EXERCISE","INJURIES",
-  "NONSENSE","HEADLINE"
+  "NONSENSE","HEADLINE","01010101","23456789"
 ]
