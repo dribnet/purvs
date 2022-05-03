@@ -99,17 +99,4 @@ var swapWords = [
   "EXPECTED",
   "TRIANGLE",
   "TOMORROW",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-
-
-
 ]
