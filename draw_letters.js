@@ -9,6 +9,7 @@ const backgroundColor  = "#b8d9d4";//light green
 
  const purple  = "#713191";//purple
  const green = "#078774"; // green
+ const lightBrown = "#91681c"; // light brown
 /*
  * Draw the letter given the letterData
  *
@@ -52,32 +53,57 @@ const backgroundColor  = "#b8d9d4";//light green
 
 
    // draw 6 circles/ovel
+   let xPos = ell3_x - 5
+   let yPos = ell3_y - 5
    noStroke();
-  fill(purple);
-  ellipse(ell_x, ellMain_y, ellMain_size, ellMain_size);// main Circle
-  fill(backgroundColor);
-  ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
-  fill(backgroundColor);
-  fill(purple);
-  ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
-  fill(backgroundColor);
-  ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
-  fill(green);
-  ellipse(ell3_x, ell3_y, eyesSize);//left eye
-  ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
-pop();
 
-// push();
-//  let angleParts = 360 / ell2_x;
-//  for(let i = 0; i < ell2_x; i++){
-//    rotate(anglePart*i);
-//  };
-//  pop()
+   fill(purple);
+   ellipse(ell_x, ellMain_y, ellMain_size, ellMain_size);// main Circle
+
+   fill(backgroundColor);
+   ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
+
+   fill(purple);
+   ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
+
+   fill(backgroundColor);
+   ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
+
+   /////// draw the cute eyes here://///
+   fill(lightBrown);
+   stroke(green);
+   strokeWeight(4)
+   ellipse(ell3_x, ell3_y, eyesSize);//left eye
+   ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
+
+   fill(50);//dark gray
+   noStroke();
+   ellipse(ell3_x, ell3_y, eyesSize/2);// center / left eye
+   ellipse(ell3_x + eyesSpace, ell3_y, eyesSize/2);// center / right eye
+
+   fill(200);//light gray
+   stroke(120,150);//light gay
+   strokeWeight(2)
+   ellipse(xPos+10, yPos, eyesSize/4);// larger-bright shadow in top-right (located in left eye)
+   ellipse(xPos + eyesSpace, yPos, eyesSize/4);// larger-bright shadow in top-left (located in right eye)
+
+   fill(200)
+   noStroke();
+   ellipse(xPos, yPos+10, eyesSize/6);// smaller-bright shadow in bottem-right (located in left eye)
+   ellipse(xPos + eyesSpace, yPos+10, eyesSize/6);// smaller-bright shadow in bottem-left (located in right eye)
+
+pop();
 
  }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  push();
+  rotate(180);
+  let rotShape = rotate;
+  pop();
+
+  push();
   new_letter["cntr_w"] = map(percent, 0, 100, oldObj["cntr_w"], newObj["cntr_w"]);
   new_letter["cntr_h"] = map(percent, 0, 100, oldObj["cntr_h"], newObj["cntr_h"]);
   new_letter["handle_w"] = map(percent, 0, 100, oldObj["handle_w"], newObj["handle_w"]);
@@ -94,15 +120,19 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["eyes_ypos"] = map(percent, 0, 100, oldObj["eyes_ypos"], newObj["eyes_ypos"]);
   new_letter["cutter_xpos"] = map(percent, 0, 100, oldObj["cutter_xpos"], newObj["cutter_xpos"]);
   new_letter["cutter_ypos"] = map(percent, 0, 100, oldObj["cutter_ypos"], newObj["cutter_ypos"]);
+  pop();
   return new_letter;
 }
 
 var swapWords = [
-  // "",
+  "EMOTION!",
   "ABCDEFGH",
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA",
-  "!012345!",
-  "6789!!!!"
+  "12345678",
+  "FORTUNE!",
+  "SADNESS!",
+  "GLADNESS",
+  "DELIGHT!",
+  "!MISERY!",
+  "STRESFUL",
+  "HOPEFUL!"
 ]

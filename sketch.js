@@ -64,7 +64,7 @@ const canvasHeight = 500;
    "main_ypos": 250,
    "eyes_xpos": -10,
    "eyes_ypos": -20,
-   "cutter_w": 120,
+   "cutter_w": 150,
    "cutter_h": 110,
    "cutter_xpos": 15,
    "cutter_ypos": 0
@@ -75,6 +75,7 @@ const canvasHeight = 500;
 
   const purple  = "#713191";//purple
   const green = "#078774"; // green
+  const lightBrown = "#91681c"; // light brown
 
 
 function setup () {
@@ -133,19 +134,45 @@ function drawLetter(ell_x, ell_y, letterData) {
 
 
   // draw 6 circles/ovel
+ let xPos = ell3_x - 5
+ let yPos = ell3_y - 5
+ noStroke();
 
-  noStroke();
- fill(purple);
- ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
  fill(purple);
  ellipse(ell_x, ellMain_y, ellMain_size, ellMain_size);// main Circle
+
  fill(backgroundColor);
  ellipse(ell1_x, ell1_y, cntrWidth, cntrHeight);// circle in midlle
+
+ fill(purple);
+ ellipse(ell2_x, ell2_y, handle_width, handle_height);//handle shape
+
  fill(backgroundColor);
  ellipse(ell4_x, ell4_y, cutterWidth, cutterHeight);// cutter
- fill(green);
+
+ /////// draw the cute eyes here://///
+ fill(lightBrown);
+ stroke(green);
+ strokeWeight(4)
  ellipse(ell3_x, ell3_y, eyesSize);//left eye
  ellipse(ell3_x + eyesSpace, ell3_y, eyesSize);//right eye
+
+ fill(50)
+ noStroke();
+ ellipse(ell3_x, ell3_y, eyesSize/2);// inside / left eye
+ ellipse(ell3_x + eyesSpace, ell3_y, eyesSize/2);// inside / right eye
+
+ fill(200)
+ stroke(120,150);
+ strokeWeight(2)
+ ellipse(xPos+10, yPos, eyesSize/4);// inside / left eye
+ ellipse(xPos + eyesSpace, yPos, eyesSize/4);// inside / right eye
+ fill(200)
+ noStroke();
+ ellipse(xPos, yPos+10, eyesSize/6);// inside / left eye
+ ellipse(xPos + eyesSpace, yPos+10, eyesSize/6);// inside / right eye
+
+
 
 }
 

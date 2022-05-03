@@ -1,12 +1,15 @@
 ## MDDN 242 2022 Assignment 2
 
-2 / 5 / 22:
+3 / 5 / 22:
 
-Today, I have completed the alignment of the cut-off parts, those are out of the box in some letters. Contrary to my expectation these changes are not affecting on shapes of the letters.
+Today, I've added a few fixed shapes/circles like a bright shadow inside my little eyes for better visualisation. Also, I've checked all the letters in the interaction part and the letters continued in the lower part, out of the box -like p, q, and y- need to be shorter. So I fixed those.
 
-I have plane to work on interpolate and just a play to watch how its works with my changes.
+My next step is:
+Change "systemLineColor" and "systemBoxColor". Because systemLineColor is the same colour as the letters. Communication between lines and letters
+In some parts, it has caused a visual error.
+Also, I'm still playing around the interpolate part to which the changes. I've applied for some ideas but they've not worked fine in the exhibition. so I removed them:
 
-I'll come back with the rest of the process after discussing about it in the class tomorrow.
+I'm in the process, and I'll come back with the rest of my changes.
 
 my parameters still same:
 
