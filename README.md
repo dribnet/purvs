@@ -2,14 +2,10 @@
 
 3 / 5 / 22:
 
-Today, I've added a few fixed shapes/circles like a bright shadow inside my little eyes for better visualisation. Also, I've checked all the letters in the interaction part and the letters continued in the lower part, out of the box -like p, q, and y- need to be shorter. So I fixed those.
+Today, following of previous plan list, first I've changed my "systemLineColor", and then came up with the idea of blinking the eyes between the "oldObj" and the "newObj". that become very funny.
+But what might be a problem caught my eye: in the "interaction" section the letters still need another step for their final shape after 100%. This is something to talk about, I will definitely share it with Phoebe or Hazel.
 
-My next step is:
-Change "systemLineColor" and "systemBoxColor". Because systemLineColor is the same colour as the letters. Communication between lines and letters
-In some parts, it has caused a visual error.
-Also, I'm still playing around the interpolate part to which the changes. I've applied for some ideas but they've not worked fine in the exhibition. so I removed them:
-
-I'm in the process, and I'll come back with the rest of my changes.
+I'm still working on "interpolate" to animating my design if that possible.
 
 my parameters still same:
 

@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#b8d9d4"; //"#caf0f8";
-var systemLineColor = "#713191";// purple
-var systemBoxColor = "#04d9d9";// blueGreen
+var systemLineColor = "#078774";// green
+var systemBoxColor = "#04bdbd";// bright blue
 
 /* internal constants */
 const backgroundColor  = "#b8d9d4";//light green
@@ -98,10 +98,6 @@ pop();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  push();
-  rotate(180);
-  let rotShape = rotate;
-  pop();
 
   push();
   new_letter["cntr_w"] = map(percent, 0, 100, oldObj["cntr_w"], newObj["cntr_w"]);
@@ -116,8 +112,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["cntr_ypos"] = map(percent, 0, 100, oldObj["cntr_ypos"], newObj["cntr_ypos"]);
   new_letter["handl_xpos"] = map(percent, 0, 100, oldObj["handl_xpos"], newObj["handl_xpos"]);
   new_letter["handl_ypos"] = map(percent, 0, 100, oldObj["handl_ypos"], newObj["handl_ypos"]);
+  /////These two "if statement" are considered for the eyes blinking/squeezing//
+  if(oldObj => 100, percent > 90){
+
+     new_letter["eyes_xpos"] = map(percent, 0, 100, oldObj["eyes_xpos"], newObj["eyes_xpos"]);
+     new_letter["eyes_ypos"] = map(percent, 0, 100, oldObj["eyes_ypos"], newObj["eyes_ypos"]);
+  }
+  if( newObj < 0, percent < 70){
+
   new_letter["eyes_xpos"] = map(percent, 0, 100, oldObj["eyes_xpos"], newObj["eyes_xpos"]);
   new_letter["eyes_ypos"] = map(percent, 0, 100, oldObj["eyes_ypos"], newObj["eyes_ypos"]);
+  }
+
   new_letter["cutter_xpos"] = map(percent, 0, 100, oldObj["cutter_xpos"], newObj["cutter_xpos"]);
   new_letter["cutter_ypos"] = map(percent, 0, 100, oldObj["cutter_ypos"], newObj["cutter_ypos"]);
   pop();

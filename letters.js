@@ -120,7 +120,7 @@ const alphabet = {
     "handl_ypos": -60,
     "mainSize": 120,
     "main_ypos": 130,
-    "eyes_xpos": 0,
+    "eyes_xpos": 5,
     "eyes_ypos": -130,
     "cutter_w": 40,
     "cutter_h": 80,
@@ -546,7 +546,7 @@ const alphabet = {
     "cutter_ypos": -180
   },
   "2": {
-    "cntr_w":122,
+    "cntr_w":127,
     "cntr_h":132,
     "cntr_xpos": -15,
     "cntr_ypos": -22.75,
@@ -603,7 +603,7 @@ const alphabet = {
 
   },
   "5": {
-    "cntr_w":145,
+    "cntr_w":135,
     "cntr_h":140,
     "cntr_xpos": -20,
     "cntr_ypos": -16.5,
