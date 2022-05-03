@@ -1,8 +1,13 @@
 const alphabet = {
   "default": {
-    "arcRotation": 180,
-    "arcX": 0,
-    "arcY": 0 //arc
+    "arcRotation": 270,
+  "arcX": -19.799999999999997,
+  "arcY": 15.600000000000001,
+  "arcScale": 0.75,
+  "triangleRotation": 90,
+  "triangleScale": 0.31000000000000005,
+  "triangleY": 72.5,
+  "triangleX": -67.15
   },
   "A": {
     "arcRotation": 180,
@@ -365,7 +370,4 @@ const alphabet = {
   "triangleY": 122.5,
   "triangleX": -75.4
   }
-
-
-
 }

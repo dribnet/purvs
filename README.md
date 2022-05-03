@@ -1,7 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-Today I figured out how to use editor and starting to create alphabets. Though I have finished designing all of the alphabets, I heaven't think about the design of the numbers.
+This is the most recent version of my alphabet. I experimented with various color palettes before figuring out how to create the default alphabet.
 
-I have also finished the looks of sketch.
-
-The alphabets that I have created were still using the defult colors, that is because I heaven't start designing the final look of the alphabets. I will keep adding details once I finished all of the letters.
+On Thursday, when I ask for last-minute feedback, I may make some more changes.
