@@ -1,10 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#FFA46B";
+var systemBackgroundColor = "red";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const strokeColor      = "#E861C5";
+const strokeColor      = "green";
 const darkBlue  = "#0077b6";
 const lightBlue  = "#90e0ef";
 
@@ -29,9 +29,21 @@ function drawLetter(letterData) {
 
   // draw two lines
   strokeWeight(10);
-  line(posx, posy, posx+0, posy-lenA);
-  strokeWeight(5);
-  line(posx+50, posy, posx+50+leanB, posy-lenB);
+  //line A
+  // line(posx, posy, posx+0, posy-lenA);
+  for(let i = 0; i <= lenA/20; i++)
+  {
+    circle(posx,lerp(posy,posy-lenA,i/(lenA/20)),5);
+  }
+  noStroke();
+  fill(232, 97, 197, 30);
+  //line B
+  for(let i = 0; i <= 10; i++)
+  {
+    for(let j = 0; j < 5; j++){
+      circle(posx+50+lerp(0,leanB,i/10),posy-lerp(0,lenB,i/10),j*10);
+    }
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
