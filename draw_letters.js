@@ -19,7 +19,6 @@ function drawLetter(letterData) {
   push();
   let posx= 0; //I think these are needed for the original draw_letters
   let posy= 0;
-  // determine parameters for second circle
 
   let pos1x = posx + letterData["offsetx"];
   let pos1y = posy + letterData["offsety"];
@@ -43,7 +42,7 @@ function drawLetter(letterData) {
   let NegPeakHLerpMap1 = map(peaks1H, 0, -100, 0, 1); //negative peak1 height
   let PosPeakHLerpMap2 = map(peaks2H, 0, 100, 0, 1); //postive peak2 height
   let NegPeakHLerpMap2 = map(peaks2H, 0, -100, 0, 1); //negative peak2 height
-
+  //maps for calculating peak amount
   let PeakALerpMap = map(peaks1, 0, 10, 0, 1); //postive peak1 amount
   let Peak2ALerpMap = map(peaks2, 0, -10, 0, 1); //negative peak2 amount
   //maps for lerp colour
@@ -51,17 +50,8 @@ function drawLetter(letterData) {
   let NegLerpColor1 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap1); //neg peak1 color
   let PosLerpColor2 = lerpColor(Lcolor1, Lcolor2, PosPeakHLerpMap2); //pos peak2 color
   let NegLerpColor2 = lerpColor(Lcolor1, Lcolor2, NegPeakHLerpMap2); //neg peak2 color
-
-  let CPosLerpColor1 = lerpColor(Lcolor2, Lcolor1, PosPeakHLerpMap1); //pos peak1 color
-  let CNegLerpColor1 = lerpColor(Lcolor2, Lcolor1, NegPeakHLerpMap1); //neg peak1 color
-  let CPosLerpColor2 = lerpColor(Lcolor2, Lcolor1, PosPeakHLerpMap2); //pos peak2 color
-  let CNegLerpColor2 = lerpColor(Lcolor2, Lcolor1, NegPeakHLerpMap2); //neg peak2 color
-
   let PAmountLerpColor1 = lerpColor(Lcolor2, Lcolor3, PeakALerpMap); //peak1 amount color
   let PAmount2LerpColor1 = lerpColor(Lcolor2, Lcolor3, Peak2ALerpMap); //peak2 amount color
-
-  //rect(posx, posy, 150, 250); //bounding box?
-
   //fill(lightBlue);
   strokeWeight(15);
   strokeCap(SQUARE);
@@ -83,7 +73,7 @@ function drawLetter(letterData) {
     stroke(PAmountLerpColor1); //set number map colour
   }
 //&& peaks1 >= 0
-
+  //print('Pos Lerp Colour1 = ' + PosLerpColor1);
   beginShape();
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
     const x = i * waveL1; //sets wave 1 length
@@ -93,12 +83,7 @@ function drawLetter(letterData) {
   endShape();
   push();
 
-  //stroke("#101010"); //middle line colour
-  if(peaks1H >= 0){ //if peaks are positive
-      stroke(CPosLerpColor1); //set positive map
-  }else{ //if peaks are negative
-    stroke(CNegLerpColor1); //set negative map
-  }
+  stroke("#101010"); //middle line colour
   strokeWeight(5); //middle line weight
   beginShape(); //middle line create
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
@@ -133,12 +118,7 @@ function drawLetter(letterData) {
   }
   endShape();
   push();
-  if(peaks2H >= 0){ //if peaks are positive
-      stroke(CPosLerpColor2); //set positive map
-  }else{ //if peaks are negative
-    stroke(CNegLerpColor2); //set negative map
-  }
-  //stroke("#101010"); //middle line colour
+  stroke("#101010"); //middle line colour
   strokeWeight(5); //middle line weight
   beginShape(); //middle line create
   for (let i = 0; i < 100; i++) { //starts loop to make sine wave
@@ -155,21 +135,36 @@ pop();
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["offsetx"]    = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["waveL1"] = map(percent, 0, 100, oldObj["waveL1"], newObj["waveL1"]);
-  new_letter["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
-  new_letter["peaks1"] = map(percent, 0, 100, oldObj["peaks1"], newObj["peaks1"]);
-  new_letter["peak1H"] = map(percent, 0, 100, oldObj["peak1H"], newObj["peak1H"]);
-  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
-  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
-  new_letter["waveL2"] = map(percent, 0, 100, oldObj["waveL2"], newObj["waveL2"]);
-  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
-  new_letter["peaks2"] = map(percent, 0, 100, oldObj["peaks2"], newObj["peaks2"]);
-  new_letter["peak2H"] = map(percent, 0, 100, oldObj["peak2H"], newObj["peak2H"]);
-  new_letter["number"] = map(percent, 0, 100, oldObj["number"], newObj["number"]);
-
-
+  let inBetween = getObjFromChar("default");
+  if(percent < 50){
+    new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], inBetween["offsetx"]);
+    new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], inBetween["offsety"]);
+    new_letter["waveL1"] = map(percent, 0, 50, oldObj["waveL1"], inBetween["waveL1"]);
+    new_letter["rotate1"] = map(percent, 0, 50, oldObj["rotate1"], inBetween["rotate1"]);
+    new_letter["peaks1"] = map(percent, 0, 50, oldObj["peaks1"], inBetween["peaks1"]);
+    new_letter["peak1H"] = map(percent, 0, 50, oldObj["peak1H"], inBetween["peak1H"]);
+    new_letter["offsetx2"] = map(percent, 0, 50, oldObj["offsetx2"], inBetween["offsetx2"]);
+    new_letter["offsety2"] = map(percent, 0, 50, oldObj["offsety2"], inBetween["offsety2"]);
+    new_letter["waveL2"] = map(percent, 0, 50, oldObj["waveL2"], inBetween["waveL2"]);
+    new_letter["rotate2"] = map(percent, 0, 50, oldObj["rotate2"], inBetween["rotate2"]);
+    new_letter["peaks2"] = map(percent, 0, 50, oldObj["peaks2"], inBetween["peaks2"]);
+    new_letter["peak2H"] = map(percent, 0, 50, oldObj["peak2H"], inBetween["peak2H"]);
+    new_letter["number"] = map(percent, 0, 50, oldObj["number"], newObj["number"]);
+  }else{
+    new_letter["offsetx"] = map(percent, 51, 100, inBetween["offsetx"], newObj["offsetx"]);
+    new_letter["offsety"] = map(percent, 51, 100, inBetween["offsety"], newObj["offsety"]);
+    new_letter["waveL1"] = map(percent, 51, 100, inBetween["waveL1"], newObj["waveL1"]);
+    new_letter["rotate1"] = map(percent, 51, 100, inBetween["rotate1"], newObj["rotate1"]);
+    new_letter["peaks1"] = map(percent, 51, 100, inBetween["peaks1"], newObj["peaks1"]);
+    new_letter["peak1H"] = map(percent, 51, 100, inBetween["peak1H"], newObj["peak1H"]);
+    new_letter["offsetx2"] = map(percent, 51, 100, inBetween["offsetx2"], newObj["offsetx2"]);
+    new_letter["offsety2"] = map(percent, 51, 100, inBetween["offsety2"], newObj["offsety2"]);
+    new_letter["waveL2"] = map(percent, 51, 100, inBetween["waveL2"], newObj["waveL2"]);
+    new_letter["rotate2"] = map(percent, 51, 100, inBetween["rotate2"], newObj["rotate2"]);
+    new_letter["peaks2"] = map(percent, 51, 100, inBetween["peaks2"], newObj["peaks2"]);
+    new_letter["peak2H"] = map(percent, 51, 100, inBetween["peak2H"], newObj["peak2H"]);
+    new_letter["number"] = map(percent, 51, 100, newObj["number"], newObj["number"]);
+  }
   return new_letter;
 }
 
