@@ -1,6 +1,6 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#0077b6";
-var systemLineColor = "#000090";
+var systemBackgroundColor = "#000000";
+var systemLineColor = "#ffffff";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
@@ -38,17 +38,20 @@ function drawLetter(letterData) {
   let tri3X = posx + letterData["triPosition3X"];
   let tri3Y = posy + letterData["triPosition3Y"];
 
+  push();
   rectMode(CENTER);
-  noStroke();
   angleMode(DEGREES);
 
   fill(black);
+  stroke(200);
+  strokeWeight(2);
   rect(posx, posy, 100, 200);
 
   fill(white);
+  noStroke();
   rect(rectPosX, rectPosY, rectWidth, rectHeight);
 
-  push();
+
   fill(white);
   beginShape();
   vertex(tri1X, tri1Y);
@@ -65,15 +68,20 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["rectwidth"] = map(percent, 0, 100, oldObj["rectwidth"], newObj["rectwidth"]);
   new_letter["rectheight"] = map(percent, 0, 100, oldObj["rectheight"], newObj["rectheight"]);
 
-  new_letter["triPositionX"] = map(percent, 0, 100, oldObj["triPositionX"], newObj["triPositionX"]);
-  new_letter["triPositionY"] = map(percent, 0, 100, oldObj["triPositionY"], newObj["triPositionY"]);
-  new_letter["triangleScale"] = map(percent, 0, 100, oldObj["triangleScale"], newObj["triangleScale"]);
-  new_letter["triangleRotate"] = map(percent, 0, 100, oldObj["triangleRotate"], newObj["triangleRotate"]);
+  new_letter["triPosition1X"] = map(percent, 0, 100, oldObj["triPosition1X"], newObj["triPosition1X"]);
+  new_letter["triPosition1Y"] = map(percent, 0, 100, oldObj["triPosition1Y"], newObj["triPosition1Y"]);
+  new_letter["triPosition2X"] = map(percent, 0, 100, oldObj["triPosition2X"], newObj["triPosition2X"]);
+  new_letter["triPosition2Y"] = map(percent, 0, 100, oldObj["triPosition2Y"], newObj["triPosition2Y"]);
+  new_letter["triPosition3X"] = map(percent, 0, 100, oldObj["triPosition3X"], newObj["triPosition3X"]);
+  new_letter["triPosition3Y"] = map(percent, 0, 100, oldObj["triPosition3Y"], newObj["triPosition3Y"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "NEGATIVE",
+  "TRICKART",
+  "KONITIWA",
+  "BAKAAHOI",
+  "GAWRGURA",
+  "80180188"
 ]

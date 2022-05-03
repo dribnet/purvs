@@ -14,12 +14,12 @@ const alphabet = {
   },
   "A": {
     "rectPositionX": 0,
-    "rectPositionY": 60,
+    "rectPositionY": 55,
     "rectwidth": 60,
     "rectheight": 90,
 
     "triPosition1X": 0,
-    "triPosition1Y": -70,
+    "triPosition1Y": -80,
     "triPosition2X": 30,
     "triPosition2Y": -10,
     "triPosition3X": -30,
@@ -353,8 +353,8 @@ const alphabet = {
   "0": {
     "rectPositionX": 0,
     "rectPositionY": 0,
-    "rectwidth": 0,
-    "rectheight": 0,
+    "rectwidth": 100,
+    "rectheight": 200,
 
     "triPosition1X": 0,
     "triPosition1Y": 0,
@@ -364,7 +364,7 @@ const alphabet = {
     "triPosition3Y": 0
   },
   "1": {
-    "rectPositionX": -30,
+    "rectPositionX": -20,
     "rectPositionY": 0,
     "rectwidth": 60,
     "rectheight": 200,
