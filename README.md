@@ -1,5 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
-Interaction
+Exhibition
 
-Since I used a lot of rotations when creating the letters, the letters are able to rotate during the interaction. Also, the arrow can appear from different angles. However, the problem is that some parts of the letters appear outside the box during the interaction. I have tried to fix it, but it doesn't look good either. But at least it is possible to change from the old letters to the new ones .
+This is my final. the letter was originally inspired by a bow and arrow, so I called it ARROWS. the letter consists of two arcs, two lines and a triangle. A straight line and a triangle are fixed to form the arrow, which is the characteristic of this font.
+
+The biggest problem I encountered in this project was the interaction page. Since there is a lot of rotation, DEGREE does not work here, so the transition has a big problem in the interaction page. But it looks fine on the exclusion page.
