@@ -79,16 +79,16 @@ if (backDrop === 1) {
 */
 
 //3D Fade Drop Shadow Variables
-  let dropShadowOnePosx = 4;
-  let dropShadowOnePosy = 4;
-    let dropShadowTwoPosx = 7.5;
-    let dropShadowTwoPosy = 9;
-      let dropShadowThreePosx = 9;
-      let dropShadowThreePosy = 14;
-        let dropShadowFourPosx = 11.5;
-        let dropShadowFourPosy = 19;
-          let dropShadowFivePosx = 14;
-          let dropShadowFivePosy = 24;
+  let dropShadowOnePosx = 2;
+  let dropShadowOnePosy = 5;
+    let dropShadowTwoPosx = 4;
+    let dropShadowTwoPosy = 10;
+      let dropShadowThreePosx = 6;
+      let dropShadowThreePosy = 15;
+        let dropShadowFourPosx = 8;
+        let dropShadowFourPosy = 20;
+          let dropShadowFivePosx = 10;
+          let dropShadowFivePosy = 25;
 
 //3D Fade Drop Shadow Pixel #1
 fill(lightPixelClr, 70);
