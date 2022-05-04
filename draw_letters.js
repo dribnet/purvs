@@ -1,12 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ffffff";
+
+var systemBackgroundColor = '#71d19b';
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const dark  = "#000000";
+const dark  = "#1f1a2e";
 const light  = "#bacbcf";
 const strokeColor  = "#547780";
+
 
 /*
  * Draw the letter given the letterData
@@ -17,6 +19,9 @@ const strokeColor  = "#547780";
  */
 function drawLetter(letterData) {
   // color/stroke setup
+
+
+
   stroke(strokeColor);
   strokeWeight(0);
 
@@ -54,7 +59,7 @@ function drawLetter(letterData) {
   fill(light);
 //  ellipse(pos2x, pos2y, size2, size2);
 
-fill(255);
+fill(systemBackgroundColor);
   beginShape();
 vertex(letterData["x1"],letterData["y1"]);
 bezierVertex(letterData["x2"],letterData["y2"],letterData["x3"],letterData["y3"],letterData["x4"],letterData["y4"]);
