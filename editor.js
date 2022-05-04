@@ -5,9 +5,24 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["ax", 0,200],
+  ["ay", 0,200],
+  ["asize", 0,200],
+  ["astart", 0,360],
+["astop", 0,360],
+  ["a2x", 0,200],
+  ["a2y", 0,200],
+ ["a2size", 0,200],
+  ["a2start", 0,360],
+  ["a2stop", 0,360],
+ ["thinrx", 0,200],
+  ["thinry", 0,200],
+  ["thinrh", 0,200],
+  ["thinrw", 0,200],
+  ["marectx", 0,200],
+  ["marecty", 0,200],
+  ["marecth", 0,200],
+  ["marectw", 0,200]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.

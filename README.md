@@ -1,10 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
-Having a play around with the letter system and as to what is possible
+The Start of the alphabet! im going with a bauhaus style font that uses forms from a deconstructed bauhaus poster created by Joost Schmidt https://www.moma.org/collection/works/6235
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I have drawn the shapes in illustrator to give me an idea as to what i can use to create my font type
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+At a current stage of having the editor working well.
