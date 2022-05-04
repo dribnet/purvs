@@ -1,11 +1,11 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ffd60a";
-var systemLineColor = "#ffc300";
-var systemBoxColor = "#ffc300";
+var systemBackgroundColor = "#ffd60a"; //sets background colour
+var systemLineColor = "#ffc300"; //sets line colour
+var systemBoxColor = "#ffc300"; //sets box colour
 
 /* internal constants */
-const white  = "#000814";
-const strokeColor  = "#ffc300"; //temp = #ffc300
+const fontColor  = "#000814"; //sets the font colour
+const strokeColor  = "#ffc300"; //sets the box stroke colour
 
 
 
@@ -19,70 +19,71 @@ const strokeColor  = "#ffc300"; //temp = #ffc300
 function drawLetter(letterData) {
   // color/stroke setup
   
-  let posx = 10;
-  let posy = 100;
-  stroke(strokeColor);
-  noStroke();
-  let pos1x = posx + letterData["Rect1x"];
-  let pos1y = posy + letterData["Rect1y"];
-  let pos2x = posx + letterData["Rect2x"];
-  let pos2y = posy + letterData["Rect2y"];
-  let pos3x = posx + letterData["Rect3x"];
-  let pos3y = posy + letterData["Rect3y"];
-  let pos4x = posx + letterData["Rect4x"];
-  let pos4y = posy + letterData["Rect4y"];
-  let pos5x = posx + 40;
-  let pos5y = posy + 0;
+  let posx = 10; //sets the global x position
+  let posy = 100;//sets the global y position
 
-  let height1y = letterData["Rect1h"];
-  let height2y = letterData["Rect2h"];
-  let height3y = letterData["Rect3h"];
-  let height4y = letterData["Rect4h"];
-  let height5y = 178;
-  let width5x = 114;
+  let pos1x = posx + letterData["Rect1x"]; //sets Rectangle 1 x position
+  let pos1y = posy + letterData["Rect1y"]; //sets Rectangle 1 y position
+  let pos2x = posx + letterData["Rect2x"]; //sets Rectangle 2 x position
+  let pos2y = posy + letterData["Rect2y"]; //sets Rectangle 2 y position
+  let pos3x = posx + letterData["Rect3x"]; //sets Rectangle 3 x position
+  let pos3y = posy + letterData["Rect3y"]; //sets Rectangle 3 y position
+  let pos4x = posx + letterData["Rect4x"]; //sets Rectangle 4 x position
+  let pos4y = posy + letterData["Rect4y"]; //sets Rectangle 4 y position
+  let pos5x = posx + 40; //sets the border box x position
+  let pos5y = posy + 0; //sets the border box y position
 
-  let rot1 = letterData["Rect1r"];
-  let rot2 = letterData["Rect2r"];
-  let rot3 = letterData["Rect3r"];
-  let rot4 = letterData["Rect4r"];
-  // square 1
-  push();
-  strokeCap(SQUARE);
-  angleMode(DEGREES);
-  rectMode(CENTER);
-  noStroke();
-  fill(white);
-  push();
-  translate(pos1x, pos1y);
-  rotate(rot1);
-  rect(0, 0, 30, height1y);
+  let height1y = letterData["Rect1h"]; //sets Rectanfle 1's height
+  let height2y = letterData["Rect2h"]; //sets Rectangle 2's height
+  let height3y = letterData["Rect3h"]; //sets Rectangle 3's height
+  let height4y = letterData["Rect4h"]; //sets Rectangle 4's height
+  let height5y = 178; //sets border box height
+  let width5x = 114; //sets border box width
+
+  let rot1 = letterData["Rect1r"]; //sets Rectangle 1's rotation
+  let rot2 = letterData["Rect2r"]; //sets Rectangle 2's rotation
+  let rot3 = letterData["Rect3r"]; //sets Rectangle 3's rotation
+  let rot4 = letterData["Rect4r"]; //sets Rectangle 4's rotation
+
+  push(); //starts letter creation
+  strokeCap(SQUARE); //sets the stroke cap to 'square'
+  angleMode(DEGREES); //sets the angle mode to degrees
+  rectMode(CENTER); //sets the rectangle mode to centre (rectangles are formed from the centre)
+  noStroke(); //removes all strokes on shapes
+  fill(fontColor); //fills the shapes with the font colour
+
+  push();//Rectangle 1 creation
+  translate(pos1x, pos1y); //moves Rectanlge 1 around
+  rotate(rot1); //rotates Rectangle 1
+  rect(0, 0, 30, height1y); //creates Rectangle 1 shape
   pop();
 
-  push();
-  translate(pos2x, pos2y);
-  rotate(rot2);
-  rect(0, 0, 30, height2y);
+  push();//Rectangle 2 creation
+  translate(pos2x, pos2y); //moves Rectangle 2 around
+  rotate(rot2); //rotates Rectangle 2
+  rect(0, 0, 30, height2y); //creates Rectangle 2 shape
   pop();
 
-  push();
-  translate(pos3x, pos3y);
-  rotate(rot3);
-  rect(0, 0, 30, height3y);
+  push(); //Rectangle 3 creation
+  translate(pos3x, pos3y); //moves Rectangle 3 around
+  rotate(rot3); //rotates Rectangle 3
+  rect(0, 0, 30, height3y); //creates Rectangle 3 shape
   pop();
 
-  push();
-  translate(pos4x, pos4y);
-  rotate(rot4);
-  rect(0, 0, 30, height4y);
+  push(); //Rectangle 4 creation
+  translate(pos4x, pos4y); //moves Rectangle 4 around
+  rotate(rot4); //rotates Rectangle 4
+  rect(0, 0, 30, height4y); //creates Rectangle 4 shape
   pop();
   
-  push();
-  fill(0, 0, 0, 0);
-  stroke(strokeColor);
-  strokeWeight(20);
-  translate(pos5x, pos5y);
-  rect(0, 0, width5x, height5y);
+  push(); //creates border box
+  fill(0, 0, 0, 0); //sets the fill to nothing(fully transparent)
+  stroke(strokeColor); //adds stroke colour
+  strokeWeight(20); //creates a strok of 20
+  translate(pos5x, pos5y); //moves the border box to the correct position
+  rect(0, 0, width5x, height5y); //creates the border box shape
   pop();
+
   pop();
 }
 
