@@ -1,10 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#00307d";
-var systemLineColor = "#00307d";
+var systemBackgroundColor = "#ffffff";
+var systemLineColor = "#ffffff";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#0077b6";
+const darkBlue  = "#00307d";
 const lightBlue  = "#90e0ef";
 const strokeColor  = "#03045e";
 const black  = "#000000";
@@ -43,17 +43,17 @@ function drawLetter(letterData) {
   rectMode(CENTER);
   angleMode(DEGREES);
 
-  fill("#00307d");
+  fill(white);
   //stroke(200);
   //strokeWeight(2);
   rect(posx, posy, 100, 200); //backgroundd for letters
 
-  fill(white);
+  fill(darkBlue);
   noStroke();
   rect(rectPosX, rectPosY, rectWidth, rectHeight); //rectangle for the empty space
 
 
-  fill(white);
+  fill(darkBlue);
   beginShape(); //triangle for the empty space
   vertex(tri1X, tri1Y);
   vertex(tri2X, tri2Y);
