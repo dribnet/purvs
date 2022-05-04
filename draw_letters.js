@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ede5e5";
+var systemBackgroundColor = "#a8dadc";
 var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBoxColor = "#457b9d";
 
 /* internal constants */
 const darkBlue = "#0077b6";
@@ -41,14 +41,14 @@ function drawLetter(letterData) {
 
 
 
-push()//arc
+push() //arc
 
- stroke(186, 28, 10);
+ stroke(230, 57, 71);
  translate(arcx, arcy)
  rotate(arcrotation)
-scale(arcscale)
+ scale(arcscale)
 
-fill(186, 28, 10,180)
+ fill(230, 57, 71, 180)
  arc(0, 0, 120, 120, 0, 180, OPEN)
 
  pop()
@@ -56,16 +56,14 @@ fill(186, 28, 10,180)
 
  push() //A triangle
 
- stroke(116, 193, 198);
+ stroke(241, 250, 238);
  translate(trianglex, triangley)
- translate(65,0)
-rotate(trianglerotation)
-scale(trianglescale)
+ translate(65, 0)
+ rotate(trianglerotation)
+ scale(trianglescale)
 
-fill(116, 193, 198,180)
+ fill(241, 250, 238, 180)
  triangle(0, 0, 60, 60, 120, 0);
-
-
 
  pop()
 
