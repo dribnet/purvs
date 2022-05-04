@@ -1,14 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#F7A1E6";
+var systemBackgroundColor = "#F7A1E6";//pink
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-// const backgroundColor = "#241623";//ugly brown colour
 const backgroundColor = "#F9B3EB"
 const strokeColor = "#00c800";
 
-const frontColour = "#99BEFF";
+const frontColour = "#99BEFF";// blue
 const backColour = "#241623";
 /*
  * Draw the letter given the letterData
@@ -20,7 +19,7 @@ const backColour = "#241623";
 function drawLetter(letterData) {
   angleMode(DEGREES);
   ellipseMode(CENTER);
-  // determine parameters for second circle
+  // parameters
   let posx = 30
   let posy = 100
   let offX = letterData["offsetx"];
@@ -42,7 +41,6 @@ function drawLetter(letterData) {
   let sizey2 = letterData["2sizeY"];
   let offX2 = letterData["2offsetx"];
   let offY2 = letterData["2offsety"];
-
   let ibStroke = posx + letterData["2curveX"];
   let ibStroke2 = posy + letterData["2curveY"];
   let ibMidX = posx + letterData["2curveMidX"];
@@ -54,10 +52,9 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(frontColour);
-  stroke("#A070FF");
+  stroke("#A070FF");//purple
 
-  // ellipse(offX2, offY2, sizex2, sizey2);
-  push();
+  push();// back shape
   strokeWeight(5);
   translate(transX, transY);
   beginShape();
@@ -67,12 +64,12 @@ function drawLetter(letterData) {
   curveVertex(bStroke, bStroke2); //bottom vertex
   curveVertex(bMidX, minusBS2)
   endShape();
-  //  line()
   pop();
   strokeWeight(3);
-  ellipse(pos2x, pos2y, sizexx, sizeyy);
 
-  push();
+  ellipse(pos2x, pos2y, sizexx, sizeyy);//ellispse
+
+  push(); // front shape
   strokeWeight(5);
   translate(itransX, itransY);
   noFill();
@@ -82,7 +79,6 @@ function drawLetter(letterData) {
   curveVertex(ibStroke, ibStroke2); //bottom vertex
   curveVertex(ibMidX, iminusBS2)
   endShape();
-  //  line()
   pop();
 }
 
@@ -96,8 +92,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["curveMidY"] = map(percent, 0, 100, oldObj["curveMidY"], newObj["curveMidY"]);
   new_letter["curveX"] = map(percent, 0, 100, oldObj["curveX"], newObj["curveX"]);
   new_letter["curveY"] = map(percent, 0, 100, oldObj["curveY"], newObj["curveY"]);
-  new_letter["translateX"] = map(percent, 0, 100, oldObj["translateX"], newObj["2translateX"]);
-  new_letter["translateY"] = map(percent, 0, 100, oldObj["translateY"], newObj["2translateY"]);
+  new_letter["translateX"] = map(percent, 0, 100, oldObj["translateX"], newObj["translateX"]);
+  new_letter["translateY"] = map(percent, 0, 100, oldObj["translateY"], newObj["translateY"]);
   new_letter["2curveMidX"] = map(percent, 0, 100, oldObj["2curveMidX"], newObj["2curveMidX"]);
   new_letter["2curveMidY"] = map(percent, 0, 100, oldObj["2curveMidY"], newObj["2curveMidY"]);
   new_letter["2curveX"] = map(percent, 0, 100, oldObj["2curveX"], newObj["2curveX"]);
@@ -107,11 +103,13 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   return new_letter;
 }
-
+//letters that dont work with the interpolation
 //E,F,K,M,S,V,Z,6,4,1,3,5
 
 var swapWords = [
   "PLAYTIME",
-  "ACADEMIC",
-  "SUPERIOR"
+  "CRIMINAL",
+  "LAUGHTER",
+  "PRINCESS",
+  "BISEXUAL"
 ]
