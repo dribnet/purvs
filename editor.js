@@ -93,6 +93,16 @@ function draw () {
   let obj = sliderToDataObject();
   drawLetter(obj);
   pop();
+
+  translate(width/2, height/2);
+  scale(2);
+  strokeWeight(3);
+  line(-50, 0, 50, 0);
+  line(0, -100, 0, 100);
+  line(-50, -50, 50, -50);
+  line(-50, 50, 50, 50);
+  line(25, -100, 25, 100);
+  line(-25, -100, -25, 100);
 }
 
 function keyTyped() {

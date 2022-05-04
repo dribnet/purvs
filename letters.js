@@ -1,16 +1,16 @@
 const alphabet = {
   "default": {
-    "rectPositionX": 0,
+    "rectPositionX": -20,
     "rectPositionY": 0,
-    "rectwidth": 0,
-    "rectheight": 0,
+    "rectwidth": 20,
+    "rectheight": 20,
 
-    "triPosition1X": 0,
-    "triPosition1Y": 0,
-    "triPosition2X": 0,
-    "triPosition2Y": 0,
-    "triPosition3X": 0,
-    "triPosition3Y": 0
+    "triPosition1X": -30,
+    "triPosition1Y": 40,
+    "triPosition2X": -30,
+    "triPosition2Y": 100,
+    "triPosition3X": -10,
+    "triPosition3Y": 40
   },
   "A": {
     "rectPositionX": 0,
