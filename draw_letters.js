@@ -106,7 +106,7 @@ function drawLetter(letterData) {
   stroke("#101010"); //middle line colour
   strokeWeight(10); //middle line weight
   beginShape(); //middle line create
-  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+  for (let i = -1; i < 101; i++) { //starts loop to make sine wave
     const x = i * waveL1; //sets wave 1 length
     const y = sin(i * radians(peaks1)) * peaks1H; //sets peak amount and peak height
     vertex(x, y); //draws line
@@ -165,7 +165,7 @@ function drawLetter(letterData) {
   stroke("#101010"); //middle line colour
   strokeWeight(10); //middle line weight
   beginShape(); //middle line 2 create
-  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+  for (let i = -1; i < 101; i++) { //starts loop to make sine wave
     const x = i * waveL2; //sets wave 2 length
     const y = -sin(i * radians(peaks2)) * peaks2H; //sets peak amount and peak height
     vertex(x, y); //draws line
@@ -223,7 +223,7 @@ function drawLetter(letterData) {
   stroke("#101010"); //middle line 3 colour
   strokeWeight(10); //middle line 3 weight
   beginShape(); //middle line 3 create
-  for (let i = 0; i < 100; i++) { //starts loop to make sine wave
+  for (let i = -1; i < 101; i++) { //starts loop to make sine wave
     const x = i * waveL3; //sets wave 3 length
     const y = -sin(i * radians(peaks3)) * peaks3H; //sets peak amount and peak height
     vertex(x, y); //draws line
@@ -327,5 +327,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "WAVEFORM",
   "SINEWAVE",
-  "SKELTON?"
+  "SKELTON?",
+  "1ONE2TWO",
+  "80EIGHTY"
 ]
