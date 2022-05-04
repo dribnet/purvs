@@ -5,12 +5,24 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "39714d2033bf484d8b3875a0713755335394e477",
+      "name": "Interpolations (broken README)"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "c0db482d8882f6eea074db85900d304c92a60cf2",
+      "name": "Background details"
+    },
+    {
+      "sha": "3da84f52e817ebe96600e877efa7d1d983a126bd",
+      "name": "Completed alphabet"
+    },
+    {
+      "sha": "527a097364666d22b0d152e6c2827b0f24ddb112",
+      "name": "Letter redesign"
+    },
+    {
+      "sha": "223aa3341c95c723044b3b9905c3d565e67fa78c",
+      "name": "Initial idea"
     }
   ]
 }

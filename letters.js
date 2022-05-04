@@ -16,7 +16,7 @@ const alphabet = {
     "square2X": 85,
     "square2Y": 80
   },
-  "interpol": {
+  "interpol": { // The letter that the interpolation starts with (full golden ratio rectangle)
     "numLineSquares": 2,
     "lineSquaresX": 85,
     "lineSquaresY": 110,
