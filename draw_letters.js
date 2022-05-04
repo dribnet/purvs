@@ -1,12 +1,25 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ffa414";
-var systemBoxColor = "#fcbb15";
+var systemBackgroundColor = "#caf0f8";
+var systemLineColor = "#000090";
+var systemBoxColor = "#00c800";
 
+/* internal constants */
+const darkBlue = "#0077b6";
+const lightBlue = "#90e0ef";
+const strokeColor = "#03045e";
+
+
+/*
+ * Draw the letter given the letterData
+ *
+ * Letters should always be drawn with the
+ * following bounding box guideline:
+ * from (0,0) to (100, 200)
+ */
 function drawLetter(letterData) {
 
   let T1 = 32;
   let T2 = 100;
-  let white = (255);
 
   // determine parameters for second circle
   let Width = letterData["Width"]; // Arc1 width
@@ -34,8 +47,8 @@ function drawLetter(letterData) {
   scale(0.5);
   translate(posx, posy + 15);
   rotate(angle3)
-  stroke(white);
-  noFill();
+  stroke(0);
+  fill(0);
   strokeWeight(5);
   triangle(T1, T2, T1 + 18, T2 - 45, T1 + 36, T2);
   line(T1 + 18, T2, T1 + 18, T2 * 2.5);
@@ -44,7 +57,7 @@ function drawLetter(letterData) {
   push() //line
   translate(pos1x, pos1y);
   rotate(angle2)
-  stroke(white);
+  stroke(0);
   strokeWeight(5);
   line(Lx, Ly, Lx, Ly1);
   pop()
@@ -53,7 +66,7 @@ function drawLetter(letterData) {
   scale(1.2)
   angleMode(DEGREES);
   noFill();
-  stroke(67, 171, 174);
+  stroke(0);
   strokeWeight(10);
   rotate(angle)
   arc(pos2x, pos2y, Width, Height, 0, 180, OPEN);
@@ -63,7 +76,7 @@ function drawLetter(letterData) {
   scale(1.2)
   angleMode(DEGREES);
   noFill();
-  stroke(white);
+  stroke(0);
   strokeWeight(5);
   rotate(angle4)
   arc(pos3x, pos3y, Width1, Height1, 0, 180, OPEN);
@@ -71,37 +84,18 @@ function drawLetter(letterData) {
 
 }
 
+
+
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-
-  new_letter["Width"] = map(percent, 0, 90, oldObj["Width"], newObj["Width"]); //arc1
-  new_letter["Height"] = map(percent, 0, 90, oldObj["Height"], newObj["Height"]);
-  new_letter["offsetx2"] = map(percent, 0, 90, oldObj["offsetx2"], newObj["offsetx2"]);
-  new_letter["offsety2"] = map(percent, 0, 90, oldObj["offsety2"], newObj["offsety2"]);
-  new_letter["RotateAngle"] = map(percent, 0, 90, oldObj["RotateAngle"], newObj["RotateAngle"]);
-
-  new_letter["Width1"] = map(percent, 0, 90, oldObj["Width1"], newObj["Width1"]); //arc2
-  new_letter["Height1"] = map(percent, 0, 90, oldObj["Height1"], newObj["Height1"]);
-  new_letter["offsetx3"] = map(percent, 0, 90, oldObj["offsetx3"], newObj["offsetx3"]);
-  new_letter["offsety3"] = map(percent, 0, 90, oldObj["offsety3"], newObj["offsety3"]);
-  new_letter["RotateAngle4"] = map(percent, 0, 90, oldObj["RotateAngle4"], newObj["RotateAngle4"]);
-
-  new_letter["Lx"] = map(percent, 0, 90, oldObj["Lx"], newObj["Lx"]); // line
-  new_letter["Ly"] = map(percent, 0, 90, oldObj["Ly"], newObj["Ly"]);
-  new_letter["Ly1"] = map(percent, 0, 90, oldObj["Ly1"], newObj["Ly1"]);
-  new_letter["offsetx1"] = map(percent, 0, 90, oldObj["offsetx1"], newObj["offsetx1"]);
-  new_letter["offsety1"] = map(percent, 0, 90, oldObj["offsety1"], newObj["offsety1"]);
-
-  new_letter["offsetx0"] = map(percent, 0, 90, oldObj["offsetx0"], newObj["offsetx0"]); //arrow
-  new_letter["offsety0"] = map(percent, 0, 90, oldObj["offsety0"], newObj["offsety0"]);
-  new_letter["RotateAngle2"] = map(percent, 0, 90, oldObj["RotateAngle2"], newObj["RotateAngle2"]);
-  new_letter["RotateAngle3"] = map(percent, 0, 90, oldObj["RotateAngle3"], newObj["RotateAngle3"]);
-
-
+  new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   return new_letter;
 }
 
 var swapWords = [
-  ".ARROWS.",
-  "..FONT..",
+  "ABBAABBA",
+  "CAB?CAB?",
+  "BAAAAAAA"
 ]
