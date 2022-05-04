@@ -33,19 +33,41 @@ function drawLetter(letterData) {
   // draw
   angleMode(DEGREES);
   const archSize = 100;
+  const defaultStroke = 8
+
+  // glow line constants
+  const glowBlue = color(66, 198, 255, 50);
+  const glowStroke = 18
 
   // horizontal line
   stroke(lightBlue);
-  strokeWeight(8);
+  strokeWeight(defaultStroke);
+  line(L1Xstartcoord, horizLineY, L1Xstopcoord, horizLineY);
+
+  // horizontal line glow
+  stroke(glowBlue);
+  strokeWeight(glowStroke);
   line(L1Xstartcoord, horizLineY, L1Xstopcoord, horizLineY);
 
   // vertical line
   stroke(lightBlue);
-  strokeWeight(8);
+  strokeWeight(defaultStroke);
   line(vertLineX, L2Ystartcoord, vertLineX, L2Ystopcoord);
 
+  // vertical line glow
+  stroke(glowBlue);
+  strokeWeight(glowStroke);
+  line(vertLineX, L2Ystartcoord, vertLineX, L2Ystopcoord);
+
+  // arc
   stroke(lightBlue);
-  strokeWeight(8);
+  strokeWeight(defaultStroke);
+  noFill();
+  arc(50, 100, archSize, archSize, arcStartA, arcStopA);
+
+  // arc glow
+  stroke(glowBlue);
+  strokeWeight(glowStroke);
   noFill();
   arc(50, 100, archSize, archSize, arcStartA, arcStopA);
 
@@ -53,9 +75,14 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcStartAngle"] = map(percent, 0, 100, oldObj["arcStartAngle"], newObj["arcStartAngle"]);
+  new_letter["arcStopAngle"] = map(percent, 0, 100, oldObj["arcStopAngle"], newObj["arcStopAngle"]);
+  new_letter["Line1_X_startcoord"] = map(percent, 0, 100, oldObj["Line1_X_startcoord"], newObj["Line1_X_startcoord"]);
+  new_letter["Line1_X_stopcoord"] = map(percent, 0, 100, oldObj["Line1_X_stopcoord"], newObj["Line1_X_stopcoord"]);
+  new_letter["horizontalLineY"] = map(percent, 0, 100, oldObj["horizontalLineY"], newObj["horizontalLineY"]);
+  new_letter["verticalLineX"] = map(percent, 0, 100, oldObj["verticalLineX"], newObj["verticalLineX"]);
+  new_letter["Line2_Y_startcoord"] = map(percent, 0, 100, oldObj["Line2_Y_startcoord"], newObj["Line2_Y_startcoord"]);
+  new_letter["Line2_Y_stopcoord"] = map(percent, 0, 100, oldObj["Line2_Y_stopcoord"], newObj["Line2_Y_stopcoord"]);
   return new_letter;
 }
 
