@@ -17,33 +17,49 @@ const lightBlue  = "#90e0ef";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(strokeColor);
+  fill(strokeColor);
   strokeWeight(4);
   let posx = 30;
   let posy = 200;
-
-  // determine parameters for second circle
-  let lenA = letterData["lenA"];
-  let lenB = letterData["lenB"];
-  let leanB = letterData["leanB"];
-
-  // draw two lines
-  strokeWeight(10);
-  //line A
-  // line(posx, posy, posx+0, posy-lenA);
-  for(let i = 0; i <= lenA/20; i++)
-  {
-    circle(posx,lerp(posy,posy-lenA,i/(lenA/20)),5);
-  }
+  
   noStroke();
-  fill(232, 97, 197, 30);
-  //line B
-  for(let i = 0; i <= 10; i++)
-  {
-    for(let j = 0; j < 5; j++){
-      circle(posx+50+lerp(0,leanB,i/10),posy-lerp(0,lenB,i/10),j*10);
+  // determine parameters for halftone space
+  let pix1 = 1;
+  let pix2 = 0;
+  let pix3 = 2;
+
+  // draw circles
+  for (let i = 1; i <= 250; i++){
+    let x = (i%10)*10;
+    let y = 8*floor((i-1)/10);
+
+    let dim = 0;
+    let jdim = 0;
+    let jX;
+    let jY;
+    let jVal;
+    for (let j = 1; j <= 20; j++){
+      jX = (j%4)*30;
+      jY = (floor((j-1)/4))*50;
+      jVal = pix1;
+      // ellipse(jX,jY,10,10);
+      jdim = dist(x,y,jX,jY)*jVal;
+      if  (jdim > dim) dim = jdim;
     }
+
+    let diametre = map(dim,100,0,0,5);
+    // if (diametre > 5) diametre = 5;
+    ellipse(x,y,diametre,diametre);
   }
+
+  // test circles \(.‸.)/
+  for (let j = 1; j <= 20; j++){
+    jX = (j%4)*30;
+    jY = (floor((j-1)/4))*50;
+    jVal = pix1*50;
+    ellipse(jX,jY,jVal,jVal);
+  }
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
