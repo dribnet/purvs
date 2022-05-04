@@ -1,13 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#d0cd94";
+var systemBackgroundColor = "#F7A1E6";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor = "#241623";
-const strokeColor = "#03045e";
+// const backgroundColor = "#241623";//ugly brown colour
+const backgroundColor = "#F9B3EB"
+const strokeColor = "#00c800";
 
-const frontColour = "#241623";
+const frontColour = "#99BEFF";
 const backColour = "#241623";
 /*
  * Draw the letter given the letterData
@@ -53,36 +54,36 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(frontColour);
-  strokeWeight(2);
-  stroke("#03045e");
+  stroke("#A070FF");
 
   // ellipse(offX2, offY2, sizex2, sizey2);
   push();
+  strokeWeight(5);
   translate(transX, transY);
   beginShape();
+  noFill();
   curveVertex(bMidX, bMidY);
   curveVertex(minusBS, minusBS2); //top wertex
   curveVertex(bStroke, bStroke2); //bottom vertex
   curveVertex(bMidX, minusBS2)
   endShape();
-//  line()
+  //  line()
   pop();
+  strokeWeight(3);
   ellipse(pos2x, pos2y, sizexx, sizeyy);
 
   push();
-  translate(itransX,itransY);
+  strokeWeight(5);
+  translate(itransX, itransY);
+  noFill();
   beginShape();
   curveVertex(ibMidX, ibMidY);
-  curveVertex(iminusBS,iminusBS2); //top wertex
+  curveVertex(iminusBS, iminusBS2); //top wertex
   curveVertex(ibStroke, ibStroke2); //bottom vertex
   curveVertex(ibMidX, iminusBS2)
   endShape();
-//  line()
+  //  line()
   pop();
-
-
-
-
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -91,26 +92,26 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["sizeY"] = map(percent, 0, 100, oldObj["sizeY"], newObj["sizeY"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["curveMidX"] = map(percent,0,100,oldObj["curveMidX"], newObj["curveMidX"]);
-  new_letter["curveMidY"] = map(percent,0,100,oldObj["curveMidY"], newObj["curveMidY"]);
-  new_letter["curveX"] = map(percent,0,100,oldObj["curveX"], newObj["curveX"]);
-  new_letter["curveY"] = map(percent,0,100,oldObj["curveY"], newObj["curveY"]);
-  new_letter["translateX"] = map(percent,0,100,oldObj["translateX"], newObj["2translateX"]);
-  new_letter["translateY"] = map(percent,0,100,oldObj["translateY"], newObj["2translateY"]);
-  new_letter["2curveMidX"] = map(percent,0,100,oldObj["2curveMidX"], newObj["2curveMidX"]);
-  new_letter["2curveMidY"] = map(percent,0,100,oldObj["2curveMidY"], newObj["2curveMidY"]);
-  new_letter["2curveX"] = map(percent,0,100,oldObj["2curveX"], newObj["2curveX"]);
-  new_letter["2curveY"] = map(percent,0,100,oldObj["2curveY"], newObj["2curveY"]);
-  new_letter["2translateX"] = map(percent,0,100,oldObj["2translateX"], newObj["2translateX"]);
-  new_letter["2translateY"] = map(percent,0,100,oldObj["2translateY"], newObj["2translateY"]);
-
-
+  new_letter["curveMidX"] = map(percent, 0, 100, oldObj["curveMidX"], newObj["curveMidX"]);
+  new_letter["curveMidY"] = map(percent, 0, 100, oldObj["curveMidY"], newObj["curveMidY"]);
+  new_letter["curveX"] = map(percent, 0, 100, oldObj["curveX"], newObj["curveX"]);
+  new_letter["curveY"] = map(percent, 0, 100, oldObj["curveY"], newObj["curveY"]);
+  new_letter["translateX"] = map(percent, 0, 100, oldObj["translateX"], newObj["2translateX"]);
+  new_letter["translateY"] = map(percent, 0, 100, oldObj["translateY"], newObj["2translateY"]);
+  new_letter["2curveMidX"] = map(percent, 0, 100, oldObj["2curveMidX"], newObj["2curveMidX"]);
+  new_letter["2curveMidY"] = map(percent, 0, 100, oldObj["2curveMidY"], newObj["2curveMidY"]);
+  new_letter["2curveX"] = map(percent, 0, 100, oldObj["2curveX"], newObj["2curveX"]);
+  new_letter["2curveY"] = map(percent, 0, 100, oldObj["2curveY"], newObj["2curveY"]);
+  new_letter["2translateX"] = map(percent, 0, 100, oldObj["2translateX"], newObj["2translateX"]);
+  new_letter["2translateY"] = map(percent, 0, 100, oldObj["2translateY"], newObj["2translateY"]);
 
   return new_letter;
 }
 
+//E,F,K,M,S,V,Z,6,4,1,3,5
+
 var swapWords = [
-  "PHYSICAL",
+  "PLAYTIME",
   "ACADEMIC",
   "SUPERIOR"
 ]

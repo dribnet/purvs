@@ -23,10 +23,6 @@ const sliderInfo = [
   ["2translateY", -100, 200],
 
 ];
-// ["2sizeX", 0, 100],
-// ["2sizeY", 0, 100],
-// ["2offsetx", 25,75],
-// ["2offsety", 00, 200],
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
 
