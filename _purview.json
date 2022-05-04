@@ -1,9 +1,6 @@
 {
   "commits": [
-    {
-      "sha": "75fcd0f5ac06f667af6f9207f11ee2fe9efb95a8",
-      "name": "Final"
-    },
+    
     {
       "sha": "75fcd0f5ac06f667af6f9207f11ee2fe9efb95a8",
       "name": "Finishing Touches"
@@ -30,7 +27,7 @@
     },
     {
       "sha": "0d96a5aa4222b4efc83365add9ad0c29b6e165f5",
-      "name": "If Art Deco was Y2K"
+      "name": "Definitely Not an Art History Major"
     }
   ]
 }
