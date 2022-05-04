@@ -18,19 +18,19 @@ const strokeColor  = "#03045e";
 function drawLetter(letterData) {
   push()
   // determine parameters for red circle
-  let circleR1 = letterData["circleR1"];
-  let circleR2 = letterData["circleR2"];
-  let circleR3 = letterData["circleR3"];
-  let posR1x = letterData["r1x"];
-  let posR1y = letterData["r1y"];
-  let posR2x = letterData["r2x"];
-  let posR2y = letterData["r2y"];
-  let posR3x = letterData["r3x"];
-  let posR3y = letterData["r3y"];
+  let circleR1 = letterData["circleR1"]; //First red circle
+  let circleR2 = letterData["circleR2"]; //secound red circle
+  let circleR3 = letterData["circleR3"]; //thrid red circle
+  let posR1x = letterData["r1x"]; //First red circle x
+  let posR1y = letterData["r1y"]; //First red circle y
+  let posR2x = letterData["r2x"]; //secound red circle x
+  let posR2y = letterData["r2y"]; //secound red circle y
+  let posR3x = letterData["r3x"]; //thrid red circle x
+  let posR3y = letterData["r3y"]; //thrid red circle y
   //Yellow circle
-  let circleY1 = letterData["circleY1"];
-  let circleY2 = letterData["circleY2"];
-  let circleY3 = letterData["circleY3"];
+  let circleY1 = letterData["circleY1"]; //First yellow circle
+  let circleY2 = letterData["circleY2"]; //secound yellow circle
+  let circleY3 = letterData["circleY3"]; //thrid yellow circle
   let posY1x = letterData["y1x"];
   let posY1y = letterData["y1y"];
   let posY2x = letterData["y2x"];
@@ -74,9 +74,36 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["circleR1"] = map(percent, 0, 100, oldObj["circleR1"], newObj["circleR1"]);
+  new_letter["circleR2"] = map(percent, 0, 100, oldObj["circleR2"], newObj["circleR2"]);
+  new_letter["circleR3"] = map(percent, 0, 100, oldObj["circleR3"], newObj["circleR3"]);
+  new_letter["r1x"] = map(percent, 0, 100, oldObj["r1x"], newObj["r1x"]);
+  new_letter["r1y"] = map(percent, 0, 100, oldObj["r1y"], newObj["r1y"]);
+  new_letter["r2x"] = map(percent, 0, 100, oldObj["r2x"], newObj["r2x"]);
+  new_letter["r2y"] = map(percent, 0, 100, oldObj["r2y"], newObj["r2y"]);
+  new_letter["r3x"] = map(percent, 0, 100, oldObj["r3x"], newObj["r3x"]);
+  new_letter["r3y"] = map(percent, 0, 100, oldObj["r3y"], newObj["r3y"]);
+  new_letter["circleY1"] = map(percent, 0, 100, oldObj["circleY1"], newObj["circleY1"]);
+  new_letter["circleY2"] = map(percent, 0, 100, oldObj["circleY2"], newObj["circleY2"]);
+  new_letter["circleY3"] = map(percent, 0, 100, oldObj["circleY3"], newObj["circleY3"]);
+  new_letter["y1x"] = map(percent, 0, 100, oldObj["y1x"], newObj["y1x"]);
+  new_letter["y1y"] = map(percent, 0, 100, oldObj["y1y"], newObj["y1y"]);
+  new_letter["y2x"] = map(percent, 0, 100, oldObj["y2x"], newObj["y2x"]);
+  new_letter["y2y"] = map(percent, 0, 100, oldObj["y2y"], newObj["y2y"]);
+  new_letter["y3x"] = map(percent, 0, 100, oldObj["y3x"], newObj["y3x"]);
+  new_letter["y3y"] = map(percent, 0, 100, oldObj["y3y"], newObj["y3y"]);
+  new_letter["redline1"] = map(percent, 0, 100, oldObj["redline1"], newObj["redline1"]);
+  new_letter["redline2"] = map(percent, 0, 100, oldObj["redline2"], newObj["redline2"]);
+  new_letter["rl1x"] = map(percent, 0, 100, oldObj["rl1x"], newObj["rl1x"]);
+  new_letter["rl1y"] = map(percent, 0, 100, oldObj["r1y"], newObj["rl1y"]);
+  new_letter["rl2x"] = map(percent, 0, 100, oldObj["rl2x"], newObj["rl2x"]);
+  new_letter["rl2y"] = map(percent, 0, 100, oldObj["rl2y"], newObj["rl2y"]);
+  new_letter["yellowline1"] = map(percent, 0, 100, oldObj["yellowline1"], newObj["yellowline1"]);
+  new_letter["yellowline2"] = map(percent, 0, 100, oldObj["yellowline2"], newObj["yellowline2"]);
+  new_letter["yl1x"] = map(percent, 0, 100, oldObj["yl1x"], newObj["yl1x"]);
+  new_letter["yl1y"] = map(percent, 0, 100, oldObj["yl1y"], newObj["yl1y"]);
+  new_letter["yl2x"] = map(percent, 0, 100, oldObj["yl2x"], newObj["yl2x"]);
+  new_letter["yl2y"] = map(percent, 0, 100, oldObj["yl2y"], newObj["yl2y"]);
   return new_letter;
 }
 
