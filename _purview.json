@@ -1,16 +1,32 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "sha": "274a6879b2c0fa7dfbf4f17d55a394dfa272048a",
+      "name": "Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "274a6879b2c0fa7dfbf4f17d55a394dfa272048a",
+      "name": "Finishing Touches"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "ff25a75383df8154cb4363039344dd2f5bc0eac9",
+      "name": "The Butterfly Effect"
+    },
+    {
+      "sha": "1a02729c3afa3ebec172ab501146a274a4dbb2e7",
+      "name": "Adding Colour + Meaning"
+    },
+    {
+      "sha": "44032bed784624715cecdda8ba0a33cd338dcf43",
+      "name": "Adding Silhouette"
+    },
+    {
+      "sha": "4d054786a76fc13938436bbaaffdacc2a89da40f",
+      "name": "Starting Point"
+    },
+    {
+      "sha": "0d96a5aa4222b4efc83365add9ad0c29b6e165f5",
+      "name": "If Art Deco was Y2K"
     }
   ]
 }
