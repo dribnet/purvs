@@ -3,10 +3,17 @@ var systemBackgroundColor = "#FFFFFA"
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-/* internal constants */
-const darkBlue = "#0077b6";
-const lightBlue = "#90e0ef";
-const strokeColor = "#03045e";
+/* Constants for letters */
+const strokeColor = "#000000"; // Colour of outlines of letters
+const redColour = "#ff4242";
+const blueColour = "#79d8f2";
+const yellowColour = "#fcfa58";
+const squareSize = 30; // Width of white squares
+
+/* Constants for background canvases */
+const lightGreyColour = "#e7e8e0"; // Grey for fill of canvas
+const darkGreyColour = "#afb0ab"; // Grey for border of canvas, nail and strings
+
 
 /*
  * Draw the letter given the letterData
@@ -16,12 +23,6 @@ const strokeColor = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  const strokeColor = "#000000"; // Colour of outlines of letters
-  const redColour = "#ff4242";
-  const blueColour = "#79d8f2";
-  const yellowColour = "#fcfa58";
-  const squareSize = 30; // Width of white squares
-
   // Relative position of letters
   let posx = -50;
   let posy = 30;
@@ -67,10 +68,11 @@ function drawLetter(letterData) {
 
   // Stack of white squares with one blue square
   for (i = 0; i < numLineSquares; i++) {
-    // If the square is the second one being drawn make it blue. Otherwise make it white
+    // If the square is the second one being drawn, make it blue. Otherwise make it white.
     if (i == 1) {
       fill(blueColour);
-    } else {
+    }
+    else {
       fill(255);
     }
 
@@ -87,13 +89,11 @@ function drawLetter(letterData) {
 
 }
 
+
 /*
  * Draw the grey canvas behind the letter.
  */
-function drawCanvas(){
-  const lightGreyColour = "#e7e8e0"; // Grey for fill of canvas
-  const darkGreyColour = "#afb0ab"; // Grey for border of canvas, nail and strings
-
+function drawCanvas() {
   // Nail dot
   stroke(darkGreyColour);
   fill(darkGreyColour);
@@ -114,8 +114,6 @@ function drawCanvas(){
   stroke(darkGreyColour);
   line(-5, 10, 105, 10);
   line(-5, 240, 110, 240);
-
-
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -145,8 +143,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "DE STIJL",
-  "MONDRIAN",
   "ARTWORKS",
   "PAINTERS",
+  "MONDRIAN",
   "12345678"
 ]

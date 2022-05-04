@@ -1,25 +1,17 @@
 ## MDDN 242 2022 Assignment 2
 
-### 02/04/22 - INTERPOLATION AND FIBONACCI
+### 05/05/22 - FINAL DESIGN AND HAND IN
 
-Today, I have been working on the interpolations between my letters. Phoebe had mentioned on Thursday that I could look into the use of the golden ration in Mondrian art and see if that fits with my letter forms. I did a little bit of research into it and found some examples which gave me the idea of incorporating it into my interpolations. I thought that I could make one letter translate to a standard golden ratio grid before moving to the next letter. I drew up a few different options to see how I would fit it within the 3x5 grid of my letters and settled on my second option as I felt it looked the most balanced and worked with my code base (the third option wouldn't work as I am unable to draw a white rectangle, only two squares).
+This is my final font, titled 'De Stijl'.
 
-I tried a few different methods to get this working.
+My inspiration for this project was the art of Piet Mondrian, a Dutch painter who used rectangles to create pieces of abstract artwork. His colour palette for these pieces was limited to the three primary colours, along with black, white and grey, and often used the golden ratio to determine the placement of squares and colours. His artwork is a staple of the De Stijl art movement.
 
-Firstly, I created a second set of interpolation values so that one set change for the first 50% and the second did from 51-100%. I then hard coded the values I wanted it to change to based on my sketches. While this went through the golden ratio grid, the parts started at a weird position outside the bounding box and not at the first letter positions.
+My letters use a range of rectangles and squares in a 3x5 grid. I have kept the colour palette of Mondrian art, by using just red, yellow, blue, white, and black. Each letter consists of a red rectangle, a yellow rectangle, two white squares and a stack of squares which are drawn in a for loop. The number of squares drawn is determined by a variable, and the second square in the stack will always be blue while the rest are white. In some letters one or both of the white squares are hidden if they are unnecessary, but all of the other shapes are used in every letter.
 
-I then decided to see what it would look like if rather than starting at the original letter, the interpolation started at the golden ratio grid and changed to the new letter from there. This worked better as the parts did not move randomly outside the bounding box and has a cool layering effect, however I can't decide if it looks a bit jolty as it is not a smooth transition between letters.
-
-As a third variation, I went back to the two step idea but instead of hard coding the variables I created a new letter in my letters.js file to act as a golden ratio grid middle letter. I changed the hard coded bits to the variables of the new letter to see if it would work better than the hard coded version, however they just did the same thing.
-
-I think my favourite option is the second one, where the letter starts from the golden ratio grid, but I think I will get some feedback and see if I can fix the other options.
-
-The rectangles still go outside the border of the canvases in the background, but an easier solution might be to change the shape of the canvases rather than try and fix the interpolation.
-
-The 15 parameters per letter:
-  * `numLineSquares` : The number of squares to be drawn in the array
-  * `lineSquaresX`: The x position of the square array
-  * `lineSquaresY`: The y position of the square array
+I have used 15 parameters per letter. They are:
+  * `numLineSquares` : The number of squares to be drawn in the stack
+  * `lineSquaresX`: The x position of the square stack
+  * `lineSquaresY`: The y position of the square stack
   * `rectYellowX`: The x position of the yellow rectangle
   * `rectYellowY`: The y position of the yellow rectangle
   * `rectYellowWidth`: The width of the yellow rectangle
@@ -28,9 +20,13 @@ The 15 parameters per letter:
   * `rectRedY`: The y position of the red rectangle
   * `rectRedWidth`: The width of the red rectangle
   * `rectRedHeight`: The height of the red rectangle
-  * `square1X`: The x position of one of the first white squares
+  * `square1X`: The x position of the first white square
   * `square1Y`: The y position of the first white square
   * `square2X`: The x position of the second white square
   * `square2Y`: The y position of the second white square
 
-My next steps are to fix this up a bit to make it nicer and to fix the canvases in the background as currently they make the exhibition page look a bit busy and the letters are a bit harder to read. I might make it one large canvas rather than eight separate ones if that is possible.
+For the interpolations between letters, I wanted to do something that focused on the idea of the golden ratio. I did a bit of research into this and drew up some grids that follow the pattern of the ratio but also fit within the constraints of my design. I decided that I wanted my letters to move to this basic grid before changing to the new letter, using it as a transition character. I created a new letter in my letters.js file called 'interpol' that held the data for the grid position. I then tried to make the old letter transition to the grid character for the first half of the transition and then move to the new letter for the second half. However, when I did this the positioning of the rectangles in the old letter shifted and were way outside the bounding box. So instead, my letters interpolate straight from the grid character to the new letter, ignoring the old letter. While technically the transition is not smooth, they way it moves still looks smooth to the eye and gives the interpolation a more abstract feel, rather than just moving from one character to another.
+
+For the background of my design, I have added little canvases behind each letter as a nod to the art movement it is based on. This was something one of my tutors suggested and after playing around with the colour and strokes, I feel that it adds a nice detail to the final exhibition. I initially had a border around the whole canvas but it made the exhibition page look too busy and the letters became hard to read as there were too many lines. Having just a border along the top and bottom is a nice compromise that gives the effect I was hoping for.
+
+Overall, I am really happy with how this project went. I had a clear vision of where I wanted to take this from the start and I think that really helped me develop it. I like my colours and the readability of my font, and I feel that the background ties it all together. I am quite proud of my interpolation and feel that it really works with the rest of my design as it adds to the abstract nature of the font and ties in nicely with the values of Mondrian art. There is not a lot I would have done differently with this project as I didn't have any major hiccups along the way.
