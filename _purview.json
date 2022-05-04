@@ -1,16 +1,16 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
+      "sha": "4460b3f49c81b78a892af026325c4912d12675c5",
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "cbb3b8843ff887bbfb3a714f56d8f8b532ecd07b",
+      "name": "First Letters Drawn"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "433bca056ebef9913633b62071ff3045bca13640",
+      "name": "Paper Sketch & First Reflections"
     }
   ]
 }

@@ -442,8 +442,8 @@ const alphabet = {
     "sq8_posy": 92.5,
     "sq9_posx": 77.5,
     "sq9_posy": 117.5,
-    "sq10_posx": 2.5,
-    "sq10_posy": 42.5,
+  //  "sq10_posx": 2.5,
+    //"sq10_posy": 42.5,
     "lightPixelClr": 240,
     "darkPixelClr": 27.5
   },

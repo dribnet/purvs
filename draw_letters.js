@@ -209,6 +209,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+  "VINPIXEL",
   "ABCDEFGH",
   "IJKLMNOP",
   "QRSTUVWX",
