@@ -1,11 +1,11 @@
 {
   "commits": [
     {
-      "sha": "274a6879b2c0fa7dfbf4f17d55a394dfa272048a",
+      "sha": "75fcd0f5ac06f667af6f9207f11ee2fe9efb95a8",
       "name": "Final"
     },
     {
-      "sha": "274a6879b2c0fa7dfbf4f17d55a394dfa272048a",
+      "sha": "75fcd0f5ac06f667af6f9207f11ee2fe9efb95a8",
       "name": "Finishing Touches"
     },
     {
@@ -17,8 +17,12 @@
       "name": "Adding Colour + Meaning"
     },
     {
-      "sha": "44032bed784624715cecdda8ba0a33cd338dcf43",
+      "sha":  "52dc36c916da299d3f262c7ec1af92f3c84829b8",
       "name": "Adding Silhouette"
+    },
+    {
+      "sha": "44032bed784624715cecdda8ba0a33cd338dcf43",
+      "name": "Adding Structure"
     },
     {
       "sha": "4d054786a76fc13938436bbaaffdacc2a89da40f",
@@ -30,3 +34,4 @@
     }
   ]
 }
+
