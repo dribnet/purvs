@@ -5,12 +5,28 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "bd81622169f25114e8b745cc7814f6825f37a827",
+      "name": "animation polished"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "b0cb2a2cfbf5fb010088369d781f22574dc9aa87",
+      "name": "color changed"
+    },
+    {
+      "sha": "c8bed0a18b2426a7d655f42f539e60ea65ffd699",
+      "name": "letter polished"
+    },
+    {
+      "sha": "2383d5f18fe292a09f9ad1a9f91fff7ee9c8cced",
+      "name": "letter complete"
+    },
+    {
+      "sha": "13392850e210bb3b33a8256a32e37b68872149b3",
+      "name": "editor added"
+    },
+    {
+      "sha": "ecc0fd5279af2227c561e67e31050c9a513c6c08",
+      "name": "sketch"
     }
   ]
 }
