@@ -77,7 +77,7 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  if(percent < 40){
+  if(percent < 40){ //Start of the interaction, goes from first letter to mid point
     new_letter["offsetBottom"]  = map(percent, 0, 40, oldObj["offsetBottom"], 0);
     new_letter["offsetTop"]     = map(percent, 0, 40, oldObj["offsetTop"], 0);
     new_letter["offsetRight"]   = map(percent, 0, 40, oldObj["offsetRight"], 0);
@@ -89,7 +89,7 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["topVal"]        = map(percent, 0, 40, oldObj["topVal"], 0);
     new_letter["bottomVal"]     = map(percent, 0, 40, oldObj["bottomVal"], 0);
   }
-  else if(40 < percent && percent < 60){
+  else if(40 < percent && percent < 60){ //Mid point of interaction is the 'default' character
     new_letter["offsetBottom"]  = map(percent, 41, 60, 0, 0);
     new_letter["offsetTop"]     = map(percent, 41, 60, 0, 0);
     new_letter["offsetRight"]   = map(percent, 41, 60, 0, 0);
@@ -101,7 +101,7 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["topVal"]        = map(percent, 41, 60, 0, 0);
     new_letter["bottomVal"]     = map(percent, 41, 60, 0, 0);
    }
-  else if (percent > 60){
+  else if (percent > 60){ //Final stage of the interaction, mid point to new letter
     new_letter["offsetBottom"]  = map(percent, 61, 100, 0, newObj["offsetBottom"]);
     new_letter["offsetTop"]     = map(percent, 61, 100, 0, newObj["offsetTop"]);
     new_letter["offsetRight"]   = map(percent, 61, 100, 0, newObj["offsetRight"]);
