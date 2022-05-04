@@ -1,11 +1,13 @@
 ## MDDN 242 2022 Assignment 2
 
-3 / 5 / 22:
+4 / 5 / 22:
 
-Today, following of previous plan list, first I've changed my "systemLineColor", and then came up with the idea of blinking the eyes between the "oldObj" and the "newObj". that become very funny.
-But what might be a problem caught my eye: in the "interaction" section the letters still need another step for their final shape after 100%. This is something to talk about, I will definitely share it with Phoebe or Hazel.
+Today, I polished the letters k, w, and number 2. Also, after many changes in "interpolate", I'm updating my "interaction". Furthermore, I named "IMOTION!" my alphabet design and create a words-list for my "exhibition". I tried to find the words related to the name of the alphabet (emotion). The chosen name is inspired by the default happy face.
 
-I'm still working on "interpolate" to animating my design if that possible.
+I have still same notice:
+in the "interaction" section the letters still need another step for their final shape after 100%. I will definitely share it with Phoebe or Hazel.
+
+I'm still working on "interpolate" to animating my design if that possible..
 
 my parameters still same:
 
