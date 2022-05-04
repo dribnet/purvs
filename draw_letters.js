@@ -36,6 +36,13 @@ function drawLetter(letterData) {
   let pos6x = posx + letterData["2Trix3"];
   let pos6y = posy + letterData["2Triy3"];
 
+  let pos7x = posx + letterData["3Trix1"];
+  let pos7y = posy + letterData["3Triy1"];
+  let pos8x = posx + letterData["3Trix2"];
+  let pos8y = posy + letterData["3Triy2"];
+  let pos9x = posx + letterData["3Trix3"];
+  let pos9y = posy + letterData["3Triy3"];
+  
   // draw two circles
   noStroke();
   fill(darkBlue);
@@ -43,6 +50,7 @@ function drawLetter(letterData) {
   //ellipse(posx, posy, 150, 150);
   fill(lightBlue);
   triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
+  triangle(pos7x, pos7y, pos8x, pos8y, pos9x, pos9y);
   //ellipse(pos2x, pos2y, size2, size2);
 
   // draw two circles
