@@ -9,9 +9,15 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
-29/3
- I've changed this to draw triangles in place of the second circle. Because these draw via each point rather anan dimensions, points are fixed and transformations (offset) is defined with translate() and (shape) with rotate()
- I also made the colour pallette sleek white-on-black-on-white so you can see letters as fully defined by the negative space created with the 2 shapes.
+5/5 Beziers!
 
-24/4
-Forked onto my home PC while my laptop is fixed, files copied over. Test push!
+-bezier design style
+
+-made a shape editor in p5 web editor https://editor.p5js.org/verteks/sketches/_gDUaKeex
+this is where I'll create letter shapes
+
+-brought variables into draw_letters and R into letters gallery
+
+-started experimenting with colour
+
+Next steps : full alphabet, editor, interpolation, continue style development
