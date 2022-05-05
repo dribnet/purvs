@@ -1,6 +1,17 @@
 ## MDDN 242 2022 Assignment 2
 
-Starting to add final touches to the exhibition. I increased the percentage slightly to 110 to rotate faster at 50% which hopefully adds some resistance and the transition looks more controlled. I also added smooth(); which Phoebe had suggested during crit which sharpened the edges of the letterform. 
+"Meadow" Font
+
+My letterform system started out using built-in shapes in p5.js however, I wanted to challenge myself by creating my own custom shape using quadratic vertices. Doing so allowed me to manipulate the letterforms in more unique ways using rotation. I was also able to achieve a flipping-into-place effect as well as an unfolding edge in my interaction. 
+
+I'm not the best with colour so I wanted to build a solid enough foundation in terms of the silhouette before adding colour. Initially, I started out having 21 variables however, as I learnt more about my letterform system, I figured out more efficient ways to code it and got it down to 14 variables.
+
+* size (1)
+… controls the size of the object, it is actually the radius which means the final size is double the specified variable. I used this variable to make the custom shape using quadratic vertices as well as the dist function to create the cutout. I go more into the detail about the calculations in my code.
+
+* orientation (2)
+… these 2 variables controlled the flipped position (left = -1 /right = 1) of each side of the custom shape. I multiplied these variables to relevant areas within the quadratic vertices which would allow the flipping motion ie; offsetY - offset * orientation
+
 * edge (2)
 … these 2 variables represented the edge of each side of the custom shape, whether it was rounded or cornered. It would be rounded if it = 0 or cornered if = size.
 
