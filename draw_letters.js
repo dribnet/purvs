@@ -111,7 +111,11 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "RECTFONT",
+  "BENJAMIN",
+  "?PILBROW",
+  "70S?STYL",
+  "?YELLOW?",
+  "?ORANGE?",
+  "?PURPLE?"
 ]

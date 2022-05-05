@@ -3,13 +3,7 @@
 README
 --------------------------------------------------------------------
 
-Be busy with life for the past week so spent today catching up and finally getting a base down for each of my letters. Not all of them are final and there are a couple I want to rethink (mainly the K), however it's great to have them all somewhat finished. Tonight I will catch up with the interpolation session from last week as I was busy at the time, and then I can spend tomorrow polishing things up before the hand in.
-
-Update: added in the base for the interpolation. Works pretty well already, however there is a slight issue that I plan to address tomorrow. Because I don't use every rect for each letter, when it changes from (or to) a letter that doesn't use the full 3 rectangles the extra one goes off into the distance (because by default when I don't use a rect I have it set to 0, 0 pos). To fix this I will probably just make the location for the unused rects to be in the center of the shape.
-
-Also added the numbers in and I am quite happy with them already, I also like the special character which I chose to be a "Space".
-
-My final job before hand in will be to refine each letter and polish them up, polish up the interpolation, and finally pick a colour scheme I like. To be honest I am already quite fond of the colours I already picked out at the start when making my sketch, so this may not change.
+Spent some time putting the final touches on each of my letters so they are all at a presentable state. Also fixed up the interpolation by making the unused rectangles have a position in the middle of the shape instead of being off at 0, 0. Just need to clean up the files and then I'll be ready for the final hand in later today.
 
 --------------------------------------------------------------------
 Parameters:
