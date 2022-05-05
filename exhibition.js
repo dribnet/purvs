@@ -19,7 +19,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?.";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
@@ -29,14 +29,14 @@ let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 
 let lastKeyPressedTime;
-let secondsUntilSwapMode = 9;
+let secondsUntilSwapMode = 15;
 let lastWordSwappedTime;
 let isSwappingWords = true;
-let secondsPerWord = 6;
+let secondsPerWord = 3;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "COOLW-RD",
+  "ACTUALLY",
   "1234567?",
   "EXPECTED",
   "PROPERTY",

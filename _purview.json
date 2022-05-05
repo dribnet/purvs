@@ -1,16 +1,20 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
+      "sha": "a0185cb80ecd6dd21c501880bbb0ba8f40c16de0",
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "a8220c9a171b6feec6b8d380c2cf1a29ad39f38a",
+      "name": "halftone variation"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "2f6e55f79f4d3e7af886d9ad3a7c65ae4a3760bc",
+      "name": "experimentation (ugly mode)"
+    },
+    {
+      "sha": "314f28ecbb2036f99afef4ecfc5192bb35871ef3",
+      "name": "sketch 1st iteration"
     }
   ]
 }

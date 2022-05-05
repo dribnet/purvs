@@ -1,5 +1,9 @@
 /* these are optional special variables which will change the system */
+<<<<<<< HEAD
 var systemBackgroundColor = "#f0f0f0";
+=======
+var systemBackgroundColor = "red";
+>>>>>>> parent of a0185cb (Final)
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -44,12 +48,21 @@ function drawLetter(letterData) {
       jY = (floor((j-1)/4))*40+posy;
       jVal = chunk[j];
       // ellipse(jX,jY,10,10);
+<<<<<<< HEAD
       jdim = dist(x,y,jX,jY)/jVal;
       if (jdim>80)jdim=80;
       jdim=(80-jdim)/40;
       if  (jdim > dim) dim = jdim;
     }
     let diametre = dim*dim*3;
+=======
+      jdim = dist(x,y,jX,jY);
+      if (jdim>20)jdim=80;
+      jdim=(80-jdim)/40*jVal;
+      if  (jdim > dim) dim = jdim;
+    }
+    let diametre = dim*5;
+>>>>>>> parent of a0185cb (Final)
     if (diametre > 10) diametre = 10;
     ellipse(x,y,diametre,diametre);
   }
