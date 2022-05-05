@@ -21,7 +21,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "A": {
     "sq1_posx": 2.5,
@@ -45,7 +45,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "B": {
     "sq1_posx": 2.5,
@@ -67,7 +67,7 @@ const alphabet = {
     "sq9_posx": 27.5,
     "sq9_posy": 67.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "C": {
     "sq1_posx": 77.5,
@@ -87,7 +87,7 @@ const alphabet = {
     "sq9_posx": 77.5,
     "sq9_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "D": {
     "sq1_posx": 77.5,
@@ -111,7 +111,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 17.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "E": {
     "sq1_posx": 77.5,
@@ -135,7 +135,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "F": {
     "sq1_posx": 77.5,
@@ -157,7 +157,7 @@ const alphabet = {
     "sq9_posx": 52.5,
     "sq9_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "G": {
     "sq1_posx": 77.5,
@@ -181,7 +181,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "H": {
     "sq1_posx": 2.5,
@@ -205,7 +205,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "I": {
     "sq1_posx": 27.5,
@@ -229,7 +229,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "J": {
     "sq1_posx": 27.5,
@@ -253,7 +253,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "K": {
     "sq1_posx": 2.5,
@@ -277,7 +277,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "L": {
     "sq1_posx": 2.5,
@@ -301,7 +301,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "M": {
     "sq1_posx": 2.5,
@@ -325,7 +325,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "N": {
     "sq1_posx": 2.5,
@@ -349,7 +349,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "O": {
     "sq1_posx": 27.5,
@@ -373,7 +373,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "P": {
     "sq1_posx": 2.5,
@@ -394,10 +394,10 @@ const alphabet = {
     "sq8_posy": 92.5,
     "sq9_posx": 27.5,
     "sq9_posy": 92.5,
-    "sq10_posx": 2.5,
-    "sq10_posy": 42.5,
+    //"sq10_posx": 2.5,
+    //"sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "Q": {
     "sq1_posx": 27.5,
@@ -421,7 +421,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "R": {
     "sq1_posx": 2.5,
@@ -445,7 +445,7 @@ const alphabet = {
   //  "sq10_posx": 2.5,
     //"sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "S": {
     "sq1_posx": 2.5,
@@ -469,7 +469,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
      //"sq10_posy": 52.5,
      "lightPixelClr": 240,
-     "darkPixelClr": 27.5
+     "darkPixelClr": 10
   },
   "T": {
     "sq1_posx": 2.5,
@@ -493,7 +493,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "U": {
     "sq1_posx": 2.5,
@@ -517,7 +517,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "V": {
     "sq1_posx": 2.5,
@@ -541,7 +541,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "W": {
     "sq1_posx": 2.5,
@@ -565,7 +565,7 @@ const alphabet = {
     "sq10_posx": 27.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "X": {
     "sq1_posx": 2.5,
@@ -589,7 +589,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "Y": {
     "sq1_posx": 2.5,
@@ -613,7 +613,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "Z": {
     "sq1_posx": 2.5,
@@ -637,7 +637,7 @@ const alphabet = {
     "sq10_posx": 77.5,
     "sq10_posy": 117.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "0": {
     "sq1_posx": 27.5,
@@ -661,7 +661,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 67.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "1": {
     "sq1_posx": 2.5,
@@ -685,7 +685,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "2": {
     "sq1_posx": 2.5,
@@ -709,7 +709,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "3": {
     //"sq1_posx": 77.5,
@@ -733,7 +733,7 @@ const alphabet = {
     "sq10_posx": 2.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "4": {
     "sq1_posx": 77.5,
@@ -757,7 +757,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "5": {
     "sq1_posx": 77.5,
@@ -781,7 +781,7 @@ const alphabet = {
     "sq10_posx": 27.5,
     "sq10_posy": 67.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "6": {
     "sq1_posx": 77.5,
@@ -805,7 +805,7 @@ const alphabet = {
     "sq10_posx": 52.5,
     "sq10_posy": 42.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "7": {
     "sq1_posx": 2.5,
@@ -829,7 +829,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "8": {
     "sq1_posx": 2.5,
@@ -853,7 +853,7 @@ const alphabet = {
     "sq10_posx": 2.5,
     "sq10_posy": 92.5,
     "lightPixelClr": 240,
-    "darkPixelClr": 27.5
+    "darkPixelClr": 10
   },
   "9": {
     "sq1_posx": 2.5,
@@ -877,7 +877,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "PixelClr": 27.5
+    "PixelClr": 10
   }
 
 }
