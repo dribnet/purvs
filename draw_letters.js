@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#f7faff";
+var systemBackgroundColor = "#fffaeb";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -26,14 +26,10 @@ function drawLetter(letterData) {
   strokeWeight(0.2);
   fill(hexFillColor);
 
-  let visible = [];
-  for (let i = 1; i < 16; i++) {
-    visible.push(letterData['tile' + i]);
-  }
-
   // draw two circles
-  drawHexagonagon(50, 100, 55, visible);
+  drawHexagonagon(50, 100, 55, letterData);
 
+  // If bee has position set then draw it
   if (letterData.beeX || letterData.beeY) {
     drawBee(letterData.beeX, letterData.beeY, 0.75);
   }
@@ -76,7 +72,6 @@ function drawBee(x, y, scaleFactor) {
     5, -10,
     5, 10,
     0, 12);
-    
   bezier(
     12, -9,
     15, -8,
@@ -141,65 +136,67 @@ function drawBee(x, y, scaleFactor) {
   pop();
 }
 
-function drawHexagonagon(x, y, size, visible) {
+function drawHexagonagon(x, y, size, letterData) {
   translate(x, y);  
 
   // Top left
-  visible[1] && drawHexagon(-size/2, -size*0.75/hexagonHeightRatio, (size/3) * visible[1]);
+  letterData['tile1'] && drawHexagon(-size/2, -size*0.75/hexagonHeightRatio, (size/3) * letterData['tile1']);
   
   // Top Center
-  visible[2] && drawHexagon(0, -size/hexagonHeightRatio, (size/3) * visible[2]);
+  letterData['tile2'] && drawHexagon(0, -size/hexagonHeightRatio, (size/3) * letterData['tile2']);
   
   // Top Right
-  visible[3] && drawHexagon(size/2, -size*0.75/hexagonHeightRatio, (size/3) * visible[3]);
+  letterData['tile3'] && drawHexagon(size/2, -size*0.75/hexagonHeightRatio, (size/3) * letterData['tile3']);
 
   
   // Top Middle Left
-  visible[4] && drawHexagon(-size/2, -size*0.25/hexagonHeightRatio, (size/3) * visible[4]);
+  letterData['tile4'] && drawHexagon(-size/2, -size*0.25/hexagonHeightRatio, (size/3) * letterData['tile4']);
   
   // Top Middle Center
-  visible[5] && drawHexagon(0, -size*0.5/hexagonHeightRatio, (size/3) * visible[5]);
+  letterData['tile5'] && drawHexagon(0, -size*0.5/hexagonHeightRatio, (size/3) * letterData['tile5']);
   
   // Top Middle Right
-  visible[6] && drawHexagon(size/2, -size*0.25/hexagonHeightRatio, (size/3) * visible[6]);
+  letterData['tile6'] && drawHexagon(size/2, -size*0.25/hexagonHeightRatio, (size/3) * letterData['tile6']);
 
   
   // Middle Left
-  visible[7] && drawHexagon(-size/2, size*0.25/hexagonHeightRatio, (size/3) * visible[7]);
+  letterData['tile7'] && drawHexagon(-size/2, size*0.25/hexagonHeightRatio, (size/3) * letterData['tile7']);
   
   // Middle Center
-  visible[8] && drawHexagon(0, 0, (size/3) * visible[8]);
+  letterData['tile8'] && drawHexagon(0, 0, (size/3) * letterData['tile8']);
   
   // Middle Right
-  visible[9] && drawHexagon(size/2, size*0.25/hexagonHeightRatio, (size/3) * visible[9]);
+  letterData['tile9'] && drawHexagon(size/2, size*0.25/hexagonHeightRatio, (size/3) * letterData['tile9']);
 
   
   // Bottom Middle Left
-  visible[10] && drawHexagon(-size/2, size*0.75/hexagonHeightRatio, (size/3) * visible[10]);
+  letterData['tile10'] && drawHexagon(-size/2, size*0.75/hexagonHeightRatio, (size/3) * letterData['tile10']);
   
   // Bottom Middle Center
-  visible[11] && drawHexagon(0, size*0.5/hexagonHeightRatio, (size/3) * visible[11]);
+  letterData['tile11'] && drawHexagon(0, size*0.5/hexagonHeightRatio, (size/3) * letterData['tile11']);
   
   // Bottom Middle Right
-  visible[12] && drawHexagon(size/2, size*0.75/hexagonHeightRatio, (size/3) * visible[12]);
+  letterData['tile12'] && drawHexagon(size/2, size*0.75/hexagonHeightRatio, (size/3) * letterData['tile12']);
 
   
   // Bottom Left
-  visible[13] && drawHexagon(-size/2, size*1.25/hexagonHeightRatio, (size/3) * visible[13]);
+  letterData['tile13'] && drawHexagon(-size/2, size*1.25/hexagonHeightRatio, (size/3) * letterData['tile13']);
   
   // Bottom Center
-  visible[14] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * visible[14]);
+  letterData['tile14'] && drawHexagon(0, size/hexagonHeightRatio, (size/3) * letterData['tile14']);
 
   translate(-x, -y);
 }
 
 const hexagonHeightRatio = 0.8660;
 
+// Draw a hexagon with shine
 function drawHexagon(x, y, size) {
   push();
   translate(x, y);
   scale(size*1);
 
+  // Draw hexagon
   beginShape();
   vertex(-1, 0);
   vertex(-0.5, -hexagonHeightRatio);
@@ -209,6 +206,7 @@ function drawHexagon(x, y, size) {
   vertex(-0.5, hexagonHeightRatio);
   endShape(CLOSE);
 
+  // Draw inner shine
   scale(0.7);
 
   stroke('#e6dab5');
@@ -221,8 +219,8 @@ function drawHexagon(x, y, size) {
   pop();
 }
 
+// Modify variables to interpolate between two letters
 function interpolate_letter(percent, oldObj, newObj) {
-
   
   let new_letter = {};
   for(let i = 2; i < 16; i++) {
@@ -261,8 +259,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "HONEY BZ",
-  "12345678",
-  "CAB?CAB?",
+  "HEXAGONS",
+  "BESTAGON",
   "IM A BEE",
-  "BZZZZZZZ"
+  "BZZZZZZZ",
+  "12345678",
 ]

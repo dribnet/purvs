@@ -1,33 +1,20 @@
 ## MDDN 242 2022 Assignment 2
 
-## Interpolation
+## Honey BZ - Final Submission
 
-Today I got more interpolation working today and i'm so happy with it! I started with adding noise to when the hexagons animate in and out to make the animation fill in the length without just animating slowly like it was - which looked terrible. This gave such a fun look and massive improvement to the interpolation. I then added an "overshoot", which was just getting my map function to under estimate how long the animation runs for, which means it increases the size of the hexagon beyond 1, causing a bouncing effect when new hexagons are shown. I love this and it really plays into the playful aspect. Finally I needed to fix my bee just lerping from position to position, so I made it fly off the screen for the first half of the animation, then a new bee to fly in during the second half.
+### Overview
 
-## Getting things up to scratch
+Honey BZ is designed to be a bubbly, fun, bee themed font that can be used for large title texts. Its inspiration came from CGP Greys ["Hexagons are the Bestagons"](https://www.youtube.com/watch?v=thOifuHs6eY) video which inspired a limitation for my font, that it must be made using hexagons. Through the design process there were a many challenges to using Hexagons, such as intricate letters needing more detail, where to lay out the hexagons to create the letters and the nature of hexagons not being able to create straight lines. 
 
-Today I had feedback from crit on my design, I added a bee to my design that will be sitting on certain letters to differentiate them from the numbers! I changed my default character back to a circle, from a star because it looks more like a default character rather than a password star field. I removed the style change to make it consistent now that I have the bee. I played around with colours today also, which lead me to adding shine to my honey, it makes sense because honey is shiny and it adds a lot of character and fun to my font.
+### Visuals
 
-I started basic interpolation today and have an idea on how to make it more visually interesting. I will make the bee fly away to the left and I will be 
+The visuals of the font are important, I wanted it to feel like balloon fonts, except with hexagons. This meant shine, it meant thick lettering and it meant large lettering. I used these three design principals to lead me to the final design of my shiny honeycomb based design. To differentiate my numbers from my letters, the bee was added. No numbers contain a bee, so if letters that look similar to a number is displayed you are able to tell if it is a 5 or an S by looking at the bee.
 
-## Numeric troubles
+### Interpolation
 
-I've implemented all letters and numbers into my font, however I am having a problem that the number 2 is exactly the same as Z, S is the same as 5 also 0 and O. For now I have given them different border colours, now using 17 data points. I'm still not set on the color scheme and that will be done after interpolation as the two will link to create my effect. 
-
-My inspiration for my interpolation is going to be similar to material designs layers of the same object stacking on top of each other in different colours and different lerps to create smooth good looking interpolation. 
-
-## Hexagons 2 - Electric Boogaloo
-
-Today was do or die for my hexagon idea, I tried making all the letters in the alphabet and keeping track of what squares were used. This resulted in far too many data points being required, however when I tried to switch to upper case lettering i found 15 data points that can be used to represent all of the numbers and letters! This process took much longer than expected however I have implemented all letters now.
-
-![image](layout.png)
-
-## Hexagons - The maybe not bestagons
-
-I posted my design in the feedback channel and got some awesome interpolation ideas, however came up with to a problem realising many of the characters and numbers I would like represented won't work with the small layout I had, like b not having space for a hexagon between the holes which meant it looked like a D. I looked at increasing the size however still faced problems with 8 looking the same as a b. I spent a long time in a photo editor trying different layouts with all the numbers and letters but didn't find a solution.
-
-## Hexagons - The Bestagons
-Today I created a hexagonal design for my font, the idea came from [CGP Gray's "Hexagons are the Bestagons"](https://www.youtube.com/watch?v=thOifuHs6eY) video. I'm not sure about how it will work with interpolation and how some letters like e could be improved, so this is definitely not the final idea.
+The interpolation was considered in my design from the very first drafts, I knew that it was going to be important to take add polish to my otherwise relatively simple font. I used a method called staggering for my interpolation where the animations start time and length for each block are determined by a noise function, creating the appearance of random blocks animating in at different times which gives a playful and polished look. The bee was not planned from the beginning but still got an flying in and flying out animation when it is displayed.
 
 The three parameters per letter:
-  * `visible` : 10 length array of numbers denoting the visibility of each of the hexagons
+  * `visible` : 14 length array of numbers denoting the visibility of each of the hexagons
+  * `beeX` : The x position of the bee, 0 if bee is not visible
+  * `beeY`" The y position of the bee, 0 if the bee is not visible
