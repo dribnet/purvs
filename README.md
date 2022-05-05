@@ -1,15 +1,14 @@
 ## MDDN 242 2022 Assignment 2
 
-4 / 5 / 22:
+5 / 5 / 22:
 
-Today, I polished the letters k, w, and number 2. Also, after many changes in "interpolate", I'm updating my "interaction". Furthermore, I named "IMOTION!" my alphabet design and create a words-list for my "exhibition". I tried to find the words related to the name of the alphabet (emotion). The chosen name is inspired by the default happy face.
-
-I have still same notice:
-in the "interaction" section the letters still need another step for their final shape after 100%. I will definitely share it with Phoebe or Hazel.
-
-I'm still working on "interpolate" to animating my design if that possible..
-
-my parameters still same:
+The alphabet "emoticon", I designed is Inspired by my default smiley face, which is created with 10 circle shapes in different sizes and dimensions. When I designed the initial sketch, I thought about using it in family, social/cultural, and a bit art subjects. The choice of the "Emotion" name was mostly due to its visual impact. Despite the modern style of this font, its elegance and legibility were very important to me.
+I failed several times to code my original design and figured out my code again, but in the end, I got the result I wanted. First, I drew the details of the shapes on paper and explained them. After that, I needed parameters that could be moved smoothly and resized for any possible design.
+So, I made successive changes to the parameters, resulting in a general coherence and applicable to all letters and numbers.  Some of the letters and numbers were very similar, such as "w" and "m", "u" and "v", and more. I focused time on how to make them different and I think it was very successful.
+After finishing the letters and numbers, I changed the colour of the alphabet, which was very important in visual appeal. The tips I did for polishing my design First, I tried to have them all in the middle of the box and aline them all. Secondly, in most parts, the two cut-off circles I had drawn were a little out of the box. I knew the letters might lose their form by moving the cut-off shapes. It was very difficult, but I successfully move them slowly and carefully.
+In the last step, I did the "interpolate" and spent huge time on the movements. I effort more than 15 times for the changes, but I preferred to finish it like what you can see now. It was not difficult, but I get stuck on every method I tried. Maybe if I used other shapes I could use their parameters for animation in this section.
+final line: I wish I had more time and worked to animate my design. I think there must be a way I should try.
+my parameters are:
 
    let cntrWidth = letterData["cntr_w"];
    let cntrHeight = letterData["cntr_h"];
