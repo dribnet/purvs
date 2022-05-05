@@ -1,6 +1,6 @@
   var systemBackgroundColor = "#3d3737";
-  var systemLineColor = "#8ce6aa";
-  var systemBoxColor = "#f74f4f";
+  var systemLineColor = "#bdf0ce";
+  var systemBoxColor = "#f78b8b";
   var backDrop = 2; //set to 1 for rgb, 2 for 3D effect
 
 function drawLetter(letterData) {
