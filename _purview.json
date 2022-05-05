@@ -2,15 +2,27 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "name": "6 - Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "92c494deef434fa10d66d81b04ea81080ff47c94",
+      "name": "5 - Finishing My Alphabet"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "d25a808a80d64d33c9d6858511df67d346517fa8",
+      "name": "4 - Reworking My Code"
+    },
+    {
+      "sha": "1abb3e6e144d2d66508ec562684e6aa8ac09b2bf",
+      "name": "3 - Changing My Design Goal"
+    },
+    {
+      "sha": "3ccd065dabb5bf9cc3ee7f457bccd2c33140c9ea",
+      "name": "2 - Adding Initial Parameters"
+    },
+    {
+      "sha": "5a71f990a1c4856df8e0ff84ef79ddbe5585b8df",
+      "name": "1 - First Idea and Playaround"
     }
   ]
 }
