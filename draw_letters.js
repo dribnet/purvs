@@ -67,10 +67,6 @@ push() //arc
 
  pop()
 
-
-
-
-
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -98,8 +94,5 @@ var swapWords = [
   "THEWORLD",
   "DEATH13N",
   "FOREVER?",
-
-
-
 
 ]
