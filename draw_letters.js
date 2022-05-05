@@ -111,39 +111,39 @@ function halfShape(radius, offsetX, offsetY, orientation, edge) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  let targetOrient = newObj["orientation1"]; // wing flap in between
-  let targetEdge = newObj["size"]/2; // cornered in between
+  let targetOrient = newObj["orientation1"];             // wing 1 flap in between
+  let targetEdge = newObj["size"]/2;                     // cornered in between
   smooth();
 
   new_letter["rX"] = map(percent, 0, 100, oldObj["rX"], newObj["rX"]);
   new_letter["rY"] = map(percent, 0, 100, oldObj["rY"], newObj["rY"]);
   new_letter["rW"] = map(percent, 0, 100, oldObj["rW"], newObj["rW"]);
   new_letter["rH"] = map(percent, 0, 100, oldObj["rH"], newObj["rH"]);
-
-  if (percent < 50) {
-    new_letter["edge1"] = map(percent, 0, 50, oldObj["edge1"], targetEdge);
-    new_letter["edge2"] = map(percent, 0, 50, oldObj["edge2"], targetEdge);
+  
+   if (percent < 50) {                                    // make shape cornered at 50%
+    new_letter["edge1"] = map(percent, 0, 50, oldObj["edge1"], targetEdge); 
+    new_letter["edge2"] = map(percent, 0, 50, oldObj["edge2"], targetEdge); 
+                                                          // wing 1 flap at 50%
     new_letter["orientation1"] = map(percent,0,50,oldObj["orientation1"],targetOrient);
     new_letter["orientation2"] = map(percent,0,50,oldObj["orientation2"],targetOrient);
-    new_letter["angle"] = map(percent, 0, 110, oldObj["angle"], newObj["angle"]);
-    new_letter["size"] = map(percent, 0, 110, oldObj["size"], newObj["size"]);
+                                                          // adds resistance
     new_letter["offsetX1"] = map(percent,0,110,oldObj["offsetX1"],newObj["offsetX1"]);
     new_letter["offsetY1"] = map(percent,0,110,oldObj["offsetY1"],newObj["offsetY1"]);
     new_letter["offsetX2"] = map(percent,0,110,oldObj["offsetX2"],newObj["offsetX2"]);
     new_letter["offsetY2"] = map(percent,0,110,oldObj["offsetY2"],newObj["offsetY2"]);
   } else {
-    new_letter["edge1"] = map(percent, 51, 100, targetEdge, newObj["edge1"]);
+    new_letter["edge1"] = map(percent, 51, 100, targetEdge, newObj["edge1"]); 
     new_letter["edge2"] = map(percent, 51, 100, targetEdge, newObj["edge2"]);
     new_letter["orientation1"] = map(percent,51,100,targetOrient,newObj["orientation1"]);
     new_letter["orientation2"] = map(percent,51,100,targetOrient,newObj["orientation2"]);
-    new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
-    new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
     new_letter["offsetX1"] = map(percent,0,100,oldObj["offsetX1"],newObj["offsetX1"]);
     new_letter["offsetY1"] = map(percent,0,100,oldObj["offsetY1"],newObj["offsetY1"]);
     new_letter["offsetX2"] = map(percent,0,100,oldObj["offsetX2"],newObj["offsetX2"]);
     new_letter["offsetY2"] = map(percent,0,100,oldObj["offsetY2"],newObj["offsetY2"]);
   }
 
+    new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
+    new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   return new_letter;
 }
 
