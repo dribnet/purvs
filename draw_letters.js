@@ -150,5 +150,8 @@ var swapWords = [
   "DOTNLINE",
   "COMPUTER",
   ".PASTAL.",
-  ".YELLOW."
+  ".YELLOW.",
+  "KEYBOARD",
+  "GRAPHICS",
+  "VICTORA"
 ]
