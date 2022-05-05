@@ -1,2 +1,2 @@
 ## MDDN 242 2022 Assignment 2
-This isn't looking right yet, I'm still just setting up the halftone grid. Just moving PC's and nowhere else to put this. you didn't see this
+I've set up the halftone grid and it sort of reacts to the parameters I've given it. I want to feed it a 4x5 grid which will be used like a pixel art grid for the 'chunks' of letters to be placed. To make the code much nicer I try to use arrays when I can instead of writing 20 parameters for chunk in the letter. I need the circles to appear inversely to how they do now.

@@ -4,11 +4,10 @@
  * and each row should be:
  * ["object_field", minimum_bound, maximum_bound]
  */
-const sliderInfo = [
-  ["lenA",       -50, 150],
-  ["lenB",  -100,  150],
-  ["leanB", -100, 100]
-];
+let sliderInfo = [];
+for (let i = 0; i <= 20; i++){
+  sliderInfo[i-1] = ["chunk"+i, 0, 2];
+}
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
 
@@ -53,7 +52,7 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 50)
+    let cur_slider = createSlider(0, 100, 0)
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
