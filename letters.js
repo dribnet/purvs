@@ -66,9 +66,9 @@ const alphabet = {
   },
   "E": {
     "rectPositionX": 10,
-    "rectPositionY": 50,
+    "rectPositionY": 45,
     "rectwidth": 80,
-    "rectheight": 60,
+    "rectheight": 70,
 
     "triPosition1X": 50,
     "triPosition1Y": -10,
@@ -79,9 +79,9 @@ const alphabet = {
   },
   "F": {
     "rectPositionX": 10,
-    "rectPositionY": 60,
+    "rectPositionY": 55,
     "rectwidth": 80,
-    "rectheight": 80,
+    "rectheight": 90,
 
     "triPosition1X": 50,
     "triPosition1Y": -10,
@@ -217,7 +217,7 @@ const alphabet = {
     "triPosition1Y": -20,
     "triPosition2X": -30,
     "triPosition2Y": -80,
-    "triPosition3X": 40,
+    "triPosition3X": 35,
     "triPosition3Y": -50
   },
   "Q": {
@@ -242,20 +242,20 @@ const alphabet = {
     "triPosition1X": -30,
     "triPosition1Y": 100,
     "triPosition2X": -30,
-    "triPosition2Y": 0,
+    "triPosition2Y": 5,
     "triPosition3X": 50,
     "triPosition3Y": 100
   },
   "S": {
     "rectPositionX": -10,
-    "rectPositionY": 50,
+    "rectPositionY": 45,
     "rectwidth": 80,
-    "rectheight": 60,
+    "rectheight": 70,
 
     "triPosition1X": 50,
-    "triPosition1Y": 0,
+    "triPosition1Y": -10,
     "triPosition2X": 50,
-    "triPosition2Y": -100,
+    "triPosition2Y": -90,
     "triPosition3X": -30,
     "triPosition3Y": -50
   },
@@ -339,14 +339,14 @@ const alphabet = {
   },
   "Z": {
     "rectPositionX": 10,
-    "rectPositionY": 50,
+    "rectPositionY": 45,
     "rectwidth": 80,
-    "rectheight": 60,
+    "rectheight": 70,
 
     "triPosition1X": -50,
-    "triPosition1Y": 0,
+    "triPosition1Y": -10,
     "triPosition2X": -50,
-    "triPosition2Y": -100,
+    "triPosition2Y": -90,
     "triPosition3X": 30,
     "triPosition3Y": -50
   },

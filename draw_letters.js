@@ -1,6 +1,6 @@
 /* these are optional special variables which will change the system */
 var systemBackgroundColor = "#ffffff";
-var systemLineColor = "#ffffff";
+var systemLineColor = "#00307d";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
@@ -43,22 +43,25 @@ function drawLetter(letterData) {
   rectMode(CENTER);
   angleMode(DEGREES);
 
-  fill(white);
-  //stroke(200);
-  //strokeWeight(2);
+  fill(darkBlue);
   rect(posx, posy, 100, 200); //backgroundd for letters
 
-  fill(darkBlue);
-  noStroke();
+  fill(white);
+  strokeWeight(10);
+  stroke(white);
+  strokeJoin(ROUND);
   rect(rectPosX, rectPosY, rectWidth, rectHeight); //rectangle for the empty space
 
 
-  fill(darkBlue);
+  fill(white);
+  strokeWeight(10);
+  stroke(white);
+  strokeJoin(ROUND);
   beginShape(); //triangle for the empty space
   vertex(tri1X, tri1Y);
   vertex(tri2X, tri2Y);
   vertex(tri3X, tri3Y);
-  endShape();
+  endShape(CLOSE);
   pop();
 }
 
@@ -85,5 +88,5 @@ var swapWords = [
   "BAKAAHOI",
   "GAWRGURA",
   "80180188",
-  "AHAHV5V5"
+  "HAHAV5V5"
 ]
