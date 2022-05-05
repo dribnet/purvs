@@ -1,12 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "red";
+var systemBackgroundColor = "#FFA46B";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const strokeColor      = "#101010";
-const darkBlue  = "#0077b6";
-const lightBlue  = "#90e0ef";
+const strokeColor      = "#E861C5";
 
 /*
  * Draw the letter given the letterData
@@ -18,40 +16,42 @@ const lightBlue  = "#90e0ef";
 function drawLetter(letterData) {
   // color/stroke setup
   fill(strokeColor);
-  strokeWeight(4);
-  let posx = 10;
+  let posx = 4;
   let posy = 10;
   
   noStroke();
-  // determine parameters for halftone space
+  // call chunk parameters in one array
   let chunk = [];
   for (let i = 1; i <= 20; i++){
     chunk[i] = letterData["chunk"+i];
   }
 
-  // draw circles
+  /*  draw particles
+      diam  = diametre of particles
+      cDiam = diametre based of current chunk being measured
+      x,y   = x and y coords of particle
+      cX,cY = x and y coords of current chunk being measured
+  */
   for (let i = 1; i <= 250; i++){
     let x = (i%10)*10+posx;
     let y = 8*floor((i-1)/10)+posy;
 
-    let dim = 0;
-    let jdim = 0;
-    let jX;
-    let jY;
-    let jVal;
+    // measure shortest distance to each chunk
+    let diam = 0;
+    let cDiam = 0;
+    let cX;
+    let cY;
     for (let j = 1; j <= 20; j++){
-      jX = ((j-1)%4)*30+posx;
-      jY = (floor((j-1)/4))*40+posy;
-      jVal = chunk[j];
-      // ellipse(jX,jY,10,10);
-      jdim = dist(x,y,jX,jY);
-      if (jdim>20)jdim=80;
-      jdim=(80-jdim)/40*jVal;
-      if  (jdim > dim) dim = jdim;
+      cX = ((j-1)%4)*30+posx;
+      cY = (floor((j-1)/4))*40+posy;
+      cDiam = dist(x,y,cX,cY);
+      if (cDiam>20)cDiam=80;
+      cDiam=(80-cDiam)/40*chunk[j];
+      if  (cDiam > diam) diam = cDiam;
     }
-    let diametre = dim*5;
-    if (diametre > 10) diametre = 10;
-    ellipse(x,y,diametre,diametre);
+    diam = diam*4;
+    if (diam > 10) diam = 10;
+    ellipse(x,y,diam,diam);
   }
 
 }
@@ -65,8 +65,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "FLUID-TY",
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FONT.EXE",
+  "FLUIDITY"
 ]
