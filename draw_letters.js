@@ -4,7 +4,7 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const strokeColor      = "green";
+const strokeColor      = "#101010";
 const darkBlue  = "#0077b6";
 const lightBlue  = "#90e0ef";
 
@@ -40,8 +40,8 @@ function drawLetter(letterData) {
     let jY;
     let jVal;
     for (let j = 1; j <= 20; j++){
-      jX = (j%4)*30;
-      jY = (floor((j-1)/4))*50;
+      jX = ((j-1)%4)*30;
+      jY = (floor((j-1)/4))*40;
       jVal = chunk[j];
       // ellipse(jX,jY,10,10);
       jdim = dist(x,y,jX,jY)*jVal;
@@ -53,26 +53,26 @@ function drawLetter(letterData) {
     ellipse(x,y,diametre,diametre);
   }
 
-  // // test circles \(.‸.)/
-  // for (let j = 1; j <= 20; j++){
-  //   jX = (j%4)*30;
-  //   jY = (floor((j-1)/4))*50;
-  //   jVal = chunk[j]*50;
-  //   ellipse(jX,jY,jVal,jVal);
-  // }
+  // test circles \(.‸.)/
+  for (let j = 1; j <= 20; j++){
+    jX = ((j-1)%4)*30;
+    jY = (floor((j-1)/4))*40;
+    jVal = chunk[j]*30;
+    ellipse(jX,jY,jVal,jVal);
+  }
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["lenA"]    = map(percent, 0, 100, oldObj["lenA"], newObj["lenA"]);
-  new_letter["lenB"] = map(percent, 0, 100, oldObj["lenB"], newObj["lenB"]);
-  new_letter["leanB"] = map(percent, 0, 100, oldObj["leanB"], newObj["leanB"]);
+  for (let i = 1; i <= 20; i++){
+    new_letter["chunk"+i]    = map(percent, 0, 100, oldObj["chunk"+i], newObj["chunk"+i]);
+  }
   return new_letter;
 }
 
 var swapWords = [
-  "FLUIDITY",
+  "FLUID-TY",
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"

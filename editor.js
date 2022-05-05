@@ -67,6 +67,7 @@ function buttonPressedEvent() {
   let obj = sliderToDataObject();
   json = JSON.stringify(obj, null, 2);
   alert(json);
+  print(json);
 }
 
 function draw () {
