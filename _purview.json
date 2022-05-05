@@ -2,15 +2,23 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "name": "Final"
     },
     {
       "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "name": "Refinement"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "29fa58d8ddfd7396507800149e10abc52135f486",
+      "name": "Development"
+    },
+    {
+      "sha": "506497c77e90444228721d13f78c69d9208b6ce5",
+      "name": "Rough Draft"
+    },
+    {
+      "sha": "8c78dca8b702e92b46a03f33fdc485dc4cee148d",
+      "name": "Initial Sketch"
     }
   ]
 }
