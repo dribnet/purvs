@@ -85,8 +85,6 @@ var swapWords = [
   "NEGATIVE",
   "TRICKART",
   "KONITIWA",
-  "BAKAAHOI",
-  "GAWRGURA",
-  "80180188",
+  "8018018;",
   "HAHAV5V5"
 ]
