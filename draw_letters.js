@@ -77,7 +77,7 @@ noFill()
   fill(maroon);
   rect(marectx, marecty, marectw, marecth)
 
-  
+
 
 }
 
@@ -90,7 +90,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "HARRISON",
+  "MATTHEWS",
+  "BAUHAUS!"
 ]
