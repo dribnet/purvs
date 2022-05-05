@@ -17,11 +17,12 @@ const lightBrown = "#91681c"; // light brown insid the eyes
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
- let eyesBlink = 25
- let eyes_w = 25;
- let eyesSpace = 40;
- let ell_x = 80;
- let ell_y = 260;
+
+let eyesBlink = 25
+let eyes_w = 25;
+let eyesSpace = 40;
+let ell_x = 80;
+let ell_y = 260;
 
 function drawLetter(letterData) {
 
@@ -41,8 +42,8 @@ function drawLetter(letterData) {
   let ellMain_y = letterData["main_ypos"];
   let ell1_x = ell_x + letterData["cntr_xpos"];
   let ell1_y = ell_y + letterData["cntr_ypos"];
-  let ell2_x = ell_x + letterData["handl_xpos"];//
-  let ell2_y = ell_y + letterData["handl_ypos"];//
+  let ell2_x = ell_x + letterData["handl_xpos"]; //
+  let ell2_y = ell_y + letterData["handl_ypos"]; //
   let ell3_x = ell_x + letterData["eyes_xpos"];
   let ell3_y = ell_y + letterData["eyes_ypos"];
   let ell4_x = ell_x + letterData["cutter_xpos"];
@@ -85,7 +86,7 @@ function drawLetter(letterData) {
 
   fill(200)
   noStroke();
-  ellipse(xPos, yPos + 10, eyes_w / 6, eyes_w / 6 ); // smaller-bright shadow in bottem-right (located in left eye)
+  ellipse(xPos, yPos + 10, eyes_w / 6, eyes_w / 6); // smaller-bright shadow in bottem-right (located in left eye)
   ellipse(xPos + eyesSpace, yPos + 10, eyes_w / 6, eyes_w / 6); // smaller-bright shadow in bottem-left (located in right eye)
 
   pop();
@@ -98,10 +99,10 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["cntr_h"] = map(percent, 0, 100, oldObj["cntr_h"], newObj["cntr_h"]);
   new_letter["cntr_xpos"] = map(percent, 0, 100, oldObj["cntr_xpos"], newObj["cntr_xpos"]);
   new_letter["cntr_ypos"] = map(percent, 0, 100, oldObj["cntr_ypos"], newObj["cntr_ypos"]);
-  new_letter["handle_w"] = map(percent, 0, 100, oldObj["handle_w"], newObj["handle_w"]);//
-  new_letter["handle_h"] = map(percent, 0, 100, oldObj["handle_h"], newObj["handle_h"]);//
-  new_letter["handl_xpos"] = map(percent, 0, 100, oldObj["handl_xpos"], newObj["handl_xpos"]);//
-  new_letter["handl_ypos"] = map(percent, 0, 100, oldObj["handl_ypos"], newObj["handl_ypos"]);//
+  new_letter["handle_w"] = map(percent, 0, 100, oldObj["handle_w"], newObj["handle_w"]); //
+  new_letter["handle_h"] = map(percent, 0, 100, oldObj["handle_h"], newObj["handle_h"]); //
+  new_letter["handl_xpos"] = map(percent, 0, 100, oldObj["handl_xpos"], newObj["handl_xpos"]); //
+  new_letter["handl_ypos"] = map(percent, 0, 100, oldObj["handl_ypos"], newObj["handl_ypos"]); //
   new_letter["mainSize"] = map(percent, 0, 100, oldObj["mainSize"], newObj["mainSize"]);
   new_letter["main_ypos"] = map(percent, 0, 100, oldObj["main_ypos"], newObj["main_ypos"]);
   new_letter["cutter_w"] = map(percent, 0, 100, oldObj["cutter_w"], newObj["cutter_w"]);
@@ -111,32 +112,32 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["eyes_xpos"] = map(percent, 0, 100, oldObj["eyes_xpos"], newObj["eyes_xpos"]);
   new_letter["eyes_ypos"] = map(percent, 0, 100, oldObj["eyes_ypos"], newObj["eyes_ypos"]);
 
+/// I just try to do blinking eyes in this part but still im stuck on that.
+  //These two "if statement" are considered for the eyes blinking/squeezing//
+  // if (percent <= 50) {
+  //   eyes_w = 8
+  //   let eyesBlink = map(percent, 0, 50, eyes_w + 10, eyes_w); //big to small
+  //
+  //   if (percent > 50) {
+  //     eyes_w = 25
+  //     let eyesBlink = map(percent, 50, 100, eyes_w, eyes_w); //small to big
 
-  ///These two "if statement" are considered for the eyes blinking/squeezing//
-  if (percent <= 50) {
-    eyes_w = 8
-    let eyesBlink =  map(percent, 0, 50, eyes_w, eyes_w );//big to small
+      return new_letter;
+    }
 
-  if (percent > 50) {
-    eyes_w = 25
-    let eyesBlink =  map(percent, 50, 100, eyes_w, eyes_w);//small to big
-
-  return new_letter;
-}
-
-var swapWords = [
-  "EMOTION!",
-  "12345678",
-  "SENSIBLE",
-  "SUITABLE",
-  "EXCITING",
-  "GLADNESS",
-  "KINDNESS",
-  "DELICATE",
-  "ROMANTIC",
-  "EMPHASIS",
-  "DRAMATIC",
-  "SURPRISE",
-  "YOURSELF",
-  "STRESFUL"
-]
+    var swapWords = [
+      "EMOTION!",
+      "12345678",
+      "SENSIBLE",
+      "SUITABLE",
+      "EXCITING",
+      "GLADNESS",
+      "KINDNESS",
+      "DELICATE",
+      "ROMANTIC",
+      "EMPHASIS",
+      "DRAMATIC",
+      "SURPRISE",
+      "YOURSELF",
+      "STRESFUL"
+    ]

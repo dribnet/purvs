@@ -1,6 +1,6 @@
 ## MDDN 242 2022 Assignment 2
 
-5 / 5 / 22:
+05 / 05 / 22:
 
 The alphabet "emoticon", I designed is Inspired by my default smiley face, which is created with 10 circle shapes in different sizes and dimensions. When I designed the initial sketch, I thought about using it in family, social/cultural, and a bit art subjects. The choice of the "Emotion" name was mostly due to its visual impact. Despite the modern style of this font, its elegance and legibility were very important to me.
 I failed several times to code my original design and figured out my code again, but in the end, I got the result I wanted. First, I drew the details of the shapes on paper and explained them. After that, I needed parameters that could be moved smoothly and resized for any possible design.
