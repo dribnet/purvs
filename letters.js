@@ -547,15 +547,15 @@ const alphabet = {
     "arcA_Begin": -90,
     "arcA_End": 90,
 
-    "rectA_PosX": 50,
-    "rectA_PosY": 110,
-    "rectA_SizeX": 60,
+    "rectA_PosX": 70,
+    "rectA_PosY": 100,
+    "rectA_SizeX": 20,
     "rectA_SizeY": 60,
 
-    "rectB_PosX": 55,
-    "rectB_PosY": 110,
-    "rectB_SizeX": 45,
-    "rectB_SizeY": 45
+    "rectB_PosX": 50,
+    "rectB_PosY": 130,
+    "rectB_SizeX": 60,
+    "rectB_SizeY": 20
   },
   "4": {
     "arcA_PosX": 50,
