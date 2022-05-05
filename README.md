@@ -7,4 +7,6 @@ The 24 parameters per letter:
   * circle(#)y = y position of circle. x12
   * squareback = fixed.
 
-I went in and made my sketch - roughly and then coded draw_letters. Due to the numerous parameters needed as there are many circles this took some time. I also went and started to interpolate my letters but then realised I may need to create them first! I changed my editor info to more accurate sliders so that its easier for me to plan out each letter/num.
+Just updated the letters all individually, with help with slider. Decided to copy and paste all 24 parameters, and // out the dots that were not needed so that all dots were aligned and the alphabet was consistent. I now need to create the backboard of each letter/number to make the text look like my inspiration. I made the numbers also smaller as i wanted the 0 and 1 to differentiate from the letters.
+
+Changed colours however, finding a way to make all letters readable. Maybe different colour letters per space - however not sure if that is possible. 

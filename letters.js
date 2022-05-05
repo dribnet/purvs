@@ -3,206 +3,1017 @@ const alphabet = {
 
   },
   "A": {
-    "circle1x":0,
-    "circle1y":0,
-    "circle2x":0,
-    "circle2y":50,
-    "circle3x":0,
-    "circle3y":75,
-    "circle4x":25,
-    "circle4y":200,
-    "circle5x":50,
-    "circle5y":200,
-    "circle6x":25,
-    "circle6y":100,
-    "circle7x":50,
-    "circle7y":100,
-    "circle8x":100,
-    "circle8y":150,
-    "circle9x":100,
-    "circle9y":100,
-    "circle10x":100,
-    "circle10y":50,
-    "circle11x":
-    "circle11y":
-    "circle12x":
-    "circle12y":
+  //  "circle2x":20, // top left
+  //  "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+//    "circle3x":50, //mid bottom
+//    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
 
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+
+    "circlesize_midunder": 20,
+
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
+
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+  //  "circle6x":80, // top right
+  //  "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+  //  "circle7x":80, // bottom right
+  //  "circle7y":180 // bottom right
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+  //  "circle7x":80, // bottom right
+  //  "circle7y":180 // bottom right
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+//    "circle2x":20, // top left
+//    "circle2y":20, //top left
+//    "circle4x":20, // left above line
+//    "circle4y":70, // left above line
+//    "circle5x":20, // left below line
+//    "circle5y":130, //left below line
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+//    "circle7x":80, // bottom right
+//    "circle7y":180 // bottom right
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+  //  "circle4x":20, // left above line
+  //  "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+  //  "circle7x":80, // bottom right
+  //  "circle7y":180 // bottom right
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+//    "circle3x":50, //mid bottom
+//    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+//    "circle3x":50, //mid bottom
+//    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+//    "circle7x":80, // bottom right
+//    "circle7y":180 // bottom right
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+  //  "circle1x":20, // bottom left
+  //  "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+//    "circle5x":20, // left below line
+//    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+  //  "circle4x":20, // left above line
+  //  "circle4y":70, // left above line
+  //  "circle5x":20, // left below line
+  //  "circle5y":130, //left below line
+  //  "circle1x":20, // bottom left
+  //  "circle1y":180, // bottom left
+
+    "circle10x":50, // middle top
+    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+  //  "circle7x":80, // bottom right
+  //  "circle7y":180 // bottom right
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+//    "circle7x":80, // bottom right
+//    "circle7y":180 // bottom right
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+  //  "circle11x":50, // middle above line
+  //  "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+  //  "circle4x":20, // left above line
+  //  "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+//    "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+  //  "circle4x":20, // left above line
+  //  "circle4y":70, // left above line
+  //  "circle5x":20, // left below line
+  //  "circle5y":130, //left below line
+  //  "circle1x":20, // bottom left
+  //  "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+  //  "circle7x":80, // bottom right
+  //  "circle7y":180 // bottom right
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circle2x":20, // top left
+    "circle2y":20, //top left
+//    "circle4x":20, // left above line
+//    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+  //  "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+    "circle6x":80, // top right
+    "circle6y":20, // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":70, // right above line
+  //  "circle9x":80, // right below line
+  //  "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  //  "circle2x":20, // top left
+  //  "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+  //  "circle12x":50, // middle below line
+//    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+  //  "circle6x":80, // top right
+  //  "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  //  "circle2x":20, // top left
+  //  "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+  //  "circle5x":20, // left below line
+  //  "circle5y":130, //left below line
+  //  "circle1x":20, // bottom left
+  //  "circle1y":180, // bottom left
+
+  //  "circle10x":50, // middle top
+  //  "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+//    "circle8x":80, // right above line
+//    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+//    "circle7x":80, // bottom right
+//    "circle7y":180 // bottom right
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  //  "circle2x":20, // top left
+  //  "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+//    "circle9x":80, // right below line
+//    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  //  "circle2x":20, // top left
+  //  "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+//    "circle5x":20, // left below line
+//    "circle5y":130, //left below line
+    "circle1x":20, // bottom left
+    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//    "circle2x":20, // top left
+//    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+//    "circle11x":50, // middle above line
+//    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+  //  "circle3x":50, //mid bottom
+  //  "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+//    "circle2x":20, // top left
+//    "circle2y":20, //top left
+    "circle4x":20, // left above line
+    "circle4y":70, // left above line
+    "circle5x":20, // left below line
+    "circle5y":130, //left below line
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
+
+//    "circle10x":50, // middle top
+//    "circle10y":20, // middle top
+    "circle11x":50, // middle above line
+    "circle11y":70, // middle above line
+    "circle12x":50, // middle below line
+    "circle12y":130, // middle below line
+    "circle3x":50, //mid bottom
+    "circle3y":180, //mid bottom
+
+//    "circle6x":80, // top right
+//    "circle6y":20, // top right
+    "circle8x":80, // right above line
+    "circle8y":70, // right above line
+    "circle9x":80, // right below line
+    "circle9y":130, // right below line
+    "circle7x":80, // bottom right
+    "circle7y":180 // bottom right
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    //    "circle2x":20, // top left
+    //    "circle2y":20, //top left
+        "circle4x":20, // left above line
+        "circle4y":70, // left above line
+        "circle5x":20, // left below line
+        "circle5y":130, //left below line
+        "circle1x":20, // bottom left
+        "circle1y":180, // bottom left
+
+    //    "circle10x":50, // middle top
+    //    "circle10y":20, // middle top
+    //    "circle11x":50, // middle above line
+    //    "circle11y":70, // middle above line
+        "circle12x":50, // middle below line
+        "circle12y":130, // middle below line
+        "circle3x":50, //mid bottom
+        "circle3y":180, //mid bottom
+
+    //    "circle6x":80, // top right
+    //    "circle6y":20, // top right
+    //    "circle8x":80, // right above line
+    //    "circle8y":70, // right above line
+        "circle9x":80, // right below line
+        "circle9y":130, // right below line
+        "circle7x":80, // bottom right
+        "circle7y":180 // bottom right
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    //    "circle2x":20, // top left
+    //    "circle2y":20, //top left
+        "circle4x":20, // left above line
+        "circle4y":70, // left above line
+    //    "circle5x":20, // left below line
+    //    "circle5y":130, //left below line
+    //    "circle1x":20, // bottom left
+    //    "circle1y":180, // bottom left
+
+    //    "circle10x":50, // middle top
+    //    "circle10y":20, // middle top
+        "circle11x":50, // middle above line
+        "circle11y":70, // middle above line
+    //    "circle12x":50, // middle below line
+    //    "circle12y":130, // middle below line
+    //    "circle3x":50, //mid bottom
+    //    "circle3y":180, //mid bottom
+
+    //    "circle6x":80, // top right
+    //    "circle6y":20, // top right
+        "circle8x":80, // right above line
+        "circle8y":70, // right above line
+        "circle9x":80, // right below line
+        "circle9y":130, // right below line
+        "circle7x":80, // bottom right
+        "circle7y":180 // bottom right
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    //    "circle2x":20, // top left
+    //    "circle2y":20, //top left
+        "circle4x":20, // left above line
+        "circle4y":70, // left above line
+        "circle5x":20, // left below line
+        "circle5y":130, //left below line
+        "circle1x":20, // bottom left
+        "circle1y":180, // bottom left
+
+    //    "circle10x":50, // middle top
+    //    "circle10y":20, // middle top
+        "circle11x":50, // middle above line
+        "circle11y":70, // middle above line
+        "circle12x":50, // middle below line
+        "circle12y":130, // middle below line
+        "circle3x":50, //mid bottom
+        "circle3y":180, //mid bottom
+
+    //    "circle6x":80, // top right
+    //    "circle6y":20, // top right
+        "circle8x":80, // right above line
+        "circle8y":70, // right above line
+        "circle9x":80, // right below line
+        "circle9y":130, // right below line
+        "circle7x":80, // bottom right
+        "circle7y":180 // bottom right
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    //    "circle2x":20, // top left
+    //    "circle2y":20, //top left
+        "circle4x":20, // left above line
+        "circle4y":70, // left above line
+        "circle5x":20, // left below line
+        "circle5y":130, //left below line
+    //    "circle1x":20, // bottom left
+    //    "circle1y":180, // bottom left
+
+    //    "circle10x":50, // middle top
+    //    "circle10y":20, // middle top
+        "circle11x":50, // middle above line
+        "circle11y":70, // middle above line
+        "circle12x":50, // middle below line
+        "circle12y":130, // middle below line
+    //    "circle3x":50, //mid bottom
+    //    "circle3y":180, //mid bottom
+
+    //    "circle6x":80, // top right
+    //    "circle6y":20, // top right
+        "circle8x":80, // right above line
+        "circle8y":70, // right above line
+        "circle9x":80, // right below line
+        "circle9y":130, // right below line
+        "circle7x":80, // bottom right
+        "circle7y":180 // bottom right
   }
 
 }
