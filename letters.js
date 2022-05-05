@@ -836,6 +836,26 @@ const alphabet = {
     "chunk20": 0
   },
   " ": {
+    "chunk1": 0,
+    "chunk2": 0,
+    "chunk3": 0,
+    "chunk4": 0,
+    "chunk5": 0,
+    "chunk6": 0,
+    "chunk7": 0,
+    "chunk8": 0,
+    "chunk9": 0,
+    "chunk10": 0,
+    "chunk11": 0,
+    "chunk12": 0,
+    "chunk13": 0,
+    "chunk14": 0,
+    "chunk15": 0,
+    "chunk16": 0,
+    "chunk17": 0,
+    "chunk18": 0,
+    "chunk19": 0,
+    "chunk20": 0
   }
   
 }

@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "red";
+var systemBackgroundColor = "#f0f0f0";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -44,12 +44,12 @@ function drawLetter(letterData) {
       jY = (floor((j-1)/4))*40+posy;
       jVal = chunk[j];
       // ellipse(jX,jY,10,10);
-      jdim = dist(x,y,jX,jY);
-      if (jdim>20)jdim=80;
-      jdim=(80-jdim)/40*jVal;
+      jdim = dist(x,y,jX,jY)/jVal;
+      if (jdim>80)jdim=80;
+      jdim=(80-jdim)/40;
       if  (jdim > dim) dim = jdim;
     }
-    let diametre = dim*5;
+    let diametre = dim*dim*3;
     if (diametre > 10) diametre = 10;
     ellipse(x,y,diametre,diametre);
   }
