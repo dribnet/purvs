@@ -312,7 +312,7 @@ const alphabet = {
     "mainSize": 150,
     "main_ypos": 255,
     "eyes_xpos": -20,
-    "eyes_ypos": -20,
+    "eyes_blink": 25,
     "cutter_w": 110,
     "cutter_h": 110,
     "cutter_xpos": 0,
