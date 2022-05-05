@@ -1,5 +1,7 @@
 ## MDDN 242 2022 Assignment 2
 
+'Waveform' font by Ryan Skelton
+
 **Inspiration**
 I think I got the idea of using sinewaves when looking at one of the first assigned readings for this project. I used them to create my first sketch and kept going with it. I'm into music and have messed around in Ableton before so I had a theme of audio signals in my head, specifically sinewave signals. I looked at oscilloscopes as well, mostly as inspiration for the colour.
 
