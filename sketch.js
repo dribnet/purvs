@@ -42,11 +42,11 @@ const letterC = {
   "corner4": 20
 }
 
-const backgroundColor  = "#908aff";
-const strokeColor      = "#171717";
+const backgroundColor  = "#908aff"; // purple
+const strokeColor      = "#171717"; // dark grey
 
-const orange  = "#eb5e34";
-const yellow  = "#ebab34";
+const orange  = "#eb5e34"; // orange
+const yellow  = "#ebab34"; // yellow
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -54,8 +54,8 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  stroke(strokeColor); // set stroke colour
+  strokeWeight(4); // set stroke weight
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -63,34 +63,40 @@ function setup () {
 
 function draw () {
   // clear screen
-  background(backgroundColor);
+  background(backgroundColor); // set background colour
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 250, center_y, letterA); // letter A
+  drawLetter(center_x      , center_y, letterB); // letter B
+  drawLetter(center_x + 250, center_y, letterC); // Letter C
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let cor1 = letterData["corner1"];
-  let cor2 = letterData["corner2"];
-  let cor3 = letterData["corner3"];
-  let cor4 = letterData["corner4"];
 
-  // draw two circles
+  // determine parameters for rectangles
+  let size = letterData["size"]; // rect size
+  let pos2x = posx + letterData["offsetx"]; // X pos
+  let pos2y = posy + letterData["offsety"]; // Y pos
+  let cor1 = letterData["corner1"]; // corner 1 roundness
+  let cor2 = letterData["corner2"]; // corner 2 roundness
+  let cor3 = letterData["corner3"]; // corner 3 roundness
+  let cor4 = letterData["corner4"]; // corner 4 roundness
+
+  // draw rectangles
   rectMode(CENTER)
+
+  // rect 1
   fill(orange);
   rect(posx, posy, 150, 150, cor1, cor2, cor3, cor4);
+
+  // rect 2
   fill(yellow);
-  rect(pos2x, pos2y, size2, size2, cor1, cor2, cor3, cor4);
+  rect(pos2x, pos2y, size, size, cor1, cor2, cor3, cor4);
+
 }
 
 function keyTyped() {

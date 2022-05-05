@@ -3,7 +3,7 @@
 README
 --------------------------------------------------------------------
 
-Spent some time putting the final touches on each of my letters so they are all at a presentable state. Also fixed up the interpolation by making the unused rectangles have a position in the middle of the shape instead of being off at 0, 0. Just need to clean up the files and then I'll be ready for the final hand in later today.
+Cleaned up the code, adding comments where needed to explain certain parts.
 
 --------------------------------------------------------------------
 Parameters:
