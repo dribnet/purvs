@@ -25,12 +25,15 @@ function drawLetter(letterData) {
   let pos2x = 50  + letterData["offsetx"];
   let midline_x = 150 + letterData["offsety"];
   let colour = letterData[""];
+  //let midline_rotation = letterData["rotation"];
   // let midline_quantity = letterData["quantity"];
-  // let midline_rotation = letterData["rotation"];
+  // let midline_distance = letterData["distance"];
+  // let midline_length = letterData["length"];
 
-  let  midline_rotation = 1
-  let  midline_quanity = 1
-  let  midline_length = 1
+
+  let midline_rotation = 5
+  let midline_quantity = 2
+  let midline_length = 1
   let midline_distance = 1
 
   let dot_size = 10
@@ -49,30 +52,33 @@ function drawLetter(letterData) {
   push;
   colorMode(HSB);
   strokeWeight(2);
-  stroke(10,50,100);
+  stroke(0);
+  fill(0);
 
-  if (midline_rotation = 1) {
-    if (midline_quantity = 1) {
-      if (midline_length = 1) {
+
+
+  if (midline_rotation <= 1) {
+    if (midline_quantity <= 1) {
+      if (midline_length <= 1) {
         centre_line(10,80); //tl
       } else {
         centre_line(10,80); //tl
         centre_line(68.3,180); //br
       }
     } else {
-      if (midline_quantity = 2) {
-        if (midline_distance = 0) {
-          if (midline_length = 0) {
+      if (midline_quantity <= 2) {
+        if (midline_distance <= 1) {
+          if (midline_length <= 1) {
             centre_line(10,80); //tl
-            centre_line(68.3,180); //tr
+            centre_line(68.3,80); //tr
           } else {
             centre_line(10,80); //tl
-            centre_line(68.3,180); //tr
+            centre_line(68.3,80); //tr
             centre_line(10,80); //bl
             centre_line(68.3,180); //br
           }
         } else {
-          if (midline_length = 1) {
+          if (midline_length <= 1) {
             centre_line(10,80); //tl
             centre_line(68.3,180); //mr
           } else {
@@ -82,76 +88,688 @@ function drawLetter(letterData) {
             centre_line(-20,130); //ml
           }
         }
-      } else {
-        if (midline_quanity = 3) {
-          if (midline_distance = 0) {
-            if (midline_length = 0) {
+      }
+     else {
+        if (midline_quantity <= 3) {
+          if (midline_distance <= 1) {
+            if (midline_length <= 1) {
               centre_line(10,80); //tl
-              centre_line(68.3,180); //tr
-              centre_line(68.3,180); //mr
+              centre_line(68.3,80); //tr
+              centre_line(98.3,130); //mr
             } else {
               centre_line(10,80); //tl
-              centre_line(68.3,180); //tr
+              centre_line(68.3,80); //tr
               centre_line(68.3,180); //ml
               centre_line(98.3,130); //mr
               centre_line(10,80); //bl
               centre_line(8.3,18); //br
             }
           } else {
-            if (midline_length = 0) {
+            if (midline_length <= 1) {
               centre_line(10,80); //tl
               centre_line(68.3,180); //mr
               centre_line(10,80); //bl
             } else {
               centre_line(10,80); //tl
-              centre_line(68.3,180); //tr
-              centre_line(68.3,180); //ml
+              centre_line(68.3,80); //tr
               centre_line(98.3,130); //mr
-              centre_line(10,80); //bl
-              centre_line(8.3,18); //br
+              centre_line(68.3,180); //br
+              centre_line(10,180); //bl
+              centre_line(-15,130); //ml
             }
           }
         } else {
-          if (midline_quanity = 4) {
-            if (midline_distance = 0) {
-              if (midline_length = 0) {
+          if (midline_quantity <= 4) {
+            if (midline_distance <= 1) {
+              if (midline_length <= 1) {
                 centre_line(10,80); //tl
-                centre_line(68.3,180); //tr
-                centre_line(68.3,180); //mr
-                centre_line(8.3,18); //br
+                centre_line(68.3,80); //tr
+                centre_line(98.3,130); //mr
+                centre_line(68.3,180); //br
               } else {
                 centre_line(10,80); //tl
-                centre_line(68.3,180); //tr
-                centre_line(68.3,180); //ml
+                centre_line(68.3,80); //tr
                 centre_line(98.3,130); //mr
-                centre_line(10,80); //bl
-                centre_line(8.3,18); //br
+                centre_line(68.3,180); //br
+                centre_line(10,180); //bl
+                centre_line(-15,130); //ml
               }
             } else {
-              if (midline_length = 0) {
+              if (midline_length <= 1) {
                 centre_line(10,80); //tl
-                centre_line(68.3,180); //tr
-                centre_line(68.3,180); //mr
-                centre_line(8.3,18); //br
-              } else {
-                centre_line(10,80); //tl
-                centre_line(68.3,180); //tr
-                centre_line(68.3,180); //ml
                 centre_line(98.3,130); //mr
                 centre_line(10,80); //bl
                 centre_line(8.3,18); //br
+              } else {
+                centre_line(10,80); //tl
+                centre_line(68.3,80); //tr
+                centre_line(98.3,130); //mr
+                centre_line(68.3,180); //br
+                centre_line(10,180); //bl
+                centre_line(-15,130); //ml
+              }
+            }
+          } else {
+            if (midline_quantity <= 5) {
+              if (midline_distance <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(68.3,180); //br
+                  centre_line(10,180); //bl
+                } else {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(68.3,180); //br
+                  centre_line(10,180); //bl
+                  centre_line(-15,130); //ml
+                }
+              } else {
+                if (midline_length <= 1) {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                  centre_line(8.3,18); //br
+                } else {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(68.3,180); //br
+                  centre_line(10,180); //bl
+                  centre_line(-15,130); //ml
+                }
+              }
+            } else {
+              centre_line(10,80); //tl
+              centre_line(68.3,80); //tr
+              centre_line(98.3,130); //mr
+              centre_line(68.3,180); //br
+              centre_line(10,180); //bl
+              centre_line(-15,130); //ml
+            }
+          }
         }
       }
     }
   } else {
-    if (midline_rotation = 2) {
-
+    if (midline_rotation <= 2) {
+      if (midline_quantity <= 1) {
+        if (midline_length <= 1) {
+          centre_line(68.3,80); //tr
+        } else {
+          centre_line(68.3,80); //tr
+          centre_line(10,80); //bl
+        }
+      } else {
+        if (midline_quantity <= 2) {
+          if (midline_distance <= 1) {
+            if (midline_length <= 1) {
+              centre_line(68.3,80); //tr
+              centre_line(98.3,130); //mr
+            } else {
+              centre_line(68.3,80); //tr
+              centre_line(10,80); //bl
+              centre_line(98.3,130); //mr
+              centre_line(15,130); //ml
+            }
+          } else {
+            if (midline_length <= 1) {
+              centre_line(68.3,80); //tr
+              centre_line(8.3,18); //br
+            } else {
+              centre_line(68.3,80); //tr
+              centre_line(10,80); //bl
+              centre_line(8.3,18); //br
+              centre_line(10,80); //tl
+            }
+          }
+        } else {
+          if (midline_quantity <= 3) {
+            if (midline_distance <= 1) {
+              if (midline_length <= 1) {
+                centre_line(68.3,80); //tr
+                centre_line(98.3,130); //mr
+                centre_line(68.3,180); //br
+              } else {
+                centre_line(68.3,80); //tr
+                centre_line(98.3,130); //mr
+                centre_line(8.3,18); //br
+              }
+            } else {
+              if (midline_length <= 1) {
+                centre_line(68.3,80); //tr
+                centre_line(8.3,18); //br
+                centre_line(15,130); //ml
+              } else {
+                centre_line(10,80); //tl
+                centre_line(68.3,80); //tr
+                centre_line(15,130); //ml
+                centre_line(98.3,130); //mr
+                centre_line(10,80); //bl
+                centre_line(8.3,18); //br
+              }
+            }
+          } else {
+            if (midline_quantity <= 4) {
+              if (midline_distance <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(68.3,180); //br
+                  centre_line(10,180); //bl
+                } else {
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(8.3,18); //br
+                  centre_line(10,80); //bl
+                  centre_line(10,80); //tl
+                  centre_line(15,130); //ml
+                }
+              } else {
+                if (midline_length <= 1) {
+                  centre_line(68.3,80); //tr
+                  centre_line(15,130); //ml
+                  centre_line(10,80); //bl
+                  centre_line(8.3,18); //br
+                } else {
+                  centre_line(68.3,80); //tr
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                  centre_line(15,130); //ml
+                }
+              }
+            } else {
+              if (midline_quantity <= 5) {
+                if (midline_distance <= 1) {
+                  if (midline_length <= 1) {
+                    centre_line(68.3,80); //tr
+                    centre_line(98.3,130); //mr
+                    centre_line(68.3,180); //br
+                    centre_line(10,180); //bl
+                    centre_line(-15,130); //ml
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                } else {
+                  if (midline_length <= 1) {
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                }
+              } else {
+                centre_line(10,80); //tl
+                centre_line(68.3,80); //tr
+                centre_line(98.3,130); //mr
+                centre_line(68.3,180); //br
+                centre_line(10,180); //bl
+                centre_line(-15,130); //ml
+              }
+            }
+          }
+        }
+      }
     } else {
+      if (midline_rotation <= 3) {
+        if (midline_quantity <= 1) {
+          if (midline_length <= 1) {
+            centre_line(98.3,130); //mr
+          } else {
+            centre_line(98.3,130); //mr
+            centre_line(10,80); //bl
+          }
+        } else {
+          if (midline_quantity <= 2) {
+            if (midline_distance <= 1) {
+              if (midline_length <= 1) {
+                centre_line(98.3,130); //mr
+                centre_line(68.3,180); //br
+              } else {
+                centre_line(98.3,130); //mr
+                centre_line(8.3,18); //br
+                centre_line(10,80); //tl
+                centre_line(15,130); //ml
+              }
+            } else {
+              if (midline_length <= 1) {
+                centre_line(98.3,130); //mr
+                centre_line(10,80); //bl
+              } else {
+                centre_line(98.3,130); //mr
+                centre_line(10,80); //bl
+                centre_line(15,130); //ml
+                centre_line(68.3,80); //tr
+              }
+            }
+          } else {
+            if (midline_quantity <= 3) {
+              if (midline_distance <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(98.3,130); //mr
+                  centre_line(10,180); //bl
+                  centre_line(68.3,180); //br
+                } else {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(15,130); //ml
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                  centre_line(8.3,18); //br
+                }
+              } else {
+                if (midline_length <= 1) {
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                  centre_line(10,80); //tl
+                } else {
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                  centre_line(15,130); //ml
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                  centre_line(8.3,18); //br
+                }
+              }
+            } else {
+              if (midline_quantity <= 4) {
+                if (midline_distance <= 1) {
+                  if (midline_length <= 1) {
+                    centre_line(-15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,180); //bl
+                    centre_line(68.3,180); //br
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                } else {
+                  if (midline_length <= 1) {
+                    centre_line(10,80); //tl
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                }
+              } else {
+                if (midline_quantity <= 5) {
+                  if (midline_distance <= 1) {
+                    centre_line(10,80); //tl
+                    centre_line(-15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,180); //bl
+                    centre_line(68.3,180); //br
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                } else {
+                  centre_line(68.3,80); //tr
+                  centre_line(10,80); //tl
+                  centre_line(-15,130); //ml
+                  centre_line(98.3,130); //mr
+                  centre_line(10,180); //bl
+                  centre_line(68.3,180); //br
+                }
+              }
+            }
+          }
+        }
+      } else {
+        if (midline_rotation <= 4) {
+          if (midline_quantity <= 1) {
+            if (midline_length <= 1) {
+              centre_line(68.3,180); //br
+            } else {
+              centre_line(68.3,180); //br
+              centre_line(10,80); //bl
+            }
+          } else {
+            if (midline_quantity <= 2) {
+              if (midline_distance <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(10,180); //bl
+                  centre_line(68.3,180); //br
+                } else {
+                  centre_line(68.3,180); //br
+                  centre_line(10,180); //bl
+                  centre_line(10,80); //tl
+                  centre_line(68.3,80); //tr
+                }
+              } else {
+                if (midline_length <= 1) {
+                  centre_line(68.3,180); //br
+                  centre_line(15,130); //ml
+                } else {
+                  centre_line(68.3,180); //br
+                  centre_line(15,130); //ml
+                  centre_line(10,80); //tl
+                  centre_line(98.3,130); //mr
+                }
+              }
+            } else {
+              if (midline_quantity <= 3) {
+                if (midline_distance <= 1) {
+                  if (midline_length <= 1) {
+                    centre_line(-15,130); //ml
+                    centre_line(10,180); //bl
+                    centre_line(68.3,180); //br
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                } else {
+                  if (midline_length <= 1) {
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(8.3,18); //br
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(68.3,80); //tr
+                    centre_line(15,130); //ml
+                    centre_line(98.3,130); //mr
+                    centre_line(10,80); //bl
+                    centre_line(8.3,18); //br
+                  }
+                }
+              } else {
+                if (midline_quantity <= 4) {
+                  if (midline_distance <= 1) {
+                    if (midline_length <= 1) {
+                      centre_line(10,80); //tl
+                      centre_line(-15,130); //ml
+                      centre_line(10,180); //bl
+                      centre_line(68.3,180); //br
+                    } else {
+                      centre_line(10,80); //tl
+                      centre_line(68.3,80); //tr
+                      centre_line(15,130); //ml
+                      centre_line(98.3,130); //mr
+                      centre_line(10,80); //bl
+                      centre_line(8.3,18); //br
+                    }
+                  } else {
+                    if (midline_length <= 1) {
+                      centre_line(10,80); //tl
+                      centre_line(68.3,180); //ml
+                      centre_line(98.3,130); //mr
+                      centre_line(8.3,18); //br
+                    } else {
+                      centre_line(10,80); //tl
+                      centre_line(68.3,80); //tr
+                      centre_line(15,130); //ml
+                      centre_line(98.3,130); //mr
+                      centre_line(10,80); //bl
+                      centre_line(8.3,18); //br
+                    }
+                  }
+                } else {
+                  if (midline_quantity <= 5) {
+                    if (midline_distance <= 1) {
+                      centre_line(10,80); //tl
+                      centre_line(-15,130); //ml
+                      centre_line(10,180); //bl
+                      centre_line(68.3,180); //br
+                      centre_line(68.3,80); //tr
+                    } else {
+                      centre_line(10,80); //tl
+                      centre_line(68.3,80); //tr
+                      centre_line(15,130); //ml
+                      centre_line(98.3,130); //mr
+                      centre_line(10,80); //bl
+                      centre_line(8.3,18); //br
+                    }
+                  } else {
+                    centre_line(10,80); //tl
+                    centre_line(-15,130); //ml
+                    centre_line(10,180); //bl
+                    centre_line(68.3,180); //br
+                    centre_line(68.3,80); //tr
+                    centre_line(98.3,130); //mr
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          if (midline_rotation <= 5) {
+              if (midline_quantity <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(8.3,180); //bl
+                } else {
+                  centre_line(98.3,130); //mr
+                  centre_line(8.3,180); //bl
+                }
+              } else {
+                if (midline_quantity <= 2) {
+                  if (midline_distance <= 1) {
+                    if (midline_length <= 1) {
+                      centre_line(8.3,180); //bl
+                      centre_line(-15,130); //ml
+                    } else {
+                      centre_line(8.3,180); //bl
+                      centre_line(15,130); //ml
+                      centre_line(68.3,80); //tr
+                      centre_line(98.3,130); //mr
+                    }
+                  } else {
+                    if (midline_length <= 1) {
+                      centre_line(8.3,180); //bl
+                      centre_line(10,80); //tl
+                    } else {
+                      centre_line(8.3,180); //bl
+                      centre_line(68.3,80); //tr
+                      centre_line(8.3,18); //br
+                      centre_line(68.3,80); //tr
+                    }
+                  }
+                } else {
+                  if (midline_quantity <= 3) {
+                    if (midline_distance <= 1) {
+                      if (midline_length <= 1) {
+                        centre_line(10,80); //tl
+                        centre_line(8.3,180); //bl
+                        centre_line(-15,130); //ml
+                      } else {
+                        centre_line(10,80); //tl
+                        centre_line(68.3,80); //tr
+                        centre_line(15,130); //ml
+                        centre_line(98.3,130); //mr
+                        centre_line(8.3,180); //bl
+                        centre_line(8.3,18); //br
+                      }
+                    } else {
+                      if (midline_length <= 1) {
+                        centre_line(10,80); //tl
+                        centre_line(98.3,130); //mr
+                        centre_line(8.3,180); //bl
+                      } else {
+                        centre_line(10,80); //tl
+                        centre_line(68.3,80); //tr
+                        centre_line(15,130); //ml
+                        centre_line(98.3,130); //mr
+                        centre_line(8.3,180); //bl
+                        centre_line(8.3,180); //br
+                      }
+                    }
+                  } else {
+                    if (midline_quantity <= 4) {
+                      if (midline_distance <= 1) {
+                        if (midline_length <= 1) {
+                          centre_line(68.3,80); //tr
+                          centre_line(10,80); //tl
+                          centre_line(8.3,180); //bl
+                          centre_line(-15,130); //ml
+                        } else {
+                          centre_line(68.3,80); //tr
+                          centre_line(10,80); //tl
+                          centre_line(8.3,180); //bl
+                          centre_line(-15,130); //ml
+                          centre_line(98.3,130); //mr
+                          centre_line(68.3,180); //br
+                        }
+                      } else {
+                        if (midline_length <= 1) {
+                          centre_line(10,80); //tl
+                          centre_line(68.3,80); //tr
+                          centre_line(15,130); //ml
+                          centre_line(8.3,18); //br
+                        } else {
+                          centre_line(68.3,80); //tr
+                          centre_line(10,80); //tl
+                          centre_line(8.3,180); //bl
+                          centre_line(-15,130); //ml
+                          centre_line(98.3,130); //mr
+                          centre_line(68.3,180); //br
+                        }
+                      }
+                    } else {
+                      if (midline_quantity <= 5) {
+                        if (midline_length <= 1) {
+                          centre_line(68.3,80); //tr
+                          centre_line(10,80); //tl
+                          centre_line(8.3,180); //bl
+                          centre_line(-15,130); //ml
+                          centre_line(98.3,130); //mr
+                        } else {
+                          centre_line(68.3,80); //tr
+                          centre_line(10,80); //tl
+                          centre_line(8.3,180); //bl
+                          centre_line(-15,130); //ml
+                          centre_line(98.3,130); //mr
+                          centre_line(68.3,180); //br
+                        }
+                      } else {
+                        centre_line(68.3,80); //tr
+                        centre_line(10,80); //tl
+                        centre_line(8.3,180); //bl
+                        centre_line(-15,130); //ml
+                        centre_line(98.3,130); //mr
+                        centre_line(68.3,180); //br
+                      }
+                    }
+                  }
+                }
+              }
+          } else {
+              if (midline_quantity <= 1) {
+                if (midline_length <= 1) {
+                  centre_line(-15,130); //ml
+                } else {
+                  centre_line(98.3,130); //mr
+                  centre_line(10,80); //bl
+                }
+              } else {
+                if (midline_quantity <= 2) {
+                  if (midline_distance <= 1) {
+                    if (midline_length <= 1) {
 
+                    } else {
+
+                    }
+                  } else {
+                    if (midline_length == 1) {
+
+                    } else {
+
+                    }
+                  }
+                } else {
+                  if (midline_quantity == 3) {
+                    if (midline_distance == 1) {
+                      if (midline_length == 1) {
+
+                      } else {
+
+                      }
+                    } else {
+                      if (midline_length == 1) {
+
+                      } else {
+
+                      }
+                    }
+                  } else {
+                    if (midline_quantity == 4) {
+                      if (midline_distance == 1) {
+                        if (midline_length == 1) {
+
+                        } else {
+
+                        }
+                      } else {
+                        if (midline_length == 1) {
+
+                        } else {
+
+                        }
+                      }
+                    } else {
+                      if (midline_quantity == 5) {
+                        if (midline_length == 1) {
+
+                        } else {
+                          centre_line(10,80); //tl
+                          centre_line(68.3,80); //tr
+                          centre_line(68.3,180); //ml
+                          centre_line(98.3,130); //mr
+                          centre_line(10,80); //bl
+                          centre_line(8.3,18); //br
+                        }
+                      } else {
+                        centre_line(10,80); //tl
+                        centre_line(68.3,80); //tr
+                        centre_line(68.3,180); //ml
+                        centre_line(98.3,130); //mr
+                        centre_line(10,80); //bl
+                        centre_line(8.3,18); //br
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
     }
   }
 
-  centre_line(10,80);
+  //centre_line(10,80);
 
   strokeWeight(0);
   fill(0);
@@ -175,8 +793,10 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  // new_letter["quantity"] = map(percent, 0, 100, oldObj["quantity"], newObj["quantity"]);
-  // new_letter["rotation"] = map(percent, 0, 100, oldObj["rotation"], newObj["rotation"]);
+  new_letter["quantity"] = map(percent, 0, 6, oldObj["quantity"], newObj["quantity"]);
+  new_letter["rotation"] = map(percent, 0, 6, oldObj["rotation"], newObj["rotation"]);
+  new_letter["distance"] = map(percent, 0, 2, oldObj["quantity"], newObj["quantity"]);
+  new_letter["length"] = map(percent, 0, 2, oldObj["rotation"], newObj["rotation"]);
   return new_letter;
 }
 
@@ -185,4 +805,3 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
-}
