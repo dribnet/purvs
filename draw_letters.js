@@ -19,8 +19,8 @@ function drawLetter(letterData) {
   // color/stroke setup
   fill(strokeColor);
   strokeWeight(4);
-  let posx = 30;
-  let posy = 200;
+  let posx = 10;
+  let posy = 10;
   
   noStroke();
   // determine parameters for halftone space
@@ -31,8 +31,8 @@ function drawLetter(letterData) {
 
   // draw circles
   for (let i = 1; i <= 250; i++){
-    let x = (i%10)*10;
-    let y = 8*floor((i-1)/10);
+    let x = (i%10)*10+posx;
+    let y = 8*floor((i-1)/10)+posy;
 
     let dim = 0;
     let jdim = 0;
@@ -40,25 +40,18 @@ function drawLetter(letterData) {
     let jY;
     let jVal;
     for (let j = 1; j <= 20; j++){
-      jX = ((j-1)%4)*30;
-      jY = (floor((j-1)/4))*40;
+      jX = ((j-1)%4)*30+posx;
+      jY = (floor((j-1)/4))*40+posy;
       jVal = chunk[j];
       // ellipse(jX,jY,10,10);
-      jdim = dist(x,y,jX,jY)*jVal;
+      jdim = dist(x,y,jX,jY);
+      if (jdim>20)jdim=80;
+      jdim=(80-jdim)/40*jVal;
       if  (jdim > dim) dim = jdim;
     }
-
-    let diametre = 2/map(dim,0,100,0,5,true);
-    if (diametre > 5) diametre = 5;
+    let diametre = dim*5;
+    if (diametre > 10) diametre = 10;
     ellipse(x,y,diametre,diametre);
-  }
-
-  // test circles \(.‸.)/
-  for (let j = 1; j <= 20; j++){
-    jX = ((j-1)%4)*30;
-    jY = (floor((j-1)/4))*40;
-    jVal = chunk[j]*30;
-    ellipse(jX,jY,jVal,jVal);
   }
 
 }
