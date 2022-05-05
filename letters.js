@@ -877,7 +877,7 @@ const alphabet = {
     //"sq10_posx": 2.5,
     //"sq10_posy": 2.5,
     "lightPixelClr": 240,
-    "PixelClr": 10
+    "darkPixelClr": 10
   }
 
 }
