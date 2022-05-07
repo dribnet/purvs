@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
 
-var systemBackgroundColor = '#71d19b';
+var systemBackgroundColor = '#282e2c';
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const dark  = "#1f1a2e";
-const light  = "#bacbcf";
+const dark  = "#96582f";
+const light  = "#96582f";
 const strokeColor  = "#547780";
 
 

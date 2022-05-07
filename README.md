@@ -21,3 +21,11 @@ this is where I'll create letter shapes
 -started experimenting with colour
 
 Next steps : full alphabet, editor, interpolation, continue style development
+
+7/5 Shadows!
+
+the concept is shadows that are a little abstract but seem plausible in the shapes that create them and use a consistent style and a bit of consideration in how they are weighted. This usually means making them look a bit more like they are wrapping around the circle as if it's a sphere, with the shadow running up the wall from the bottom left. This comes a cross a little less with shapes that took more parameters to just make a legible form, though I did rework some letters.
+
+I would have done better to find a way to put a list of precise values back into the editor to allow a consistent back-and-forth tweaking rather than reinventing the wheel whenever I go to make a change, but the p5 web editor I made helped me a little here, allowing this workflow but being more clunky.
+
+I think these letters could still use some work; currently things are fun but ehh 60% there visual- consistency-wise. The numbers are blocky but look good and consistent. There's a few minor imperfections I want to work out but this is a little hard by design - could be due to how I've set everything up!

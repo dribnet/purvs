@@ -1,13 +1,27 @@
-/*******
- * define this "sliderInfo" variable
- * have an entry for each slider you want
- * and each row should be:
- * ["object_field", minimum_bound, maximum_bound]
- */
+
+
+
 const sliderInfo = [
+  //X between -50 and 200, Y between 0 and 200 for each bezier point
   ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  // ["offsetx",  -30,  30],
+  // ["offsety", -100, 100],
+  ["x1" , -50,200],
+  ["y1" , 00, 200],
+  ["x2" , -50,200],
+  ["y2" , 00, 200],
+  ["x3" , -50,200],
+  ["y3" , 00, 200],
+  ["x4" , -50,200],
+  ["y4" , 00, 200],
+  ["x5" , -50,200],
+  ["y5" , 00, 200],
+  ["x6" , -50,200],
+  ["y6" , 00, 200],
+  ["x7" , -50,200],
+  ["y7" , 00, 200],
+  ["x8" , -50,200],
+  ["y8" , 00, 200]
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
@@ -50,6 +64,9 @@ function setup () {
   // rotation in degrees (more slider friendly)
   angleMode(DEGREES);
 
+
+
+
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
@@ -73,6 +90,8 @@ function buttonPressedEvent() {
 function draw () {
   // clear screen
   background(systemBackgroundColor);
+
+
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
