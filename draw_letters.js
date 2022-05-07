@@ -1,14 +1,19 @@
 /* these are optional special variables which will change the system */
 
-var systemBackgroundColor = '#282e2c';
+var systemBackgroundColor = 'ffffffff';
+//old: #531AE5 #AE9B62 #97A586
+//fun #DF8CC7 #161A46
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const dark  = "#96582f";
-const light  = "#96582f";
-const strokeColor  = "#547780";
+const dark  = "#9486A5";
 
+//old: #96582f #ACE51A #6276AE
+//fun #8CDFA4 #464216
+const light  = "#7E8E6A";
+const strokeColor  = "#7E8E6A";
+//green #547780
 
 /*
  * Draw the letter given the letterData
@@ -22,8 +27,8 @@ function drawLetter(letterData) {
 
 
 
-  stroke(strokeColor);
-  strokeWeight(0);
+  //stroke(strokeColor);
+ strokeWeight(0);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
@@ -54,12 +59,17 @@ function drawLetter(letterData) {
 
 
   // draw two circles
-  fill(dark);
+  fill(255);
+  rect(0,50,100,100)
+  //ellipse(50,100,110,110);
+fill(0);
+  rect(0,50,80,80)
   ellipse(50,100,100,100);
-  fill(light);
+  fill(0);
 //  ellipse(pos2x, pos2y, size2, size2);
 
-fill(systemBackgroundColor);
+//  strokeWeight(2);
+fill(255);
   beginShape();
 vertex(letterData["x1"],letterData["y1"]);
 bezierVertex(letterData["x2"],letterData["y2"],letterData["x3"],letterData["y3"],letterData["x4"],letterData["y4"]);
@@ -86,7 +96,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "PLANTED?",
+  "SHADOWS",
+  "QUESTION",
+  "RESTEASY"
 ]
