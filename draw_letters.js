@@ -46,7 +46,7 @@ function drawLetter(letterData) {
 
   arc(ax, ay, asize, asize, astart, astop / 1.35, OPEN) //draws black line inside orange arc
 
-  strokeWeight(24); //changes stroke back to 24
+  strokeWeight(12); //changes stroke back to 24
   arc(a2x, a2y, a2size, a2size, a2start, a2stop, OPEN) //draws thick black arc
 
   strokeWeight(0); //no stroke
