@@ -1,30 +1,25 @@
-## MDDN 242 2022 Assignment 2
+## MDDN 242 2022 Assignment 2: Cutout Shadows
 
-(Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I wanted to make a typeface with shadows that are a little abstract but seem plausible in the shapes that create them. They appear to run up the wall with a visible source, and are interpolated so the shaded form morphs nicely, and is "shuffled" with some rotation to the entire shape.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+I do like how the character of the letters changed when I switched from the initial circle background shape to a square. I think this change did a lot to bring everything together, though each letterform is not perfect.
+The entire idea does focus a lot more on the forms themselves than their animation, mainly due to the large amount of parameters I set in making a fully articulated bezier blob.
+
+ALL DEVELOPMENT: https://imgur.com/a/Wp5Gb8u
+
+NOTE: b.locks.org is down so I can't add my showcased commits right now.
+
 
 5/5 Beziers!
 
 -bezier design style
-
 -made a shape editor in p5 web editor https://editor.p5js.org/verteks/sketches/_gDUaKeex
 this is where I'll create letter shapes
-
 -brought variables into draw_letters and R into letters gallery
-
 -started experimenting with colour
 
-Next steps : full alphabet, editor, interpolation, continue style development
-
 7/5 Shadows!
-
-the concept is shadows that are a little abstract but seem plausible in the shapes that create them and use a consistent style and a bit of consideration in how they are weighted. This usually means making them look a bit more like they are wrapping around the circle as if it's a sphere, with the shadow running up the wall from the bottom left. This comes a cross a little less with shapes that took more parameters to just make a legible form, though I did rework some letters.
 
 I would have done better to find a way to put a list of precise values back into the editor to allow a consistent back-and-forth tweaking rather than reinventing the wheel whenever I go to make a change, but the p5 web editor I made helped me a little here, allowing this workflow but being more clunky.
 
@@ -33,5 +28,3 @@ I think these letters could still use some work; currently things are fun but eh
 8/5 Animation!
 I've done a lot of experimentation in different styles and decided to switch to a blocky form, using a secondary silhouette outline to communicate the shape casting a shadow.
 I'm interpolating using an if/else statement to make the entire shape rotate by a slight amount to simulate the letter blocks being "shuffled" into their next appearance.
-
-ALL DEVELOPMENT: https://imgur.com/a/Wp5Gb8u
