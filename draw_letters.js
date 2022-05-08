@@ -35,7 +35,7 @@ function drawLetter(letterData) {
 
   angleMode(DEGREES) // nicer to deal with, changes angle mode to degrees
 
-  stroke(orange);
+  stroke(maroon);
   strokeWeight(24);
   strokeCap(SQUARE);
   noFill()
@@ -82,7 +82,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+"BAUHAUS!",
   "HARRISON",
-  "MATTHEWS",
-  "BAUHAUS!"
+  "MATTHEWS"
+
 ]
