@@ -4,74 +4,57 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue = "#0077b6";
-const lightBlue = "#90e0ef";
-const orange = "#f07800";
-const black = "#1c1c1c";
-const grey = "#c2c2c2";
-const maroon = "#ad0000";
-
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+const orange = "#f07800"; // orange colur
+const black = "#1c1c1c"; // black colour
+const grey = "#c2c2c2"; // grey oclour
+const maroon = "#ad0000"; //maroon colour
 
 function drawLetter(letterData) {
-  // color/stroke setup
 
-  // determine parameters for second circle
-  let ax = letterData["ax"];
-  let ay = letterData["ay"];
-  let asize = letterData["asize"];
-  let astart = letterData["astart"];
-  let astop = letterData["astop"];
+  let ax = letterData["ax"]; //var 1 orange arc x pos
+  let ay = letterData["ay"]; //var 2 orange arc y pos
+  let asize = letterData["asize"]; //var 3 orange arc size
+  let astart = letterData["astart"]; //var 4 orange arc angle start
+  let astop = letterData["astop"]; //var 5 orange arc angle stop
 
-  let a2x = letterData["a2x"];
-  let a2y = letterData["a2y"];
-  let a2size = letterData["a2size"];
-  let a2start = letterData["a2start"];
-  let a2stop = letterData["a2stop"];
+  let a2x = letterData["a2x"]; //var 6 black arc x pos
+  let a2y = letterData["a2y"]; //var 7 black arc y pos
+  let a2size = letterData["a2size"]; //var 8 black arc size
+  let a2start = letterData["a2start"]; //var 9 black arc angle start
+  let a2stop = letterData["a2stop"]; //var 10 black arc angle stop
 
-  let thinrx = letterData["thinrx"]; //xpos
-  let thinry = letterData["thinry"]; //ypos
-  let thinrw = letterData["thinrw"]; //width
-  let thinrh = letterData["thinrh"]; //height
+  let thinrx = letterData["thinrx"]; //var 11 grey rect x pos
+  let thinry = letterData["thinry"]; //var 12 grey rect y pos
+  let thinrw = letterData["thinrw"]; //var 13 grey rect width
+  let thinrh = letterData["thinrh"]; //var 14 grey rect height
 
-  let marectx = letterData["marectx"]; //xpos
-  let marecty = letterData["marecty"]; //ypos
-  let marectw = letterData["marectw"]; //width
-  let marecth = letterData["marecth"]; //height
+  let marectx = letterData["marectx"]; //var 15 maroon rect xpos
+  let marecty = letterData["marecty"]; //var 16 maroon rect y pos
+  let marectw = letterData["marectw"]; //var 17 maroon rect width
+  let marecth = letterData["marecth"]; //var 18 maroon rect height
 
   angleMode(DEGREES) // nicer to deal with, changes angle mode to degrees
 
-  // draw two circles
   stroke(orange);
   strokeWeight(24);
   strokeCap(SQUARE);
   noFill()
-  arc(ax, ay, asize, asize, astart, astop, OPEN)
+  arc(ax, ay, asize, asize, astart, astop, OPEN) // draws orange cirlce
 
-  stroke(black);
-  strokeWeight(1);
+  stroke(black); //changes stroke from orange to black
+  strokeWeight(1); // changes stroke to 1 for thin line
 
-  arc(ax, ay, asize, asize, astart, astop / 1.35, OPEN)
+  arc(ax, ay, asize, asize, astart, astop / 1.35, OPEN) //draws black line inside orange arc
 
-  stroke(black);
-  strokeWeight(24);
+  strokeWeight(24); //changes stroke back to 24
+  arc(a2x, a2y, a2size, a2size, a2start, a2stop, OPEN) //draws thick black arc
 
-  noFill()
-  arc(a2x, a2y, a2size, a2size, a2start, a2stop, OPEN)
-
-  strokeWeight(0);
+  strokeWeight(0); //no stroke
   fill(grey);
-  rect(thinrx, thinry, thinrw, thinrh)
+  rect(thinrx, thinry, thinrw, thinrh) //draws grey rect
 
-  strokeWeight(0);
   fill(maroon);
-  rect(marectx, marecty, marectw, marecth)
+  rect(marectx, marecty, marectw, marecth) //draws maroon rect
 
 }
 
