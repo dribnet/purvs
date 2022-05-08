@@ -10,3 +10,7 @@ I was also going to add more details to the letters but the parameter limit make
 Today I redesigned my alphabet so that it complied with the 20 parameter limit. In order to do this I had to use two triangles and two rectangles rather than 4 quads. I also had to take the slant off of the letters because it needed consistency and I couldn't accomplish slanted cut outs using rectangles.
 
 After redesigning it on paper I applied to my files and started crafting the letters. I am having trouble getting the triangles to appear in the alphabet at the moment so I have been focusing on the squares for now. This allows me to lay down the basic shapes in the editor so when I figure out the triangles I know where to put them.
+
+8/5/22
+
+Today I continued with the rectangle placement on my letters. I am now around half way done with my letters excluding the use of my two triangle shapes. I am still struggling to make them appear in the preview but this will be my next step. Tomorrow I will make this a priority and try ask for some help in case I am missing something. Once all of the letters are drawn I will start to work on animating the transitions.  
