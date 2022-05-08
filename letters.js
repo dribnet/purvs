@@ -1,8 +1,6 @@
 const alphabet = {
   "default": {
-    "size": 65,
-    "offsetx": 0,
-    "offsety": 0,
+
     "x1" : 77.5,
     "y1" : 132,
     "x2" : 117.5,
@@ -21,9 +19,7 @@ const alphabet = {
     "y8" : 112
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
+
     "x1" :25,
     "y1" : 150,
     "x2" : 20,
@@ -42,10 +38,6 @@ const alphabet = {
     "y8" : 150
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70,
-
 
     "x1" :5,
     "y1" : 150,
@@ -68,9 +60,6 @@ const alphabet = {
 
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : -20,
     "y1" : 160,
@@ -94,13 +83,10 @@ const alphabet = {
 
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-
-    "x1" : -27.5,
+//changed x1 and x2 to 0 to bring fixed points back into bounding box
+    "x1" : -10,
     "y1" : 130,
-    "x2" : 40,
+    "x2" : 0,
     "y2" : 10,
     "x3" : 27.5,
     "y3" : 0,
@@ -137,9 +123,6 @@ const alphabet = {
 
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :85,
     "y1" : 50,
@@ -164,9 +147,6 @@ const alphabet = {
 
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :110,
     "y1" : 44,
@@ -189,9 +169,6 @@ const alphabet = {
 
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :100,
     "y1" : 84,
@@ -211,9 +188,7 @@ const alphabet = {
     "y8" : 32
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+
     "x1" :67.5,
     "y1" : 116,
     "x2" : 72.5,
@@ -232,9 +207,7 @@ const alphabet = {
     "y8" : 106
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+
     "x1" :67.5,
     "y1" : 164,
     "x2" : 200,
@@ -253,9 +226,7 @@ const alphabet = {
     "y8" : 78
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+
     "x1" :-12.5,
     "y1" : 160,
     "x2" : 155,
@@ -274,9 +245,6 @@ const alphabet = {
     "y8" : 110
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :82.5,
     "y1" : 14,
@@ -296,9 +264,6 @@ const alphabet = {
     "y8" : 140
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 27.5,
     "y1" : 102,
@@ -319,9 +284,6 @@ const alphabet = {
 
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 5,
     "y1" : 150,
@@ -341,9 +303,6 @@ const alphabet = {
     "y8" : 46
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :32.5,
     "y1" : 22,
@@ -363,9 +322,6 @@ const alphabet = {
     "y8" : 100
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 72.5,
     "y1" : 148,
@@ -385,9 +341,6 @@ const alphabet = {
     "y8" : 140
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :30,
     "y1" : 52,
@@ -407,9 +360,6 @@ const alphabet = {
     "y8" : 48
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :62.5,
     "y1" : 132,
@@ -429,9 +379,6 @@ const alphabet = {
     "y8" : 96
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :22.5,
     "y1" : 0,
@@ -479,9 +426,6 @@ const alphabet = {
 
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :37.5,
     "y1" : 174,
@@ -501,9 +445,7 @@ const alphabet = {
     "y8" : 142
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+
     "x1" :70,
     "y1" : 170,
     "x2" : 200,
@@ -522,9 +464,6 @@ const alphabet = {
     "y8" : 80
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 77.5,
     "y1" : 90,
@@ -544,9 +483,6 @@ const alphabet = {
     "y8" : 74
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 75,
     "y1" : 124,
@@ -566,9 +502,6 @@ const alphabet = {
     "y8" : 116
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" : 45,
     "y1" : 140,
@@ -588,9 +521,7 @@ const alphabet = {
     "y8" : 100
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
+
     "x1" : 55,
     "y1" : 92,
     "x2" : -50,
@@ -627,9 +558,6 @@ const alphabet = {
     // "y8" : 200
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :30,
     "y1" : 44,
@@ -649,9 +577,6 @@ const alphabet = {
     "y8" : 32
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
 
     "x1" :92.5,
     "y1" : 54,
@@ -671,9 +596,6 @@ const alphabet = {
     "y8" : 122
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" : 85,
     "y1" : 112,
@@ -713,9 +635,6 @@ const alphabet = {
 
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :140,
     "y1" : 52,
@@ -735,9 +654,6 @@ const alphabet = {
     "y8" : 52
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :120,
     "y1" : 44,
@@ -757,9 +673,6 @@ const alphabet = {
     "y8" : 122
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :55,
     "y1" : 44,
@@ -779,9 +692,6 @@ const alphabet = {
     "y8" : 52
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :77.5,
     "y1" : 94,
@@ -801,9 +711,6 @@ const alphabet = {
     "y8" : 200
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :55,
     "y1" : 134,
@@ -823,9 +730,7 @@ const alphabet = {
     "y8" : 166
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
+
     "x1" : 10,
     "y1" : 140,
     "x2" : 110,
@@ -844,9 +749,6 @@ const alphabet = {
     "y8" : 96
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :120,
     "y1" : 44,
@@ -866,9 +768,6 @@ const alphabet = {
     "y8" : 122
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
 
     "x1" :65,
     "y1" : 102,
@@ -888,9 +787,7 @@ const alphabet = {
     "y8" : 100
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17,
+
     "x1" : 42.5,
     "y1" : 156,
     "x2" : -7.5,

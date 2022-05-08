@@ -1,19 +1,19 @@
 /* these are optional special variables which will change the system */
 
-var systemBackgroundColor = 'ffffffff';
+var systemBackgroundColor = '#665668';
 //old: #531AE5 #AE9B62 #97A586
-//fun #DF8CC7 #161A46
+//fun #DF8CC7 #161A46 #ffffff #ffd454
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const dark  = "#9486A5";
+const dark  = "#473f4f";
 
 //old: #96582f #ACE51A #6276AE
-//fun #8CDFA4 #464216
+//fun #8CDFA4 #464216 #9486A5
 const light  = "#7E8E6A";
-const strokeColor  = "#7E8E6A";
-//green #547780
+const strokeColor  = "#0f0f00";
+//green #547780 #7E8E6A
 
 /*
  * Draw the letter given the letterData
@@ -27,13 +27,9 @@ function drawLetter(letterData) {
 
 
 
-  //stroke(strokeColor);
+stroke(strokeColor);
  strokeWeight(0);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
 // let x1 = letterData["x1"];
 // let y1 = letterData["y1"];
@@ -54,50 +50,96 @@ function drawLetter(letterData) {
 
 
 
-
-
-
-
-  // draw two circles
-  fill(255);
+  // backing shapes
+  fill(10,9,7,180);
+  //complement to purple: 40,35,30
   rect(0,50,100,100)
   //ellipse(50,100,110,110);
-fill(0);
-  rect(0,50,80,80)
-  ellipse(50,100,100,100);
-  fill(0);
-//  ellipse(pos2x, pos2y, size2, size2);
 
-//  strokeWeight(2);
-fill(255);
+
+
+  fill(20,220);
+  rect(0,50,80,80)
+
+  push();
+  noFill();
+
+  stroke(systemBackgroundColor)
+  strokeWeight(1);
+    translate(-10,10);
+    scale(.8,1.2);
+
   beginShape();
-vertex(letterData["x1"],letterData["y1"]);
-bezierVertex(letterData["x2"],letterData["y2"],letterData["x3"],letterData["y3"],letterData["x4"],letterData["y4"]);
-bezierVertex(letterData["x4"],letterData["y4"],letterData["x5"],letterData["y5"],letterData["x6"],letterData["y6"]);
-bezierVertex(letterData["x6"],letterData["y6"],letterData["x7"],letterData["y7"],letterData["x8"],letterData["y8"]);
+      vertex(letterData["x1"],letterData["y1"]);
+      bezierVertex(letterData["x2"],letterData["y2"],letterData["x3"],letterData["y3"],letterData["x4"],letterData["y4"]);
+      bezierVertex(letterData["x4"],letterData["y4"],letterData["x5"],letterData["y5"],letterData["x6"],letterData["y6"]);
+      bezierVertex(letterData["x6"],letterData["y6"],letterData["x7"],letterData["y7"],letterData["x8"],letterData["y8"]);
+  endShape(CLOSE); //this makes some character outlines look a lot better (no missing lines) but does cause a couple minor visual bugs
+
+  pop();
+ // fill(dark);
+ //  ellipse(50,100,100,100);
+//  ellipse(pos2x, pos2y, size2, size2);
+//  strokeWeight(2);
+fill(systemBackgroundColor);
+push();
+
+  translate(5,15);
+  scale(.9);
+
+beginShape();
+    vertex(letterData["x1"],letterData["y1"]);
+    bezierVertex(letterData["x2"],letterData["y2"],letterData["x3"],letterData["y3"],letterData["x4"],letterData["y4"]);
+    bezierVertex(letterData["x4"],letterData["y4"],letterData["x5"],letterData["y5"],letterData["x6"],letterData["y6"]);
+    bezierVertex(letterData["x6"],letterData["y6"],letterData["x7"],letterData["y7"],letterData["x8"],letterData["y8"]);
 endShape();
 
-  // beginShape();
-  // vertex(x1,y1);
-  // bezierVertex(x2,y2,x3,y3,x4,y4);
-  // bezierVertex(x4,y4,x5,y5,x6,y6);
-  // bezierVertex(x6,y6,x7,y7,x8,y8);
-  // endShape();
-
+pop();
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
+
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  let targetVar = 0; //controlling animation flair
+
+
+
+  new_letter["x1"] = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
+  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
+  new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
+  new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
+  new_letter["x6"] = map(percent, 0, 100, oldObj["x6"], newObj["x6"]);
+  new_letter["x7"] = map(percent, 0, 100, oldObj["x7"], newObj["x7"]);
+  new_letter["x8"] = map(percent, 0, 100, oldObj["x8"], newObj["x8"]);
+  if (percent < 50){
+rotate(-percent/400);
+}
+else{
+  rotate(-.25)
+  rotate(percent/400);
+}
+  new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
+  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  new_letter["y5"] = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
+  new_letter["y6"] = map(percent, 0, 100, oldObj["y6"], newObj["y6"]);
+  new_letter["y7"] = map(percent, 0, 100, oldObj["y7"], newObj["y7"]);
+  new_letter["y8"] = map(percent, 0, 100, oldObj["y8"], newObj["y8"]);
+
+
   return new_letter;
+
+
 }
 
 var swapWords = [
-  "PLANTED?",
+
   "SHADOWS",
   "QUESTION",
-  "RESTEASY"
+  "RESTEASY",
+  "12345678",
 ]
