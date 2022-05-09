@@ -55,10 +55,10 @@ const alphabet = {
     "IntCutout4y3": 60
   },
   "C": {
-    "IntCutoutx1": 30,
-    "IntCutouty1": -27,
-    "IntCutoutw1": 30,
-    "IntCutouth1": 17,
+    "IntCutoutx1": 20,
+    "IntCutouty1": -37,
+    "IntCutoutw1": 40,
+    "IntCutouth1": 35,
 
     "IntCutout2x1": 30,
     "IntCutout2y1": -27,
@@ -388,7 +388,7 @@ const alphabet = {
     "IntCutout2x1": 25,
     "IntCutout2y1": -45,
     "IntCutout2w1": 18,
-    "IntCutout2h1": 12,
+    "IntCutout2h1": 15,
 
     "IntCutout3x1": 10,
     "IntCutout3y1": 10,
@@ -435,10 +435,10 @@ const alphabet = {
     "IntCutoutw1": 20,
     "IntCutouth1": 10,
 
-    "IntCutout2x1": 15,
+    "IntCutout2x1": 10,
     "IntCutout2y1": -50,
     "IntCutout2w1": 18,
-    "IntCutout2h1": 12,
+    "IntCutout2h1": 15,
 
     "IntCutout3x1": 35,
     "IntCutout3y1": 30,
@@ -465,12 +465,12 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -70,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": -70,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -43,
 
     "IntCutout4x1": 20,
     "IntCutout4y1": 20,
@@ -630,7 +630,107 @@ const alphabet = {
     "IntCutout4y3": 30
   },
   "Z": {
+    "IntCutoutx1": 50,
+    "IntCutouty1": -20,
+    "IntCutoutw1": 3,
+    "IntCutouth1": 2,
+
+    "IntCutout2x1": -20,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 3,
+    "IntCutout2h1": 12,
+
+    "IntCutout3x1": 20,
+    "IntCutout3y1": -5,
+    "IntCutout3x2": 60,
+    "IntCutout3y2": -5,
+    "IntCutout3x3": 60,
+    "IntCutout3y3": -45,
+
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -45,
+    "IntCutout4x2": 20,
+    "IntCutout4y2": -45,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -10
+  },
+  "0": {
+    "IntCutoutx1": 12,
+    "IntCutouty1": -37,
+    "IntCutoutw1": 5,
+    "IntCutouth1": 7,
+
+    "IntCutout2x1": 2,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 5,
+    "IntCutout2h1": 5,
+
+    "IntCutout3x1": 37,
+    "IntCutout3y1": -40,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": 5,
+    "IntCutout3x3": 37, //+10
+    "IntCutout3y3": 5,
+
+    "IntCutout4x1": 30,
+    "IntCutout4y1": -45,
+    "IntCutout4x2": 2,
+    "IntCutout4y2": -45,
+    "IntCutout4x3": 2,
+    "IntCutout4y3": 0
+  },
+  "1": {
+    "IntCutoutx1": 35,
+    "IntCutouty1": -70,
+    "IntCutoutw1": 25,
+    "IntCutouth1": 73,
+
+    "IntCutout2x1": -20,
+    "IntCutout2y1": -32,
+    "IntCutout2w1": 25,
+    "IntCutout2h1": 35,
+
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -70,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": -70,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -43,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
+  },
+  "2": {
     "IntCutoutx1": 25,
+    "IntCutouty1": -5,
+    "IntCutoutw1": 35,
+    "IntCutouth1": 12,
+
+    "IntCutout2x1": -20,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 35,
+    "IntCutout2h1": 20,
+
+    "IntCutout3x1": 10,
+    "IntCutout3y1": 10,
+    "IntCutout3x2": 40,
+    "IntCutout3y2": 40,
+    "IntCutout3x3": 50,
+    "IntCutout3y3": 50,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
+  },
+  "3": {
+    "IntCutoutx1": -20,
     "IntCutouty1": -5,
     "IntCutoutw1": 35,
     "IntCutouth1": 12,
@@ -654,55 +754,155 @@ const alphabet = {
     "IntCutout4x3": 60,
     "IntCutout4y3": 60
   },
-  "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": -20,
+    "IntCutouty1": -5,
+    "IntCutoutw1": 40,
+    "IntCutouth1": 35,
+
+    "IntCutout2x1": 10,
+    "IntCutout2y1": -70,
+    "IntCutout2w1": 20,
+    "IntCutout2h1": 30,
+
+    "IntCutout3x1": 10,
+    "IntCutout3y1": 10,
+    "IntCutout3x2": 40,
+    "IntCutout3y2": 40,
+    "IntCutout3x3": 50,
+    "IntCutout3y3": 50,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": -20,
+    "IntCutouty1": -10,
+    "IntCutoutw1": 35,
+    "IntCutouth1": 20,
+
+    "IntCutout2x1": 25,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 35,
+    "IntCutout2h1": 12,
+
+    "IntCutout3x1": 10,
+    "IntCutout3y1": 10,
+    "IntCutout3x2": 40,
+    "IntCutout3y2": 40,
+    "IntCutout3x3": 50,
+    "IntCutout3y3": 50,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": 5,
+    "IntCutouty1": -5,
+    "IntCutoutw1": 35,
+    "IntCutouth1": 12,
+
+    "IntCutout2x1": 20,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 40,
+    "IntCutout2h1": 12,
+
+    "IntCutout3x1": 10,
+    "IntCutout3y1": 10,
+    "IntCutout3x2": 40,
+    "IntCutout3y2": 40,
+    "IntCutout3x3": 50,
+    "IntCutout3y3": 50,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": -20,
+    "IntCutouty1": -15,
+    "IntCutoutw1": 15,
+    "IntCutouth1": 17,
+
+    "IntCutout2x1": -20,
+    "IntCutout2y1": -15,
+    "IntCutout2w1": 15,
+    "IntCutout2h1": 20,
+
+    "IntCutout3x1": 60,
+    "IntCutout3y1": 30,
+    "IntCutout3x2": 30,
+    "IntCutout3y2": 30,
+    "IntCutout3x3": 60,
+    "IntCutout3y3": -35,
+
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -30,
+    "IntCutout4x2": 15,
+    "IntCutout4y2": -30,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": 30
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": 12,
+    "IntCutouty1": -5,
+    "IntCutoutw1": 15,
+    "IntCutouth1": 17,
+
+    "IntCutout2x1": 12,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 15,
+    "IntCutout2h1": 17,
+
+    "IntCutout3x1": 60,
+    "IntCutout3y1": -25,
+    "IntCutout3x2": 45,
+    "IntCutout3y2": -15,
+    "IntCutout3x3": 60,
+    "IntCutout3y3": -5,
+
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -25,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": -5,
+    "IntCutout4y3": -15
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "IntCutoutx1": -20,
+    "IntCutouty1": -5,
+    "IntCutoutw1": 40,
+    "IntCutouth1": 35,
+
+    "IntCutout2x1": 10,
+    "IntCutout2y1": -45,
+    "IntCutout2w1": 20,
+    "IntCutout2h1": 15,
+
+    "IntCutout3x1": 10,
+    "IntCutout3y1": 10,
+    "IntCutout3x2": 40,
+    "IntCutout3y2": 40,
+    "IntCutout3x3": 50,
+    "IntCutout3y3": 50,
+
+    "IntCutout4x1": 20,
+    "IntCutout4y1": 20,
+    "IntCutout4x2": 40,
+    "IntCutout4y2": 40,
+    "IntCutout4x3": 60,
+    "IntCutout4y3": 60
   }
 
 }

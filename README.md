@@ -1,8 +1,5 @@
- 9/5/22
+10/5/22
 
- Today I completed the rest of my letters. I am still yet to make the numbers but I plan to sketch and complete those tomorrow.
- I also plan to begin the animation part tomorrow once all of the characters are done.
+I have now completed all of the characters in the alphabet including the numbers. I also went through and adjusted the cut outs of some of the shapes to make them more recognisable. After doing this I asked my flatmate Adam if he thought any characters looked funky for some extra feedback. He said I should change the four and make some of the cutouts more constant in size. I made these changes on top of the ones I already made and now my alphabet is complete.
 
- I ended up redesigning the Y and the Q for both consistency throughout my alphabet and efficiency. I realised it would be quicker and easier to recognise if I just changed the arrangement of the cut outs for these two letters. I am open to doing this on other letters I have already made if my feedback suggests I should do so.
-
- Next steps are numbers and animations.
+The goal for the rest of today is to start the interpolations so my characters flow easily from one to the other.
