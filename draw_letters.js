@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#caf0f8";
+var systemBackgroundColor = "#E6ECFF";  //light blue color: caf0f8
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -22,7 +22,6 @@ function drawLetter(letterData) {
 
   let posx = 0;
   let posy = 0;
-  // determine parameters for second circle
   // This code is the foundation of my current project all the credit goes to jeremymaih here is a link to his code https://bl.ocks.org/jeremymaih/99e8644e3b6b4ec8ef263a254e0f017f/a389cc22435a93266aad7e4361f7d655367b045e
   let pos1x = posx + letterData["Rect1x"];
   let pos1y = posy + letterData["Rect1y"];
@@ -63,10 +62,10 @@ function drawLetter(letterData) {
   pop();
 
   push();
-  fill(200,3,80);//red
+  fill(25,255,255);//experiementing with different teals Aqua: (0, 255, 255)
   translate(pos2x, pos2y);//rectangle 2
   rotate(rot2);
-  rect(0,0,rect2width,height2y,cornerVal);//left side of the A
+  rect(0,0,rect2width,height2y,cornerVal);
   pop();
 
   push();
@@ -83,11 +82,11 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["Rect1x"]  = map(percent, 50, 100, oldObj["Rect1x"], newObj["Rect1x"]);
+  new_letter["Rect1x"]  = map(percent, 25, 100, oldObj["Rect1x"], newObj["Rect1x"]);
   new_letter["Rect1y"] = map(percent, 0, 100, oldObj["Rect1y"], newObj["Rect1y"]);
-  new_letter["Rect2x"] = map(percent, 50, 100, oldObj["Rect2x"], newObj["Rect2x"]);
+  new_letter["Rect2x"] = map(percent, 25, 100, oldObj["Rect2x"], newObj["Rect2x"]);
   new_letter["Rect2y"] = map(percent, 0, 100, oldObj["Rect2y"], newObj["Rect2y"]);
-  new_letter["Rect3x"] = map(percent, 50, 100, oldObj["Rect3x"], newObj["Rect3x"]);
+  new_letter["Rect3x"] = map(percent, 25, 100, oldObj["Rect3x"], newObj["Rect3x"]);
   new_letter["Rect3y"] = map(percent, 0, 100, oldObj["Rect3y"], newObj["Rect3y"]);
   new_letter["Rect1h"] = map(percent, 0, 100, oldObj["Rect1h"], newObj["Rect1h"]);
   new_letter["Rect2h"] = map(percent, 0, 100, oldObj["Rect2h"], newObj["Rect2h"]);
