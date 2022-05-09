@@ -35,7 +35,7 @@ function drawLetter(letterData) {
 
   angleMode(DEGREES) // nicer to deal with, changes angle mode to degrees
 
-  stroke(maroon);
+  stroke(orange);
   strokeWeight(24);
   strokeCap(SQUARE);
   noFill()
@@ -46,7 +46,7 @@ function drawLetter(letterData) {
 
   arc(ax, ay, asize, asize, astart, astop / 1.35, OPEN) //draws black line inside orange arc
 
-  strokeWeight(12); //changes stroke back to 24
+  strokeWeight(24); //changes stroke back to 24
   arc(a2x, a2y, a2size, a2size, a2start, a2stop, OPEN) //draws thick black arc
 
   strokeWeight(0); //no stroke
@@ -82,8 +82,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-"BAUHAUS!",
   "HARRISON",
-  "MATTHEWS"
-
+  "MATTHEWS",
+  "BAUHAUS!"
 ]
