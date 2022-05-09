@@ -1,16 +1,8 @@
-28/4/22
+ 9/5/22
 
-Today I finally turned my pen sketch into a full p5 sketch using parameters. This took quiet a lot of time because my letters are slanted and I am using quads so have to code every point of the shapes. At the moment i have over 20 parameters so my next step is to reduce it down to 20. I only realised this after completing it so i will have to work hard to not compromise the design while changing the way my shapes are layered. I thinking about swapping some of the quads out for triangles or rectangles so that less parameters are used.
+ Today I completed the rest of my letters. I am still yet to make the numbers but I plan to sketch and complete those tomorrow.
+ I also plan to begin the animation part tomorrow once all of the characters are done.
 
-I was also going to add more details to the letters but the parameter limit makes that impossible without a simpler font.
+ I ended up redesigning the Y and the Q for both consistency throughout my alphabet and efficiency. I realised it would be quicker and easier to recognise if I just changed the arrangement of the cut outs for these two letters. I am open to doing this on other letters I have already made if my feedback suggests I should do so.
 
-
-6/5/22
-
-Today I redesigned my alphabet so that it complied with the 20 parameter limit. In order to do this I had to use two triangles and two rectangles rather than 4 quads. I also had to take the slant off of the letters because it needed consistency and I couldn't accomplish slanted cut outs using rectangles.
-
-After redesigning it on paper I applied to my files and started crafting the letters. I am having trouble getting the triangles to appear in the alphabet at the moment so I have been focusing on the squares for now. This allows me to lay down the basic shapes in the editor so when I figure out the triangles I know where to put them.
-
-8/5/22
-
-Today I continued with the rectangle placement on my letters. I am now around half way done with my letters excluding the use of my two triangle shapes. I am still struggling to make them appear in the preview but this will be my next step. Tomorrow I will make this a priority and try ask for some help in case I am missing something. Once all of the letters are drawn I will start to work on animating the transitions.  
+ Next steps are numbers and animations.
