@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#29555E";
+var systemBackgroundColor = "white";
 var systemLineColor = "#8ce6aa";
 var systemBoxColor = "#f74f4f";
 
@@ -61,106 +61,309 @@ noStroke();
   let circle12y = 0 + letterData["circle12y"];
 
   rectMode(CENTER);
-  fill(darkerblue); // light red
-  rect (40, 100, 90, 200, 20);
+  fill('#F0A4F4'); // light red
+  rect (40, 135, 90, 120, 5);
+
+  fill('#916593'); // light red
+  rect (4, 80, 18, 10);
+  rect (4, 190, 18, 10);
 
   rectMode(CENTER);
-  fill(lighterblue); // light red
-  rect (50, 100, 90, 200, 20);
+  fill('#D561DB'); // light red
+  rect (50, 135, 90, 120, 5);
+
+
+
+
+ //rectMode(CENTER);
+ //push();
+//  fill('white');
+//  stroke('black');
+//  strokeWeight(3);
+//  rect (55, 100, 100, 210, 20);
+
+//  fill('white');
+//  stroke('black');
+//  strokeWeight(3);
+//  rect (45, 100, 100, 210, 20);
+//  pop();
+
+
 
   fill(lighterblue); // WHITE CIRC
-  stroke(darkerblue);
-  strokeWeight(1);
+//  stroke(darkerblue);
+//  strokeWeight(1);
 
-  fill(darkerblue);
-    ellipse(20-5, 20+5, 20, 20);
-    ellipse(20-5, 70+5, 20, 20);
-    ellipse(20-5, 130+5, 20, 20);
-    ellipse(20-5, 180+5, 20, 20);
-    ellipse(50-5, 20+5, 20, 20);
-    ellipse(50-5, 70+5, 20, 20);
-    ellipse(50-5, 130+5, 20, 20);
-    ellipse(50-5, 180+5, 20, 20);
-    ellipse(80-5, 20+5, 20, 20);
-    ellipse(80-5, 70+5, 20, 20);
-    ellipse(80-5, 130+5, 20, 20);
-    ellipse(80-5, 180+5, 20, 20);
+//  fill('grey');
+//  ellipse(circle1x-7, circle1y+7, 20, 20);
+//  ellipse(circle2x-7, circle2y+7, 20, 20);
+//  ellipse(circle3x-7, circle3y+7, 20, 20);
+//  ellipse(circle4x-7, circle4y+7, 20, 20);
+//  ellipse(circle5x-7, circle5y+7, 20, 20);
+//  ellipse(circle6x-7, circle6y+7, 20, 20);
+//  ellipse(circle7x-7, circle7y+7, 20, 20);
+//  ellipse(circle8x-7, circle8y+7, 20, 20);
+//  ellipse(circle9x-7, circle9y+7, 20, 20);
+//  ellipse(circle10x-7, circle10y+7, 20, 20);
+//  ellipse(circle11x-7, circle11y+7, 20, 20);
+//  ellipse(circle12x-7, circle12y+7, 20, 20);
 
-fill(lighterblue);
-  ellipse(20, 20, 20, 20);
-  ellipse(20, 70, 20, 20);
-  ellipse(20, 130, 20, 20);
-  ellipse(20, 180, 20, 20);
-  ellipse(50, 20, 20, 20);
-  ellipse(50, 70, 20, 20);
-  ellipse(50, 130, 20, 20);
-  ellipse(50, 180, 20, 20);
-  ellipse(80, 20, 20, 20);
-  ellipse(80, 70, 20, 20);
-  ellipse(80, 130, 20, 20);
-  ellipse(80, 180, 20, 20);
+//fill('black'); // RED CIRC
+//noStroke();
+//ellipse(circle1x-5, circle1y+5, 20, 20);
+//ellipse(circle2x-5, circle2y+5, 20, 20);
+//ellipse(circle3x-5, circle3y+5, 20, 20);
+//ellipse(circle4x-5, circle4y+5, 20, 20);
+//ellipse(circle5x-5, circle5y+5, 20, 20);
+//ellipse(circle6x-5, circle6y+5, 20, 20);
+//ellipse(circle7x-5, circle7y+5, 20, 20);
+//ellipse(circle8x-5, circle8y+5, 20, 20);
+//ellipse(circle9x-5, circle9y+5, 20, 20);
+//ellipse(circle10x-5, circle10y+5, 20, 20);
+//ellipse(circle11x-5, circle11y+5, 20, 20);
+//ellipse(circle12x-5, circle12y+5, 20, 20);
 
 
 
-fill(darkerblue); // RED CIRC
-noStroke();
-ellipse(circle1x-5, circle1y+5, 20, 20);
-ellipse(circle2x-5, circle2y+5, 20, 20);
-ellipse(circle3x-5, circle3y+5, 20, 20);
-ellipse(circle4x-5, circle4y+5, 20, 20);
-ellipse(circle5x-5, circle5y+5, 20, 20);
-ellipse(circle6x-5, circle6y+5, 20, 20);
-ellipse(circle7x-5, circle7y+5, 20, 20);
-ellipse(circle8x-5, circle8y+5, 20, 20);
-ellipse(circle9x-5, circle9y+5, 20, 20);
-ellipse(circle10x-5, circle10y+5, 20, 20);
-ellipse(circle11x-5, circle11y+5, 20, 20);
-ellipse(circle12x-5, circle12y+5, 20, 20);
+fill('#461849'); // WHITE CIRC
+//stroke('yellow');
+//strokeWeight(1);
 
-fill(darkerblue); // WHITE CIRC
-stroke(darkerblue);
-strokeWeight(1);
+//set of circles 1
 
-  ellipse(circle1x, circle1y, 20, 20);
-  ellipse(circle2x, circle2y, 20, 20);
-  ellipse(circle3x, circle3y, 20, 20);
-  ellipse(circle4x, circle4y, 20, 20);
-  ellipse(circle5x, circle5y, 20, 20);
-  ellipse(circle6x, circle6y, 20, 20);
-  ellipse(circle7x, circle7y, 20, 20);
-  ellipse(circle8x, circle8y, 20, 20);
-  ellipse(circle9x, circle9y, 20, 20);
-  ellipse(circle10x, circle10y, 20, 20);
-  ellipse(circle11x, circle11y, 20, 20);
-  ellipse(circle12x, circle12y, 20, 20);
+//fill('blue');
+// bottom row grid
+ellipse(circle1x, circle1y+10, 10, 10);
+ellipse(circle1x+10, circle1y+10, 10, 10);
+ellipse(circle1x-10, circle1y+10, 10, 10);
 
-  ellipse(circle1x+5, circle1y-5, 20, 20);
-  ellipse(circle2x+5, circle2y-5, 20, 20);
-  ellipse(circle3x+5, circle3y-5, 20, 20);
-  ellipse(circle4x+5, circle4y-5, 20, 20);
-  ellipse(circle5x+5, circle5y-5, 20, 20);
-  ellipse(circle6x+5, circle6y-5, 20, 20);
-  ellipse(circle7x+5, circle7y-5, 20, 20);
-  ellipse(circle8x+5, circle8y-5, 20, 20);
-  ellipse(circle9x+5, circle9y-5, 20, 20);
-  ellipse(circle10x+5, circle10y-5, 20, 20);
-  ellipse(circle11x+5, circle11y-5, 20, 20);
-  ellipse(circle12x+5, circle12y-5, 20, 20);
+// middle row grid
+ellipse(circle1x-10, circle1y, 10, 10);
+ellipse(circle1x, circle1y, 10, 10);
+ellipse(circle1x+10, circle1y, 10, 10);
+
+// top row grid
+ellipse(circle1x-10, circle1y-10, 10, 10);
+ellipse(circle1x+10, circle1y-10, 10, 10);
+ellipse(circle1x, circle1y-10, 10, 10);
+
+
+//fill ('green');
+// bottom row grid
+ellipse(circle2x, circle2y+10, 10, 10);
+ellipse(circle2x+10, circle2y+10, 10, 10);
+ellipse(circle2x-10, circle2y+10, 10, 10);
+
+// middle row grid
+ellipse(circle2x-10, circle2y, 10, 10);
+ellipse(circle2x, circle2y, 10, 10);
+ellipse(circle2x+10, circle2y, 10, 10);
+
+// top row grid
+ellipse(circle2x-10, circle2y-10, 10, 10);
+ellipse(circle2x+10, circle2y-10, 10, 10);
+ellipse(circle2x, circle2y-10, 10, 10);
+
+//fill('red');
+// bottom row grid
+ellipse(circle3x, circle3y+10, 10, 10);
+ellipse(circle3x+10, circle3y+10, 10, 10);
+ellipse(circle3x-10, circle3y+10, 10, 10);
+
+// middle row grid
+ellipse(circle3x-10, circle3y, 10, 10);
+ellipse(circle3x, circle3y, 10, 10);
+ellipse(circle3x+10, circle3y, 10, 10);
+
+// top row grid
+ellipse(circle3x-10, circle3y-10, 10, 10);
+ellipse(circle3x+10, circle3y-10, 10, 10);
+ellipse(circle3x, circle3y-10, 10, 10);
+
+//fill('lightblue');
+// bottom row grid
+ellipse(circle4x, circle4y+10, 10, 10);
+ellipse(circle4x+10, circle4y+10, 10, 10);
+ellipse(circle4x-10, circle4y+10, 10, 10);
+
+// middle row grid
+ellipse(circle4x-10, circle4y, 10, 10);
+ellipse(circle4x, circle4y, 10, 10);
+ellipse(circle4x+10, circle4y, 10, 10);
+
+// top row grid
+ellipse(circle4x-10, circle4y-10, 10, 10);
+ellipse(circle4x+10, circle4y-10, 10, 10);
+ellipse(circle4x, circle4y-10, 10, 10);
+
+//fill('darkblue');
+// bottom row grid
+ellipse(circle5x, circle5y+10, 10, 10);
+ellipse(circle5x+10, circle5y+10, 10, 10);
+ellipse(circle5x-10, circle5y+10, 10, 10);
+
+// middle row grid
+ellipse(circle5x-10, circle5y, 10, 10);
+ellipse(circle5x, circle5y, 10, 10);
+ellipse(circle5x+10, circle5y, 10, 10);
+
+// top row grid
+ellipse(circle5x-10, circle5y-10, 10, 10);
+ellipse(circle5x+10, circle5y-10, 10, 10);
+ellipse(circle5x, circle5y-10, 10, 10);
+
+//fill('pink');
+// bottom row grid
+ellipse(circle6x, circle6y+10, 10, 10);
+ellipse(circle6x+10, circle6y+10, 10, 10);
+ellipse(circle6x-10, circle6y+10, 10, 10);
+
+// middle row grid
+ellipse(circle6x-10, circle6y, 10, 10);
+ellipse(circle6x, circle6y, 10, 10);
+ellipse(circle6x+10, circle6y, 10, 10);
+
+// top row grid
+ellipse(circle6x-10, circle6y-10, 10, 10);
+ellipse(circle6x+10, circle6y-10, 10, 10);
+ellipse(circle6x, circle6y-10, 10, 10);
+
+//fill('purple');
+// bottom row grid
+ellipse(circle7x, circle7y+10, 10, 10);
+ellipse(circle7x+10, circle7y+10, 10, 10);
+ellipse(circle7x-10, circle7y+10, 10, 10);
+
+// middle row grid
+ellipse(circle7x-10, circle7y, 10, 10);
+ellipse(circle7x, circle7y, 10, 10);
+ellipse(circle7x+10, circle7y, 10, 10);
+
+// top row grid
+ellipse(circle7x-10, circle7y-10, 10, 10);
+ellipse(circle7x+10, circle7y-10, 10, 10);
+ellipse(circle7x, circle7y-10, 10, 10);
+
+//fill('grey');
+// bottom row grid
+ellipse(circle8x, circle8y+10, 10, 10);
+ellipse(circle8x+10, circle8y+10, 10, 10);
+ellipse(circle8x-10, circle8y+10, 10, 10);
+
+// middle row grid
+ellipse(circle8x-10, circle8y, 10, 10);
+ellipse(circle8x, circle8y, 10, 10);
+ellipse(circle8x+10, circle8y, 10, 10);
+
+// top row grid
+ellipse(circle8x-10, circle8y-10, 10, 10);
+ellipse(circle8x+10, circle8y-10, 10, 10);
+ellipse(circle8x, circle8y-10, 10, 10);
+
+//fill('yellow');
+// bottom row grid
+ellipse(circle9x, circle9y+10, 10, 10);
+ellipse(circle9x+10, circle9y+10, 10, 10);
+ellipse(circle9x-10, circle9y+10, 10, 10);
+
+// middle row grid
+ellipse(circle9x-10, circle9y, 10, 10);
+ellipse(circle9x, circle9y, 10, 10);
+ellipse(circle9x+10, circle9y, 10, 10);
+
+// top row grid
+ellipse(circle9x-10, circle9y-10, 10, 10);
+ellipse(circle9x+10, circle9y-10, 10, 10);
+ellipse(circle9x, circle9y-10, 10, 10);
+
+//fill('orange');
+// bottom row grid
+ellipse(circle10x, circle10y+10, 10, 10);
+ellipse(circle10x+10, circle10y+10, 10, 10);
+ellipse(circle10x-10, circle10y+10, 10, 10);
+
+// middle row grid
+ellipse(circle10x-10, circle10y, 10, 10);
+ellipse(circle10x, circle10y, 10, 10);
+ellipse(circle10x+10, circle10y, 10, 10);
+
+// top row grid
+ellipse(circle10x-10, circle10y-10, 10, 10);
+ellipse(circle10x+10, circle10y-10, 10, 10);
+ellipse(circle10x, circle10y-10, 10, 10);
+
+//fill('red');
+// bottom row grid
+ellipse(circle11x, circle11y+10, 10, 10);
+ellipse(circle11x+10, circle11y+10, 10, 10);
+ellipse(circle11x-10, circle11y+10, 10, 10);
+
+// middle row grid
+ellipse(circle11x-10, circle11y, 10, 10);
+ellipse(circle11x, circle11y, 10, 10);
+ellipse(circle11x+10, circle11y, 10, 10);
+
+// top row grid
+ellipse(circle11x-10, circle11y-10, 10, 10);
+ellipse(circle11x+10, circle11y-10, 10, 10);
+ellipse(circle11x, circle11y-10, 10, 10);
+
+//fill('brown');
+// bottom row grid
+ellipse(circle12x, circle12y+10, 10, 10);
+ellipse(circle12x+10, circle12y+10, 10, 10);
+ellipse(circle12x-10, circle12y+10, 10, 10);
+
+// middle row grid
+ellipse(circle12x-10, circle12y, 10, 10);
+ellipse(circle12x, circle12y, 10, 10);
+ellipse(circle12x+10, circle12y, 10, 10);
+
+// top row grid
+ellipse(circle12x-10, circle12y-10, 10, 10);
+ellipse(circle12x+10, circle12y-10, 10, 10);
+ellipse(circle12x, circle12y-10, 10, 10);
+
+//  ellipse(circle1x, circle1y, 20, 20);
+//  ellipse(circle2x, circle2y, 20, 20);
+//  ellipse(circle3x, circle3y, 20, 20);
+//  ellipse(circle4x, circle4y, 20, 20);
+//  ellipse(circle5x, circle5y, 20, 20);
+//  ellipse(circle6x, circle6y, 20, 20);
+//  ellipse(circle7x, circle7y, 20, 20);
+//  ellipse(circle8x, circle8y, 20, 20);
+//  ellipse(circle9x, circle9y, 20, 20);
+//  ellipse(circle10x, circle10y, 20, 20);
+//  ellipse(circle11x, circle11y, 20, 20);
+//  ellipse(circle12x, circle12y, 20, 20);
+
+//  ellipse(circle1x+5, circle1y-5, 20, 20);
+//  ellipse(circle2x+5, circle2y-5, 20, 20);
+// ellipse(circle3x+5, circle3y-5, 20, 20);
+//  ellipse(circle4x+5, circle4y-5, 20, 20);
+//  ellipse(circle5x+5, circle5y-5, 20, 20);
+//  ellipse(circle6x+5, circle6y-5, 20, 20);
+//  ellipse(circle7x+5, circle7y-5, 20, 20);
+//  ellipse(circle8x+5, circle8y-5, 20, 20);
+//  ellipse(circle9x+5, circle9y-5, 20, 20);
+//  ellipse(circle10x+5, circle10y-5, 20, 20);
+//  ellipse(circle11x+5, circle11y-5, 20, 20);
+//  ellipse(circle12x+5, circle12y-5, 20, 20);
 
 fill('yellow'); // WHITE CIRC
 
-  ellipse(circle1x+10, circle1y-10, 20, 20);
-  ellipse(circle2x+10, circle2y-10, 20, 20);
-  ellipse(circle3x+10, circle3y-10, 20, 20);
-  ellipse(circle4x+10, circle4y-10, 20, 20);
-  ellipse(circle5x+10, circle5y-10, 20, 20);
-  ellipse(circle6x+10, circle6y-10, 20, 20);
-  ellipse(circle7x+10, circle7y-10, 20, 20);
-  ellipse(circle8x+10, circle8y-10, 20, 20);
-  ellipse(circle9x+10, circle9y-10, 20, 20);
-  ellipse(circle10x+10, circle10y-10, 20, 20);
-  ellipse(circle11x+10, circle11y-10, 20, 20);
-  ellipse(circle12x+10, circle12y-10, 20, 20);
+//  ellipse(circle1x+10, circle1y-10, 20, 20);
+//  ellipse(circle2x+10, circle2y-10, 20, 20);
+//  ellipse(circle3x+10, circle3y-10, 20, 20);
+//  ellipse(circle4x+10, circle4y-10, 20, 20);
+//  ellipse(circle5x+10, circle5y-10, 20, 20);
+//  ellipse(circle6x+10, circle6y-10, 20, 20);
+//  ellipse(circle7x+10, circle7y-10, 20, 20);
+//  ellipse(circle8x+10, circle8y-10, 20, 20);
+//  ellipse(circle9x+10, circle9y-10, 20, 20);
+//  ellipse(circle10x+10, circle10y-10, 20, 20);
+//  ellipse(circle11x+10, circle11y-10, 20, 20);
+//  ellipse(circle12x+10, circle12y-10, 20, 20);
 
 
 }
@@ -198,7 +401,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "ABCCABCC",
   "CAB?CAB?",
   "BAAAAAAA"
 ]

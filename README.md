@@ -7,6 +7,6 @@ The 24 parameters per letter:
   * circle(#)y = y position of circle. x12
   * squareback = fixed.
 
-Just updated the letters all individually, with help with slider. Decided to copy and paste all 24 parameters, and // out the dots that were not needed so that all dots were aligned and the alphabet was consistent. I now need to create the backboard of each letter/number to make the text look like my inspiration. I made the numbers also smaller as i wanted the 0 and 1 to differentiate from the letters.
+Changed font to have more eclipse points in order to make it look more similar to my inspiration of the pin board. This meant that I had to decrease the size of my fon to continue using 4x3 as the eclipses were smaller. I changed the colours to more of a fun, vibrant colour to play with the fun kids themed toy.
 
-Changed colours however, finding a way to make all letters readable. Maybe different colour letters per space - however not sure if that is possible. 
+Number 2 and 5 need some work.
