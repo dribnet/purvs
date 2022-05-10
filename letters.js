@@ -1,6 +1,31 @@
 const alphabet = {
   "default": {
+      "circle2x":20, // top left
+      "circle2y":90, //top left
+      "circle4x":20, // left above line
+      "circle4y":120, // left above line
+      "circle5x":20, // left below line
+      "circle5y":150, //left below line
+      "circle1x":20, // bottom left
+      "circle1y":180, // bottom left
 
+      "circle10x":50, // middle top
+      "circle10y":90, // middle top
+      "circle11x":50, // middle above line
+      "circle11y":120, // middle above line
+      "circle12x":50, // middle below line
+      "circle12y":150, // middle below line
+      "circle3x":50, //mid bottom
+      "circle3y":180, //mid bottom
+
+      "circle6x":80, // top right
+      "circle6y":90, // top right
+      "circle8x":80, // right above line
+      "circle8y":120, // right above line
+      "circle9x":80, // right below line
+      "circle9y":150, // right below line
+      "circle7x":80, // bottom right
+      "circle7y":180 // bottom right
   },
   "A": {
   //  "circle2x":20, // top left
@@ -798,8 +823,8 @@ const alphabet = {
     "circle4y":120, // left above line
 //    "circle5x":20, // left below line
 //    "circle5y":150, //left below line
-    "circle1x":20, // bottom left
-    "circle1y":180, // bottom left
+//    "circle1x":20, // bottom left
+//    "circle1y":180, // bottom left
 
 //    "circle10x":50, // middle top
 //    "circle10y":90, // middle top
@@ -812,8 +837,8 @@ const alphabet = {
 
 //    "circle6x":80, // top right
 //    "circle6y":90, // top right
-    "circle8x":80, // right above line
-    "circle8y":120, // right above line
+//    "circle8x":80, // right above line
+//    "circle8y":120, // right above line
 //    "circle9x":80, // right below line
 //    "circle9y":150, // right below line
     "circle7x":80, // bottom right
@@ -898,10 +923,10 @@ const alphabet = {
 //    "circle6y":90, // top right
     "circle8x":80, // right above line
     "circle8y":120, // right above line
-  //  "circle9x":80, // right below line
-  //  "circle9y":150, // right below line
-    "circle7x":80, // bottom right
-    "circle7y":180 // bottom right
+//    "circle9x":80, // right below line
+//    "circle9y":150, // right below line
+//    "circle7x":80, // bottom right
+//    "circle7y":180 // bottom right
   },
   "6": {
 //    "circle2x":20, // top left
