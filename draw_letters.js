@@ -58,11 +58,17 @@ function drawLetter(letterData) {
   let Cut4x3 = posx + letterData["IntCutout4x3"];
   let Cut4y3 = posy +letterData["IntCutout4y3"];
 
+  //SET variables for base shape
+  let BaseX = posx-20;
+  let BaseY = posy-70;
+  let BaseW = 80;
+  let BaseH = 100;
+
   fill('#bb595f');
-  rect(posx-20,posy-70,80,100);
+  rect(BaseX,BaseY,BaseW,BaseH); //draw base shape
 
   //fill('#ffffff');
-  fill('#9bc3e1');
+  fill('#9bc3e1');//draw cutouts
   rect(Cut1x1, Cut1y1, Cut1w1, Cut1h1);
   rect(Cut2x1, Cut2y1, Cut2w2, Cut2h2);
 
@@ -72,9 +78,32 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  //let TargetBaseH = 1;
+  new_letter["IntCutoutx1"] = map(percent, 0, 100, oldObj["IntCutoutx1"], newObj["IntCutoutx1"]); //rect 1
+  new_letter["IntCutouty1"] = map(percent, 0, 100, oldObj["IntCutouty1"], newObj["IntCutouty1"]);
+  new_letter["IntCutoutw1"] = map(percent, 0, 100, oldObj["IntCutoutw1"], newObj["IntCutoutw1"]);
+  new_letter["IntCutouth1"] = map(percent, 0, 100, oldObj["IntCutouth1"], newObj["IntCutouth1"]);
+
+  new_letter["IntCutout2x1"] = map(percent, 0, 100, oldObj["IntCutout2x1"], newObj["IntCutout2x1"]);//rect 2
+  new_letter["IntCutout2y1"] = map(percent, 0, 100, oldObj["IntCutout2y1"], newObj["IntCutout2y1"]);
+  new_letter["IntCutout2w1"] = map(percent, 0, 100, oldObj["IntCutout2w1"], newObj["IntCutout2w1"]);
+  new_letter["IntCutout2h1"] = map(percent, 0, 100, oldObj["IntCutout2h1"], newObj["IntCutout2h1"]);
+
+  new_letter["IntCutout3x1"] = map(percent, 0, 100, oldObj["IntCutout3x1"], newObj["IntCutout3x1"]);//triangle 1
+  new_letter["IntCutout3y1"] = map(percent, 0, 100, oldObj["IntCutout3y1"], newObj["IntCutout3y1"]);
+  new_letter["IntCutout3x2"] = map(percent, 0, 100, oldObj["IntCutout3x2"], newObj["IntCutout3x2"]);
+  new_letter["IntCutout3y2"] = map(percent, 0, 100, oldObj["IntCutout3y2"], newObj["IntCutout3y2"]);
+  new_letter["IntCutout3x3"] = map(percent, 0, 100, oldObj["IntCutout3x3"], newObj["IntCutout3x3"]);
+  new_letter["IntCutout3y3"] = map(percent, 0, 100, oldObj["IntCutout3y3"], newObj["IntCutout3y3"]);
+
+  new_letter["IntCutout4x1"] = map(percent, 0, 100, oldObj["IntCutout4x1"], newObj["IntCutout4x1"]);//triangle 2
+  new_letter["IntCutout4y1"] = map(percent, 0, 100, oldObj["IntCutout4y1"], newObj["IntCutout4y1"]);
+  new_letter["IntCutout4x2"] = map(percent, 0, 100, oldObj["IntCutout4x2"], newObj["IntCutout4x2"]);
+  new_letter["IntCutout4y2"] = map(percent, 0, 100, oldObj["IntCutout4y2"], newObj["IntCutout4y2"]);
+  new_letter["IntCutout4x3"] = map(percent, 0, 100, oldObj["IntCutout4x3"], newObj["IntCutout4x3"]);
+  new_letter["IntCutout4y3"] = map(percent, 0, 100, oldObj["IntCutout4y3"], newObj["IntCutout4y3"]);
+
+
   return new_letter;
 }
 
