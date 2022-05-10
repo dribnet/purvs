@@ -78,9 +78,12 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let letterMove = map(size2, -24, 30, 0, 360);
-  let letterAngle = letterMove + letterData["letterRotation"];
-
+  let rect2posX = letterData["rect2offsetx"];
+  let rect2posY = letterData["rect2offsety"];
+  let letterAngle = letterData["letterRotation"];
+  let rect2size = letterData["rect2size"];
+  let pos3x = posx + letterData ["numPosX"];
+  let pos3y = posy + letterData ["numPosY"];
 
 
 
@@ -89,13 +92,12 @@ function drawLetter(letterData) {
   noStroke();
   rect(posx, posy, 50, 50, 20, 20, 20, 20);
 
-
     push();
-    translate(posx/5, posy*2.5);
+    translate(posx+25, posy-10);
     rotate(letterAngle);
     noStroke();
     fill (255);//(backgroundColor);
-    rect(pos2x+15, pos2y+10, size2/1.5, size2/1.5, 20, 20, 20, 20); //(posx+30, posy+15, size2, 15, 20, 20, 20, 20);
+    rect(rect2posX, rect2posY, rect2size, rect2size, 20, 20, 20, 20); //(posx+30, posy+15, size2, 15, 20, 20, 20, 20);
     pop();
 
   //stroke(36, 71, 58, 1);
@@ -106,23 +108,11 @@ function drawLetter(letterData) {
   //rotate(letterAngle);
   line(pos2x, pos2y, pos2x, pos2y+size2/1.5);
   //pop();
-  //line(pos2x+100, pos2y+size2, pos2x+100, pos2y-30);
-  //line(pos2x+300, pos2y+size2, pos2x+300, pos2y+10);
 
-
-
-  // push();
-  // translate (125,15);
-  // rotate(-30);
-  // ellipse(posx+70, posy+45, size2/2, size2+10);
-  // pop();
+  strokeWeight(10);
+  stroke(strokeColor);
+  line(pos3x, pos3y, pos3x+35, pos3y);
 }
-
-
-
-
-
-
 
 
 function keyTyped() {
@@ -138,6 +128,9 @@ function keyTyped() {
     new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
     new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
     new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+    new_letter["rect2offsetx"] = map(percent, 0, 100, oldObj["rect2offsetx"], newObj["rect2offsetx"]);
+    new_letter["rect2offsetx"] = map(percent, 0, 100, oldObj["rect2offsety"], newObj["rect2offsety"]);
+    new_letter["letterRotation"] = map(percent, 0, 100, oldObj["letterRotation"], newObj["letterRotation"]);
     return new_letter;
   }
 
