@@ -1,5 +1,5 @@
 10/5/22
 
-I have laid down the foundation of my interpolations so that now when interacted with my alphabet can animate between letters. Unfortunately I was unable to follow through with the original plan. At first I was going to make it so that my letters blinked into each other meaning that at 50 percent nothing was visible but a line. When trying to accomplish this I realised it was impossible with the way I set out my letters. I am already at 20 parameters so the base of my shape is not parameterised meaning it cant the animated. This ruins my original plan because I cant make the red base blink at all.
+I have now fixed the triangles in every shape. Each letter now has the unused triangles hidden in the rectangles with no characters having shapes out of the border of the base rectangle. This means when you watch the shapes move you can see where each one goes. This makes it look cleaner and also make more sense to watch.
 
-Because of this I had to make my letters animate in a different way. At the moment I have each cutout moving across the base from one position to the next. This works but I Will need to tidy it up because in some letters the triangles are hidden in places that don't make sense to the user during the animation. to fix this I will move them under/over the squares on these letters so that they don't just come flying from off screen and the animations are cleaner.  
+My next step is to read through the brief to make sure I am not missing anything important.

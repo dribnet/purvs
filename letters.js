@@ -15,19 +15,19 @@ const alphabet = {
     "IntCutout2w1": 15,
     "IntCutout2h1": 17,
 
-    "IntCutout3x1": 20,
-    "IntCutout3y1": 20,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 12,
+    "IntCutout3y1": -40,
+    "IntCutout3x2": 12,
+    "IntCutout3y2": -40,
+    "IntCutout3x3": 12,
+    "IntCutout3y3": -40,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 12,
+    "IntCutout4y1": 0,
+    "IntCutout4x2": 12,
+    "IntCutout4y2": 0,
+    "IntCutout4x3": 12,
+    "IntCutout4y3": 0
   },
   "B": {
     "IntCutoutx1": 12,
@@ -47,12 +47,12 @@ const alphabet = {
     "IntCutout3x3": 60,
     "IntCutout3y3": -5,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
+    "IntCutout4x1": 60,
+    "IntCutout4y1": -25,
+    "IntCutout4x2": 45,
+    "IntCutout4y2": -15,
     "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4y3": -5
   },
   "C": {
     "IntCutoutx1": 20,
@@ -65,19 +65,19 @@ const alphabet = {
     "IntCutout2w1": 30,
     "IntCutout2h1": 17,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 60,
+    "IntCutout3y1": -25,
+    "IntCutout3x2": 45,
+    "IntCutout3y2": -15,
+    "IntCutout3x3": 60,
+    "IntCutout3y3": -5,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
+    "IntCutout4x1": 60,
+    "IntCutout4y1": -25,
+    "IntCutout4x2": 45,
+    "IntCutout4y2": -15,
     "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4y3": -5
   },
   "D": {
     "IntCutoutx1": 12,
@@ -115,19 +115,19 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 25,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": 25,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": 25,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 25,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": 25,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": 25,
+    "IntCutout4y3": -5
   },
   "F": {
     "IntCutoutx1": 25,
@@ -140,19 +140,19 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 25,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": 25,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": 25,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 25,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": 25,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": 25,
+    "IntCutout4y3": -5
   },
   "G": {
     "IntCutoutx1": 10,
@@ -166,18 +166,18 @@ const alphabet = {
     "IntCutout2h1": 45,
 
     "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3y1": -42,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": -42,
+    "IntCutout3x3": 10,
+    "IntCutout3y3": -42,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 10,
+    "IntCutout4y1": -42,
+    "IntCutout4x2": 10,
+    "IntCutout4y2": -42,
+    "IntCutout4x3": 10,
+    "IntCutout4y3": -42
   },
   "H": {
     "IntCutoutx1": 12,
@@ -190,19 +190,19 @@ const alphabet = {
     "IntCutout2w1": 15,
     "IntCutout2h1": 35,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 12,
+    "IntCutout3y1": -70,
+    "IntCutout3x2": 12,
+    "IntCutout3y2": -70,
+    "IntCutout3x3": 12,
+    "IntCutout3y3": -70,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 12,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": 12,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": 12,
+    "IntCutout4y3": -5
   },
   "I": {
     "IntCutoutx1": 35,
@@ -215,19 +215,19 @@ const alphabet = {
     "IntCutout2w1": 25,
     "IntCutout2h1": 45,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -42,
+    "IntCutout3x2": -20,
+    "IntCutout3y2": -42,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -42,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 35,
+    "IntCutout4y1": -42,
+    "IntCutout4x2": 35,
+    "IntCutout4y2": -42,
+    "IntCutout4x3": 35,
+    "IntCutout4y3": -42
   },
   "J": {
     "IntCutoutx1": 35,
@@ -240,19 +240,19 @@ const alphabet = {
     "IntCutout2w1": 25,
     "IntCutout2h1": 45,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -42,
+    "IntCutout3x2": -20,
+    "IntCutout3y2": -42,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -42,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 35,
+    "IntCutout4y1": -42,
+    "IntCutout4x2": 35,
+    "IntCutout4y2": -42,
+    "IntCutout4x3": 35,
+    "IntCutout4y3": -42
   },
   "K": {
     "IntCutoutx1": 30,
@@ -290,19 +290,19 @@ const alphabet = {
     "IntCutout2w1": 40,
     "IntCutout2h1": 70,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 60,
+    "IntCutout3y1": -25,
+    "IntCutout3x2": 45,
+    "IntCutout3y2": -15,
+    "IntCutout3x3": 60,
+    "IntCutout3y3": -5,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
+    "IntCutout4x1": 60,
+    "IntCutout4y1": -25,
+    "IntCutout4x2": 45,
+    "IntCutout4y2": -15,
     "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4y3": -5
   },
   "M": {
     "IntCutoutx1": 14,
@@ -365,19 +365,19 @@ const alphabet = {
     "IntCutout2w1": 15,
     "IntCutout2h1": 45,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 12,
+    "IntCutout3y1": -40,
+    "IntCutout3x2": 12,
+    "IntCutout3y2": -40,
+    "IntCutout3x3": 12,
+    "IntCutout3y3": -40,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 12,
+    "IntCutout4y1": -40,
+    "IntCutout4x2": 12,
+    "IntCutout4y2": -40,
+    "IntCutout4x3": 12,
+    "IntCutout4y3": -40
   },
   "P": {
     "IntCutoutx1": 25,
@@ -390,19 +390,19 @@ const alphabet = {
     "IntCutout2w1": 18,
     "IntCutout2h1": 15,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 25,
+    "IntCutout3y1": -5,
+    "IntCutout3x2": 25,
+    "IntCutout3y2": -5,
+    "IntCutout3x3": 25,
+    "IntCutout3y3": -5,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 25,
+    "IntCutout4y1": -45,
+    "IntCutout4x2": 25,
+    "IntCutout4y2": -45,
+    "IntCutout4x3": 25,
+    "IntCutout4y3": -45
   },
   "Q": {
     "IntCutoutx1": 12,
@@ -447,12 +447,12 @@ const alphabet = {
     "IntCutout3x3": 10, //+10
     "IntCutout3y3": -10,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 35,
+    "IntCutout4y1": 30,
+    "IntCutout4x2": 10,
+    "IntCutout4y2": 30,
+    "IntCutout4x3": 10,
+    "IntCutout4y3": -10
   },
   "S": {
     "IntCutoutx1": -20,
@@ -472,12 +472,12 @@ const alphabet = {
     "IntCutout3x3": -20,
     "IntCutout3y3": -43,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -70,
+    "IntCutout4x2": 10,
+    "IntCutout4y2": -70,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -43
   },
   "T": {
     "IntCutoutx1": 35,
@@ -490,19 +490,19 @@ const alphabet = {
     "IntCutout2w1": 25,
     "IntCutout2h1": 72,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 35,
+    "IntCutout3y1": -42,
+    "IntCutout3x2": 35,
+    "IntCutout3y2": -42,
+    "IntCutout3x3": 35,
+    "IntCutout3y3": -42,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -42,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -42,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -42
   },
   "U": {
     "IntCutoutx1": 12,
@@ -515,19 +515,19 @@ const alphabet = {
     "IntCutout2w1": 15,
     "IntCutout2h1": 45,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 12,
+    "IntCutout3y1": -70,
+    "IntCutout3x2": 12,
+    "IntCutout3y2": -70,
+    "IntCutout3x3": 12,
+    "IntCutout3y3": -70,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 12,
+    "IntCutout4y1": -70,
+    "IntCutout4x2": 12,
+    "IntCutout4y2": -70,
+    "IntCutout4x3": 12,
+    "IntCutout4y3": -70
   },
   "V": {
     "IntCutoutx1": 12,
@@ -697,12 +697,12 @@ const alphabet = {
     "IntCutout3x3": -20,
     "IntCutout3y3": -43,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -70,
+    "IntCutout4x2": 10,
+    "IntCutout4y2": -70,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -43
   },
   "2": {
     "IntCutoutx1": 25,
@@ -715,19 +715,19 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 20,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": -20,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 25,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": 25,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": 25,
+    "IntCutout4y3": -5
   },
   "3": {
     "IntCutoutx1": -20,
@@ -740,19 +740,19 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": -20,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": -20,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": -20,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -5
   },
   "4": {
     "IntCutoutx1": -20,
@@ -766,18 +766,18 @@ const alphabet = {
     "IntCutout2h1": 30,
 
     "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3y1": -70,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": -70,
+    "IntCutout3x3": 10,
+    "IntCutout3y3": -70,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -5
   },
   "5": {
     "IntCutoutx1": -20,
@@ -790,19 +790,19 @@ const alphabet = {
     "IntCutout2w1": 35,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 25,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": 25,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": 25,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -10,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -10,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -10
   },
   "6": {
     "IntCutoutx1": 5,
@@ -815,19 +815,19 @@ const alphabet = {
     "IntCutout2w1": 40,
     "IntCutout2h1": 12,
 
-    "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3x1": 20,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": 20,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": 20,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": 5,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": 5,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": 5,
+    "IntCutout4y3": -5
   },
   "7": {
     "IntCutoutx1": -20,
@@ -891,18 +891,18 @@ const alphabet = {
     "IntCutout2h1": 15,
 
     "IntCutout3x1": 10,
-    "IntCutout3y1": 10,
-    "IntCutout3x2": 40,
-    "IntCutout3y2": 40,
-    "IntCutout3x3": 50,
-    "IntCutout3y3": 50,
+    "IntCutout3y1": -45,
+    "IntCutout3x2": 10,
+    "IntCutout3y2": -45,
+    "IntCutout3x3": 10,
+    "IntCutout3y3": -45,
 
-    "IntCutout4x1": 20,
-    "IntCutout4y1": 20,
-    "IntCutout4x2": 40,
-    "IntCutout4y2": 40,
-    "IntCutout4x3": 60,
-    "IntCutout4y3": 60
+    "IntCutout4x1": -20,
+    "IntCutout4y1": -5,
+    "IntCutout4x2": -20,
+    "IntCutout4y2": -5,
+    "IntCutout4x3": -20,
+    "IntCutout4y3": -5
   }
 
 }
