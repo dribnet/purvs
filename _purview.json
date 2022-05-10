@@ -1,15 +1,15 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
+      "sha": "74fd6f74ad95539af99fef3c40cadac1b24e38ad",
       "name": "final"
     },
     {
-      "sha": "db1312c4c8216e0c1515141c64993968",
+      "sha": "25eab7cbc3964467a59f05d08ffaab421f7e6179",
       "name": "example 2"
     },
     {
-      "sha": "db1312c4c8216e0c1515141c64993968",
+      "sha": "8daa8a0029db44169c73a4296cef479294c987e2",
       "name": "example 1"
     }
   ]

@@ -164,8 +164,8 @@ const alphabet = {
 
       "circle6x":80, // top right
       "circle6y":90, // top right
-    "circle8x":80, // right above line
-    "circle8y":120, // right above line
+  //  "circle8x":80, // right above line
+  //  "circle8y":120, // right above line
   //  "circle9x":80, // right below line
   //  "circle9y":150, // right below line
     "circle7x":80, // bottom right
@@ -191,13 +191,14 @@ const alphabet = {
   //    "circle3y":180, //mid bottom
 
       "circle6x":80, // top right
-      "circle6y":90, // top right
-    "circle8x":80, // right above line
-    "circle8y":120, // right above line
+      "circle6y":90 // top right
+  //  "circle8x":80, // right above line
+  //  "circle8y":120, // right above line
   //  "circle9x":80, // right below line
   //  "circle9y":150, // right below line
   //  "circle7x":80, // bottom right
   //  "circle7y":180 // bottom right
+
   },
   "G": {
     "circle2x":20, // top left
