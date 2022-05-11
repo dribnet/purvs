@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#E6ECFF";  //light blue color: caf0f8
+var systemBackgroundColor = "#E6FFF6";  //light blue color: caf0f8
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -37,7 +37,7 @@ function drawLetter(letterData) {
   let height2y = letterData["Rect2h"];
   let height3y = letterData["Rect3h"];
   let height4y = letterData["Rect4h"];
-  // let height5y = letterData["Rect5h"];
+
   let rectwidth = letterData["width"];
   let rect2width = letterData["width2"];
   let rect3width = letterData["width3"];
@@ -62,7 +62,7 @@ function drawLetter(letterData) {
   pop();
 
   push();
-  fill(25,255,255);//experiementing with different teals Aqua: (0, 255, 255)
+  fill(13,192,214);//experiementing with different teals Aqua: (0, 255, 255)
   translate(pos2x, pos2y);//rectangle 2
   rotate(rot2);
   rect(0,0,rect2width,height2y,cornerVal);
@@ -82,11 +82,11 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["Rect1x"]  = map(percent, 25, 100, oldObj["Rect1x"], newObj["Rect1x"]);
+  new_letter["Rect1x"]  = map(percent, 30, 100, oldObj["Rect1x"], newObj["Rect1x"]);
   new_letter["Rect1y"] = map(percent, 0, 100, oldObj["Rect1y"], newObj["Rect1y"]);
-  new_letter["Rect2x"] = map(percent, 25, 100, oldObj["Rect2x"], newObj["Rect2x"]);
+  new_letter["Rect2x"] = map(percent, 30, 100, oldObj["Rect2x"], newObj["Rect2x"]);
   new_letter["Rect2y"] = map(percent, 0, 100, oldObj["Rect2y"], newObj["Rect2y"]);
-  new_letter["Rect3x"] = map(percent, 25, 100, oldObj["Rect3x"], newObj["Rect3x"]);
+  new_letter["Rect3x"] = map(percent, 30, 100, oldObj["Rect3x"], newObj["Rect3x"]);
   new_letter["Rect3y"] = map(percent, 0, 100, oldObj["Rect3y"], newObj["Rect3y"]);
   new_letter["Rect1h"] = map(percent, 0, 100, oldObj["Rect1h"], newObj["Rect1h"]);
   new_letter["Rect2h"] = map(percent, 0, 100, oldObj["Rect2h"], newObj["Rect2h"]);
@@ -110,5 +110,54 @@ var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA",
-  "QUARTERS"
+  "ACTUALLY",
+  "QUARTERS",
+  "ACQUAINT",
+  "BARBEQUE",
+  "CHANTING",
+  "CHICKENS",
+  "DRAWBACK",
+  "DYNAMITE",
+  "EBONISED",
+  "EGYPTIAN",
+  "FIZZLING",
+  "GAMEPLAY",
+  "HANDAXES",
+  "HEAVYSET",
+  "IGNIFIED",
+  "IMPOSTOR",
+  "JIGSAWED",
+  "JACUZZIS",
+  "KLONDIKE",
+  "KNIGHTLY",
+  "LACQUEYS",
+  "LAITANCE",
+  "MORTGAGE",
+  "MOSQUITO",
+  "NEIGHBOR",
+  "NECKLACE",
+  "OVERTONE",
+  "OXIDIZED",
+  "PRATIQUE",
+  "PRECIOUS",
+  "QUANTITY",
+  "REVEALED",
+  "READMITS",
+  "SUNBURST",
+  "STARDUST",
+  "TAXATION",
+  "TEAMWORK",
+  "UMBRELLA",
+  "UNDERLIE",
+  "VALKYRIE",
+  "VELOCITY",
+  "WHIMPERS",
+  "WIELDING",
+  "XENOLITH",
+  "XYLIDINE",
+  "YOUTHFUL",
+  "YUCKIEST",
+  "ZEPPELIN",
+  "ZOOGENIC"
+
 ]

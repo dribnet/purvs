@@ -1,5 +1,6 @@
 ## MDDN 242 2022 Assignment 2
 
-## May 9th Part 2
+## May 10th
 
-The color red has been replaced with a more teal green color.  The background changed to a light purple.  The interpolation has been changed to 25%.  25% interpolation seems to look better.  I just need to add words and it should be good for hand in.
+Changed the background of the alphabet to a light green.  Changed some words in the word list.
+Still working on that 5.  Changed where the purple rectangle was on C, Z, and L.  Made changes to the 6.
