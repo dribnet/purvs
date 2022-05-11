@@ -588,7 +588,7 @@ const alphabet = {
    "Rect2y": 128,
    "Rect2h": 28,
    "Rect2r": 215,
-   "Rect3x": 74,
+   "Rect3x": 70,
    "Rect3y": 100,
    "Rect3h": 60,
    "Rect3r": 270,
@@ -598,11 +598,11 @@ const alphabet = {
    "corners": 1.6
   },
   "6": {
-    "Rect1x": 32,
+    "Rect1x": 28,
   "Rect1y": 125,
   "Rect1h": 55,
-  "Rect1r": 192,
-  "Rect2x": 62,
+  "Rect1r": 180,
+  "Rect2x": 54,
   "Rect2y": 100,
   "Rect2h": 60,
   "Rect2r": 270,

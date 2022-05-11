@@ -1,6 +1,5 @@
 ## MDDN 242 2022 Assignment 2
 
-## May 10th
+## May 12th
 
-Changed the background of the alphabet to a light green.  Changed some words in the word list.
-Still working on that 5.  Changed where the purple rectangle was on C, Z, and L.  Made changes to the 6.
+  Made changes to the 6.  Changed the angle on stem of the 6.
