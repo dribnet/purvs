@@ -115,7 +115,7 @@ function drawLetter(letterData) {
 }
 
 
-function keyTyped() {
+  function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
@@ -129,8 +129,11 @@ function keyTyped() {
     new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
     new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
     new_letter["rect2offsetx"] = map(percent, 0, 100, oldObj["rect2offsetx"], newObj["rect2offsetx"]);
-    new_letter["rect2offsetx"] = map(percent, 0, 100, oldObj["rect2offsety"], newObj["rect2offsety"]);
+    new_letter["rect2offsety"] = map(percent, 0, 100, oldObj["rect2offsety"], newObj["rect2offsety"]);
     new_letter["letterRotation"] = map(percent, 0, 100, oldObj["letterRotation"], newObj["letterRotation"]);
+    new_letter["rect2size"]    = map(percent, 0, 100, oldObj["rect2size"], newObj["rect2size"]);
+    new_letter["numPosX"]    = map(percent, 0, 100, oldObj["numPosX"], newObj["numPosX"]);
+    new_letter["numPosY"]    = map(percent, 0, 100, oldObj["numPosY"], newObj["numPosY"]);
     return new_letter;
   }
 

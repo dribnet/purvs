@@ -18,6 +18,7 @@ const alphabet = {
     "rect2offsety": -39.1, //6,
     "letterRotation": 180, //259.2
     "rect2size": 35
+
   },
   "B": {
     "size": 100, //150,
@@ -257,14 +258,14 @@ const alphabet = {
     "numPosY": 38
   },
   "1": {
-    "size": 55,
-    "offsetx": 27.05,
+    "size": 59,
+    "offsetx": 25,
     "offsety": 5,
-    "rect2offsetx": -38,
-    "rect2offsety": -65,
-    "letterRotation": 273.6,
-    "rect2size": 60,
-    "numPosX": 10,
+    "rect2offsetx": -30,
+    "rect2offsety": -59,
+    "letterRotation": 273.4,
+    "rect2size": 55,
+    "numPosX": 5,
     "numPosY": 52
   },
   "2": {
