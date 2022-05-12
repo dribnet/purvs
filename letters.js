@@ -88,169 +88,725 @@ const alphabet = {
     "3Triy3": 11
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": -5.6,
+    "1Triy1": 74,
+    "1Trix2": 85.6,
+    "1Triy2": -13,
+    "1Trix3": -6.8,
+    "1Triy3": -82,
+
+    "2Trix1": -3.1,
+    "2Triy1": 50,
+    "2Trix2": 72,
+    "2Triy2": -13,
+    "2Trix3": -4.5,
+    "2Triy3": -61,
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 4,
+    "1Triy1": -40,
+    "1Trix2": 74.6,
+    "1Triy2": -67,
+    "1Trix3": 4.1,
+    "1Triy3": -88,
+
+    "2Trix1": 4,
+    "2Triy1": -25,
+    "2Trix2": 81.2,
+    "2Triy2": -4,
+    "2Trix3": 4.2,
+    "2Triy3": 20,
+
+    "3Trix1": 6.4,
+    "3Triy1": 41,
+    "3Trix2": 6.4,
+    "3Triy2": 89,
+    "3Trix3": 79,
+    "3Triy3": 59
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 4,
+    "1Triy1": -40,
+    "1Trix2": 74.6,
+    "1Triy2": -67,
+    "1Trix3": 4.1,
+    "1Triy3": -88,
+
+    "2Trix1": 4,
+    "2Triy1": -25,
+    "2Trix2": 81.2,
+    "2Triy2": -4,
+    "2Trix3": 4.2,
+    "2Triy3": 20,
+
+    "3Trix1": 2.8,
+    "3Triy1": 71,
+    "3Trix2": 4.2,
+    "3Triy2": -88,
+    "3Trix3": 39.4,
+    "3Triy3": 83
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 40.4,
+    "1Triy1": 35,
+    "1Trix2": 100,
+    "1Triy2": -17,
+    "1Trix3": -14.5,
+    "1Triy3": -17,
+
+    "2Trix1": 48.8,
+    "2Triy1": -59,
+    "2Trix2": -14.6,
+    "2Triy2": -20,
+    "2Trix3": 56,
+    "2Triy3": -20,
+
+    "3Trix1": 81.2,
+    "3Triy1": -14,
+    "3Trix2": 53.8,
+    "3Triy2": -14,
+    "3Trix3": 49.4,
+    "3Triy3": 27
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": -2,
+    "1Triy1": -76,
+    "1Trix2": -2.3,
+    "1Triy2": 68,
+    "1Trix3": 43.8,
+    "1Triy3": -7,
+
+    "2Trix1": 44,
+    "2Triy1": -7,
+    "2Trix2": 83,
+    "2Triy2": -76,
+    "2Trix3": 83,
+    "2Triy3": 74,
+
+    "3Trix1": 38.8,
+    "3Triy1": -16,
+    "3Trix2": 83,
+    "3Triy2": -79,
+    "3Trix3": 83,
+    "3Triy3": -56
+
+
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 35.2,
+    "1Triy1": 70.9,
+    "1Trix2": 46,
+    "1Triy2": -79,
+    "1Trix3": 32.8,
+    "1Triy3": -61,
+
+    "2Trix1": 35,
+    "2Triy1": 29,
+    "2Trix2": 50,
+    "2Triy2": 74,
+    "2Trix3": 28.4,
+    "2Triy3": 74,
+
+    "3Trix1": 30.4,
+    "3Triy1": -43,
+    "3Trix2": 48.2,
+    "3Triy2": -76,
+    "3Trix3": 35,
+    "3Triy3": -97
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 35.2,
+    "1Triy1": 70.9,
+    "1Trix2": 46,
+    "1Triy2": -79,
+    "1Trix3": 32.8,
+    "1Triy3": -61,
+    /*
+    "3Trix1": 35,
+    "3Triy1": 29,
+    "3Trix2": 50,
+    "3Triy2": 74,
+    "3Trix3": 28.4,
+    "3Triy3": 74,
+    */
+    "2Trix1": 2.8,
+    "2Triy1": 23,
+    "2Trix2": 35,
+    "2Triy2": 86,
+    "2Trix3": 35,
+    "2Triy3": 59
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 5.2,
+    "1Triy1": -82,
+    "1Trix2": 15,
+    "1Triy2": -7,
+    "1Trix3": 2,
+    "1Triy3": 92,
+
+    "2Trix1": 12.4,
+    "2Triy1": 26,
+    "2Trix2": 57,
+    "2Triy2": 98,
+    "2Trix3": 13,
+    "2Triy3": 59,
+
+    "3Trix1": 17.2,
+    "3Triy1": -1,
+    "3Trix2": 65.8,
+    "3Triy2": -76,
+    "3Trix3": 12,
+    "3Triy3": -37
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 8.7,
+    "1Triy1": 89,
+    "1Trix2": 8.6,
+    "1Triy2": -82,
+    "1Trix3": 24,
+    "1Triy3": -1,
+
+    "2Trix1": 8.8,
+    "2Triy1": 83,
+    "2Trix2": 85.6,
+    "2Triy2": 65,
+    "2Trix3": 85.6,
+    "2Triy3": 86,
+
+    "3Trix1": 0,
+    "3Triy1": 0,
+    "3Trix2": 0,
+    "3Triy2": 0,
+    "3Trix3": 0,
+    "3Triy3": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 35.2,
+    "1Triy1": 47,
+    "1Trix2": -0.2,
+    "1Triy2": -70,
+    "1Trix3": 72.4,
+    "1Triy3": -70,
+
+    "2Trix1": -3.2,
+    "2Triy1": 65,
+    "2Trix2": -2.4,
+    "2Triy2": -73,
+    "2Trix3": 24,
+    "2Triy3": 11,
+
+    "3Trix1": 46,
+    "3Triy1": 11,
+    "3Trix2": 74.6,
+    "3Triy2": -73,
+    "3Trix3": 76.8,
+    "3Triy3": 65
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 78.4,
+    "1Triy1": 89,
+    "1Trix2": 65.8,
+    "1Triy2": -70,
+    "1Trix3": 54.8,
+    "1Triy3": -67,
+
+    "2Trix1": 13.6,
+    "2Triy1": 77,
+    "2Trix2": 19.6,
+    "2Triy2": -4,
+    "2Trix3": 2,
+    "2Triy3": -76,
+
+    "3Trix1": 40,
+    "3Triy1": -49,
+    "3Trix2": 74.6,
+    "3Triy2": -94,
+    "3Trix3": 8.6,
+    "3Triy3": 83
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 0,
+    "1Triy1": 0,
+    "1Trix2": 0,
+    "1Triy2": 0,
+    "1Trix3": 0,
+    "1Triy3": 0,
+
+    "2Trix1": 38.8,
+    "2Triy1": 53,
+    "2Trix2": 4.2,
+    "2Triy2": -4,
+    "2Trix3": 76.8,
+    "2Triy3": -4,
+
+    "3Trix1": 37.6,
+    "3Triy1": -61,
+    "3Trix2": 4.2,
+    "3Triy2": -4,
+    "3Trix3": 76.8,
+    "3Triy3": -4
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 17.2,
+    "1Triy1": 83,
+    "1Trix2": 19.6,
+    "1Triy2": -52,
+    "1Trix3": 2,
+    "1Triy3": -64,
+
+    "2Trix1": 38.8,
+    "2Triy1": -40,
+    "2Trix2": 65.8,
+    "2Triy2": -43,
+    "2Trix3": 4.2,
+    "2Triy3": -64,
+
+    "3Trix1": 0,
+    "3Triy1": 0,
+    "3Trix2": 0,
+    "3Triy2": 0,
+    "3Trix3": 0,
+    "3Triy3": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 66.4,
+    "1Triy1": 74,
+    "1Trix2": 8.6,
+    "1Triy2": 2,
+    "1Trix3": 43.8,
+    "1Triy3": -40,
+
+    "2Trix1": 38.8,
+    "2Triy1": 53,
+    "2Trix2": 4.2,
+    "2Triy2": -4,
+    "2Trix3": 76.8,
+    "2Triy3": -4,
+
+    "3Trix1": 37.6,
+    "3Triy1": -61,
+    "3Trix2": 4.2,
+    "3Triy2": -4,
+    "3Trix3": 76.8,
+    "3Triy3": -4
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": -0.8,
+    "1Triy1": 89,
+    "1Trix2": 2,
+    "1Triy2": -67,
+    "1Trix3": 13,
+    "1Triy3": 35,
+
+    "2Trix1": 5.2,
+    "2Triy1": -40,
+    "2Trix2": 2,
+    "2Triy2": -73,
+    "2Trix3": 76.8,
+    "2Triy3": -49,
+
+    "3Trix1": 16,
+    "3Triy1": 26,
+    "3Trix2": 32.8,
+    "3Triy2": 68,
+    "3Trix3": 79,
+    "3Triy3": 89
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 46,
+    "1Triy1": 47,
+    "1Trix2": 39.4,
+    "1Triy2": -46,
+    "1Trix3": 37.2,
+    "1Triy3": 83,
+
+    "2Trix1": 5.2,
+    "2Triy1": -46,
+    "2Trix2": 70.2,
+    "2Triy2": -25,
+    "2Trix3": 6.4,
+    "2Triy3": -67,
+
+    "3Trix1": 0,
+    "3Triy1": 0,
+    "3Trix2": 0,
+    "3Triy2": 0,
+    "3Trix3": 0,
+    "3Triy3": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 67.6,
+    "1Triy1": 53,
+    "1Trix2": 10.8,
+    "1Triy2": 44,
+    "1Trix3": 74.6,
+    "1Triy3": 41,
+
+    "2Trix1": 82,
+    "2Triy1": 53,
+    "2Trix2": 70.2,
+    "2Triy2": -64,
+    "2Trix3": 57,
+    "2Triy3": 56,
+
+    "3Trix1": 16,
+    "3Triy1": -52,
+    "3Trix2": -0.2,
+    "3Triy2": 47,
+    "3Trix3": 19.6,
+    "3Triy3": 47
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 0,
+    "1Triy1": 0,
+    "1Trix2": 0,
+    "1Triy2": 0,
+    "1Trix3": 0,
+    "1Triy3": 0,
+
+    "2Trix1": 74.8,
+    "2Triy1": -37,
+    "2Trix2": 41.6,
+    "2Triy2": 74,
+    "2Trix3": 0.2,
+    "2Triy3": -37,
+
+    "3Trix1": 0,
+    "3Triy1": 0,
+    "3Trix2": 0,
+    "3Triy2": 0,
+    "3Trix3": 0,
+    "3Triy3": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": -3.1,
+    "1Triy1": 53,
+    "1Trix2": 37.2,
+    "1Triy2": -25,
+    "1Trix3": 81.2,
+    "1Triy3": 53,
+
+    "2Trix1": -3.2,
+    "2Triy1": 53,
+    "2Trix2": -2.4,
+    "2Triy2": -73,
+    "2Trix3": 21.8,
+    "2Triy3": 5,
+
+    "3Trix1": 54.4,
+    "3Triy1": 5,
+    "3Trix2": 76.8,
+    "3Triy2": -73,
+    "3Trix3": 81.2,
+    "3Triy3": 53
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 0,
+    "1Triy1": 0,
+    "1Trix2": 0,
+    "1Triy2": 0,
+    "1Trix3": 0,
+    "1Triy3": 0,
+
+    "2Trix1": -3.2,
+    "2Triy1": -46,
+    "2Trix2": 35,
+    "2Triy2": 11,
+    "2Trix3": 76.8,
+    "2Triy3": -46,
+
+    "3Trix1": 35.2,
+    "3Triy1": 8,
+    "3Trix2": -0.2,
+    "3Triy2": 50,
+    "3Trix3": 72.4,
+    "3Triy3": 50
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 17.2,
+    "1Triy1": -55,
+    "1Trix2": 76.8,
+    "1Triy2": 83,
+    "1Trix3": 41.6,
+    "1Triy3": -52,
+
+    "2Trix1": 40,
+    "2Triy1": 8,
+    "2Trix2": 39.4,
+    "2Triy2": -57,
+    "2Trix3": 21.8,
+    "2Triy3": 50,
+
+    "3Trix1": 0,
+    "3Triy1": 0,
+    "3Trix2": 0,
+    "3Triy2": 0,
+    "3Trix3": 0,
+    "3Triy3": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "1Trix1": 2.8,
+    "1Triy1": 89,
+    "1Trix2": 4.2,
+    "1Triy2": 62,
+    "1Trix3": 79,
+    "1Triy3": 92,
+
+    "2Trix1": 13.6,
+    "2Triy1": 80,
+    "2Trix2": 61.4,
+    "2Triy2": -40,
+    "2Trix3": 6.4,
+    "2Triy3": 65,
+
+    "3Trix1": 13.6,
+    "3Triy1": -43,
+    "3Trix2": 17.4,
+    "3Triy2": -64,
+    "3Trix3": 81.2,
+    "3Triy3": -34
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "1Trix1": 26.8,
+    "1Triy1": -34,
+    "1Trix2": 54.8,
+    "1Triy2": -49,
+    "1Trix3": 37.2,
+    "1Triy3": 59,
+
+    "2Trix1": 36.4,
+    "2Triy1": 59,
+    "2Trix2": -2.4,
+    "2Triy2": 23,
+    "2Trix3": 41.6,
+    "2Triy3": 35,
+
+    "3Trix1": 34,
+    "3Triy1": -16,
+    "3Trix2": 81.2,
+    "3Triy2": -61,
+    "3Trix3": 26.3,
+    "3Triy3": -37
   }
 
 }

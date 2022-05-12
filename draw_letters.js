@@ -42,7 +42,7 @@ function drawLetter(letterData) {
   let pos8y = posy + letterData["3Triy2"];
   let pos9x = posx + letterData["3Trix3"];
   let pos9y = posy + letterData["3Triy3"];
-  
+
   // draw two circles
   noStroke();
   fill(darkBlue);
@@ -63,9 +63,26 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["1Trix1"] = map(percent, 0, 100, oldObj["1Trix1"], newObj["1Trix1"]);
+  new_letter["1Triy1"] = map(percent, 0, 100, oldObj["1Triy1"], newObj["1Triy1"]);
+  new_letter["1Trix2"] = map(percent, 0, 100, oldObj["1Trix2"], newObj["1Trix2"]);
+  new_letter["1Triy2"] = map(percent, 0, 100, oldObj["1Triy2"], newObj["1Triy2"]);
+  new_letter["1Trix3"] = map(percent, 0, 100, oldObj["1Trix3"], newObj["1Trix3"]);
+  new_letter["1Triy3"] = map(percent, 0, 100, oldObj["1Triy3"], newObj["1Triy3"]);
+
+  new_letter["2Trix1"] = map(percent, 0, 100, oldObj["1Trix1"], newObj["1Trix1"]);
+  new_letter["2Triy1"] = map(percent, 0, 100, oldObj["1Triy1"], newObj["1Triy1"]);
+  new_letter["2Trix2"] = map(percent, 0, 100, oldObj["1Trix2"], newObj["1Trix2"]);
+  new_letter["2Triy2"] = map(percent, 0, 100, oldObj["1Triy2"], newObj["1Triy2"]);
+  new_letter["2Trix3"] = map(percent, 0, 100, oldObj["1Trix3"], newObj["1Trix3"]);
+  new_letter["2Triy3"] = map(percent, 0, 100, oldObj["1Triy3"], newObj["1Triy3"]);
+
+  new_letter["3Trix1"] = map(percent, 0, 100, oldObj["1Trix1"], newObj["1Trix1"]);
+  new_letter["3Triy1"] = map(percent, 0, 100, oldObj["1Triy1"], newObj["1Triy1"]);
+  new_letter["3Trix2"] = map(percent, 0, 100, oldObj["1Trix2"], newObj["1Trix2"]);
+  new_letter["3Triy2"] = map(percent, 0, 100, oldObj["1Triy2"], newObj["1Triy2"]);
+  new_letter["3Trix3"] = map(percent, 0, 100, oldObj["1Trix3"], newObj["1Trix3"]);
+  new_letter["3Triy3"] = map(percent, 0, 100, oldObj["1Triy3"], newObj["1Triy3"]);
   return new_letter;
 }
 
