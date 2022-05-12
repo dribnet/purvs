@@ -18,7 +18,8 @@ const sliderInfo = [
   ["angleR",  -3.14, 3.14],
   ["angleL",  -3.14, 3.14],
   ["angleR2", -3.14, 3.14],
-  ["angleL2", -3.14, 3.14]
+  ["angleL2", -3.14, 3.14],
+  ["sizeArc", 0, 100]
 
 ];
 

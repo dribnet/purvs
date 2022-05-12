@@ -33,6 +33,7 @@ function drawLetter(letterData) {
   let leftAngle = letterData["angleL"];
   let rightAngle2 = letterData["angleR2"];
   let leftAngle2 = letterData["angleL2"];
+  let ArcSize = 80 + letterData["sizeArc"]; // arc size
 
   let size1T = letterData["sizexT"]; // second square
   let size2T = letterData["sizeyT"];
@@ -41,10 +42,10 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(lightBlue);
-  arc(pos2x, pos2y, 80, 80, rightAngle2, leftAngle2, PIE);
+  arc(pos2x, pos2y, ArcSize, ArcSize, rightAngle2, leftAngle2, PIE);
   
   fill(darkBlue);
-  arc(pos3x, pos3y, 80, 80, rightAngle, leftAngle, PIE);
+  arc(pos3x, pos3y, ArcSize, ArcSize, rightAngle, leftAngle, PIE);
   fill(lightBlue);
   
   rect(pos2x, pos2y, size1, size2);
@@ -59,19 +60,39 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["sizex"]    = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
   new_letter["sizey"]    = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]); // offset arcs
+  new_letter["sizeArc"]    = map(percent, 0, 100, oldObj["sizeArc"], newObj["sizeArc"]); // arc size
+  
+
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  
   new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
-  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+  
   new_letter["angleR"] = map(percent, 0, 100, oldObj["angleR"], newObj["angleR"]);
   new_letter["angleL"] = map(percent, 0, 100, oldObj["angleL"], newObj["angleL"]);
   new_letter["angleR2"] = map(percent, 0, 100, oldObj["angleR2"], newObj["angleR2"]);
   new_letter["angleL2"] = map(percent, 0, 100, oldObj["angleL2"], newObj["angleL2"]);
+
+  let arcTarget = 0;
+
+  if(percent < 99){
+  
+  
+  new_letter["offsetx"] = map(percent, 0, 99, oldObj["offsetx"], arcTarget); // offset arcs
+  new_letter["offsety3"] = map(percent, 0, 99, oldObj["offsety3"], arcTarget);
+  }
+
+  else{
+ 
+  new_letter["offsetx"] = map(percent, 99, 100, arcTarget, newObj["offsetx"]); // offset arcs
+  new_letter["offsety3"] = map(percent, 99, 100, arcTarget, newObj["offsety3"]);
+ 
+
+  }
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
+  "DAB?DAB?",
   "BAAAAAAA"
 ]
