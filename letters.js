@@ -1,39 +1,39 @@
 const alphabet = {
   "default": {
-    "size": 30,
-    "offsetx": 25,
-    "offsety": 12,
-    "rect2offsetx": -17,
-    "rect2offsety": 15,
-    "letterRotation": 0,
-    "rect2size": 35,
-    "numPosX": 8,
-    "numPosY": 22
+    "size": 10.9,
+    "offsetx": 26.15,
+    "offsety": 20,
+    "rect2offsetx": -40,
+    "rect2offsety": -32,
+    "letterRotation": 180,
+    "rect2size": 25,
+    "numPosX": 8.15,
+    "numPosY": 50
   },
   "A": {
     "size": 48.7, //55,
     "offsetx": 50, //45.95,
     "offsety": 9, //5,
-    "rect2offsetx": -43, //6.75,
-    "rect2offsety": -39.1, //6,
+    "rect2offsetx": -48, //6.75,
+    "rect2offsety": -40, //6,
     "letterRotation": 180, //259.2
-    "rect2size": 35
+    "rect2size": 37
 
   },
   "B": {
     "size": 100, //150,
     "offsetx": 5, //20,
     "offsety": -24, //-145
-    "rect2offsetx": 2,
-    "rect2offsety": 14,
+    "rect2offsetx": 0,
+    "rect2offsety": 12,
     "letterRotation":176.4,
-    "rect2size": 35
+    "rect2size": 36
   },
   "C": {
     "size": 10,
     "offsetx": 10,
     "offsety": 10,
-    "rect2offsetx": -5,
+    "rect2offsetx": -3,
     "rect2offsety": -56.7,
     "letterRotation":-180,
     "rect2size": 42
@@ -68,11 +68,11 @@ const alphabet = {
   "G": {
     "size": 28.9,
     "offsetx": 45.05,
-    "offsety": 26,
-    "rect2offsetx": -35,
-    "rect2offsety": -45,
+    "offsety": 29,
+    "rect2offsetx": -38,
+    "rect2offsety": -47,
     "letterRotation": 273.6,
-    "rect2size": 34.4
+    "rect2size": 36
   },
   "H": {
     "size": 100, //150,
@@ -93,10 +93,10 @@ const alphabet = {
     "rect2size": 55
   },
   "J": {
-    "size": 60,
+    "size": 65,
     "offsetx": 45.05,
-    "offsety": -13,
-    "rect2offsetx": -45,
+    "offsety": -17,
+    "rect2offsetx": -43,
     "rect2offsety": -35,
     "letterRotation": 331.2,
     "rect2size": 50
@@ -104,7 +104,7 @@ const alphabet = {
   "K": {
     "size": 100,
     "offsetx": 5,
-    "offsety": -16,
+    "offsety": -20,
     "rect2offsetx": -55,
     "rect2offsety": -35,
     "letterRotation": 180,
@@ -114,10 +114,10 @@ const alphabet = {
     "size": 80,
     "offsetx": 5,
     "offsety": -20,
-    "rect2offsetx": -10,
-    "rect2offsety": -45,
-    "letterRotation": 140.4,
-    "rect2size": 50
+    "rect2offsetx": -12,
+    "rect2offsety": -52,
+    "letterRotation": 140.5,
+    "rect2size": 55
   },
   "M": {
     "size": 47.8,
@@ -139,30 +139,30 @@ const alphabet = {
   },
   "O": {
     "size": 10,
-    "offsetx": 5,
+    "offsetx": 45,
     "offsety": 18,
-    "rect2offsetx": -12,
-    "rect2offsety": 20,
+    "rect2offsetx": -17,
+    "rect2offsety": 19,
     "letterRotation": 0,
-    "rect2size": 25
+    "rect2size": 32.5
   },
   "P": {
     "size": 100,
     "offsetx": 5,
     "offsety": 5,
-    "rect2offsetx": -12,
+    "rect2offsetx": -14,
     "rect2offsety": 20,
     "letterRotation": 0,
-    "rect2size": 25
+    "rect2size": 32
   },
   "Q": {
     "size": 100,
     "offsetx": 45,
     "offsety": 5,
-    "rect2offsetx": -12,
+    "rect2offsetx": -16,
     "rect2offsety": 20,
     "letterRotation": 0,
-    "rect2size": 25
+    "rect2size": 32
   },
   "R": {
     "size": 64,
@@ -222,7 +222,7 @@ const alphabet = {
     "size": 60,
     "offsetx": 50,
     "offsety": 4,
-    "rect2offsetx": -30,
+    "rect2offsetx": -35,
     "rect2offsety": 12,
     "letterRotation": 75.5,
     "rect2size": 48.4
@@ -239,21 +239,23 @@ const alphabet = {
   },
   "Z": {
     "size": 10,
-    "offsetx": 43,
+    "offsetx": 8,
     "offsety": 10,
-    "rect2offsetx": -10,
+    "rect2offsetx": -12.5,
     "rect2offsety": -55,
     "letterRotation": -299,
-    "rect2size": 35
+    "rect2size": 42,
+    "numPosX": 5,
+    "numPosY": -4
   },
   "0": {
     "size": 40,
     "offsetx": 10,
     "offsety": 10,
     "rect2offsetx": -15,
-    "rect2offsety": -35,
+    "rect2offsety": -37,
     "letterRotation": 273.6,
-    "rect2size": 5,
+    "rect2size": 12,
     "numPosX": 8,
     "numPosY": 38
   },
@@ -269,11 +271,11 @@ const alphabet = {
     "numPosY": 52
   },
   "2": {
-    "size": 5,
+    "size": 7,
     "offsetx": 10,
     "offsety": 50,
-    "rect2offsetx": -28,
-    "rect2offsety": -57,
+    "rect2offsetx": -30,
+    "rect2offsety": -56,
     "letterRotation": 273.9,
     "rect2size": 40,
     "numPosX": 10,
@@ -281,19 +283,19 @@ const alphabet = {
   },
   "3": {
     "size": 35,
-    "offsetx": 40,
+    "offsetx": 42,
     "offsety": 17,
     "rect2offsetx": -33,
     "rect2offsety": -54,
     "letterRotation": 273.9,
-    "rect2size": 38,
-    "numPosX": 5,
+    "rect2size": 40,
+    "numPosX": 8,
     "numPosY": 25
   },
   "4": {
     "size": 45,
-    "offsetx": 32,
-    "offsety": 25,
+    "offsetx": 31,
+    "offsety": 27,
     "rect2offsetx": -50,
     "rect2offsety": -40,
     "letterRotation": 273.9,
@@ -338,12 +340,12 @@ const alphabet = {
     "size": 20,
     "offsetx": 44,
     "offsety": 17,
-    "rect2offsetx": -35,
-    "rect2offsety": -45,
+    "rect2offsetx": -37,
+    "rect2offsety": -48,
     "letterRotation": 273.9,
     "rect2size": 32,
     "numPosX": 5,
-    "numPosY": 25
+    "numPosY": 27
   },
   "9": {
     "size": 39.7,

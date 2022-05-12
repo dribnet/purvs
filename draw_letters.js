@@ -92,20 +92,17 @@ function drawLetter(letterData) {
   noStroke();
   rect(posx, posy, 50, 50, 20, 20, 20, 20);
 
-    push();
-    translate(posx+25, posy-10);
-    rotate(letterAngle);
-    noStroke();
-    fill (255);//(backgroundColor);
-    rect(rect2posX, rect2posY, rect2size, rect2size, 20, 20, 20, 20); //(posx+30, posy+15, size2, 15, 20, 20, 20, 20);
-    pop();
+  push();
+  translate(posx+25, posy-10);
+  rotate(letterAngle);
+  noStroke();
+  fill (255);//(backgroundColor);
+  rect(rect2posX, rect2posY, rect2size, rect2size, 20, 20, 20, 20);
+  pop();
 
   //stroke(36, 71, 58, 1);
-  //push();
   strokeWeight(10);
   stroke(strokeColor);
-  //translate(5, -5);
-  //rotate(letterAngle);
   line(pos2x, pos2y, pos2x, pos2y+size2/1.5);
   //pop();
 
