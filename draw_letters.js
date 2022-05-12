@@ -148,7 +148,7 @@ function drawLetter(letterData) {
   }
 
   var swapWords = [
-    "AMBITION",
-    "MATURITY",
-    "SECURITY"
+    "CURVFONT",
+    "CIRCULAR",
+    "ROUNDISH"
   ]
