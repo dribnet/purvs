@@ -25,24 +25,24 @@ const pink  = "#d572b5"; //https://www.hexcolortool.com/#d572b5  //"#90e0ef";
 // const canvasWidth = 960;
 // const canvasHeight = 500;
 //
-//
-const letterA = {
-      "size": 40, //30
-      "offsetx": 50,
-      "offsety": 5
-}
-//
-const letterB = {
-    "size": 65, //150,
-    "offsetx": 0, //20,
-    "offsety": -20//-145
-}
-//
-const letterC = {
-  "size": 20,
-  "offsetx": 49,
-  "offsety": 15
-}
+// //
+// const letterA = {
+//       "size": 40, //30
+//       "offsetx": 50,
+//       "offsety": 5
+// }
+// //
+// const letterB = {
+//     "size": 65, //150,
+//     "offsetx": 0, //20,
+//     "offsety": -20//-145
+// }
+// //
+// const letterC = {
+//   "size": 20,
+//   "offsetx": 49,
+//   "offsety": 15
+//}
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -51,7 +51,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(15); //4
+  strokeWeight(15);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -111,70 +111,44 @@ function drawLetter(letterData) {
   line(pos3x, pos3y, pos3x+35, pos3y);
 }
 
-
-  function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
-
   function interpolate_letter(percent, oldObj, newObj) {
     let new_letter = {};
-    new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-    new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-    new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-    new_letter["rect2offsetx"] = map(percent, 0, 100, oldObj["rect2offsetx"], newObj["rect2offsetx"]);
-    new_letter["rect2offsety"] = map(percent, 0, 100, oldObj["rect2offsety"], newObj["rect2offsety"]);
-    new_letter["letterRotation"] = map(percent, 0, 100, oldObj["letterRotation"], newObj["letterRotation"]);
-    new_letter["rect2size"]    = map(percent, 0, 100, oldObj["rect2size"], newObj["rect2size"]);
-    new_letter["numPosX"]    = map(percent, 0, 100, oldObj["numPosX"], newObj["numPosX"]);
-    new_letter["numPosY"]    = map(percent, 0, 100, oldObj["numPosY"], newObj["numPosY"]);
+
+//  this part of the code was adopted from Phoebe's in-class tutorial on interpolation
+    let targetrect2size = 25; //value that rect2size should reach before moving to final position
+
+    let defaultChar = getObjFromChar("default"); //defaultChar now contains all the data for "default" letter
+
+
+    if(percent < 50){
+    new_letter["size"]    = map(percent, 0, 50, oldObj["size"], newObj["size"]);
+    new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], newObj["offsetx"]);
+    new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], newObj["offsety"]);
+    new_letter["rect2offsetx"] = map(percent, 0, 50, oldObj["rect2offsetx"], newObj["rect2offsetx"]);
+    new_letter["rect2offsety"] = map(percent, 0, 50, oldObj["rect2offsety"], newObj["rect2offsety"]);
+    new_letter["letterRotation"] = map(percent, 0, 50, oldObj["letterRotation"], newObj["letterRotation"]);
+    new_letter["rect2size"]    = map(percent, 0, 50, oldObj["rect2size"], targetrect2size);//newObj["rect2size"]);
+    new_letter["numPosX"]    = map(percent, 0, 50, oldObj["numPosX"], newObj["numPosX"]);
+    new_letter["numPosY"]    = map(percent, 0, 50, oldObj["numPosY"], newObj["numPosY"]);
+    }
+    else{
+      new_letter["size"]    = map(percent, 51, 100, defaultChar["size"], newObj["size"]);
+      new_letter["offsetx"] = map(percent, 51, 100, defaultChar["offsetx"], newObj["offsetx"]);
+      new_letter["offsety"] = map(percent, 51, 100, defaultChar["offsety"], newObj["offsety"]);
+      new_letter["rect2offsetx"] = map(percent, 51, 100, defaultChar["rect2offsetx"], newObj["rect2offsetx"]);
+      new_letter["rect2offsety"] = map(percent, 51, 100, defaultChar["rect2offsety"], newObj["rect2offsety"]);
+      new_letter["letterRotation"] = map(percent, 51, 100, defaultChar["letterRotation"], newObj["letterRotation"]);
+      new_letter["rect2size"]    = map(percent, 51, 100, targetrect2size, newObj["rect2size"]);//newObj["rect2size"]);
+      new_letter["numPosX"]    = map(percent, 51, 100, defaultChar["numPosX"], newObj["numPosX"]);
+      new_letter["numPosY"]    = map(percent, 51, 100, defaultChar["numPosY"], newObj["numPosY"]);
+    }
+
+
     return new_letter;
   }
 
   var swapWords = [
-    "ABBAABBA",
-    "CAB?CAB?",
-    "BAAAAAAA"
+    "AMBITION",
+    "MATURITY",
+    "SECURITY"
   ]
-}
-
-// // function drawLetter(letterData) {
-// //   // color/stroke setup
-// //   stroke(strokeColor);
-// //   strokeWeight(4);
-// //
-// //   // determine parameters for second circle
-// //   let size2 = letterData["size"];
-// //   let pos2x = 50  + letterData["offsetx"];
-// //   let pos2y = 150 + letterData["offsety"];
-// //
-// //   // draw two circles
-// //   fill(darkBlue);
-// //   ellipse(50, 150, 75, 75);
-// //   fill(lightBlue);
-// //   ellipse(pos2x, pos2y, size2, size2);
-// // }
-// function drawLetter(posx, posy, letterData) {
-//   // determine parameters for second circle
-//   let size2 = letterData["size"];
-//   let pos2x = posx + letterData["offsetx"];
-//   let pos2y = posy + letterData["offsety"];
-//
-//   // draw two circles
-//   fill(255, 10, 177); //darkBlue
-//   ellipse(posx, posy, 150, 150);
-//   fill(lightBlue);
-//   ellipse(pos2x, pos2y, size2, size2);
-// }
-//
-// function keyTyped() {
-//   if (key == '!') {
-//     saveBlocksImages();
-//   }
-//   else if (key == '@') {
-//     saveBlocksImages(true);
-//   }
-//

@@ -1,5 +1,9 @@
 ## MDDN 242 2022 Assignment 2
+I am finally at a point where I can submit my project. With assistance from my tutor, I now have the interpolation working. The  stages of the interpolation from the 'oldObj' seem to be working alright but there seems to be an issue with the how the last part, which is supposed the 'newObj', appears, as it does not match the 'new_letter'. Although it was bothering me, I decided to leave it as is due to time costraints for handing in the project.
 
+I am quite pleased with the how the exhibition is working. This was a very time consuming project to work on but very satifying once it was all done.
+
+-----------------------------------------------
 Having a bit of trouble with interpolation. I have tried checking for bugs in my code but cannot seem to figure out where the problem is so I requested for assistance from my tutor.
 ---------------------------------------------
 Finally completed the whole alphabet and numbers. I had to add a few more parameters in order to be able to form more letters and the numbers. The most challenging letters to create were S, X and Z. Also, most of the alphabet is resembles the lowercase English alphabet but a few of the letters in this alphabet, particularly, G, J and L look like the uppercase English letters. This was the easiest way to create them and make them distinct from other letters.
