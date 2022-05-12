@@ -45,10 +45,10 @@ function drawLetter(letterData) {
 
   // draw two circles
   noStroke();
-  fill(darkBlue);
+  fill(darkPink);
   triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
   //ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
+  fill(lightPink);
   triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
   triangle(pos7x, pos7y, pos8x, pos8y, pos9x, pos9y);
   //ellipse(pos2x, pos2y, size2, size2);
@@ -87,7 +87,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "JAGGED",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
