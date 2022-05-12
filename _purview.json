@@ -1,16 +1,24 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
+      "sha": "d70bdd188a7316fec02069c9edee43a8c13c569e",
       "name": "Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "example 2"
+      "sha": "88a83e228ddcf763d1e4d8370f57b7063abfcf18",
+      "name": "Forming the Alphabet"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "example 1"
+      "sha": "ea0cf445aebd79c3656712c0d78be8a9fd5fe171",
+      "name": "The Beginning"
+    },
+    {
+      "sha": "e3809c41b2a8b96856428f85eaec57cbd4cf8fa4",
+      "name": "Color Palette Change"
+    },
+    {
+      "sha": "df6a1d9dd8bf87938f628342b663c4ee926d0d5c",
+      "name": "Color Change part 2"
     }
   ]
 }
