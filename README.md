@@ -5,3 +5,7 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+
+Initial idea:
+
+My idea is to have balloons representing seconds 0-60, minutes 0-60, and hours 0-24. As time passes, the balloons inflate, until they reach a needle. When they reach their needle the balloons will burst and a new balloon will be created, starting another minute, hour, or day.
