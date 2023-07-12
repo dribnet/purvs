@@ -6,4 +6,14 @@ function draw_clock(obj) {
   textSize(50);
   textAlign(CENTER, CENTER);
   text("MEADA CLOCK TEST", width/2, height/2);
+  rect (100,100,60,300);
+  rect (240,100,60,300);
+
+
+  rect (400,200,40,40);
+  rect (400,260,40,40);
+
+  rect (550,100,60,300);
+  rect (690,100,60,300);
+
 }
