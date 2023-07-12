@@ -5,3 +5,10 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+
+Thu 13 July
+Today we set up github pages and looked at everyones clock sketches. We then did a little refresher on how to use p5js and visual studio code. We started our Maeda clocks and I used rect(100,100,50,50); etc to create a clock that read 11:11
+
+
+Tue 11 July
+Today was our first class. I learnt how to use github pages and did my first clock sketch
