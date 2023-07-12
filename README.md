@@ -5,3 +5,5 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+
+I really didn't know what to do for this, I had lots of ideas but not really something that would work. I like the idea of incorporating a car and a road somehow, I thought other options could be one from a drivers perspective and use maybe the speedo and road signs instead - or have a top down view of some car lanes - the cars would have numebers on their roofs - the fast lane being the seconds of course. In the below example the mile signs would show seconds, the minutes in the midground and the hours on the sun - sort of based off the parallax concept.
