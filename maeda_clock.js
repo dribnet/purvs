@@ -6,4 +6,5 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
   text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
+  ellipse(54,54,55,55)
 }
