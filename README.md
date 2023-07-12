@@ -5,3 +5,7 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+my uploaded sketch is of a lady and a sun. i want to have the sun pulse to represent seconds, while adding a flower in the background per minuet. once it has reached 60, it will reset.
+for the hours, the position of the lady and the sun/moon will change to the placements on a conventional analog clock.
+the colour for am and pm will differ. light being am, and dark being pm. the sun will change colour to resemble a moon for pm too.
+i am still deciding whether to add numbers to be more functional or just have it as a visual experience.
