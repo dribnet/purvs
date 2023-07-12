@@ -6,4 +6,13 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
   text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
+
+  fill(200);
+  ellipse(100,200, 30, 30);
+
+  fill(200);
+  ellipse(100,230, 30, 30);
+
+
 }
+
