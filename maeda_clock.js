@@ -152,7 +152,15 @@ function draw_clock(obj) {
 
 function drawNumbers(x, y, time) {
   drawNumber(x, y, time.hours);
+
+  drawBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing);
+  drawBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 + rectWidth);
+
   drawNumber(x + numberWidth + numberSpacing, y, time.minutes);
+
+  drawBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing);
+  drawBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 + rectWidth);
+
   drawNumber(x + (numberWidth + numberSpacing) * 2, y, time.seconds);
 }
 
