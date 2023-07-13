@@ -1,7 +1,8 @@
 originX = 25;
 originY = 25;
 
-// number shape coords
+{ // number shape coords (two arrays for each number, creating pairs of coordinates for X and Y)
+
 numberZeroXCoords = [50, 100, 150, 0, 200, 0, 200, 0, 200, 0, 200, 0, 200, 0, 200, 50, 100, 150];
 numberZeroYCoords = [0, 0, 0, 50, 50, 100, 100, 150, 150, 250, 250, 300, 300, 350, 350, 400, 400, 400];
 
@@ -32,6 +33,8 @@ numberEightYCoords = [0, 0, 0, 50, 50, 100, 100, 150, 150, 200, 200, 200, 250, 2
 numberNineXCoords = [50, 100, 150, 0, 200, 0, 200, 0, 200, 50, 100, 150, 200, 200, 200, 50, 100, 150];
 numberNineYCoords = [0, 0, 0, 50, 50, 100, 100, 150, 150, 200, 200, 200, 250, 300, 350, 400, 400, 400];
 
+}
+
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
   // YOUR MAIN CLOCK CODE GOES HERE
@@ -41,7 +44,7 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   
   //text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
-  numberScale = 0.2;
+  numberScale = 0.3;
   noFill();
   strokeWeight(5*numberScale);
   stroke(255, 0, 0);
@@ -98,3 +101,4 @@ function draw_clock(obj) {
 
   
 }
+
