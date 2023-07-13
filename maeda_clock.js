@@ -90,13 +90,14 @@ class Queue {
   }
 }
 
-const rectWidth = 20;
+const rectWidth = 10;
 const rectSpacing = 5;
 
 const rows = 5;
 const cols = 3;
 
 const digitWidth = ((rectWidth + rectSpacing) * cols) - rectSpacing;
+const digitHeight = ((rectWidth + rectSpacing) * rows) - rectSpacing;
 const digitSpacing = rectWidth + (rectSpacing * 2)
 
 const numberWidth = (digitWidth * 2) + rectWidth + (rectSpacing * 2);
@@ -105,14 +106,14 @@ const numberSpacing = rectWidth * 3
 var count = 0;
 var currentSecond = 0;
 
-const queue = new Queue(3);
+const queue = new Queue(5);
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
 
   colorMode(HSB);
   background(0, 0, 19.6); //  beige
-  fill(0, 0, 78.4); // dark grey
+  //fill(0, 0, 78.4); // dark grey
 
   var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
   text(timeString, 800, height/2);
@@ -120,14 +121,16 @@ function draw_clock(obj) {
 
   // Used for counting how many seconds have passed since start of execution
   if (obj.seconds !== currentSecond) {
-    count++;
+    // Increase count increment for hue change since no other feature needs a count
+    count = count + 12;
     currentSecond = obj.seconds;
 
     // Store the current time
     var currentTime = {
       hours: obj.hours,
       minutes: obj.minutes,
-      seconds: obj.seconds
+      seconds: obj.seconds,
+      hue: count % 360
     }
   
     queue.append(currentTime);
@@ -136,7 +139,8 @@ function draw_clock(obj) {
   // Draw the numbers in the queue
   for (var i = 0; i < queue.queue.length; i++) {
     const time = queue.queue[i];
-    drawNumbers(20, 20 + 150 * i, time);
+    fill(time.hue, 100, 100);
+    drawNumbers(20, 20 + (digitHeight + digitSpacing) * i, time);
   }
 }
 
