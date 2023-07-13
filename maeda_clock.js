@@ -84,10 +84,6 @@ class Queue {
 
     return this.queue.shift();
   }
-
-  getSize() {
-    return this.queue.length;
-  }
 }
 
 const rectWidth = 10;
@@ -116,13 +112,13 @@ function draw_clock(obj) {
   //fill(0, 0, 78.4); // dark grey
 
   var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
-  text(timeString, 800, height/2);
-  text(count, 800, height/2 + 50);
+  //text(timeString, 800, height/2);
+  //text(count, 800, height/2 + 50);
 
   // Used for counting how many seconds have passed since start of execution
   if (obj.seconds !== currentSecond) {
     // Increase count increment for hue change since no other feature needs a count
-    count = count + 12;
+    count = count + 10;
     currentSecond = obj.seconds;
 
     // Store the current time
@@ -137,10 +133,20 @@ function draw_clock(obj) {
   }
 
   // Draw the numbers in the queue
-  for (var i = 0; i < queue.queue.length; i++) {
-    const time = queue.queue[i];
+
+  // Reverse the queue with a shallow copy so that the actual time is in the top right
+  var reverseQueue = queue.queue.slice().reverse();
+  for (var i = queue.queue.length - 1; i >= 0; i--) {
+    var time = reverseQueue[i];
     fill(time.hue, 100, 100);
     drawNumbers(20, 20 + (digitHeight + digitSpacing) * i, time);
+  }
+
+  // Display time in the other directions since time has a past and future
+  for (var i = 0; i < queue.queue.length; i++) {
+    var time = queue.queue[i];
+    fill(time.hue, 100, 100);
+    drawNumbers(520, 20 + (digitHeight + digitSpacing) * i, time);
   }
 }
 
