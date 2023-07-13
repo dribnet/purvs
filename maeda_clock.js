@@ -71,18 +71,23 @@ function draw_clock(obj) {
   var timeString = obj.hours + ":" + obj.hours + ":" + obj.seconds;
   text(timeString, width/2, height/2);
 
-  var firstSecond = String(obj.seconds).slice(0, 1);
-  var secondSecond = String(obj.seconds).slice(-1);
+  drawNumber(20, 20, obj.hours);
+  drawNumber(250, 20, obj.minutes);
+  drawNumber(470, 20, obj.seconds);
+}
 
-  if (obj.seconds < 10) {
-    firstSecond = 0;
+
+function drawNumber(x, y, digits) {
+  var firstDigit = String(digits).slice(0, 1);
+  var secondDigit = String(digits).slice(-1);
+
+  // Handles 01-09 cases
+  if (digits < 10) {
+    firstDigit = 0;
   }
 
-  var firstMat = numberMatrix[firstSecond];
-  var secondMat = numberMatrix[secondSecond];
-
-  drawDigit(20, 20, firstMat);
-  drawDigit(120, 20, secondMat);
+  drawDigit(x, y, numberMatrix[firstDigit]);
+  drawDigit(x + 100, y, numberMatrix[secondDigit]);
 }
 
 
