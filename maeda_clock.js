@@ -72,13 +72,15 @@ function draw_clock(obj) {
   var timeString = obj.hours + ":" + obj.hours + ":" + obj.seconds;
   text(timeString, width/2, height/2);
 
-  console.log(String(obj.seconds))
-  console.log(String(obj.seconds).slice(0, 1))
-
-  
+  //console.log(String(obj.seconds))
+  //console.log(String(obj.seconds).slice(0, 1))
 
   var firstSecond = String(obj.seconds).slice(0, 1);
   var secondSecond = String(obj.seconds).slice(-1);
+
+  if (obj.seconds < 10) {
+    firstSecond = 0;
+  }
 
   var firstMat = numberMatrix[firstSecond];
   var secondMat = numberMatrix[secondSecond];
