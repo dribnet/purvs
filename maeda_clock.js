@@ -80,12 +80,16 @@ function draw_clock(obj) {
   background(50); //  beige
   fill(200); // dark grey
 
-  var timeString = obj.hours + ":" + obj.hours + ":" + obj.seconds;
+  var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
   text(timeString, width/2, height/2);
 
-  drawNumber(20, 20, obj.hours);
-  drawNumber(20 + numberWidth + numberSpacing, 20, obj.minutes);
-  drawNumber(20 + (numberWidth + numberSpacing) * 2, 20, obj.seconds);
+  drawNumbers(20, 20);
+}
+
+function drawNumbers(x, y) {
+  drawNumber(x, y, obj.hours);
+  drawNumber(x + numberWidth + numberSpacing, 20, obj.minutes);
+  drawNumber(x + (numberWidth + numberSpacing) * 2, 20, obj.seconds);
 }
 
 
