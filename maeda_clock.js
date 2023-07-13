@@ -62,11 +62,17 @@ const numberMatrix = [
   
 ];
 
-const rectWidth = 20;
+const rectWidth = 30;
 const rectSpacing = 5;
 
 const rows = 5;
 const cols = 3;
+
+const digitWidth = ((rectWidth + rectSpacing) * cols) - rectSpacing;
+const digitSpacing = rectWidth + (rectSpacing * 2)
+
+const numberWidth = (digitWidth * 2) + rectWidth + (rectSpacing * 2);
+const numberSpacing = rectWidth * 3
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
@@ -78,8 +84,8 @@ function draw_clock(obj) {
   text(timeString, width/2, height/2);
 
   drawNumber(20, 20, obj.hours);
-  drawNumber(250, 20, obj.minutes);
-  drawNumber(470, 20, obj.seconds);
+  drawNumber(20 + numberWidth + numberSpacing, 20, obj.minutes);
+  drawNumber(20 + (numberWidth + numberSpacing) * 2, 20, obj.seconds);
 }
 
 
@@ -93,7 +99,10 @@ function drawNumber(x, y, digits) {
   }
 
   drawDigit(x, y, numberMatrix[firstDigit]);
-  drawDigit(x + ((rectWidth + rectSpacing) * (cols + 1)), y, numberMatrix[secondDigit]);
+  // Draws the second dight with a spacing of (rectWidth + rectSpacing * 2)
+  drawDigit(x + digitWidth + digitSpacing, y, numberMatrix[secondDigit]);
+
+  
 }
 
 
@@ -102,7 +111,7 @@ function drawDigit(x, y, numberMat) {
     for (let row = 0; row < rows; row++) {
       
       if (numberMat[row][col]) {
-        drawBox((rectWidth + rectSpacing) * col + x, (rectWidth + rectSpacing) * row + y);
+        drawBox(x + (rectWidth + rectSpacing) * col, y + (rectWidth + rectSpacing) * row);
       }
     }
   }
