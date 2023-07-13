@@ -74,6 +74,9 @@ const digitSpacing = rectWidth + (rectSpacing * 2)
 const numberWidth = (digitWidth * 2) + rectWidth + (rectSpacing * 2);
 const numberSpacing = rectWidth * 3
 
+var count = 0;
+var currentSecond = obj.seconds;
+
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
   // YOUR MAIN CLOCK CODE GOES HERE
@@ -82,6 +85,14 @@ function draw_clock(obj) {
 
   var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
   text(timeString, width/2, height/2);
+  text(count, width/2, height/2 + 50);
+
+  // Used for counting how many seconds have passed since start of execution
+  if (obj.seconds !== currentSecond) {
+    count++;
+    currentSecond = obj.seconds;
+  }
+  
 
   drawNumbers(20, 20);
 }
@@ -105,7 +116,6 @@ function drawNumber(x, y, digits) {
   drawDigit(x, y, numberMatrix[firstDigit]);
   // Draws the second dight with a spacing of (rectWidth + rectSpacing * 2)
   drawDigit(x + digitWidth + digitSpacing, y, numberMatrix[secondDigit]);
-
   
 }
 
