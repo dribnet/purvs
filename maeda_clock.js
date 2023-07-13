@@ -90,7 +90,7 @@ class Queue {
   }
 }
 
-const rectWidth = 30;
+const rectWidth = 20;
 const rectSpacing = 5;
 
 const rows = 5;
@@ -103,34 +103,47 @@ const numberWidth = (digitWidth * 2) + rectWidth + (rectSpacing * 2);
 const numberSpacing = rectWidth * 3
 
 var count = 0;
-var currentSecond = obj.seconds;
+var currentSecond = 0;
 
 const queue = new Queue(3);
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
-  // YOUR MAIN CLOCK CODE GOES HERE
-  background(50); //  beige
-  fill(200); // dark grey
+
+  colorMode(HSB);
+  background(0, 0, 19.6); //  beige
+  fill(0, 0, 78.4); // dark grey
 
   var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
-  text(timeString, width/2, height/2);
-  text(count, width/2, height/2 + 50);
+  text(timeString, 800, height/2);
+  text(count, 800, height/2 + 50);
 
   // Used for counting how many seconds have passed since start of execution
   if (obj.seconds !== currentSecond) {
     count++;
     currentSecond = obj.seconds;
-  }
-  
 
-  drawNumbers(20, 20);
+    // Store the current time
+    var currentTime = {
+      hours: obj.hours,
+      minutes: obj.minutes,
+      seconds: obj.seconds
+    }
+  
+    queue.append(currentTime);
+  }
+
+  // Draw the numbers in the queue
+  for (var i = 0; i < queue.queue.length; i++) {
+    const time = queue.queue[i];
+    drawNumbers(20, 20 + 150 * i, time);
+  }
 }
 
-function drawNumbers(x, y) {
-  drawNumber(x, y, obj.hours);
-  drawNumber(x + numberWidth + numberSpacing, 20, obj.minutes);
-  drawNumber(x + (numberWidth + numberSpacing) * 2, 20, obj.seconds);
+function drawNumbers(x, y, time) {
+  drawNumber(x, y, time.hours);
+  drawNumber(x + numberWidth + numberSpacing, y, time.minutes);
+  drawNumber(x + (numberWidth + numberSpacing) * 2, y, time.seconds);
 }
 
 
