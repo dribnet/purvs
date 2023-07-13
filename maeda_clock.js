@@ -62,6 +62,34 @@ const numberMatrix = [
   
 ];
 
+class Queue {
+  constructor(maxSize) {
+    this.maxSize = maxSize;
+    this.queue = [];
+  }
+
+  append(item) {
+    if (this.queue.length >= this.maxSize) {
+      this.pop();
+    }
+
+    this.queue.push(item);
+  }
+
+  pop() {
+    if (this.queue.length === 0) {
+      console.log("Queue is empty");
+      return;
+    }
+
+    return this.queue.shift();
+  }
+
+  getSize() {
+    return this.queue.length;
+  }
+}
+
 const rectWidth = 30;
 const rectSpacing = 5;
 
@@ -76,6 +104,8 @@ const numberSpacing = rectWidth * 3
 
 var count = 0;
 var currentSecond = obj.seconds;
+
+const queue = new Queue(3);
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
