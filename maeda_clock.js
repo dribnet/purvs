@@ -62,6 +62,12 @@ const numberMatrix = [
   
 ];
 
+const rectWidth = 20;
+const rectSpacing = 5;
+
+const rows = 5;
+const cols = 3;
+
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
   // YOUR MAIN CLOCK CODE GOES HERE
@@ -87,20 +93,16 @@ function drawNumber(x, y, digits) {
   }
 
   drawDigit(x, y, numberMatrix[firstDigit]);
-  drawDigit(x + 100, y, numberMatrix[secondDigit]);
+  drawDigit(x + ((rectWidth + rectSpacing) * (cols + 1)), y, numberMatrix[secondDigit]);
 }
 
 
 function drawDigit(x, y, numberMat) {
-  const rows = 5;
-  const cols = 3;
-
-
   for (let col = 0; col < cols; col++) {
     for (let row = 0; row < rows; row++) {
       
       if (numberMat[row][col]) {
-        drawBox(25 * col + x, 25 * row + y);
+        drawBox((rectWidth + rectSpacing) * col + x, (rectWidth + rectSpacing) * row + y);
       }
     }
   }
@@ -110,10 +112,8 @@ function drawDigit(x, y, numberMat) {
 function drawBox(x, y) {
   beginShape();
     vertex(x,y);
-    vertex(x+20,y);
-    vertex(x+20,y+20);
-    vertex(x,y+20);
+    vertex(x+rectWidth,y);
+    vertex(x+rectWidth,y+rectWidth);
+    vertex(x,y+rectWidth);
   endShape(CLOSE);
 }
-
-// edit the git config file so it doesnt matter when you commit
