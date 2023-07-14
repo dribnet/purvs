@@ -150,7 +150,22 @@ function draw_clock(obj) {
     var time = queue.queue[i];
     setStroke(time, i, queue.queue.length - 1, false)
     
-    drawShearNumbers(520, -200 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
+    drawShearNumbers(220, -200 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
+  }
+
+  // Another one for aesthetic
+  for (var i = queue.queue.length - 1; i >= 0; i--) {
+    var time = reverseQueue[i];
+    setStroke(time, i, 0, true);
+
+    drawShearNumbers(580, 220 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
+  }
+
+  for (var i = 0; i < queue.queue.length; i++) {
+    var time = queue.queue[i];
+    setStroke(time, i, queue.queue.length - 1, false)
+    
+    drawShearNumbers(780, -20 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
   }
 }
 
