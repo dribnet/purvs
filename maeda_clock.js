@@ -96,13 +96,13 @@ const digitWidth = ((rectWidth + rectSpacing) * cols) - rectSpacing;
 const digitHeight = ((rectWidth + rectSpacing) * rows) - rectSpacing;
 const digitSpacing = rectWidth + (rectSpacing * 2)
 
-const numberWidth = (digitWidth * 2) + rectWidth + (rectSpacing * 2);
+const numberWidth = (digitWidth * 2) + digitSpacing;
 const numberSpacing = rectWidth * 3
 
 var count = 0;
 var currentSecond = 0;
 
-const listNumberSize = 7;
+const listNumberSize = 5;
 
 const queue = new Queue(listNumberSize);
 
@@ -231,10 +231,14 @@ function drawShearDigit(x, y, numberMat, index) {
     for (let row = 0; row < rows; row++) {
       
       if (numberMat[row][col]) {
-        drawShearBox(x + (rectWidth + rectSpacing) * col, y + ((rectWidth + rectSpacing) * col * zShear) + (rectWidth + rectSpacing) * row, index, row, col);
+        drawShearBox(x + (rectWidth + rectSpacing) * col, y + ((rectWidth + rectSpacing) * col * zShear) + (rectWidth + rectSpacing) * row, index, col);
       }
     }
   }
+}
+
+function generateOffset(leadingSpace) {
+  return leadingSpace * (zShear);
 }
 
 function drawShearNumber(x, y, digits, index) {
@@ -248,20 +252,30 @@ function drawShearNumber(x, y, digits, index) {
 
   drawShearDigit(x, y, numberMatrix[firstDigit], index);
   // Draws the second dight with a spacing of (rectWidth + rectSpacing * 2)
-  drawShearDigit(x + digitWidth + digitSpacing, y, numberMatrix[secondDigit], index);
+  var leadingSpace = digitWidth + digitSpacing;
+  drawShearDigit(x + leadingSpace, y + generateOffset(leadingSpace), numberMatrix[secondDigit], index);
   
 }
 
 function drawShearNumbers(x, y, time, index) {
+  var leadingSpace = 0;
   drawShearNumber(x, y, time.hours, index);
 
-  drawShearBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing, index);
-  drawShearBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 + rectWidth, index);
+  leadingSpace = numberWidth + numberSpacing / 3;
 
-  drawShearNumber(x + numberWidth + numberSpacing, y, time.minutes, index);
+  drawShearBox(x + leadingSpace, y + digitHeight / 2 - rectWidth - rectSpacing + generateOffset(leadingSpace), index);
+  drawShearBox(x + leadingSpace, y + digitHeight / 2 + rectWidth + generateOffset(leadingSpace), index);
 
-  drawShearBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing, index);
-  drawShearBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 + rectWidth, index);
+  leadingSpace = numberWidth + numberSpacing;
 
-  drawShearNumber(x + (numberWidth + numberSpacing) * 2, y, time.seconds, index);
+  drawShearNumber(x + leadingSpace, y + generateOffset(leadingSpace), time.minutes, index);
+
+  leadingSpace = numberWidth * 2 + numberSpacing + numberSpacing / 3;
+
+  drawShearBox(x + leadingSpace, y + digitHeight / 2 - rectWidth - rectSpacing + generateOffset(leadingSpace), index);
+  drawShearBox(x + leadingSpace, y + digitHeight / 2 + rectWidth + generateOffset(leadingSpace), index);
+
+  leadingSpace = (numberWidth + numberSpacing) * 2;
+
+  drawShearNumber(x + leadingSpace, y + generateOffset(leadingSpace), time.seconds, index);
 }
