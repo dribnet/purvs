@@ -102,9 +102,12 @@ const numberSpacing = rectWidth * 3
 var count = 0;
 var currentSecond = 0;
 
-const listNumberSize = 5;
+const listNumberSize = 9;
 
 const queue = new Queue(listNumberSize);
+
+const yShear = 0.42;
+const zShear = 0.42;
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
@@ -133,31 +136,34 @@ function draw_clock(obj) {
   }
 
   // Draw the numbers in the queue
-
   // Reverse the queue with a shallow copy so that the actual time is in the top right
   var reverseQueue = queue.queue.slice().reverse();
   for (var i = queue.queue.length - 1; i >= 0; i--) {
     var time = reverseQueue[i];
-    setStroke(time, i, 0);
+    setStroke(time, i, 0, true);
 
-    drawNumbers(20, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time);
+    drawShearNumbers(20, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
   }
 
   // Display time in the other directions since time has a past and future
   for (var i = 0; i < queue.queue.length; i++) {
     var time = queue.queue[i];
-    setStroke(time, i, queue.queue.length - 1)
+    setStroke(time, i, queue.queue.length - 1, false)
     
-    drawShearNumbers(520, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
+    drawShearNumbers(520, -200 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
   }
 }
 
-function setStroke(time, i, lastElement) {
+function setStroke(time, i, lastElement, reversed) {
   // Set the current time to white and the rest to rainbow
   if (i === lastElement) {
     stroke(0, 0, 100);
   } else {
-    stroke(time.hue, 80, 100, 1 - (0.1) * i);
+    if (reversed) {
+      stroke(time.hue, 80, 100, 1 - (0.1) * i);
+    } else {
+      stroke(time.hue, 80, 100, 1 - (0.1) * -(i - lastElement));
+    }
   }
 }
 
@@ -211,9 +217,6 @@ function drawBox(x, y) {
     vertex(x,y+rectWidth);
   endShape(CLOSE);
 }
-
-const yShear = 0.42;
-const zShear = 0.42;
 
 // Set default value for colon
 function drawShearBox(x, y, i, col = 3) {
