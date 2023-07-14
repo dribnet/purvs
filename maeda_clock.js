@@ -148,7 +148,7 @@ function draw_clock(obj) {
     var time = queue.queue[i];
     setStroke(time, i, queue.queue.length - 1)
     
-    drawNumbers(520, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time);
+    drawShearNumbers(520, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time, i);
   }
 }
 
@@ -203,7 +203,6 @@ function drawDigit(x, y, numberMat) {
   }
 }
 
-
 function drawBox(x, y) {
   beginShape();
     vertex(x,y);
@@ -211,4 +210,58 @@ function drawBox(x, y) {
     vertex(x+rectWidth,y+rectWidth);
     vertex(x,y+rectWidth);
   endShape(CLOSE);
+}
+
+const yShear = 0.42;
+const zShear = 0.42;
+
+// Set default value for colon
+function drawShearBox(x, y, i, col = 3) {
+  const yOffset =  col * ((zShear - yShear) * rectWidth);
+  beginShape();
+  vertex(x + (zShear * rectWidth) * i, y - yOffset - (zShear * rectWidth) * i);
+  vertex(x + (zShear * rectWidth) * i, y - yOffset + rectWidth - (zShear * rectWidth) * i);
+  vertex(x + rectWidth + (zShear * rectWidth) * i, y - yOffset + rectWidth + (yShear * rectWidth) - (zShear * rectWidth) * i);
+  vertex(x + rectWidth + (zShear * rectWidth) * i, y - yOffset + (yShear * rectWidth) - (zShear * rectWidth) * i);
+  endShape(CLOSE);
+}
+
+function drawShearDigit(x, y, numberMat, index) {
+  for (let col = 0; col < cols; col++) {
+    for (let row = 0; row < rows; row++) {
+      
+      if (numberMat[row][col]) {
+        drawShearBox(x + (rectWidth + rectSpacing) * col, y + ((rectWidth + rectSpacing) * col * zShear) + (rectWidth + rectSpacing) * row, index, row, col);
+      }
+    }
+  }
+}
+
+function drawShearNumber(x, y, digits, index) {
+  var firstDigit = String(digits).slice(0, 1);
+  var secondDigit = String(digits).slice(-1);
+
+  // Handles 01-09 cases
+  if (digits < 10) {
+    firstDigit = 0;
+  }
+
+  drawShearDigit(x, y, numberMatrix[firstDigit], index);
+  // Draws the second dight with a spacing of (rectWidth + rectSpacing * 2)
+  drawShearDigit(x + digitWidth + digitSpacing, y, numberMatrix[secondDigit], index);
+  
+}
+
+function drawShearNumbers(x, y, time, index) {
+  drawShearNumber(x, y, time.hours, index);
+
+  drawShearBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing, index);
+  drawShearBox(x + numberWidth + numberSpacing / 3, y + digitHeight / 2 + rectWidth, index);
+
+  drawShearNumber(x + numberWidth + numberSpacing, y, time.minutes, index);
+
+  drawShearBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 - rectWidth - rectSpacing, index);
+  drawShearBox(x + numberWidth * 2 + numberSpacing + numberSpacing / 3, y + digitHeight / 2 + rectWidth, index);
+
+  drawShearNumber(x + (numberWidth + numberSpacing) * 2, y, time.seconds, index);
 }
