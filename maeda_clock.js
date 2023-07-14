@@ -102,18 +102,18 @@ const numberSpacing = rectWidth * 3
 var count = 0;
 var currentSecond = 0;
 
-const queue = new Queue(5);
+const listNumberSize = 7;
+
+const queue = new Queue(listNumberSize);
 
 // Update this function to draw you own maeda clock on a 960x500 canvas
 function draw_clock(obj) {
 
   colorMode(HSB);
-  background(0, 0, 19.6); //  beige
-  //fill(0, 0, 78.4); // dark grey
+  noFill();
+  background(0, 0, 12);
 
   var timeString = obj.hours + ":" + obj.minutes + ":" + obj.seconds;
-  //text(timeString, 800, height/2);
-  //text(count, 800, height/2 + 50);
 
   // Used for counting how many seconds have passed since start of execution
   if (obj.seconds !== currentSecond) {
@@ -138,15 +138,26 @@ function draw_clock(obj) {
   var reverseQueue = queue.queue.slice().reverse();
   for (var i = queue.queue.length - 1; i >= 0; i--) {
     var time = reverseQueue[i];
-    fill(time.hue, 100, 100);
-    drawNumbers(20, 20 + (digitHeight + digitSpacing) * i, time);
+    setStroke(time, i, 0);
+
+    drawNumbers(20, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time);
   }
 
   // Display time in the other directions since time has a past and future
   for (var i = 0; i < queue.queue.length; i++) {
     var time = queue.queue[i];
-    fill(time.hue, 100, 100);
-    drawNumbers(520, 20 + (digitHeight + digitSpacing) * i, time);
+    setStroke(time, i, queue.queue.length - 1)
+    
+    drawNumbers(520, 20 + ((digitHeight + digitSpacing) * i) * 2/3, time);
+  }
+}
+
+function setStroke(time, i, lastElement) {
+  // Set the current time to white and the rest to rainbow
+  if (i === lastElement) {
+    stroke(0, 0, 100);
+  } else {
+    stroke(time.hue, 80, 100, 1 - (0.1) * i);
   }
 }
 
