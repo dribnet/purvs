@@ -115,7 +115,7 @@ const zShear = 0.42;
 function draw_clock(obj) {
   colorMode(HSB);
   noFill();
-  background(0, 0, 12);
+  background(0, 0, 2);
 
   // Used for changing colours as time passes from the start of execution
   if (obj.seconds !== currentSecond) {
