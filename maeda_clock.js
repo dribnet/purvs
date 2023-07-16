@@ -1,3 +1,4 @@
+// this is a comment
 class Number {
   constructor(x, y, psize, shape) {
     this.x = x;
