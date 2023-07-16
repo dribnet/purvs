@@ -18,7 +18,7 @@ class Number {
 
   /**
    * Draw method for digit.
-   * @param {(string|number|Object|Object[])} fillColor Fill color of pixel. Can be a hex code, number, p5 color object, or array.
+   * @param {*} fillColor Fill color of pixel. Can be a hex code, number, p5 color object, or array.
    */
   draw(fillColor) {
     push();
