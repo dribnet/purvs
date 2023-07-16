@@ -44,7 +44,7 @@ class Number {
   }
 }
 
-/** Subclass of number representing zero. */
+/** Subclass of Number representing zero. */
 class Zero extends Number {
   constructor(x, y, psize) {
     super(
