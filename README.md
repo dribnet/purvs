@@ -4,4 +4,5 @@
 
 ### THIS IS YOUR README
 
-Update this file as you go along to record your progress.
+17/07/2023
+Begin work on maeda clock task, I have decided to recreate 7th clock where AM/PM is centered, whereas the actual time behaves like a clock hand.
