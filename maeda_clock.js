@@ -3,11 +3,11 @@
  */
 class Number {
   /**
-   * Constructor for Number class
-   * @param {number} x Coord for x center pixel 
-   * @param {number} y Coord for y center pixel
-   * @param {number} psize Size of each pixel in digit
-   * @param {Object[]} shape 2D array containing shape of digit as a series of ones and zeros
+   * Constructor for Number class.
+   * @param {number} x Coord for x center pixel.
+   * @param {number} y Coord for y center pixel.
+   * @param {number} psize Size of each pixel in digit.
+   * @param {Object[]} shape 2D array containing shape of digit as a series of ones and zeros.
    */
   constructor(x, y, psize, shape) {
     this.x = x;
