@@ -2,6 +2,10 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function draw_clock(obj) {
+  let seconds = obj.seconds;
+  let minutes = obj.minutes;
+  let hours = obj.hours;
+  let millis = obj.millis;
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
   //    obj.minutes goes from 0-59
@@ -15,17 +19,34 @@ function draw_clock(obj) {
   fill(200); // dark grey
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK GOES HERE", width / 2, 200);
+  text(" Seconds  "+ seconds+"|", width -400, 200);
+  text(" Minutes  "+ minutes+"|", width -640, 200);
+  text("|Hours  "+ hours+"|", width / 8, 200);
+  text(" Millis  "+ millis+"|", width -180, 200);
 
-
+  //text("Minutes",+ seconds, width / 20, 200);
+let bounce = map(obj.millis, 0,999,0,TWO_PI);
+let phase1 = sin (bounce) ;
+let y_bounce = map (phase1, -1,1,-75,75);
+  
+  let hour_radius = map(hours ,0,24,1,150);
   fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
+  ellipse(width / 8, 350, +hour_radius);
 
-  fill (0,200,150);
-  rect (255,140,20,50);
+  let min_radius = map(minutes ,0,59,1,150);
+  fill(140, 255, 251) // blue
+  ellipse(width -640, 350, +min_radius);
+  
+
+  let sec_radius = map(seconds ,0,59,1,150);
+  fill(175, 133, 255); // purple
+  ellipse(width -400, 350, + y_bounce);
+
+
+
+  let millis_radius = map(millis ,0,1000,1,150);
+  fill(200, 13, 55); // red
+  ellipse(width -150, 350 +y_bounce, +millis_radius);
+ 
 
 }
