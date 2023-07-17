@@ -30,7 +30,7 @@ function draw_clock(obj) {
   ellipse(width / 3, 350, 150);
 
   fill(140, 255, 251) // blue
-  ellipse(width / 2, MinutesY, 100);
+  ellipse(width / 2, MinutesY, 100); // minutes moving up and down
   
   fill(175, 133, 255); // purple
   ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
