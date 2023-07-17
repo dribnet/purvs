@@ -127,7 +127,7 @@ for (let i = 0; i < 5; i++){
     line(150, 100, 155, 105); //5 O'clock hand
     line(160, 90, 150, 100); //10 past hand  
 
-    //function draw clock to repeat
+    //function draw clock to repeat hands and red part
   
 
 
