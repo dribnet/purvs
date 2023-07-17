@@ -16,10 +16,22 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
   text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+  
+  
 
-
-  fill(249, 140, 255);// pink
+  fill(249, 1401, 255);// pink
   ellipse(width / 3, 350, 150);
+  
+  fill(249,1401,255,190);
+  let size=map(ellipse,0, 600, 150,600 )
+  ellipse(width / 3, 350,150+obj.millis)
+  if (obj.millis>500){
+    ellipse(width/3, 350,600-obj.millis)
+  }
+
+ 
+  
+
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, 150);
   fill(175, 133, 255); // purple
