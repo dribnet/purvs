@@ -1,0 +1,9 @@
+14/7 12PM
+I have decided to recreate Conway's Game of Life Clock originally designed by John Maeda.
+I have created the first step which is to create the grid background. Now, I have to try and figure out how to target specific parts of the grid. and make it change colour. I've given the each square on the grid, a coordinate. Hopefully, this can help make the process easier.
+
+14/7 9PM
+I used classes to create a square... and is able to place specific square on the grid. Next step is to find out how to make it know it's next to another square.
+
+18/7 12AM
+I have changed my method to using 2d arrays to create grids. I also created a possible shape using arrays [0 and 1]. 1 represents true and 0 represents false. if it's true, then the square will light up red. this method should make it easier for shapes to detect the nieghbouring squares's state.
