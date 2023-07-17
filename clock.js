@@ -27,7 +27,7 @@ function draw_clock(obj) {
   text("Seconds: " + seconds, width / 2, 200);
   text("Millis: " + millis, width / 2, 240);
 
-
+  
   let hours_radius = map(hours, 0, 59, 1, 150);
   fill(249, 140, 255);// pink
   ellipse(width / 3, 350, hours_radius);
@@ -36,9 +36,13 @@ function draw_clock(obj) {
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, minutes_radius);
 
-  let seconds_radius = map(seconds, 0, 59, 1, 150);
+
+  let secondsWithFraction   = seconds + (millis / 1000.0);
+
+  let seconds_radius = map(secondsWithFraction, 0, 59, 1, 150);
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, seconds_radius);
+
 
   let millis_radius = map(millis, 0, 999, 1, 150);
   fill(255, 165, 0); // orange

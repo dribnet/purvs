@@ -5,6 +5,9 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+Tue 18 July
+Today we set up a working clock. Coded so that the different balls get bigger/smaller depending on the time (hours, minutes, seconds, millis). We also looked at making the transition of the balls getting bigger smooth so that it looks quite seamless. And then also a sin wave?? to make the balls bounce up and down.
+
 
 Thu 13 July
 Today we set up github pages and looked at everyones clock sketches. We then did a little refresher on how to use p5js and visual studio code. We started our Maeda clocks and I used rect(100,100,50,50); etc to create a clock that read 11:11
