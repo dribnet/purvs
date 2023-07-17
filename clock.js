@@ -15,14 +15,23 @@ function draw_clock(obj) {
   fill(200); // dark grey
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+ 
+  let Seconds = obj.seconds
+  let Minutes = obj.minutes
 
+  let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
+  let MinutesY = map(Minutes, 0, 59, 1, 150);
+
+  text("Seconds: " + Seconds, width / 2, 200), 
 
   fill(249, 140, 255);// pink
   ellipse(width / 3, 350, 150);
+
   fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
+  ellipse(width / 2, MinutesY, 100); // minutes moving up and down
+  
   fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
+  ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
+
 
 }
