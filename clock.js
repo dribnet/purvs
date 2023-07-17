@@ -39,11 +39,32 @@ function draw_clock(obj) {
   // fill(175, 133, 255); // purple
   // ellipse(width / 3 * 2, 350, seconds_radius); //ellipse getting larger with seconds 
 
-  fill (140, 255, 251);
-  ellipse(750, 130, 150, 40); //backgroundUFO
+  
+  fill (255);
+  triangle(180, 470, 300, 100, 430, 470); //lightbeamFront 
+
+  fill (255);
+  triangle(660, 440, 750, 160, 830, 440); //lightbeamBack
+ 
   
   fill (140, 255, 251);
-ellipse(230, 130, 250, 80); //frontUFO 
+  ellipse(750, 160, 150, 40); //backgroundUFO
+  
+  fill (140, 255, 251);
+ellipse(300, 110, 250, 70); //frontUFO 
+
+fill (77, 255, 5);
+rect(290, 360, 30, 100); //hoursnumbers
+
+fill (77, 255, 5);
+rect(720, 380, 15, 50); //minutesnumbers
+
+fill (77, 255, 5);
+rect(760, 380, 15, 50); //minutesnumbers
+
+
+
+
 
 
 }
