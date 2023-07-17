@@ -6,4 +6,5 @@ function draw_clock(obj) {
   fill(230, 139, 11); //orange
   ellipse(480,250,200,200);
   
+  
 }
