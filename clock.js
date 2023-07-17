@@ -26,3 +26,5 @@ function draw_clock(obj) {
   ellipse(width / 3 * 2, 350, 150);
 
 }
+
+
