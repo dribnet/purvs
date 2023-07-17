@@ -19,6 +19,10 @@ function draw_clock(obj) {
  
 
   let Seconds = obj.seconds
+  let Minutes = obj.minutes
+
+  let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
+  let MinutesY = map(Minutes, 0, 59, 1, 150);
 
   text("Seconds: " + Seconds, width / 2, 200), 
 
@@ -26,9 +30,9 @@ function draw_clock(obj) {
   ellipse(width / 3, 350, 150);
 
   fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
+  ellipse(width / 2, MinutesY, 100);
   
   fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
+  ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
 
 }
