@@ -39,7 +39,7 @@ function draw_clock(obj) {
     ellipse (xpos + (xstep*j), 280, size)
   } // bottom three dots
 
-  ellipse(xpos, 260, size);
+  ellipse(xpos, 260, size); // last dot
 
   //the two dots
   ellipse(350, 160, size); // top dot
@@ -84,7 +84,7 @@ function draw_clock(obj) {
 
     for (let i = 1; i < 4; i++){
       rect((150 + xstep*i), 148, 5, 3); 
-      } // middle horizontal row
+      } // middle horizontal row of 5
 
       for (let i = 1; i < 4; i++){
         rect(270, (148 +ystep*i), 5, 3); 
@@ -94,7 +94,32 @@ function draw_clock(obj) {
           rect((150 + xstep*i), 268, 5, 3); 
           } //bottom 3 horizontal
 
+rect(150, 250,5,3); //last part of the 5
 
+rect(350,150,5,3); //top dot
+rect(350, 240,5,3); //bottom dot
+
+for (let i = 1; i < 8; i++){
+  rect (450, 60 + (ystep*i), 5, 3)
+} //stem of one
+
+rect(420,110,5,3); //extra part of one
+
+for (let j = 1; j < 4; j++){
+  rect (550 + (xstep*j), 90, 5, 3)
+} //top horizontal zero
+
+for (let i = 0; i < 5; i++){
+  rect (550, 120 + (ystep*i), 5, 3)
+} //left side of 0
+
+for (let j = 1; j < 4; j++){
+  rect (550 + (xstep*j), 270, 5, 3)
+} //bottom horizontal zero
+
+for (let i = 0; i < 5; i++){
+  rect (670, 120 + (ystep*i), 5, 3)
+} //right side zero
 
   //clock hands
   strokeWeight(1);
