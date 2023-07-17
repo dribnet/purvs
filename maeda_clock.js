@@ -1,5 +1,5 @@
-originX = 150;
-originY = 25;
+originX = 230;
+originY = 50;
 
 { // number shape coords map(two arrays for each number, creating pairs of coordinates for X and Y, value + .1 for X, .2 for Y)
 
