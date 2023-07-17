@@ -80,13 +80,14 @@ ellipse(width/2,350, 30, 30);
 //minutesnumbers
 
 fill(200);
-  ellipse(700,230, 30, 30);
+  ellipse(600,230, 30, 30);
 
   fill(200);
-  ellipse(700,260, 30, 30);
+  ellipse(600,260, 30, 30);
 
   fill(200);
-  ellipse(700,290, 30, 30);
+  ellipse(600,290, 30, 30);
+
 
 
 
