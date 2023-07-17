@@ -18,7 +18,6 @@ function draw_clock(obj) {
   rect(350,215,200,50); //part of the three
   Rect(400,50,300,400); //part of the three
 
-  rect(600,50,200,50); //part of zero
-  rect()
+  
 
 }
