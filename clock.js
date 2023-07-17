@@ -18,7 +18,7 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-    background(50); //  Grey
+    background(150); //  Grey
     fill(255); // white
     textSize(20);
     text("Hour: "   + hours, width*0.2, 22);
@@ -31,20 +31,24 @@ function draw_clock(obj) {
   // textAlign(CENTER, CENTER);
   // text("Seconds: " + seconds, width / 2, 200);
 
-  let hours_radius = map(obj.hours, 0, 59, 1, 150);
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, hours_radius);
+  // let hours_radius = map(obj.hours, 0, 59, 1, 150);
+  // fill(249, 140, 255);// pink
+  // ellipse(width / 3, 350, hours_radius);
 
-  let minutes_radius = map(obj.minutes, 0, 59, 1, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, minutes_radius);
+  // let minutes_radius = map(obj.minutes, 0, 59, 1, 150);
+  // fill(140, 255, 251) // blue
+  // ellipse(width / 2, 350, minutes_radius);
 
-  let seconds_radius = map(seconds, 0, 59, 1, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, seconds_radius);
+  // let seconds_radius = map(seconds, 0, 59, 1, 150);
+  // fill(175, 133, 255); // purple
+  // ellipse(width / 3 * 2, 350, seconds_radius);
 
-  let rect_height = map(seconds, 0, 59, 1, 150);
-  fill(255);
+  let min_height = map(minutes, 0, 59, 1, 150);
+  fill(0 , 255, 251) // blue
+  rect(width/5, height/1.2, 100, - min_height);
+
+  let sec_height = map(seconds, 0, 59, 1, 150);
+  fill(0, 255, 255); //light blue
   noStroke();
-  rect(width/2, height/2, 40, - rect_height);
+  rect(width/2, height/1.5, 400, - sec_height);
 }
