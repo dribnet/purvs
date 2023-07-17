@@ -73,7 +73,13 @@ function draw_clock(obj) {
   //small red part marking seconds
   fill (255, 0, 0);
   noStroke();
-  rect(150, 90, 5, 3);
+  rect(150, 88, 5, 3); 
+
+  //clock hands
+  strokeWeight(1);
+  stroke(0); //black
+  line(150, 100, 155, 105); //5 O'clock hand
+  line(160, 90, 150, 100); //10 past hand  
 
 
 }
