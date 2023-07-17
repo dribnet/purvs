@@ -6,7 +6,7 @@ const centreY = (500/2) - 10;
 function draw_clock(obj) {
   // YOUR MAIN CLOCK CODE GOES HERE
  
-  background(5); //  beige
+  background(12); //  beige
   fill(128); // dark grey
   strokeWeight(0);
 
