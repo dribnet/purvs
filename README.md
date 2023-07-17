@@ -13,3 +13,7 @@ My idea is to have balloons representing seconds 0-60, minutes 0-60, and hours 0
 Maeda clock:
 
 The Maeda clock I've chosen to recreate is clock 2 https://codingtrain.github.io/12oclocks/#clock-02. Mine is slightly different. I used an extra two rows of circles to represent my numbers, my numbers have slightly different shapes, and the stroke weight of the circles is a little thicker. I used a map of floats to arrays of integers, where n.1 goes to the array of x values for the circle positions and n.2 goes to the y values. I did this so that I could set up a function that takes a number and draws it in a given position. This method meant that drawing the ellipses was very simple, but there are many improvements I could make to simplify the code and make it easier to work with. The main problem is using values for the x and y coordinates instead of using a matrix for each number with on and off values. This would make more sense as they are already operating in fixed grid and it would be easier to change things such as the proximity of the circles, and the position of the whole display.
+
+Original clock development:
+
+I'm thinking about changing my clock idea, slightly. Rather than having three balloons I think it would be better to have one balloon at the end of a chain of actions that are causing it to inflate. I'm inspired by dozer machines that slowly push coins off an edge, moving them slightly further towards their tipping point as coins are added.
