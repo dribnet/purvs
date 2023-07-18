@@ -124,7 +124,7 @@ function draw_clock(obj) {
     for (let j=1; j<=6; j++){
 
       // how would you make this just work on the window being drawn and not all the other ones?
-      if (seconds == 0){
+      if (seconds == 0 && millis == 0){
         windowsGoingOn = map(millis, 0, 999, 0, 255);
         fill(230, 199, 23, windowsGoingOn);
       }else{
