@@ -20,13 +20,18 @@ class SecondsGear {
     this.yCenter = yCenter;
     this.angle = angle;
 
+    /**
+     * Radian equivalent of 360 / detailDepth.
+     * This number / frameRate should yield the amount needed to rotate the gear every second.
+     */
+    this.rotationIncrement = 2 * Math.PI / detailDepth; 
+
     /** 
      * Generates two arrays of points, one for the gear and one for the hollow centre.
      * These points are arranged circularly at some resolution.
      */
     this.innerRadiusPoints = this._generatePoints(innerRadius, detailDepth);
     this.outerRadiusPoints = this._generatePoints(outerRadius, detailDepth);
-
   }
 
   /** Private method for generate points. */
@@ -34,7 +39,6 @@ class SecondsGear {
     let points = [];
     let tempX;
     let tempY;
-    let rotationIncrement = 2 * Math.PI / detailDepth; // radian equivalent of 360 / detailDepth.
 
     /**
      * This will rotate all the points around the origin (0, 0).
@@ -43,8 +47,8 @@ class SecondsGear {
      * translate the origin to where I need it to be.
      */
     for (let i=0; i<detailDepth; i++) {
-      tempX = -Math.sin(i * rotationIncrement) * radius;
-      tempY = Math.cos(i * rotationIncrement) * radius;
+      tempX = -Math.sin(i * this.rotationIncrement) * radius;
+      tempY = Math.cos(i * this.rotationIncrement) * radius;
       points.push([tempX, tempY]);
     }
 
@@ -61,7 +65,6 @@ class SecondsGear {
     noStroke();
     fill(fillColor);
 
-    
     beginShape();
     for (let op of this.outerRadiusPoints) vertex(op[0], op[1]); // Drawing the main gear.
 
@@ -72,6 +75,21 @@ class SecondsGear {
     endShape(CLOSE);
 
     pop();
+  }
+
+  /** Rotates the gear by some angle theta in degrees. */
+  turn(theta) { this._angle = this._angle >= 360 ? 0 : this._angle += theta; }
+
+  /** Manual override of the gear's angle. */
+  setAngle(theta) { this.angle = theta; }
+}
+
+/**
+ * Class that defines the teeth of the SecondsGear class.
+ */
+class SecondsTooth {
+  constructor() {
+    
   }
 }
 
@@ -94,109 +112,10 @@ class SecondsGear {
  *  ---------------------------------------------------------------------------------------------------------------------------- */
 
 
-class _Gear {
-  /**
-   * Base gear constructor
-   * @param {number} x centre coord
-   * @param {number} y centre coord
-   * @param {number} dist distance fron centre
-   * @param {number} num number of points
-   * @param {number} arcSize size of the arc
-   * @param {number} angle drawn angle
-   * @param {number} angleDisplace drawn angle displacement
-   * @param {number} teethSize scale size of teeth
-   */
-  constructor(x, y, dist, num, arcSize, angle=0, angleDisplace=0, teethSize=1.2) {
-    this._xCen = x;
-    this._yCen = y;
-    this._angle = angle;
-
-    this._points = this._createPoints(dist, num, arcSize, angleDisplace, teethSize);
-  }
-
-  _createPoints(dist, num, arcSize, angleDisplace, teethSize) {
-    let points = [];
-    let r = arcSize/num;
-    angleDisplace *= Math.PI/180;
-
-    for (let i=0; i<num; i++) {
-      let s = 1;
-      if (teethSize !== 0) {
-        if (i % 4 == 0) s = teethSize;
-        if (i % 4 == 1) s = teethSize;
-      }
-
-      let nx = -Math.sin(i * r + angleDisplace) * dist * s;
-      let ny = Math.cos(i * r + angleDisplace) * dist * s;
-      points.push([nx, ny]);
-    }
-
-    return points;
-  }
-
-  _draw(col, scalar, xoffset, yoffset, _drawFunction) {
-    push();
-      translate(this._xCen + xoffset, this._yCen + yoffset);
-      rotate(this._angle * Math.PI/180);
-      scale(scalar);
-      noStroke();
-      fill(col);
-      _drawFunction();
-    pop();
-  }
-
-  turn(angle) { this._angle = this._angle >= 360 ? 0 : this._angle += angle; }
-  anti(angle) { this.turn(-angle); }
-
-  get p() { return this._points; }
-  get a() { return this._angle; }
-  set a(v) { this._angle = v; }
-}
-
-
-class HollowGear extends _Gear {
-  constructor(x, y, dist1, dist2, num1, num2, angle=0, angleDisplace=0, size=1.2) {
-    super(x, y, dist1, num1, 2*Math.PI, angle, angleDisplace, size);
-    this._circle = this._createPoints(dist2, num2, 2*Math.PI, angleDisplace, 0);
-  }
-
-  draw(col, scalar=1, xoffset=0, yoffset=0, core=false) {
-    this._draw(col, scalar, xoffset, yoffset, () => {
-      beginShape();
-      for (let p of this._points) {
-        vertex(p[0], p[1]);
-      }
-  
-      beginContour();
-      for (let p of this._circle) {
-        vertex(-p[0], p[1]);
-      }
-      endContour();
-      endShape(CLOSE);
 
 
 
 
-
-
-      if (core) {
-        scale(0.9 * scalar);
-        beginShape();
-        for (let p of this._circle) {
-          vertex(p[0], p[1]);
-        }
-        endShape(CLOSE);
-      }
-    });
-  }
-}
-
-
-/** ----------------------------------------------------------------------------------------------------------------------------
- *  ----------------------------------------------------------------------------------------------------------------------------
- *  ------------------------------------------------------ OLD CODE ABOVE ------------------------------------------------------  
- *  ----------------------------------------------------------------------------------------------------------------------------
- *  ---------------------------------------------------------------------------------------------------------------------------- */
 
 
 const WIDTH = 960;
