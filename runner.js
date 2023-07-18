@@ -12,7 +12,9 @@ let defaultAlarmSliderValue=15;
 
 function setup () {
   // create the drawing canvas, save the canvas element
-  var main_canvas = createCanvas(canvasWidth, canvasHeight);
+  // ADDED WEBGL to main canvas
+  //var main_canvas = createCanvas(canvasWidth, canvasHeight);
+  var main_canvas = createCanvas(canvasWidth, canvasHeight,WEBGL);
   main_canvas.parent('canvasContainer');
 
   alarmOverlaySlider = createSlider(0, 30, defaultAlarmSliderValue);
