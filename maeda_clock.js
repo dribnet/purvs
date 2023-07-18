@@ -9,7 +9,7 @@ function draw_clock(obj) {
   stroke(pink);
   
   // variables
-  let s = second();
+  let s = obj.seconds;
   let mappeds = map(s, 0, 59, 0, 360);
   let colortransparent = map(s, 0, 59, 0, 255);
 
