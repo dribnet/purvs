@@ -39,9 +39,13 @@ function draw_clock(obj) {
   // fill(175, 133, 255); // purple
   // ellipse(width / 3 * 2, 350, seconds_radius); //ellipse getting larger with seconds 
 
+
   
   fill (255);
   triangle(180, 470, 300, 100, 430, 470); //lightbeamFront 
+
+
+
 
   fill (255);
   triangle(660, 440, 750, 160, 830, 440); //lightbeamBack
@@ -56,8 +60,10 @@ ellipse(300, 110, 250, 70); //frontUFO
 fill (77, 255, 5);
 rect(290, 360, 30, 100); //hoursnumbers
 
+
+let minutes_lift = map(minutes, 0, 59, 450, 280); //trying to make numbers move up with minutes 
 fill (77, 255, 5);
-rect(720, 380, 15, 50); //minutesnumbers
+rect(720, minutes_lift, 15, 50); //minutesnumbers
 
 fill (77, 255, 5);
 rect(760, 380, 15, 50); //minutesnumbers
