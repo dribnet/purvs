@@ -75,9 +75,7 @@ class SecondsGear {
 
   /** Draw method for gear. */
   draw(fillColor) {
-    /* 
-     * Section regarding teeth drawing. 
-     */
+    /* Section regarding teeth drawing. */
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.angle * Math.PI / 180); // Sets the rotation of the entire gear
@@ -87,9 +85,7 @@ class SecondsGear {
     }
     pop();
 
-    /* 
-     * Section regarding gear drawing. 
-     */
+    /* Section regarding gear drawing. */
     push();
 
     // Set up
@@ -157,6 +153,8 @@ class SecondsTooth {
     pop();
   }
 }
+
+
 
 
 
