@@ -11,7 +11,7 @@
 class SecondsGear {
   /** Constructor. */
   constructor(xCenter, yCenter, innerRadius, outerRadius, teethCount=0, teethSize=0, angle=0, detailDepth=120) {
-    /** 
+    /* 
      * Co-ords and rotation of the gear.
      * The angle property is in degrees to make my life easier, 
      * however, calculations will be done in radians.
@@ -20,13 +20,13 @@ class SecondsGear {
     this.yCenter = yCenter;
     this.angle = angle;
 
-    /**
+    /*
      * Radian equivalent of 360 / detailDepth.
      * This number / frameRate should yield the amount needed to rotate the gear every second.
      */
     this.rotationIncrement = 2 * Math.PI / detailDepth; 
 
-    /** 
+    /* 
      * Generates two arrays of points, one for the gear and one for the hollow centre.
      * These points are arranged circularly at some resolution.
      */
@@ -40,7 +40,7 @@ class SecondsGear {
     let tempX;
     let tempY;
 
-    /**
+    /*
      * This will rotate all the points around the origin (0, 0).
      * There is a variation of this mathmatical equation that uses the rotation of any given point,
      * however, with the way the rotate(...) function works in p5.js, it is much easier to just 
@@ -48,7 +48,7 @@ class SecondsGear {
      */
     for (let i=0; i<detailDepth; i++) {
       tempX = -Math.sin(i * this.rotationIncrement) * radius;
-      tempY = Math.cos(i * this.rotationIncrement) * radius;
+      tempY = +Math.cos(i * this.rotationIncrement) * radius;
       points.push([tempX, tempY]);
     }
 
@@ -57,19 +57,25 @@ class SecondsGear {
 
   /** Draw method for gear. */
   draw(fillColor) {
+
+
+    /* Section regarding gear drawing. */
     push();
 
-    /** Set up */
+    /* Set up */
     translate(this.xCenter, this.yCenter);
     rotate(this.angle * Math.PI / 180);
     noStroke();
     fill(fillColor);
 
     beginShape();
-    for (let op of this.outerRadiusPoints) vertex(op[0], op[1]); // Drawing the main gear.
 
+    // Outline
+    for (let op of this.outerRadiusPoints) vertex(op[0], op[1]); 
+
+    // Hollow
     beginContour();
-    for (let ip of this.innerRadiusPoints) vertex(-ip[0], ip[1]); // Drawing the hollow centre.
+    for (let ip of this.innerRadiusPoints) vertex(-ip[0], ip[1]); 
     endContour();
 
     endShape(CLOSE);
@@ -88,10 +94,43 @@ class SecondsGear {
  * Class that defines the teeth of the SecondsGear class.
  */
 class SecondsTooth {
-  constructor() {
-    
+  /** Constructor. */
+  constructor(xCenter, yCenter, topWidth, botWidth, height) {
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+
+    /**
+     * Points are arranged as follows:
+     *          0        1
+     *            (x, y)
+     *      3                2
+     */
+    this.points = [
+      [-topWidth/2, -height/2],
+      [+topWidth/2, -height/2],
+      [+botWidth/2, +height/2],
+      [-botWidth/2, +height/2],
+    ];
+  }
+
+  /** Draw methof for gear tooth. */
+  draw(fillColor, yOffset=0) {
+    push();
+
+    /** Set up */
+    translate(this.xCenter, this.yCenter + yOffset);
+    noStroke(); 
+    fill(fillColor);
+
+    beginShape();
+    for (let p of this.points) vertex(p[0], p[1]); // Drawing the tooth.
+    endShape(CLOSE);
+
+    pop();
   }
 }
+
+
 
 /** TO DO:
  * - make MinutesDisplay
@@ -105,13 +144,6 @@ class SecondsTooth {
 
 
 
-/** ----------------------------------------------------------------------------------------------------------------------------
- *  ----------------------------------------------------------------------------------------------------------------------------
- *  ------------------------------------------------------ OLD CODE BELOW ------------------------------------------------------  
- *  ----------------------------------------------------------------------------------------------------------------------------
- *  ---------------------------------------------------------------------------------------------------------------------------- */
-
-
 
 
 
@@ -121,7 +153,9 @@ class SecondsTooth {
 const WIDTH = 960;
 const HEIGHT = 500;
 
-const test = new SecondsGear(WIDTH/2, HEIGHT/2, 160, 190);
+
+
+let test = new SecondsTooth(WIDTH/2, HEIGHT/2, 20, 30, 20);
 
 /*
  * use p5.js to draw a clock on a 960x500 canvas
@@ -150,6 +184,6 @@ function draw_clock(obj) {
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, 150);
 
-  test.draw([132, 42, 44]);
 
+  test.draw(127, 200);
 }
