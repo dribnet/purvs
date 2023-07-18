@@ -65,8 +65,8 @@ class SecondsGear {
      * translate the origin to where I need it to be.
      */
     for (let i=0; i<detailDepth; i++) {
-      tempX = -Math.sin(i * this.rotationIncrement) * radius;
-      tempY = +Math.cos(i * this.rotationIncrement) * radius;
+      tempX = - Math.sin(i * this.rotationIncrement) * radius;
+      tempY = + Math.cos(i * this.rotationIncrement) * radius;
       points.push([tempX, tempY]);
     }
 
@@ -80,6 +80,7 @@ class SecondsGear {
      */
     push();
     translate(this.xCenter, this.yCenter);
+    rotate(this.angle * Math.PI / 180);
     for (let t of this.teeth) {
       rotate(2 * Math.PI / this.teeth.length);
       t.draw(fillColor, -this.outerRadius);
@@ -93,7 +94,6 @@ class SecondsGear {
 
     // Set up
     translate(this.xCenter, this.yCenter);
-    rotate(this.angle * Math.PI / 180);
     noStroke();
     fill(fillColor);
 
@@ -162,8 +162,6 @@ class SecondsTooth {
 
 /** TO DO:
  * - make MinutesDisplay
- * - make teeth class
- *   - each tooth needs to be mapped to a number (use an array); this will make setting the alarm way easier
  * - make HoursDisplay
  * - make Pointer
  * - make AMPMDisplay
@@ -183,7 +181,7 @@ const HEIGHT = 500;
 
 
 
-let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20);
+let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20, 0);
 
 /*
  * use p5.js to draw a clock on a 960x500 canvas
@@ -212,6 +210,7 @@ function draw_clock(obj) {
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, 150);
 
+ // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
   test.draw([132, 42, 44], 200);
 }
