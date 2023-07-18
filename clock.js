@@ -80,9 +80,9 @@ class SecondsGear {
      */
     push();
     translate(this.xCenter, this.yCenter);
-    rotate(this.angle * Math.PI / 180);
+    rotate(this.angle * Math.PI / 180); // Sets the rotation of the entire gear
     for (let t of this.teeth) {
-      rotate(2 * Math.PI / this.teeth.length);
+      rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
       t.draw(fillColor, -this.outerRadius);
     }
     pop();
