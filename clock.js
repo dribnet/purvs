@@ -28,6 +28,12 @@ const heartMaxRowNum = 6;
 const chargerMeterWidth = 40;
 const chargerMeterHeight = 170
 
+// Overheat bar constants
+const overHeatBarWidth = 50;
+const overHeatBarHeight = 280;
+const overHeatBarX = 10;
+const overHeatBarY = 210;
+
 // Classes
 class SpaceShip {
   constructor(angle) {
@@ -116,8 +122,11 @@ function draw_clock(obj) {
   //        > 0 --> the number of seconds until alarm should go off
   drawBackground();
   imageMode(CENTER);
+
   updateGame();
+
   drawChargeMeter();
+  drawOverHeatBar();
   drawHearts();
 }
 
@@ -217,4 +226,61 @@ function drawChargeMeter() {
     yPos = map(obj.millis, 0, 499.5, 410, 320);
     rect(820, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
   }
+}
+
+function drawOverHeatBar() {
+  var secondsWithFraction   = obj.seconds + (obj.millis / 1000.0);
+  var overHeatBarHeightSmooth  = map(secondsWithFraction, 0, 59, 0, overHeatBarHeight);
+  var strokeColor;
+  var isFalling = false;
+
+  // Set the bar to fall once it reaches the final second of the minute
+  if (obj.seconds === 59) {
+    isFalling = true;
+  }
+  // Interpolate colour between green and lime
+  if (overHeatBarHeightSmooth < overHeatBarHeight / 3) {
+    strokeColor = lerpColor(color(0, 255, 0), color(165, 255, 0), overHeatBarHeightSmooth / (overHeatBarHeight / 3));
+  // Interpolate colour between lime and orange/yellow
+  } else if (overHeatBarHeightSmooth < (2 * overHeatBarHeight) / 3) {
+    strokeColor = lerpColor(color(165, 255, 0), color(255, 165, 0), (overHeatBarHeightSmooth - (overHeatBarHeight / 3)) / (overHeatBarHeight / 3));
+  // Interpolate colour between orange/yellow and red
+  } else {
+    var interpolate = (overHeatBarHeightSmooth - (2 * overHeatBarHeight) / 3) / (overHeatBarHeight / 3);
+    if (!isFalling) {
+      // Draws a flashing red rectangle for warning overheating
+      fill(255,0,0, map(interpolate, 0, 1, 0, 140, true) * map(sin(map(obj.millis, 0, 999, 0, TWO_PI)), -1, 1, 0.2, 1));
+      rect(0,0,width,height);
+    }
+    strokeColor = lerpColor(color(255, 165, 0), color(255, 0, 0), interpolate);
+  }
+
+  // The bar is filled by strokes
+  stroke(strokeColor);
+  strokeWeight(2);
+  // When not falling the bar is filled to the mapped value from seconds + millis
+  if (!isFalling) {
+    for (let y = 0; y < overHeatBarHeightSmooth; y++) {
+      line(overHeatBarX + 1, overHeatBarY + overHeatBarHeight - 1 - y, overHeatBarX + overHeatBarWidth - 1, overHeatBarY + overHeatBarHeight - 1 - y);
+    }
+  // Otherwise is filled based on millis to go from fill to empty (red to green) in a second
+  } else {
+    // Draws the red rectangle and decreases alpha based on millis
+    var interpolate = (map(obj.millis, 0, 999, 0, overHeatBarHeight)) / overHeatBarHeight;
+    fill(255,0,0, map(interpolate, 0, 1, 140, 0, true));
+    rect(0,0,width,height);
+
+    // Fills the bar
+    strokeColor = lerpColor(color(255, 0, 0), color(0, 255, 0), (map(obj.millis, 0, 999, 0, overHeatBarHeight)) / overHeatBarHeight);
+    stroke(strokeColor);
+    for (let y = 0; y < (1 - obj.millis / 999) * overHeatBarHeight; y++) {
+      line(overHeatBarX + 1, overHeatBarY + overHeatBarHeight - 1 - y, overHeatBarX + overHeatBarWidth - 1, overHeatBarY + overHeatBarHeight - 1 - y);
+    }
+  }
+  
+  // Draw the outline
+  stroke(0);
+  strokeWeight(1);
+  noFill();
+  rect(overHeatBarX, overHeatBarY, overHeatBarWidth, overHeatBarHeight);
 }
