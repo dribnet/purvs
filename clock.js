@@ -7,7 +7,13 @@ var backgroundY = 0;
 // SpaceShips
 var spaceShip;
 var enemySpaceShips = [];
-const maxEnemySpaceShips = 6;
+const maxEnemySpaceShips = 24;
+
+// Lemniscate size constants
+const enemyLemniscateWidth = 420; 
+const enemyLemniscateHeight = 200;
+const lemniscateWidth = 360;
+const lemniscateHeight = 100;
 
 // Bullet variables
 var bulletList = [];
@@ -23,36 +29,51 @@ const chargerMeterHeight = 170
 
 // Classes
 class SpaceShip {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.speed = 2;
+  constructor(angle) {
+    this.x = (lemniscateWidth * cos(angle)) / (1 + pow(sin(angle), 2));
+    this.y = (lemniscateHeight * cos(angle) * sin(angle)) / (1 + pow(sin(angle), 2));
+    this.angle = angle;
   }
   update() {
-    if (this.x + playerImg.width > width || this.x - playerImg.width/2 < 0) {
-      this.speed *= -1;
-    }
-    this.x += this.speed;
+    // Increment the angle to make the spaceship move along the lemniscate path
+    this.angle += 0.01;
+  
+    // Update the position of the spaceship based on the new angle
+    this.x = (lemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
+    this.y = (lemniscateHeight * cos(this.angle) * sin(this.angle)) / (1 + pow(sin(this.angle), 2));
   }
   draw() {
-    image(playerImg, this.x, this.y, playerImg.width/2, playerImg.height/2);
+    image(playerImg, this.getX(), this.getY(), playerImg.width/2, playerImg.height/2);
+  }
+  getX() {
+    return this.x + width / 2;
+  }
+  getY() {
+    return this.y + height * 4 / 5;
   }
 }
 
 class EnemySpaceShip extends SpaceShip{
-  constructor(x, y) {
-    super(x, y);
-    this.speed = 3;
+  constructor(angle) {
+    super(angle);
   }
   update() {
-    if (this.x + enemyImg.width/2 > width || this.x - enemyImg.width/2 < 0) {
-      this.speed *= -1;
-    }
-    this.x += this.speed;
+    // Increment the angle to make the spaceship move along the lemniscate path
+    this.angle += 0.02;
+  
+    // Update the position of the spaceship based on the new angle
+    this.x = (enemyLemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
+    this.y = (enemyLemniscateHeight * cos(this.angle) * sin(this.angle)) / (1 + pow(sin(this.angle), 2));
   }
   draw() {
     this.hidden = false;
-    image(enemyImg, this.x, this.y, enemyImg.width/2, enemyImg.height/2);
+    image(enemyImg, this.getX(), this.getY(), enemyImg.width/2, enemyImg.height/2);
+  }
+  getX() {
+    return this.x + width / 2;
+  }
+  getY() {
+    return this.y + height / 5;
   }
 }
 
@@ -81,7 +102,9 @@ function preload() {
 
   // Load the enemy spaceships
   for (let i = 0; i < maxEnemySpaceShips; i++) {
-    enemySpaceShips.push(new EnemySpaceShip(100 + i * 100, 80));
+    // angle on lemniscate
+    var angle = map(i, 0, maxEnemySpaceShips, 0, TWO_PI);
+    enemySpaceShips.push(new EnemySpaceShip(angle));
   }
 }
 
@@ -95,6 +118,7 @@ function draw_clock(obj) {
   updateGame();
   drawChargeMeter();
   drawHearts();
+  console.log(bulletList);
 }
 
 // Creates the effect of an infinitely scrolling background
