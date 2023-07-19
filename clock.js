@@ -1,6 +1,13 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+
+function rectussy(x,y) {
+  rect(x, y, 100, 50);
+
+}
+
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -16,14 +23,16 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
   text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-
+  
 
 
   fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 2000);
+  ellipse(width / 3, 350, 150);
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, 150);
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, 150);
 
+  rectussy(100, 100);
 }
+
