@@ -59,14 +59,14 @@ function draw_clock(obj) {
   stroke(1, 50, 32); //dark green
   strokeWeight(2);
   beginShape();
-  vertex(30, 70); // first point
-  bezierVertex(50, 100, 75, 140, 120, 120);  
+  vertex(30, 70); // first point //30,70
+  bezierVertex(50, 100, 75, 140, 120, 120);  //50,100,75,140,120,120
   endShape(); //bottom half
 
-  beginShape();
-  vertex(30,70);
-  bezierVertex(50, 80, 75, 20, 120, 120);
-  endShape(); //top half
+  // beginShape();
+  // vertex(30,70);
+  // bezierVertex(50, 80, 75, 20, 120, 120);
+  // endShape(); //top half
        
 
   
