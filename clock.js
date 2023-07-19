@@ -7,7 +7,7 @@ var backgroundY = 0;
 // SpaceShips
 var spaceShip;
 var enemySpaceShips = [];
-const maxEnemySpaceShips = 24;
+const maxEnemySpaceShips = 60;
 
 // Lemniscate size constants
 const enemyLemniscateWidth = 420; 
@@ -155,7 +155,9 @@ function addBullet() {
 function updateEnemyShips() {
   for (let i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
-    enemySpaceShips[i].draw();
+    if (i < obj.minutes) {
+      enemySpaceShips[i].draw();
+    }
   }
 }
 
