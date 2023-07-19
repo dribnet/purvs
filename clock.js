@@ -13,6 +13,10 @@ const maxEnemySpaceShips = 6;
 var bulletList = [];
 var currentSecond;
 
+// Heart constants
+const heartWidth = 15;
+const heartMaxRowNum = 6;
+
 // Classes
 class SpaceShip {
   constructor(x, y) {
@@ -85,6 +89,7 @@ function draw_clock(obj) {
   drawBackground();
   imageMode(CENTER);
   updateGame();
+  drawHearts();
 }
 
 // Creates the effect of an infinitely scrolling background
@@ -124,4 +129,29 @@ function updateEnemyShips() {
     enemySpaceShips[i].update();
     enemySpaceShips[i].draw();
   }
+}
+
+function drawHearts() {
+  strokeWeight(0.1);
+  fill(250, 0, 0);
+
+  // Count the number of hearts in 12hr time
+  var heartCount = (obj.hours % 12) || 12;
+  for (var i = 0; i < heartCount; i++) {
+    // Get the row number
+    var row = Math.floor(i / heartMaxRowNum); 
+    // Use remainder to ignore full rows
+    var x = 20 + ((heartWidth * 3/2) * i) % (heartMaxRowNum * (heartWidth * 3/2)); 
+    var y = 10 + (row * (heartWidth + 10));
+
+    heart(x, y, heartWidth); 
+  }
+}
+
+function heart(x, y, size) {
+  beginShape();
+  vertex(x, y);
+  bezierVertex(x - size / 2, y - size / 2, x - size, y + size / 3, x, y + size * 7/8);
+  bezierVertex(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
+  endShape(CLOSE);
 }
