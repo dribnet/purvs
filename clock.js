@@ -40,11 +40,9 @@ function draw_clock(obj) {
   // ellipse(width / 3 * 2, 350, seconds_radius); //ellipse getting larger with seconds 
 
 
-  
+  //I could use For Loops for the beam animations
   fill (255);
   triangle(180, 470, 300, 100, 430, 470); //lightbeamFront 
-
-
 
 
   fill (255);
@@ -57,11 +55,13 @@ function draw_clock(obj) {
   fill (140, 255, 251);
 ellipse(300, 110, 250, 70); //frontUFO 
 
+
+let hours_lift = map(hours, 0, 23, 350, 280); //make number move up with hour
 fill (77, 255, 5);
-rect(290, 360, 30, 100); //hoursnumbers
+rect(290, hours_lift, 30, 100); //hoursnumbers
 
 
-let minutes_lift = map(minutes, 0, 59, 380, 280); //trying to make numbers move up with minutes 
+let minutes_lift = map(minutes, 0, 59, 380, 142); //make number move up with minutes 
 fill (77, 255, 5);
 rect(720, minutes_lift, 15, 50); //minutesnumbers
 
