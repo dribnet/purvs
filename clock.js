@@ -63,8 +63,10 @@ class SpaceShip {
 class EnemySpaceShip extends SpaceShip{
   constructor(angle) {
     super(angle);
+    this.hidden = true;
   }
   update() {
+    this.hidden = true;
     // Increment the angle to make the spaceship move along the lemniscate path
     this.angle += 0.02;
   
@@ -82,6 +84,11 @@ class EnemySpaceShip extends SpaceShip{
   getY() {
     return this.y + height / 5;
   }
+  // Function for debugging
+  drawBoundingBox() {
+    noFill();
+    rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
+  }
 }
 
 class Bullet {
@@ -92,6 +99,18 @@ class Bullet {
   }
   update() {
     this.y -= Bullet.bulletSpeed;
+    enemySpaceShips.forEach(enemySpaceShip => {
+      if (
+        this.x - playerBulletImg.width / 2 > enemySpaceShip.getX() - enemyImg.width / 4 &&
+        this.x + playerBulletImg.width / 2  < enemySpaceShip.getX() + enemyImg.width / 4 &&
+        this.y - playerBulletImg.height / 2 > enemySpaceShip.getY() - enemyImg.height / 4 &&
+        this.y + playerBulletImg.height / 2 < enemySpaceShip.getY() + enemyImg.height / 4 &&
+        !enemySpaceShip.hidden ||
+        this.y < 0
+      ) {
+        bulletList.splice(bulletList.indexOf(this), 1);
+      }
+    });
   }
   draw() {
     image(playerBulletImg, this.x, this.y, playerBulletImg.width, playerBulletImg.height);
