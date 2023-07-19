@@ -1,5 +1,8 @@
 // Images
-var playerImg, enemyImg;
+var playerImg, enemyImg, backgroundImage;
+
+// Background
+var backgroundY = 0;
 
 // SpaceShips
 var spaceShip;
@@ -44,6 +47,7 @@ class EnemySpaceShip extends SpaceShip{
 function preload() {
   playerImg = loadImage("player.png");
   enemyImg = loadImage("enemyEasy.png");
+  backgroundImage = loadImage("newBackground.png");
 
   spaceShip = new SpaceShip(460, 400);
   enemySpaceShip = new EnemySpaceShip(200, 120);
@@ -54,10 +58,20 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(120, 150, 255);
-
+  drawBackground();
   imageMode(CENTER);
   updateGame();
+}
+
+// Creates the effect of an infinitely scrolling background
+function drawBackground() {
+  imageMode(CORNER);
+  image(backgroundImage, 0, backgroundY - 500);
+  image(backgroundImage, 0, backgroundY - backgroundImage.height - 500);
+  backgroundY += 1;
+  if (backgroundY >= backgroundImage.height) {
+    backgroundY = 0;
+  }
 }
 
 function updateGame() {
