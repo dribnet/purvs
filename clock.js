@@ -30,19 +30,25 @@ function draw_clock(obj) {
   //fill(175, 133, 255); // purple
   //ellipse(width / 3 * 2, 350, ellipsewidth);
 
-  //attempt at rotating earth
+  let rotS = map(Seconds, 0, 59, 0, 360);
 
-  let angle = 50;
-  let scalar = 100;
-  let startX = width/2;
-  let startY= height/2;
-  
-  let x = startX + scalar * cos(angle);
-  let y = startY + scalar * sin(angle);
+ // rotate(rotS);
+  //ellipse(width/2,height/2,50);
 
-  ellipse(x+obj.seconds,y+obj.seconds,80);
 
-  angle++;
+ 
+  push();
+  translate(480,250);
+  rotate(rotS);
+  ellipse(200, 0, 50);
+
+  push();
+  translate(200,0);
+  rotate(rotS);
+  ellipse(100,0,30);
+  pop();
+
+  pop();
 
 
 }
