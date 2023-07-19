@@ -110,9 +110,6 @@ class SecondsGear {
 
   /** Rotates the gear by some angle theta in degrees. */
   turn(theta) { this._angle = this._angle >= 360 ? 0 : this._angle += theta; }
-
-  /** Manual override of the gear's angle. */
-  setAngle(theta) { this.angle = theta; }
 }
 
 /**
@@ -155,7 +152,8 @@ class SecondsTooth {
 }
 
 
-// test
+
+
 
 
 /** TO DO:
@@ -195,20 +193,11 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
   background([40, 17, 23]); //  beige
-  fill(200); // dark grey
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
-
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
 
  // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
+  let rotationIncrement = 2 * Math.PI / 999;
+  test.turn(rotationIncrement);
   test.draw([132, 42, 44], 200);
 }
