@@ -19,6 +19,7 @@ class SecondsGear {
     this.xCenter = xCenter; 
     this.yCenter = yCenter;
     this.angle = angle;
+    this.initialAngle = 0; // Initial angle is a combination of secs and millis
 
     /* 
      * Inner and outer radii.
@@ -73,14 +74,14 @@ class SecondsGear {
   }
 
   /** Draw method for gear. */
-  draw(fillColor) {
+  draw(fillColor, highlight) {
     /* Section regarding teeth drawing. */
     push();
     translate(this.xCenter, this.yCenter);
-    rotate(this.angle * Math.PI / 180); // Sets the rotation of the entire gear
+    rotate((this.initialAngle + this.angle - 6) * Math.PI / 180); // Sets the rotation of the entire gear
     for (let t of this.teeth) {
       rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
-      t.draw(fillColor, -this.outerRadius);
+      t.draw( (t === this.teeth[highlight]) ? [0, 255, 0] : fillColor, -this.outerRadius);
     }
     pop();
 
@@ -107,8 +108,7 @@ class SecondsGear {
     pop();
   }
 
-  /** Rotates the gear by some angle theta in degrees. */
-  turn(theta) { this.angle = this.angle >= 360 ? 0 : this.angle += theta; }
+  startAngle(theta) {this.initialAngle = theta; }
 }
 
 /**
@@ -174,6 +174,9 @@ class SecondsTooth {
 const WIDTH = 960;
 const HEIGHT = 500;
 
+let init = true;
+let initTime;
+
 
 
 let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20, 0);
@@ -193,11 +196,30 @@ function draw_clock(obj) {
   //        > 0 --> the number of seconds until alarm should go off
   background([40, 17, 23]); //  beige
 
+  if (init) {
+    initTime = 0;
+    test.startAngle(initTime);
+    init = false;
+  }
+  
+
 
  // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
-  let r = 2 * Math.PI / 60
+  let r = 0;
 
-  test.turn(r);
-  test.draw([132, 42, 44], 200);
+  test.angle = (360/60) * obj.seconds;
+
+  //test.angle = map(obj.millis, 0, 999, 0, 60 * 2*Math.PI);
+  test.draw([132, 42, 44], 0);
+  console.log(obj.seconds);
+
+  
+
+
+
+  fill(255);
+  noStroke();
+  rectMode(CENTER);
+  rect(WIDTH/2, HEIGHT/2, 10, 900)
 }
