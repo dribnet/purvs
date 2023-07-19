@@ -197,6 +197,15 @@ function updateEnemyShips() {
     if (i < obj.minutes) {
       enemySpaceShips[i].draw();
     }
+    // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
+    if (i === obj.minutes) {
+      // 0 - 1 value over the minute
+      var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
+      var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, enemySpaceShips[i].getX());
+      var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, enemySpaceShips[i].getY());
+      enemySpaceShips[i].hidden = false;
+      image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2);
+    }
   }
 }
 
