@@ -24,15 +24,29 @@ function draw_clock(obj) {
   let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
   let MinutesY = map(Minutes, 0, 59, 1, 150);
 
-  text("Seconds: " + Seconds, width / 2, 200), 
+  // noStroke();
+  // text("Seconds: " + Seconds, width / 2, 200), 
 
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
+  // fill(249, 140, 255);// pink
+  // ellipse(width / 3, 350, 150);
 
   fill(140, 255, 251) // blue
+  noStroke();
   ellipse(width / 2, MinutesY, 100); // minutes moving up and down
   
   fill(175, 133, 255); // purple
+  noStroke();
   ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
 
+  //Plant pot
+  fill(0,206,209); //dark turquoise
+  noStroke();
+  //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
+  quad(405, 350, 555, 350, 535, 450, 425, 450 ); //goes from right to left, x then y...
+  rect(395, 320, 170, 30); //collar of plant pot
+
+  stroke(140, 255, 251); //light turquoise
+  strokeWeight(5);
+  line(395, 350, 565, 350);
+  
 }
