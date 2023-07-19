@@ -119,10 +119,10 @@ class Bullet {
 
 // Loads before setup
 function preload() {
-  playerImg = loadImage("player.png");
-  playerBulletImg = loadImage("playerBullets.png");
-  enemyImg = loadImage("enemyEasy.png");
-  backgroundImage = loadImage("newBackground.png");
+  playerImg = loadImage("assets/spaceShip.png");
+  playerBulletImg = loadImage("assets/bullets.png");
+  enemyImg = loadImage("assets/enemyShip.png");
+  backgroundImage = loadImage("assets/background.png");
 
   spaceShip = new SpaceShip(460, 400);
 
