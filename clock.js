@@ -61,12 +61,13 @@ fill (77, 255, 5);
 rect(290, 360, 30, 100); //hoursnumbers
 
 
-let minutes_lift = map(minutes, 0, 59, 450, 280); //trying to make numbers move up with minutes 
+let minutes_lift = map(minutes, 0, 59, 380, 280); //trying to make numbers move up with minutes 
 fill (77, 255, 5);
 rect(720, minutes_lift, 15, 50); //minutesnumbers
 
+
 fill (77, 255, 5);
-rect(760, 380, 15, 50); //minutesnumbers
+rect(760, minutes_lift, 15, 50); //minutesnumbers
 
 
 
