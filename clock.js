@@ -142,10 +142,11 @@ function draw_clock(obj) {
   drawBackground();
   imageMode(CENTER);
 
-  updateGame();
-
   drawChargeMeter();
   drawOverHeatBar();
+
+  updateGame();
+
   drawHearts();
 }
 
