@@ -156,6 +156,11 @@ function updateGame() {
 
 // Add a bullet every second
 function addBullet() {
+  // Does not fire at 59 seconds since it is overheating
+  // Does not fire at 0 minutes as there are no ships
+  if (obj.seconds === 59 || obj.minutes === 0) {
+    return;
+  }
   if (obj.seconds !== currentSecond) {
     currentSecond = obj.seconds;
     bulletList.push(new Bullet(spaceShip.getX()+playerImg.width/8, spaceShip.getY()));
