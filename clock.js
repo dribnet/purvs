@@ -18,8 +18,9 @@ function draw_clock(obj) {
   text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
 
+
   fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
+  ellipse(width / 3, 350, 2000);
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, 150);
   fill(175, 133, 255); // purple
