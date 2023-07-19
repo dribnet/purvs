@@ -165,6 +165,7 @@ function draw_clock(obj) {
 
 // Sets the stroke to be white for current time and a different coloured hue based on time
 function setStroke(time, i, lastElement, reversed) {
+  strokeWeight(2);
   if (i === lastElement) {
     stroke(0, 0, 100);
   } else {
