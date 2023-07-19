@@ -13,7 +13,7 @@
  var m = 0;
  var SecondMath = false;
  var s = 0;
- var HourMath = false;
+ var hourMath = false;
  var h = 0;
  var alarm;
 
