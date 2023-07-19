@@ -211,6 +211,7 @@ function drawChargeMeter() {
   rect(820, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
   rect(900, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
 
+  if(obj.seconds === 59) return;
   fill(90, 250, 0);
   var yPos;
 
@@ -218,6 +219,7 @@ function drawChargeMeter() {
   yPos = map(obj.millis, 0, 999, 490, 320);
   rect(900, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
 
+  if(obj.seconds === 58 && obj.millis > 499.5) return;
   // Left charger on the 0.5 to next 0.5 of a second
   if (obj.millis >= 499.5) {
     yPos = map(obj.millis, 499.5, 999, 490, 410);
