@@ -2,8 +2,10 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 
-function rectussy(x,y) {
-  rect(x, y, 100, 50);
+function milli_rectussy(x,y) {
+  noFill();
+  strokeWeight(2);
+  rect(x, y, 200, 50);
 
 }
 
@@ -33,6 +35,6 @@ function draw_clock(obj) {
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, 150);
 
-  rectussy(100, 100);
+  milli_rectussy(100, 100);
 }
 
