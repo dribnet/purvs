@@ -40,7 +40,6 @@ class SecondsGear {
 
     /*
      * Radian equivalent of 360 / detailDepth.
-     * This number / frameRate should yield the amount needed to rotate the gear every second.
      */
     this.rotationIncrement = 2 * Math.PI / detailDepth; 
 
@@ -197,7 +196,7 @@ function draw_clock(obj) {
 
  // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
-  let rotationIncrement = 2 * Math.PI / 999;
+  let rotationIncrement = 2 * Math.PI / 60;
   test.turn(rotationIncrement);
   test.draw([132, 42, 44], 200);
 }
