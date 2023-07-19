@@ -118,7 +118,6 @@ function draw_clock(obj) {
   updateGame();
   drawChargeMeter();
   drawHearts();
-  console.log(bulletList);
 }
 
 // Creates the effect of an infinitely scrolling background
@@ -149,7 +148,7 @@ function updateGame() {
 function addBullet() {
   if (obj.seconds !== currentSecond) {
     currentSecond = obj.seconds;
-    bulletList.push(new Bullet(spaceShip.x, spaceShip.y));
+    bulletList.push(new Bullet(spaceShip.getX(), spaceShip.getY()));
   }
 }
 
