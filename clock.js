@@ -6,7 +6,8 @@ var backgroundY = 0;
 
 // SpaceShips
 var spaceShip;
-var enemySpaceShip;
+var enemySpaceShips = [];
+const maxEnemySpaceShips = 6;
 
 // Bullet variables
 var bulletList = [];
@@ -69,7 +70,11 @@ function preload() {
   backgroundImage = loadImage("newBackground.png");
 
   spaceShip = new SpaceShip(460, 400);
-  enemySpaceShip = new EnemySpaceShip(200, 120);
+
+  // Load the enemy spaceships
+  for (let i = 0; i < maxEnemySpaceShips; i++) {
+    enemySpaceShips.push(new EnemySpaceShip(100 + i * 100, 80));
+  }
 }
 
 function draw_clock(obj) {
@@ -100,8 +105,7 @@ function updateGame() {
   spaceShip.update();
   spaceShip.draw();
 
-  enemySpaceShip.update();
-  enemySpaceShip.draw();
+  updateEnemyShips();
 
   bulletList.forEach(bullet => bullet.update());
   bulletList.forEach(bullet => bullet.draw());
@@ -112,5 +116,12 @@ function addBullet() {
   if (obj.seconds !== currentSecond) {
     currentSecond = obj.seconds;
     bulletList.push(new Bullet(spaceShip.x, spaceShip.y));
+  }
+}
+
+function updateEnemyShips() {
+  for (let i = 0; i < maxEnemySpaceShips; i++) {
+    enemySpaceShips[i].update();
+    enemySpaceShips[i].draw();
   }
 }
