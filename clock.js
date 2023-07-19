@@ -38,6 +38,11 @@ function draw_clock(obj) {
   noStroke();
   ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
 
+        //plant stalk
+        stroke(1, 50, 32); //dark green
+        strokeWeight(8);
+        line(480, 50, 480, 320);
+
   //Plant pot
   fill(0,206,209); //dark turquoise
   noStroke();
@@ -48,5 +53,22 @@ function draw_clock(obj) {
   stroke(140, 255, 251); //light turquoise
   strokeWeight(5);
   line(395, 350, 565, 350);
+ 
+  //leaves
+  fill(18, 181, 121); //light green
+  stroke(1, 50, 32); //dark green
+  strokeWeight(2);
+  beginShape();
+  vertex(30, 70); // first point
+  bezierVertex(50, 100, 75, 140, 120, 120);  
+  endShape(); //bottom half
+
+  beginShape();
+  vertex(30,70);
+  bezierVertex(50, 80, 75, 20, 120, 120);
+  endShape(); //top half
+       
+
   
+
 }
