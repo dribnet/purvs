@@ -1,28 +1,69 @@
-/*
- * use p5.js to draw a clock on a 960x500 canvas
- */
+// Images
+var playerImg, enemyImg;
+
+// SpaceShips
+var spaceShip;
+var enemySpaceShip;
+
+// Classes
+class SpaceShip {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.speed = 2;
+  }
+  update() {
+    if (this.x + playerImg.width > width || this.x - playerImg.width/2 < 0) {
+      this.speed *= -1;
+    }
+    this.x += this.speed;
+  }
+  draw() {
+    image(playerImg, this.x, this.y, playerImg.width/2, playerImg.height/2);
+  }
+}
+
+class EnemySpaceShip extends SpaceShip{
+  constructor(x, y) {
+    super(x, y);
+    this.speed = 3;
+  }
+  update() {
+    if (this.x + enemyImg.width/2 > width || this.x - enemyImg.width/2 < 0) {
+      this.speed *= -1;
+    }
+    this.x += this.speed;
+  }
+  draw() {
+    this.hidden = false;
+    image(enemyImg, this.x, this.y, enemyImg.width/2, enemyImg.height/2);
+  }
+}
+
+// Loads before setup
+function preload() {
+  playerImg = loadImage("player.png");
+  enemyImg = loadImage("enemyEasy.png");
+
+  spaceShip = new SpaceShip(460, 400);
+  enemySpaceShip = new EnemySpaceShip(200, 120);
+}
+
 function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
   //    obj.seconds_until_alarm is:
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
-  fill(200); // dark grey
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+  background(120, 150, 255);
 
+  imageMode(CENTER);
+  updateGame();
+}
 
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
+function updateGame() {
+  spaceShip.update();
+  spaceShip.draw();
 
+  enemySpaceShip.update();
+  enemySpaceShip.draw();
 }
