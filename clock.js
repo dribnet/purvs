@@ -108,7 +108,7 @@ class SecondsGear {
   }
 
   /** Rotates the gear by some angle theta in degrees. */
-  turn(theta) { this._angle = this._angle >= 360 ? 0 : this._angle += theta; }
+  turn(theta) { this.angle = this.angle >= 360 ? 0 : this.angle += theta; }
 }
 
 /**
@@ -196,7 +196,8 @@ function draw_clock(obj) {
 
  // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
-  let rotationIncrement = 2 * Math.PI / 60;
-  test.turn(rotationIncrement);
+  let r = 2 * Math.PI / 60
+
+  test.turn(r);
   test.draw([132, 42, 44], 200);
 }
