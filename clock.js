@@ -7,7 +7,7 @@ var backgroundY = 0;
 // SpaceShips
 var spaceShip;
 var enemySpaceShips = [];
-const maxEnemySpaceShips = 60;
+const maxEnemySpaceShips = 59;
 
 // Lemniscate size constants
 const enemyLemniscateWidth = 420; 
@@ -25,7 +25,7 @@ const heartWidth = 15;
 const heartMaxRowNum = 6;
 
 // Charger constants
-const chargerMeterWidth = 60;
+const chargerMeterWidth = 40;
 const chargerMeterHeight = 170
 
 // Classes
@@ -192,15 +192,29 @@ function heart(x, y, size) {
   endShape(CLOSE);
 }
 
-// Draw charger on the second to indicate bullets charging before fired
+// Draws chargers to indicate bullets charging before fired
 function drawChargeMeter() {
   noFill();
   stroke(0);
   strokeWeight(1);
   var topCornerRadius = 8;
   var bottomCornerRadius = 0;
-  rect(860, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  rect(820, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  rect(900, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+
   fill(90, 250, 0);
-  var yPos = map(obj.millis, 0, 999, 490, 320);
-  rect(860, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  var yPos;
+
+  // Right charger on the second
+  yPos = map(obj.millis, 0, 999, 490, 320);
+  rect(900, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+
+  // Left charger on the 0.5 to next 0.5 of a second
+  if (obj.millis >= 499.5) {
+    yPos = map(obj.millis, 499.5, 999, 490, 410);
+    rect(820, yPos, chargerMeterWidth, 495 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  } else {
+    yPos = map(obj.millis, 0, 499.5, 410, 320);
+    rect(820, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  }
 }
