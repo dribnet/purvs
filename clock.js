@@ -18,6 +18,7 @@ const lemniscateHeight = 100;
 // Bullet variables
 var bulletList = [];
 var currentSecond;
+var firedOffSecondBullet = false;
 
 // Heart constants
 const heartWidth = 15;
@@ -148,7 +149,12 @@ function updateGame() {
 function addBullet() {
   if (obj.seconds !== currentSecond) {
     currentSecond = obj.seconds;
-    bulletList.push(new Bullet(spaceShip.getX(), spaceShip.getY()));
+    bulletList.push(new Bullet(spaceShip.getX()+playerImg.width/8, spaceShip.getY()));
+    firedOffSecondBullet = false;
+  }
+  if (!firedOffSecondBullet && obj.millis >= 499.5) {
+    bulletList.push(new Bullet(spaceShip.getX()-playerImg.width/8, spaceShip.getY()));
+    firedOffSecondBullet = true;
   }
 }
 
