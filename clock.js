@@ -1,5 +1,5 @@
 // Images
-var playerImg, enemyImg, backgroundImage;
+var playerImg, playerBulletImg, enemyImg, backgroundImage;
 
 // Background
 var backgroundY = 0;
@@ -7,6 +7,10 @@ var backgroundY = 0;
 // SpaceShips
 var spaceShip;
 var enemySpaceShip;
+
+// Bullet variables
+var bulletList = [];
+var currentSecond;
 
 // Classes
 class SpaceShip {
@@ -43,9 +47,24 @@ class EnemySpaceShip extends SpaceShip{
   }
 }
 
+class Bullet {
+  static bulletSpeed = 25;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  update() {
+    this.y -= Bullet.bulletSpeed;
+  }
+  draw() {
+    image(playerBulletImg, this.x, this.y, playerBulletImg.width, playerBulletImg.height);
+  }
+}
+
 // Loads before setup
 function preload() {
   playerImg = loadImage("player.png");
+  playerBulletImg = loadImage("playerBullets.png");
   enemyImg = loadImage("enemyEasy.png");
   backgroundImage = loadImage("newBackground.png");
 
@@ -75,9 +94,23 @@ function drawBackground() {
 }
 
 function updateGame() {
+
+  addBullet();
+
   spaceShip.update();
   spaceShip.draw();
 
   enemySpaceShip.update();
   enemySpaceShip.draw();
+
+  bulletList.forEach(bullet => bullet.update());
+  bulletList.forEach(bullet => bullet.draw());
+}
+
+// Add a bullet every second
+function addBullet() {
+  if (obj.seconds !== currentSecond) {
+    currentSecond = obj.seconds;
+    bulletList.push(new Bullet(spaceShip.x, spaceShip.y));
+  }
 }
