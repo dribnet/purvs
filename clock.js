@@ -17,6 +17,10 @@ var currentSecond;
 const heartWidth = 15;
 const heartMaxRowNum = 6;
 
+// Charger constants
+const chargerMeterWidth = 60;
+const chargerMeterHeight = 170
+
 // Classes
 class SpaceShip {
   constructor(x, y) {
@@ -89,6 +93,7 @@ function draw_clock(obj) {
   drawBackground();
   imageMode(CENTER);
   updateGame();
+  drawChargeMeter();
   drawHearts();
 }
 
@@ -154,4 +159,17 @@ function heart(x, y, size) {
   bezierVertex(x - size / 2, y - size / 2, x - size, y + size / 3, x, y + size * 7/8);
   bezierVertex(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
   endShape(CLOSE);
+}
+
+// Draw charger on the second to indicate bullets charging before fired
+function drawChargeMeter() {
+  noFill();
+  stroke(0);
+  strokeWeight(1);
+  var topCornerRadius = 8;
+  var bottomCornerRadius = 0;
+  rect(860, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
+  fill(90, 250, 0);
+  var yPos = map(obj.millis, 0, 999, 490, 320);
+  rect(860, yPos, chargerMeterWidth, 490 - yPos, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
 }
