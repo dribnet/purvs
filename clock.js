@@ -191,6 +191,19 @@ function drawHearts() {
 
     heart(x, y, heartWidth); 
   }
+  // Draw expanding heart on x:59:59
+  if (obj.minutes === 59 && obj.seconds === 59) {
+    // Get the row number
+    var row = Math.floor((heartCount) / heartMaxRowNum);
+    var fadeInHearWidth = map(obj.millis, 0, 999, 0, heartWidth);
+
+    // Use remainder to ignore full rows
+    var x = 20 + ((heartWidth * 3/2) * (heartCount)) % (heartMaxRowNum * (heartWidth * 3/2));
+    var y = 10 + (row * (heartWidth + 10));
+    fill(250, 0, 0, map(obj.millis, 0, 999, 0, 255));
+    noStroke();
+    heart(x, y, fadeInHearWidth);
+  }
 }
 
 function heart(x, y, size) {
