@@ -91,7 +91,7 @@ function draw_clock(obj) {
 
   // put alive nubmer her
   one();
-  activeNumbers(10, 10);
+  activeNumbers(10);
 }
 
 // Initialize the grid
@@ -115,20 +115,16 @@ function drawGrid() {
       drawSquare(grid[row][column]);
     }
   }
+  activeNumbers(10, 10, number[0]);
 }
 
 // Draw square
 function drawSquare(square) {
   stroke(0);
   rect(square.row * square.size, square.column * square.size, square.size);
-
-  if (alive === false) {
-    fill(255, 0, 0);
-    rect(square.row * square.size, square.column * square.size, square.size);
-  }
 }
 
-function one(){
+function one() {
   // if (alive === true) {
   //   fill(255, 0, 0);
   //   drawSquare(grid[7][5]);
@@ -148,11 +144,12 @@ function one(){
   activeNumbers();
 }
 
-function activeNumbers(posX, posY){
+function activeNumbers(placeA, placeB) {
+  let number = [5];
 
-  for(let i = 0; i < 5; i++){
-    for(let j = 0; j < 7; j++){
-      let noZero = [
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 7; j++) {
+      noZero = [
         [0, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -160,11 +157,81 @@ function activeNumbers(posX, posY){
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
         [0, 1, 1, 1, 0],
-      ]
+      ];
 
-      if (noZero[j][i] === 1){
-        fill(255, 0, 0);
-          drawSquare(grid[i][j]);
+      if (number == 0) {
+        if (noZero[i][j] == 1) {
+          fill(255, 0, 0);
+          drawSquare(grid[placeA][placeB]);
+        }
+      }
+
+      let noOne = [
+        [0, 0, 1, 0, 0],
+        [0, 1, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 1, 1, 0],
+      ];
+
+      if (number == 1) {
+        if (noOne[i][j] == 1) {
+          fill(255, 0, 0);
+          drawSquare(grid[row][column]);
+        }
+      }
+
+      let noTwo = [
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+      ];
+
+      if (number == 2) {
+        if (noTwo[i][j] == 1) {
+          fill(255, 0, 0);
+          drawSquare(grid[row][column]);
+        }
+      }
+
+      let noThree = [
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [0, 1, 1, 1, 0],
+      ];
+
+      if (number == 3) {
+        if (noThree[i][j] == 1) {
+          fill(255, 0, 0);
+          drawSquare(grid[row][column]);
+        }
+      }
+
+      let noFour = [
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+      ];
+
+      if (number == 4) {
+        if (noFour[i][j] == 1) {
+          fill(255, 0, 0);
+          drawSquare(grid[row][column]);
+        }
       }
     }
   }

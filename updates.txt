@@ -7,3 +7,6 @@ I used classes to create a square... and is able to place specific square on the
 
 18/7 12AM
 I have changed my method to using 2d arrays to create grids. I also created a possible shape using arrays [0 and 1]. 1 represents true and 0 represents false. if it's true, then the square will light up red. this method should make it easier for shapes to detect the nieghbouring squares's state.
+
+20/7 10AM
+I'm probably going to admit defeat here. I'll figure out how arrays with classes work some other time. Right now I should focus on the main alarm. But before That I'm not yet satisfied with how the maeda clock came out. I will try to recreate a different clock. hopefully this time it will be a little bit faster.
