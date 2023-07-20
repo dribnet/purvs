@@ -6,7 +6,7 @@
 
 /**
  * Seconds in this clock is defined by a gear that rotates.
- * Each time a tooth passes the pointer, one secound will have passed
+ * Each time a tooth passes some pointer, one secound will have passed.
  */
 class SecondsGear {
   /** Constructor. */
@@ -74,14 +74,16 @@ class SecondsGear {
   }
 
   /** Draw method for gear. */
-  draw(fillColor, highlight) {
+  draw(fillColor, highlight=-1, highlightColor=255) {
     /* Section regarding teeth drawing. */
     push();
     translate(this.xCenter, this.yCenter);
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire gear
     for (let t of this.teeth) {
       rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
-      t.draw( (t === this.teeth[highlight]) ? [0, 255, 0] : fillColor, -this.outerRadius);
+      if (highlight > -1) t.draw( (t === this.teeth[highlight]) ? highlightColor : fillColor, -this.outerRadius);
+      else t.draw(fillColor, -this.outerRadius);
+      
     }
     pop();
 
@@ -107,6 +109,8 @@ class SecondsGear {
 
     pop();
   }
+
+
 }
 
 /**
@@ -132,7 +136,7 @@ class SecondsTooth {
     ];
   }
 
-  /** Draw methof for gear tooth. */
+  /** Draw method for gear tooth. */
   draw(fillColor, yOffset=0) {
     push();
 
@@ -149,14 +153,19 @@ class SecondsTooth {
 }
 
 
+class SecondPointer {
+  constructor() {
+
+  }
+}
 
 
 
 
 /** TO DO:
+ * - make Pointer
  * - make MinutesDisplay
  * - make HoursDisplay
- * - make Pointer
  * - make AMPMDisplay
  */
 
@@ -170,24 +179,46 @@ function stop() {
 
 
 
-
-
-
+/*
+ * Canvas constants.
+ */
 const WIDTH = 960;
 const HEIGHT = 500;
-
-let init = true;
-
+const BACKGROUND_COL = [40, 17, 23];
 
 
-
-
-
-let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20, 90);
-
-/*
- * use p5.js to draw a clock on a 960x500 canvas
+/* 
+ * Seconds.
  */
+
+const INNER_RADIUS = 165;
+const OUTER_RADUIS = 195;
+const TEETH_COUNT = 60;
+const TEETH_TOP_WIDTH = 10;
+const TEETH_BOT_WIDTH = 25;
+const TEETH_HEIGHT = 20;
+const INITIAL_ANGLE = 90;
+
+
+const SECONDS1_COL = [30, 30, 30];
+const SECONDS2_COL = [132, 42, 44];
+
+const sec1 = new SecondsGear(
+  0, HEIGHT/2, 
+  1.75 * INNER_RADIUS, 1.75 * OUTER_RADUIS, 
+  TEETH_COUNT, 1.75 * TEETH_TOP_WIDTH, 1.75 * TEETH_BOT_WIDTH, 1.75 * TEETH_HEIGHT, 
+  INITIAL_ANGLE
+);
+
+const sec2 = new SecondsGear(
+  WIDTH/2, HEIGHT/2, 
+  INNER_RADIUS, OUTER_RADUIS, 
+  TEETH_COUNT, TEETH_TOP_WIDTH, TEETH_BOT_WIDTH, TEETH_HEIGHT, 
+  INITIAL_ANGLE
+);
+
+
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -198,28 +229,18 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background([40, 17, 23]); //  beige
+  background(BACKGROUND_COL); 
 
 
+  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 6, 360);
+  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
+
+  sec1.draw(SECONDS1_COL);
+  sec2.draw(SECONDS2_COL);
   
 
-
-  // maybe use a map(...) to map millisseconds into gear rotations in one second?
-
-
-  //test.angle = (360/60) * obj.seconds - 360/test.teeth.length;
-
-  /**
-   * 1000ms = 1s
-   * 1s = 0.999ms + 0.001ms
-   * 
-   */
-
-  test.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
-
-
-  test.draw([132, 42, 44], 0);
-  console.log(obj.seconds + (obj.millis /1000));
+  
+  //console.log(obj.seconds + (obj.millis /1000));
 
   
 
