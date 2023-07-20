@@ -10,7 +10,7 @@
  */
 class SecondsGear {
   /** Constructor. */
-  constructor(xCenter, yCenter, innerRadius, outerRadius, teethCount, teethTopWidth, teethBotWidth, teethHeight, angle=0, detailDepth=120) {
+  constructor(xCenter, yCenter, innerRadius, outerRadius, teethCount, teethTopWidth, teethBotWidth, teethHeight, initialAngle=0, angle=0, detailDepth=120) {
     /* 
      * Co-ords and rotation of the gear.
      * The angle property is in degrees to make my life easier, 
@@ -19,7 +19,7 @@ class SecondsGear {
     this.xCenter = xCenter; 
     this.yCenter = yCenter;
     this.angle = angle;
-    this.initialAngle = 0; // Initial angle is a combination of secs and millis
+    this.initialAngle = initialAngle;
 
     /* 
      * Inner and outer radii.
@@ -78,7 +78,7 @@ class SecondsGear {
     /* Section regarding teeth drawing. */
     push();
     translate(this.xCenter, this.yCenter);
-    rotate((this.initialAngle + this.angle - 6) * Math.PI / 180); // Sets the rotation of the entire gear
+    rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire gear
     for (let t of this.teeth) {
       rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
       t.draw( (t === this.teeth[highlight]) ? [0, 255, 0] : fillColor, -this.outerRadius);
@@ -107,8 +107,6 @@ class SecondsGear {
 
     pop();
   }
-
-  startAngle(theta) {this.initialAngle = theta; }
 }
 
 /**
@@ -165,6 +163,10 @@ class SecondsTooth {
 
 
 
+let kill = false;
+function stop() {
+  kill = true;
+}
 
 
 
@@ -175,11 +177,13 @@ const WIDTH = 960;
 const HEIGHT = 500;
 
 let init = true;
-let initTime;
 
 
 
-let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20, 0);
+
+
+
+let test = new SecondsGear(WIDTH/2, HEIGHT/2, 165, 195, 60, 10, 25, 20, 90);
 
 /*
  * use p5.js to draw a clock on a 960x500 canvas
@@ -196,23 +200,26 @@ function draw_clock(obj) {
   //        > 0 --> the number of seconds until alarm should go off
   background([40, 17, 23]); //  beige
 
-  if (init) {
-    initTime = 0;
-    test.startAngle(initTime);
-    init = false;
-  }
+
   
 
 
- // maybe use a map(...) to map millisseconds into gear rotations in one second?
+  // maybe use a map(...) to map millisseconds into gear rotations in one second?
 
-  let r = 0;
 
-  test.angle = (360/60) * obj.seconds;
+  //test.angle = (360/60) * obj.seconds - 360/test.teeth.length;
 
-  //test.angle = map(obj.millis, 0, 999, 0, 60 * 2*Math.PI);
+  /**
+   * 1000ms = 1s
+   * 1s = 0.999ms + 0.001ms
+   * 
+   */
+
+  test.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
+
+
   test.draw([132, 42, 44], 0);
-  console.log(obj.seconds);
+  console.log(obj.seconds + (obj.millis /1000));
 
   
 
@@ -221,5 +228,12 @@ function draw_clock(obj) {
   fill(255);
   noStroke();
   rectMode(CENTER);
-  rect(WIDTH/2, HEIGHT/2, 10, 900)
+  rect(WIDTH/2, HEIGHT/2, 3, 450);
+  rect(WIDTH/2, HEIGHT/2, 900, 3);
+
+  if (kill) {
+    throw "Program manually terminated";
+  }
 }
+
+
