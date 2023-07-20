@@ -23,8 +23,6 @@ function draw_clock(obj) {
   let Milliseconds = obj.millis;
   text("Seconds: "+Seconds, 700, 100);
 
-  let ellipsewidth = 150;
-  let m= map(obj.seconds, 0, 59, 0, height);
 
   fill(249, 174, 10);// yellow sun
   ellipse(width/2, height/2, 125);
