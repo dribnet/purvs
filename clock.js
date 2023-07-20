@@ -75,19 +75,23 @@ class SecondsGear {
 
   /** Draw method for gear. */
   draw(fillColor, highlight=-1, highlightColor=255) {
-    /* Section regarding teeth drawing. */
+    /* 
+     * Section regarding teeth drawing. 
+     */
     push();
     translate(this.xCenter, this.yCenter);
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire gear
+
     for (let t of this.teeth) {
       rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
       if (highlight > -1) t.draw( (t === this.teeth[highlight]) ? highlightColor : fillColor, -this.outerRadius);
       else t.draw(fillColor, -this.outerRadius);
-      
     }
     pop();
 
-    /* Section regarding gear drawing. */
+    /* 
+     * Section regarding gear drawing. 
+     */
     push();
 
     // Set up
@@ -109,8 +113,6 @@ class SecondsGear {
 
     pop();
   }
-
-
 }
 
 /**
