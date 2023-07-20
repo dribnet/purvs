@@ -18,3 +18,5 @@ visibility according to the secods).
 
 Original Clock:
 I tried to implement my sketch. 
+
+To make it more interesting, should I make the buildings bounce and the moon pulse? 
