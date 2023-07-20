@@ -18,6 +18,9 @@ function draw_clock(obj) {
   textSize(40);
   //textAlign(CENTER, CENTER);
   let Seconds = obj.seconds;
+  let Minutes = obj.minutes;
+  let Hours = obj.hours;
+  let Milliseconds = obj.millis;
   text("Seconds: "+Seconds, 700, 100);
 
   let ellipsewidth = 150;
@@ -26,18 +29,21 @@ function draw_clock(obj) {
   fill(249, 174, 10);// yellow sun
   ellipse(width/2, height/2, 125);
 
+  let rotMilli = map(Milliseconds, 0, 1000, 0, 360);
   let rotS = map(Seconds, 0, 60, 0, 360);
+  let rotM = map(Minutes, 0, 60, 0, 360);
+  let rotH = map(Hours, 0 , 24, 0, 360);
 
  
   push();
   translate(480,250);
-  rotate(rotS);
+  rotate(rotS); // rotates on the minute
   fill(30, 111, 140); //earth blue
   ellipse(150, 0, 50);
 
   push();
   translate(150,0);
-  rotate(rotS);
+  rotate(rotMilli); // rotates on the second
   fill(178, 178, 178); //moon grey
   ellipse(50,0,30);
   pop();
