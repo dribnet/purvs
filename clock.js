@@ -117,6 +117,7 @@ class SecondsGear {
 
 /**
  * Class that defines the teeth of the SecondsGear class.
+ * Each tooth can be thought of as one unit in time.
  */
 class SecondsTooth {
   /** Constructor. */
@@ -124,7 +125,7 @@ class SecondsTooth {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
 
-    /**
+    /*
      * Points are arranged as follows:
      *          0        1
      *            (x, y)
@@ -134,20 +135,23 @@ class SecondsTooth {
       [ - topWidth/2,  - height/2],
       [ + topWidth/2,  - height/2],
       [ + botWidth/2,  + height/2],
-      [ - botWidth/2,  + height/2],
+      [ - botWidth/2,  + height/2]
     ];
   }
 
   /** Draw method for gear tooth. */
   draw(fillColor, yOffset=0) {
     push();
-
-    /** Set up */
     noStroke(); 
     fill(fillColor);
 
+    /**
+     * Since the point of rotation is in the centre of the gear
+     * and not the centre co-ords of each tooth, it must be offset
+     * to make such a rotation possible.
+     */
     beginShape();
-    for (let p of this.points) vertex(p[0], p[1] + yOffset); // Drawing the tooth.
+    for (let p of this.points) vertex(p[0], p[1] + yOffset);
     endShape(CLOSE);
 
     pop();
@@ -155,17 +159,50 @@ class SecondsTooth {
 }
 
 
-class SecondPointer {
-  constructor() {
+class SecondsPointer {
+  /** Constructor */
+  constructor(xCenter, yCenter, width, height, angle=0) {
+    /* 
+     * Co-ords and rotation of the gear.
+     */
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+    this.angle = angle;
 
+    /**
+     * Points are arranged as follows:
+     *           1
+     *        (x, y)
+     *  0                2
+     */
+    this.points = [
+      [ - width / 2, - height / 2],
+      [      0     , + height / 2],
+      [ + width / 2, - height / 2]
+    ];
+  }
+
+  draw(fillColor) {
+    push();
+    translate(this.xCenter, this.yCenter);
+    rotate(this.angle * Math.PI/180);
+
+    noStroke(); 
+    fill(fillColor);
+
+    beginShape();
+    for (let p of this.points) vertex(p[0], p[1]);
+    endShape(CLOSE);
+
+    pop();
   }
 }
 
 
 
 
-/** TO DO:
- * - make Pointer
+/*TO DO:
+ * - make Pointer (add text?)
  * - make MinutesDisplay
  * - make HoursDisplay
  * - make AMPMDisplay
@@ -188,11 +225,9 @@ const WIDTH = 960;
 const HEIGHT = 500;
 const BACKGROUND_COL = [40, 17, 23];
 
-
 /* 
  * Seconds.
  */
-
 const INNER_RADIUS = 165;
 const OUTER_RADUIS = 195;
 const TEETH_COUNT = 60;
@@ -200,7 +235,6 @@ const TEETH_TOP_WIDTH = 10;
 const TEETH_BOT_WIDTH = 25;
 const TEETH_HEIGHT = 20;
 const INITIAL_ANGLE = 90;
-
 
 const SECONDS1_COL = [30, 30, 30];
 const SECONDS2_COL = [132, 42, 44];
@@ -219,6 +253,15 @@ const sec2 = new SecondsGear(
   INITIAL_ANGLE
 );
 
+/* 
+ * Pointer.
+ */
+const POINTER_WIDTH = 25;
+const POINTER_HEIGHT = 28;
+const POINTER_ANGLE = 90;
+const POINTER_COL = [143, 206, 54];
+
+const pointer = new SecondsPointer(0.72 * WIDTH, HEIGHT/2, POINTER_WIDTH, POINTER_HEIGHT, POINTER_ANGLE);
 
 
 function draw_clock(obj) {
@@ -231,8 +274,9 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
+  
+  
   background(BACKGROUND_COL); 
-
 
   sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 6, 360);
   sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
@@ -240,23 +284,17 @@ function draw_clock(obj) {
   sec1.draw(SECONDS1_COL);
   sec2.draw(SECONDS2_COL);
   
-
+  pointer.draw(POINTER_COL);
   
-  //console.log(obj.seconds + (obj.millis /1000));
+  // push();
+  // fill(255);
+  // noStroke();
+  // rectMode(CENTER);
+  // rect(WIDTH/2, HEIGHT/2, 3, 450);
+  // rect(WIDTH/2, HEIGHT/2, 900, 3);
+  // pop();
 
-  
-
-
-
-  fill(255);
-  noStroke();
-  rectMode(CENTER);
-  rect(WIDTH/2, HEIGHT/2, 3, 450);
-  rect(WIDTH/2, HEIGHT/2, 900, 3);
-
-  if (kill) {
-    throw "Program manually terminated";
-  }
+  if (kill) throw "Program manually terminated";
 }
 
 
