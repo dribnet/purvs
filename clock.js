@@ -3,6 +3,13 @@
  * It is one of my least favourite illnesses.
  */
 
+/*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ================================= SECONDS ================================= *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */ 
 
 /**
  * Seconds in this clock is defined by a gear that rotates.
@@ -46,27 +53,6 @@ class SecondsDisplay {
     this.outerRadiusPoints = this._generatePoints(outerRadius, detailDepth);
   }
 
-  /** Private method for generate points. */
-  _generatePoints(radius, detailDepth) {
-    let points = [];
-    let tempX;
-    let tempY;
-
-    /*
-     * This will rotate all the points around the origin (0, 0).
-     * There is a variation of this mathmatical equation that uses the rotation of any given point,
-     * however, with the way the rotate(...) function works in p5.js, it is much easier to just 
-     * translate the origin to where I need it to be.
-     */
-    for (let i=0; i<detailDepth; i++) {
-      tempX = - Math.sin(i * this.rotationIncrement) * radius;
-      tempY = + Math.cos(i * this.rotationIncrement) * radius;
-      points.push([tempX, tempY]);
-    }
-
-    return points;
-  }
-
   /** Draw method for display. */
   draw(fillColor, highlight=-1, highlightColor=255) {
     /* 
@@ -77,9 +63,10 @@ class SecondsDisplay {
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let ind of this.indicatorss) {
-      rotate(2 * Math.PI / this.indicatorss.length); // Only rotates to draw each indicator circularly
       if (highlight > -1) ind.draw( (ind === this.indicatorss[highlight]) ? highlightColor : fillColor);
       else ind.draw(fillColor);
+
+      rotate(2 * Math.PI / this.indicatorss.length); // Only rotates to draw each indicator circularly
     }
     pop();
 
@@ -106,6 +93,27 @@ class SecondsDisplay {
     endShape(CLOSE);
 
     pop();
+  }
+
+  /** Private method for generate points. */
+  _generatePoints(radius, detailDepth) {
+    let points = [];
+    let tempX;
+    let tempY;
+
+    /*
+     * This will rotate all the points around the origin (0, 0).
+     * There is a variation of this mathmatical equation that uses the rotation of any given point,
+     * however, with the way the rotate(...) function works in p5.js, it is much easier to just 
+     * translate the origin to where I need it to be.
+     */
+    for (let i=0; i<detailDepth; i++) {
+      tempX = - Math.sin(i * this.rotationIncrement) * radius;
+      tempY = + Math.cos(i * this.rotationIncrement) * radius;
+      points.push([tempX, tempY]);
+    }
+
+    return points;
   }
 }
 
@@ -204,16 +212,46 @@ class SecondsPointer {
   }
 }
 
+/*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ================================= MINUTES ================================= *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */ 
+
 /**
  * Minutes in this clock is defined by a series of rectangles that change
  * shape and colour depending on the current minute in the hour.
  */
 class MinutesDiplay {
-  constructor(xCenter, yCenter, indicatorCount, indicatorWidth, indicatorHeight, initalAngle=0, angle=0) {
+  constructor(xCenter, yCenter, indicatorCount, indicatorOffset, indicatorWidth, indicatorHeight, initalAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
 
+    this.initalAngle = initalAngle;
+
+    this.rotationIncrement = 2 * Math.PI / indicatorCount; 
+
     this.indicators = [];
+    for (let i=0; i<indicatorCount; i++) {
+      this.indicators.push(
+        new MinutesIndicator(indicatorOffset, indicatorWidth, indicatorHeight)
+      );
+    }
+  }
+
+  draw(fillColor) {
+    push();
+    translate(this.xCenter, this.yCenter);
+    rotate(this.initialAngle* Math.PI / 180); // Sets the rotation of the entire display
+
+    for (let ind of this.indicators) {
+      ind.draw(fillColor);
+      rotate(this.rotationIncrement);
+    }
+
+    pop();
   }
 }
 
@@ -252,6 +290,14 @@ class MinutesIndicator {
 const WIDTH = 960;
 const HEIGHT = 500;
 const BACKGROUND_COL = [40, 17, 23];
+
+/*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ================================ CONSTANTS ================================ *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */ 
 
 /* 
  * Seconds.
@@ -310,10 +356,10 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 6, 360);
-  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
+  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  sec1.draw(SECONDS1_COL);
+  sec1.draw(SECONDS1_COL, 0);
   sec2.draw(SECONDS2_COL, 0);
   
   pointer.draw(POINTER_COL, obj.seconds);
