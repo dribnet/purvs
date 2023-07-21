@@ -6,13 +6,13 @@
 
 /**
  * Seconds in this clock is defined by a gear that rotates.
- * Each time a tooth passes some pointer, one secound will have passed.
+ * Each time a tooth (indicator) passes some pointer, one secound will have passed.
  */
-class SecondsGear {
+class SecondsDisplay {
   /** Constructor. */
-  constructor(xCenter, yCenter, innerRadius, outerRadius, teethCount, teethTopWidth, teethBotWidth, teethHeight, initialAngle=0, angle=0, detailDepth=120) {
+  constructor(xCenter, yCenter, innerRadius, outerRadius, indicatorCount, indicatorTopWidth, indicatorBotWidth, indicatorHeight, initialAngle=0, angle=0, detailDepth=120) {
     /* 
-     * Co-ords and rotation of the gear.
+     * Co-ords and rotation of the display.
      * The angle property is in degrees to make my life easier, 
      * however, calculations will be done in radians.
      */
@@ -28,14 +28,14 @@ class SecondsGear {
     this.outerRadius = outerRadius;
   
     /*
-     * Generates some number of teeth and pushes them into an array.
-     * Because each tooth is stored in an array, a simple mapping from its position in
+     * Generates some number of indicators and pushes them into an array.
+     * Because each indicator is stored in an array, a simple mapping from its position in
      * the array to each second in a minute is made. 
      */
-    this.teeth = [];
-    for (let i=0; i<teethCount; i++) {
-      this.teeth.push(
-        new SecondsTooth(xCenter, yCenter, teethTopWidth, teethBotWidth, teethHeight)
+    this.indicator = [];
+    for (let i=0; i<indicatorCount; i++) {
+      this.indicator.push(
+        new SecondsIndicator(xCenter, yCenter, indicatorTopWidth, indicatorBotWidth, indicatorHeight)
       );
     }
 
@@ -45,7 +45,7 @@ class SecondsGear {
     this.rotationIncrement = 2 * Math.PI / detailDepth; 
 
     /* 
-     * Generates two arrays of points, one for the gear and one for the hollow centre.
+     * Generates two arrays of points, one for the display and one for the hollow centre.
      * These points are arranged circularly at some resolution.
      */
     this.innerRadiusPoints = this._generatePoints(innerRadius, detailDepth);
@@ -73,24 +73,24 @@ class SecondsGear {
     return points;
   }
 
-  /** Draw method for gear. */
+  /** Draw method for display. */
   draw(fillColor, highlight=-1, highlightColor=255) {
     /* 
-     * Section regarding teeth drawing. 
+     * Section regarding indicator drawing. 
      */
     push();
     translate(this.xCenter, this.yCenter);
-    rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire gear
+    rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
-    for (let t of this.teeth) {
-      rotate(2 * Math.PI / this.teeth.length); // Only rotates to draw each tooth circularly
-      if (highlight > -1) t.draw( (t === this.teeth[highlight]) ? highlightColor : fillColor, -this.outerRadius);
-      else t.draw(fillColor, -this.outerRadius);
+    for (let ind of this.indicator) {
+      rotate(2 * Math.PI / this.indicator.length); // Only rotates to draw each indicator circularly
+      if (highlight > -1) ind.draw( (ind === this.indicator[highlight]) ? highlightColor : fillColor, -this.outerRadius);
+      else ind.draw(fillColor, -this.outerRadius);
     }
     pop();
 
     /* 
-     * Section regarding gear drawing. 
+     * Section regarding display drawing. 
      */
     push();
 
@@ -116,10 +116,10 @@ class SecondsGear {
 }
 
 /**
- * Class that defines the teeth of the SecondsGear class.
- * Each tooth can be thought of as one unit in time.
+ * Class that defines the teeth (indicators) of the SecondsDisplay class.
+ * Each indicator can be thought of as one unit of time.
  */
-class SecondsTooth {
+class SecondsIndicator {
   /** Constructor. */
   constructor(xCenter, yCenter, topWidth, botWidth, height) {
     this.xCenter = xCenter;
@@ -139,15 +139,15 @@ class SecondsTooth {
     ];
   }
 
-  /** Draw method for gear tooth. */
+  /** Draw method for indicator. */
   draw(fillColor, yOffset=0) {
     push();
     noStroke(); 
     fill(fillColor);
 
     /**
-     * Since the point of rotation is in the centre of the gear
-     * and not the centre co-ords of each tooth, it must be offset
+     * Since the point of rotation is in the centre of the display
+     * and not the centre co-ords of each indicator, it must be offset
      * to make such a rotation possible.
      */
     beginShape();
@@ -158,12 +158,15 @@ class SecondsTooth {
   }
 }
 
-
+/**
+ * Class that defines a point in which an indicator 
+ * passing it denotes one unit of time passing.
+ */
 class SecondsPointer {
   /** Constructor */
   constructor(xCenter, yCenter, width, height, angle=0) {
     /* 
-     * Co-ords and rotation of the gear.
+     * Co-ords and rotation of the display.
      */
     this.xCenter = xCenter;
     this.yCenter = yCenter;
@@ -182,10 +185,12 @@ class SecondsPointer {
     ];
   }
 
-  draw(fillColor) {
+  /** Draw method for pointer. */
+  draw(fillColor, time) {
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.angle * Math.PI/180);
+    textAlign(CENTER, CENTER);
 
     noStroke(); 
     fill(fillColor);
@@ -194,27 +199,25 @@ class SecondsPointer {
     for (let p of this.points) vertex(p[0], p[1]);
     endShape(CLOSE);
 
+
+    textFont("Courier New", this.points[2][0]); // Uses the pointer width as the size
+    text(time, 0, 2 * this.points[0][1]); // Uses negative pointer height as an offset from the pointer
+
     pop();
   }
 }
+
+// class MinutesRect{}
 
 
 
 
 /*TO DO:
- * - make Pointer (add text?)
  * - make MinutesDisplay
  * - make HoursDisplay
  * - make AMPMDisplay
  */
 
-
-
-
-let kill = false;
-function stop() {
-  kill = true;
-}
 
 
 
@@ -230,26 +233,26 @@ const BACKGROUND_COL = [40, 17, 23];
  */
 const INNER_RADIUS = 165;
 const OUTER_RADUIS = 195;
-const TEETH_COUNT = 60;
-const TEETH_TOP_WIDTH = 10;
-const TEETH_BOT_WIDTH = 25;
-const TEETH_HEIGHT = 20;
+const INDICATOR_COUNT = 60;
+const INDICATOR_TOP_WIDTH = 10;
+const INDICATOR_BOT_WIDTH = 25;
+const INDICATOR_HEIGHT = 20;
 const INITIAL_ANGLE = 90;
 
 const SECONDS1_COL = [30, 30, 30];
 const SECONDS2_COL = [132, 42, 44];
 
-const sec1 = new SecondsGear(
+const sec1 = new SecondsDisplay(
   0, HEIGHT/2, 
   1.75 * INNER_RADIUS, 1.75 * OUTER_RADUIS, 
-  TEETH_COUNT, 1.75 * TEETH_TOP_WIDTH, 1.75 * TEETH_BOT_WIDTH, 1.75 * TEETH_HEIGHT, 
+  INDICATOR_COUNT, 1.75 * INDICATOR_TOP_WIDTH, 1.75 * INDICATOR_BOT_WIDTH, 1.75 * INDICATOR_HEIGHT, 
   INITIAL_ANGLE
 );
 
-const sec2 = new SecondsGear(
+const sec2 = new SecondsDisplay(
   WIDTH/2, HEIGHT/2, 
   INNER_RADIUS, OUTER_RADUIS, 
-  TEETH_COUNT, TEETH_TOP_WIDTH, TEETH_BOT_WIDTH, TEETH_HEIGHT, 
+  INDICATOR_COUNT, INDICATOR_TOP_WIDTH, INDICATOR_BOT_WIDTH, INDICATOR_HEIGHT, 
   INITIAL_ANGLE
 );
 
@@ -261,7 +264,10 @@ const POINTER_HEIGHT = 28;
 const POINTER_ANGLE = 90;
 const POINTER_COL = [143, 206, 54];
 
-const pointer = new SecondsPointer(0.72 * WIDTH, HEIGHT/2, POINTER_WIDTH, POINTER_HEIGHT, POINTER_ANGLE);
+const pointer = new SecondsPointer(
+  0.72 * WIDTH, HEIGHT/2, 
+  POINTER_WIDTH, POINTER_HEIGHT, POINTER_ANGLE
+);
 
 
 function draw_clock(obj) {
@@ -282,19 +288,10 @@ function draw_clock(obj) {
   sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, -6, 348);
 
   sec1.draw(SECONDS1_COL);
-  sec2.draw(SECONDS2_COL);
+  sec2.draw(SECONDS2_COL, 0);
   
-  pointer.draw(POINTER_COL);
+  pointer.draw(POINTER_COL, obj.seconds);
   
-  // push();
-  // fill(255);
-  // noStroke();
-  // rectMode(CENTER);
-  // rect(WIDTH/2, HEIGHT/2, 3, 450);
-  // rect(WIDTH/2, HEIGHT/2, 900, 3);
-  // pop();
-
-  if (kill) throw "Program manually terminated";
 }
 
 
