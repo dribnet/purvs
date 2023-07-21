@@ -303,42 +303,42 @@ const BACKGROUND_COL = [40, 17, 23];
 /* 
  * Seconds.
  */
-const INNER_RADIUS = 165;
-const OUTER_RADUIS = 195;
-const INDICATOR_COUNT = 60;
-const INDICATOR_TOP_WIDTH = 10;
-const INDICATOR_BOT_WIDTH = 25;
-const INDICATOR_HEIGHT = 20;
-const INITIAL_ANGLE = 90;
+const SEC_INNER_RADIUS = 165;
+const SEC_OUTER_RADUIS = 195;
+const SEC_INDICATOR_COUNT = 60;
+const SEC_INDICATOR_TOP_WIDTH = 10;
+const SEC_INDICATOR_BOT_WIDTH = 25;
+const SEC_INDICATOR_HEIGHT = 20;
+const SEC_INITIAL_ANGLE = 90;
 
-const SECONDS1_COL = [30, 30, 30];
-const SECONDS2_COL = [132, 42, 44];
+const SEC_COL_1 = [30, 30, 30];
+const SEC_COL_2 = [132, 42, 44];
 
 const sec1 = new SecondsDisplay(
   0, HEIGHT/2, 
-  1.75 * INNER_RADIUS, 1.75 * OUTER_RADUIS, 
-  INDICATOR_COUNT, 1.75 * INDICATOR_TOP_WIDTH, 1.75 * INDICATOR_BOT_WIDTH, 1.75 * INDICATOR_HEIGHT, 
-  INITIAL_ANGLE
+  1.75 * SEC_INNER_RADIUS, 1.75 * SEC_OUTER_RADUIS, 
+  SEC_INDICATOR_COUNT, 1.75 * SEC_INDICATOR_TOP_WIDTH, 1.75 * SEC_INDICATOR_BOT_WIDTH, 1.75 * SEC_INDICATOR_HEIGHT, 
+  SEC_INITIAL_ANGLE
 );
 
 const sec2 = new SecondsDisplay(
   WIDTH/2, HEIGHT/2, 
-  INNER_RADIUS, OUTER_RADUIS, 
-  INDICATOR_COUNT, INDICATOR_TOP_WIDTH, INDICATOR_BOT_WIDTH, INDICATOR_HEIGHT, 
-  INITIAL_ANGLE
+  SEC_INNER_RADIUS, SEC_OUTER_RADUIS, 
+  SEC_INDICATOR_COUNT, SEC_INDICATOR_TOP_WIDTH, SEC_INDICATOR_BOT_WIDTH, SEC_INDICATOR_HEIGHT, 
+  SEC_INITIAL_ANGLE
 );
 
 /* 
  * Pointer.
  */
-const POINTER_WIDTH = 25;
-const POINTER_HEIGHT = 28;
-const POINTER_ANGLE = 90;
-const POINTER_COL = [143, 206, 54];
+const SEC_POINTER_WIDTH = 25;
+const SEC_POINTER_HEIGHT = 28;
+const SEC_POINTER_ANGLE = 90;
+const SEC_POINTER_COL = [143, 206, 54];
 
 const pointer = new SecondsPointer(
   0.72 * WIDTH, HEIGHT/2, 
-  POINTER_WIDTH, POINTER_HEIGHT, POINTER_ANGLE
+  SEC_POINTER_WIDTH, SEC_POINTER_HEIGHT, SEC_POINTER_ANGLE
 );
 
 
@@ -357,13 +357,17 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  sec1.draw(SECONDS1_COL, 0);
-  sec2.draw(SECONDS2_COL, 0);
+  // sec1.draw(SEC_COL_1, 0);
+  // sec2.draw(SEC_COL_2, 0);
   
-  pointer.draw(POINTER_COL, obj.seconds);
+  // pointer.draw(SEC_POINTER_COL, obj.seconds);
+
+
+
+
   
 }
 
