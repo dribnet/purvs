@@ -366,7 +366,7 @@ function draw_clock(obj) {
   // pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-
+ new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -200, 20, 40).draw(255)
 
   
 }
