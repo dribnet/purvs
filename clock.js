@@ -303,7 +303,7 @@ const BACKGROUND_COL = [40, 17, 23];
 /* 
  * Seconds.
  */
-const SEC_INNER_RADIUS = 165;
+const SEC_INNER_RADIUS = 170;
 const SEC_OUTER_RADUIS = 195;
 const SEC_INDICATOR_COUNT = 60;
 const SEC_INDICATOR_TOP_WIDTH = 10;
@@ -357,16 +357,16 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  // sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  // sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // sec1.draw(SEC_COL_1, 0);
-  // sec2.draw(SEC_COL_2, 0);
+  sec1.draw(SEC_COL_1, 0);
+  sec2.draw(SEC_COL_2, 0);
   
-  // pointer.draw(SEC_POINTER_COL, obj.seconds);
+  pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
- new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -200, 20, 40).draw(255)
+  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw(255)
 
   
 }
