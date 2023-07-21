@@ -41,7 +41,8 @@ class SecondsDisplay {
     }
 
     /*
-     * Radian equivalent of 360 / detailDepth.
+     * Controls the rotational spacing of each indicator.
+     * Degrees equivalent is 360 / detailDepth.
      */
     this.rotationIncrement = 2 * Math.PI / detailDepth; 
 
