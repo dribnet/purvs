@@ -20,12 +20,6 @@ class SecondsDisplay {
     this.yCenter = yCenter;
     this.angle = angle;
     this.initialAngle = initialAngle;
-
-    /* 
-     * Inner and outer radii.
-     */
-    this.innerRadius = innerRadius;
-    this.outerRadius = outerRadius;
   
     /*
      * Generates some number of indicators and pushes them into an array.
@@ -35,7 +29,7 @@ class SecondsDisplay {
     this.indicator = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicator.push(
-        new SecondsIndicator(xCenter, yCenter, indicatorTopWidth, indicatorBotWidth, indicatorHeight)
+        new SecondsIndicator(-outerRadius, indicatorTopWidth, indicatorBotWidth, indicatorHeight)
       );
     }
 
@@ -84,8 +78,8 @@ class SecondsDisplay {
 
     for (let ind of this.indicator) {
       rotate(2 * Math.PI / this.indicator.length); // Only rotates to draw each indicator circularly
-      if (highlight > -1) ind.draw( (ind === this.indicator[highlight]) ? highlightColor : fillColor, -this.outerRadius);
-      else ind.draw(fillColor, -this.outerRadius);
+      if (highlight > -1) ind.draw( (ind === this.indicator[highlight]) ? highlightColor : fillColor);
+      else ind.draw(fillColor);
     }
     pop();
 
@@ -121,9 +115,12 @@ class SecondsDisplay {
  */
 class SecondsIndicator {
   /** Constructor. */
-  constructor(xCenter, yCenter, topWidth, botWidth, height) {
-    this.xCenter = xCenter;
-    this.yCenter = yCenter;
+  constructor(yOffset, topWidth, botWidth, height) {
+    /*
+     * Since the centre co-ords of the indicator are the same as the display,
+     * there is no need to store another pair of centre co-ords. 
+     */
+    this.yOffset = yOffset;
 
     /*
      * Points are arranged as follows:
@@ -140,7 +137,7 @@ class SecondsIndicator {
   }
 
   /** Draw method for indicator. */
-  draw(fillColor, yOffset=0) {
+  draw(fillColor) {
     push();
     noStroke(); 
     fill(fillColor);
@@ -151,7 +148,7 @@ class SecondsIndicator {
      * to make such a rotation possible.
      */
     beginShape();
-    for (let p of this.points) vertex(p[0], p[1] + yOffset);
+    for (let p of this.points) vertex(p[0], p[1] + this.yOffset);
     endShape(CLOSE);
 
     pop();
@@ -207,13 +204,38 @@ class SecondsPointer {
   }
 }
 
-// class MinutesRect{}
+/**
+ * Minutes in this clock is defined by a series of rectangles that change
+ * shape and colour depending on the current minute in the hour.
+ */
+class MinutesDiplay {
+  constructor(xCenter, yCenter, indicatorCount, indicatorWidth, indicatorHeight, initalAngle=0, angle=0) {
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+  }
+}
 
+class MinutesIndicator {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
 
+  draw(fillColor, yOffset) {
+    push();
+    noStroke();
+    fill(fillColor);
+    rectMode(CENTER);
+
+    rect(0, yOffset, this.width, this.height);
+
+    pop();
+  }
+}
 
 
 /*TO DO:
- * - make MinutesDisplay
+ * - make MinutesDisplay, MinutesIndicator
  * - make HoursDisplay
  * - make AMPMDisplay
  */
@@ -270,17 +292,18 @@ const pointer = new SecondsPointer(
 );
 
 
+
+// draw your own clock here based on the values of obj:
+//    obj.hours goes from 0-23
+//    obj.minutes goes from 0-59
+//    obj.seconds goes from 0-59
+//    obj.millis goes from 0-999
+//    obj.seconds_until_alarm is:
+//        < 0 if no alarm is set
+//        = 0 if the alarm is currently going off
+//        > 0 --> the number of seconds until alarm should go off
 function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
-  
+
   
   background(BACKGROUND_COL); 
 
