@@ -6,7 +6,7 @@
 
 /**
  * Seconds in this clock is defined by a gear that rotates.
- * Each time a tooth (indicator) passes some pointer, one secound will have passed.
+ * Each time an indicator (tooth) passes some pointer, one unit of time will have passed.
  */
 class SecondsDisplay {
   /** Constructor. */
@@ -26,9 +26,9 @@ class SecondsDisplay {
      * Because each indicator is stored in an array, a simple mapping from its position in
      * the array to each second in a minute is made. 
      */
-    this.indicator = [];
+    this.indicatorss = [];
     for (let i=0; i<indicatorCount; i++) {
-      this.indicator.push(
+      this.indicatorss.push(
         new SecondsIndicator(-outerRadius, indicatorTopWidth, indicatorBotWidth, indicatorHeight)
       );
     }
@@ -76,9 +76,9 @@ class SecondsDisplay {
     translate(this.xCenter, this.yCenter);
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
-    for (let ind of this.indicator) {
-      rotate(2 * Math.PI / this.indicator.length); // Only rotates to draw each indicator circularly
-      if (highlight > -1) ind.draw( (ind === this.indicator[highlight]) ? highlightColor : fillColor);
+    for (let ind of this.indicatorss) {
+      rotate(2 * Math.PI / this.indicatorss.length); // Only rotates to draw each indicator circularly
+      if (highlight > -1) ind.draw( (ind === this.indicatorss[highlight]) ? highlightColor : fillColor);
       else ind.draw(fillColor);
     }
     pop();
@@ -124,9 +124,9 @@ class SecondsIndicator {
 
     /*
      * Points are arranged as follows:
-     *          0        1
-     *            (x, y)
-     *      3                2
+     *         0        1
+     *           (x, y)
+     *     3                2
      */
     this.points = [
       [ - topWidth/2,  - height/2],
@@ -212,22 +212,25 @@ class MinutesDiplay {
   constructor(xCenter, yCenter, indicatorCount, indicatorWidth, indicatorHeight, initalAngle=0, angle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
+
+    this.indicators = [];
   }
 }
 
 class MinutesIndicator {
-  constructor(width, height) {
+  constructor(yOffset, width, height) {
+    this.yOffset = yOffset;
     this.width = width;
     this.height = height;
   }
 
-  draw(fillColor, yOffset) {
+  draw(fillColor) {
     push();
     noStroke();
     fill(fillColor);
     rectMode(CENTER);
 
-    rect(0, yOffset, this.width, this.height);
+    rect(0, this.yOffset, this.width, this.height);
 
     pop();
   }
