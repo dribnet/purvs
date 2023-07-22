@@ -55,7 +55,7 @@ class SecondsDisplay {
   }
 
   /** Draw method for display. */
-  draw(fillColor, highlight=-1, highlightColor=255) {
+  draw(fillColor, active=-1, activeColor=255) {
     /* 
      * Section regarding indicator drawing. 
      */
@@ -64,7 +64,7 @@ class SecondsDisplay {
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let ind of this.indicatorss) {
-      if (highlight > -1) ind.draw( (ind === this.indicatorss[highlight]) ? highlightColor : fillColor);
+      if (active > -1) ind.draw( (ind === this.indicatorss[active]) ? activeColor : fillColor);
       else ind.draw(fillColor);
 
       rotate(2 * Math.PI / this.indicatorss.length); // Only rotates to draw each indicator circularly
@@ -263,7 +263,7 @@ class MinutesIndicator {
     this.height = height;
   }
 
-  draw(fillColor) {
+  draw(fillColor, deltaHeight) {
     push();
     noStroke();
     fill(fillColor);
@@ -366,7 +366,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw(255)
+  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw([0, 0, 255])
 
   
 }
