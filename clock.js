@@ -264,7 +264,7 @@ function heart(x, y, size) {
 // Draws chargers to indicate bullets charging before fired
 function drawChargeMeter() {
   noFill();
-  stroke(0);
+  stroke(255);
   strokeWeight(1);
   var topCornerRadius = 8;
   var bottomCornerRadius = 0;
@@ -341,7 +341,7 @@ function drawOverHeatBar() {
   }
   
   // Draw the outline
-  stroke(0);
+  stroke(255);
   strokeWeight(1);
   noFill();
   rect(overHeatBarX, overHeatBarY, overHeatBarWidth, overHeatBarHeight);
