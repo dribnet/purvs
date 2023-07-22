@@ -171,7 +171,7 @@ class SecondsPointer {
   /** Constructor */
   constructor(xCenter, yCenter, width, height, angle=0) {
     /* 
-     * Co-ords and rotation of the display.
+     * Co-ords and rotation of the pointer.
      */
     this.xCenter = xCenter;
     this.yCenter = yCenter;
@@ -494,6 +494,10 @@ const MIN_INDICATOR_WIDTH = 8;
 const MIN_INDICATOR_HEIGHT = 10;
 const MIN_INITIAL_ANGLE = 0;
 
+const MIN_ACTIVE_HEIGHT = 28;
+const MIN_PASSIVE_COL = [132, 42, 44];
+const MIN_ACTIVE_COL = [138, 202, 56]
+
 const minutesDisplay = new MinutesDiplay(
   WIDTH/2, HEIGHT/2,
   MIN_INDICATOR_COUNT, MIN_INDICATOR_OFFSET, MIN_INDICATOR_WIDTH, MIN_INDICATOR_HEIGHT,
@@ -524,7 +528,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, 28, [132, 42, 44], [138, 202, 56]);
+  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
   
 }
