@@ -302,7 +302,7 @@ class MinutesDiplay {
            * its current height is GREATER than its calculated new height,
            * decrease its height by some decay factor.
            */
-          if (ind.height > newHeight && j !== 0) ind.height *= DECAY_FACTOR;
+          if (ind.height > newHeight) ind.height *= DECAY_FACTOR;
           
           /*
            * Adds the affected indicators and their corresponding factos to a Map collection.
