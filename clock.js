@@ -264,10 +264,8 @@ class MinutesDiplay {
   draw(active, activeHeight, passiveColor, activeColor) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
-     * All affected indicators are added to a Map, storing both 
-     * the index and the scale factor.
-     * When a unit time passes, the growth and decay factors control 
-     * the speed at which the indicators change height.
+     * All affected indicators are added to a Map, storing both the index and the scale factor.
+     * When a unit time passes, the growth and decay factors control the speed at which the indicators change height.
      */
     let factor;
     const affected = new Map();
@@ -278,14 +276,14 @@ class MinutesDiplay {
     for (let i=0; i<this.indicators.length; i++) {
 
       /*
-       * If the for loop has reached the active unit of time, a spread is applied to 
-       * nearby surrounding indicators.
+       * If the for loop has reached the active unit of time, a spread is applied to nearby surrounding indicators.
        * The number of indicators affected is 2 * (spread range - 1).
        * The active unit will grow by activeHeight, while neighbouring indicators will grow by 
        * (spread range - distance from active) / spread range * activeHeight.
        */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
+          let ind = this.indicators[this._wrap(active + j)]; // Current indicator
           factor = (SPREAD_RANGE - Math.abs(j)) / SPREAD_RANGE; // Growth factor
           let newHeight = this.indicatorHeight + activeHeight * factor; // Calculated new height based on growth factor
 
@@ -294,14 +292,14 @@ class MinutesDiplay {
            * its current height is LESS than its calculated new height,
            * increase its height by some growth factor.
            */
-          if (this.indicators[this._wrap(active + j)].height < newHeight) this.indicators[this._wrap(active + j)].height *= GROWTH_FACTOR;
+          if (ind.height < newHeight) ind.height *= GROWTH_FACTOR;
 
           /*
            * If the indicator is active or is nearby the active AND
            * its current height is GREATER than its calculated new height,
            * decrease its height by some decay factor.
            */
-          if (this.indicators[this._wrap(active + j)].height > newHeight && j !== 0) this.indicators[this._wrap(active + j)].height *= DECAY_FACTOR;
+          if (ind.height > newHeight && j !== 0) ind.height *= DECAY_FACTOR;
           
           /*
            * Adds the affected indicators and their corresponding factos to a Map collection.
