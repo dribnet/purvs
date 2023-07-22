@@ -281,7 +281,7 @@ class MinutesDiplay {
        * If the for loop has reached the active unit of time, a spread is applied to 
        * nearby surrounding indicators.
        * This unit will grow by activeHeight, while the others will grow by 
-       * (spread range - distance from active + 1) * activeHeight.
+       * (spread range - distance from active + 1) / spread range * activeHeight.
        */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
