@@ -115,7 +115,7 @@ const zShear = 0.42;
 function draw_clock(obj) {
   colorMode(HSB);
   noFill();
-  background(0, 0, 2);
+  background(0, 0, 4);
 
   // Used for changing colours as time passes from the start of execution
   if (obj.seconds !== currentSecond) {
@@ -165,9 +165,9 @@ function draw_clock(obj) {
 
 // Sets the stroke to be white for current time and a different coloured hue based on time
 function setStroke(time, i, lastElement, reversed) {
-  strokeWeight(2);
+  strokeWeight(1);
   if (i === lastElement) {
-    stroke(0, 0, 100);
+    stroke(0, 0, 180);
   } else {
     // Reduces alpha as time passes
     if (reversed) {
