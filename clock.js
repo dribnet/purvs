@@ -286,7 +286,7 @@ class MinutesDiplay {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
           factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE; // Growth factor
-          let newHeight = this.indicatorHeight + activeHeight * factor; // New height based on growth factor
+          let newHeight = this.indicatorHeight + activeHeight * factor; // Calculated new height based on growth factor
 
           /*
            * If the indicator is active or is nearby the active AND
@@ -303,7 +303,7 @@ class MinutesDiplay {
           if (this.indicators[this._wrap(active + j)].height > newHeight && j !== 0) this.indicators[this._wrap(active + j)].height *= DECAY_FACTOR;
           
           /*
-           * Adds the affected indicators and their corresponding factos to a map.
+           * Adds the affected indicators and their corresponding factos to a Map collection.
            * This will allow for differentiating between affected and unaffected
            * indicators, as well as allowing for colour lerping.
            */
