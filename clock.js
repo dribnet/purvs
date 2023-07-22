@@ -250,7 +250,7 @@ class MinutesDiplay {
      * All affected indicators are added to a Map, storing both the index and the scale factor.
      */
     let factor;
-    const SPREAD_RANGE = 3;
+    const SPREAD_RANGE = 4;
     const affected = new Map();
 
 
@@ -419,7 +419,7 @@ function draw_clock(obj) {
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
   secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2);
+  secondsDisplay2.draw(SEC_COL_2, 0);
   
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
