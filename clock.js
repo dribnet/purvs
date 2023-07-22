@@ -411,12 +411,6 @@ class MinutesIndicator {
 
 
 
-/*
- * Canvas constants.
- */
-const WIDTH = 960;
-const HEIGHT = 500;
-const BACKGROUND_COL = [40, 17, 23];
 
 /*
  * ===================================== ===================================== *
@@ -425,6 +419,15 @@ const BACKGROUND_COL = [40, 17, 23];
  * ===================================== ===================================== *
  * ===================================== ===================================== *
  */ 
+
+/*
+ * Canvas constants.
+ */
+const WIDTH = 960;
+const HEIGHT = 500;
+const BACKGROUND_COL = [40, 17, 23];
+
+
 
 /* 
  * Seconds.
@@ -479,8 +482,6 @@ const MIN_INDICATOR_OFFSET = -135;
 const MIN_INDICATOR_WIDTH = 8;
 const MIN_INDICATOR_HEIGHT = 10;
 const MIN_INITIAL_ANGLE = 0;
-
-// indicatorCount, indicatorOffset, indicatorWidth, indicatorHeight, initialAngle=0
 
 const minutesDisplay = new MinutesDiplay(
   WIDTH/2, HEIGHT/2,
