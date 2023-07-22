@@ -232,6 +232,8 @@ class MinutesDiplay {
 
     this.initalAngle = initalAngle;
 
+    this.indicatorHeight = indicatorHeight;
+
     this.rotationIncrement = 2 * Math.PI / indicatorCount; 
 
     this.indicators = [];
@@ -247,13 +249,22 @@ class MinutesDiplay {
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
+    const SPREAD_RANGE = 1;
+    console.log(this._wrap(active ))
+
     for (let i=0; i<this.indicators.length; i++) {
+      if (i === active) {
+        for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
+          this.indicators[this._wrap(active + j)].draw(activeColor, activeHeight);
+        }
+      }
 
 
       // update(n, newHeight) {
       //   const spread = 9;
       //   n = this._wrap(n);
       //   for (let i=0; i<this._rects.length; i++) {
+
       //     if (i === n) {
       //       for (let j=-spread; j<=spread; j++) {
       //         this._rects[this._wrap(n+j)] = (j != 0) ? newHeight/Math.abs(1.5 * j) : newHeight;
@@ -265,19 +276,18 @@ class MinutesDiplay {
 
 
   
-      // let spreadRange = 2;
-      // for(let i=-spreadRange; i<=spreadRange; i++) {
-      //   if (ind === this.indicators[active]) ind.draw([0, 255, 0], activeHeight);
-      //   else if (ind === this.indicators[active + i] && i !== 0) ind.draw(activeColor, activeHeight);
-      //   else if (ind !== this.indicators[active + i] && i !== 0) ind.draw(fillColor);
-
-      // }
-
 
       rotate(this.rotationIncrement);
     }
 
     pop();
+  }
+
+  _wrap(active) {
+    while (active > this.indicators.length - 1) active -= this.indicators.length;
+    while (active < 0) active += this.indicators.length;
+
+    return active;
   }
 }
 
