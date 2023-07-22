@@ -31,11 +31,11 @@ class SecondsDisplay {
     /*
      * Generates some number of indicators and pushes them into an array.
      * Because each indicator is stored in an array, a simple mapping from its position in
-     * the array to each second in a minute is made. 
+     * the array to each unit in time is made. 
      */
-    this.indicatorss = [];
+    this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
-      this.indicatorss.push(
+      this.indicators.push(
         new SecondsIndicator(-outerRadius, indicatorTopWidth, indicatorBotWidth, indicatorHeight)
       );
     }
@@ -63,11 +63,11 @@ class SecondsDisplay {
     translate(this.xCenter, this.yCenter);
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
-    for (let ind of this.indicatorss) {
-      if (active > -1) ind.draw( (ind === this.indicatorss[active]) ? activeColor : fillColor);
+    for (let ind of this.indicators) {
+      if (active > -1) ind.draw( (ind === this.indicators[active]) ? activeColor : fillColor);
       else ind.draw(fillColor);
 
-      rotate(2 * Math.PI / this.indicatorss.length); // Only rotates to draw each indicator circularly
+      rotate(2 * Math.PI / this.indicators.length); // Only rotates to draw each indicator circularly
     }
     pop();
 
@@ -226,16 +226,33 @@ class SecondsPointer {
  * shape and colour depending on the current minute in the hour.
  */
 class MinutesDiplay {
-  constructor(xCenter, yCenter, indicatorCount, indicatorOffset, indicatorWidth, indicatorHeight, initalAngle=0) {
+  /** Constructor. */
+  constructor(xCenter, yCenter, indicatorCount, indicatorOffset, indicatorWidth, indicatorHeight, initialAngle=0) {
+    /* 
+     * Co-ords and rotation of the display.
+     * The angle property is in degrees to make my life easier, 
+     * however, calculations will be done in radians.
+     */
     this.xCenter = xCenter;
     this.yCenter = yCenter;
+    this.initialAngle = initialAngle;
 
-    this.initalAngle = initalAngle;
-
+    /* 
+     * The height of each indicator.
+     */
     this.indicatorHeight = indicatorHeight;
 
+    /*
+     * Controls the rotational spacing of each indicator.
+     * Degrees equivalent is 360 / detailDepth.
+     */
     this.rotationIncrement = 2 * Math.PI / indicatorCount; 
 
+    /*
+     * Generates some number of indicators and pushes them into an array.
+     * Because each indicator is stored in an array, a simple mapping from its position in
+     * the array to each unit in time is made. 
+     */
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
@@ -244,25 +261,38 @@ class MinutesDiplay {
     }
   }
 
+  /** Draw method for display. */
   draw(active, activeHeight, passiveColor, activeColor) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
-     * All affected indicators are added to a Map, storing both the index and the scale factor.
+     * All affected indicators are added to a Map, storing both 
+     * the index and the scale factor.
+     * When a unit time passes, the growth and decay factors control 
+     * the speed at which the indicators change height.
      */
     let factor;
+    const affected = new Map();
     const SPREAD_RANGE = 4;
     const DECAY_FACTOR = 0.99;
     const GROWTH_FACTOR = 1.05;
-    const affected = new Map();
 
     for (let i=0; i<this.indicators.length; i++) {
+
+      /*
+       * If the for loop has reached the active unit of time, a spread is applied to 
+       * nearby surrounding indicators.
+       * This unit will grow by activeHeight, while the others will grow by 
+       * (spread range - distance from active + 1)
+       */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
-          factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE;
-          let newHeight = this.indicatorHeight + activeHeight * factor;
+          factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE; // Growth factor
+          let newHeight = this.indicatorHeight + activeHeight * factor; // New height based on growth factor
 
-          // this only works for the main one, needs to shrink the size of the others
+          
           if (this.indicators[this._wrap(active + j)].height < newHeight) this.indicators[this._wrap(active + j)].height *= GROWTH_FACTOR;
+
+
           if (this.indicators[this._wrap(active + j)].height > newHeight && j !== 0) this.indicators[this._wrap(active + j)].height *= DECAY_FACTOR;
           
           affected.set(this._wrap(active + j), factor);
@@ -362,20 +392,23 @@ const SEC_INDICATOR_BOT_WIDTH = 25;
 const SEC_INDICATOR_HEIGHT = 20;
 const SEC_INITIAL_ANGLE = 90;
 
+const SEC_SCALE_1 = 1.85;
+const SEC_SCALE_2 = 1;
+
 const SEC_COL_1 = [30, 30, 30];
 const SEC_COL_2 = [132, 42, 44];
 
 const secondsDisplay1 = new SecondsDisplay(
   0, HEIGHT/2, 
-  1.75 * SEC_INNER_RADIUS, 1.75 * SEC_OUTER_RADUIS, 
-  SEC_INDICATOR_COUNT, 1.75 * SEC_INDICATOR_TOP_WIDTH, 1.75 * SEC_INDICATOR_BOT_WIDTH, 1.75 * SEC_INDICATOR_HEIGHT, 
+  SEC_SCALE_1 * SEC_INNER_RADIUS, SEC_SCALE_1 * SEC_OUTER_RADUIS, 
+  SEC_INDICATOR_COUNT, SEC_SCALE_1 * SEC_INDICATOR_TOP_WIDTH, SEC_SCALE_1 * SEC_INDICATOR_BOT_WIDTH, SEC_SCALE_1 * SEC_INDICATOR_HEIGHT, 
   SEC_INITIAL_ANGLE
 );
 
 const secondsDisplay2 = new SecondsDisplay(
   WIDTH/2, HEIGHT/2, 
-  SEC_INNER_RADIUS, SEC_OUTER_RADUIS, 
-  SEC_INDICATOR_COUNT, SEC_INDICATOR_TOP_WIDTH, SEC_INDICATOR_BOT_WIDTH, SEC_INDICATOR_HEIGHT, 
+  SEC_SCALE_2 * SEC_INNER_RADIUS, SEC_SCALE_2 * SEC_OUTER_RADUIS, 
+  SEC_INDICATOR_COUNT, SEC_SCALE_2 * SEC_INDICATOR_TOP_WIDTH, SEC_SCALE_2 * SEC_INDICATOR_BOT_WIDTH, SEC_SCALE_2 * SEC_INDICATOR_HEIGHT, 
   SEC_INITIAL_ANGLE
 );
 
