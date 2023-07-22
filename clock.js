@@ -352,13 +352,13 @@ class MinutesDiplay {
   /** Private method for creating circular loops in the indicator array. */
   _wrap(index) {
 
-    /**
+    /*
      * If the index is greater than the max index of the array,
      * subtract off the length of the array until it is whtin bounds.
      */
     while (index > this.indicators.length - 1) index -= this.indicators.length;
 
-    /**
+    /*
      * If the index is less than zero,
      * add on the length of the array until it is whtin bounds.
      */
