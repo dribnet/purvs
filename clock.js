@@ -271,7 +271,7 @@ class MinutesDiplay {
      */
     let factor;
     const affected = new Map();
-    const SPREAD_RANGE = 4;
+    const SPREAD_RANGE = 5;
     const DECAY_FACTOR = 0.99;
     const GROWTH_FACTOR = 1.05;
 
@@ -281,7 +281,7 @@ class MinutesDiplay {
        * If the for loop has reached the active unit of time, a spread is applied to 
        * nearby surrounding indicators.
        * The number of indicators affected is 2 * (spread range - 1).
-       * This unit will grow by activeHeight, while the others will grow by 
+       * The active unit will grow by activeHeight, while neighbouring indicators will grow by 
        * (spread range - distance from active) / spread range * activeHeight.
        */
       if (i === active) {
@@ -368,10 +368,6 @@ class MinutesDiplay {
   }
 }
 
-
-
-
-
 /**
  * Class that defines each indicator of the MinutesDiplay class.
  */
@@ -408,8 +404,7 @@ class MinutesIndicator {
 
 
 /*TO DO:
- * - make MinutesDisplay, MinutesIndicator
- * - make HoursDisplay
+ * - make HoursDisplay, hour indicator
  * - make AMPMDisplay
  */
 
@@ -476,9 +471,22 @@ const pointer = new SecondsPointer(
 );
 
 
+/*
+ * Minutes.
+ */
+const MIN_INDICATOR_COUNT = 60;
+const MIN_INDICATOR_OFFSET = -135;
+const MIN_INDICATOR_WIDTH = 8;
+const MIN_INDICATOR_HEIGHT = 10;
+const MIN_INITIAL_ANGLE = 0;
 
+// indicatorCount, indicatorOffset, indicatorWidth, indicatorHeight, initialAngle=0
 
-const minutesDisplay = new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 10);
+const minutesDisplay = new MinutesDiplay(
+  WIDTH/2, HEIGHT/2,
+  MIN_INDICATOR_COUNT, MIN_INDICATOR_OFFSET, MIN_INDICATOR_WIDTH, MIN_INDICATOR_HEIGHT,
+  MIN_INITIAL_ANGLE
+);
 
 
 // draw your own clock here based on the values of obj:
@@ -504,7 +512,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, 30, [132, 42, 44], [138, 202, 56]);
+  minutesDisplay.draw(obj.minutes, 28, [132, 42, 44], [138, 202, 56]);
 
   
 }
