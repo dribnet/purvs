@@ -267,7 +267,11 @@ class MinutesDiplay {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
           factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE;
-          this.indicators[this._wrap(active + j)].height = this.indicatorHeight + activeHeight * factor;
+
+          // this only works for the main one, needs to shrink the size of the others
+          if (this.indicators[this._wrap(active + j)].height < this.indicatorHeight + activeHeight * factor) this.indicators[this._wrap(active + j)].height *= 1.1;
+
+          
           affected.set(this._wrap(active + j), factor);
         }
       }
