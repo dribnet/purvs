@@ -355,13 +355,13 @@ class MinutesDiplay {
 
     /*
      * If the index is greater than the max index of the array,
-     * subtract off the length of the array until it is whtin bounds.
+     * subtract off the length of the array until it is within bounds.
      */
     while (index > this.indicators.length - 1) index -= this.indicators.length;
 
     /*
      * If the index is less than zero,
-     * add on the length of the array until it is whtin bounds.
+     * add on the length of the array until it is within bounds.
      */
     while (index < 0) index += this.indicators.length;
 
