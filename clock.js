@@ -242,13 +242,20 @@ class MinutesDiplay {
     }
   }
 
-  draw(fillColor) {
+  draw(fillColor, active=-1, activeColor=255, activeHeight=20 ) {
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle* Math.PI / 180); // Sets the rotation of the entire display
 
     for (let ind of this.indicators) {
-      ind.draw(fillColor);
+      if (active > -1) {
+        ind.draw(
+          (ind === this.indicators[active]) ? activeColor : fillColor,
+          (ind === this.indicators[active]) ? activeHeight : 0
+        );
+      }
+      else { ind.draw(fillColor); }
+
       rotate(this.rotationIncrement);
     }
 
@@ -263,13 +270,13 @@ class MinutesIndicator {
     this.height = height;
   }
 
-  draw(fillColor, deltaHeight) {
+  draw(fillColor, activeHeight=0) {
     push();
     noStroke();
     fill(fillColor);
     rectMode(CENTER);
 
-    rect(0, this.yOffset, this.width, this.height);
+    rect(0, this.yOffset, this.width, (activeHeight > 0) ? activeHeight : this.height);
 
     pop();
   }
@@ -360,13 +367,13 @@ function draw_clock(obj) {
   sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  sec1.draw(SEC_COL_1, 0);
-  sec2.draw(SEC_COL_2, 0);
+  sec1.draw(SEC_COL_1);
+  sec2.draw(SEC_COL_2);
   
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw([0, 0, 255])
+  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw([0, 0, 255], obj.minutes, [255, 0, 0], 30)
 
   
 }
