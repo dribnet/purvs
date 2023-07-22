@@ -402,6 +402,20 @@ class MinutesIndicator {
   }
 }
 
+/*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ================================== HOURS ================================== *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */ 
+
+class HoursDisplay {
+  
+}
+
+
+
 
 /*TO DO:
  * - make HoursDisplay, hour indicator
@@ -426,8 +440,6 @@ class MinutesIndicator {
 const WIDTH = 960;
 const HEIGHT = 500;
 const BACKGROUND_COL = [40, 17, 23];
-
-
 
 /* 
  * Seconds.
@@ -472,7 +484,6 @@ const pointer = new SecondsPointer(
   0.72 * WIDTH, HEIGHT/2, 
   SEC_POINTER_WIDTH, SEC_POINTER_HEIGHT, SEC_POINTER_ANGLE
 );
-
 
 /*
  * Minutes.
