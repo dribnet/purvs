@@ -280,12 +280,13 @@ class MinutesDiplay {
       /*
        * If the for loop has reached the active unit of time, a spread is applied to 
        * nearby surrounding indicators.
+       * The number of indicators affected is 2 * (spread range - 1).
        * This unit will grow by activeHeight, while the others will grow by 
-       * (spread range - distance from active + 1) / spread range * activeHeight.
+       * (spread range - distance from active) / spread range * activeHeight.
        */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
-          factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE; // Growth factor
+          factor = (SPREAD_RANGE - Math.abs(j)) / SPREAD_RANGE; // Growth factor
           let newHeight = this.indicatorHeight + activeHeight * factor; // Calculated new height based on growth factor
 
           /*
@@ -503,7 +504,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, 22, [132, 42, 44], [138, 202, 56]);
+  minutesDisplay.draw(obj.minutes, 30, [132, 42, 44], [138, 202, 56]);
 
   
 }
