@@ -20,7 +20,7 @@ function draw_clock(obj) {
   let Seconds = obj.seconds
   let Minutes = obj.minutes
 
-  //let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
+ // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
   //let MinutesY = map(Minutes, 0, 59, 1, 150);
 
   // noStroke();
@@ -38,51 +38,51 @@ function draw_clock(obj) {
   // ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
 
         //plant stalk
+        let linex = 480;
+        let liney = 75; //originally 55
+
         stroke(1, 50, 32); //dark green
         strokeWeight(8);
-        line(480, 50, 480, 320);
+        line(linex, liney, linex, liney+265);
 
   //Plant pot
+  let quadx = 405;
+  let quady = 370; //originally 350
+  let rectx = 395;
+  let recty = 340; //originally 320
+
   fill(0,206,209); //dark turquoise
   noStroke();
   //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
-  quad(405, 350, 555, 350, 535, 450, 425, 450 ); //goes from right to left, x then y...
-  rect(395, 320, 170, 30); //collar of plant pot
+  quad(quadx, quady, quadx + 150, quady, quadx + 130, quady+100, quadx + 20, quady+100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
+  rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
 
   stroke(140, 255, 251); //light turquoise
   strokeWeight(5);
-  line(395, 350, 565, 350);
+  line(395, 370, 565, 370); //line on collar of plant pot //395, 350, 565, 350
  
-
-drawLeaf(425,25); 
-
-
-
+  ystep = 48
+  for (let i = 0; i < 6; i++){
+drawLeaf(425, 42 + (ystep*i)); 
+  }
   
-  // beginShape();
-  // vertex(30, 70); // first point //30,70
-  // bezierVertex(50, 100, 75, 140, 120, 120);  //50,100,75,140,120,120
-  // endShape(); //bottom half
-
-  // beginShape();
-  // vertex(30,70);
-  // bezierVertex(50, 80, 75, 20, 120, 120);
-  // endShape(); //top half
-       
+  for (let i = 0; i < 6; i++){
+  drawrightLeaf(535, 42 + (ystep*i));
+  }   
 }
 
 let leafx = 20
 let leafy = 20
+let Leafx = 70
 
-
-//leaves function
+//left leaves function
 function drawLeaf(leafx, leafy){
  fill(18, 181, 121); //light green
   stroke(1, 50, 32); //dark green
   strokeWeight(2);
 beginShape();
-curveVertex(leafx,leafy);
-curveVertex(leafx,leafy);
+curveVertex(leafx,leafy); //20,20
+curveVertex(leafx,leafy); //20/, 20
 curveVertex(leafx+10, leafy+30); //30, 50
 curveVertex(leafx+20,leafy+50); //40,70
 curveVertex(leafx+50, leafy+50); //70,70
@@ -90,3 +90,27 @@ curveVertex(leafx+50, leafy+30); //70,50
 curveVertex(leafx+10, leafy+10); //30, 30
 endShape(CLOSE);
   }
+
+  //right leaves function
+  function drawrightLeaf(Leafx, leafy){
+    fill(18, 181, 121); //light green
+    stroke(1, 50, 32); //dark green
+    strokeWeight(2);
+    beginShape();
+    curveVertex(Leafx,leafy); //70,20
+    curveVertex(Leafx,leafy); //70,20
+    curveVertex(Leafx-10, leafy+30); //60,50
+    curveVertex(Leafx-20, leafy+50); //50,70
+    curveVertex(Leafx-50, leafy+50); //20,70
+    curveVertex(Leafx-50, leafy+30); //20,50
+    curveVertex(Leafx-10, leafy+10); //60,30
+  endShape(CLOSE);
+  }
+
+//   strokeWeight(5)
+// point(70,20); //20 
+// point(60,50); //30
+// point(50,70); //40
+// point(20,70); //70
+// point(20,50); //70
+// point(60,30); //30
