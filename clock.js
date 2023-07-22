@@ -1,6 +1,7 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -13,11 +14,37 @@ function draw_clock(obj) {
   //        > 0 --> the number of seconds until alarm should go off
   let carColor = color(0);
 
+  function draw_Buildings(x, y, h, w, color) {
+    push();
+      translate(width / 2, ringHeight);
+      rotate(scapeDeg);
+      rotate(obj.minutes * -3.6);
+      rotate(x + 15);
+      fill(color);
+      rect(x, y, w, h, 4);
+      fill(color - 10);
+      rect(x - 1, y + h, w + 2, 5);
+      let lightRow = (w / 10) - 1;
+      let lightColumn = (h * -1 / 10) - 1;
+      if (daySection == night) {
+        fill(255, 255, 0); //Lights ON
+      } else {
+        fill(210);
+      }
+      for(n = 0; n < lightColumn; n ++) {
+        for (i = 0; i < lightRow; i ++) {
+          rect(x + (i * 10) + 7.5, (y + h) + 10 + (n * 10), 5, 5, 1);
+        }
+      }
+    pop();
+  }
+
+  colorMode(HSB);
   let ringHeight = 600;
-  let sunrise = [230, 180, 50];
-  let dayColor = [180, 230, 230];
-  let night = [0, 0, 50];
-  let timeOfDay = "sunrise";
+  let sunrise = [50, 100, 100];
+  let dayColor = [210, 100, 100];
+  let night = [230, 100, 39];
+  let timeOfDay = sunrise;
   let daySection = sunrise;
 
   if (obj.hours >= 5  && obj.hours < 9 || obj.hours >= 17 && obj.hours < 21) {
@@ -28,36 +55,31 @@ function draw_clock(obj) {
     daySection = night;
   }
 
-  background(50); //  beige
+  background(0); //  beige
   noStroke();
+  
   // Outer Rings
-  fill(daySection[0] + 150, daySection[1] - 115, daySection[2]);
+  fill(daySection[0] - 15, daySection[1], daySection[2]);
   circle(width / 2, ringHeight, width + 500);
-  fill(daySection[0] - 50, daySection[1] - 100, daySection[2] + 40);
+  fill(daySection[0] - 10, daySection[1], daySection[2]);
   circle(width / 2, ringHeight, width + 260);
-  fill(daySection[0] - 50, daySection[1] - 50, daySection[2]);
+  fill(daySection[0] - 5, daySection[1], daySection[2]);
   circle(width / 2, ringHeight, width);
+  
   // Inner Ring
-  if (obj.hours >= 5  && obj.hours < 9 || obj.hours >= 17 && obj.hours < 21) {
-    fill(sunrise);
-    timeOfDay = "sunrise";
-  } else if (obj.hours >= 9 && obj.hours < 17) {
-    fill(dayColor);
-    timeOfDay = "dayColor";
-  } else {
-    fill(night);
-    timeOfDay = "night";
+  fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+  if (daySection == night) {
+    fill(235, 100, 30);
   }
   circle(width / 2, ringHeight, width - 30);
-  // Earth Ring
-  fill(100, 100, 100);
-  circle(width / 2, ringHeight, width - 400);
   
-  //Roman Numeral / Hour Ring
+  colorMode(RGB);
   angleMode(DEGREES);
+  //Roman Numeral / Hour Ring
   let hourDeg = map(obj.hours, 0, 23, 0, 690);
   let numeral = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
   let minDeg = map(obj.minutes, 0, 59, 0, 126);
+  
   //Hour Ring
   push();
     translate(width / 2, ringHeight);
@@ -70,8 +92,8 @@ function draw_clock(obj) {
       rotate(30);
       text(numeral[numeral.length - i], 0, -510);
     }
-    //rect(400, 100, 100, 100);
   pop();
+
   // Minute Ring
   push();
     translate(width / 2, ringHeight);
@@ -81,20 +103,39 @@ function draw_clock(obj) {
     // textAlign(CENTER);
     text(obj.minutes, 0, -300);
     rectMode(CENTER);
+    colorMode(HSB);
     for (n = 0; n < obj.minutes; n ++) {
       rotate(-2.5);
-      if (timeOfDay == "sunrise") {
-        fill(255 - (n + 5), 230, 50, 255 - n * 10);
-      } else if (timeOfDay == "dayColor") {
-        fill(160 - n, 220, 230 + (n - 5), 255 - n * 10);
-      } else {
-        fill(0 + n, 10, 80 + (n * 5), 255 - n * 10);
-      }
+      fill(daySection[0] + 5, daySection[1], daySection[2]);
       rect(0, -372, 20, 185);
     }
-    // rect(0, -380, 10, 200);
   pop();
 
+  //LANDSCAPES
+  colorMode(RGB);
+  let scapeDeg = map(obj.seconds, 0, 59, 3.6, 0);
+  let cityY = -265;
+
+  draw_Buildings(-5, cityY, -70, 40, 100);//Negative to reduce Changes || Multiples of 10 Only
+  draw_Buildings(0, cityY, -140, 40, 160);
+  draw_Buildings(2, cityY, -50, 50, 130);
+  draw_Buildings(6, cityY, -60, 30, 180);
+  draw_Buildings(14, cityY, -120, 60, 110);
+  draw_Buildings(10, cityY, -40, 50, 140);
+  draw_Buildings(20, cityY, -60, 30, 190);
+  draw_Buildings(26, cityY, -140, 40, 160);
+  draw_Buildings(24, cityY, -50, 50, 130);
+  draw_Buildings(22, cityY, -60, 30, 180);
+  draw_Buildings(36, cityY, -120, 60, 110);
+  draw_Buildings(27, cityY, -40, 50, 140);
+  draw_Buildings(32, cityY, -60, 30, 190);
+
+  // Earth Ring
+  colorMode(HSB);
+  fill(daySection[0] - 40, daySection[1], daySection[2] - 70);
+  circle(width / 2, ringHeight, width - 400);
+
+  colorMode(RGB);
   // Road Shapes
   fill(70, 70, 70);
   rect(0, 390, width, 225);
@@ -103,14 +144,14 @@ function draw_clock(obj) {
 
   //Time Placeholders
   textSize(30);
+  textAlign(LEFT);
   fill(255);
   text(obj.hours + " : " +  obj.minutes + " : " + obj.seconds, 20, 30);
 
-  //Car Placeholder
+  //CAR
   let bounce = obj.millis;
   let phase = sin(bounce);
-  // let y_bounce1 = map(phase1, -1, 1, -1, 1);
-  draw_Car(40, 230 + phase, phase, carColor);
+  draw_Car(50, 230 + phase, phase, carColor);
 
   //ROAD LINES
   stroke(210);
@@ -130,15 +171,16 @@ function draw_clock(obj) {
   rect(markerPace, 410, 5, 75);
   
   angleMode(RADIANS);
-  fill(153, 0, 0);
-  arc(width / 2 + markerPace, 400, 35, 60, 0, 2.4 + 0.7, CHORD);
-  arc(markerPace, 400, 35, 60, 0, 2.4 + 0.7, CHORD);
+  fill(140, 0, 0);
+  arc(width / 2 + markerPace + 2, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
+  arc(markerPace + 2, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
   
   textSize(20);
+  // textStyle(BOLD);
   textFont('Helvetica');
   textAlign(CENTER);
   fill(255);
-  text(obj.seconds, width / 2 + markerPace, 418);
+  text(obj.seconds, width / 2 + markerPace + 2, 416);
   if (obj.seconds == 0) {
     text(59, markerPace, 418);
   } else {
@@ -226,18 +268,3 @@ function draw_Car(x, y, phase, carColor) {
   stroke(0);
   rect(x + 284, y + 158, 5, 8)
 }
-
-
-  // background(50); //  beige
-  // fill(200); // dark grey
-  // textSize(40);
-  // textAlign(CENTER, CENTER);
-  // text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-
-
-  // fill(249, 140, 255);// pink
-  // ellipse(width / 3, 350, 150);
-  // fill(140, 255, 251) // blue
-  // ellipse(width / 2, 350, 150);
-  // fill(175, 133, 255); // purple
-  // ellipse(width / 3 * 2, 350, 150);
