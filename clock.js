@@ -242,19 +242,22 @@ class MinutesDiplay {
     }
   }
 
-  draw(fillColor, active=-1, activeColor=255, activeHeight=20 ) {
+  draw(fillColor, active, activeColor=255, activeHeight=20 ) {
     push();
     translate(this.xCenter, this.yCenter);
-    rotate(this.initialAngle* Math.PI / 180); // Sets the rotation of the entire display
+    rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let ind of this.indicators) {
-      if (active > -1) {
-        ind.draw(
-          (ind === this.indicators[active]) ? activeColor : fillColor,
-          (ind === this.indicators[active]) ? activeHeight : 0
-        );
-      }
-      else { ind.draw(fillColor); }
+
+
+      // let spreadRange = 2;
+      // for(let i=-spreadRange; i<=spreadRange; i++) {
+      //   if (ind === this.indicators[active]) ind.draw([0, 255, 0], activeHeight);
+      //   else if (ind === this.indicators[active + i] && i !== 0) ind.draw(activeColor, activeHeight);
+      //   else if (ind !== this.indicators[active + i] && i !== 0) ind.draw(fillColor);
+
+      // }
+
 
       rotate(this.rotationIncrement);
     }
@@ -321,14 +324,14 @@ const SEC_INITIAL_ANGLE = 90;
 const SEC_COL_1 = [30, 30, 30];
 const SEC_COL_2 = [132, 42, 44];
 
-const sec1 = new SecondsDisplay(
+const secondsDisplay1 = new SecondsDisplay(
   0, HEIGHT/2, 
   1.75 * SEC_INNER_RADIUS, 1.75 * SEC_OUTER_RADUIS, 
   SEC_INDICATOR_COUNT, 1.75 * SEC_INDICATOR_TOP_WIDTH, 1.75 * SEC_INDICATOR_BOT_WIDTH, 1.75 * SEC_INDICATOR_HEIGHT, 
   SEC_INITIAL_ANGLE
 );
 
-const sec2 = new SecondsDisplay(
+const secondsDisplay2 = new SecondsDisplay(
   WIDTH/2, HEIGHT/2, 
   SEC_INNER_RADIUS, SEC_OUTER_RADUIS, 
   SEC_INDICATOR_COUNT, SEC_INDICATOR_TOP_WIDTH, SEC_INDICATOR_BOT_WIDTH, SEC_INDICATOR_HEIGHT, 
@@ -350,6 +353,10 @@ const pointer = new SecondsPointer(
 
 
 
+
+const minutesDisplay = new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14);
+
+
 // draw your own clock here based on the values of obj:
 //    obj.hours goes from 0-23
 //    obj.minutes goes from 0-59
@@ -364,16 +371,16 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  sec1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  sec2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  sec1.draw(SEC_COL_1);
-  sec2.draw(SEC_COL_2);
+  secondsDisplay1.draw(SEC_COL_1);
+  secondsDisplay2.draw(SEC_COL_2);
   
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14).draw([0, 0, 255], obj.minutes, [255, 0, 0], 30)
+  minutesDisplay.draw([0, 0, 255], obj.minutes, [255, 0, 0], 30);
 
   
 }
