@@ -10,5 +10,4 @@ Begin work on maeda clock task, I have decided to recreate 7th clock where AM/PM
 18/07/2023
 I finished a prototype for my clock, this only runs on the minute hand. In order to add points to a circle I used code from this webpage:
 https://www.alpharithms.com/evenly-spacing-objects-around-a-circle-in-p5js-processing-180222/
-
-The movement of the points however, I did by myself
+The movement of the points however, I did by myself.

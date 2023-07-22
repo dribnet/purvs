@@ -11,7 +11,7 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(3); //  beige
+  background(31,56,100); //  beige
   fill(200); // dark grey
 
   MinRing();
@@ -53,7 +53,7 @@ function MinRing() {
   //point1
   let point1x = diameter / 2 * Math.cos(angle1) + ringX;
   let point1y = diameter / 2 * Math.sin(angle1) + ringY;
-  stroke('white');
+  stroke(180,198,231);
   strokeWeight(12);
   point(point1x, point1y);
 
@@ -111,7 +111,7 @@ function SecRing() {
   //point1
   let point1x = diameter / 2 * Math.cos(angle1) + ringX;
   let point1y = diameter / 2 * Math.sin(angle1) + ringY;
-  stroke('white');
+  stroke(180,198,231);
   strokeWeight(12);
   point(point1x, point1y);
 
