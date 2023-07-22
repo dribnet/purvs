@@ -284,9 +284,9 @@ class MinutesDiplay {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
           let ind = this.indicators[this._wrap(active + j)]; // Current indicator
-          factor = (SPREAD_RANGE - Math.abs(j)) / SPREAD_RANGE; // Growth factor
           let newHeight = this.indicatorHeight + activeHeight * factor; // Calculated new height based on growth factor
-
+          factor = (SPREAD_RANGE - Math.abs(j)) / SPREAD_RANGE; // Growth factor
+          
           /*
            * If the indicator is active or is nearby the active AND
            * its current height is LESS than its calculated new height,
