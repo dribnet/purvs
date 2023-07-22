@@ -36,6 +36,7 @@ function draw_clock(obj) {
       if (hourSet < 10) {
         text("0\n" + hourSet, 0, 0);
       }
+      
     } else {
       morning = "AM";
       let hourArr = Array/from(String(hourSet), Number);
