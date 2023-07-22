@@ -53,21 +53,40 @@ function draw_clock(obj) {
   strokeWeight(5);
   line(395, 350, 565, 350);
  
-  //leaves
-  fill(18, 181, 121); //light green
-  stroke(1, 50, 32); //dark green
-  strokeWeight(2);
-  beginShape();
-  vertex(30, 70); // first point //30,70
-  bezierVertex(50, 100, 75, 140, 120, 120);  //50,100,75,140,120,120
-  endShape(); //bottom half
+
+drawLeaf(425,25); 
+
+
+
+  
+  // beginShape();
+  // vertex(30, 70); // first point //30,70
+  // bezierVertex(50, 100, 75, 140, 120, 120);  //50,100,75,140,120,120
+  // endShape(); //bottom half
 
   // beginShape();
   // vertex(30,70);
   // bezierVertex(50, 80, 75, 20, 120, 120);
   // endShape(); //top half
        
-
-  
-
 }
+
+let leafx = 20
+let leafy = 20
+
+
+//leaves function
+function drawLeaf(leafx, leafy){
+ fill(18, 181, 121); //light green
+  stroke(1, 50, 32); //dark green
+  strokeWeight(2);
+beginShape();
+curveVertex(leafx,leafy);
+curveVertex(leafx,leafy);
+curveVertex(leafx+10, leafy+30); //30, 50
+curveVertex(leafx+20,leafy+50); //40,70
+curveVertex(leafx+50, leafy+50); //70,70
+curveVertex(leafx+50, leafy+30); //70,50
+curveVertex(leafx+10, leafy+10); //30, 30
+endShape(CLOSE);
+  }
