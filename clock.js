@@ -247,9 +247,24 @@ class MinutesDiplay {
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
-    for (let ind of this.indicators) {
+    for (let i=0; i<this.indicators.length; i++) {
 
 
+      // update(n, newHeight) {
+      //   const spread = 9;
+      //   n = this._wrap(n);
+      //   for (let i=0; i<this._rects.length; i++) {
+      //     if (i === n) {
+      //       for (let j=-spread; j<=spread; j++) {
+      //         this._rects[this._wrap(n+j)] = (j != 0) ? newHeight/Math.abs(1.5 * j) : newHeight;
+      //       }
+      //     } else if (this._rects[i] > this._height) { this._rects[i] *= 0.95; }
+      //   }
+      // }
+
+
+
+  
       // let spreadRange = 2;
       // for(let i=-spreadRange; i<=spreadRange; i++) {
       //   if (ind === this.indicators[active]) ind.draw([0, 255, 0], activeHeight);
@@ -265,6 +280,11 @@ class MinutesDiplay {
     pop();
   }
 }
+
+
+
+
+
 
 class MinutesIndicator {
   constructor(yOffset, width, height) {
