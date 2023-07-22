@@ -289,12 +289,25 @@ class MinutesDiplay {
           factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE; // Growth factor
           let newHeight = this.indicatorHeight + activeHeight * factor; // New height based on growth factor
 
-          
+          /*
+           * If the indicator is active or is nearby the active AND
+           * its current height is LESS than its calculated new height,
+           * increase its height by some growth factor.
+           */
           if (this.indicators[this._wrap(active + j)].height < newHeight) this.indicators[this._wrap(active + j)].height *= GROWTH_FACTOR;
 
-
+          /*
+           * If the indicator is active or is nearby the active AND
+           * its current height is GREATER than its calculated new height,
+           * decrease its height by some decay factor.
+           */
           if (this.indicators[this._wrap(active + j)].height > newHeight && j !== 0) this.indicators[this._wrap(active + j)].height *= DECAY_FACTOR;
           
+          /*
+           * Adds the affected indicators and their corresponding factos to a map.
+           * This will allow for differentiating between affected and unaffected
+           * indicators, as well as allowing for colour lerping.
+           */
           affected.set(this._wrap(active + j), factor);
         }
       }
@@ -306,17 +319,29 @@ class MinutesDiplay {
     for (let i=0; i<this.indicators.length; i++) {
       if (!affected.has(i)) {
         if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= DECAY_FACTOR;
+
+        /*
+         * If the height after decaying becomes smaller than the 
+         * base height, the height is reset back to default.
+         */
         if (this.indicators[i].height < this.indicatorHeight) this.indicators[i].height = this.indicatorHeight;
       }
     }
 
-
-
+    /* 
+     * Section regarding display drawing. 
+     */
     push();
+
+    // Setup
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let i=0; i<this.indicators.length; i++) {
+      /*
+       * If the indicator is affected, use colour lerping instead of the base colour.
+       * The growth factor also controls the proportion between the base colour and active colour.
+       */
       this.indicators[i].draw( (affected.has(i)) ? lerpColor(color(passiveColor), color(activeColor), affected.get(i)) : passiveColor);
       rotate(this.rotationIncrement);
     }
@@ -324,11 +349,22 @@ class MinutesDiplay {
     pop();
   }
 
-  _wrap(active) {
-    while (active > this.indicators.length - 1) active -= this.indicators.length;
-    while (active < 0) active += this.indicators.length;
+  /** Private method for creating circular loops in the indicator array. */
+  _wrap(index) {
 
-    return active;
+    /**
+     * If the index is greater than the max index of the array,
+     * subtract off the length of the array until it is whtin bounds.
+     */
+    while (index > this.indicators.length - 1) index -= this.indicators.length;
+
+    /**
+     * If the index is less than zero,
+     * add on the length of the array until it is whtin bounds.
+     */
+    while (index < 0) index += this.indicators.length;
+
+    return index;
   }
 }
 
