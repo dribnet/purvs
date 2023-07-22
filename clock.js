@@ -252,7 +252,7 @@ class MinutesDiplay {
     let factor;
     const SPREAD_RANGE = 4;
     const DECAY_FACTOR = 0.99;
-    const GROWTH_FACTOR = 1.01;
+    const GROWTH_FACTOR = 1.05;
     const affected = new Map();
 
     for (let i=0; i<this.indicators.length; i++) {
