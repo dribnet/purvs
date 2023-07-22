@@ -254,6 +254,15 @@ class MinutesDiplay {
     const affected = new Map();
 
 
+
+    /*
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
+     */
     for (let i=0; i<this.indicators.length; i++) {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
