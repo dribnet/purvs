@@ -244,39 +244,37 @@ class MinutesDiplay {
     }
   }
 
-  draw(fillColor, active, activeColor=255, activeHeight=20 ) {
+  draw(active, activeHeight, passiveColor, activeColor) {
+    /*
+     * Changes the heights of all the indicators surrounding the active indicator.
+     * All affected indicators are added to a Set where their heights will be reverted.
+     */
+    const SPREAD_RANGE = 1;
+    const affected = new Set();
+    for (let i=0; i<this.indicators.length; i++) {
+      if (i === active) {
+        for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
+          this.indicators[this._wrap(active + j)].height = activeHeight;
+          affected.add(this._wrap(active + j));
+        }
+      }
+    }
+
+    /**
+     * If an indicator is not affected, revert its height.
+     */
+    for (let i=0; i<this.indicators.length; i++) {
+      if (!affected.has(i)) this.indicators[i].height = this.indicatorHeight;
+    }
+
+
+
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
-    const SPREAD_RANGE = 1;
-    console.log(this._wrap(active ))
-
     for (let i=0; i<this.indicators.length; i++) {
-      if (i === active) {
-        for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
-          this.indicators[this._wrap(active + j)].draw(activeColor, activeHeight);
-        }
-      }
-
-
-      // update(n, newHeight) {
-      //   const spread = 9;
-      //   n = this._wrap(n);
-      //   for (let i=0; i<this._rects.length; i++) {
-
-      //     if (i === n) {
-      //       for (let j=-spread; j<=spread; j++) {
-      //         this._rects[this._wrap(n+j)] = (j != 0) ? newHeight/Math.abs(1.5 * j) : newHeight;
-      //       }
-      //     } else if (this._rects[i] > this._height) { this._rects[i] *= 0.95; }
-      //   }
-      // }
-
-
-
-  
-
+      this.indicators[i].draw( (affected.has(i)) ? activeColor : passiveColor);
       rotate(this.rotationIncrement);
     }
 
@@ -303,13 +301,13 @@ class MinutesIndicator {
     this.height = height;
   }
 
-  draw(fillColor, activeHeight=0) {
+  draw(fillColor) {
     push();
     noStroke();
     fill(fillColor);
     rectMode(CENTER);
 
-    rect(0, this.yOffset, this.width, (activeHeight > 0) ? activeHeight : this.height);
+    rect(0, this.yOffset, this.width, this.height);
 
     pop();
   }
@@ -410,7 +408,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw([0, 0, 255], obj.minutes, [255, 0, 0], 30);
+  minutesDisplay.draw(obj.minutes, 20, [255, 0, 0], [0, 255, 0]);
 
   
 }
