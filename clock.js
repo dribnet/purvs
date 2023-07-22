@@ -247,15 +247,19 @@ class MinutesDiplay {
   draw(active, activeHeight, passiveColor, activeColor) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
-     * All affected indicators are added to a Set where their heights will be reverted.
+     * All affected indicators are added to a Map, storing both the index and the scale factor.
      */
-    const SPREAD_RANGE = 1;
-    const affected = new Set();
+    let factor;
+    const SPREAD_RANGE = 3;
+    const affected = new Map();
+
+
     for (let i=0; i<this.indicators.length; i++) {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
-          this.indicators[this._wrap(active + j)].height = activeHeight;
-          affected.add(this._wrap(active + j));
+          factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE;
+          this.indicators[this._wrap(active + j)].height = this.indicatorHeight + activeHeight * factor;
+          affected.set(this._wrap(active + j), factor);
         }
       }
     }
@@ -264,7 +268,10 @@ class MinutesDiplay {
      * If an indicator is not affected, revert its height.
      */
     for (let i=0; i<this.indicators.length; i++) {
-      if (!affected.has(i)) this.indicators[i].height = this.indicatorHeight;
+      if (!affected.has(i)) {
+        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= 0.99;
+        if (this.indicators[i].height < this.indicatorHeight) this.indicators[i].height = this.indicatorHeight;
+      }
     }
 
 
@@ -274,7 +281,7 @@ class MinutesDiplay {
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let i=0; i<this.indicators.length; i++) {
-      this.indicators[i].draw( (affected.has(i)) ? activeColor : passiveColor);
+      this.indicators[i].draw( (affected.has(i)) ? lerpColor(color(passiveColor), color(activeColor), affected.get(i)) : passiveColor);
       rotate(this.rotationIncrement);
     }
 
@@ -307,7 +314,7 @@ class MinutesIndicator {
     fill(fillColor);
     rectMode(CENTER);
 
-    rect(0, this.yOffset, this.width, this.height);
+    rect(0, this.yOffset, this.width, this.height, 3);
 
     pop();
   }
@@ -382,7 +389,7 @@ const pointer = new SecondsPointer(
 
 
 
-const minutesDisplay = new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 14);
+const minutesDisplay = new MinutesDiplay(WIDTH/2, HEIGHT/2, 60, -135, 8, 10);
 
 
 // draw your own clock here based on the values of obj:
@@ -408,7 +415,7 @@ function draw_clock(obj) {
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, 20, [255, 0, 0], [0, 255, 0]);
+  minutesDisplay.draw(obj.minutes, 22, [132, 42, 44], [138, 202, 56]);
 
   
 }
