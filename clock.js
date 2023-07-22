@@ -243,7 +243,7 @@ class MinutesDiplay {
 
     /*
      * Controls the rotational spacing of each indicator.
-     * Degrees equivalent is 360 / detailDepth.
+     * Degrees equivalent is 360 / indicatorCount.
      */
     this.rotationIncrement = 2 * Math.PI / indicatorCount; 
 
