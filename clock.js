@@ -193,19 +193,32 @@ function addBullet() {
 }
 
 function updateEnemyShips() {
-  for (let i = 0; i < maxEnemySpaceShips; i++) {
+  for (var i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
-    if (i < obj.minutes) {
-      enemySpaceShips[i].draw();
-    }
-    // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
-    if (i === obj.minutes) {
-      // 0 - 1 value over the minute
-      var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
-      var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, enemySpaceShips[i].getX());
-      var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, enemySpaceShips[i].getY());
+    
+    if (obj.seconds === 59 && obj.minutes === 59) {
+      // find the point on the arc offscreen to fly away to
+      var angle = map(i, 0, maxEnemySpaceShips - 1, PI, TWO_PI);
+      var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
+      var arcY = height/5 + height/2 * sin(angle);
+      var enemyX = map(obj.millis, 0, 999, enemySpaceShips[i].getX(), arcX);
+      var enemyY = map(obj.millis, 0, 999, enemySpaceShips[i].getY(), arcY);
+
       enemySpaceShips[i].hidden = false;
-      image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2);
+      image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2); 
+    } else {
+      if (i < obj.minutes) {
+        enemySpaceShips[i].draw();
+      }
+      // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
+      if (i === obj.minutes) {
+        // 0 - 1 value over the minute
+        var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
+        var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, enemySpaceShips[i].getX());
+        var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, enemySpaceShips[i].getY());
+        enemySpaceShips[i].hidden = false;
+        image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2);
+      }
     }
   }
 }
