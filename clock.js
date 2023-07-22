@@ -251,26 +251,19 @@ class MinutesDiplay {
      */
     let factor;
     const SPREAD_RANGE = 4;
+    const DECAY_FACTOR = 0.99;
+    const GROWTH_FACTOR = 1.01;
     const affected = new Map();
 
-
-
-    /*
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     * NEED TO MAKE GROWTH GRADUAL AND NOT RAPID 
-     */
     for (let i=0; i<this.indicators.length; i++) {
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
           factor = (SPREAD_RANGE - Math.abs(j) + 1) / SPREAD_RANGE;
+          let newHeight = this.indicatorHeight + activeHeight * factor;
 
           // this only works for the main one, needs to shrink the size of the others
-          if (this.indicators[this._wrap(active + j)].height < this.indicatorHeight + activeHeight * factor) this.indicators[this._wrap(active + j)].height *= 1.1;
-
+          if (this.indicators[this._wrap(active + j)].height < newHeight) this.indicators[this._wrap(active + j)].height *= GROWTH_FACTOR;
+          if (this.indicators[this._wrap(active + j)].height > newHeight && j !== 0) this.indicators[this._wrap(active + j)].height *= DECAY_FACTOR;
           
           affected.set(this._wrap(active + j), factor);
         }
@@ -282,7 +275,7 @@ class MinutesDiplay {
      */
     for (let i=0; i<this.indicators.length; i++) {
       if (!affected.has(i)) {
-        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= 0.99;
+        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= DECAY_FACTOR;
         if (this.indicators[i].height < this.indicatorHeight) this.indicators[i].height = this.indicatorHeight;
       }
     }
