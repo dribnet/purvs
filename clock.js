@@ -165,8 +165,7 @@ class SecondsIndicator {
 }
 
 /**
- * Class that defines a point in which an indicator 
- * passing it denotes one unit of time passing.
+ * Class that defines a point in which an indicator passing it denotes one unit of time passing.
  */
 class SecondsPointer {
   /** Constructor */
@@ -282,7 +281,7 @@ class MinutesDiplay {
        * If the for loop has reached the active unit of time, a spread is applied to 
        * nearby surrounding indicators.
        * This unit will grow by activeHeight, while the others will grow by 
-       * (spread range - distance from active + 1)
+       * (spread range - distance from active + 1) * activeHeight.
        */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
@@ -372,16 +371,30 @@ class MinutesDiplay {
 
 
 
-
+/**
+ * Class that defines each indicator of the MinutesDiplay class.
+ */
 class MinutesIndicator {
   constructor(yOffset, width, height) {
+    /*
+     * Since the point of rotation is stored within the MinutesDiplay class,
+     * having this class contain an xCenter and yCenter is redundant.
+     * All that really matters is its yOffset from that centre point. 
+     */
     this.yOffset = yOffset;
+
+    /*
+     * Width and height of the indicator. 
+     */
     this.width = width;
     this.height = height;
   }
 
+  /** Draw method for indicator. */
   draw(fillColor) {
     push();
+    
+    // Setup
     noStroke();
     fill(fillColor);
     rectMode(CENTER);
