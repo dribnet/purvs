@@ -411,8 +411,14 @@ class MinutesIndicator {
  * ===================================== ===================================== *
  */ 
 
+
+
+
+
 class HoursDisplay {
-  
+  constructor() {
+    
+  }
 }
 
 
@@ -530,6 +536,8 @@ function draw_clock(obj) {
 
 
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+
+
 
   
 }
