@@ -71,7 +71,7 @@ function draw_clock(obj) {
   }
 
   //waterdrops
-  strokeWeight(8);
+  strokeWeight(5);
   point(60, 60);
   point(80, 90);
   point(60, 110);
