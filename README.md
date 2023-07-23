@@ -19,4 +19,5 @@ visibility according to the secods).
 Original Clock:
 I tried to implement my sketch. 
 
-To make it more interesting, should I make the buildings bounce and the moon pulse? 
+To make it more interesting, should I make the buildings bounce and the moon pulse? I could also code some shooting stars for certian times?
+Add santa shooting across sky. Add lamp posts and a ombre sky. Add differently coloured windows on background buildings. 

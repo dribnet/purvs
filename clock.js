@@ -39,24 +39,42 @@ function draw_clock(obj) {
   var lightBlueGrey = color(84, 105, 120);
 
   background(darkNightSky);
+  for(let y=0; y<height; y++){
+    var n = map(y, 0, height, 0, 1);
+    let newc = lerpColor(darkNightSky, color(235), n);
+    stroke(newc);
+    line(0, y, width, y);
+  }
 
   // pulsing stars 
   var starsPulsing = 0;
+  var starsPulsing2 = 0;
   if (seconds % 2 == 0){ // every other millis, make transparency go other way
-    starsPulsing = map(millis, 0, 999, 0, 255);
-  } else{
-    starsPulsing = map(millis, 0, 999, 255, 0);
+    starsPulsing = map(millis, 0, 999, 50, 200);
+  } 
+  else{
+    starsPulsing = map(millis, 0, 999, 200, 50);
   }
-  var starsColor = color(230, 199, 23, starsPulsing);
-  // drawing the stars 
-  stroke(starsColor);
-  strokeWeight(5);
-  for (let i =0; i < 200; i+=2){
-    point(randomList[i], randomList[i+1]);
+  if (seconds % 2 == 0){
+    starsPulsing2 = map(millis, 0, 999, 200, 50);
+  } 
+  else{
+    starsPulsing2 = map(millis, 0, 999, 50, 200);
   }
 
-  // moon 
+  var starsColor1 = color(230, 199, 23, starsPulsing);
+  var starsColor2 = color(230, 199, 23, starsPulsing2);
+
+  // drawing the stars 
   noStroke();
+  for (let i =0; i < 200; i+=2){
+    fill(starsColor1);
+    star(randomList[i], randomList[i+1], 5, 11.6, 3);
+    fill(starsColor2);
+    star(randomList[i], randomList[i+1], 11.6, 5, 3);
+  }
+
+  // moon
   fill(moonColor); 
   ellipse(width / 2, height / 2 - 70, 350);
 
@@ -78,6 +96,12 @@ function draw_clock(obj) {
   for (let i =0; i< 10; i++){
     let heightdiff = yBuilding[i];
     rect(xBuilding[i], yBuilding[i], widthBuilding[i], 200+heightdiff, 20); // 5th number is radius of corners
+    // background building windows 
+    stroke(163, 162, 93); // dark yellow 
+    strokeWeight(2);
+    rect(xBuilding[i]+10, yBuilding[i]+10, widthBuilding[i]-50, 200, 5);
+    stroke(grey);
+    strokeWeight(4);
   }
 
   // three buildings 
@@ -156,4 +180,20 @@ function shuffleArray(arr) {
     arr[currentIndex] = arr[randomIndex];
     arr[randomIndex] = temporaryValue;
   }
+}
+
+//star function from p5.js reference
+function star(x, y, radius1, radius2, npoints) {
+  var angle = TWO_PI / npoints;
+  var halfAngle = angle / 2.0;
+  beginShape();
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a) * radius2;
+    var sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
 }
