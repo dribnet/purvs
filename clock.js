@@ -11,8 +11,23 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(31,56,100); //  beige
+ 
+  // Declares time varibles revelant to change BG colour
+  let hours = obj.hours;
+  let mins = obj.minutes;
+  let hourFract = hours + (mins/60);
+
+  let colourMap = map(hourFract,0,24,0,PI);
+  let bgColourR = 149 * Math.sin(colourMap) + 31;
+  let bgColourG = 144 * Math.sin(colourMap) + 56;
+  let bgColourB = 131 * Math.sin(colourMap) + 100;
+  
+  background(bgColourR,bgColourG,bgColourB); //  beige
   fill(200); // dark grey
+  strokeWeight(0);
+
+  textSize(32);
+  text(bgColourR, 10, 30);
 
   MinRing();
   SecRing();
@@ -20,12 +35,11 @@ function draw_clock(obj) {
 
 function MinRing() {
   // Controls size and location for ring
-  let diameter = 150;
-  let ringX = width / 2;
-  let ringY = height / 2;
+  const diameter = 150;
+  const ringX = width / 2;
+  const ringY = height / 2;
   
   // Declares time varibles revelant to (m) ring
-  let millis = obj.millis;
   let seconds = obj.seconds;
   let mins = obj.minutes;
   let minFract = mins + (seconds/60); //smooths out movement of point
@@ -53,7 +67,7 @@ function MinRing() {
   //point1
   let point1x = diameter / 2 * Math.cos(angle1) + ringX;
   let point1y = diameter / 2 * Math.sin(angle1) + ringY;
-  stroke(180,198,231);
+  stroke('white');
   strokeWeight(12);
   point(point1x, point1y);
 
@@ -75,9 +89,9 @@ function MinRing() {
 
 function SecRing() {
    // Controls size and location for ring
-  let diameter = 75;
-  let ringX = width / 2;
-  let ringY = height / 2;
+  const diameter = 75;
+  const ringX = width / 2;
+  const ringY = height / 2;
   
   // Declares time varibles revelant to (s) ring
   let millis = obj.millis;
@@ -111,7 +125,7 @@ function SecRing() {
   //point1
   let point1x = diameter / 2 * Math.cos(angle1) + ringX;
   let point1y = diameter / 2 * Math.sin(angle1) + ringY;
-  stroke(180,198,231);
+  stroke('white');
   strokeWeight(12);
   point(point1x, point1y);
 
