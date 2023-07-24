@@ -11,26 +11,26 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
+  background(210,4,45); //  red/cherry
   fill(200); // dark grey
   textSize(40);
   textAlign(CENTER, CENTER);
   text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
   
-  
+  let millisSize=0
 
-  fill(249, 1401, 255);// pink
+  fill(255,191,0);// Yellow
   ellipse(width / 3, 350, 150);
   
-  fill(249,1401,255,190);
-  let size=map(ellipse,0, 600, 150,600 )
-  ellipse(width / 3, 350,150+obj.millis)
-  if (obj.millis>500){
-    ellipse(width/3, 350,600-obj.millis)
-  }
-
- 
+  fill(255,191,0,100);
   
+if(obj.millis<=500){
+  millisSize= map(obj.millis,0,1000,150,300)
+}
+ else if(obj.millis>=500){
+  millisSize= map(obj.millis,0,1000,300,150)
+ }
+  ellipse(width/3,350,millisSize)
 
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, 150);
