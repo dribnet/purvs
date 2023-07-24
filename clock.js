@@ -419,7 +419,6 @@ class MinutesIndicator {
 
 
 
-
 class HoursDisplay {
   constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
     this.xCenter = xCenter;
@@ -428,7 +427,7 @@ class HoursDisplay {
     this.indicatorSize = indicatorSize;
     this.initialAngle = initialAngle;
 
-    const GAP = indicatorArcSize / 8;
+    const GAP = indicatorArcSize / 12;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
@@ -469,14 +468,35 @@ class HoursDisplay {
   }
 }
 
+/**
+ * Class that defines each indicator of the HoursDisplay class.
+ */
 class HoursIndicator {
+  /** Constructor */
   constructor(radius, size, start, stop) {
+    /*
+     * An indicator is just an arc, so all the information that is needed is 
+     * its distance from its center co-ords and the stroke weight.
+     */
     this.radius = radius;
     this.size = size;
+
+    /*
+     * These numbers are in radians.
+     * Start and stop denote where the arc begins and stops, e.g. 
+     * start at 0 and stop at 2 PI draws a full circle.
+     * Pretending that a full cicle is just four points, the drawn path is as follows:
+     *       3
+     *
+     * 2   (x, y)   0
+     *
+     *       1 
+     */
     this.start = start;
     this.stop = stop;
   }
 
+  /** Draw method for indicator. */
   draw(fillColor) {
     push();
 
@@ -574,7 +594,7 @@ const MIN_INDICATOR_WIDTH = 8;
 const MIN_INDICATOR_HEIGHT = 10;
 const MIN_INITIAL_ANGLE = 0;
 
-const MIN_ACTIVE_HEIGHT = 28;
+const MIN_ACTIVE_HEIGHT = 24;
 const MIN_PASSIVE_COL = [132, 42, 44];
 const MIN_ACTIVE_COL = [138, 202, 56]
 
@@ -587,12 +607,12 @@ const minutesDisplay = new MinutesDiplay(
 /*
  * Hours.
  */
-const HOU_RADIUS = 180;
+const HOU_RADIUS = 200;
 
 
 const hoursDisplay = new HoursDisplay(
   WIDTH/2, HEIGHT/2, 
-  HOU_RADIUS, 12, 10, Math.PI/6, -105
+  HOU_RADIUS, 12, 10, 2 * Math.PI/12, -105
 );
 
 // draw your own clock here based on the values of obj:
