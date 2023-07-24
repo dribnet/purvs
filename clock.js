@@ -63,10 +63,36 @@ function draw_clock(obj) {
   drawWaterdrops (390, 190); //23
   drawWaterdrops (390, 420); //24
   drawWaterdrops (450, 20); //25
-  
-  
-  
-
+  drawWaterdrops (510, 10); //26
+  drawWaterdrops (550, 300); //27
+  drawWaterdrops (550, 80); //28
+  drawWaterdrops (560, 180); //29
+  drawWaterdrops (580, 430); //30
+  drawWaterdrops (590, 20); //31
+  drawWaterdrops (600, 230); //32
+  drawWaterdrops (600, 100); //31
+  drawWaterdrops (610, 350); //32
+  drawWaterdrops (650, 170); //33
+  drawWaterdrops (660, 40); //34
+  drawWaterdrops (670, 270); //35
+  drawWaterdrops (680, 440); //36
+  drawWaterdrops (700, 350); //37
+  drawWaterdrops (710, 10); //38
+  drawWaterdrops (720, 110); //39
+  drawWaterdrops (730, 200); //40
+  drawWaterdrops (760, 280); //41
+  drawWaterdrops (770, 400); //42
+  drawWaterdrops (790, 30); //43
+  drawWaterdrops (800, 150); //44
+  drawWaterdrops (840, 250); //45
+  drawWaterdrops (860, 350); //46
+  drawWaterdrops (850, 80); //47
+  drawWaterdrops (880, 180); //48
+  drawWaterdrops (890, 450); //49
+  drawWaterdrops (890, 20); //50
+  drawWaterdrops (930, 120); //51
+  drawWaterdrops (920, 300); //52
+ 
 
   //plant stalk
   let linex = 480;
