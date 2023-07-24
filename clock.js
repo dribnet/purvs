@@ -39,6 +39,19 @@ function draw_clock(obj) {
     pop();
   }
 
+  function draw_Mountain(y, h, w, shade) {
+    fill(40 + shade, 100 + shade, 210 + shade);
+
+    triangle(-100 - (w / 2), y + h, 100 + (w / 2), y + h, 0, y - 150 + h);
+
+    fill(100 + shade, 200 + shade, 240 + shade + shade);
+    triangle(-100 - (w / 2), y + h, 0, y + h, 0, y - 150 + h);
+    fill(255 + shade, 255 + shade, 240 + shade);
+    triangle(-32 - (w / 3.125), y - 100 + h, 0, y - 100 + h, 0, y - 150 + h);
+    fill(40 + shade, 150 + shade, 230 + shade);
+    triangle(32 + (w / 3.125), y - 100 + h, 0, y - 100 + h, 0, y - 150 + h);
+  }
+
   colorMode(HSB);
   let ringHeight = 600;
   let sunrise = [50, 100, 100];
@@ -116,6 +129,33 @@ function draw_clock(obj) {
   let scapeDeg = map(obj.seconds, 0, 59, 3.6, 0);
   let cityY = -265;
 
+  push();
+  rotate(0);
+  translate(width / 2, ringHeight);
+  rectMode(CENTER);
+  rotate(scapeDeg);
+  rotate(obj.minutes * -3.6);
+  rotate(130); // Place around circle
+  fill(30, 180, 130);
+  ellipse(0, -240, 250, 170);
+  rotate(60);
+  draw_Mountain(-250, 20, 20, -40);
+  rotate(-20);
+  draw_Mountain(-250, 0, 0, 0);
+  rotate(-20);
+  fill(30, 200, 100);
+  ellipse(0, -230, 250, 170);
+  rotate(90);
+  fill(30, 180, 130);
+  ellipse(0, -240, 250, 170);
+  rotate(-20);
+  fill(30, 200, 100);
+  ellipse(0, -230, 170, 160);
+  rotate(-20);
+  draw_Mountain(-250, 20, 20, 30);
+  pop();
+  
+  rectMode(CORNER);
   draw_Buildings(-5, cityY, -70, 40, 100);//Negative to reduce Changes || Multiples of 10 Only
   draw_Buildings(0, cityY, -140, 40, 160);
   draw_Buildings(2, cityY, -50, 50, 130);
