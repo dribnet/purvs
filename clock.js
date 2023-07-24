@@ -420,20 +420,22 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
     this.radius = radius;
     this.indicatorSize = indicatorSize;
     this.initialAngle = initialAngle;
 
-    const GAP = indicatorArcSize / 12;
+    let indicatorArcSize = 2 * Math.PI / indicatorCount;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
-          radius, indicatorSize, i * indicatorArcSize + GAP, (i + 1) * indicatorArcSize - GAP
+          radius, indicatorSize, 
+          ( indicatorArcSize * (indicatorGap * i + 1) ) / indicatorGap,         // i * indicatorArcSize + indicatorArcSize / indicatorGap, 
+          ( indicatorArcSize * (indicatorGap * (i + 1) - 1) ) / indicatorGap    // i * indicatorArcSize + indicatorArcSize - indicatorArcSize / indicatorGap
         )
       );
     }
@@ -516,8 +518,7 @@ class HoursIndicator {
 
 
 
-/*TO DO:
- * - make HoursDisplay, hour indicator
+/* TO DO:
  * - make AMPMDisplay
  */
 
@@ -607,11 +608,13 @@ const minutesDisplay = new MinutesDiplay(
  * Hours.
  */
 const HOU_RADIUS = 200;
-
+const HOU_INDICATOR_COUNT = 12;
+const HOU_INDICATOR_SIZE = 10;
+const HOU_INDICATOR_GAP = 12;
 
 const hoursDisplay = new HoursDisplay(
   WIDTH/2, HEIGHT/2, 
-  HOU_RADIUS, 12, 10, 2 * Math.PI/12, -105
+  HOU_RADIUS, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE, 12, -105
 );
 
 // draw your own clock here based on the values of obj:
