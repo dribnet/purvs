@@ -45,8 +45,9 @@ function draw_clock(obj) {
   fill(178, 178, 178); //moon grey
   ellipse(50,0,30);
   pop();
-
   pop();
+
+
 
 
 }
