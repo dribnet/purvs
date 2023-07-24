@@ -265,7 +265,7 @@ class MinutesDiplay {
   }
 
   /** Draw method for display. */
-  draw(active, activeHeight, passiveColor, activeColor) {
+  draw(active, activeHeight, passiveColor, activeColor, growthRate=1.03, decayRate=0.99) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
      * All affected indicators are added to a Map, storing both the index and the scale factor.
@@ -276,8 +276,6 @@ class MinutesDiplay {
     let newHeight;
     const affected = new Map();
     const SPREAD_RANGE = 5;
-    const DECAY_FACTOR = 0.99;
-    const GROWTH_FACTOR = 1.03;
 
     for (let i=0; i<this.indicators.length; i++) {
 
@@ -300,14 +298,14 @@ class MinutesDiplay {
            * its current height is LESS than its calculated new height,
            * increase its height by some growth factor.
            */
-          if (ind.height < newHeight) ind.height *= GROWTH_FACTOR;
+          if (ind.height < newHeight) ind.height *= growthRate;
 
           /*
            * If the indicator is active or is nearby the active AND
            * its current height is GREATER than its calculated new height,
            * decrease its height by some decay factor.
            */
-          if (ind.height > newHeight) ind.height *= DECAY_FACTOR;
+          if (ind.height > newHeight) ind.height *= decayRate;
           
           /*
            * Adds the affected indicators and their corresponding factos to a Map collection.
@@ -324,7 +322,7 @@ class MinutesDiplay {
      */
     for (let i=0; i<this.indicators.length; i++) {
       if (!affected.has(i)) {
-        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= DECAY_FACTOR;
+        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= decayRate;
 
         /*
          * If the height after decaying becomes smaller than the 
@@ -459,7 +457,7 @@ class HoursDisplay {
           /*
            * The indicatorGap is a number that slightly reduces the ends of each arc in order
            * to make distinguishing between them easier. 
-           * This number is the denominator of the ratio between indicatorArcSize and indicatorGap.
+           * This number is the denominator of the ratio indicatorArcSize / indicatorGap.
            * This ratio added on to the arc's start in order to shift it forward slightly,
            * and is subtracted from the arc's end in order to shift it back slightly.
            */
@@ -471,16 +469,16 @@ class HoursDisplay {
   }
 
   /** Draw method for display. */
-  draw(active, activeRadius, passiveColor, activeColor) {
+  draw(active, activeRadius, passiveColor, activeColor, growthRate=1.005, decayRate=0.999) {
     push();
+
+    // Setup
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI/180);
 
     let ind;
     let drawColor;
     let newRadius = this.radius + activeRadius;
-    const GROWTH_FACTOR = 1.005;
-    const DECAY_FACTOR = 0.999;
 
     for (let i=0; i<this.indicators.length; i++) {
       drawColor = passiveColor;
@@ -488,10 +486,10 @@ class HoursDisplay {
       
       if (i === active) { 
         drawColor = activeColor;
-        if (ind.radius < newRadius) ind.radius *= GROWTH_FACTOR;
+        if (ind.radius < newRadius) ind.radius *= growthRate;
       }
 
-      if (i !== active && ind.radius > this.radius) ind.radius *= DECAY_FACTOR; 
+      if (i !== active && ind.radius > this.radius) ind.radius *= decayRate; 
       else if (i !== active && ind.radius < this.radius) ind.radius = this.radius;
 
       ind.draw(drawColor);
