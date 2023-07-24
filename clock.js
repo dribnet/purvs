@@ -36,6 +36,37 @@ function draw_clock(obj) {
   // fill(175, 133, 255); // purple
   // noStroke();
   // ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
+ 
+  //waterdrops position
+  drawWaterdrops (30,20); //1
+  drawWaterdrops (30, 430); //2
+  drawWaterdrops (50, 160); //3
+  drawWaterdrops (50, 300); //4
+  drawWaterdrops (80, 80); //5
+  drawWaterdrops (100, 370); //6
+  drawWaterdrops (120, 210); //7
+  drawWaterdrops (150, 30); //8
+  drawWaterdrops (160, 320); //9
+  drawWaterdrops (160, 450); //10
+  drawWaterdrops (190, 130); //11
+  drawWaterdrops (210, 230); //12
+  drawWaterdrops (250, 430); //13
+  drawWaterdrops (260, 310); //14
+  drawWaterdrops (280, 50); //15
+  drawWaterdrops (300, 150); //16
+  drawWaterdrops (300, 380); //17
+  drawWaterdrops (350, 20); //18
+  drawWaterdrops (350, 250); //19
+  drawWaterdrops (350, 20); //20
+  drawWaterdrops (380, 100); //21
+  drawWaterdrops (380, 320); //22
+  drawWaterdrops (390, 190); //23
+  drawWaterdrops (390, 420); //24
+  drawWaterdrops (450, 20); //25
+  
+  
+  
+
 
   //plant stalk
   let linex = 480;
@@ -70,34 +101,22 @@ function draw_clock(obj) {
     drawrightLeaf(535, 42 + (ystep * i));
   }
 
-  //waterdrops
-  strokeWeight(5);
-  point(60, 60);
-  point(80, 90);
-  point(60, 110);
-  point(40, 90);
 
-  fill(27, 149, 224);
-  noStroke();
-  beginShape();
-  curveVertex(60,60);
-  curveVertex(60,60);
-  curveVertex(80,90);
-  curveVertex(60,110);
-  curveVertex(40,90);
-  endShape(CLOSE);
+ 
 
 }
 
-let leafx = 20
-let leafy = 20
-let Leafx = 70
+let leafx = 20;
+let leafy = 20;
+let Leafx = 70;
+let dropx = 60;
+let dropy = 60;
 
 //left leaves function
 function drawLeaf(leafx, leafy) {
   fill(18, 181, 121); //light green
   stroke(1, 50, 32); //dark green
-  strokeWeight(2);
+  strokeWeight(1.5);
   beginShape();
   curveVertex(leafx, leafy); //20,20
   curveVertex(leafx, leafy); //20/, 20
@@ -113,7 +132,7 @@ function drawLeaf(leafx, leafy) {
 function drawrightLeaf(Leafx, leafy) {
   fill(18, 181, 121); //light green
   stroke(1, 50, 32); //dark green
-  strokeWeight(2);
+  strokeWeight(1.5);
   beginShape();
   curveVertex(Leafx, leafy); //70,20
   curveVertex(Leafx, leafy); //70,20
@@ -132,3 +151,37 @@ function drawrightLeaf(Leafx, leafy) {
 // point(20,70); //70
 // point(20,50); //70
 // point(60,30); //30
+
+
+ function drawWaterdrops(dropx, dropy) {
+
+  fill(27, 149, 224);
+  noStroke();
+  beginShape();
+  curveVertex(dropx,dropy); //top //60,60
+  curveVertex(dropx, dropy); //top //60,60
+  curveVertex(dropx + 5, dropy +25); //right side //65,85
+  curveVertex(dropx, dropy + 30); //bottom //60,90
+  curveVertex(dropx - 5, dropy + 25); //left side //55,85
+  endShape(CLOSE);
+
+//   //waterdrops
+//   // strokeWeight(5);
+//   // point(60, 60); //top
+//   // point(75, 95); //right
+//   // point(60, 110); //bottom
+//   // point(45, 95); //left
+
+//   //waterdrops
+
+//   fill(27, 149, 224);
+//   noStroke();
+//   beginShape();
+//   curveVertex(dropx,dropy); //top //60,60
+//   curveVertex(dropx,dropy); //top //60,60
+//   curveVertex(dropx + 15,dropy + 35); //right side //75,95
+//   curveVertex(dropx, dropy + 50); //bottom //60,110
+//   curveVertex(dropx - 15, dropy+35); //left side //45,95
+//   endShape(CLOSE);
+
+ }
