@@ -7,6 +7,11 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   //text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
 
+  let hours = obj.hours;
+  let minutes = obj.minutes;
+  let seconds = obj.seconds;
+  let millis = obj.millis;
+  let alarm = obj.seconds_until_alarm;
 
   fill(200); //grey/white
   ellipse(100,140, 30, 30);
@@ -89,7 +94,7 @@ fill(200);
   ellipse(600,290, 30, 30);
 
 
-
-
 }
+
+
 
