@@ -470,6 +470,7 @@ class HoursDisplay {
     }
   }
 
+  /** Draw method for display. */
   draw(active, activeRadius, passiveColor, activeColor) {
     push();
     translate(this.xCenter, this.yCenter);
@@ -682,9 +683,3 @@ function draw_clock(obj) {
   
 }
 
-
-
-"I'm killing you. I'm killing you. I don't care about anything else,"
-"I don't give a shit about anything else, I- my programming is just get that fucking guy right now."
-"It doesn't- there is no like 'Oh, he's running? I'll back off a little,' "
-"No it's just (STOMPING) until I get you."
