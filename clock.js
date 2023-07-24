@@ -479,7 +479,7 @@ class HoursDisplay {
     /*
      * Changes only the colour and radius of the active arc.
      * Similar to MinuteDisplay, the active indicator's radius will increase over time to
-     * activeRadius, and the speed at which it grows depends on the growth rate and vice versa
+     * activeRadius, and the speed at which it grows depends on the growth rate and vice versa.
      */
     let ind;
     let drawColor;
@@ -490,10 +490,17 @@ class HoursDisplay {
       ind = this.indicators[i];
       
       if (i === active) { 
+        /*
+         * Changes the draw colour if the current indicator is active.
+         */
         drawColor = activeColor;
         if (ind.radius < newRadius) ind.radius *= growthRate;
       }
 
+      /*
+       * If the indicator is not active and its radius is greater than
+       * the default radius, gradually decrease it.
+       */
       if (i !== active && ind.radius > this.radius) ind.radius *= decayRate; 
       else if (i !== active && ind.radius < this.radius) ind.radius = this.radius;
 
