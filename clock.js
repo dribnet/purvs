@@ -424,6 +424,7 @@ class HoursDisplay {
   constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
+    this.radius = radius;
     this.indicatorSize = indicatorSize;
     this.initialAngle = initialAngle;
 
@@ -439,14 +440,14 @@ class HoursDisplay {
     }
   }
 
-  draw(active, activeSize, passiveColor, activeColor) {
+  draw(active, activeRadius, passiveColor, activeColor) {
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI/180);
 
     let ind;
     let drawColor;
-    let newSize = this.indicatorSize + activeSize;;
+    let newRadius = this.radius + activeRadius;
     const GROWTH_FACTOR = 1.05;
     const DECAY_FACTOR = 0.99;
 
@@ -456,11 +457,11 @@ class HoursDisplay {
       
       if (i === active) { 
         drawColor = activeColor;
-        if (ind.size < newSize) ind.size *= GROWTH_FACTOR;
+        if (ind.radius < newRadius) ind.radius *= GROWTH_FACTOR;
       }
 
-      if (i !== active && ind.size > this.indicatorSize) ind.size *= DECAY_FACTOR; 
-      else if (i !== active && ind.size < this.indicatorSize) ind.size = this.indicatorSize;
+      if (i !== active && ind.radius > this.radius) ind.radius *= DECAY_FACTOR; 
+      else if (i !== active && ind.radius < this.radius) ind.radius = this.radius;
 
       ind.draw(drawColor);
     }
@@ -586,8 +587,13 @@ const minutesDisplay = new MinutesDiplay(
 /*
  * Hours.
  */
+const HOU_RADIUS = 180;
 
-let hoursDisplay = new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105)
+
+const hoursDisplay = new HoursDisplay(
+  WIDTH/2, HEIGHT/2, 
+  HOU_RADIUS, 12, 10, Math.PI/6, -105
+);
 
 // draw your own clock here based on the values of obj:
 //    obj.hours goes from 0-23
@@ -615,7 +621,7 @@ function draw_clock(obj) {
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
-  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
+  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 10, 255, [255, 0, 0])
   
 }
 
