@@ -701,16 +701,16 @@ const ampmDisplay = new AmPmDisplay(
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
-  // secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  // secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // secondsDisplay1.draw(SEC_COL_1);
-  // secondsDisplay2.draw(SEC_COL_2);
+  secondsDisplay1.draw(SEC_COL_1);
+  secondsDisplay2.draw(SEC_COL_2);
   
-  // pointer.draw(SEC_POINTER_COL, obj.seconds);
+  pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  // minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
