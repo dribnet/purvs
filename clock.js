@@ -2,6 +2,7 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function draw_clock(obj) {
+  //angleMode(DEGREES);
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
   //    obj.minutes goes from 0-59
@@ -35,6 +36,7 @@ function draw_clock(obj) {
   text("Seconds: " + seconds, width / 2, 200);
   text("Millis: " + millis, width / 2, 240);
 
+
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase1 = sin(bounce1);
   let y_bounce1 = map(phase1, -1, 1, -10, 10);
@@ -53,26 +55,131 @@ function draw_clock(obj) {
 
   
 
+
   let hours_radius = map(hours, 0, 59, 1, 150);
   fill(249, 140, 255);// pink
   ellipse(width / 3, 350 + y_bounce1, hours_radius);
 
-  let minutes_radius = map(minutes, 0, 59, 1, 150);
+  let minuteswithFraction = minutes + (seconds / 1000.0);
+  let minutes_radius = map(minuteswithFraction, 0, 59, 1, 150);
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350 + y_bounce2, minutes_radius);
 
 
   let secondsWithFraction   = seconds + (millis / 1000.0);
-
   let seconds_radius = map(secondsWithFraction, 0, 59, 1, 150);
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
-
-
+  let rotS = map(seconds, 0,59,0, TWO_PI)
   let millis_radius = map(millis, 0, 999, 1, 150);
-  fill(255, 165, 0); // orange
-  ellipse(width / 3 * 2.5, 350 + y_bounce4, millis_radius);
+push()
+translate (width / 3 * 2, 350 + y_bounce3)
+rotate (rotS)
+fill(255, 165, 0); // orange
+ellipse(100,0, millis_radius);
+
+pop()
+
+
+
 }
+
+
+
+
+
+
+
+// 25 July Tuesday, Horizons Clock Orbits
+// angleMode(DEGREES);
+//     background(253, 196, 255);
+//     stroke(255);
+//     strokeWeight(3);
+//     textAlign(CENTER, CENTER);
+//     textSize(80);
+ 
+
+//     let hourC = color(255, 250, 115); // light yellow
+//     let minuteC = color(171,225,239); // light blue
+//     let secondC = color(140, 255, 140); // light green
+    
+
+//     drawHour(250,200,obj.hours,hourC,minuteC);
+
+//     drawMinute(450,350,obj.minutes,minuteC,secondC);
+
+//     drawSecond(650,200,obj.seconds,secondC,hourC);
+  
+//     noStroke();
+//     fill(255);
+//     ellipse(450, 100, 100);
+
+//     fill(253, 196, 255);
+
+//     if(obj.hours < 5 || obj.hours > 19 ) {
+//         ellipse(475, 100, 100);// night 
+//     }    
+//     else if(obj.hours >=5 && obj.hours < 7 ){
+//         ellipse(450, 120, 100);//  dawn 
+//     }
+//     else if (obj.hours >=17 && obj.hours <= 19 ){
+//         ellipse(450, 65, 100);//  dusk 
+//     }
+//     else{
+//         fill(255);
+//         ellipse(450, 100, 100);
+//     }
+
+// }
+
+
+
+// function drawHour(x,y,curHour,Hc,Mc){
+//     fill(Hc);
+//     let hoursMap = map(curHour,0,23, 0,360);
+//     let colorLerpMap = map(curHour, 0,23, 0,1);
+//     let betweenColor= lerpColor(Hc,Mc,colorLerpMap);
+
+//     push();
+//         translate(x,y);
+//         ellipse(0,0, 200);
+//         rotate(hoursMap);
+//         translate(0,-130);
+//         fill(betweenColor);
+//         ellipse(0,0, 30);
+//     pop();
+// }
+
+
+// function drawMinute(x,y, curMin,Mc,Sc){
+//     fill(Mc);
+//     let minuteMap = map(curMin, 0,59, 0, 360);
+//     let colorLerpMap = map(curMin, 0,59, 0,1);
+//     let betweenColor= lerpColor(Mc,Sc,colorLerpMap);
+
+//     push();
+//     translate(x,y);
+//     ellipse(0,0, 200);
+//     rotate(minuteMap);
+//     fill(betweenColor);
+//     ellipse(0,-130, 30);
+//     pop();
+// }
+
+// function drawSecond(x,y,curSec,Sc,Hc){
+//     fill(Sc);
+//     let colorLerpMap = map(curSec, 0,59, 0,1);
+//     let secondMap = map(curSec, 0,59, 0, 360);
+//     let betweenColor= lerpColor(Sc,Hc,colorLerpMap);
+
+//     push();
+//     translate(x,y);
+//     ellipse(0,0, 200);
+//     rotate(secondMap);
+//     fill(betweenColor);
+//     ellipse(0,-130, 30);
+//     pop();
+// }
 
 
 
