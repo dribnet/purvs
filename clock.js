@@ -526,19 +526,29 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2, 0);
+  // secondsDisplay1.draw(SEC_COL_1);
+  // secondsDisplay2.draw(SEC_COL_2, 0);
   
-  pointer.draw(SEC_POINTER_COL, obj.seconds);
+  // pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+  // minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
-
-
+  const RADIUS = 80;
+  const START = 0;
+  const STOP = Math.PI / 2;
+  
+  ellipseMode(CENTER);
+  noFill();
+  strokeCap(SQUARE);
+  strokeWeight(10);
+  stroke([255, 127, 64]);
+  
+  arc(WIDTH/2, HEIGHT/2, RADIUS, RADIUS, START, STOP);
+  arc(WIDTH/2, HEIGHT/2, 2*RADIUS, 2*RADIUS, STOP, START);
   
 }
 
