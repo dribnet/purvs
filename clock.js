@@ -421,7 +421,8 @@ class MinutesIndicator {
 
 class HoursDisplay {
   constructor(xCenter, yCenter, indicatorRadius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
-    
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
     this.indicatorRadius = indicatorRadius;
     this.indicatorSize = indicatorSize;
 
@@ -432,7 +433,6 @@ class HoursDisplay {
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
-          xCenter, yCenter, 
           indicatorRadius, indicatorSize,
           ( indicatorArcSize * (10 * i + 1) ) / 10,    // ( 0 + i * indicatorArcSize ) + indicatorArcSize / 10,
           ( indicatorArcSize * (10 * i + 9) ) / 10,    // ( indicatorArcSize + i * indicatorArcSize ) - indicatorArcSize / 10,
@@ -443,7 +443,8 @@ class HoursDisplay {
 
   draw(active, activeSize, passiveColor, activeColor) {
     push();
-    rotate(this.initialAngle);
+    translate(this.xCenter, this.yCenter);
+    rotate(this.initialAngle * Math.PI/180);
 
     let ind;
     let drawColor;
@@ -471,9 +472,7 @@ class HoursDisplay {
 }
 
 class HoursIndicator {
-  constructor(xCenter, yCenter, radius, size, start, stop) {
-    this.xCenter = xCenter;
-    this.yCenter = yCenter;
+  constructor(radius, size, start, stop) {
     this.radius = radius;
     this.size = size;
     this.start = start;
@@ -489,7 +488,7 @@ class HoursIndicator {
     ellipseMode(CENTER);
     strokeCap(SQUARE);
     strokeWeight(this.size);
-    translate(this.xCenter, this.yCenter);
+    
     
     arc(0, 0, this.radius, this.radius, this.start, this.stop);
 
@@ -624,7 +623,7 @@ function draw_clock(obj) {
   noFill();
   strokeCap(SQUARE);
 
-  new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6).draw(obj.hours, 18, 255, [255, 0, 0])
+  new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105).draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
   
 }
 
