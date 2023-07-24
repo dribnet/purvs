@@ -50,14 +50,14 @@ function draw_clock(obj) {
   drawWaterdrops (160, 450); //10
   drawWaterdrops (190, 130); //11
   drawWaterdrops (210, 230); //12
-  drawWaterdrops (250, 430); //13
-  drawWaterdrops (260, 310); //14
-  drawWaterdrops (280, 50); //15
-  drawWaterdrops (300, 150); //16
-  drawWaterdrops (300, 380); //17
-  drawWaterdrops (350, 20); //18
-  drawWaterdrops (350, 250); //19
-  drawWaterdrops (350, 20); //20
+  drawWaterdrops (240, 10); //13 
+  drawWaterdrops (250, 430); //14
+  drawWaterdrops (260, 310); //15
+  drawWaterdrops (280, 50); //16
+  drawWaterdrops (300, 150); //17
+  drawWaterdrops (300, 380); //18
+  drawWaterdrops (350, 20); //19
+  drawWaterdrops (350, 250); //20
   drawWaterdrops (380, 100); //21
   drawWaterdrops (380, 320); //22
   drawWaterdrops (390, 190); //23
@@ -85,13 +85,21 @@ function draw_clock(obj) {
   drawWaterdrops (790, 30); //43
   drawWaterdrops (800, 150); //44
   drawWaterdrops (840, 250); //45
-  drawWaterdrops (860, 350); //46
-  drawWaterdrops (850, 80); //47
+  drawWaterdrops (850, 80); //46
+  drawWaterdrops (860, 350); //47
   drawWaterdrops (880, 180); //48
-  drawWaterdrops (890, 450); //49
-  drawWaterdrops (890, 20); //50
+  drawWaterdrops (900, 450); //49
+  drawWaterdrops (900, 20); //50
   drawWaterdrops (930, 120); //51
   drawWaterdrops (920, 300); //52
+  drawWaterdrops (820, 450); //53
+  drawWaterdrops (10, 250); //54
+  drawWaterdrops (290, 240); //55
+  drawWaterdrops (130, 140); //56
+  drawWaterdrops (200, 380); //57
+  drawWaterdrops (330, 460); //58
+  drawWaterdrops (20, 100); //59
+ 
  
 
   //plant stalk
