@@ -269,7 +269,7 @@ class MinutesDiplay {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
      * All affected indicators are added to a Map, storing both the index and the scale factor.
-     * When a unit time passes, the growth and decay factors control the speed at which the indicators change height.
+     * When a unit time passes, the growth and decay rates control the speed at which the indicators change height.
      */
     let factor;
     let ind;
@@ -476,6 +476,11 @@ class HoursDisplay {
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI/180);
 
+    /*
+     * Changes only the colour and radius of the active arc.
+     * Similar to MinuteDisplay, the active indicator's radius will increase over time to
+     * activeRadius, and the speed at which it grows depends on the growth rate and vice versa
+     */
     let ind;
     let drawColor;
     let newRadius = this.radius + activeRadius;
