@@ -449,8 +449,8 @@ class HoursDisplay {
     let ind;
     let drawColor;
     let newRadius = this.radius + activeRadius;
-    const GROWTH_FACTOR = 1.05;
-    const DECAY_FACTOR = 0.99;
+    const GROWTH_FACTOR = 1.005;
+    const DECAY_FACTOR = 0.999;
 
     for (let i=0; i<this.indicators.length; i++) {
       drawColor = passiveColor;
@@ -596,7 +596,7 @@ const MIN_INITIAL_ANGLE = 0;
 
 const MIN_ACTIVE_HEIGHT = 24;
 const MIN_PASSIVE_COL = [132, 42, 44];
-const MIN_ACTIVE_COL = [138, 202, 56]
+const MIN_ACTIVE_COL = [138, 202, 56];
 
 const minutesDisplay = new MinutesDiplay(
   WIDTH/2, HEIGHT/2,
@@ -607,14 +607,20 @@ const minutesDisplay = new MinutesDiplay(
 /*
  * Hours.
  */
-const HOU_RADIUS = 200;
+const HOU_RADIUS = 185;
 const HOU_INDICATOR_COUNT = 12;
 const HOU_INDICATOR_SIZE = 10;
 const HOU_INDICATOR_GAP = 12;
+const HOU_INITIAL_ANGLE = -105;
+
+const HOU_ACTIVE_RADIUS = 8;
+const HOU_PASSIVE_COL = [132, 42, 44];
+const HOU_ACTIVE_COL = [138, 202, 56];
 
 const hoursDisplay = new HoursDisplay(
   WIDTH/2, HEIGHT/2, 
-  HOU_RADIUS, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE, 12, -105
+  HOU_RADIUS, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE, HOU_INDICATOR_GAP, 
+  HOU_INITIAL_ANGLE
 );
 
 // draw your own clock here based on the values of obj:
@@ -643,7 +649,7 @@ function draw_clock(obj) {
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
-  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 10, 255, [255, 0, 0])
+  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
   
 }
 
