@@ -75,12 +75,24 @@ function draw_clock(obj) {
   fill(daySection[0] - 15, daySection[1], daySection[2]);
   circle(width / 2, ringHeight, width + 500);
   fill(daySection[0] - 10, daySection[1], daySection[2]);
-  circle(width / 2, ringHeight, width + 260);
+  circle(width / 2, ringHeight, width + 260); // Hour Ring
   fill(daySection[0] - 5, daySection[1], daySection[2]);
   circle(width / 2, ringHeight, width);
   
-  // Inner Ring
-  fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+  // Inner Ring (Minute Ring)
+  let darkRing = false;
+  if (obj.hours % 2 == 1) {
+    darkRing = true;
+  } else {
+    darkRing = false;
+  }
+
+  if (darkRing) {
+    fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+  } else {
+    fill(daySection[0] + 5, daySection[1], daySection[2]);
+  }
+
   if (daySection == night) {
     fill(235, 100, 30);
   }
@@ -92,25 +104,39 @@ function draw_clock(obj) {
   let hourDeg = map(obj.hours, 0, 23, 0, 690);
   let numeral = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
   let minDeg = map(obj.minutes, 0, 59, 0, 126);
+  let lastSec = map(obj.millis, 0, 999, 0, 30);
+  let overlap = map(obj.millis, 0, 999, 0, 15);
+  let negOverlap = map(obj.millis, 0, 999, 15, 0);
   
   //Hour Ring
   push();
     translate(width / 2, ringHeight);
-    rotate(hourDeg);
+    if (obj.minutes == 59 && obj.seconds == 59) { // Transition to Hour
+      rotate(lastSec);
+    }
+    if (obj.minutes == 0 && obj.seconds == 0) { //Overlapping Action
+      if (obj.millis < 499) {
+        rotate(overlap);
+      } else {
+        rotate(negOverlap);
+      }
+    }
+    rotate(hourDeg); // Rotation for top of circle
+
     fill(255);
-    textSize(85);
-    textStyle(NORMAL);
+    textSize(100);
+    textStyle(BOLD);
     textAlign(CENTER);
     for (i = 1; i < 13; i ++) {
       rotate(30);
-      text(numeral[numeral.length - i], 0, -510);
+      text(numeral[numeral.length - i], 0, -505);
     }
   pop();
 
   // Minute Ring
   push();
     translate(width / 2, ringHeight);
-    rotate(minDeg - 63);
+    rotate(minDeg - 62);
     fill(0);
     textSize(12);
     // textAlign(CENTER);
@@ -119,8 +145,12 @@ function draw_clock(obj) {
     colorMode(HSB);
     for (n = 0; n < obj.minutes; n ++) {
       rotate(-2.5);
-      fill(daySection[0] + 5, daySection[1], daySection[2]);
-      rect(0, -372, 20, 185);
+      if (darkRing) {
+        fill(daySection[0] + 5, daySection[1], daySection[2]);
+      } else {
+        fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+      }
+      rect(0, -372, 20, 190);
     }
   pop();
 
@@ -189,7 +219,7 @@ function draw_clock(obj) {
   text(obj.hours + " : " +  obj.minutes + " : " + obj.seconds, 20, 30);
 
   //CAR
-  let bounce = obj.millis;
+  let bounce = map(obj.millis, 0, 999, 1, 800);
   let phase = sin(bounce);
   draw_Car(50, 230 + phase, phase, carColor);
 
@@ -211,9 +241,12 @@ function draw_clock(obj) {
   rect(markerPace, 410, 5, 75);
   
   angleMode(RADIANS);
+  fill(90, 0, 30);
+  arc(width / 2 + markerPace + 4, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
+  arc(markerPace + 4, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
   fill(140, 0, 0);
-  arc(width / 2 + markerPace + 2, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
-  arc(markerPace + 2, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
+  arc(width / 2 + markerPace + 2, 396, 36, 64, 0, 2.4 + 0.7, CHORD);
+  arc(markerPace + 2, 396, 36, 64, 0, 2.4 + 0.7, CHORD);
   
   textSize(20);
   // textStyle(BOLD);
