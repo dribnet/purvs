@@ -418,24 +418,53 @@ class MinutesIndicator {
 
 
 
-
+/**
+ * Hours in this clock is defined by a series of arcs.
+ * At some given hour, one of the arcs' distances from some origin will increase.
+ */
 class HoursDisplay {
+  /** Constructor. */
   constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0) {
+
+    /*
+     * Center co-ords, initial angle, and radius of each arc.
+     */
     this.xCenter = xCenter;
     this.yCenter = yCenter;
-    this.radius = radius;
-    this.indicatorSize = indicatorSize;
     this.initialAngle = initialAngle;
+    this.radius = radius;
 
+    /*
+     * Indicator size refers to the stroke width of the arc.
+     */
+
+    this.indicatorSize = indicatorSize;
+
+    /*
+     * The size of the arc of each indicator depends on the number of indicators.
+     * Essentially what this does is segment a circle into an indicatorCount number of parts. 
+     */
     let indicatorArcSize = 2 * Math.PI / indicatorCount;
 
+    /*
+     * Generates some number of indicators and pushes them into an array.
+     * Because each indicator is stored in an array, a simple mapping from its position in
+     * the array to each unit in time is made. 
+     */
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
-          radius, indicatorSize, 
-          ( indicatorArcSize * (indicatorGap * i + 1) ) / indicatorGap,         // i * indicatorArcSize + indicatorArcSize / indicatorGap, 
-          ( indicatorArcSize * (indicatorGap * (i + 1) - 1) ) / indicatorGap    // i * indicatorArcSize + indicatorArcSize - indicatorArcSize / indicatorGap
+          radius, indicatorSize,
+          /*
+           * The indicatorGap is a number that slightly reduces the ends of each arc in order
+           * to make distinguishing between them easier. 
+           * This number is the denominator of the ratio between indicatorArcSize and indicatorGap.
+           * This ratio added on to the arc's start in order to shift it forward slightly,
+           * and is subtracted from the arc's end in order to shift it back slightly.
+           */
+          ( indicatorArcSize * (indicatorGap * i + 1) ) / indicatorGap,         // = i * 0 + indicatorArcSize + indicatorArcSize / indicatorGap, 
+          ( indicatorArcSize * (indicatorGap * (i + 1) - 1) ) / indicatorGap    // = i * indicatorArcSize + indicatorArcSize - indicatorArcSize / indicatorGap
         )
       );
     }
@@ -623,18 +652,18 @@ const hoursDisplay = new HoursDisplay(
   HOU_INITIAL_ANGLE
 );
 
-// draw your own clock here based on the values of obj:
-//    obj.hours goes from 0-23
-//    obj.minutes goes from 0-59
-//    obj.seconds goes from 0-59
-//    obj.millis goes from 0-999
-//    obj.seconds_until_alarm is:
-//        < 0 if no alarm is set
-//        = 0 if the alarm is currently going off
-//        > 0 --> the number of seconds until alarm should go off
+/*
+ * draw your own clock here based on the values of obj:
+ *    obj.hours goes from 0-23
+ *    obj.minutes goes from 0-59
+ *    obj.seconds goes from 0-59
+ *    obj.millis goes from 0-999
+ *    obj.seconds_until_alarm is:
+ *        < 0 if no alarm is set
+ *        = 0 if the alarm is currently going off
+ *        > 0 --> the number of seconds until alarm should go off
+ */
 function draw_clock(obj) {
-
-  
   background(BACKGROUND_COL); 
 
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
