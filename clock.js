@@ -486,11 +486,11 @@ class HoursIndicator {
      * Start and stop denote where the arc begins and stops, e.g. 
      * start at 0 and stop at 2 PI draws a full circle.
      * Pretending that a full cicle is just four points, the drawn path is as follows:
-     *       3
+     *       3Pi/4
      *
-     * 2   (x, y)   0
+     * PI   (x, y)   0 OR 2Pi
      *
-     *       1 
+     *       Pi/2 
      */
     this.start = start;
     this.stop = stop;
@@ -511,7 +511,6 @@ class HoursIndicator {
 
     pop();
   }
-
 }
 
 
