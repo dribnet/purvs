@@ -420,25 +420,53 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, indicatorGap, initialAngle=0) {
+  constructor(xCenter, yCenter, indicatorRadius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
+    
+    this.indicatorRadius = indicatorRadius;
+    this.indicatorSize = indicatorSize;
+
+
     this.initialAngle = initialAngle;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
-          xCenter, yCenter, radius, indicatorSize,
-          i * indicatorArcSize + indicatorGap, 
-          indicatorArcSize + i * indicatorArcSize - indicatorGap
+          xCenter, yCenter, 
+          indicatorRadius, indicatorSize,
+          ( indicatorArcSize * (10 * i + 1) ) / 10,    // ( 0 + i * indicatorArcSize ) + indicatorArcSize / 10,
+          ( indicatorArcSize * (10 * i + 9) ) / 10,    // ( indicatorArcSize + i * indicatorArcSize ) - indicatorArcSize / 10,
         )
       );
     }
   }
 
-  draw(fillColor) {
-    for (let ind of this.indicators) {
-      ind.draw(fillColor);
+  draw(active, activeSize, passiveColor, activeColor) {
+    push();
+    rotate(this.initialAngle);
+
+    let ind;
+    let drawColor;
+    const RADIUS_INCREASE = 1.1;
+
+    for (let i=0; i<this.indicators.length; i++) {
+      drawColor = passiveColor;
+      ind = this.indicators[i];
+      
+      if (i === active) { 
+        drawColor = activeColor;
+        ind.radius *= RADIUS_INCREASE;
+        ind.size = activeSize; 
+
+      }
+      else if (i !== active && ind.radius > this.indicatorRadius) {
+        ind.radius = this.indicatorRadius;
+        ind.size = this.indicatorSize;
+      }
+
+      ind.draw(drawColor);
     }
+    pop();
   }
 }
 
@@ -596,7 +624,7 @@ function draw_clock(obj) {
   noFill();
   strokeCap(SQUARE);
 
-  new HoursDisplay(WIDTH/2, HEIGHT/2, 80, 12, 10, Math.PI/6, Math.PI/36).draw(255)
+  new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6).draw(obj.hours, 18, 255, [255, 0, 0])
   
 }
 
