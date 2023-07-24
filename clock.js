@@ -420,23 +420,54 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0) {
-    this.xCenter = xCenter;
-    this.yCenter = yCenter;
-    this.radius = radius;
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, indicatorGap, initialAngle=0) {
     this.initialAngle = initialAngle;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
-      this.indicators.push( new HoursIndicator(indicatorSize, indicatorGap) );
+      this.indicators.push(
+        new HoursIndicator(
+          xCenter, yCenter, radius, indicatorSize,
+          i * indicatorArcSize + indicatorGap, 
+          indicatorArcSize + i * indicatorArcSize - indicatorGap
+        )
+      );
+    }
+  }
+
+  draw(fillColor) {
+    for (let ind of this.indicators) {
+      ind.draw(fillColor);
     }
   }
 }
 
 class HoursIndicator {
-  constructor(size, gap) {
-
+  constructor(xCenter, yCenter, radius, size, start, stop) {
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+    this.radius = radius;
+    this.size = size;
+    this.start = start;
+    this.stop = stop;
   }
+
+  draw(fillColor) {
+    push();
+
+    // Setup
+    noFill();
+    stroke(fillColor);
+    ellipseMode(CENTER);
+    strokeCap(SQUARE);
+    strokeWeight(this.size);
+    translate(this.xCenter, this.yCenter);
+    
+    arc(0, 0, this.radius, this.radius, this.start, this.stop);
+
+    pop();
+  }
+
 }
 
 
@@ -544,36 +575,28 @@ function draw_clock(obj) {
   
   background(BACKGROUND_COL); 
 
-  // secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  // secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // secondsDisplay1.draw(SEC_COL_1);
-  // secondsDisplay2.draw(SEC_COL_2, 0);
+  secondsDisplay1.draw(SEC_COL_1);
+  secondsDisplay2.draw(SEC_COL_2, 0);
   
-  // pointer.draw(SEC_POINTER_COL, obj.seconds);
+  pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  // minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+
+
 
   const RADIUS = 80;
-  const START = 0;
-  const STOP = 2 * Math.PI / 12;
-  let shrink = Math.PI / 36;
+  let arcSize = 2 * Math.PI / 12;
+  let arcGap = Math.PI / 36;
   
   ellipseMode(CENTER);
   noFill();
   strokeCap(SQUARE);
-  
 
-  for (let i=0; i<12; i++) {
-    let coolerRaduis = (i === 9) ? RADIUS * 2 : RADIUS;
-    strokeWeight((i === 9) ? 15 : 10);
-
-    push();
-    stroke( lerpColor( color([255, 0, 0]), color([0, 255, 0]), i/12 ) );
-    arc(WIDTH/2, HEIGHT/2, coolerRaduis, coolerRaduis, START + i * STOP + shrink, STOP + i * STOP - shrink);
-    pop();
-  }
+  new HoursDisplay(WIDTH/2, HEIGHT/2, 80, 12, 10, Math.PI/6, Math.PI/36).draw(255)
   
 }
 
