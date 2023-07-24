@@ -147,6 +147,8 @@ class SecondsIndicator {
 
   /** Draw method for indicator. */
   draw(fillColor) {
+
+    // Setup
     push();
     noStroke(); 
     fill(fillColor);
@@ -192,6 +194,7 @@ class SecondsPointer {
 
   /** Draw method for pointer. */
   draw(fillColor, time) {
+    // Setup
     push();
     translate(this.xCenter, this.yCenter);
     rotate(this.angle * Math.PI/180);
@@ -200,11 +203,12 @@ class SecondsPointer {
     noStroke(); 
     fill(fillColor);
 
+    // Drawing the pointer
     beginShape();
     for (let p of this.points) vertex(p[0], p[1]);
     endShape(CLOSE);
 
-
+    // Drawing the text
     textFont("Courier New", this.points[2][0]); // Uses the pointer width as the size
     text(time, 0, 2 * this.points[0][1]); // Uses negative pointer height as an offset from the pointer
 
@@ -420,6 +424,11 @@ class HoursDisplay {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
     this.radius = radius;
+
+    this.indicators = [];
+    for (let i=0; i<indicatorCount; i++) {
+
+    }
     
   }
 }
@@ -429,6 +438,8 @@ class HoursIndicator {
 
   }
 }
+
+
 
 
 /*TO DO:
