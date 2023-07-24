@@ -458,7 +458,7 @@ class HoursDisplay {
            * The indicatorGap is a number that slightly reduces the ends of each arc in order
            * to make distinguishing between them easier. 
            * This number is the denominator of the ratio indicatorArcSize / indicatorGap.
-           * This ratio added on to the arc's start in order to shift it forward slightly,
+           * This ratio is added on to the arc's start in order to shift it forward slightly,
            * and is subtracted from the arc's end in order to shift it back slightly.
            */
           ( indicatorArcSize * (indicatorGap * i + 1) ) / indicatorGap,         // = i * 0 + indicatorArcSize + indicatorArcSize / indicatorGap, 
