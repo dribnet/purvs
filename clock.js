@@ -421,7 +421,7 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor(xCenter, yCenter, indicatorRadius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
     this.indicatorSize = indicatorSize;
@@ -433,9 +433,7 @@ class HoursDisplay {
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
-          indicatorRadius, indicatorSize,
-          i * indicatorArcSize + GAP,
-          indicatorArcSize * (1 + i) - GAP
+          radius, indicatorSize, i * indicatorArcSize + GAP, (i + 1) * indicatorArcSize - GAP
         )
       );
     }
@@ -585,8 +583,11 @@ const minutesDisplay = new MinutesDiplay(
   MIN_INITIAL_ANGLE
 );
 
+/*
+ * Hours.
+ */
 
-let test = new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105)
+let hoursDisplay = new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105)
 
 // draw your own clock here based on the values of obj:
 //    obj.hours goes from 0-23
@@ -614,7 +615,7 @@ function draw_clock(obj) {
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
-  test.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
+  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
   
 }
 
