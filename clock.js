@@ -420,21 +420,21 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor(xCenter, yCenter, radius, indicatorCount, indicatorOffset, indicatorSize, initialAngle=0) {
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
     this.radius = radius;
+    this.initialAngle = initialAngle;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
-
+      this.indicators.push( new HoursIndicator(indicatorSize, indicatorGap) );
     }
-    
   }
 }
 
 class HoursIndicator {
-  constructor(yOffset, size) {
+  constructor(size, gap) {
 
   }
 }
@@ -558,7 +558,6 @@ function draw_clock(obj) {
   const RADIUS = 80;
   const START = 0;
   const STOP = 2 * Math.PI / 12;
-  
   let shrink = Math.PI / 36;
   
   ellipseMode(CENTER);
