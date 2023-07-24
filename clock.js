@@ -37,68 +37,70 @@ function draw_clock(obj) {
   // noStroke();
   // ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
  
-  //waterdrops position
-  drawWaterdrops (30,20); //1
-  drawWaterdrops (30, 430); //2
-  drawWaterdrops (50, 160); //3
-  drawWaterdrops (50, 300); //4
-  drawWaterdrops (80, 80); //5
-  drawWaterdrops (100, 370); //6
-  drawWaterdrops (120, 210); //7
-  drawWaterdrops (150, 30); //8
-  drawWaterdrops (160, 320); //9
-  drawWaterdrops (160, 450); //10
-  drawWaterdrops (190, 130); //11
-  drawWaterdrops (210, 230); //12
-  drawWaterdrops (240, 10); //13 
-  drawWaterdrops (250, 430); //14
-  drawWaterdrops (260, 310); //15
-  drawWaterdrops (280, 50); //16
-  drawWaterdrops (300, 150); //17
-  drawWaterdrops (300, 380); //18
-  drawWaterdrops (350, 20); //19
-  drawWaterdrops (350, 250); //20
-  drawWaterdrops (380, 100); //21
-  drawWaterdrops (380, 320); //22
-  drawWaterdrops (390, 190); //23
-  drawWaterdrops (390, 420); //24
-  drawWaterdrops (450, 20); //25
-  drawWaterdrops (510, 10); //26
-  drawWaterdrops (550, 300); //27
-  drawWaterdrops (550, 80); //28
-  drawWaterdrops (560, 180); //29
-  drawWaterdrops (580, 430); //30
-  drawWaterdrops (590, 20); //31
-  drawWaterdrops (600, 230); //32
-  drawWaterdrops (600, 100); //31
-  drawWaterdrops (610, 350); //32
-  drawWaterdrops (650, 170); //33
-  drawWaterdrops (660, 40); //34
-  drawWaterdrops (670, 270); //35
-  drawWaterdrops (680, 440); //36
-  drawWaterdrops (700, 350); //37
-  drawWaterdrops (710, 10); //38
-  drawWaterdrops (720, 110); //39
-  drawWaterdrops (730, 200); //40
-  drawWaterdrops (760, 280); //41
-  drawWaterdrops (770, 400); //42
-  drawWaterdrops (790, 30); //43
-  drawWaterdrops (800, 150); //44
-  drawWaterdrops (840, 250); //45
-  drawWaterdrops (850, 80); //46
-  drawWaterdrops (860, 350); //47
-  drawWaterdrops (880, 180); //48
-  drawWaterdrops (900, 450); //49
-  drawWaterdrops (900, 20); //50
-  drawWaterdrops (930, 120); //51
-  drawWaterdrops (920, 300); //52
-  drawWaterdrops (820, 450); //53
-  drawWaterdrops (10, 250); //54
-  drawWaterdrops (290, 240); //55
-  drawWaterdrops (130, 140); //56
-  drawWaterdrops (200, 380); //57
-  drawWaterdrops (330, 460); //58
-  drawWaterdrops (20, 100); //59
+  //waterdrops positioning
+  let xposDrop = [30,30,50,50,80,100,120,150,160,160,190,210,240,250,260,280,300,300,350,350,380,380,390,390,450,510,550,550]; //x position for the water drops for 0-59 seconds
+
+  drawWaterdrops (xposDrop[0],20); //1 //30,20
+  drawWaterdrops (xposDrop[1], 430); //2 //30,430
+  drawWaterdrops (xposDrop[2], 160); //3 //50,160
+  drawWaterdrops (xposDrop[3], 300); //4 //50,300
+  drawWaterdrops (xposDrop[4], 80); //5 //80,80
+  drawWaterdrops (xposDrop[5], 370); //6 //100,370
+  drawWaterdrops (xposDrop[6], 210); //7 //120,210
+  drawWaterdrops (xposDrop[7], 30); //8 //150,30
+  drawWaterdrops (xposDrop[8], 320); //9 //160,320
+  drawWaterdrops (xposDrop[9], 450); //10 //160,450
+  drawWaterdrops (xposDrop[10], 130); //11 //190,130
+  drawWaterdrops (xposDrop[11], 230); //12 //210,230
+  drawWaterdrops (xposDrop[12], 10); //13 //240,10
+  drawWaterdrops (xposDrop[13], 430); //14 //250,430
+  drawWaterdrops (xposDrop[14], 310); //15 //260,310
+  drawWaterdrops (xposDrop[15], 50); //16 //280,50
+  drawWaterdrops (xposDrop[16], 150); //17 //300,150
+  drawWaterdrops (xposDrop[17], 380); //18 //300,380
+  drawWaterdrops (xposDrop[18], 20); //19 //350,20
+  drawWaterdrops (xposDrop[19], 250); //20 //350,250
+  drawWaterdrops (xposDrop[20], 100); //21 //380,100
+  drawWaterdrops (xposDrop[21], 320); //22 //380,320
+  drawWaterdrops (xposDrop[22], 190); //23 //390,190
+  drawWaterdrops (xposDrop[23], 420); //24 //390,420
+  drawWaterdrops (xposDrop[24], 20); //25 //450,20
+  drawWaterdrops (xposDrop[25], 10); //26 //510,10
+  drawWaterdrops (xposDrop[26], 300); //27 //550,300
+  drawWaterdrops (xposDrop[27], 80); //28 //550,80
+  drawWaterdrops (560, 180); //29 //560,180
+  drawWaterdrops (580, 430); //30 //580,430
+  drawWaterdrops (590, 20); //31 //590,20
+  drawWaterdrops (600, 230); //32 //600,230
+  drawWaterdrops (600, 100); //31 //600,100
+  drawWaterdrops (610, 350); //32 //610,350
+  drawWaterdrops (650, 170); //33 //650,170
+  drawWaterdrops (660, 40); //34 //660,40
+  drawWaterdrops (670, 270); //35 //670,270
+  drawWaterdrops (680, 440); //36 //680,440
+  drawWaterdrops (700, 350); //37 //700,350
+  drawWaterdrops (710, 10); //38 //710,10
+  drawWaterdrops (720, 110); //39 //720,110
+  drawWaterdrops (730, 200); //40 //730,200
+  drawWaterdrops (760, 280); //41 //760,280
+  drawWaterdrops (770, 400); //42 //770,400
+  drawWaterdrops (790, 30); //43 //790,30
+  drawWaterdrops (800, 150); //44 //800,150
+  drawWaterdrops (840, 250); //45 //840,250
+  drawWaterdrops (850, 80); //46 //850,80
+  drawWaterdrops (860, 350); //47 //860,350
+  drawWaterdrops (880, 180); //48 //880,180
+  drawWaterdrops (900, 450); //49 //900,450
+  drawWaterdrops (900, 20); //50 //900,20
+  drawWaterdrops (930, 120); //51 //930,120
+  drawWaterdrops (920, 300); //52 //920, 300
+  drawWaterdrops (820, 450); //53 //820,450
+  drawWaterdrops (10, 250); //54 //10,250
+  drawWaterdrops (290, 240); //55 //290,240
+  drawWaterdrops (130, 140); //56 //130,140
+  drawWaterdrops (200, 380); //57 //200,380
+  drawWaterdrops (330, 460); //58 //330,460
+  drawWaterdrops (20, 100); //59 //20,100
  
  
 
