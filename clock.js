@@ -416,12 +416,19 @@ class MinutesIndicator {
 
 
 class HoursDisplay {
-  constructor() {
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorOffset, indicatorSize, initialAngle=0) {
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+    this.radius = radius;
     
   }
 }
 
+class HoursIndicator {
+  constructor(yOffset, size) {
 
+  }
+}
 
 
 /*TO DO:
@@ -539,17 +546,30 @@ function draw_clock(obj) {
 
   const RADIUS = 80;
   const START = 0;
-  const STOP = Math.PI / 2;
+  const STOP = 2 * Math.PI / 12;
+  
+  let shrink = Math.PI / 36;
   
   ellipseMode(CENTER);
   noFill();
   strokeCap(SQUARE);
-  strokeWeight(10);
-  stroke([255, 127, 64]);
   
-  arc(WIDTH/2, HEIGHT/2, RADIUS, RADIUS, START, STOP);
-  arc(WIDTH/2, HEIGHT/2, 2*RADIUS, 2*RADIUS, STOP, START);
+
+  for (let i=0; i<12; i++) {
+    let coolerRaduis = (i === 9) ? RADIUS * 2 : RADIUS;
+    strokeWeight((i === 9) ? 15 : 10);
+
+    push();
+    stroke( lerpColor( color([255, 0, 0]), color([0, 255, 0]), i/12 ) );
+    arc(WIDTH/2, HEIGHT/2, coolerRaduis, coolerRaduis, START + i * STOP + shrink, STOP + i * STOP - shrink);
+    pop();
+  }
   
 }
 
 
+
+"I'm killing you. I'm killing you. I don't care about anything else,"
+"I don't give a shit about anything else, I- my programming is just get that fucking guy right now."
+"It doesn't- there is no like 'Oh, he's running? I'll back off a little,' "
+"No it's just (STOMPING) until I get you."
