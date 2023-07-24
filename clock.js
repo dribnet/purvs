@@ -286,6 +286,7 @@ class MinutesDiplay {
        * The number of indicators affected is 2 * (spread range - 1).
        * The active unit will grow by activeHeight, while neighbouring indicators will grow by 
        * (spread range - distance from active) / spread range * activeHeight.
+       * Note that the indicators will grow BY activeHeight and not grow TO activeHeight.
        */
       if (i === active) {
         for (let j=-SPREAD_RANGE; j<=SPREAD_RANGE; j++) {
@@ -423,11 +424,10 @@ class HoursDisplay {
   constructor(xCenter, yCenter, indicatorRadius, indicatorCount, indicatorSize, indicatorArcSize, initialAngle=0) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
-    this.indicatorRadius = indicatorRadius;
     this.indicatorSize = indicatorSize;
     this.initialAngle = initialAngle;
 
-    const GAP = indicatorArcSize / 10;
+    const GAP = indicatorArcSize / 8;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
@@ -448,7 +448,8 @@ class HoursDisplay {
 
     let ind;
     let drawColor;
-    const GROWTH_FACTOR = 1.03;
+    let newSize = this.indicatorSize + activeSize;;
+    const GROWTH_FACTOR = 1.05;
     const DECAY_FACTOR = 0.99;
 
     for (let i=0; i<this.indicators.length; i++) {
@@ -457,14 +458,11 @@ class HoursDisplay {
       
       if (i === active) { 
         drawColor = activeColor;
-        ind.radius = (ind.radius < activeSize) ? ind.radius * GROWTH_FACTOR : ind.radius;
-        ind.size = activeSize; 
+        if (ind.size < newSize) ind.size *= GROWTH_FACTOR;
+      }
 
-      }
-      else if (i !== active && ind.radius > this.indicatorRadius) {
-        ind.radius = this.indicatorRadius;
-        ind.size = this.indicatorSize;
-      }
+      if (i !== active && ind.size > this.indicatorSize) ind.size *= DECAY_FACTOR; 
+      else if (i !== active && ind.size < this.indicatorSize) ind.size = this.indicatorSize;
 
       ind.draw(drawColor);
     }
@@ -489,7 +487,6 @@ class HoursIndicator {
     ellipseMode(CENTER);
     strokeCap(SQUARE);
     strokeWeight(this.size);
-    
     
     arc(0, 0, this.radius, this.radius, this.start, this.stop);
 
@@ -589,6 +586,8 @@ const minutesDisplay = new MinutesDiplay(
 );
 
 
+let test = new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105)
+
 // draw your own clock here based on the values of obj:
 //    obj.hours goes from 0-23
 //    obj.minutes goes from 0-59
@@ -607,7 +606,7 @@ function draw_clock(obj) {
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
   secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2, 0);
+  secondsDisplay2.draw(SEC_COL_2);
   
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
@@ -615,8 +614,7 @@ function draw_clock(obj) {
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
-
-  new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105).draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
+  test.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
   
 }
 
