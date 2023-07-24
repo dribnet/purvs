@@ -615,14 +615,6 @@ function draw_clock(obj) {
 
 
 
-  const RADIUS = 80;
-  let arcSize = 2 * Math.PI / 12;
-  let arcGap = Math.PI / 36;
-  
-  ellipseMode(CENTER);
-  noFill();
-  strokeCap(SQUARE);
-
   new HoursDisplay(WIDTH/2, HEIGHT/2, 180, 12, 10, Math.PI/6, -105).draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, 18, 255, [255, 0, 0])
   
 }
