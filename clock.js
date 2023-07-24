@@ -18,7 +18,7 @@ function draw_clock(obj) {
     push();
       translate(width / 2, ringHeight);
       rotate(scapeDeg);
-      rotate(obj.minutes * -3.6);
+      rotate(scapePos); //obj.minutes * -3.6
       rotate(x + 15);
       fill(color);
       rect(x, y, w, h, 4);
@@ -103,7 +103,8 @@ function draw_clock(obj) {
   //Roman Numeral / Hour Ring
   let hourDeg = map(obj.hours, 0, 23, 0, 690);
   let numeral = ["XII", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI"];
-  let minDeg = map(obj.minutes, 0, 59, 0, 126);
+  let minDeg = map(obj.minutes, 0, 59, -66, 66); //0-126
+  let secDeg = map(obj.millis, 0, 999, 0, 2.2);
   let lastSec = map(obj.millis, 0, 999, 0, 30);
   let overlap = map(obj.millis, 0, 999, 0, 15);
   let negOverlap = map(obj.millis, 0, 999, 15, 0);
@@ -136,13 +137,13 @@ function draw_clock(obj) {
   // Minute Ring
   push();
     translate(width / 2, ringHeight);
-    rotate(minDeg - 62);
-    fill(0);
-    textSize(12);
-    // textAlign(CENTER);
-    text(obj.minutes, 0, -300);
+    if (obj.seconds == 59){
+      rotate(secDeg);
+    }
+    rotate(minDeg);
     rectMode(CENTER);
     colorMode(HSB);
+    
     for (n = 0; n < obj.minutes; n ++) {
       rotate(-2.5);
       if (darkRing) {
@@ -150,21 +151,22 @@ function draw_clock(obj) {
       } else {
         fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
       }
-      rect(0, -372, 20, 190);
+      rect(0, -372, 22, 190);
     }
   pop();
 
   //LANDSCAPES
   colorMode(RGB);
-  let scapeDeg = map(obj.seconds, 0, 59, 3.6, 0);
+  let scapeDeg = map(obj.seconds, 0, 59, 6, 0);
   let cityY = -265;
+  let scapePos = map(obj.minutes, 0, 59, 359, 0);
 
   push();
   rotate(0);
   translate(width / 2, ringHeight);
   rectMode(CENTER);
   rotate(scapeDeg);
-  rotate(obj.minutes * -3.6);
+  rotate(scapePos); // LANDSCAPE ROTATION ISSUE
   rotate(130); // Place around circle
   fill(30, 180, 130);
   ellipse(0, -240, 250, 170);
