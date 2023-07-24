@@ -425,17 +425,17 @@ class HoursDisplay {
     this.yCenter = yCenter;
     this.indicatorRadius = indicatorRadius;
     this.indicatorSize = indicatorSize;
-
-
     this.initialAngle = initialAngle;
+
+    const GAP = indicatorArcSize / 10;
 
     this.indicators = [];
     for (let i=0; i<indicatorCount; i++) {
       this.indicators.push(
         new HoursIndicator(
           indicatorRadius, indicatorSize,
-          ( indicatorArcSize * (10 * i + 1) ) / 10,    // ( 0 + i * indicatorArcSize ) + indicatorArcSize / 10,
-          ( indicatorArcSize * (10 * i + 9) ) / 10,    // ( indicatorArcSize + i * indicatorArcSize ) - indicatorArcSize / 10,
+          i * indicatorArcSize + GAP,
+          indicatorArcSize * (1 + i) - GAP
         )
       );
     }
@@ -448,7 +448,8 @@ class HoursDisplay {
 
     let ind;
     let drawColor;
-    const RADIUS_INCREASE = 1.1;
+    const GROWTH_FACTOR = 1.03;
+    const DECAY_FACTOR = 0.99;
 
     for (let i=0; i<this.indicators.length; i++) {
       drawColor = passiveColor;
@@ -456,7 +457,7 @@ class HoursDisplay {
       
       if (i === active) { 
         drawColor = activeColor;
-        ind.radius *= RADIUS_INCREASE;
+        ind.radius = (ind.radius < activeSize) ? ind.radius * GROWTH_FACTOR : ind.radius;
         ind.size = activeSize; 
 
       }
