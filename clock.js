@@ -414,8 +414,6 @@ class MinutesIndicator {
  * ===================================== ===================================== *
  */ 
 
-
-
 /**
  * Hours in this clock is defined by a series of arcs.
  * At some given hour, one of the arcs' distances from some origin will increase.
@@ -555,16 +553,32 @@ class HoursIndicator {
   }
 }
 
+/*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ================================== AM/PM ================================== *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */ 
 
+class AmPmDisplay {
+  constructor(xCenter, yCenter, radius) {
+    this.xCenter = xCenter;
+    this.yCenter = yCenter;
+    this.radius = radius;
+  }
 
+  draw(fillColor) {
+    push();
+    translate(this.xCenter, this.yCenter);
+    ellipseMode(CENTER);
+    noStroke();
+    fill(fillColor);
 
-/* TO DO:
- * - make AMPMDisplay
- */
-
-
-
-
+    ellipse(0, 0, this.radius, this.radius);
+    pop();
+  }
+}
 
 /*
  * ===================================== ===================================== *
@@ -664,6 +678,16 @@ const hoursDisplay = new HoursDisplay(
 );
 
 /*
+ * AM/PM.
+ */
+
+const AMPM_RADIUS = 30;
+const ampmDisplay = new AmPmDisplay(
+  WIDTH/2, HEIGHT/2,
+  AMPM_RADIUS
+);
+
+/*
  * draw your own clock here based on the values of obj:
  *    obj.hours goes from 0-23
  *    obj.minutes goes from 0-59
@@ -677,19 +701,31 @@ const hoursDisplay = new HoursDisplay(
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
-  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  // secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2);
+  // secondsDisplay1.draw(SEC_COL_1);
+  // secondsDisplay2.draw(SEC_COL_2);
   
-  pointer.draw(SEC_POINTER_COL, obj.seconds);
+  // pointer.draw(SEC_POINTER_COL, obj.seconds);
 
 
-  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+  // minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
 
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
-  
+
+  let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
+
+  ampmDisplay.draw(
+  lerpColor(
+    color(30),
+    color(255),
+    (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12
+  )
+);
+
 }
+
+
 
