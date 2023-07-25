@@ -74,9 +74,9 @@ class EnemySpaceShip extends SpaceShip{
     this.x = (enemyLemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
     this.y = (enemyLemniscateHeight * cos(this.angle) * sin(this.angle)) / (1 + pow(sin(this.angle), 2));
   }
-  draw() {
+  draw(x = this.getX(), y = this.getY(), width = enemyImg.width/2, height = enemyImg.height/2) {
     this.hidden = false;
-    image(enemyImg, this.getX(), this.getY(), enemyImg.width/2, enemyImg.height/2);
+    image(enemyImg, x, y, width, height);
   }
   getX() {
     return this.x + width / 2;
@@ -88,6 +88,16 @@ class EnemySpaceShip extends SpaceShip{
   drawBoundingBox() {
     noFill();
     rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
+  }
+  flyAway(angle) {
+    // Calculate the new position to draw the image at
+    var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
+    var arcY = height/5 + height/2 * sin(angle);
+    var enemyX = map(obj.millis, 0, 999, this.getX(), arcX);
+    var enemyY = map(obj.millis, 0, 999, this.getY(), arcY);
+
+    // Draw the image
+    this.draw(enemyX, enemyY); 
   }
 }
 
@@ -206,13 +216,7 @@ function updateEnemyShips() {
     if (obj.seconds === 59 && obj.minutes === 59) {
       // find the point on the arc offscreen to fly away to
       var angle = map(i, 0, maxEnemySpaceShips - 1, PI, TWO_PI);
-      var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
-      var arcY = height/5 + height/2 * sin(angle);
-      var enemyX = map(obj.millis, 0, 999, enemySpaceShips[i].getX(), arcX);
-      var enemyY = map(obj.millis, 0, 999, enemySpaceShips[i].getY(), arcY);
-
-      enemySpaceShips[i].hidden = false;
-      image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2); 
+      enemySpaceShips[i].flyAway(angle);
     } else {
       if (i < obj.minutes) {
         enemySpaceShips[i].draw();
