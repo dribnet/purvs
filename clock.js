@@ -253,10 +253,12 @@ function drawAllHearts() {
 
 // Draws heartCount amount of hearts
 function drawHearts(heartCount, isRedHeart) {
+  // Fade out the yellow hearts when changing for 12am to 1am
   if (heartCount === 12 && !isRedHeart) {
     fill(250, 180, 40, map(obj.millis, 0, 999, 255, 0));
   }
 
+  // Draws the hearts
   for (var i = 0; i < heartCount; i++) {
     // Get the row number
     var row = Math.floor(i / heartMaxRowNum); 
@@ -267,7 +269,7 @@ function drawHearts(heartCount, isRedHeart) {
     heart(x, y, heartWidth); 
   }
   // Draw expanding heart on x:59:59
-  // Edge case of 12am and pm
+  // Edge case of 12am and pm fades in the opposite colour
   if (heartCount === 12) {
     drawExpandingHeart(0, !isRedHeart);
   } else {
@@ -275,6 +277,7 @@ function drawHearts(heartCount, isRedHeart) {
   }
 }
 
+// Draws an expanding heart given the number of current hearts and whether it is red or not
 function drawExpandingHeart(heartCount, isRedHeart) {
   if (obj.minutes === 59 && obj.seconds === 59) {
     // Get the row number
