@@ -96,14 +96,18 @@ class EnemySpaceShip extends SpaceShip{
     var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, this.getY());
 
     // Draw the image
-    this.draw(enemyX, enemyY);
+    if (fadeInOnMinute >= 0.97) {
+      this.draw(enemyX, enemyY);
+    }
+    
   }
-  flyAway(angle) {
+  // Calculates flyAway on hour changes
+  flyAway(angle, mapValue, mapStart, mapStop) {
     // Calculate the new position to draw the image at
     var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
     var arcY = height/5 + height/2 * sin(angle);
-    var enemyX = map(obj.millis, 0, 999, this.getX(), arcX);
-    var enemyY = map(obj.millis, 0, 999, this.getY(), arcY);
+    var enemyX = map(mapValue, mapStart, mapStop, this.getX(), arcX);
+    var enemyY = map(mapValue, mapStart, mapStop, this.getY(), arcY);
 
     // Draw the image
     this.draw(enemyX, enemyY);
@@ -225,7 +229,7 @@ function updateEnemyShips() {
     if (obj.seconds === 59 && obj.minutes === 59) {
       // find the point on the arc offscreen to fly away to
       var angle = map(i, 0, maxEnemySpaceShips - 1, PI, TWO_PI);
-      enemySpaceShips[i].flyAway(angle);
+      enemySpaceShips[i].flyAway(angle, obj.millis, 0, 999);
     } else {
       if (i < obj.minutes) {
         enemySpaceShips[i].draw();
