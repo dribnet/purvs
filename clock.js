@@ -680,8 +680,10 @@ const hoursDisplay = new HoursDisplay(
 /*
  * AM/PM.
  */
-
 const AMPM_RADIUS = 30;
+const AMPM_DARK_COL = [105, 10, 125];
+const AMPM_LIGHT_COL = [138, 202, 56];
+
 const ampmDisplay = new AmPmDisplay(
   WIDTH/2, HEIGHT/2,
   AMPM_RADIUS
@@ -705,7 +707,7 @@ function draw_clock(obj) {
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
   secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2);
+  secondsDisplay2.draw(SEC_COL_2, 0);
   
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
@@ -716,16 +718,9 @@ function draw_clock(obj) {
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
 
   let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
+  let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12
 
-  ampmDisplay.draw(
-  lerpColor(
-    color(30),
-    color(255),
-    (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12
-  )
-);
-
+  ampmDisplay.draw( lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor ));
 }
-
 
 
