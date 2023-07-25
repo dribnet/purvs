@@ -34,6 +34,9 @@ const overHeatBarHeight = 280;
 const overHeatBarX = 10;
 const overHeatBarY = 210;
 
+// Alarm constants
+const beginTransitionSecond = 5;
+
 // Classes
 class SpaceShip {
   constructor(angle) {
@@ -173,7 +176,7 @@ function draw_clock(obj) {
   drawAllHearts();
 }
 
-// Draws the number of red ships visable.
+// Draws the number of red ships visible.
 function drawShipCount() {
   fill(255, 220,  220).textSize(18);
   textFont('Courier New');
@@ -225,9 +228,13 @@ function addBullet() {
 function updateEnemyShips() {
   for (var i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
-    
-    if (obj.seconds === 59 && obj.minutes === 59) {
-      // find the point on the arc offscreen to fly away to
+    // Begin to fly visible enemy ships away on beginTransitionSecond
+    if (obj.seconds_until_alarm < beginTransitionSecond && i < obj.minutes) {
+      var angle = map(i, 0, obj.minutes - 1, PI, TWO_PI);
+      enemySpaceShips[i].flyAway(angle, obj.seconds_until_alarm, beginTransitionSecond, 0);
+
+    } else if (obj.seconds === 59 && obj.minutes === 59) {
+      // Find the point on the arc offscreen to fly away to
       var angle = map(i, 0, maxEnemySpaceShips - 1, PI, TWO_PI);
       enemySpaceShips[i].flyAway(angle, obj.millis, 0, 999);
     } else {
