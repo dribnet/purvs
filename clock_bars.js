@@ -1,6 +1,6 @@
 /*
  * This is some example code
- * us p5.js to draw a clock on a 960x500 canvas
+ * use p5.js to draw a clock on a 960x500 canvas
  */ 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
