@@ -10,7 +10,7 @@ function draw_clock(obj) {
 
 
   function clock(x, y) {
-    fill(255);
+    fill(250);
     ellipse(x, y, 100);
     stroke(0);
     strokeWeight(3);
