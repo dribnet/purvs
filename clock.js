@@ -29,7 +29,7 @@ function draw_clock(obj) {
 
 
   fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 15);
+  ellipse(width / 3, 350, 150);
   fill(140, 255, 251) // blue
   ellipse(width / 2, 350, 150);
   fill(175, 133, 255); // purple
