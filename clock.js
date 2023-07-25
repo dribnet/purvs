@@ -767,5 +767,3 @@ function draw_clock(obj) {
     ampmColor
   );
 }
-
-
