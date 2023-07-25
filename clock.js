@@ -705,22 +705,27 @@ function draw_clock(obj) {
 
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-
   secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2, 0);
-  
+  secondsDisplay2.draw(SEC_COL_2, 0, MIN_ACTIVE_COL);
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
-
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
-
 
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
 
   let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
-  let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12
+  let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12;
+  ampmDisplay.draw( lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor) );
 
-  ampmDisplay.draw( lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor ));
+  push();
+  translate(0, HEIGHT/2);
+  textAlign(CENTER, CENTER);
+  textFont("Courier New", 45);
+  fill(lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor));
+  noStroke();
+  text((obj.hours > 11) ? "PM" : "AM", 70, 0);
+  pop();
+
 }
 
 
