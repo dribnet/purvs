@@ -692,10 +692,30 @@ const AMPM_RADIUS = 30;
 const AMPM_DARK_COL = [105, 10, 125];
 const AMPM_LIGHT_COL = [138, 202, 56];
 
+
+const AMPM_FONT_SIZE = 45;
+
 const ampmDisplay = new AmPmDisplay(
   WIDTH/2, HEIGHT/2,
   AMPM_RADIUS
 );
+
+function AMPMText(x, y, hour, fontSize, fontColor) {
+  const TEXT_OFFSET = 70;
+  const FONT = "Courier New";
+  
+  push();
+  // Setup
+  translate(x, y);
+  textAlign(CENTER, CENTER);
+  textFont(FONT, fontSize);
+  noStroke();
+  fill(fontColor);
+
+  text((hour > 11) ? "PM" : "AM", TEXT_OFFSET, 0);
+  pop();
+}
+
 
 /*
  * draw your own clock here based on the values of obj:
@@ -723,17 +743,15 @@ function draw_clock(obj) {
 
   let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
   let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12;
-  ampmDisplay.draw( lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor) );
+  let ampmColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor)
+  ampmDisplay.draw(ampmColor);
 
-  push();
-  translate(0, HEIGHT/2);
-  textAlign(CENTER, CENTER);
-  textFont("Courier New", 45);
-  fill(lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor));
-  noStroke();
-  text((obj.hours > 11) ? "PM" : "AM", 70, 0);
-  pop();
-
+  AMPMText(
+    0, HEIGHT/2,
+    obj.hours,
+    AMPM_FONT_SIZE,
+    ampmColor
+  );
 }
 
 
