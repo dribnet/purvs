@@ -120,31 +120,32 @@ class EnemySpaceShip extends SpaceShip{
 
 class BossEnemySpaceShip {
   constructor() {
+    this.x = 480;
+    this.y = 0;
     this.hidden = true;
   }
-  update() {
-    this.hidden = true;
-  }
-  draw(x = this.getX(), y = this.getY(), width = enemyImg.width/2, height = enemyImg.height/2) {
+  draw(x = this.getX(), y = this.getY(), width = bossImg.width/2, height = bossImg.height/2) {
     this.hidden = false;
-    image(enemyImg, x, y, width, height);
+    image(bossImg, x, y, width, height);
   }
   getX() {
-    return this.x + width / 2;
+    return this.x;
   }
   getY() {
-    return this.y + height / 5;
+    return this.y;
   }
   // Function for debugging
   drawBoundingBox() {
     noFill();
-    rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
+    rect(this.getX()-bossImg.width/4, this.getY()-bossImg.height/4, bossImg.width/2, bossImg.height/2);
   }
   flyIn() {
+    //var enemyX = map(obj.seconds_until_alarm, beginTransitionSecond, 0, width/2, this.getX());
+    var enemyY = map(obj.seconds_until_alarm, beginTransitionSecond, 0, -enemyImg.height/2, this.getY());
 
+    this.draw(enemyX, enemyY);
   }
   flyAway() {
-
   }
 }
 
@@ -180,9 +181,10 @@ function preload() {
   playerBulletImg = loadImage("assets/bullets.png");
   enemyImg = loadImage("assets/enemyShip.png");
   backgroundImage = loadImage("assets/background.png");
+  bossImg = loadImage("assets/enemyBoss.png");
 
-  spaceShip = new SpaceShip(460, 400);
-  bossSpaceShip = new BossEnemySpaceShip(width/2, 0);
+  spaceShip = new SpaceShip(480, 400);
+  bossSpaceShip = new BossEnemySpaceShip(); // go up to height/2
 
   // Load the enemy spaceships
   for (let i = 0; i < maxEnemySpaceShips; i++) {
@@ -237,6 +239,8 @@ function updateGame() {
 
   bulletList.forEach(bullet => bullet.update());
   bulletList.forEach(bullet => bullet.draw());
+
+  bossSpaceShip.draw();
 }
 
 // Add a bullet every second
