@@ -146,8 +146,15 @@ function draw_clock(obj) {
   drawOverHeatBar();
 
   updateGame();
+  drawShipCount();
+  drawAllHearts();
+}
 
-  drawHearts();
+// Draws the number of red ships visable.
+function drawShipCount() {
+  fill(255, 220,  220).textSize(18);
+  textFont('Courier New');
+  text("Enemy ships: " + obj.minutes, 790, height / 16);
 }
 
 // Creates the effect of an infinitely scrolling background
@@ -223,12 +230,33 @@ function updateEnemyShips() {
   }
 }
 
-function drawHearts() {
+// Draws all the hearts
+function drawAllHearts() {
   strokeWeight(0.1);
   fill(250, 0, 0);
 
   // Count the number of hearts in 12hr time
   var heartCount = (obj.hours % 12) || 12;
+  var isRedHeart = true;
+
+  if (obj.hours > 12) {
+    drawHearts(12, true);
+    fill(250, 180, 40);
+    isRedHeart = false;
+  } else if (obj.hours === 0) {
+    isRedHeart = false;
+  }
+
+  // Draws the remaining hearts (hours % 12)
+  drawHearts(heartCount, isRedHeart);
+}
+
+// Draws heartCount amount of hearts
+function drawHearts(heartCount, isRedHeart) {
+  if (heartCount === 12 && !isRedHeart) {
+    fill(250, 180, 40, map(obj.millis, 0, 999, 255, 0));
+  }
+
   for (var i = 0; i < heartCount; i++) {
     // Get the row number
     var row = Math.floor(i / heartMaxRowNum); 
@@ -239,15 +267,28 @@ function drawHearts() {
     heart(x, y, heartWidth); 
   }
   // Draw expanding heart on x:59:59
+  // Edge case of 12am and pm
+  if (heartCount === 12) {
+    drawExpandingHeart(0, !isRedHeart);
+  } else {
+    drawExpandingHeart(heartCount, isRedHeart);
+  }
+}
+
+function drawExpandingHeart(heartCount, isRedHeart) {
   if (obj.minutes === 59 && obj.seconds === 59) {
     // Get the row number
-    var row = Math.floor((heartCount) / heartMaxRowNum);
+    var row = Math.floor(heartCount / heartMaxRowNum);
     var fadeInHearWidth = map(obj.millis, 0, 999, 0, heartWidth);
 
     // Use remainder to ignore full rows
     var x = 20 + ((heartWidth * 3/2) * (heartCount)) % (heartMaxRowNum * (heartWidth * 3/2));
     var y = 10 + (row * (heartWidth + 10));
-    fill(250, 0, 0, map(obj.millis, 0, 999, 0, 255));
+    if (isRedHeart) {
+      fill(250, 0, 0, map(obj.millis, 0, 999, 0, 255));
+    } else {
+      fill(250, 180, 40, map(obj.millis, 0, 999, 0, 255));
+    }
     noStroke();
     heart(x, y, fadeInHearWidth);
   }
