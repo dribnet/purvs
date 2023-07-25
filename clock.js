@@ -2,6 +2,16 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 
+
+/*
+IDEAS:
+
+- Use log for switch between hours.
+- Dist math function for hour colour change?
+- potentailly use vector for dist function
+
+*/
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -98,7 +108,6 @@ function draw_clock(obj) {
   }
   circle(width / 2, ringHeight, width - 30);
   
-  colorMode(RGB);
   angleMode(DEGREES);
   //Roman Numeral / Hour Ring
   let hourDeg = map(obj.hours, 0, 23, 0, 690);
@@ -108,6 +117,11 @@ function draw_clock(obj) {
   let lastSec = map(obj.millis, 0, 999, 0, 30);
   let overlap = map(obj.millis, 0, 999, 0, 15);
   let negOverlap = map(obj.millis, 0, 999, 15, 0);
+
+  let hourColor = obj.hours;
+  if (hourColor > 12) {
+    hourColor -= 12;
+  }
   
   //Hour Ring
   push();
@@ -123,13 +137,18 @@ function draw_clock(obj) {
       }
     }
     rotate(hourDeg); // Rotation for top of circle
-
     fill(255);
     textSize(100);
     textStyle(BOLD);
     textAlign(CENTER);
     for (i = 1; i < 13; i ++) {
       rotate(30);
+      // if (i == hourColor) {
+      //   fill(255);
+      //   console.log(i);
+      // } else {
+      //   fill(daySection);
+      // }
       text(numeral[numeral.length - i], 0, -505);
     }
   pop();
