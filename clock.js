@@ -8,6 +8,7 @@ var backgroundY = 0;
 var spaceShip;
 var enemySpaceShips = [];
 const maxEnemySpaceShips = 59;
+var bossSpaceShip;
 
 // Lemniscate size constants
 const enemyLemniscateWidth = 420; 
@@ -117,6 +118,36 @@ class EnemySpaceShip extends SpaceShip{
   }
 }
 
+class BossEnemySpaceShip {
+  constructor() {
+    this.hidden = true;
+  }
+  update() {
+    this.hidden = true;
+  }
+  draw(x = this.getX(), y = this.getY(), width = enemyImg.width/2, height = enemyImg.height/2) {
+    this.hidden = false;
+    image(enemyImg, x, y, width, height);
+  }
+  getX() {
+    return this.x + width / 2;
+  }
+  getY() {
+    return this.y + height / 5;
+  }
+  // Function for debugging
+  drawBoundingBox() {
+    noFill();
+    rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
+  }
+  flyIn() {
+
+  }
+  flyAway() {
+
+  }
+}
+
 class Bullet {
   static bulletSpeed = 25;
   constructor(x, y) {
@@ -151,6 +182,7 @@ function preload() {
   backgroundImage = loadImage("assets/background.png");
 
   spaceShip = new SpaceShip(460, 400);
+  bossSpaceShip = new BossEnemySpaceShip(width/2, 0);
 
   // Load the enemy spaceships
   for (let i = 0; i < maxEnemySpaceShips; i++) {
