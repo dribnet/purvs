@@ -716,12 +716,6 @@ const ampmDisplay = new AmPmDisplay(
   AMPM_RADIUS
 );
 
-
-function ampmText(x, y, hour, fontSize, fontColor) {
-
-}
-
-
 /*
  * draw your own clock here based on the values of obj:
  *    obj.hours goes from 0-23
