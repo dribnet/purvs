@@ -126,13 +126,14 @@ textSize(80);
 text(hours, 300, minutes_lift);
 
 
-
-
 let seconds_lift = map(seconds, 0, 59, 425, 175); //make number move up with minutes 
+
+
 
 fill (107, 161, 121);
 noStroke();
 textSize(40);
+// text(minutes, 750, seconds_lift);
 text(minutes, 750, seconds_lift);
 // rect(720, minutes_lift, 15, 50); //minutesnumbers 
 
