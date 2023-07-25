@@ -29,12 +29,12 @@ function draw_clock(obj) {
 
   background(50); //  beige
   fill(200); // dark grey
-  textSize(30);
+  textSize(10);
   textAlign(CENTER, CENTER);
-  text("Hours: " + hours, width / 2, 120);
-  text("Minutes: " + minutes, width / 2, 160);
-  text("Seconds: " + seconds, width / 2, 200);
-  text("Millis: " + millis, width / 2, 240);
+  text("Hours: " + hours, width / 2, 30);
+  text("Minutes: " + minutes, width / 2, 45);
+  text("Seconds: " + seconds, width / 2, 60);
+  text("Millis: " + millis, width / 2, 75);
 
 
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
@@ -53,32 +53,62 @@ function draw_clock(obj) {
   let phase4 = sin(bounce4);
   let y_bounce4 = map(phase4, -1, 1, -10, 10);
 
+
+
+
+  
+  let hours_radius = map(hours, 0, 59, 70, 90);
+  fill(249, 140, 255);// pink
+  ellipse(width /2, 275 + y_bounce1, hours_radius);
+  let rotH = map(minutes, 0, 59, 0, TWO_PI);
+  let minutes_radius = map(minutes, 0, 59, 50, 70);
+
+  push();
+    translate(width/2, 275 + y_bounce1);
+    rotate(rotH);
+    fill(140,255,251); //blue
+    ellipse(100,0,minutes_radius);
+    
+    let rotM = map(seconds, 0, 59, 0, TWO_PI);
+    let seconds_radius = map(seconds, 0, 59, 30, 50);
+    
+    push ();
+      translate (10,10 + y_bounce2);
+      rotate (rotM);
+      fill(175, 133, 255); //purple
+      ellipse(100,0,seconds_radius);
+    pop ()  
+
+  pop();
+
   
 
 
-  let hours_radius = map(hours, 0, 59, 1, 150);
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350 + y_bounce1, hours_radius);
-
-  let minuteswithFraction = minutes + (seconds / 1000.0);
-  let minutes_radius = map(minuteswithFraction, 0, 59, 1, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350 + y_bounce2, minutes_radius);
 
 
-  let secondsWithFraction   = seconds + (millis / 1000.0);
-  let seconds_radius = map(secondsWithFraction, 0, 59, 1, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
-  let rotS = map(seconds, 0,59,0, TWO_PI)
-  let millis_radius = map(millis, 0, 999, 1, 150);
-push()
-translate (width / 3 * 2, 350 + y_bounce3)
-rotate (rotS)
-fill(255, 165, 0); // orange
-ellipse(100,0, millis_radius);
 
-pop()
+
+
+
+  //let secondsWithFraction   = seconds + (millis / 1000.0);
+  //let seconds_radius = map(secondsWithFraction, 0, 59, 30, 50);
+  //fill(175, 133, 255); // purple
+  //ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
+  let rotS = map(millis, 0,59,0, TWO_PI)
+  
+
+
+  
+
+  let millis_radius = map(millis, 0, 999, 10, 30);
+
+  push();
+    translate (width / 3 * 2, 350 + y_bounce3);
+    rotate (rotS);
+    fill(255, 165, 0); // orange
+    ellipse(75,0, millis_radius);
+
+  pop();
 
 
 
@@ -86,6 +116,73 @@ pop()
 
 
 
+
+
+//Clock that made the millis orbitting the seconds and thats it. Backup save :)
+// let millis = obj.millis;
+// let seconds = obj.seconds;
+// let minutes = obj.minutes;
+// let hours = obj.hours;
+
+
+// background(50); //  beige
+// fill(200); // dark grey
+// textSize(30);
+// textAlign(CENTER, CENTER);
+// text("Hours: " + hours, width / 2, 120);
+// text("Minutes: " + minutes, width / 2, 160);
+// text("Seconds: " + seconds, width / 2, 200);
+// text("Millis: " + millis, width / 2, 240);
+
+
+// let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
+// let phase1 = sin(bounce1);
+// let y_bounce1 = map(phase1, -1, 1, -10, 10);
+
+// let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
+// let phase2 = sin(bounce2);
+// let y_bounce2 = map(phase2, -1, 1, -10, 10);
+
+// let bounce3 = map(obj.millis, 0, 999, 0, TWO_PI);
+// let phase3 = sin(bounce3);
+// let y_bounce3 = map(phase3, -1, 1, -10, 10);
+
+// let bounce4 = map((obj.millis+100), 0, 999, 0, TWO_PI);
+// let phase4 = sin(bounce4);
+// let y_bounce4 = map(phase4, -1, 1, -10, 10);
+
+
+
+
+// let hours_radius = map(hours, 0, 59, 70, 90);
+// fill(249, 140, 255);// pink
+// ellipse(width / 3, 350 + y_bounce1, hours_radius);
+
+// let minuteswithFraction = minutes + (seconds / 1000.0);
+// let minutes_radius = map(minuteswithFraction, 0, 59, 50, 70);
+// fill(140, 255, 251) // blue
+// ellipse(width / 2, 350 + y_bounce2, minutes_radius);
+
+
+// let secondsWithFraction   = seconds + (millis / 1000.0);
+// let seconds_radius = map(secondsWithFraction, 0, 59, 30, 50);
+// fill(175, 133, 255); // purple
+// let rotS = map(seconds, 0,59,0, TWO_PI)
+// ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
+
+// let millis_radius = map(millis, 0, 999, 10, 30);
+
+// push();
+//   translate (width / 3 * 2, 350 + y_bounce3);
+//   rotate (rotS);
+//   fill(255, 165, 0); // orange
+//   ellipse(75,0, millis_radius);
+
+// pop();
+
+
+
+// }
 
 
 
