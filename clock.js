@@ -748,7 +748,7 @@ function draw_clock(obj) {
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
 
   // Uses the current time to calculate a lerp colour
-  let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
+  let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600; // millis are negligable 
   let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12;
   let ampmColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor)
 
