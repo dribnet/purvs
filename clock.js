@@ -89,6 +89,15 @@ class EnemySpaceShip extends SpaceShip{
     noFill();
     rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
   }
+  flyIn() {
+    // 0 - 1 value over the minute
+    var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
+    var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, this.getX());
+    var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, this.getY());
+
+    // Draw the image
+    this.draw(enemyX, enemyY);
+  }
   flyAway(angle) {
     // Calculate the new position to draw the image at
     var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
@@ -97,7 +106,7 @@ class EnemySpaceShip extends SpaceShip{
     var enemyY = map(obj.millis, 0, 999, this.getY(), arcY);
 
     // Draw the image
-    this.draw(enemyX, enemyY); 
+    this.draw(enemyX, enemyY);
   }
 }
 
@@ -223,12 +232,7 @@ function updateEnemyShips() {
       }
       // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
       if (i === obj.minutes) {
-        // 0 - 1 value over the minute
-        var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
-        var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, enemySpaceShips[i].getX());
-        var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, enemySpaceShips[i].getY());
-        enemySpaceShips[i].hidden = false;
-        image(enemyImg, enemyX, enemyY, enemyImg.width/2, enemyImg.height/2);
+        enemySpaceShips[i].flyIn();
       }
     }
   }
