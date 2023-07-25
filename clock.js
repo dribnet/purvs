@@ -19,6 +19,7 @@ function draw_clock(obj) {
 
   let Seconds = obj.seconds
   let Minutes = obj.minutes
+  let hours = obj.hours
 
   // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
   //let MinutesY = map(Minutes, 0, 59, 1, 150);
