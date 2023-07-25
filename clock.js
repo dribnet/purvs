@@ -35,6 +35,6 @@ function draw_clock(obj) {
   fill(175, 133, 255); // purple
   ellipse(width / 3 * 2, 350, 150);
 
-  milli_rectussy(100, 100);
+  milli_rectussy(200, 200);
 }
 
