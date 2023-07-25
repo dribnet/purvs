@@ -586,6 +586,23 @@ class AmPmDisplay {
     ellipse(0, 0, this.radius, this.radius);
     pop();
   }
+
+  /** Static method that displays AM or PM based on the current hour. */
+  static text(x, y, hour, fontSize, fontColor) {
+    const TEXT_OFFSET = 70;
+    const FONT = "Courier New";
+    
+    push();
+    // Setup
+    translate(x, y);
+    textAlign(CENTER, CENTER);
+    textFont(FONT, fontSize);
+    noStroke();
+    fill(fontColor);
+  
+    text((hour > 11) ? "PM" : "AM", TEXT_OFFSET, 0);
+    pop();
+  }
 }
 
 /*
@@ -689,31 +706,19 @@ const hoursDisplay = new HoursDisplay(
  * AM/PM.
  */
 const AMPM_RADIUS = 30;
+const AMPM_FONT_SIZE = 45;
+
 const AMPM_DARK_COL = [105, 10, 125];
 const AMPM_LIGHT_COL = [138, 202, 56];
-
-
-const AMPM_FONT_SIZE = 45;
 
 const ampmDisplay = new AmPmDisplay(
   WIDTH/2, HEIGHT/2,
   AMPM_RADIUS
 );
 
-function AMPMText(x, y, hour, fontSize, fontColor) {
-  const TEXT_OFFSET = 70;
-  const FONT = "Courier New";
-  
-  push();
-  // Setup
-  translate(x, y);
-  textAlign(CENTER, CENTER);
-  textFont(FONT, fontSize);
-  noStroke();
-  fill(fontColor);
 
-  text((hour > 11) ? "PM" : "AM", TEXT_OFFSET, 0);
-  pop();
+function ampmText(x, y, hour, fontSize, fontColor) {
+
 }
 
 
@@ -731,22 +736,30 @@ function AMPMText(x, y, hour, fontSize, fontColor) {
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
+  // Rotates both secondsDisplays
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+
+  // Draws both secondsDisplays
   secondsDisplay1.draw(SEC_COL_1);
   secondsDisplay2.draw(SEC_COL_2, 0, MIN_ACTIVE_COL);
+
+  // Draws the pointer
   pointer.draw(SEC_POINTER_COL, obj.seconds);
 
+  // Draws the minutesDisplay
   minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
+  // Draws the hoursDisplay
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
 
   let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600;
   let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12;
   let ampmColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor)
-  ampmDisplay.draw(ampmColor);
 
-  AMPMText(
+  // Draws the ampmDisplay and text
+  ampmDisplay.draw(ampmColor);
+  AmPmDisplay.text(
     0, HEIGHT/2,
     obj.hours,
     AMPM_FONT_SIZE,
