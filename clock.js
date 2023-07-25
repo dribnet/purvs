@@ -561,14 +561,22 @@ class HoursIndicator {
  * ===================================== ===================================== *
  */ 
 
+/**
+ * AM and PM are represented by a circle which transitions between two colours.
+ * It starts with a darker colour at 0000, goes to a brighter colour at 1200,
+ * and finally diminishes back to dark as it approaches 2359.
+ */
 class AmPmDisplay {
+  /** Constructor. */
   constructor(xCenter, yCenter, radius) {
     this.xCenter = xCenter;
     this.yCenter = yCenter;
     this.radius = radius;
   }
 
+  /** Draw method for display. */
   draw(fillColor) {
+    // Setup
     push();
     translate(this.xCenter, this.yCenter);
     ellipseMode(CENTER);
