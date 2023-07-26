@@ -21,3 +21,7 @@ I tried to implement my sketch.
 
 To make it more interesting, should I make the buildings bounce and the moon pulse? I could also code some shooting stars for certian times?
 Add santa shooting across sky. Add lamp posts and a ombre sky. Add differently coloured windows on background buildings. 
+
+Changed it to in the AM = theres a sun and clouds.
+In the PM = theres a moon and stars. 
+For the alarm: there'll be santa on his sleigh riding across the sky. 
