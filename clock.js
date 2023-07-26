@@ -282,6 +282,7 @@ function updateGame() {
     stroke(textColor);
     textFont(orbitronFont);
     text("BOSS\nINCOMING\n" + Math.round(obj.seconds_until_alarm), width/2, height / 4);
+    noStroke();
   }
 }
 
@@ -520,4 +521,5 @@ function drawOverHeatBar() {
   strokeWeight(1);
   noFill();
   rect(overHeatBarX, overHeatBarY, overHeatBarWidth, overHeatBarHeight);
+  noStroke();
 }
