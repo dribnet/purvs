@@ -32,6 +32,10 @@ function battery(x,y) {
   endShape(CLOSE);
 }
 
+function hoursBars(x, y){
+  rect(x, y, 125, 47);
+
+}
 
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -54,8 +58,9 @@ function draw_clock(obj) {
 
   let secondsWithFraction   = seconds + (millis / 1000.0);
 
-  let hourBarWidth   = map(hours, 0, 23, 0, width);
-  let minuteBarHeight = map(minutes, 0, 59, centerY+200, centerY-60);
+  let hourBarWidth   = map(hours, 0, 24, 0, 129);
+  let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
+  let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
   let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
   let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
 
@@ -79,7 +84,20 @@ function draw_clock(obj) {
   noStroke();
   fill(255);
   rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
-  battery(480, 250);
+  rect(centerX+150, centerY+200, 60, -minuteBarHeight);
+  
+  rect(centerX-130, centerY+140, hourBarWidth, 47);
+
+  battery(centerX, centerY);
+
+
+
+  for (var hourBarY = centerY+140; hourBarY >= centerY-150; hourBarY -= 57){
+    hoursBars(centerX-130, hourBarY);
+  }
+  for (var hourBarY = centerY+140; hourBarY >= centerY-150; hourBarY -= 57){
+    hoursBars(centerX+5, hourBarY);
+  }
 
 }
 
