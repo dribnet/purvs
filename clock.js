@@ -4,8 +4,12 @@
 
 let  img;
 function preload(){
-  img=loadImage('1plate.png');
-  print("Hello");
+  img_1=loadImage('1plate.png');
+  img_hour=loadImage('1meat.png');
+  img_minute=loadImage('1asparagus.png');
+  img_seconds=loadImage('green_pea');
+
+
 }
 
 function draw_clock(obj) {
@@ -38,18 +42,13 @@ function draw_clock(obj) {
   let seconds_radius=map(seconds,0,59,1,150);
   ellipse(100,100,seconds_radius);
    
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350,seconds_radius);
+
 
 
     fill(255, 255, 0);
-    rect(0, 0, 300, 300);
-    image(img,0,0, 300, 300)
-    image(img,300,0, 300, 300)
+   
+  
+    image(img_1,width/2-200,height/4-70, 400, 400)
   
  
 
