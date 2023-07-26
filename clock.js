@@ -17,35 +17,35 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
 
   //changing sky based on day and night
-const night_sky = color(50, 50, 60);
-    const night_ground = color(30, 60, 30);
+const night_sky = color(12, 23, 63); //50,50,60
+    //const night_ground = color(30, 60, 30); 
     const day_sky = color(173,216,230);
-    const day_ground = color(100, 200, 100);
-  let current_ground = null;
+    //const day_ground = color(100, 200, 100);
+  //let current_ground = null;
 
     if (obj.hours >= 7 && obj.hours < 8) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(night_sky, day_sky, hour_fraction);
-        current_ground = lerpColor(night_ground, day_ground, hour_fraction);
-        background(cur_sky);
+        //current_ground = lerpColor(night_ground, day_ground, hour_fraction);
+        //background(cur_sky);
     }
     else if (obj.hours >= 19 && obj.hours < 20) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(day_sky, night_sky, hour_fraction);
-        current_ground = lerpColor(day_ground, night_ground, hour_fraction);
-        background(cur_sky);
+        //current_ground = lerpColor(day_ground, night_ground, hour_fraction);
+        //background(cur_sky);
     }
     else if(obj.hours >= 8 && obj.hours < 20) {
         // daytime
         background(day_sky);
-        current_ground = day_ground;
+       // current_ground = day_ground;
     }
     else {
         // nightime
         background(night_sky);
-        current_ground = night_ground;
+        //current_ground = night_ground;
     }
 
   let Seconds = obj.seconds
@@ -151,13 +151,13 @@ const night_sky = color(50, 50, 60);
   let rectx = 395;
   let recty = 340; //originally 320
 
-  fill(0, 206, 209); //dark turquoise
+  fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
   noStroke();
   //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
   rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
 
-  stroke(140, 255, 251); //light turquoise
+  stroke(210, 180, 140); // light tan brown // original colour: light turquoise 140,255,251
   strokeWeight(5);
   line(395, 370, 565, 370); //line on collar of plant pot //395, 350, 565, 350
 
