@@ -1,4 +1,4 @@
-let furthest_point = 0;
+
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
@@ -12,34 +12,106 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
-  fill(200); // dark grey
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+  
+  // fill(0, 0, 200); // dark grey
+  // textSize(40);
+  // textAlign(CENTER, CENTER);
+  // text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
-  let second_radius = map(obj.millis, 0, 999, 0, width/4);
-  let minute_radius = map(obj.seconds, 0, 59, 0, width/4);
-  let hour_radius = map(obj.minutes, 0, 59, 0, width/4);
-  let day_radius = map(obj.hours, 0, 23, 0, width/4);
+  colorMode(HSB, 100);
+  background(60, 80, 50);
+
+  let hours = obj.hours;
+  let minutes = obj.minutes;
+  let seconds = obj.seconds;
+  let millis = obj.millis; 
+
+  // phase between -1 and 1 second
+  let phase = 1;
+  if(seconds % 2 == 0) {
+    phase = 1;
+  } else {
+    phase = -1;
+  }
+
+  // draw waves in the background
+
+  let wavesX = 9; wavesY = 7;
+  let offset = width/50;
+
+  for(let i = 1; i <= wavesX; i++) {
+
+    let offsetPhase = 1;
+
+    for(let j = 1; j <= wavesY; j++) {
+        
+        if(offsetPhase == 1) {
+          offsetPhase = -1;
+        } else {
+          offsetPhase = 1;
+        }
+
+      draw_wave(millis, phase*offsetPhase, (i*width/(wavesX+1))+offset*offsetPhase, j*height/(wavesY+1)); 
+
+    }
+  }
+
+  // draw an island
+
+  draw_island()
+
+}
+
+function draw_wave(millis, wavePhase, xPos, yPos) { // draws a wave at a location (wavePhase controls whether the wave is going up or down)
+
+  colorMode(HSB, 100);
+
+  millisPhaser = map(millis, 0, 1000, -1*wavePhase, 1*wavePhase);
+  let horizontalMotion = 5*millisPhaser;
+
+  push();
+  
+  translate(xPos+horizontalMotion, yPos);
+  scale(1);
+  
+  noFill();
+  strokeWeight(1);
+  stroke(60, 80, 70);
+
+  // wave curve
+  beginShape();
+  curveVertex(-20, 2*millisPhaser);
+  curveVertex(-15, -2*millisPhaser);
+  curveVertex(-10, 2*millisPhaser);
+  curveVertex(-5, -2*millisPhaser);
+  curveVertex(0, 2*millisPhaser);
+  curveVertex(5, -2*millisPhaser);
+  curveVertex(10, 2*millisPhaser);
+  curveVertex(15, -2*millisPhaser);
+  curveVertex(20, 2*millisPhaser);
+  endShape();
+
+  pop();
+
+}
+
+function draw_island() {
+  colorMode(HSB, 100);
+
+  push();
+  
+  translate(width/2, height*1.7);
+  scale(1);
 
   strokeWeight(0);
 
-  fill(249, 140, 255);// pink
-  rect(0, height/3, second_radius, height/3);
-  fill(140, 255, 251) // blue
-  rect(second_radius, height/3, minute_radius, height/3);
-  fill(175, 133, 255); // purple
-  rect(second_radius+minute_radius, height/3, hour_radius, height/3);
-  fill(255, 255, 0); // yellow
-  rect(second_radius+minute_radius+hour_radius, height/3, day_radius, height/3);
+  // sand
+  fill(15, 50, 100);
+  ellipse(0, 0, height*2);
 
-  
-  if(second_radius+minute_radius+hour_radius+day_radius > furthest_point) {
-    furthest_point = second_radius+minute_radius+hour_radius+day_radius;
-  }
+  // grass
+  fill(25, 60, 80);
+  ellipse(0, 0, height*1.8);
 
-  fill(255, 0, 0)
-  rect(furthest_point, 0, width/(width/5), height);
-
+  pop();
 }

@@ -17,3 +17,7 @@ The Maeda clock I've chosen to recreate is clock 2 https://codingtrain.github.io
 Original clock development:
 
 I'm thinking about changing my clock idea, slightly. Rather than having three balloons I think it would be better to have one balloon at the end of a chain of actions that are causing it to inflate. I'm inspired by dozer machines that slowly push coins off an edge, moving them slightly further towards their tipping point as coins are added.
+
+Changing ideas:
+
+I've changed my idea completely. Now instead of balloons inflating, or a sort of dozer machine, I want to have cars slowly being loaded onto a ferry. I've started creating an ocean as a background for the clock, with small waves animated to move up and down every second. The next thing I want to do is start building the loading area, with cars slowly moving into the ferry.
