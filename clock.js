@@ -1,6 +1,13 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+
+let  img;
+function preload(){
+  img=loadImage('1plate.png');
+  print("Hello");
+}
+
 function draw_clock(obj) {
     let hours = obj.hours;
     let minute = obj. minutes;
@@ -22,10 +29,15 @@ function draw_clock(obj) {
  
   text("Second:"+seconds, 80, 100);
   text("Hours:"+hours, 50, 50);
-  text (hours,width/4,height/2);
+  
 
 
 
+
+
+  let seconds_radius=map(seconds,0,59,1,150);
+  ellipse(100,100,seconds_radius);
+   
   fill(249, 140, 255);// pink
   ellipse(width / 3, 350, 150);
   fill(140, 255, 251) // blue
@@ -34,9 +46,15 @@ function draw_clock(obj) {
   ellipse(width / 3 * 2, 350,seconds_radius);
 
 
+    fill(255, 255, 0);
+    rect(0, 0, 300, 300);
+    image(img,0,0, 300, 300)
+    image(img,300,0, 300, 300)
+  
  
-  let seconds_radius=map(seconds,0,59,1,150);
-  ellipse(100,100,seconds_radius);
+
+
+
   
   
 
