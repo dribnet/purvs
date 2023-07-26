@@ -38,5 +38,6 @@ function draw_clock(obj) {
   let seconds_radius=map(seconds,0,59,1,150);
   ellipse(100,100,seconds_radius);
   
+  
 
 }
