@@ -205,7 +205,7 @@ function preload() {
   enemyImg = loadImage("assets/enemyShip.png");
   backgroundImage = loadImage("assets/background.png");
   bossImg = loadImage("assets/enemyBoss.png");
-  lazerImg = loadImage("assets/enemyBossLazerRight.png");
+  lazerImg = loadImage("assets/enemyBossLazer.png");
 
   spaceShip = new SpaceShip(480, 400);
   bossSpaceShip = new BossEnemySpaceShip(); // go up to height/2
