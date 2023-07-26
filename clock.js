@@ -11,8 +11,8 @@ function battery(x,y) {
     vertex(x+140, y+200);
     vertex(x+140, y-160);
     vertex(x+60, y-160);
-    vertex(x+60, y-200);
-    vertex(x-60, y-200);
+    vertex(x+60, y-210);
+    vertex(x-60, y-210);
     vertex(x-60, y-160);
     vertex(x-140, y-160);
   endShape(CLOSE);
@@ -37,6 +37,14 @@ function hoursBars(x, y){
 
 }
 
+function minutesLines(x, y) {
+  line(x+0, y+0, x+50, y+0);
+}
+
+function secondsLines(x, y) {
+  line(x+0, y+0, x+50, y+0);
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -50,6 +58,7 @@ function draw_clock(obj) {
   
   let centerX = 480;
   let centerY = 250;
+  
   let hours = obj.hours;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
@@ -58,9 +67,14 @@ function draw_clock(obj) {
 
   let secondsWithFraction   = seconds + (millis / 1000.0);
 
+
+
   let hourBarWidth   = map(hours, 0, 24, 0, 129);
-  let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
-  let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
+  //let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
+  let minutesLinesYBot = 195;
+  let minutesLinesYTop = -155;
+  let minuteBarHeight = map(minutes, 0, 59, 0, 59);
+  //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
   let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
   let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
 
@@ -83,8 +97,8 @@ function draw_clock(obj) {
 
   noStroke();
   fill(255);
-  rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
-  rect(centerX+150, centerY+200, 60, -minuteBarHeight);
+  // rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
+  //rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
   rect(centerX-130, centerY+140, hourBarWidth, 47);
 
@@ -99,5 +113,24 @@ function draw_clock(obj) {
     hoursBars(centerX+5, hourBarY);
   }
 
-}
+  let minutesLinesY = 6;
+  let minutesCount = map(minutes, 0, 59, 59, 0);
+  
+  let secondsLinesY = 6;
+  let secondsCount = map(seconds, 0, 59, 59, 0);
+
+  if (seconds >= 0 && seconds < 60) {
+    for (let i = secondsCount+1; i < 60; i++) {
+      secondsLines(centerX-205, 90+(secondsLinesY)*i);
+    }
+  }
+
+  // if (minutes >= 0 && minutes < 60) {
+  //   for (let i = minutesCount; i < 60; i++) {
+  //     minutesLines(centerX+155, 90+(minutesLinesY)*i);
+  //   }
+  // }
+
+  }
+
 
