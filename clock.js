@@ -35,6 +35,8 @@ function draw_clock(obj) {
     sun_pulse=ellipse(width/3, 350,size-millis)
   }
 
+
+  //Purple ellipse
   let secondsWithFraction   = seconds + (millis / 1000.0);
  
   // text("Seconds with fraction: " + secondsWithFraction, width / 2, 50);
