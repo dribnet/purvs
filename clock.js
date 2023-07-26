@@ -1,5 +1,5 @@
 // Images
-var playerImg, playerBulletImg, enemyImg, backgroundImage;
+var playerImg, playerBulletImg, enemyImg, backgroundImage, bossImg, lazerImg;
 
 // Background
 var backgroundY = 0;
@@ -121,12 +121,24 @@ class EnemySpaceShip extends SpaceShip{
 class BossEnemySpaceShip {
   constructor() {
     this.x = 480;
-    this.y = 0;
+    this.y = -358.5;
     this.hidden = true;
+    this.retreating = false;
   }
   draw(x = this.getX(), y = this.getY(), width = bossImg.width/2, height = bossImg.height/2) {
     this.hidden = false;
     image(bossImg, x, y, width, height);
+  }
+  // Moves boss off screen when retreating and stops moving once it is offscreen
+  update() {
+    if (this.retreating) {
+      this.y -= 1;
+      bossSpaceShip.draw();
+    }
+    if (this.getY() <= -bossImg.height/2) {
+      this.retreating = false;
+      this.hidden = true;
+    }
   }
   getX() {
     return this.x;
@@ -139,13 +151,15 @@ class BossEnemySpaceShip {
     noFill();
     rect(this.getX()-bossImg.width/4, this.getY()-bossImg.height/4, bossImg.width/2, bossImg.height/2);
   }
+  // Moves boss from -bossImg.height/2 to on screen
   flyIn() {
-    //var enemyX = map(obj.seconds_until_alarm, beginTransitionSecond, 0, width/2, this.getX());
-    var enemyY = map(obj.seconds_until_alarm, beginTransitionSecond, 0, -enemyImg.height/2, this.getY());
-
-    this.draw(enemyX, enemyY);
+    this.retreating = false;
+    this.y = map(obj.seconds_until_alarm, beginTransitionSecond, 0, -bossImg.height/2, 20, true);
+    this.draw();
   }
+  // Changes update to move boss offscreen
   flyAway() {
+    this.retreating = true;
   }
 }
 
@@ -182,6 +196,7 @@ function preload() {
   enemyImg = loadImage("assets/enemyShip.png");
   backgroundImage = loadImage("assets/background.png");
   bossImg = loadImage("assets/enemyBoss.png");
+  lazerImg = loadImage("assets/enemyBossLazerRight.png");
 
   spaceShip = new SpaceShip(480, 400);
   bossSpaceShip = new BossEnemySpaceShip(); // go up to height/2
@@ -240,7 +255,24 @@ function updateGame() {
   bulletList.forEach(bullet => bullet.update());
   bulletList.forEach(bullet => bullet.draw());
 
-  bossSpaceShip.draw();
+  updateBossShip();
+}
+
+// Handles drawing and moving the boss
+function updateBossShip() {
+  bossSpaceShip.update();
+  // When the boss is visible and the alarm is no longer on
+  if (obj.seconds_until_alarm === -1 && bossSpaceShip.hidden === false) {
+    bossSpaceShip.flyAway();
+  }
+  // Draw lazers as well when alarm is going off
+  if (obj.seconds_until_alarm === 0) {
+    image(lazerImg, width/2, 0, 348, lazerImg.height);
+  }
+  // If alarm is set or going off
+  if (obj.seconds_until_alarm !== -1) {
+    bossSpaceShip.flyIn();
+  }
 }
 
 // Add a bullet every second
@@ -265,10 +297,10 @@ function updateEnemyShips() {
   for (var i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
     // Begin to fly visible enemy ships away on beginTransitionSecond
-    if (obj.seconds_until_alarm < beginTransitionSecond && i < obj.minutes) {
+    if (obj.seconds_until_alarm < beginTransitionSecond && i < obj.minutes && obj.seconds_until_alarm !== -1) {
       var angle = map(i, 0, obj.minutes - 1, PI, TWO_PI);
       enemySpaceShips[i].flyAway(angle, obj.seconds_until_alarm, beginTransitionSecond, 0);
-
+    // Fly the ships offscreen when hour changes
     } else if (obj.seconds === 59 && obj.minutes === 59) {
       // Find the point on the arc offscreen to fly away to
       var angle = map(i, 0, maxEnemySpaceShips - 1, PI, TWO_PI);
