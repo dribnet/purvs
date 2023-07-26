@@ -183,12 +183,12 @@ function draw_clock(obj) {
   //   }
   // }
 
-  if (hours == 23) {
-    for (let j = 0; j < hourBarsCount; j++) {
-      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
-      hoursBarEleven(centerX-130, centerY-145)
-    }
-  }
+  // if (hours == 23) {
+  //   for (let j = 0; j < hourBarsCount; j++) {
+  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+  //     hoursBarEleven(centerX-130, centerY-145)
+  //   }
+  // }
 
 
 
