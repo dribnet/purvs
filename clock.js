@@ -16,10 +16,41 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
 
+  //changing sky based on day and night
+const night_sky = color(50, 50, 60);
+    const night_ground = color(30, 60, 30);
+    const day_sky = color(173,216,230);
+    const day_ground = color(100, 200, 100);
+  let current_ground = null;
+
+    if (obj.hours >= 7 && obj.hours < 8) {
+        // sunrise
+        let hour_fraction = obj.minutes / 60;
+        let cur_sky = lerpColor(night_sky, day_sky, hour_fraction);
+        current_ground = lerpColor(night_ground, day_ground, hour_fraction);
+        background(cur_sky);
+    }
+    else if (obj.hours >= 19 && obj.hours < 20) {
+        // sunrise
+        let hour_fraction = obj.minutes / 60;
+        let cur_sky = lerpColor(day_sky, night_sky, hour_fraction);
+        current_ground = lerpColor(day_ground, night_ground, hour_fraction);
+        background(cur_sky);
+    }
+    else if(obj.hours >= 8 && obj.hours < 20) {
+        // daytime
+        background(day_sky);
+        current_ground = day_ground;
+    }
+    else {
+        // nightime
+        background(night_sky);
+        current_ground = night_ground;
+    }
 
   let Seconds = obj.seconds
   let Minutes = obj.minutes
-  let hours = obj.hours
+  
 
   // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
   //let MinutesY = map(Minutes, 0, 59, 1, 150);
@@ -130,14 +161,38 @@ function draw_clock(obj) {
   strokeWeight(5);
   line(395, 370, 565, 370); //line on collar of plant pot //395, 350, 565, 350
 
-  ystep = 48
-  for (let i = 0; i < 6; i++) {
-    drawLeaf(425, 42 + (ystep * i));
-  }
+  let ystep = 48;
+  let leaves = 6;  
+  let hours = obj.hours;    
+  let ZeroSix = map(hours,0,6,6,0);   
+  let sixTwelve = map(hours,0,12,12,0);  
+  //text(hours, 100,100);//debug       
+  if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600     
+     for (let i = ZeroSix; i < 6; i++) {    
+       drawLeaf(425, 42+(ystep)*i);   }} 
+       else{//draw 6 leaves in the same spot       
+        for(let k=0;k<leaves;k++){       
+           drawLeaf(425,42+(ystep*k));   
+            }  
+           }
 
-  for (let i = 0; i < 6; i++) {
-    drawrightLeaf(535, 42 + (ystep * i));
-  }
+  if(hours>=0&& 7>hours<12){//draw 6 leaves between 0700 - 1200 
+    for (let i = sixTwelve; i < 6; i++) {    
+      drawrightLeaf(535, 42+(ystep)*i);   } 
+   } 
+      else{//draw 6 leaves in the same spot       
+        for(let k=0;k<leaves;k++){       
+          drawrightLeaf(535,42+(ystep*k));   
+           }  
+           }
+
+  // for (let i = 0; i < 6; i++) {
+  //   drawLeaf(425, 42 + (ystep * i));
+  // }
+
+  // for (let i = 0; i < 6; i++) {
+  //   drawrightLeaf(535, 42 + (ystep * i));
+  // }
 
 
  
