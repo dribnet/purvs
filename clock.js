@@ -15,6 +15,11 @@ const xBuilding = [73, 330, 553, 126, 790, 10, 790, 704];
 const yBuilding = [256, 272, 280, 347, 354, 267, 325, 309];
 const widthBuilding = [104, 122, 195, 187, 161, 100, 96, 138];
 
+let imgLamp;
+function preload(){
+  imgLamp = loadImage('img/street_light2.png');
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -31,17 +36,32 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-  var darkNightSky = color(17, 65, 102);
-  var moonColor = color(230, 199, 23);
-  var moonDot = color(171, 151, 39);
   var grey = color(99, 101, 102);
   var black = color(1, 4, 31);
   var lightBlueGrey = color(84, 105, 120);
+  var blackSky = color(24, 5, 120);
+  var blueSky = color(27, 125, 245);
 
-  background(darkNightSky);
-  for(let y=0; y<height; y++){
+  // changing the background according to the time of day. 
+  let currentColor = color(0);
+
+  if (hours > 6 && hours <= 9){
+    currentColor = lerpSkyColor(blackSky, blueSky, 6.0, 9.0, hours)
+  }
+  else if (hours > 9 && hours <= 18){
+    currentColor = blueSky;
+  }
+  else if (hours > 18 && hours <= 21){
+    currentColor = lerpSkyColor(blueSky, blackSky, 18.0, 21.0, hours)
+  }
+  else{
+    currentColor = blackSky;
+  }
+
+  // brackground gradient because city causes it to always be a little light 
+  for(let y = 0; y < height; y++){
     var n = map(y, 0, height, 0, 1);
-    let newc = lerpColor(darkNightSky, color(235), n);
+    let newc = lerpColor(currentColor, color(200), n);
     stroke(newc);
     line(0, y, width, y);
   }
@@ -65,29 +85,38 @@ function draw_clock(obj) {
   var starsColor1 = color(230, 199, 23, starsPulsing);
   var starsColor2 = color(230, 199, 23, starsPulsing2);
 
-  // drawing the stars 
+  // drawing the stars or the clouds 
   noStroke();
   for (let i =0; i < 200; i+=2){
-    fill(starsColor1);
-    star(randomList[i], randomList[i+1], 5, 11.6, 3);
-    fill(starsColor2);
-    star(randomList[i], randomList[i+1], 11.6, 5, 3);
+    if (hours < 6 || hours > 18) { // night time
+      fill(starsColor1);
+      star(randomList[i], randomList[i+1], 5, 11.6, 3);    
+      fill(starsColor2);
+      star(randomList[i], randomList[i+1], 11.6, 5, 3);
+    } else{
+      // reset to start
+      let secondsResetsAfterFive = (seconds + randomList[i]) % 20;
+      let secondsWithFraction = secondsResetsAfterFive + (millis / 1000.0);
+
+      let startX = map(secondsWithFraction, 0, 10, -240, width+240);
+
+      drawCloud(startX*0.5, randomList[i+1]);
+
+    }
   }
 
-  // moon
-  fill(moonColor); 
-  ellipse(width / 2, height / 2 - 70, 350);
-
-  // moon dots 
-  fill(moonDot);
-  ellipse(400, 230, 80); // big dot
-  ellipse(350, 180, 30); // smaller 
-
-  ellipse(480, 70, 70); // big dot
-  ellipse(560, 120, 40); // medium 
-  ellipse(520, 170, 20); // smaller 
-
-  ellipse(530, 270, 40); // medium 
+  // moving moon and sun 
+  let hoursFraction = hours + (minutes / 60.0);
+  if (hours < 6){ // moving down MOON in the morning 
+    drawMoon(map(hoursFraction, 0, 5, -50, 200));
+  } else if (hours > 17){ // moving up MOON in the evening 
+    drawMoon(map(hoursFraction, 18, 23, 500, 150));
+  } else if (hours > 6 && hours < 13){ // moving up SUN in the morning 
+    drawSun(map(hoursFraction, 7, 11, 500, 150));
+  } else {
+    drawSun(map(hoursFraction, 13, 17, 150, 150)); // moving down SUN in the afternoon
+  }
+  
 
   // background buildings
   stroke(grey);
@@ -96,12 +125,6 @@ function draw_clock(obj) {
   for (let i =0; i< 10; i++){
     let heightdiff = yBuilding[i];
     rect(xBuilding[i], yBuilding[i], widthBuilding[i], 200+heightdiff, 20); // 5th number is radius of corners
-    // background building windows 
-    stroke(163, 162, 93); // dark yellow 
-    strokeWeight(2);
-    rect(xBuilding[i]+10, yBuilding[i]+10, widthBuilding[i]-50, 200, 5);
-    stroke(grey);
-    strokeWeight(4);
   }
 
   // three buildings 
@@ -113,19 +136,31 @@ function draw_clock(obj) {
   // windows 
   // hours - left building 
   noStroke();
-  windows(millis, hours, 4, 6, 175, 35, 175, 45, 25, 25);
+  windows(hours, 4, 6, 175, 35, 175, 45, 25, 25);
 
   // windows for minutes - middle building
-  windows(millis, minutes, 10, 6, 357, 20, 285, 29, 15, 25);
+  windows(minutes, 10, 6, 357, 20, 285, 29, 15, 25);
 
   // windows for seconds - right building
-  windows(millis, seconds, 4, 15, 570, 45, 85, 25, 35, 20);
+  windows(seconds, 4, 15, 570, 45, 85, 25, 35, 20);
+
+  // street lights
+  if (hours < 6 || hours > 18) { // night time
+    tint(255);
+    for (let i =20; i< width; i+=170){
+      image(imgLamp, i, height-90, 100, 100);
+    }
+  } else{
+    tint(100);
+    for (let i =20; i< width; i+=170){
+      image(imgLamp, i, height-90, 100, 100);
+    }
+  }
+  
 }
 
 // Creating windows in their respective areas and buildings, placing them randomly. 
-function windows(millis, time, iMax, jMax, x, x1, y, y1, width, height){
-  // fade in windows 
-  var windowsGoingOn = map(millis, 0, 999, 0, 255);
+function windows(time, iMax, jMax, x, x1, y, y1, width, height){
   // make random window placements when they turn on 
   let windowPlacement = [];
   for (let i = 1; i <= iMax; i++){
@@ -134,19 +169,11 @@ function windows(millis, time, iMax, jMax, x, x1, y, y1, width, height){
     }
   }
   shuffleArray(windowPlacement); 
-  
-  let maxTime = iMax * jMax;
 
+  // draw windows 
   let timecount = 0;
   for (let i=0; i < windowPlacement.length; i++){
-
-    // how would you make this just work on the window being drawn and not all the other ones?
-    if (i == time){
-      fill(230, 199, 23, windowsGoingOn); 
-      // could add this to some text of the actual time. blinking. 
-    }else{
-      fill(230, 199, 23, 255);
-    }
+    fill(230, 199, 23, 255);
     rect(windowPlacement[i].x, windowPlacement[i].y, width, height, 5);
     
     if (time == timecount){
@@ -196,4 +223,78 @@ function star(x, y, radius1, radius2, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+// from ChatGBT 
+function drawCloud(x, y) {
+  noStroke();
+  fill(255, 255, 255, 50); // Set the color of the cloud to white
+
+  var step = 100 / (6 - 1); // Calculate the horizontal spacing between circles
+  var offset = 100 / 6; // Offset to center the cloud
+
+  // Loop through and draw the circles that form the cloud
+  for (var i = 0; i < 6; i++) {
+    var cx = x - 100 / 2 + i * step;
+    var cy = y + cos(i * PI / (6 - 1)) * 100 / 4;
+    var diameter = 100 / 2 - abs(cy - y) + offset;
+
+    ellipse(cx, cy, diameter);
+  }
+}
+
+// to change background according to time from https://stackoverflow.com/questions/60196138/lerp-background-colour-based-on-time-of-day 
+function lerpSkyColor(from, to, startTime, endTime, hours){
+  const lerpAmt = map(hours, startTime, endTime, 0, 1)
+  return lerpColor(color(from), color(to), lerpAmt)
+}
+
+// My own function which draws a moon and moves according to the y coordinate 
+function drawMoon(moveY){
+  var moonColor = color(230, 199, 23);
+  var moonDot = color(171, 151, 39);
+  fill(moonColor); 
+  ellipse(width / 2, height / 2 - 70 + moveY, 350);
+
+  // moon dots 
+  fill(moonDot);
+  ellipse(400, 230 + moveY, 80); // big dot
+  ellipse(350, 180 + moveY, 30); // smaller 
+
+  ellipse(480, 70 + moveY, 70); // big dot
+  ellipse(560, 120 + moveY, 40); // medium 
+  ellipse(520, 170 + moveY, 20); // smaller 
+
+  ellipse(530, 270 + moveY, 40); // medium 
+}
+
+// from ChatGBT and modified it
+function drawSun(moveY) {
+  let numRays = 50;
+  let sunRadius = 175;
+  let x = width / 2;
+  let y = height / 2 - 70 + moveY;
+  noStroke();
+  fill(230, 199, 23); // Set the color of the sun to yellow
+
+  // Calculate the angle between each ray
+  var angleStep = TWO_PI / numRays;
+
+  strokeWeight(5);
+  stroke(245, 185, 88); // light orange
+  // Draw sun rays using lines
+  for (var i = 0; i < numRays; i++) {
+    var angle = i * angleStep;
+
+    // Calculate the start and end points of each ray
+    var startX = x + cos(angle) * sunRadius;
+    var startY = y + sin(angle) * sunRadius;
+    var endX = x + cos(angle + PI) * (sunRadius + sunRadius / 2);
+    var endY = y + sin(angle + PI) * (sunRadius + sunRadius / 2);
+
+    line(startX, startY, endX, endY);
+  }
+
+  // Draw the sun's body as an ellipse
+  ellipse(x, y, sunRadius * 2);
 }
