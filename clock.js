@@ -9,6 +9,7 @@ var spaceShip;
 var enemySpaceShips = [];
 const maxEnemySpaceShips = 59;
 var bossSpaceShip;
+const bossFiringYPos = 20;
 
 // Lemniscate size constants
 const enemyLemniscateWidth = 420; 
@@ -163,7 +164,7 @@ class BossEnemySpaceShip {
   // Moves boss from -bossImg.height/2 to on screen
   flyIn() {
     this.retreating = false;
-    this.y = map(obj.seconds_until_alarm, beginTransitionSecond, 0, -bossImg.height/2, 20, true);
+    this.y = map(obj.seconds_until_alarm, beginTransitionSecond, 0, -bossImg.height/2, bossFiringYPos, true);
     this.draw();
   }
   // Changes update to move boss offscreen
@@ -243,6 +244,7 @@ function draw_clock(obj) {
 function drawShipCount() {
   textAlign(LEFT);
   fill(255, 220,  220).textSize(18);
+  stroke(255, 220,  220);
   textFont(orbitronFont);
   text("ENEMY SHIPS: " + obj.minutes, 770, height / 16);
 }
@@ -273,8 +275,11 @@ function updateGame() {
   updateBossShip();
 
   if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm > 0) {
+    var interpolater = map(bossSpaceShip.getY(), -bossImg.height/2, bossFiringYPos, 0, 1);
+    var textColor = lerpColor(color(255, 220, 220), color(255, 0, 0), interpolater);
     textAlign(CENTER);
-    fill(255, 220,  220).textSize(128);
+    fill(textColor).textSize(128);
+    stroke(textColor);
     textFont(orbitronFont);
     text("BOSS\nINCOMING\n" + Math.round(obj.seconds_until_alarm), width/2, height / 4);
   }
@@ -305,7 +310,7 @@ function updateEnemyShips() {
       // Draws the current minute ships sliding back into place
       if (i < obj.minutes) {
         var angle = map(i, 0, obj.minutes - 1, PI, TWO_PI);
-        enemySpaceShips[i].flyInAfterAlarm(angle, bossSpaceShip.getY(), 20, -bossImg.height/2);
+        enemySpaceShips[i].flyInAfterAlarm(angle, bossSpaceShip.getY(), bossFiringYPos, -bossImg.height/2);
       }
 
       // Normal transition for new minute
