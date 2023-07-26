@@ -3,8 +3,6 @@
 
 function draw_clock(obj) {
   // YOUR MAIN CLOCK CODE GOES HERE
-  let hourX = 12;
-  let hourSet = obj.hours;
   let morning = "AM";
 
   background(0); //  beige
@@ -12,39 +10,48 @@ function draw_clock(obj) {
   textSize(30);
   //textAlign(CENTER, CENTER);
   angleMode(DEGREES);
-  let spin = map(obj.seconds, 0, 59, 0, 360);
 
   translate(width/2, height/2);
+
+  let spin = map(obj.seconds, 0, 59, 0, 360);
+  rotate(spin); // TICKING SPIN
   push();
-    rotate(1);
+    rotate(-90);
+    if (obj.hours > 12) {
+      morning = "PM";
+    } else {
+      morning = "AM";
+    }
     text(morning, 0, 0);
   pop();
 
-  rotate(spin);
   translate(100, 0);
   textAlign(CENTER);
-  push();
-    rotate(-90);
-    text(obj.hours + "\n" + ".." + "\n" + obj.minutes, 0, 0);
-    
-    if (obj.hours > 12) {
-      // hourSet = obj.hours - 12;
-      morning = "PM";
-      // if (hourSet < 10) {
-      //   text("0\n" + hourSet, 0, 0);
-    } else {
-      morning = "AM";
-      // let hourArr = array/from(String(hourSet), Number);
-      // text(hourArr[0] + "\n" + hourArr[1], 0, 0);
-    }
+  let min = obj.minutes;
+  let hourX = obj.hours;
+  if (obj.minutes < 10) {
+    min = ("0" + obj.minutes);
+  }
+  if (obj.hours < 10) {
+    hourX = ("0" + obj.hours);
+  } else if (obj.hours > 12) {
+    hourX = (obj.hours - 12);
+  }
 
-    // if (obj.minutes < 10) {
-    //   hourSet = obj.hours;
-    //   text("\n..\n0" + obj.minutes, 20, 0);
-    // } else {
-    //   let minSet = obj.minutes;
-    //   let minArr = Array.from(String(minSet), Number);
-    //   text("\n..\n" + minArr[0] + "\n" + minArr[1], 0, 10);
-    // }
+  push();
+    rotate(-90); // Text out Straight
+    if (obj.millis > 499) {
+      text(obj.hours, 0, 0);
+      fill(255, 0, 40);
+      text("\n" + "\n", 0, 0);
+      fill(200);
+      text(min, 0, 80);
+    } else {
+      text(obj.hours, 0, 0);
+      fill(255, 0, 40);
+      text("\n" + ":" + "\n", 0, 0);
+      fill(200);
+      text(min, 0, 80);
+    }
   pop();
 }
