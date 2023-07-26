@@ -116,6 +116,15 @@ class EnemySpaceShip extends SpaceShip{
     // Draw the image
     this.draw(enemyX, enemyY);
   }
+  // Flys ship in from arc after alarm finishes
+  flyInAfterAlarm(angle, mapValue, mapStart, mapStop) {
+    var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
+    var arcY = height/5 + height/2 * sin(angle);
+    var enemyX = map(mapValue, mapStart, mapStop, arcX, this.getX());
+    var enemyY = map(mapValue, mapStart, mapStop, arcY, this.getY());
+
+    this.draw(enemyX, enemyY);
+  }
 }
 
 class BossEnemySpaceShip {
@@ -279,10 +288,27 @@ function addBullet() {
 function updateEnemyShips() {
   for (var i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
+    if (obj.seconds_until_alarm === -1 && bossSpaceShip.retreating) {
+      // Draws the current minute ships sliding back into place
+      if (i < obj.minutes) {
+        var angle = map(i, 0, obj.minutes - 1, PI, TWO_PI);
+        enemySpaceShips[i].flyInAfterAlarm(angle, bossSpaceShip.getY(), 20, -bossImg.height/2);
+      }
+
+      // Normal transition for new minute
+      if (i === obj.minutes) {
+        enemySpaceShips[i].flyIn();
+      }
+
+    // Edge case of boss just before retreating
+    } else if (obj.seconds_until_alarm === -1 && !bossSpaceShip.hidden) {
+      return;
+
     // Begin to fly visible enemy ships away on beginTransitionSecond
-    if (obj.seconds_until_alarm < beginTransitionSecond && i < obj.minutes && obj.seconds_until_alarm !== -1) {
+    } else if (obj.seconds_until_alarm < beginTransitionSecond && i < obj.minutes && obj.seconds_until_alarm !== -1) {
       var angle = map(i, 0, obj.minutes - 1, PI, TWO_PI);
       enemySpaceShips[i].flyAway(angle, obj.seconds_until_alarm, beginTransitionSecond, 0);
+
     // Fly the ships offscreen when hour changes
     } else if (obj.seconds === 59 && obj.minutes === 59) {
       // Find the point on the arc offscreen to fly away to
