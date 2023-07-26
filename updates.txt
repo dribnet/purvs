@@ -10,3 +10,15 @@ I have changed my method to using 2d arrays to create grids. I also created a po
 
 20/7 10AM
 I'm probably going to admit defeat here. I'll figure out how arrays with classes work some other time. Right now I should focus on the main alarm. But before That I'm not yet satisfied with how the maeda clock came out. I will try to recreate a different clock. hopefully this time it will be a little bit faster.
+
+24/7 8PM
+I changed my maeda clock to a different clock. This one I had a better understanding on how to break it down and recreate. It was a lot easier that I decided to put my own twist on it.
+
+26/7 11AM
+I found a sketch that I liked and found potential in. I was inspired by @maxdrekker and his works that uses simple geometric shapes to create aesthetically pleasing graphics. To start with I first made simple circles making it overlap each other. More hour = more circles. Secondly, I moved the circles over to then they would all touch the edge of the overall background circle. These would rotate around based on the seconds. Lastly, I turned those circles into squares using p5js polygon references.
+
+27/7 1AM
+I was looking over my inspiration's design. I realised how much he used gradients in his work. So I decided to use lerps to create the look. At midnight, I found out I didn't know what the seconds was because there was 0 hours as 0 is midnight. Because of that, I made a smaller star outside the background polygon. It felt bland so I added some glow to it. It only requires 2 lines 
+  drawingContext.shadowBlur
+  drawingContext.shadowColor
+I liked the look of this, so I added a backgrund drop shadow on the background polygon, this really enhanced the look of the clock.

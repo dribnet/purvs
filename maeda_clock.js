@@ -11,41 +11,59 @@ function draw_clock(obj) {
 }
 
 //text
-function timeNumber(units){
+function timeNumber(units) {
   textFont("JOKERMAN");
   textAlign(CENTER, CENTER);
 
   let fontSize = map(obj.millis, 0, 1000, 20, 150);
-  
+
   //hour
-  if (units == obj.hours){
+  if (units == obj.hours) {
     //pulsing
-    if(obj.seconds % 2){
-      fontSize = map(obj.millis, 0, 1000, 20, 150);
-    }
-    else if (obj.seconds % 2 + 1){
-      fontSize = map(obj.millis, 0, 1000, 150, 20);
-    }
+    for (i = 0; i < 25; i++) {
+      if (obj.seconds % 2) {
+        fontSize = map(obj.millis, 0, 1000, 20, 150);
+      }
+      else if ((obj.seconds % 2) + 1) {
+        fontSize = map(obj.millis, 0, 1000, 150, 20);
+      }
 
-  textSize(fontSize);
+      textSize((fontSize / i) * 1.5);
+      fill(255, 250, 253, i * 10);
 
-    text(units, canvasWidth / 4, canvasHeight / 2);
-  };
+      text(units, canvasWidth / 4, canvasHeight / 2);
+
+      push();
+      fill(254,245, 247, 200);
+      strokeWeight(5);
+      textSize(fontSize * 1.5);
+      text(units, canvasWidth / 4, canvasHeight / 2);
+      pop();
+    }
+  }
 
   //minutes
-  if (units == obj.minutes){
+  if (units == obj.minutes) {
     //pulsing
-    if(obj.seconds % 2){
-      fontSize = map(obj.millis, 0, 1000, 150, 20);
-    }
-    else if (obj.seconds % 2 + 1){
-      fontSize = map(obj.millis, 0, 1000, 20, 150);
-    }
+    for (j = 0; j < 25; j++) {
+      if (obj.seconds % 2) {
+        fontSize = map(obj.millis, 0, 1000, 150, 20);
+      }
+      else if ((obj.seconds % 2) + 1) {
+        fontSize = map(obj.millis, 0, 1000, 20, 150);
+      }
 
-  textSize(fontSize);
+      textSize((fontSize / j) * 1.5);
+      fill(255, 250, 253, j * 10);
 
-    text(units, (canvasWidth / 4)*3, canvasHeight / 2);
-  };
+      text(units, (canvasWidth / 4) * 3, canvasHeight / 2);
+
+      push();
+      fill(254,245, 247, 200);
+      strokeWeight(5);
+      textSize(fontSize * 1.5);
+      text(units, (canvasWidth / 4) * 3, canvasHeight / 2);
+      pop();
+    }
+  }
 }
-
-
