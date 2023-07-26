@@ -171,15 +171,14 @@ function windows(time, iMax, jMax, x, x1, y, y1, width, height){
   shuffleArray(windowPlacement); 
 
   // draw windows 
-  let timecount = 0;
   for (let i=0; i < windowPlacement.length; i++){
-    fill(230, 199, 23, 255);
-    rect(windowPlacement[i].x, windowPlacement[i].y, width, height, 5);
-    
-    if (time == timecount){
+    // if it's 12am - need no windows
+    if (time == i){
       break;
     }
-    timecount++;
+
+    fill(230, 199, 23, 255);
+    rect(windowPlacement[i].x, windowPlacement[i].y, width, height, 5);
   }
 }
 
