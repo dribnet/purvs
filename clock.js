@@ -39,13 +39,15 @@ const overHeatBarY = 210;
 // Alarm constants
 const beginTransitionSecond = 5;
 
-// Classes
+// Class for drawing and moving the green spaceship
 class SpaceShip {
   constructor(angle) {
+    // Plot the spaceship on the curve
     this.x = (lemniscateWidth * cos(angle)) / (1 + pow(sin(angle), 2));
     this.y = (lemniscateHeight * cos(angle) * sin(angle)) / (1 + pow(sin(angle), 2));
     this.angle = angle;
   }
+  // Updates the position of the spaceship
   update() {
     // Increment the angle to make the spaceship move along the lemniscate path
     this.angle += 0.01;
@@ -54,22 +56,28 @@ class SpaceShip {
     this.x = (lemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
     this.y = (lemniscateHeight * cos(this.angle) * sin(this.angle)) / (1 + pow(sin(this.angle), 2));
   }
+  // Draws the spaceship
   draw() {
     image(playerImg, this.getX(), this.getY(), playerImg.width/2, playerImg.height/2);
   }
+  // Returns the x location to draw the image as the lemniscate is centred at 0,0
   getX() {
     return this.x + width / 2;
   }
+  // Returns the y location to draw the image as the lemniscate is centred at 0,0
   getY() {
     return this.y + height * 4 / 5;
   }
 }
 
-class EnemySpaceShip extends SpaceShip{
+// Class for drawing and moving the non-boss red spaceships
+class EnemySpaceShip extends SpaceShip {
   constructor(angle) {
     super(angle);
+    // Ship is not visible by default
     this.hidden = true;
   }
+  // Updates the position of the spaceship
   update() {
     this.hidden = true;
     // Increment the angle to make the spaceship move along the lemniscate path
@@ -79,24 +87,30 @@ class EnemySpaceShip extends SpaceShip{
     this.x = (enemyLemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
     this.y = (enemyLemniscateHeight * cos(this.angle) * sin(this.angle)) / (1 + pow(sin(this.angle), 2));
   }
+  // Sets the ship to be visible and displays it
   draw(x = this.getX(), y = this.getY(), width = enemyImg.width/2, height = enemyImg.height/2) {
     this.hidden = false;
     image(enemyImg, x, y, width, height);
   }
+  // Returns the x location to draw the image as the lemniscate is centred at 0,0
   getX() {
     return this.x + width / 2;
   }
+  // Returns the y location to draw the image as the lemniscate is centred at 0,0
   getY() {
     return this.y + height / 5;
   }
-  // Function for debugging
+  // Visible function for debugging bullet collision
   drawBoundingBox() {
     noFill();
     rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
   }
+  // Moves image of ship from top centre to postion on the curve
   flyIn() {
     // 0 - 1 value over the minute
     var fadeInOnMinute = (obj.seconds+obj.millis/1000)/60;
+
+    // Get position
     var enemyX = map(fadeInOnMinute, 0.97, 1, width/2, this.getX());
     var enemyY = map(fadeInOnMinute, 0.97, 1, -enemyImg.height/2, this.getY());
 
@@ -106,7 +120,7 @@ class EnemySpaceShip extends SpaceShip{
     }
     
   }
-  // Calculates flyAway on hour changes
+  // Moves image towards position on an arc offscreen from curve
   flyAway(angle, mapValue, mapStart, mapStop) {
     // Calculate the new position to draw the image at
     var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
@@ -117,7 +131,7 @@ class EnemySpaceShip extends SpaceShip{
     // Draw the image
     this.draw(enemyX, enemyY);
   }
-  // Flys ship in from arc after alarm finishes
+  // Moves image in from arc after alarm finishes
   flyInAfterAlarm(angle, mapValue, mapStart, mapStop) {
     var arcX = width/2 + (width + (enemyImg.width * 2))/2 * cos(angle);
     var arcY = height/5 + height/2 * sin(angle);
@@ -128,6 +142,7 @@ class EnemySpaceShip extends SpaceShip{
   }
 }
 
+// Class for drawing and moving boss spaceship
 class BossEnemySpaceShip {
   constructor() {
     this.x = 480;
@@ -135,6 +150,7 @@ class BossEnemySpaceShip {
     this.hidden = true;
     this.retreating = false;
   }
+  // Draws the spaceship
   draw(x = this.getX(), y = this.getY(), width = bossImg.width/2, height = bossImg.height/2) {
     this.hidden = false;
     image(bossImg, x, y, width, height);
@@ -150,13 +166,15 @@ class BossEnemySpaceShip {
       this.hidden = true;
     }
   }
+  // Returns x position
   getX() {
     return this.x;
   }
+  // Returns y position
   getY() {
     return this.y;
   }
-  // Function for debugging
+  // Visible function for debugging bullet collision
   drawBoundingBox() {
     noFill();
     rect(this.getX()-bossImg.width/4, this.getY()-bossImg.height/4, bossImg.width/2, bossImg.height/2);
@@ -173,12 +191,15 @@ class BossEnemySpaceShip {
   }
 }
 
+// Class for drawing and moving bullets
 class Bullet {
+  // constant speed of all bullet objects
   static bulletSpeed = 25;
   constructor(x, y) {
     this.x = x;
     this.y = y;
   }
+  // Updates the position of the bullet
   update() {
     this.y -= Bullet.bulletSpeed;
     if (obj.seconds_until_alarm === -1 || obj.seconds_until_alarm === undefined) {
@@ -187,6 +208,7 @@ class Bullet {
       this.handleEnemySpaceShipCollision([bossSpaceShip], bossImg);
     }
   }
+  // Performs collision detection for given array of enemies
   handleEnemySpaceShipCollision(enemies, enemyImg) {
     enemies.forEach(enemySpaceShip => {
       if (
@@ -201,6 +223,7 @@ class Bullet {
       }
     });
   }
+  // Draws the bullet
   draw() {
     image(playerBulletImg, this.x, this.y, playerBulletImg.width, playerBulletImg.height);
   }
@@ -208,6 +231,7 @@ class Bullet {
 
 // Loads before setup
 function preload() {
+  // Loads images
   playerImg = loadImage("assets/spaceShip.png");
   playerBulletImg = loadImage("assets/bullets.png");
   enemyImg = loadImage("assets/enemyShip.png");
@@ -215,10 +239,12 @@ function preload() {
   bossImg = loadImage("assets/enemyBoss.png");
   lazerImg = loadImage("assets/enemyBossLazer.png");
 
+  // Loads font
   orbitronFont = loadFont("assets/Orbitron-Regular.ttf");
 
+  // Loads ships
   spaceShip = new SpaceShip(480, 400);
-  bossSpaceShip = new BossEnemySpaceShip(); // go up to height/2
+  bossSpaceShip = new BossEnemySpaceShip();
 
   // Load the enemy spaceships
   for (let i = 0; i < maxEnemySpaceShips; i++) {
@@ -228,6 +254,7 @@ function preload() {
   }
 }
 
+// Draws clock
 function draw_clock(obj) {
   drawBackground();
   imageMode(CENTER);
@@ -240,7 +267,7 @@ function draw_clock(obj) {
   drawAllHearts();
 }
 
-// Draws the number of red ships visible.
+// Draws the number of red ships visible
 function drawShipCount() {
   textAlign(LEFT);
   fill(255, 220,  220).textSize(18);
@@ -265,6 +292,7 @@ function drawBackground() {
   }
 }
 
+// Updates and draws all spaceship and bullet objects
 function updateGame() {
 
   addBullet();
@@ -279,16 +307,23 @@ function updateGame() {
 
   updateBossShip();
 
+  // Draw countdown text when alarm is counting down
   if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm >= 1) {
-    var interpolater = map(bossSpaceShip.getY(), -bossImg.height/2, bossFiringYPos, 0, 1);
-    var textColor = lerpColor(color(255, 220, 220), color(255, 0, 0), interpolater);
-    textAlign(CENTER);
-    fill(textColor).textSize(128);
-    stroke(textColor);
-    textFont(orbitronFont);
-    text("BOSS\nINCOMING\n" + Math.round(obj.seconds_until_alarm), width/2, height / 4);
-    noStroke();
+    drawCountdownText();
   }
+}
+
+// Draws countdown text
+function drawCountdownText() {
+  var interpolater = map(bossSpaceShip.getY(), -bossImg.height/2, bossFiringYPos, 0, 1);
+  // Changes color as it counts down
+  var textColor = lerpColor(color(255, 220, 220), color(255, 0, 0), interpolater);
+  textAlign(CENTER);
+  fill(textColor).textSize(128);
+  stroke(textColor);
+  textFont(orbitronFont);
+  text("BOSS\nINCOMING\n" + Math.round(obj.seconds_until_alarm), width/2, height / 4);
+  noStroke();
 }
 
 // Add a bullet every second
@@ -298,18 +333,22 @@ function addBullet() {
   if (obj.seconds === 59 || obj.minutes === 0) {
     return;
   }
+  // Fires bullet on second change
   if (obj.seconds !== currentSecond) {
     currentSecond = obj.seconds;
     bulletList.push(new Bullet(spaceShip.getX()+playerImg.width/8, spaceShip.getY()));
     firedOffSecondBullet = false;
   }
+  // Fires bullet on 0.5, 1.5, n.5
   if (!firedOffSecondBullet && obj.millis >= 499.5) {
     bulletList.push(new Bullet(spaceShip.getX()-playerImg.width/8, spaceShip.getY()));
     firedOffSecondBullet = true;
   }
 }
 
+// Logic for handling all the enemy red ships
 function updateEnemyShips() {
+  // Loop over all non-boss red ships
   for (var i = 0; i < maxEnemySpaceShips; i++) {
     enemySpaceShips[i].update();
     if (obj.seconds_until_alarm === -1 && bossSpaceShip.retreating) {
@@ -342,7 +381,7 @@ function updateEnemyShips() {
       if (i < obj.minutes) {
         enemySpaceShips[i].draw();
       }
-      // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
+      // Flies in the ship from top centre to its location on the lemniscate near the end of the second
       if (i === obj.minutes && obj.seconds_until_alarm === -1) {
         enemySpaceShips[i].flyIn();
       }
@@ -376,10 +415,12 @@ function drawAllHearts() {
   var heartCount = (obj.hours % 12) || 12;
   var isRedHeart = true;
 
+  // Draws red hearts and set color to yellow for remaining hearts
   if (obj.hours > 12) {
     drawHearts(12, true);
     fill(250, 180, 40);
     isRedHeart = false;
+  // Set color to yellow for all hearts (12am Edge case)
   } else if (obj.hours === 0) {
     isRedHeart = false;
     fill(250, 180, 40);
@@ -416,6 +457,7 @@ function drawHearts(heartCount, isRedHeart) {
 
 // Draws an expanding heart given the number of current hearts and whether it is red or not
 function drawExpandingHeart(heartCount, isRedHeart) {
+  // Only draw on the final second of a minute
   if (obj.minutes === 59 && obj.seconds === 59) {
     // Get the row number
     var row = Math.floor(heartCount / heartMaxRowNum);
@@ -434,6 +476,7 @@ function drawExpandingHeart(heartCount, isRedHeart) {
   }
 }
 
+// Draws a single heart
 function heart(x, y, size) {
   beginShape();
   vertex(x, y);
@@ -449,10 +492,13 @@ function drawChargeMeter() {
   strokeWeight(1);
   var topCornerRadius = 8;
   var bottomCornerRadius = 0;
+  // Outline
   rect(820, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
   rect(900, 320, chargerMeterWidth, chargerMeterHeight, topCornerRadius, topCornerRadius, bottomCornerRadius, bottomCornerRadius);
 
+  // Ship does not fire on the final second so charger also wont fill
   if(obj.seconds === 59) return;
+
   fill(90, 250, 0);
   var yPos;
 
@@ -471,6 +517,7 @@ function drawChargeMeter() {
   }
 }
 
+// Draws overheating bar that goes from green -> lime -> orange/yellow -> red
 function drawOverHeatBar() {
   var secondsWithFraction   = obj.seconds + (obj.millis / 1000.0);
   var overHeatBarHeightSmooth  = map(secondsWithFraction, 0, 59, 0, overHeatBarHeight);
