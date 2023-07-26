@@ -246,7 +246,12 @@ function drawShipCount() {
   fill(255, 220,  220).textSize(18);
   stroke(255, 220,  220);
   textFont(orbitronFont);
-  text("ENEMY SHIPS: " + obj.minutes, 770, height / 16);
+  if (obj.minutes < 10) {
+    text("ENEMY SHIPS: 0" + obj.minutes, 770, height / 16);
+  } else {
+    text("ENEMY SHIPS: " + obj.minutes, 770, height / 16);
+  }
+  
 }
 
 // Creates the effect of an infinitely scrolling background
