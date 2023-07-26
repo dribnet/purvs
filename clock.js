@@ -30,6 +30,7 @@ function draw_clock(obj) {
   //text(" Millis  "+ millis+"|", width -180, 200);
 
 
+
 // draws maze--------------------------------------------
 
 
@@ -67,42 +68,56 @@ rect (90,120,10,70,7); //draws vertical bar
 rect (90,120,70,10,7); //horizontal
 
 rect (140,170,10,40,7); //short verticle bar
+//end of function 
+
+
 
 //draws pacman -----------------------------------------------------
-
-  // Draw Pacman's body
+ // Draw Pacman's body
   //create a for each statement where it swaps between the two every second
-  fill(255, 255, 0); // Yellow color for Pacman
-  noStroke();
-  //open mouth left
-  arc(80,100, 35, 35, radians(80)/2, radians(380)+5, PIE);
-  //open mouth right
-  //open mouth down
-  //open mouth up
 
-//closed mouth
- // ellipse(80,100, 35, 35);
-  
+/*function draw_pacman(x,y,size,size){
+let x =80;
+let y= 100;
+let size = 35;
+*/
+
+fill(255, 255, 0); // Yellow color for Pacman
+noStroke();
+
+ 
+  //open mouth left
+ //arc(80,100,35,35, radians(80)/2, radians(380)+5, PIE);
+  // draws closed mouth
+ //ellipse(80,100, 35, 35);
+ 
+  // create open mouth right
+  //create open mouth down
+  //create open mouth up
+
+
 //-----------------------------------------------------
 
  //draws "candy"
  //create if staement 
  //if pacman pass object, remove
  //after 57 seconds counting down flash and reset 
+  //create a loop to...
+//draw but change x and y pos to numbers in an array list
+
  fill(255,165,0);
  rect (100,98,5,5);
- //create a loop to...
-//draw but change x and y pos to numbers in an array list
+
  rect (120,98,5,5);
  rect (140,98,5,5);
   noFill();
   
 //-------------------------------------------------
 
+
  //creates clock numbers 
  //create this.num / functions for each and call
  //or send each into an array list then call from array list depending on minutes/hr
-
 let x = 200;
 let y = 180;
 let size = -4;
@@ -147,31 +162,22 @@ let c = 7;
 
  //135 gap
 
-
  //3rd number
- rect (x+320,y,size+18,size+90,c);
- rect (x+390,y,size+18,size+90,c);
+ drawDigit(x+320, y, size, c);
+//  rect (x+320,y,size+18,size+90,c);
+//  rect (x+390,y,size+18,size+90,c);
 
- //bottom 2 rects
- rect (x+320,y+90,size+18,size+90,c);
- rect (x+390,y+90,size+18,size+90,c);
+//  //bottom 2 rects
+//  rect (x+320,y+90,size+18,size+90,c);
+//  rect (x+390,y+90,size+18,size+90,c);
     
- //top and bottom rects in that order
- rect (x+325,y-20,size+80,size+18, c);
- rect (x+325,y+180,size+80,size+18,c);
+//  //top and bottom rects in that order
+//  rect (x+325,y-20,size+80,size+18, c);
+//  rect (x+325,y+180,size+80,size+18,c);
 
 
   //4th number 
-  rect (x+420,y,size+18,size+90,c);
-  rect (x+490,y,size+18,size+90,c);
- 
-  //bottom 2 rects
-  rect (x+420,y+90,size+18,size+90,c);
-  rect (x+490,y+90,size+18,size+90,c);
-     
-  //top and bottom rects in that order
-  rect (x+425,y-20,size+80,size+18, c);
-  rect (x+425,y+180,size+80,size+18,c);
+  drawDigit(x+420, y, size, c);
 
    /*
   //draws up 1 -------------------------------------------
@@ -312,26 +318,70 @@ rect (x+129,y+70,size+70,size+18,c);//middle one
 rect (x+180,y+90,size+18,size+90,c);
 rect (x+115,y+180,size+80,size+18, c);
 
+let second_ones_pos = obj.seconds % 10;
+let second_tens_pos = int(obj.seconds/10) % 10;
+print(second_tens_pos + "," + second_ones_pos);
+
 
 //LHS mins
+drawInnerDigit(x+325, y, size, c, second_tens_pos);
 
-rect (x+325,y-20,size+80,size+18, c);
-rect (x+320,y,size+18,size+90,c);
-rect (x+340,y+70,size+70,size+18,c);//middle
-rect (x+390,y+90,size+18,size+90,c);
-rect (x+325,y+180,size+80,size+18, c);
+// rect (x+325,y-20,size+80,size+18, c);
+// rect (x+320,y,size+18,size+90,c);
+// rect (x+340,y+70,size+70,size+18,c);//middle
+// rect (x+390,y+90,size+18,size+90,c);
+// rect (x+325,y+180,size+80,size+18, c);
 
 
  //4th number 
- rect (x+425,y-20,size+80,size+18, c);
- rect (x+420,y,size+18,size+90,c);
- rect (x+440,y+70,size+70,size+18,c);//middle
- rect (x+490,y+90,size+18,size+90,c);
- rect (x+425,y+180,size+80,size+18, c);
+ drawInnerDigit(x+425, y, size, c, second_ones_pos);
+//  rect (x+425,y-20,size+80,size+18, c);
+//  rect (x+420,y,size+18,size+90,c);
+//  rect (x+440,y+70,size+70,size+18,c);//middle
+//  rect (x+490,y+90,size+18,size+90,c);
+//  rect (x+425,y+180,size+80,size+18, c);
+
+
+// draw(drawOpenMouthPacman);
+if(obj.millis<500) {
+  drawOpenMouthPacman(80, 100, 35, 80, 380);
+}
+else {
+  drawOpenMouthPacman(80, 100, 55, 80, 380);
+}
+ 
+}
+//function draw() {
+//  background(220);
+//  drawOpenMouthPacman(80, 100, 35, 80, 380); // Call the function to draw open-mouthed Pacman
+//}
+
+function drawDigit(x, y, size, c) {
+  rect (x+0,y,size+18,size+90,c);
+  rect (x+70,y,size+18,size+90,c);
+ 
+  //bottom 2 rects
+  rect (x+0,y+90,size+18,size+90,c);
+  rect (x+70,y+90,size+18,size+90,c);
+     
+  //top and bottom rects in that order
+  rect (x+5,y-20,size+80,size+18, c);
+  rect (x+5,y+180,size+80,size+18,c);
 }
 
+function drawInnerDigit(x, y, size, c, n) {
+ rect (x+0,y-20,size+80,size+18, c);
+ rect (x-5,y,size+18,size+90,c);
+ if(n == 2 || n == 3 || n == 5) {
+  rect (x+20,y+70,size+70,size+18,c);//middle
+ }
+ rect (x+70,y+90,size+18,size+90,c);
+ rect (x+5,y+180,size+80,size+18, c);  
+}
 
-
-      
-
-
+function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
+  // Draw Pacman with an open mouth to the left
+  fill(255, 255, 0); // Yellow color
+  noStroke();
+  arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
+}
