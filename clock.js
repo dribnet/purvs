@@ -180,7 +180,14 @@ class Bullet {
   }
   update() {
     this.y -= Bullet.bulletSpeed;
-    enemySpaceShips.forEach(enemySpaceShip => {
+    if (obj.seconds_until_alarm === -1 || obj.seconds_until_alarm === undefined) {
+      this.handleEnemySpaceShipCollision(enemySpaceShips, enemyImg);
+    } else {
+      this.handleEnemySpaceShipCollision([bossSpaceShip], bossImg);
+    }
+  }
+  handleEnemySpaceShipCollision(enemies, enemyImg) {
+    enemies.forEach(enemySpaceShip => {
       if (
         this.x - playerBulletImg.width / 2 > enemySpaceShip.getX() - enemyImg.width / 4 &&
         this.x + playerBulletImg.width / 2  < enemySpaceShip.getX() + enemyImg.width / 4 &&
@@ -219,10 +226,6 @@ function preload() {
 }
 
 function draw_clock(obj) {
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
   drawBackground();
   imageMode(CENTER);
 
