@@ -258,23 +258,6 @@ function updateGame() {
   updateBossShip();
 }
 
-// Handles drawing and moving the boss
-function updateBossShip() {
-  bossSpaceShip.update();
-  // When the boss is visible and the alarm is no longer on
-  if (obj.seconds_until_alarm === -1 && bossSpaceShip.hidden === false) {
-    bossSpaceShip.flyAway();
-  }
-  // Draw lazers as well when alarm is going off
-  if (obj.seconds_until_alarm === 0) {
-    image(lazerImg, width/2, 0, 348, lazerImg.height);
-  }
-  // If alarm is set or going off
-  if (obj.seconds_until_alarm !== -1) {
-    bossSpaceShip.flyIn();
-  }
-}
-
 // Add a bullet every second
 function addBullet() {
   // Does not fire at 59 seconds since it is overheating
@@ -314,6 +297,23 @@ function updateEnemyShips() {
         enemySpaceShips[i].flyIn();
       }
     }
+  }
+}
+
+// Handles drawing and moving the boss
+function updateBossShip() {
+  bossSpaceShip.update();
+  // When the boss is visible and the alarm is no longer on
+  if (obj.seconds_until_alarm === -1 && bossSpaceShip.hidden === false) {
+    bossSpaceShip.flyAway();
+  }
+  // Draw lazers as well when alarm is going off
+  if (obj.seconds_until_alarm === 0) {
+    image(lazerImg, width/2, 0, 348, lazerImg.height);
+  }
+  // If alarm is set or going off
+  if (obj.seconds_until_alarm !== -1) {
+    bossSpaceShip.flyIn();
   }
 }
 
