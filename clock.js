@@ -274,7 +274,7 @@ function updateGame() {
 
   updateBossShip();
 
-  if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm > 0) {
+  if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm >= 1) {
     var interpolater = map(bossSpaceShip.getY(), -bossImg.height/2, bossFiringYPos, 0, 1);
     var textColor = lerpColor(color(255, 220, 220), color(255, 0, 0), interpolater);
     textAlign(CENTER);
