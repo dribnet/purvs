@@ -7,8 +7,16 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
 
-ellipse(0,0,100,100)
+let img;
+
+function preload(){
+  img=loadImage('1plate.png');
 
 
+
+}
+
+
+print(obj.seconds)
 
 }
