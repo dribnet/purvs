@@ -293,7 +293,7 @@ function updateEnemyShips() {
         enemySpaceShips[i].draw();
       }
       // Flies in the ship from width/2, -enemyImg.height/2 to its location on the lemniscate near the end of the second
-      if (i === obj.minutes) {
+      if (i === obj.minutes && obj.seconds_until_alarm === -1) {
         enemySpaceShips[i].flyIn();
       }
     }
@@ -311,8 +311,8 @@ function updateBossShip() {
   if (obj.seconds_until_alarm === 0) {
     image(lazerImg, width/2, 0, 348, lazerImg.height);
   }
-  // If alarm is set or going off
-  if (obj.seconds_until_alarm !== -1) {
+  // If alarm is set or going off and not in debug mode
+  if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm !== undefined) {
     bossSpaceShip.flyIn();
   }
 }
