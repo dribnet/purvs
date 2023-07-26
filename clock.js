@@ -5,6 +5,7 @@
 function preload(){
 
   img1 = loadImage("assets/Earth.png")
+  img2 = loadImage("assets/Moon.png")
 }
 
 function draw_clock(obj) {
@@ -42,17 +43,16 @@ function draw_clock(obj) {
 
  
   push();
-  translate(455,250);
+  translate(480,250);
   rotate(rotS); // rotates on the minute
-  fill(30, 111, 140); //earth blue
-
   image(img1,150,0,50);
 
   push();
   translate(150,0);
   rotate(rotMilli); // rotates on the second
   fill(178, 178, 178); //moon grey
-  ellipse(50,0,30);
+  //ellipse(50,0,30);
+  image(img2,50,0,30);
   pop();
   pop();
 
