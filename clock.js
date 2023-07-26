@@ -48,7 +48,6 @@ function draw_clock(obj) {
   // ellipse(width / 3 * 2, 350, seconds_radius); //ellipse getting larger with seconds 
 
 
-  //I could use For Loops for the beam animations
 
 
   let beamY1 = 470
@@ -77,7 +76,11 @@ function draw_clock(obj) {
   let phase4 = sin(shift2);
   let x_shift2 = map(phase4, -1, 1, 5, -5);
 
-  //for ellipse, do 2.5 instead of 5 ()
+  let shift3 = map(obj.millis, 0, 999, 0, TWO_PI);
+  let phase5 = sin(shift3);
+  let x_shift3 = map(phase5, -1, 1, 10, -10);
+
+  //for ellipse, do 2.5 instead of 5 (ellipses measure from centre)
 
   noStroke();
   fill(194, 228, 232);
@@ -106,7 +109,7 @@ noStroke();
   
   fill (255);
   stroke (200);
-  ellipse(305, 470, 248+x_shift2, 30); //round beam bottom FRONT
+  ellipse(305, 470, 248+x_shift3, 30); //round beam bottom FRONT
 
   stroke(150);
   fill (255);
@@ -119,7 +122,7 @@ noStroke();
   quad(660+x_shift1, 440, 730, 164+y_bounce1, 770, 164+y_bounce1, 830+x_shift2, 440); 
   fill (255);
   stroke (200);
-  ellipse(745, 440, 170+x_shift2, 15); //round beam bottom BACK
+  ellipse(745, 440, 170+x_shift3, 15); //round beam bottom BACK
 
 
 
