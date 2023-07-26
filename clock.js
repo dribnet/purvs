@@ -1,6 +1,11 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+let img;
+function preload() {
+  img = loadImage('Tree.PNG');
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -16,8 +21,10 @@ function draw_clock(obj) {
   let hours = obj.hours; 
   let millis = obj.millis; 
   let alarm = obj.seconds_until_alarm; 
+    //testingPNGtree
+
   
-  background(0); //  black
+  background(50); //  black
   fill(0); // black
   textSize(40);
   textAlign(CENTER, CENTER);
@@ -70,6 +77,8 @@ function draw_clock(obj) {
   let phase4 = sin(shift2);
   let x_shift2 = map(phase4, -1, 1, 5, -5);
 
+  //for ellipse, do 2.5 instead of 5 ()
+
   noStroke();
   fill(194, 228, 232);
 ellipse(750, 150+y_bounce1, 60, 25); //backUFOtop
@@ -97,11 +106,11 @@ noStroke();
   
   fill (255);
   stroke (200);
-  ellipse(305, 470, 248+x_shift2, 30); //round beam bottom
+  ellipse(305, 470, 248+x_shift2, 30); //round beam bottom FRONT
 
   stroke(150);
   fill (255);
-  ellipse (750,162+y_bounce1, 60, 8); //inside hole UFO back
+  ellipse (750,162+y_bounce1, 60, 8); //inside hole UFO BACK
 
   fill (255);
   noStroke();
@@ -110,7 +119,7 @@ noStroke();
   quad(660+x_shift1, 440, 730, 164+y_bounce1, 770, 164+y_bounce1, 830+x_shift2, 440); 
   fill (255);
   stroke (200);
-  ellipse(745, 440, 170+x_shift2, 15); //round beam bottom 
+  ellipse(745, 440, 170+x_shift2, 15); //round beam bottom BACK
 
 
 
@@ -142,6 +151,8 @@ text(minutes, 750, seconds_lift);
 // rect(760, minutes_lift, 15, 50); //minutesnumbers
 
 
+image(img,120, 350, 90, 150);
 
 
 }
+
