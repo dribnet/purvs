@@ -34,7 +34,18 @@ function battery(x,y) {
 
 function hoursBars(x, y){
   rect(x, y, 125, 47);
+}
 
+function hoursBarsCol(x, y) {
+  noStroke();
+  fill(255);
+  rect(x, y, 125, 47);
+}
+
+function hoursBarEleven(x, y) {
+  noStroke();
+  fill(255);
+  rect(x, y, 260, 47);
 }
 
 function minutesLines(x, y) {
@@ -70,12 +81,12 @@ function draw_clock(obj) {
 
 
   let hourBarWidth   = map(hours, 0, 24, 0, 129);
-  //let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
+  let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
   let minutesLinesYBot = 195;
   let minutesLinesYTop = -155;
-  let minuteBarHeight = map(minutes, 0, 59, 0, 59);
+  let secondsCount = map(seconds, 0, 59, 59, 0);
   //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
-  let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
+  // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
   let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
 
 
@@ -98,38 +109,88 @@ function draw_clock(obj) {
   noStroke();
   fill(255);
   // rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
-  //rect(centerX+150, centerY+200, 60, -minuteBarHeight);
+  rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
-  rect(centerX-130, centerY+140, hourBarWidth, 47);
+  // rect(centerX-130, centerY+140, hourBarWidth, 47);
 
   battery(centerX, centerY);
 
+    rect(centerX-130, centerY-145, 260, 47);
 
-
-  for (var hourBarY = centerY+140; hourBarY >= centerY-150; hourBarY -= 57){
+  for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX-130, hourBarY);
   }
-  for (var hourBarY = centerY+140; hourBarY >= centerY-150; hourBarY -= 57){
+  for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX+5, hourBarY);
   }
 
-  let minutesLinesY = 6;
-  let minutesCount = map(minutes, 0, 59, 59, 0);
-  
   let secondsLinesY = 6;
-  let secondsCount = map(seconds, 0, 59, 59, 0);
-
   if (seconds >= 0 && seconds < 60) {
     for (let i = secondsCount+1; i < 60; i++) {
       secondsLines(centerX-205, 90+(secondsLinesY)*i);
     }
   }
 
-  // if (minutes >= 0 && minutes < 60) {
-  //   for (let i = minutesCount; i < 60; i++) {
-  //     minutesLines(centerX+155, 90+(minutesLinesY)*i);
+  let hoursBarsColY = 57;
+  let hourBarsCount = 5;
+  let hoursAMSix = map(hours, 0, 5, 5, 0);
+  let hoursAMTwelve = map(hours, 0, 12, 12, 0);
+  let hoursPMSix = map(hours, 0, 18, 18, 0);
+  let hoursPMTwelve = map(hours, 0, 24, 24, 0);
+
+  if (hours >=0 && hours < 6 ) {
+    for (let i = hoursAMSix; i < 5; i++) {
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*i);
+    }
+  }
+
+  if (hours >=6 && hours < 12) {
+    for (let j = 0; j < hourBarsCount; j++) {
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+    }
+  }
+
+  if (hours >= 0 && 5 < hours < 11) {
+    for (let i = hoursAMTwelve; i < 7; i++) {
+      hoursBarsCol(centerX+5, 48+(hoursBarsColY)*i);
+    }
+  }
+
+  if (hours == 11) {
+    for (let j = 0; j < hourBarsCount; j++) {
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+      hoursBarEleven(centerX-130, centerY-145)
+    }
+  }
+
+
+
+  // if (hours >=12 && hours < 18 ) {
+  //   for (let i = hoursPMSix; i < 5; i++) {
+  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*i);
   //   }
   // }
+
+  // if (hours >=18 && hours < 24) {
+  //   for (let j = 0; j < hourBarsCount; j++) {
+  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+  //   }
+  // }
+
+  // if (hours >= 6 && 11 < hours < 17) {
+  //   for (let i = hoursPMTwelve; i < 7; i++) {
+  //     hoursBarsCol(centerX+5, 48+(hoursBarsColY)*i);
+  //   }
+  // }
+
+  if (hours == 23) {
+    for (let j = 0; j < hourBarsCount; j++) {
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+      hoursBarEleven(centerX-130, centerY-145)
+    }
+  }
+
+
 
   }
 
