@@ -382,8 +382,8 @@ function drawAllHearts() {
     isRedHeart = false;
   } else if (obj.hours === 0) {
     isRedHeart = false;
+    fill(250, 180, 40);
   }
-
   // Draws the remaining hearts (hours % 12)
   drawHearts(heartCount, isRedHeart);
 }
@@ -391,7 +391,7 @@ function drawAllHearts() {
 // Draws heartCount amount of hearts
 function drawHearts(heartCount, isRedHeart) {
   // Fade out the yellow hearts when changing for 12am to 1am
-  if (heartCount === 12 && !isRedHeart) {
+  if (heartCount === 12 && !isRedHeart && obj.seconds === 59) {
     fill(250, 180, 40, map(obj.millis, 0, 999, 255, 0));
   }
 
