@@ -5,5 +5,16 @@ function draw_clock(obj) {
   fill(200); // dark grey
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("YOUR MAEDA CLOCK CODE GOES HERE", width/2, height/2);
+  text("Clock", width/2, height/2);
+
+  // Clock Structure Ring Circles
+  ellipse(480, 250, 480, 480);
+  strokeWeight(5);
+  ellipse(480, 250, 300, 300);
+  strokeWeight(10);
+  ellipse(480, 250, 100, 100);
+  strokeWeight(15);
+
+  //Clock Structure hands
+
 }
