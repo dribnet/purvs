@@ -25,11 +25,11 @@ function draw_clock(obj) {
 
 
   fill(249, 174, 10);// yellow sun
-  ellipse(width/2, height/2, 125);
+  ellipse(width/2, height/2, 100);
 
   let rotMilli = map(Milliseconds, 0, 1000, 0, 360);
-  let rotS = map(Seconds, 0, 60, 0, 360);
-  let rotM = map(Minutes, 0, 60, 0, 360);
+  let rotS = map(Seconds, 0, 60, -90, 270);
+  let rotM = map(Minutes, 0, 60, -90, 270);
   let rotH = map(Hours, 0 , 24, 0, 360);
 
  
@@ -48,6 +48,10 @@ function draw_clock(obj) {
   pop();
 
 
-
+  push();
+  translate(480,250);
+  rotate(rotM);
+  rect(225,0,15,30);
+  pop();
 
 }
