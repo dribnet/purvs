@@ -214,6 +214,8 @@ function preload() {
   bossImg = loadImage("assets/enemyBoss.png");
   lazerImg = loadImage("assets/enemyBossLazer.png");
 
+  orbitronFont = loadFont("assets/Orbitron-Regular.ttf");
+
   spaceShip = new SpaceShip(480, 400);
   bossSpaceShip = new BossEnemySpaceShip(); // go up to height/2
 
@@ -239,9 +241,10 @@ function draw_clock(obj) {
 
 // Draws the number of red ships visible.
 function drawShipCount() {
+  textAlign(LEFT);
   fill(255, 220,  220).textSize(18);
-  textFont('Courier New');
-  text("Enemy ships: " + obj.minutes, 790, height / 16);
+  textFont(orbitronFont);
+  text("ENEMY SHIPS: " + obj.minutes, 770, height / 16);
 }
 
 // Creates the effect of an infinitely scrolling background
@@ -268,6 +271,13 @@ function updateGame() {
   bulletList.forEach(bullet => bullet.draw());
 
   updateBossShip();
+
+  if (obj.seconds_until_alarm !== -1 && obj.seconds_until_alarm > 0) {
+    textAlign(CENTER);
+    fill(255, 220,  220).textSize(128);
+    textFont(orbitronFont);
+    text("BOSS\nINCOMING\n" + Math.round(obj.seconds_until_alarm), width/2, height / 4);
+  }
 }
 
 // Add a bullet every second
