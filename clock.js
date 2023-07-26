@@ -35,10 +35,33 @@ function draw_clock(obj) {
   text(centerText, width / 2, height / 2);
 
   // loads all rings into scene
+  AlarmRing();
   HourRing1();
   HourRing2();
   MinRing();
   SecRing();
+}
+
+function AlarmRing() {
+  // determines size parameters for Alarm ring
+  const ringX = width / 2;
+  const ringY = height / 2;
+
+  // parameters for alarm ring movement
+  let alarmTime = obj.seconds_until_alarm;
+  let alarmCountDown = map(alarmTime, 0, 31, PI*1.499999, -1.78);
+  let alarmRingVisible = 9;
+
+  // disables alarm ring when it is not used
+  if (alarmTime < 0) {
+    alarmRingVisible = 0;
+  }
+
+  // renders alarm ring
+  stroke(180, 198, 231);
+  strokeWeight(alarmRingVisible);
+  noFill();
+  arc(ringX, ringY, 250, 250, PI*1.5, alarmCountDown);
 }
 
 function HourRing1() {
