@@ -28,14 +28,14 @@ const night_sky = color(12, 23, 63); //50,50,60
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(night_sky, day_sky, hour_fraction);
         //current_ground = lerpColor(night_ground, day_ground, hour_fraction);
-        //background(cur_sky);
+        background(cur_sky);
     }
     else if (obj.hours >= 19 && obj.hours < 20) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(day_sky, night_sky, hour_fraction);
         //current_ground = lerpColor(day_ground, night_ground, hour_fraction);
-        //background(cur_sky);
+      background(cur_sky);
     }
     else if(obj.hours >= 8 && obj.hours < 20) {
         // daytime
@@ -48,31 +48,24 @@ const night_sky = color(12, 23, 63); //50,50,60
         //current_ground = night_ground;
     }
 
-  let Seconds = obj.seconds
+  let seconds = obj.seconds
   let Minutes = obj.minutes
+  
   
 
   // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
-  //let MinutesY = map(Minutes, 0, 59, 1, 150);
-
-  // noStroke();
-  // text("Seconds: " + Seconds, width / 2, 200), 
-
-  // fill(249, 140, 255);// pink
-  // ellipse(width / 3, 350, 150);
+  //let secondsY = map(seconds, 0, 59, 1, 150);
 
   // fill(140, 255, 251) // blue
   // noStroke();
-  // ellipse(width / 2, MinutesY, 100); // minutes moving up and down
+  // ellipse(width / 2, secondsY, 100); // minutes moving up and down
 
-  // fill(175, 133, 255); // purple
-  // noStroke();
-  // ellipse( width / 3 * 2, 350, Seconds_Radius); //circle expanding
- 
   //Raindrops positioning
+  let dropsY = map(seconds,0,59,10,450);
+  
+  //for(let i =dropsY; i<0; i++){
   let xposDrop = [30,30,50,50,80,100,120,150,160,160,190,210,240,250,260,280,300,300,350,350,380,380,390,390,450,510,550,550,560,580,590,600,600,610,650,660,670,680,700,710,720,730,760,770,790,800,840,850,860,880,900,900,930,920,820,10,290,130,200,330,20]; //x position for the rain drops for 0-59 seconds
   let yposDrop = [20,430,160,300,80,370,210,30,320,450,130,230,10,430,310,50,150,380,20,250,100,320,190,420,20,10,300,80,180,430,20,230,100,350,170,40,270,440,350,10,110,200,280,400,30,150,250,80,350,180,450,20,120,300,450,250,240,140,380,460,100]; //y position for the rain drops for 0-59 seconds
-
   drawWaterdrops (xposDrop[0],yposDrop[0]); //1 //30,20
   drawWaterdrops (xposDrop[1], yposDrop[1]); //2 //30,430
   drawWaterdrops (xposDrop[2], yposDrop[2]); //3 //50,160
@@ -134,23 +127,22 @@ const night_sky = color(12, 23, 63); //50,50,60
   drawWaterdrops (xposDrop[58], yposDrop[58]); //57 //200,380
   drawWaterdrops (xposDrop[59], yposDrop[59]); //58 //330,460
   drawWaterdrops (xposDrop[60], yposDrop[60]); //59 //20,100
- 
- 
+//}
 
   //plant stalk
   let linex = 480;
   let liney = 75; //originally 55
-
   stroke(1, 50, 32); //dark green
   strokeWeight(8);
   line(linex, liney, linex, liney + 265);
 
   //Plant pot
-  let quadx = 405;
-  let quady = 370; //originally 350
-  let rectx = 395;
-  let recty = 340; //originally 320
+ let quadx = 405;
+ let quady = 370; //originally 350
+ let rectx = 395;
+ let recty = 340; //originally 320
 
+ 
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
   noStroke();
   //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
@@ -159,28 +151,39 @@ const night_sky = color(12, 23, 63); //50,50,60
 
   stroke(210, 180, 140); // light tan brown // original colour: light turquoise 140,255,251
   strokeWeight(5);
-  line(395, 370, 565, 370); //line on collar of plant pot //395, 350, 565, 350
+  line(rectx, quady, 565, 370); //line on collar of plant pot //395, 350, 565, 350
 
+  
   let ystep = 48;
   let leaves = 6;  
   let hours = obj.hours;    
   let ZeroSix = map(hours,0,6,6,0);   
-  let sixTwelve = map(hours,0,12,12,0);  
+  let sixTwelve = map(hours,0,12,12,0); 
+  
   //text(hours, 100,100);//debug       
+
   if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600     
      for (let i = ZeroSix; i < 6; i++) {    
-       drawLeaf(425, 42+(ystep)*i);   }} 
+       drawLeaf(425, 42+(ystep)*i);   
+      if(hours>=13&&hours<19){
+ for(let i=-ZeroSix;i<6;i++){ //remove leaves per hour between 1200 and 1800
+  drawLeaf(425, 42+(ystep)*i);
+ }
+      }
+      
+      }} 
        else{//draw 6 leaves in the same spot       
         for(let k=0;k<leaves;k++){       
            drawLeaf(425,42+(ystep*k));   
             }  
            }
 
-  if(hours>=0&& 7>hours<12){//draw 6 leaves between 0700 - 1200 
+
+  if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
     for (let i = sixTwelve; i < 6; i++) {    
       drawrightLeaf(535, 42+(ystep)*i);   } 
    } 
-      else{//draw 6 leaves in the same spot       
+      else if(hours>=12){//draw 6 leaves in the same spot       
         for(let k=0;k<leaves;k++){       
           drawrightLeaf(535,42+(ystep*k));   
            }  
@@ -278,3 +281,6 @@ function drawrightLeaf(Leafx, leafy) {
 //   endShape(CLOSE);
 
  }
+
+ 
+ 
