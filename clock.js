@@ -138,6 +138,8 @@ function draw_clock(obj) {
   let hoursPMSix = map(hours, 0, 18, 18, 0);
   let hoursPMTwelve = map(hours, 0, 24, 24, 0);
 
+  //AM
+
   if (hours >=0 && hours < 6) {
     for (let i = hoursAMSix; i < 5; i++) {
       hoursBarsCol(centerX-130, 162+(hoursBarsColY)*i);
@@ -152,16 +154,44 @@ function draw_clock(obj) {
 
   if (hours >=6 && hours < 12) {
     for (let j = 0; j < hourBarsCount; j++) {
-      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j);
     }
   }
 
   if (hours == 11) {
     for (let j = 0; j < hourBarsCount; j++) {
-      hoursBarEleven(centerX-130, centerY-145)
+      hoursBarEleven(centerX-130, centerY-145);
       hoursBarsCol(centerX+5, 162+(hoursBarsColY)*j);
     }
   }
+
+  //PM
+
+  if (hours >= 12 && hours < 18) {
+    for (let i = hoursPMSix; i < 6; i++) {
+      hoursBarsCol(centerX-130, 105+(hoursBarsColY)*i);
+    }
+  }
+
+  if (hours >= 18 && hours < 23) {
+    for (let i = hoursPMTwelve; i < 7; i++) {
+      hoursBarsCol(centerX+5, 48+(hoursBarsColY)*i);
+    }
+  }
+
+  if (hours >=18 && hours < 24) {
+    for (let j = 0; j < hourBarsCount; j++) {
+      hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j);
+    }
+  }
+
+  if (hours == 23) {
+    for (let j = 0; j < hourBarsCount; j++) {
+      hoursBarEleven(centerX-130, centerY-145);
+      hoursBarsCol(centerX+5, 162+(hoursBarsColY)*j);
+    }
+  }
+
 
   // else if (hours >= 0 && 5 < hours < 11) {
   //   for (let i = hoursAMTwelve; i < 7; i++) {
