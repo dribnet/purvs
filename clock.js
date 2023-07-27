@@ -811,10 +811,10 @@ function draw_clock(obj) {
 
 /*
  * assume alarm = 0 seconds
- * s = 00 ? alarm should be at ind[45] (15) | 60 - 15                | 
- * s = 15 ? alarm should be at ind[30] (15) | 60 - 15 - 15           | 
- * s = 30 ? alarm should be at ind[15] (15) | 60 - 15 - 15 - 15      | 
- * s = 45 ? alarm should be at ind[00] (15) | 60 - 15 - 15 - 15 - 15 | 
+ * s = 00 ? alarm should be at ind[00] (15) | 60 - 0                | 
+ * s = 15 ? alarm should be at ind[45] (15) | 60 - 0 - 15           | 
+ * s = 30 ? alarm should be at ind[30] (15) | 60 - 0 - 15 - 15      | 
+ * s = 45 ? alarm should be at ind[15] (15) | 60 - 0 - 15 - 15 - 15 | 
  */
 
 /*
@@ -841,7 +841,24 @@ function draw_clock(obj) {
  * s = 45 ? alarm should be at ind[00] (15) | 60 - 15 - 15 - 15 - 15 |
  */
 
-/**
+/*
+ * assume alarm = 18 seconds
+ * s = 00 ? alarm should be at ind[42] (15) | 60 - 18                |
+ * s = 15 ? alarm should be at ind[37] (15) | 60 - 18 - 15           |
+ * s = 30 ? alarm should be at ind[12] (15) | 60 - 18 - 15 - 15      |
+ * s = 45 ? alarm should be at ind[37] (15) | 60 - 18 - 15 - 15 - 15 |
+ */
+
+
+/*
+ * assume alarm = 30 seconds
+ * s = 00 ? alarm should be at ind[30] | 60 - 30                |
+ * s = 15 ? alarm should be at ind[15] | 60 - 30 - 15           |
+ * s = 30 ? alarm should be at ind[00] | 60 - 30 - 15 - 15      |
+ * s = 45 ? alarm should be at ind[45] | 60 - 30 - 15 - 15 - 15 |
+ */
+
+/*
  * assume alarm = 32 seconds
  * s = 00 ? alarm should be at ind[28] | 60 - 32                |
  * s = 15 ? alarm should be at ind[13] | 60 - 32 - 15           |
@@ -849,7 +866,10 @@ function draw_clock(obj) {
  * s = 45 ? alarm should be at ind[43] | 60 - 32 - 15 - 15 - 15 |
  */
 
-/**
- * assune alarm K seconds
- * s = 00 ? alarm should be at ind[60 - K - 0]
+/*
+ * assume alarm K seconds
+ * s = 00 ? alarm should be at ind[60 - K - 0 * 15]
+ * s = 15 ? alarm should be at ind[60 - K - 1 * 15]
+ * s = 30 ? alarm should be at ind[60 - K - 2 * 15]
+ * s = 45 ? alarm should be at ind[60 - K - 3 * 15]
  */
