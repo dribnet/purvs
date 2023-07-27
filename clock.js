@@ -7,7 +7,7 @@ function preload(){
   img_1=loadImage('1plate.png');
   img_hour=loadImage('1meat.png');
   img_minute=loadImage('1asparagus.png');
-  img_seconds=loadImage('green_pea');
+  img_seconds=loadImage('1green_pea.png');
 
 
 }
@@ -36,19 +36,32 @@ function draw_clock(obj) {
   
 
 
-
-
+let millis_rotation = map(millis,0,999,0,60);
+let seconds_rotation = map(millis_rotation,0,999,0,60);
+  
 
   let seconds_radius=map(seconds,0,59,1,150);
   ellipse(100,100,seconds_radius);
    
 
 
+text(seconds_rotation,150,30)
 
     fill(255, 255, 0);
+
    
-  
-    image(img_1,width/2-200,height/4-70, 400, 400)
+    translate(width / 2, height / 2);
+    image(img_1,-200,-200, 400, 400)
+
+
+    image(img_hour,-200,-200, 400, 400)
+
+    image(img_minute,-200,-200, 400, 400)
+    
+
+    // rotate(PI/30*40-PI/60+PI/30*seconds_rotation)
+    rotate(PI/30*40-PI/60+PI/60*seconds_rotation)
+    image(img_seconds,-200,-200, 400, 400)
   
  
 
