@@ -36,13 +36,85 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-  var grey = color(99, 101, 102);
-  var black = color(1, 4, 31);
-  var lightBlueGrey = color(84, 105, 120);
+  var grey = color(0);
+  var buildingsColor = color(0);
+  var tintLamp = 0;
   var blackSky = color(24, 5, 120);
-  var blueSky = color(27, 125, 245);
+  var blueSky = color(95, 182, 217);
+  var windowColor = color(0);
+
+  background(0);
+
+  push();
+  if (alarm > 0){
+    for (let i =alarm; i<= 1; i++){
+      scale(1.0 / i);
+    }
+    
+  }
+  // determining colours 
+  if (hours < 6 || hours > 18) { // night time
+    grey = color(99, 101, 102);
+    buildingsColor = color(40, 44, 51); // blackish
+    tintLamp = 255;
+    windowColor = color(230, 199, 23); // yellow 
+  } else{
+    grey = color(61, 157, 217); 
+    buildingsColor = color(38, 133, 191); // blueish
+    tintLamp = 100;
+    windowColor = color(255, 255, 255, 180); // faded white
+  }
 
   // changing the background according to the time of day. 
+  setBackground(hours, blackSky, blueSky);
+
+  drawCloudsOrStars(millis, seconds, hours);
+
+  // moving moon and sun 
+  let hoursFraction = hours + (minutes / 60.0);
+  if (hours <= 6){ // moving down MOON in the morning 
+    drawMoon(map(hoursFraction, 0, 5, -30, 200));
+  } else if (hours > 17){ // moving up MOON in the evening 
+    drawMoon(map(hoursFraction, 18, 23, 500, 60));
+  } else if (hours > 6 && hours < 13){ // moving up SUN in the morning 
+    drawSun(map(hoursFraction, 7, 11, 500, 60));
+  } else {
+    drawSun(map(hoursFraction, 13, 17, -30, 200)); // moving down SUN in the afternoon
+  }
+
+  // background buildings
+  strokeWeight(4);
+  stroke(grey);
+  fill(buildingsColor); 
+  for (let i =0; i< 10; i++){
+    let heightdiff = yBuilding[i]*2 - height;
+    rect(xBuilding[i], yBuilding[i], widthBuilding[i],  yBuilding[i] - heightdiff, 20); // 5th number is radius of corners
+  }
+
+  // three buildings 
+  rect(200, height-300, 150, 300, 20);
+  rect(370, height-200, 210, 200, 20);
+  rect(600, height-400, 200, 400, 20);
+
+  // windows 
+  push();
+  drawingContext.shadowBlur = 15; // Making only the windows have a glow 
+  drawingContext.shadowColor = color(windowColor);
+  noStroke();
+  windows(hours, 4, 6, 175, 35, 175, 45, 25, 25, windowColor); // hours - left building 
+  windows(minutes, 10, 6, 357, 20, 285, 29, 15, 25, windowColor); // windows for minutes - middle building
+  windows(seconds, 4, 15, 570, 45, 85, 25, 35, 20, windowColor); // windows for seconds - right building
+  pop();
+
+  // street lights
+  tint(tintLamp);
+  drawImage();
+
+  pop();
+}
+
+// sets the background to a gradient, changing as the time changes 
+function setBackground(hours, blackSky, blueSky){
   let currentColor = color(0);
 
   if (hours > 6 && hours <= 9){
@@ -65,20 +137,18 @@ function draw_clock(obj) {
     stroke(newc);
     line(0, y, width, y);
   }
+}
 
-  // pulsing stars 
+// draws the clouds or the stars and their colors 
+function drawCloudsOrStars(millis, seconds, hours){
   var starsPulsing = 0;
   var starsPulsing2 = 0;
   if (seconds % 2 == 0){ // every other millis, make transparency go other way
     starsPulsing = map(millis, 0, 999, 50, 200);
-  } 
-  else{
-    starsPulsing = map(millis, 0, 999, 200, 50);
-  }
-  if (seconds % 2 == 0){
     starsPulsing2 = map(millis, 0, 999, 200, 50);
   } 
   else{
+    starsPulsing = map(millis, 0, 999, 200, 50);
     starsPulsing2 = map(millis, 0, 999, 50, 200);
   }
 
@@ -97,70 +167,24 @@ function draw_clock(obj) {
       // reset to start
       let secondsResetsAfterFive = (seconds + randomList[i]) % 20;
       let secondsWithFraction = secondsResetsAfterFive + (millis / 1000.0);
-
       let startX = map(secondsWithFraction, 0, 10, -240, width+240);
 
-      drawCloud(startX*0.5, randomList[i+1]);
-
+      drawCloud(startX*0.5 - 200, randomList[i+1]- 600);
+      fill(0); // colour of background 
+      rect(width, 0, 400, height); // for the alarm zooming out 
     }
   }
+}
 
-  // moving moon and sun 
-  let hoursFraction = hours + (minutes / 60.0);
-  if (hours < 6){ // moving down MOON in the morning 
-    drawMoon(map(hoursFraction, 0, 5, -50, 200));
-  } else if (hours > 17){ // moving up MOON in the evening 
-    drawMoon(map(hoursFraction, 18, 23, 500, 150));
-  } else if (hours > 6 && hours < 13){ // moving up SUN in the morning 
-    drawSun(map(hoursFraction, 7, 11, 500, 150));
-  } else {
-    drawSun(map(hoursFraction, 13, 17, 150, 150)); // moving down SUN in the afternoon
-  }
-  
-
-  // background buildings
-  stroke(grey);
-  strokeWeight(4);
-  fill(black); 
-  for (let i =0; i< 10; i++){
-    let heightdiff = yBuilding[i];
-    rect(xBuilding[i], yBuilding[i], widthBuilding[i], 200+heightdiff, 20); // 5th number is radius of corners
-  }
-
-  // three buildings 
-  stroke(lightBlueGrey);
-  rect(200, height-300, 150, 300, 20);
-  rect(370, height-200, 210, 200, 20);
-  rect(600, height-400, 200, 400, 20);
-
-  // windows 
-  // hours - left building 
-  noStroke();
-  windows(hours, 4, 6, 175, 35, 175, 45, 25, 25);
-
-  // windows for minutes - middle building
-  windows(minutes, 10, 6, 357, 20, 285, 29, 15, 25);
-
-  // windows for seconds - right building
-  windows(seconds, 4, 15, 570, 45, 85, 25, 35, 20);
-
-  // street lights
-  if (hours < 6 || hours > 18) { // night time
-    tint(255);
-    for (let i =20; i< width; i+=170){
-      image(imgLamp, i, height-90, 100, 100);
+// draws the street lamp across the bottom 
+function drawImage(){
+  for (let i =20; i< width; i+=170){
+    image(imgLamp, i, height-90, 100, 100);
     }
-  } else{
-    tint(100);
-    for (let i =20; i< width; i+=170){
-      image(imgLamp, i, height-90, 100, 100);
-    }
-  }
-  
 }
 
 // Creating windows in their respective areas and buildings, placing them randomly. 
-function windows(time, iMax, jMax, x, x1, y, y1, width, height){
+function windows(time, iMax, jMax, x, x1, y, y1, width, height, color){
   // make random window placements when they turn on 
   let windowPlacement = [];
   for (let i = 1; i <= iMax; i++){
@@ -168,16 +192,15 @@ function windows(time, iMax, jMax, x, x1, y, y1, width, height){
       windowPlacement.push(new p5.Vector(x+(x1*i), y+(y1*j))); // a vector is an object carrying x, y and z coordinates 
     }
   }
-  shuffleArray(windowPlacement); 
-
+  shuffleArray(windowPlacement);
   // draw windows 
   for (let i=0; i < windowPlacement.length; i++){
     // if it's 12am - need no windows
     if (time == i){
       break;
     }
-
-    fill(230, 199, 23, 255);
+    
+    fill(color);
     rect(windowPlacement[i].x, windowPlacement[i].y, width, height, 5);
   }
 }
@@ -194,7 +217,6 @@ function shuffleArray(arr) {
     // Pick a remaining index randomly
     let randomIndex = Math.floor(randomNumbers[count] * currentIndex); // the random number is where the random function would go 
     currentIndex--;
-
     if (count == 14){
       count = 0;
     }else{
@@ -208,7 +230,7 @@ function shuffleArray(arr) {
   }
 }
 
-//star function from p5.js reference
+// star function from p5.js reference
 function star(x, y, radius1, radius2, npoints) {
   var angle = TWO_PI / npoints;
   var halfAngle = angle / 2.0;
@@ -267,33 +289,19 @@ function drawMoon(moveY){
   ellipse(530, 270 + moveY, 40); // medium 
 }
 
-// from ChatGBT and modified it
+// draw sun with transparent rays
 function drawSun(moveY) {
   let numRays = 50;
   let sunRadius = 175;
   let x = width / 2;
   let y = height / 2 - 70 + moveY;
   noStroke();
-  fill(230, 199, 23); // Set the color of the sun to yellow
-
-  // Calculate the angle between each ray
-  var angleStep = TWO_PI / numRays;
-
-  strokeWeight(5);
-  stroke(245, 185, 88); // light orange
-  // Draw sun rays using lines
-  for (var i = 0; i < numRays; i++) {
-    var angle = i * angleStep;
-
-    // Calculate the start and end points of each ray
-    var startX = x + cos(angle) * sunRadius;
-    var startY = y + sin(angle) * sunRadius;
-    var endX = x + cos(angle + PI) * (sunRadius + sunRadius / 2);
-    var endY = y + sin(angle + PI) * (sunRadius + sunRadius / 2);
-
-    line(startX, startY, endX, endY);
-  }
-
+  
   // Draw the sun's body as an ellipse
+  for (let i = 0; i< 5; i++){
+    fill(255, 233, 80, i*20); // Set the color to fading yellow rays 
+    ellipse(x, y, (sunRadius * 5) - i*100);
+  }
+  fill(255, 233, 80);
   ellipse(x, y, sunRadius * 2);
 }
