@@ -61,16 +61,82 @@ textSize(40);
 textAlign(CENTER, CENTER);
 text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
+drawMultipleFlowers();
+drawSun();
+
+}
+
+function drawFlower(x,y,size){
+push()
+translate(x,y)
+scale(size)
+      // Center of the flower
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      // Petal properties
+      const petalRadius = 50;
+      const petalWidth = 30; // Adjust this value to change petal width
+      const numPetals = 6;
+
+      // Draw petals
+      stroke('red');
+      fill('pink');
+      strokeWeight(2);
+
+      for (let i = 0; i < numPetals; i++) {
+        const angle = TWO_PI * i / numPetals;
+        const x = centerX + petalRadius * cos(angle);
+        const y = centerY + petalRadius * sin(angle);
+        const controlX1 = centerX + petalWidth * cos(angle - PI/6); // Adjust angle to control petal width
+        const controlY1 = centerY + petalWidth * sin(angle - PI/6);
+        const controlX2 = centerX + petalWidth * cos(angle + PI/6); // Adjust angle to control petal width
+        const controlY2 = centerY + petalWidth * sin(angle + PI/6);
+
+
+        beginShape();
+        vertex(centerX, centerY);
+        bezierVertex(controlX1, controlY1, x, y, controlX2, controlY2);
+        endShape(CLOSE);
+      }
+
+      // Draw flower center
+      const centerRadius = 10;
+      fill('yellow');
+      noStroke();
+      ellipse(centerX, centerY, centerRadius * 2);
+
+    pop()  
+    
+    }
+
+    function drawMultipleFlowers() {
+     
+
+      // Draw the first flower at position (100, 100)
+      drawFlower(100, 100,1.0);
+
+      // Draw the second flower at position (250, 150)
+      drawFlower(250, 150,1.0);
+
+      // Draw the third flower at position (150, 300)
+      drawFlower(150, 300,1.0);
+    }
+
+
+
+
 
 let millisSize=0
-
+function drawSun(){
 noStroke()
 
 fill(255,191,0);// Yellow
 ellipse(width / 3, 350, 150);
 
 fill(255,191,0,100);
-fill(255,191,0,150);
+
+//fill(255,191,0,150);
 
 if(obj.millis<=500){
 millisSize= map(obj.millis,0,1000,150,300)
@@ -82,3 +148,4 @@ millisSize= map(obj.millis,0,1000,300,130)
 }
 ellipse(width/3,350,millisSize)
 }
+
