@@ -55,7 +55,7 @@ class SecondsDisplay {
   }
 
   /** Draw method for display. */
-  draw(fillColor, active=-1, activeColor=255) {
+  draw(fillColor, active=-1, activeColor=255, t1=-1, t2=[0, 255, 0]) {
     /* 
      * Section regarding indicator drawing. 
      */
@@ -63,9 +63,14 @@ class SecondsDisplay {
     translate(this.xCenter, this.yCenter);
     rotate((this.initialAngle + this.angle) * Math.PI / 180); // Sets the rotation of the entire display
 
-    for (let ind of this.indicators) {
-      if (active > -1) ind.draw( (ind === this.indicators[active]) ? activeColor : fillColor);
-      else ind.draw(fillColor);
+    for (let i=0; i<this.indicators.length; i++) {
+      let ind = this.indicators[i];
+      let indCol = fillColor;
+
+      if (i === active) indCol = activeColor;
+      else if (i === t1) indCol = t2;
+      
+      ind.draw(indCol);
 
       rotate(2 * Math.PI / this.indicators.length); // Only rotates to draw each indicator circularly
     }
@@ -716,6 +721,22 @@ const ampmDisplay = new AmPmDisplay(
   AMPM_RADIUS
 );
 
+
+
+
+
+
+
+
+
+
+
+
+
+let initAlarmVars = true;
+let alarmSec;
+let pain = 0;
+
 /*
  * draw your own clock here based on the values of obj:
  *    obj.hours goes from 0-23
@@ -733,10 +754,11 @@ function draw_clock(obj) {
   // Rotates both secondsDisplays
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  //secondsDisplay2.angle = map(obj.millis, 0, 999, 0, 6);
 
   // Draws both secondsDisplays
   secondsDisplay1.draw(SEC_COL_1);
-  secondsDisplay2.draw(SEC_COL_2, 0, MIN_ACTIVE_COL);
+  secondsDisplay2.draw(SEC_COL_2, 0, [255, 0, 0], 15, [255, 0, 255]);
 
   // Draws the pointer
   pointer.draw(SEC_POINTER_COL, obj.seconds);
@@ -754,10 +776,80 @@ function draw_clock(obj) {
 
   // Draws the ampmDisplay and text
   ampmDisplay.draw(ampmColor);
-  AmPmDisplay.text(
-    0, HEIGHT/2,
-    obj.hours,
-    AMPM_FONT_SIZE,
-    ampmColor
-  );
+  // AmPmDisplay.text(
+  //   0, HEIGHT/2,
+  //   obj.hours,
+  //   AMPM_FONT_SIZE,
+  //   ampmColor
+  // );
+
+  if (obj.seconds_until_alarm > -1) {
+    
+    
+    if (initAlarmVars) {
+      alarmSec = obj.seconds_until_alarm;
+      pain = obj.seconds + alarmSec
+      pain -= (pain > 59) ? 59 : 0;
+      initAlarmVars = false;
+    }
+
+    
+
+    
+
+    secondsDisplay2.draw(SEC_COL_2, Math.floor(pain), [60, 20, 128]);
+    console.log("pain: " + pain); // whichever is at the pointer rn - Math.floor(alarmSec)
+  }
+  else {
+    initAlarmVars = true;
+    
+  }
+
+  
+  
 }
+
+/*
+ * assume alarm = 0 seconds
+ * s = 00 ? alarm should be at ind[45] (15) | 60 - 15                | 
+ * s = 15 ? alarm should be at ind[30] (15) | 60 - 15 - 15           | 
+ * s = 30 ? alarm should be at ind[15] (15) | 60 - 15 - 15 - 15      | 
+ * s = 45 ? alarm should be at ind[00] (15) | 60 - 15 - 15 - 15 - 15 | 
+ */
+
+/*
+ * assume alarm = 3 seconds
+ * s = 00 ? alarm should be at ind[57] (15) | 60 - 3                | 
+ * s = 15 ? alarm should be at ind[42] (15) | 60 - 3 - 15           | 
+ * s = 30 ? alarm should be at ind[27] (15) | 60 - 3 - 15 - 15      | 
+ * s = 45 ? alarm should be at ind[12] (15) | 60 - 3 - 15 - 15 - 15 | 
+ */
+
+/*
+ * assume alarm = 5 seconds
+ * s = 00 ? alarm should be at ind[55] (15) | 60 - 5                |
+ * s = 15 ? alarm should be at ind[40] (15) | 60 - 5 - 15           |
+ * s = 30 ? alarm should be at ind[25] (15) | 60 - 5 - 15 - 15      |
+ * s = 45 ? alarm should be at ind[10] (15) | 60 - 5 - 15 - 15 - 15 |
+ */
+
+/*
+ * assume alarm = 15 seconds
+ * s = 00 ? alarm should be at ind[45] (15) | 60 - 15                |
+ * s = 15 ? alarm should be at ind[30] (15) | 60 - 15 - 15           |
+ * s = 30 ? alarm should be at ind[15] (15) | 60 - 15 - 15 - 15      |
+ * s = 45 ? alarm should be at ind[00] (15) | 60 - 15 - 15 - 15 - 15 |
+ */
+
+/**
+ * assume alarm = 32 seconds
+ * s = 00 ? alarm should be at ind[28] | 60 - 32                |
+ * s = 15 ? alarm should be at ind[13] | 60 - 32 - 15           |
+ * s = 30 ? alarm should be at ind[58] | 60 - 32 - 15 - 15      |
+ * s = 45 ? alarm should be at ind[43] | 60 - 32 - 15 - 15 - 15 |
+ */
+
+/**
+ * assune alarm K seconds
+ * s = 00 ? alarm should be at ind[60 - K - 0]
+ */
