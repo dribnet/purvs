@@ -9,6 +9,8 @@ IDEAS:
 - Use log for switch between hours.
 - Dist math function for hour colour change?
 - potentailly use vector for dist function
+ - if(alarm > 0 && alarm < 5) - alarm will go off in 5 seconds
+ - backgroundColour = map(alarm, 5, 0, 50, 260); etc.
 
 */
 
@@ -23,12 +25,16 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
   let carColor = color(0);
+  let alarm = obj.seconds_until_alarm;
 
   function draw_Buildings(x, y, h, w, color) {
     push();
       translate(width / 2, ringHeight);
-      rotate(scapeDeg);
-      rotate(scapePos); //obj.minutes * -3.6
+      if (alarm == 0) {
+        rotate(alarmSpin2);
+      } else {
+        rotate(scapeDeg + scapePos);
+      }
       rotate(x + 15);
       fill(color);
       rect(x, y, w, h, 4);
@@ -49,17 +55,30 @@ function draw_clock(obj) {
     pop();
   }
 
-  function draw_Mountain(y, h, w, shade) {
+  function draw_Mountain(rotation, y, h, w, shade, nightshade) {
+    if (nightshade) {
+      shade -= 100;
+    }
+    rotate(rotation);
+    colorMode(RGB);
     fill(40 + shade, 100 + shade, 210 + shade);
-
     triangle(-100 - (w / 2), y + h, 100 + (w / 2), y + h, 0, y - 150 + h);
-
     fill(100 + shade, 200 + shade, 240 + shade + shade);
     triangle(-100 - (w / 2), y + h, 0, y + h, 0, y - 150 + h);
     fill(255 + shade, 255 + shade, 240 + shade);
     triangle(-32 - (w / 3.125), y - 100 + h, 0, y - 100 + h, 0, y - 150 + h);
     fill(40 + shade, 150 + shade, 230 + shade);
     triangle(32 + (w / 3.125), y - 100 + h, 0, y - 100 + h, 0, y - 150 + h);
+  }
+
+  function draw_Hill(rotation, x, y, h, w, shade, nightshade) {
+    if (nightshade) {
+      shade += 50;
+    }
+    rotate(rotation);
+    colorMode(HSB);
+    fill(100, 100, 60 - shade);
+    ellipse(x, y, w, h);
   }
 
   colorMode(HSB);
@@ -117,11 +136,6 @@ function draw_clock(obj) {
   let lastSec = map(obj.millis, 0, 999, 0, 30);
   let overlap = map(obj.millis, 0, 999, 0, 15);
   let negOverlap = map(obj.millis, 0, 999, 15, 0);
-
-  let hourColor = obj.hours;
-  if (hourColor > 12) {
-    hourColor -= 12;
-  }
   
   //Hour Ring
   push();
@@ -141,23 +155,40 @@ function draw_clock(obj) {
     textSize(100);
     textStyle(BOLD);
     textAlign(CENTER);
-    for (i = 1; i < 13; i ++) {
-      rotate(30);
-      // if (i == hourColor) {
-      //   fill(255);
-      //   console.log(i);
-      // } else {
-      //   fill(daySection);
-      // }
-      text(numeral[numeral.length - i], 0, -505);
+    let alarmFadeIn = map(obj.millis, 0, 999, 0, 200);
+    let alarmFadeOut = map(obj.millis, 0, 999, 200, 0);
+
+    for (i = 0; i < 12; i ++) {
+      if (i == (obj.hours % 12)) {
+        // fill((daySection == night) ? 255 : 0);
+        fill(255);
+      } else {
+        // fill((daySection == night) ? night : dayColor);
+        fill(daySection);
+      }
+      if (alarm == 0) {
+        if (obj.millis < 499) {
+          fill(daySection[0], alarmFadeIn, 100);
+        } else {
+          fill(daySection[0], alarmFadeOut, 100);
+        }
+      }
+      text(numeral[i], 0, -505);
+      rotate(-30);
+      // text(numeral[numeral.length - i], 0, -505);
     }
   pop();
 
   // Minute Ring
+  let alarmSpin = map(obj.millis, 0, 999, 0, 360);
   push();
     translate(width / 2, ringHeight);
-    if (obj.seconds == 59){
-      rotate(secDeg);
+    if (alarm == 0) {
+      rotate(alarmSpin);
+    } else {
+      if (obj.seconds == 59){
+        rotate(secDeg);
+      }
     }
     rotate(minDeg);
     rectMode(CENTER);
@@ -179,31 +210,32 @@ function draw_clock(obj) {
   let scapeDeg = map(obj.seconds, 0, 59, 6, 0);
   let cityY = -265;
   let scapePos = map(obj.minutes, 0, 59, 359, 0);
+  let nightShade = false;
+  if (daySection == night) {
+    nightShade = true;
+  }
 
+  let alarmSpin2 = map(obj.millis, 0, 999, 180, 0);
+  if (obj.seconds %2 == 1) {
+    alarmSpin2 = map(obj.millis, 0, 999, 360, 180);
+  }
   push();
-  rotate(0);
-  translate(width / 2, ringHeight);
-  rectMode(CENTER);
-  rotate(scapeDeg);
-  rotate(scapePos); // LANDSCAPE ROTATION ISSUE
-  rotate(130); // Place around circle
-  fill(30, 180, 130);
-  ellipse(0, -240, 250, 170);
-  rotate(60);
-  draw_Mountain(-250, 20, 20, -40);
-  rotate(-20);
-  draw_Mountain(-250, 0, 0, 0);
-  rotate(-20);
-  fill(30, 200, 100);
-  ellipse(0, -230, 250, 170);
-  rotate(90);
-  fill(30, 180, 130);
-  ellipse(0, -240, 250, 170);
-  rotate(-20);
-  fill(30, 200, 100);
-  ellipse(0, -230, 170, 160);
-  rotate(-20);
-  draw_Mountain(-250, 20, 20, 30);
+    translate(width / 2, ringHeight);
+    rectMode(CENTER);
+    if (alarm == 0) {
+      rotate(alarmSpin2);
+    } else {
+      rotate(scapeDeg + scapePos);
+    }
+    rotate(130); // Place around circle
+    // function(rotation, x, y, height, width, shade, night?)
+    draw_Hill(0, 0, -240, 170, 250, 0, nightShade);
+    draw_Mountain(60, -250, 20, 20, -40, nightShade);
+    draw_Mountain(-20, -250, 0, 0, 0, nightShade);
+    draw_Hill(-20, 0, -230, 170, 250, -10, nightShade);
+    draw_Hill(90, 0, -240, 170, 250, 0, nightShade);
+    draw_Hill(-20, 0, -230, 160, 170, -10, nightShade);
+    draw_Mountain(-20, -250, 20, 20, 30, nightShade);
   pop();
   
   rectMode(CORNER);
@@ -242,7 +274,15 @@ function draw_clock(obj) {
   //CAR
   let bounce = map(obj.millis, 0, 999, 1, 800);
   let phase = sin(bounce);
-  draw_Car(50, 230 + phase, phase, carColor);
+  let alarmSpeed = map(obj.millis, 0, 999, 0, 250);
+  if (alarm > 0 && alarm <= 1) {
+    draw_Car(50 + alarmSpeed, 230 + phase, phase, carColor);
+  } else if (alarm == 0) {
+    draw_Car(50 + 250, 230 + phase, phase, carColor);
+  } else {
+    carX = 0;
+    draw_Car(50, 230 + phase, phase, carColor);
+  }
 
   //ROAD LINES
   stroke(210);
@@ -256,17 +296,23 @@ function draw_clock(obj) {
 
   //MARKER POSTS
   let markerPace = map(obj.millis, 0, 999, width / 2, 0);
+  let alarmMarkerPace = map(obj.millis, 0, 999, width, 0);
+  let markerWidth = width / 2;
+  if (alarm == 0) {
+    markerPace = alarmMarkerPace;
+    markerWidth = width;
+  }
   noStroke();
   fill(102, 34, 0);
-  rect(width / 2 + markerPace, 410, 5, 75); //Poles
+  rect(markerWidth + markerPace, 410, 5, 75); //Poles
   rect(markerPace, 410, 5, 75);
   
   angleMode(RADIANS);
   fill(90, 0, 30);
-  arc(width / 2 + markerPace + 4, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
+  arc(markerWidth + markerPace + 4, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
   arc(markerPace + 4, 396, 38, 64, 0, 2.4 + 0.7, CHORD);
   fill(140, 0, 0);
-  arc(width / 2 + markerPace + 2, 396, 36, 64, 0, 2.4 + 0.7, CHORD);
+  arc(markerWidth + markerPace + 2, 396, 36, 64, 0, 2.4 + 0.7, CHORD);
   arc(markerPace + 2, 396, 36, 64, 0, 2.4 + 0.7, CHORD);
   
   textSize(20);
@@ -274,7 +320,7 @@ function draw_clock(obj) {
   textFont('Helvetica');
   textAlign(CENTER);
   fill(255);
-  text(obj.seconds, width / 2 + markerPace + 2, 416);
+  text(obj.seconds, markerWidth + markerPace + 2, 416);
   if (obj.seconds == 0) {
     text(59, markerPace, 418);
   } else {
@@ -297,7 +343,7 @@ function draw_Car(x, y, phase, carColor) {
   rect(x + 100, y + 125, 2, 25);
   fill(carColor);
   quad(x + 185, y + 123, x + 180, y + 123, x + 210, y + 150, x + 215, y + 150);
- 
+
   //WHEELS
   fill(30);
   circle(x + 62, y + 180 - phase, 35);
@@ -348,6 +394,16 @@ function draw_Car(x, y, phase, carColor) {
   rect(x + 155, y + 155, 8, 3, 2);
 
   //LIGHTS
+  if (obj.hours < 5 || obj.hours > 20) {
+    fill(255, 240, 180, 100);
+    beginShape();
+      curveVertex(x + 284, y + 158);
+      vertex(x + 284, y + 166);
+      vertex(x + 500, y + 210);
+      vertex(x + 900, y + 210);
+      vertex(x + 900, y + 100);
+    endShape(CLOSE);
+  }
   fill(200);
   stroke(240);
   beginShape();
