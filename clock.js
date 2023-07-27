@@ -58,7 +58,6 @@ function draw_clock(obj) {
   let beamY5 = 160
   let beamY6 = 440
 
-
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase1 = sin(bounce1);
   let y_bounce1 = map(phase1, -1, 1, -5, 5);
@@ -67,7 +66,7 @@ function draw_clock(obj) {
   let phase2 = sin(bounce2);
   let y_bounce2 = map(phase2, -1, 1, -5, 5);
 
-  //trial X animation -----------------
+
   let shift1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase3 = sin(shift1);
   let x_shift1 = map(phase3, -1, 1, -5, 5);
@@ -80,7 +79,6 @@ function draw_clock(obj) {
   let phase5 = sin(shift3);
   let x_shift3 = map(phase5, -1, 1, 10, -10);
 
-  //for ellipse, do 2.5 instead of 5 (ellipses measure from centre)
 
   noStroke();
   fill(194, 228, 232);
