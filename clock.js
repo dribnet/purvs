@@ -753,7 +753,7 @@ function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
 
-
+  // if (obj.seconds_until_alarm === 0) throw "TESTING POGGERs";
 
 
 
@@ -770,8 +770,8 @@ function draw_clock(obj) {
       alarmTime = obj.seconds_until_alarm;
       timeOfActivation = obj.seconds + obj.millis/999;
       alarmInd = 60 - alarmTime - timeOfActivation;
-      if (alarmInd > 59.999) alarmInd -= 60;
-      else if (alarmInd < 0) alarmInd += 60;
+      while (alarmInd > 59.999) alarmInd -= 60;
+      while (alarmInd < 0) alarmInd += 60;
       
       initAlarmVars = false;
     }
