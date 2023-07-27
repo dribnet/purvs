@@ -126,58 +126,20 @@ let c = 7;
  //fill(200,200,200);
  stroke (200,200,200);
 
- //number zero --------------------------------------------
- //top two rects
- rect (x+10,y,size+18,size+90,c);
- rect (x+80,y,size+18,size+90,c);
-
- //bottom 2 rects
- rect (x+10,y+90,size+18,size+90,c);
- rect (x+80,y+90,size+18,size+90,c);
-    
- //top and bottom rects in that order
- rect (x+15,y-20,size+80,size+18, c);
- rect (x+15,y+180,size+80,size+18,c);
-
-   //second pos  
-
- //top two rects
- rect (x+110,y,size+18,size+90,c);
- rect (x+180,y,size+18,size+90,c);
-
- //bottom 2 rects
- rect (x+110,y+90,size+18,size+90,c);
- rect (x+180,y+90,size+18,size+90,c);
-    
- //top and bottom rects in that order
- rect (x+115,y-20,size+80,size+18, c);
- rect (x+115,y+180,size+80,size+18,c);
-
-
-//250-115 = 135 gap
-
  // ":" 
  rect (x+250,y+40,size+20,size+25,c);
  rect (x+250,y+150,size+20,size+25,c); 
 
- //135 gap
+ //number zero --------------------------------------------
+  //draws zeros in back-----------------------------
+  //drawDigit(x+10, y, size, c); //draws 1000s 
+  //drawDigit(x+110, y, size, c); //draws 100s place zero
+  //drawDigit(x+320, y, size, c); //draws 10s place zero
+  //drawDigit(x+420, y, size, c); //draws 01s place zero
 
- //3rd number
- drawDigit(x+320, y, size, c);
-//  rect (x+320,y,size+18,size+90,c);
-//  rect (x+390,y,size+18,size+90,c);
+stroke(200,0,0);
 
-//  //bottom 2 rects
-//  rect (x+320,y+90,size+18,size+90,c);
-//  rect (x+390,y+90,size+18,size+90,c);
-    
-//  //top and bottom rects in that order
-//  rect (x+325,y-20,size+80,size+18, c);
-//  rect (x+325,y+180,size+80,size+18,c);
-
-
-  //4th number 
-  drawDigit(x+420, y, size, c);
+//
 
    /*
   //draws up 1 -------------------------------------------
@@ -306,55 +268,30 @@ rect (x+15,y-20,size+80,size+18, c);
 
   // draw number 5 -----------------------------------------------
 //fill(55,20,147);
-  stroke(55,20,147) //purple
+  stroke(200,20,147) //purple
 
-
-  //second pos  
-
-//RHS hours
-rect (x+115,y-20,size+80,size+18, c);
-rect (x+110,y,size+18,size+90,c);
-rect (x+129,y+70,size+70,size+18,c);//middle one
-rect (x+180,y+90,size+18,size+90,c);
-rect (x+115,y+180,size+80,size+18, c);
 
 let second_ones_pos = obj.seconds % 10;
 let second_tens_pos = int(obj.seconds/10) % 10;
 print(second_tens_pos + "," + second_ones_pos);
 
-
-//LHS mins
-drawInnerDigit(x+325, y, size, c, second_tens_pos);
-
-// rect (x+325,y-20,size+80,size+18, c);
-// rect (x+320,y,size+18,size+90,c);
-// rect (x+340,y+70,size+70,size+18,c);//middle
-// rect (x+390,y+90,size+18,size+90,c);
-// rect (x+325,y+180,size+80,size+18, c);
-
-
- //4th number 
- drawInnerDigit(x+425, y, size, c, second_ones_pos);
-//  rect (x+425,y-20,size+80,size+18, c);
-//  rect (x+420,y,size+18,size+90,c);
-//  rect (x+440,y+70,size+70,size+18,c);//middle
-//  rect (x+490,y+90,size+18,size+90,c);
-//  rect (x+425,y+180,size+80,size+18, c);
-
+//repositions numbers 
+ drawOnesValue(x-100, y, size, c, second_tens_pos);
+ drawOnesValue(x, y, size, c, second_ones_pos);
+ //
+ drawOnesValue(x-410, y, size, c, second_tens_pos);
+ drawOnesValue(x-310, y, size, c, second_ones_pos);
 
 // draw(drawOpenMouthPacman);
 if(obj.millis<500) {
   drawOpenMouthPacman(80, 100, 35, 80, 380);
 }
 else {
-  drawOpenMouthPacman(80, 100, 55, 80, 380);
+  drawOpenMouthPacman(80,100, 35, 0,432);
 }
  
 }
-//function draw() {
-//  background(220);
-//  drawOpenMouthPacman(80, 100, 35, 80, 380); // Call the function to draw open-mouthed Pacman
-//}
+
 
 function drawDigit(x, y, size, c) {
   rect (x+0,y,size+18,size+90,c);
@@ -369,19 +306,56 @@ function drawDigit(x, y, size, c) {
   rect (x+5,y+180,size+80,size+18,c);
 }
 
-function drawInnerDigit(x, y, size, c, n) {
+function drawOnesValue(x, y, size, c, n) {
+  if (n==0 || n==2 || n==3 || n==5 || n==6 || n==7 || n==8 || n==9){
+    rect (x+425,y-20,size+80,size+18, c); //A
+  }
+  if ( n==0 ||  n==5 || n==6 || n==8 || n==9 ){
+    rect (x+420,y,size+18,size+90,c);//B
+  }
+  if (n==0 || n==1 || n==2 || n==3 || n==7 || n==8 || n==9 ){
+    rect (x+490,y,size+18,size+90,c);//C
+  }
+  if (n==0 || n==2 || n==6 || n==8 ){
+    rect (x+420,y+90,size+18,size+90,c);//D
+  }
+  if (n==0 || n==1 || n==3 || n==5 || n==6 || n==7 || n==8 || n==9 ){
+    rect(x+490,y+90,size+18,size+90,c);//E
+  }
+  if (n==0 || n==2 || n==3 || n==5 || n==6 || n==8 || n==9){
+    rect (x+425,y+180,size+80,size+18, c); //F
+  }
+if (n ==2 || n==3){
+  rect (x+420,y+70,size+70,size+18,c);//H to the left middle 
+}
+if (n==4){
+  rect (x+420,y-20,size+18,size+110,c);//K
+  rect (x+490,y-20,size+18,size+110,c);//L
+  rect (x+490,y+90,size+18,size+110,c);//N
+}
+if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
+  rect (x+440,y+80,size+48,size+18,c); //M small middle
+}
+
+
+ 
+    }
+  
+  /*
  rect (x+0,y-20,size+80,size+18, c);
  rect (x-5,y,size+18,size+90,c);
  if(n == 2 || n == 3 || n == 5) {
-  rect (x+20,y+70,size+70,size+18,c);//middle
+  rect (x+13,y+70,size+70,size+18,c);//middle
  }
- rect (x+70,y+90,size+18,size+90,c);
- rect (x+5,y+180,size+80,size+18, c);  
-}
+ rect (x+65,y+90,size+18,size+90,c);
+ rect (x+0,y+180,size+80,size+18, c);
+ */  
+
 
 function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
   // Draw Pacman with an open mouth to the left
   fill(255, 255, 0); // Yellow color
   noStroke();
   arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
+
 }
