@@ -288,8 +288,18 @@ function draw_clock(obj) {
   stroke(210);
   strokeWeight(2);
   let linePace = map(obj.millis, 0, 999, width / 5, 0);
-  for (i = 0; i < 6; i ++) {
-    line(linePace + width / 5 * i, 440, linePace + 70 + width / 5 * i, 440);
+  let alarmLinePace = map(obj.millis, 0, 999, width + (width / 5), 0);
+  if (alarm == 0) {
+    linePace = alarmLinePace;
+    for (i = 0; i < 6; i ++) {
+      line(linePace + width / 5 * i, 440, linePace + 70 + width / 5 * i, 440);
+      line(linePace - width / 5 * i, 440, linePace + 70 - width / 5 * i, 440);
+    }
+  } else {
+    for (i = 0; i < 5; i ++) {
+      line(linePace + width / 5 * i, 440, linePace + 70 + width / 5 * i, 440);
+      line(linePace - width / 5 * i, 440, linePace + 70 - width / 5 * i, 440);
+    }
   }
   stroke(179, 179, 0);
   line(0, 446, width, 446);
@@ -320,7 +330,7 @@ function draw_clock(obj) {
   textFont('Helvetica');
   textAlign(CENTER);
   fill(255);
-  text(obj.seconds, markerWidth + markerPace + 2, 416);
+  text(obj.seconds, markerWidth + markerPace + 2, 418);
   if (obj.seconds == 0) {
     text(59, markerPace, 418);
   } else {
@@ -334,6 +344,25 @@ function draw_Car(x, y, phase, carColor) {
   fill(0);
   ellipse(x + 135, y + 195 - phase, 280, 20);
 
+  //ALARM
+  angleMode(RADIANS);
+  let sirenSpinSpan = map(obj.millis, 0, 999, 0, 10);
+  let sirenSpin = sin(sirenSpinSpan);
+  let span = map(obj.millis, 0, 999, 20, 80);
+  let span2 = map(obj.millis, 0, 999, 50, 60);
+  let pulse = sin(span);
+  let pulse2 = sin(span2);
+  if (obj.seconds_until_alarm == 0) {
+    fill(255, 30, 80);
+    rect(x + 150, y + 114, 12, 12, 2);
+    fill(255, 220, 220);
+    rect(x + 155 + sirenSpin * 3, y + 114, 2, 12, 2);
+    fill(255, 30, 80, 100);
+    arc(x + 155, y + 122, pulse * 100, pulse * 100, PI, 0);
+    arc(x + 155, y + 122, pulse2 * 100, pulse2 * 100, PI, 0);
+  }
+
+  angleMode(DEGREES);
   //DETAILING
   fill(255, 100);
   quad(x + 80, y + 150, x + 215, y + 150, x + 185, y + 124, x + 100, y + 125);
