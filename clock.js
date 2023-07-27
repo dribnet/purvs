@@ -752,10 +752,7 @@ let alarmInd = -1;
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
-
   // if (obj.seconds_until_alarm === 0) throw "TESTING POGGERs";
-
-
 
 
   // Rotates both secondsDisplays
@@ -777,7 +774,6 @@ function draw_clock(obj) {
     }
 
     secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmInd));
-    
   }
 
   else {
@@ -800,13 +796,12 @@ function draw_clock(obj) {
 
   // Draws the ampmDisplay and text
   ampmDisplay.draw(ampmColor);
-  // AmPmDisplay.text(
-  //   0, HEIGHT/2,
-  //   obj.hours,
-  //   AMPM_FONT_SIZE,
-  //   ampmColor
-  // );
-
+  AmPmDisplay.text(
+    0, HEIGHT/2,
+    obj.hours,
+    AMPM_FONT_SIZE,
+    ampmColor
+  );
 
   // Draws the pointer
   pointer.draw(SEC_POINTER_COL, obj.seconds);
