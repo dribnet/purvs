@@ -732,7 +732,9 @@ const ampmDisplay = new AmPmDisplay(
 
 
 
-
+/*
+ * 
+ */
 let initAlarmVars = true;
 let alarmTime = -1;
 let timeOfActivation = 0;
@@ -764,9 +766,9 @@ function draw_clock(obj) {
     
   if (obj.seconds_until_alarm > -1) {
     if (initAlarmVars) {
-      alarmTime = obj.seconds_until_alarm;
-      timeOfActivation = obj.seconds + obj.millis/999;
-      alarmInd = 60 - alarmTime - timeOfActivation;
+      alarmTime = obj.seconds_until_alarm; // Time before the alarm goes off
+      timeOfActivation = obj.seconds + obj.millis/999; // Current time of when the alarm timer was turned on
+      alarmInd = 60 - alarmTime - timeOfActivation; // Calculates which indicator should change colour
       while (alarmInd > 59.999) alarmInd -= 60;
       while (alarmInd < 0) alarmInd += 60;
       
