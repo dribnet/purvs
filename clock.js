@@ -18,41 +18,31 @@ function draw_clock(obj) {
 
   //changing sky based on day and night
 const night_sky = color(12, 23, 63); //50,50,60
-    //const night_ground = color(30, 60, 30); 
     const day_sky = color(173,216,230);
-    //const day_ground = color(100, 200, 100);
-  //let current_ground = null;
-
     if (obj.hours >= 7 && obj.hours < 8) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(night_sky, day_sky, hour_fraction);
-        //current_ground = lerpColor(night_ground, day_ground, hour_fraction);
-        background(cur_sky);
+       background(cur_sky);
     }
     else if (obj.hours >= 19 && obj.hours < 20) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
         let cur_sky = lerpColor(day_sky, night_sky, hour_fraction);
-        //current_ground = lerpColor(day_ground, night_ground, hour_fraction);
-      background(cur_sky);
+       background(cur_sky);
     }
     else if(obj.hours >= 8 && obj.hours < 20) {
         // daytime
         background(day_sky);
-       // current_ground = day_ground;
+      
     }
     else {
         // nightime
         background(night_sky);
-        //current_ground = night_ground;
+       
     }
 
-  let seconds = obj.seconds
-  let Minutes = obj.minutes
-  
-  
-
+  //ellipse moving down test
   // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
   //let secondsY = map(seconds, 0, 59, 1, 150);
 
@@ -61,73 +51,30 @@ const night_sky = color(12, 23, 63); //50,50,60
   // ellipse(width / 2, secondsY, 100); // minutes moving up and down
 
   //Raindrops positioning
-  let dropsY = map(seconds,0,59,10,450);
+  let seconds = obj.seconds
+  let millis = obj.millis
+  let Rain = seconds + (millis/1000); //makes the rain drops run smoother
+  let dropsY = map(Rain,0,59,30,500);
   
-  //for(let i =dropsY; i<0; i++){
-  let xposDrop = [30,30,50,50,80,100,120,150,160,160,190,210,240,250,260,280,300,300,350,350,380,380,390,390,450,510,550,550,560,580,590,600,600,610,650,660,670,680,700,710,720,730,760,770,790,800,840,850,860,880,900,900,930,920,820,10,290,130,200,330,20]; //x position for the rain drops for 0-59 seconds
-  let yposDrop = [20,430,160,300,80,370,210,30,320,450,130,230,10,430,310,50,150,380,20,250,100,320,190,420,20,10,300,80,180,430,20,230,100,350,170,40,270,440,350,10,110,200,280,400,30,150,250,80,350,180,450,20,120,300,450,250,240,140,380,460,100]; //y position for the rain drops for 0-59 seconds
-  drawWaterdrops (xposDrop[0],yposDrop[0]); //1 //30,20
-  drawWaterdrops (xposDrop[1], yposDrop[1]); //2 //30,430
-  drawWaterdrops (xposDrop[2], yposDrop[2]); //3 //50,160
-  drawWaterdrops (xposDrop[3], yposDrop[3]); //4 //50,300
-  drawWaterdrops (xposDrop[4], yposDrop[4]); //5 //80,80
-  drawWaterdrops (xposDrop[5], yposDrop[5]); //6 //100,370
-  drawWaterdrops (xposDrop[6], yposDrop[6]); //7 //120,210
-  drawWaterdrops (xposDrop[7], yposDrop[7]); //8 //150,30
-  drawWaterdrops (xposDrop[8], yposDrop[8]); //9 //160,320
-  drawWaterdrops (xposDrop[9], yposDrop[9]); //10 //160,450
-  drawWaterdrops (xposDrop[10], yposDrop[10]); //11 //190,130
-  drawWaterdrops (xposDrop[11], yposDrop[11]); //12 //210,230
-  drawWaterdrops (xposDrop[12], yposDrop[12]); //13 //240,10
-  drawWaterdrops (xposDrop[13], yposDrop[13]); //14 //250,430
-  drawWaterdrops (xposDrop[14], yposDrop[14]); //15 //260,310
-  drawWaterdrops (xposDrop[15], yposDrop[15]); //16 //280,50
-  drawWaterdrops (xposDrop[16], yposDrop[16]); //17 //300,150
-  drawWaterdrops (xposDrop[17], yposDrop[17]); //18 //300,380
-  drawWaterdrops (xposDrop[18], yposDrop[18]); //19 //350,20
-  drawWaterdrops (xposDrop[19], yposDrop[19]); //20 //350,250
-  drawWaterdrops (xposDrop[20], yposDrop[20]); //21 //380,100
-  drawWaterdrops (xposDrop[21], yposDrop[21]); //22 //380,320
-  drawWaterdrops (xposDrop[22], yposDrop[22]); //23 //390,190
-  drawWaterdrops (xposDrop[23], yposDrop[23]); //24 //390,420
-  drawWaterdrops (xposDrop[24], yposDrop[24]); //25 //450,20
-  drawWaterdrops (xposDrop[25], yposDrop[25]); //26 //510,10
-  drawWaterdrops (xposDrop[26], yposDrop[26]); //27 //550,300
-  drawWaterdrops (xposDrop[27], yposDrop[27]); //28 //550,80
-  drawWaterdrops (xposDrop[28], yposDrop[28]); //29 //560,180
-  drawWaterdrops (xposDrop[29], yposDrop[29]); //30 //580,430
-  drawWaterdrops (xposDrop[30], yposDrop[30]); //31 //590,20
-  drawWaterdrops (xposDrop[31], yposDrop[31]); //32 //600,230
-  drawWaterdrops (xposDrop[32], yposDrop[32]); //31 //600,100
-  drawWaterdrops (xposDrop[33], yposDrop[33]); //32 //610,350
-  drawWaterdrops (xposDrop[34], yposDrop[34]); //33 //650,170
-  drawWaterdrops (xposDrop[35], yposDrop[35]); //34 //660,40
-  drawWaterdrops (xposDrop[36], yposDrop[36]); //35 //670,270
-  drawWaterdrops (xposDrop[37], yposDrop[37]); //36 //680,440
-  drawWaterdrops (xposDrop[38], yposDrop[38]); //37 //700,350
-  drawWaterdrops (xposDrop[39], yposDrop[39]); //38 //710,10
-  drawWaterdrops (xposDrop[40], yposDrop[40]); //39 //720,110
-  drawWaterdrops (xposDrop[41], yposDrop[41]); //40 //730,200
-  drawWaterdrops (xposDrop[42], yposDrop[42]); //41 //760,280
-  drawWaterdrops (xposDrop[43], yposDrop[43]); //42 //770,400
-  drawWaterdrops (xposDrop[44], yposDrop[44]); //43 //790,30
-  drawWaterdrops (xposDrop[45], yposDrop[45]); //44 //800,150
-  drawWaterdrops (xposDrop[46], yposDrop[46]); //45 //840,250
-  drawWaterdrops (xposDrop[47], yposDrop[47]); //46 //850,80
-  drawWaterdrops (xposDrop[48], yposDrop[48]); //47 //860,350
-  drawWaterdrops (xposDrop[49], yposDrop[49]); //48 //880,180
-  drawWaterdrops (xposDrop[50], yposDrop[50]); //49 //900,450
-  drawWaterdrops (xposDrop[51], yposDrop[51]); //50 //900,20
-  drawWaterdrops (xposDrop[52], yposDrop[52]); //51 //930,120
-  drawWaterdrops (xposDrop[53], yposDrop[53]); //52 //920, 300
-  drawWaterdrops (xposDrop[54], yposDrop[54]); //53 //820,450
-  drawWaterdrops (xposDrop[55], yposDrop[55]); //54 //10,250
-  drawWaterdrops (xposDrop[56], yposDrop[56]); //55 //290,240
-  drawWaterdrops (xposDrop[57], yposDrop[57]); //56 //130,140
-  drawWaterdrops (xposDrop[58], yposDrop[58]); //57 //200,380
-  drawWaterdrops (xposDrop[59], yposDrop[59]); //58 //330,460
-  drawWaterdrops (xposDrop[60], yposDrop[60]); //59 //20,100
-//}
+  for(w=0;w<8;w++){ //
+    drawWaterdrops(50+w*120,dropsY); //top line of rain drops
+  }
+  for(w=0;w<8;w++){
+    drawWaterdrops(100+w*120,100+dropsY); //second line of rain drops
+   }
+  for(w=0;w<8;w++){
+    
+    drawWaterdrops(50+w*120,200+dropsY); //third line of rain drops
+  }
+  for(w=0;w<8;w++){
+    
+    drawWaterdrops(100+w*120,300+dropsY); //fourth line of rain drops
+  }
+  for(w=0;w<8;w++){
+    
+    drawWaterdrops(50+w*120,400+dropsY); //bottom line of rain drops
+  }
+
 
   //plant stalk
   let linex = 480;
@@ -160,9 +107,7 @@ const night_sky = color(12, 23, 63); //50,50,60
   let ZeroSix = map(hours,0,6,6,0);   
   let sixTwelve = map(hours,0,12,12,0); 
   
-  //text(hours, 100,100);//debug       
-
-  if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600     
+      if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600     
      for (let i = ZeroSix; i < 6; i++) {    
        drawLeaf(425, 42+(ystep)*i);   
       if(hours>=13&&hours<19){
@@ -171,23 +116,29 @@ const night_sky = color(12, 23, 63); //50,50,60
  }
       }
       
-      }} 
+    }} 
        else{//draw 6 leaves in the same spot       
         for(let k=0;k<leaves;k++){       
            drawLeaf(425,42+(ystep*k));   
             }  
            }
 
-
-  if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
+if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
     for (let i = sixTwelve; i < 6; i++) {    
-      drawrightLeaf(535, 42+(ystep)*i);   } 
-   } 
+      drawrightLeaf(535, 42+(ystep)*i);  
+      if(hours>=19&&hours<24){
+        for(let i=-sixTwelve;i<6;i++){ //remove leaves per hour between 1900 and 2400
+         drawLeaf(425, 42+(ystep)*i);
+        }
+             }
+    } } 
       else if(hours>=12){//draw 6 leaves in the same spot       
         for(let k=0;k<leaves;k++){       
           drawrightLeaf(535,42+(ystep*k));   
            }  
            }
+
+//stationary leaves, no if statements etc
 
   // for (let i = 0; i < 6; i++) {
   //   drawLeaf(425, 42 + (ystep * i));
@@ -197,7 +148,15 @@ const night_sky = color(12, 23, 63); //50,50,60
   //   drawrightLeaf(535, 42 + (ystep * i));
   // }
 
+  //bee flying across screen
+  let minutes = obj.minutes
+  let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
 
+  for(w=0;w<1;w++){ 
+    noStroke();
+    fill(255)
+    ellipse(beeX,height/2,20); //change to bee when created
+  }
  
 
 }
@@ -281,6 +240,73 @@ function drawrightLeaf(Leafx, leafy) {
 //   endShape(CLOSE);
 
  }
+
+  //old water drops code:
+
+  // let xposDrop = [30,30,50,50,80,100,120,150,160,160,190,210,240,250,260,280,300,300,350,350,380,380,390,390,450,510,550,550,560,580,590,600,600,610,650,660,670,680,700,710,720,730,760,770,790,800,840,850,860,880,900,900,930,920,820,10,290,130,200,330,20]; //x position for the rain drops for 0-59 seconds
+  // let yposDrop = [20,430,160,300,80,370,210,30,320,450,130,230,10,430,310,50,150,380,20,250,100,320,190,420,20,10,300,80,180,430,20,230,100,350,170,40,270,440,350,10,110,200,280,400,30,150,250,80,350,180,450,20,120,300,450,250,240,140,380,460,100]; //y position for the rain drops for 0-59 seconds
+  // drawWaterdrops (xposDrop[0],yposDrop[0]); //1 //30,20
+  // drawWaterdrops (xposDrop[1], yposDrop[1]); //2 //30,430
+  // drawWaterdrops (xposDrop[2], yposDrop[2]); //3 //50,160
+  // drawWaterdrops (xposDrop[3], yposDrop[3]); //4 //50,300
+  // drawWaterdrops (xposDrop[4], yposDrop[4]); //5 //80,80
+  // drawWaterdrops (xposDrop[5], yposDrop[5]); //6 //100,370
+  // drawWaterdrops (xposDrop[6], yposDrop[6]); //7 //120,210
+  // drawWaterdrops (xposDrop[7], yposDrop[7]); //8 //150,30
+  // drawWaterdrops (xposDrop[8], yposDrop[8]); //9 //160,320
+  // drawWaterdrops (xposDrop[9], yposDrop[9]); //10 //160,450
+  // drawWaterdrops (xposDrop[10], yposDrop[10]); //11 //190,130
+  // drawWaterdrops (xposDrop[11], yposDrop[11]); //12 //210,230
+  // drawWaterdrops (xposDrop[12], yposDrop[12]); //13 //240,10
+  // drawWaterdrops (xposDrop[13], yposDrop[13]); //14 //250,430
+  // drawWaterdrops (xposDrop[14], yposDrop[14]); //15 //260,310
+  // drawWaterdrops (xposDrop[15], yposDrop[15]); //16 //280,50
+  // drawWaterdrops (xposDrop[16], yposDrop[16]); //17 //300,150
+  // drawWaterdrops (xposDrop[17], yposDrop[17]); //18 //300,380
+  // drawWaterdrops (xposDrop[18], yposDrop[18]); //19 //350,20
+  // drawWaterdrops (xposDrop[19], yposDrop[19]); //20 //350,250
+  // drawWaterdrops (xposDrop[20], yposDrop[20]); //21 //380,100
+  // drawWaterdrops (xposDrop[21], yposDrop[21]); //22 //380,320
+  // drawWaterdrops (xposDrop[22], yposDrop[22]); //23 //390,190
+  // drawWaterdrops (xposDrop[23], yposDrop[23]); //24 //390,420
+  // drawWaterdrops (xposDrop[24], yposDrop[24]); //25 //450,20
+  // drawWaterdrops (xposDrop[25], yposDrop[25]); //26 //510,10
+  // drawWaterdrops (xposDrop[26], yposDrop[26]); //27 //550,300
+  // drawWaterdrops (xposDrop[27], yposDrop[27]); //28 //550,80
+  // drawWaterdrops (xposDrop[28], yposDrop[28]); //29 //560,180
+  // drawWaterdrops (xposDrop[29], yposDrop[29]); //30 //580,430
+  // drawWaterdrops (xposDrop[30], yposDrop[30]); //31 //590,20
+  // drawWaterdrops (xposDrop[31], yposDrop[31]); //32 //600,230
+  // drawWaterdrops (xposDrop[32], yposDrop[32]); //31 //600,100
+  // drawWaterdrops (xposDrop[33], yposDrop[33]); //32 //610,350
+  // drawWaterdrops (xposDrop[34], yposDrop[34]); //33 //650,170
+  // drawWaterdrops (xposDrop[35], yposDrop[35]); //34 //660,40
+  // drawWaterdrops (xposDrop[36], yposDrop[36]); //35 //670,270
+  // drawWaterdrops (xposDrop[37], yposDrop[37]); //36 //680,440
+  // drawWaterdrops (xposDrop[38], yposDrop[38]); //37 //700,350
+  // drawWaterdrops (xposDrop[39], yposDrop[39]); //38 //710,10
+  // drawWaterdrops (xposDrop[40], yposDrop[40]); //39 //720,110
+  // drawWaterdrops (xposDrop[41], yposDrop[41]); //40 //730,200
+  // drawWaterdrops (xposDrop[42], yposDrop[42]); //41 //760,280
+  // drawWaterdrops (xposDrop[43], yposDrop[43]); //42 //770,400
+  // drawWaterdrops (xposDrop[44], yposDrop[44]); //43 //790,30
+  // drawWaterdrops (xposDrop[45], yposDrop[45]); //44 //800,150
+  // drawWaterdrops (xposDrop[46], yposDrop[46]); //45 //840,250
+  // drawWaterdrops (xposDrop[47], yposDrop[47]); //46 //850,80
+  // drawWaterdrops (xposDrop[48], yposDrop[48]); //47 //860,350
+  // drawWaterdrops (xposDrop[49], yposDrop[49]); //48 //880,180
+  // drawWaterdrops (xposDrop[50], yposDrop[50]); //49 //900,450
+  // drawWaterdrops (xposDrop[51], yposDrop[51]); //50 //900,20
+  // drawWaterdrops (xposDrop[52], yposDrop[52]); //51 //930,120
+  // drawWaterdrops (xposDrop[53], yposDrop[53]); //52 //920, 300
+  // drawWaterdrops (xposDrop[54], yposDrop[54]); //53 //820,450
+  // drawWaterdrops (xposDrop[55], yposDrop[55]); //54 //10,250
+  // drawWaterdrops (xposDrop[56], yposDrop[56]); //55 //290,240
+  // drawWaterdrops (xposDrop[57], yposDrop[57]); //56 //130,140
+  // drawWaterdrops (xposDrop[58], yposDrop[58]); //57 //200,380
+  // drawWaterdrops (xposDrop[59], yposDrop[59]); //58 //330,460
+  // drawWaterdrops (xposDrop[60], yposDrop[60]); //59 //20,100
+
 
  
  
