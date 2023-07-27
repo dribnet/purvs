@@ -866,8 +866,10 @@ function draw_clock(obj) {
  * s = 45 ? alarm should be at ind[43] | 60 - 32 - 15 - 15 - 15 |
  */
 
+
+
 /*
- * assume alarm K seconds
+ * assume alarm K seconds, interval = 15 (TEST OTEHR INTERVALS)
  * s = 00 ? alarm should be at ind[60 - K - 0 * 15]
  * s = 15 ? alarm should be at ind[60 - K - 1 * 15]
  * s = 30 ? alarm should be at ind[60 - K - 2 * 15]
