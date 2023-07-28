@@ -55,7 +55,7 @@ class SecondsDisplay {
   }
 
   /** Draw method for display. */
-  draw(fillColor, active=-1, activeColor=[255, 255, 255], _debug=-1, _debugColor=[0, 255, 0]) {
+  draw(fillColor, active=-1, activeColor=[255, 255, 255]) {
     /* 
      * Section regarding indicator drawing. 
      */
@@ -65,14 +65,9 @@ class SecondsDisplay {
 
     for (let i=0; i<this.indicators.length; i++) {
       let ind = this.indicators[i];
-      let indCol = fillColor;
+      ind.draw((i === active) ? activeColor : fillColor);
 
-      if (i === active) indCol = activeColor;
-      else if (i === _debug) indCol = _debugColor;
-      
-      ind.draw(indCol);
-
-      rotate(2 * Math.PI / this.indicators.length); // Only rotates to draw each indicator circularly
+      rotate(2 * Math.PI / this.indicators.length); // Rotates to draw each indicator circularly
     }
     pop();
 
@@ -270,7 +265,7 @@ class MinutesDiplay {
   }
 
   /** Draw method for display. */
-  draw(active, activeHeight, passiveColor, activeColor, growthRate=1.03, decayRate=0.99) {
+  draw(active, activeHeight, passiveColor, activeColor, alarm=-1, alarmColor=[0, 0, 0], growthRate=1.03, decayRate=0.99) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
      * All affected indicators are added to a Map, storing both the index and the scale factor.
@@ -342,16 +337,24 @@ class MinutesDiplay {
      */
     push();
 
+    
+    let indColor;
     // Setup
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
 
     for (let i=0; i<this.indicators.length; i++) {
+      ind = this.indicators[i];
+
       /*
        * If the indicator is affected, use colour lerping instead of the base colour.
        * The growth factor also controls the proportion between the base colour and active colour.
        */
-      this.indicators[i].draw( (affected.has(i)) ? lerpColor(color(passiveColor), color(activeColor), affected.get(i)) : passiveColor);
+      indColor = passiveColor;
+      if (affected.has(i)) indColor = lerpColor(color(passiveColor), color(activeColor), affected.get(i));
+      if (i === alarm) indColor = alarmColor;
+
+      ind.draw(indColor);
       rotate(this.rotationIncrement);
     }
 
@@ -721,26 +724,24 @@ const ampmDisplay = new AmPmDisplay(
   AMPM_RADIUS
 );
 
-
-
-
-
-
-
-
-
-
-
-
 /*
- * 
+ * Alarm Variables.
  */
 let initAlarmVars = true;
-let alarmTime = -1;
-let timeOfActivation = 0;
-let alarmInd = -1;
+let timeUntilActivation = -1; // Time until alarm goes off
+let timeOfActivation = 0;     // The current second when the alarm timer is activated
 
-/*
+let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be coloured
+let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
+
+/**
+ * Lerp Colour Variables.
+ */
+let totalTime;
+let factor;
+let calculatedColor;
+
+/** 
  * draw your own clock here based on the values of obj:
  *    obj.hours goes from 0-23
  *    obj.minutes goes from 0-59
@@ -754,55 +755,69 @@ let alarmInd = -1;
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
 
-  // if (obj.seconds_until_alarm === 0) throw "TESTING POGGERs";
-
+  /*
+   * Uses the current time to calculate a lerp colour.
+   */ 
+  totalTime = obj.hours + obj.minutes/60 + obj.seconds/3600; // Millis are negligable 
+  factor = (0 <= totalTime && totalTime < 13) ? (totalTime) / 12 : 1 - (totalTime - 12) / 12;
+  calculatedColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor);
 
   // Rotates both secondsDisplays
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // Draws both secondsDisplays
+  // Draws the first secondsDisplay
   secondsDisplay1.draw(SEC_COL_1);
-    
+
+
   if (obj.seconds_until_alarm > -1) {
     if (initAlarmVars) {
-      alarmTime = obj.seconds_until_alarm; // Time before the alarm goes off
+      timeUntilActivation = obj.seconds_until_alarm; // Time before the alarm goes off
       timeOfActivation = obj.seconds + obj.millis/999; // Current time of when the alarm timer was turned on
-      alarmInd = 60 - alarmTime - timeOfActivation; // Calculates which indicator should change colour
-      while (alarmInd > 59.999) alarmInd -= 60;
-      while (alarmInd < 0) alarmInd += 60;
+      alarmSecondsInd = 60 - timeUntilActivation - timeOfActivation; // Calculates which indicator should change colour
+
+      alarmMinutesInd = obj.minutes;
+      while (alarmSecondsInd < 0) { 
+        alarmSecondsInd += 60; 
+        alarmMinutesInd++; 
+      }
       
       initAlarmVars = false;
     }
 
-    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmInd));
+    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd), [209, 63, 128]);
+    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd, [209, 63, 128]);
   }
+
+  else if (obj.seconds_until_alarm === 0) {}
 
   else {
     initAlarmVars = true;
-    alarmTime = -1;
+    timeUntilActivation = -1;
+    timeOfActivation = 0;
+
+    alarmSecondsInd = -1;
+    alarmMinutesInd = -1;
+
+
     secondsDisplay2.draw(SEC_COL_2);
+    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
   }
   
-  // Draws the minutesDisplay
-  minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
 
   // Draws the hoursDisplay
   hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
 
 
-  // Uses the current time to calculate a lerp colour
-  let sumTime = obj.hours + obj.minutes/60 + obj.seconds/3600; // millis are negligable 
-  let factor = (0 <= sumTime && sumTime < 13) ? (sumTime) / 12 : 1 - (sumTime - 12) / 12;
-  let ampmColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor)
+
 
   // Draws the ampmDisplay and text
-  ampmDisplay.draw(ampmColor);
+  ampmDisplay.draw(calculatedColor);
   AmPmDisplay.text(
     0, HEIGHT/2,
     obj.hours,
     AMPM_FONT_SIZE,
-    ampmColor
+    calculatedColor
   );
 
   // Draws the pointer
