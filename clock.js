@@ -431,7 +431,7 @@ class MinutesIndicator {
  */
 class HoursDisplay {
   /** Constructor. */
-  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0) {
+  constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0, totalArcSize=2*Math.PI) {
 
     /*
      * Center co-ords, initial angle, and radius of each arc.
@@ -451,7 +451,7 @@ class HoursDisplay {
      * The size of the arc of each indicator depends on the number of indicators.
      * Essentially what this does is segment a circle into an indicatorCount number of parts. 
      */
-    let indicatorArcSize = 2 * Math.PI / indicatorCount;
+    let indicatorArcSize = totalArcSize / indicatorCount;
 
     /*
      * Generates some number of indicators and pushes them into an array.
@@ -648,7 +648,7 @@ const SEC_INDICATOR_HEIGHT = 20;
 const SEC_INITIAL_ANGLE = 90;
 
 const SEC_SCALE_1 = 1.85;
-const SEC_SCALE_2 = 1;
+const SEC_SCALE_2 = 0.85; //1
 
 const SEC_COL_1 = [30, 30, 30];
 const SEC_COL_2 = [132, 42, 44];
@@ -671,12 +671,11 @@ const secondsDisplay2 = new SecondsDisplay(
  * Pointer.
  */
 const SEC_POINTER_WIDTH = 25;
-const SEC_POINTER_HEIGHT = 28;
+const SEC_POINTER_HEIGHT = 30;
 const SEC_POINTER_ANGLE = 90;
-const SEC_POINTER_COL = [143, 206, 54];
 
 const pointer = new SecondsPointer(
-  0.72 * WIDTH, HEIGHT/2, 
+  3 * WIDTH / 4, HEIGHT / 2, 
   SEC_POINTER_WIDTH, SEC_POINTER_HEIGHT, SEC_POINTER_ANGLE
 );
 
@@ -684,14 +683,14 @@ const pointer = new SecondsPointer(
  * Minutes.
  */
 const MIN_INDICATOR_COUNT = 60;
-const MIN_INDICATOR_OFFSET = -135;
-const MIN_INDICATOR_WIDTH = 8;
-const MIN_INDICATOR_HEIGHT = 10;
+const MIN_INDICATOR_OFFSET = -205; //-135;
+const MIN_INDICATOR_WIDTH = 10; //8;
+const MIN_INDICATOR_HEIGHT = 20; // 10; 
 const MIN_INITIAL_ANGLE = 0;
 
 const MIN_ACTIVE_HEIGHT = 24;
-const MIN_PASSIVE_COL = [132, 42, 44];
-const MIN_ACTIVE_COL = [138, 202, 56];
+const MIN_PASSIVE_COL = [92, 29, 31, 128]; //[132, 42, 44];
+const MIN_ACTIVE_COL = [97, 141, 39, 128]; //[138, 202, 56];
 
 const minutesDisplay = new MinutesDiplay(
   WIDTH/2, HEIGHT/2,
@@ -702,21 +701,43 @@ const minutesDisplay = new MinutesDiplay(
 /*
  * Hours.
  */
-const HOU_RADIUS = 185;
+const HOU_RADIUS_1 = 820;
+const HOU_RADIUS_2 = 185;
+
 const HOU_INDICATOR_COUNT = 12;
-const HOU_INDICATOR_SIZE = 10;
+
+const HOU_INDICATOR_SIZE_1 = 15;
+const HOU_INDICATOR_SIZE_2 = 10;
+
 const HOU_INDICATOR_GAP = 12;
-const HOU_INITIAL_ANGLE = -105;
 
-const HOU_ACTIVE_RADIUS = 8;
-const HOU_PASSIVE_COL = [132, 42, 44];
-const HOU_ACTIVE_COL = [138, 202, 56];
+const HOU_INITIAL_ANGLE_1 = -90 * 3.8/10;
+const HOU_INITIAL_ANGLE_2 = -105;
 
-const hoursDisplay = new HoursDisplay(
-  WIDTH/2, HEIGHT/2, 
-  HOU_RADIUS, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE, HOU_INDICATOR_GAP, 
-  HOU_INITIAL_ANGLE
+const HOU_TOTAL_ARC_SIZE_1 = Math.PI * 3.8/10;
+
+const HOU_ACTIVE_RADIUS_1 = 10;
+const HOU_ACTIVE_RADIUS_2 = 8;
+
+const HOU_PASSIVE_COL_1 = [30, 30, 30];
+const HOU_ACTIVE_COL_1 = [50, 50, 50];
+
+const HOU_PASSIVE_COL_2 = [132, 42, 44];
+const HOU_ACTIVE_COL_2 = [138, 202, 56];
+
+const hourDisplay1 = new HoursDisplay(
+  0, HEIGHT/2, 
+  HOU_RADIUS_1, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE_1, HOU_INDICATOR_GAP,
+  HOU_INITIAL_ANGLE_1, HOU_TOTAL_ARC_SIZE_1
 );
+
+
+const hoursDisplay2 = new HoursDisplay(
+  WIDTH/2, HEIGHT/2, 
+  HOU_RADIUS_2, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE_2, HOU_INDICATOR_GAP, 
+  HOU_INITIAL_ANGLE_2
+);
+
 
 /*
  * AM/PM.
@@ -778,14 +799,14 @@ function draw_clock(obj) {
 
   // Draws the first secondsDisplay
   secondsDisplay1.draw(SEC_COL_1);
-
+  hourDisplay1.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_1, HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1);
 
   if (obj.seconds_until_alarm > -1) {
     if (initAlarmVars) {
-      timeUntilActivation = obj.seconds_until_alarm; // Time before the alarm goes off
-      timeOfActivation = obj.seconds + obj.millis/999; // Current time of when the alarm timer was turned on
-      alarmSecondsInd = 60 - timeUntilActivation - timeOfActivation; // Calculates which indicator should change colour
+      timeUntilActivation = obj.seconds_until_alarm;
+      timeOfActivation = obj.seconds + obj.millis/999;
 
+      alarmSecondsInd = 60 - timeUntilActivation - timeOfActivation; // Calculation done to get how many indicators from the pointer
       alarmMinutesInd = obj.minutes;
       alarmHoursInd = obj.hours;
 
@@ -806,14 +827,15 @@ function draw_clock(obj) {
       initAlarmVars = false;
     }
 
-    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
     minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd);
-    hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL, alarmHoursInd);
+    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
+    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, alarmHoursInd);
   }
 
   else if (obj.seconds_until_alarm === 0) {}
 
   else {
+    // Resets variables
     initAlarmVars = true;
     timeUntilActivation = -1;
     timeOfActivation = 0;
@@ -822,17 +844,10 @@ function draw_clock(obj) {
     alarmMinutesInd = -1;
     alarmHoursInd = -1;
 
-
-    secondsDisplay2.draw(SEC_COL_2);
     minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
-    hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
+    secondsDisplay2.draw(SEC_COL_2);
+    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2);
   }
-  
-
-  // Draws the hoursDisplay
-  
-  
-
 
 
   // Draws the ampmDisplay and text
@@ -845,5 +860,7 @@ function draw_clock(obj) {
   );
 
   // Draws the pointer
-  pointer.draw(SEC_POINTER_COL, obj.seconds);
+  pointer.draw(calculatedColor, obj.seconds);
+
+  
 }
