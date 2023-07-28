@@ -106,37 +106,58 @@ const night_sky = color(12, 23, 63); //50,50,60
   let hours = obj.hours;    
   let ZeroSix = map(hours,0,6,6,0);   
   let sixTwelve = map(hours,0,12,12,0); 
+  let TwelveNineteen = map(hours,12,19,19,12);
   
-      if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600     
+ 
+ 
+  
+      if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
+        fill(18, 181, 121); //light green   
      for (let i = ZeroSix; i < 6; i++) {    
        drawLeaf(425, 42+(ystep)*i);   
-      if(hours>=13&&hours<19){
- for(let i=-ZeroSix;i<6;i++){ //remove leaves per hour between 1200 and 1800
-  drawLeaf(425, 42+(ystep)*i);
- }
-      }
       
     }} 
-       else{//draw 6 leaves in the same spot       
-        for(let k=0;k<leaves;k++){       
+       else {//draw 6 leaves in the same spot       
+        for(let k=0;k<leaves;k++){   
+          fill(18, 181, 121); //light green    
            drawLeaf(425,42+(ystep*k));   
             }  
            }
 
 if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
-    for (let i = sixTwelve; i < 6; i++) {    
+    for (let i = sixTwelve; i < 6; i++) {  
+      fill(18, 181, 121); //light green  
       drawrightLeaf(535, 42+(ystep)*i);  
-      if(hours>=19&&hours<24){
-        for(let i=-sixTwelve;i<6;i++){ //remove leaves per hour between 1900 and 2400
-         drawLeaf(425, 42+(ystep)*i);
-        }
-             }
+     
     } } 
-      else if(hours>=12){//draw 6 leaves in the same spot       
-        for(let k=0;k<leaves;k++){       
+      else  if(hours>=12){//draw 6 leaves in the same spot      
+        for(let k=0;k<leaves;k++){      
+          fill(18, 181, 121); //light green  
           drawrightLeaf(535,42+(ystep*k));   
            }  
            }
+
+           if(hours>=13&&hours<19){ //leaves turn orange by the hour between 1300 and 1900
+            for(let i = TwelveNineteen; i< 6; i++){
+            fill( 195, 113, 37); //orange
+            drawLeaf(425,42+(ystep*k));
+           }
+          }
+          else if(hours>=19){
+            for(let k=0;k<leaves;k++){   
+              fill(195, 113, 37); //orange   
+               drawLeaf(425,42+(ystep*k));   
+            }
+          }
+          
+
+           
+          //  else {//draw 6 leaves in the same spot       
+          //   for(let k=0;k<leaves;k++){   
+          //     fill(195, 113, 37); //light green    
+          //      drawLeaf(425,42+(ystep*k));   
+          //       }  
+          //      }
 
 //stationary leaves, no if statements etc
 
@@ -169,7 +190,7 @@ let dropy = 60;
 
 //left leaves function
 function drawLeaf(leafx, leafy) {
-  fill(18, 181, 121); //light green
+  
   stroke(1, 50, 32); //dark green
   strokeWeight(1.5);
   beginShape();
@@ -185,7 +206,7 @@ function drawLeaf(leafx, leafy) {
 
 //right leaves function
 function drawrightLeaf(Leafx, leafy) {
-  fill(18, 181, 121); //light green
+  
   stroke(1, 50, 32); //dark green
   strokeWeight(1.5);
   beginShape();
@@ -307,6 +328,18 @@ function drawrightLeaf(Leafx, leafy) {
   // drawWaterdrops (xposDrop[59], yposDrop[59]); //58 //330,460
   // drawWaterdrops (xposDrop[60], yposDrop[60]); //59 //20,100
 
+  //trial code
 
+  //if(hours>=13&&hours<19){
+    //  for(let i=-ZeroSix;i<6;i++){ //remove leaves per hour between 1200 and 1800
+    //   drawLeaf(425, 42+(ystep)*i);
+    //  }
+    //       }
+
+     // if(hours>=19&&hours<24){
+      //   for(let i=-sixTwelve;i<6;i++){ //remove leaves per hour between 1900 and 2400
+      //    drawLeaf(425, 42+(ystep)*i);
+      //   }
+      //        }
  
  
