@@ -55,7 +55,7 @@ class SecondsDisplay {
   }
 
   /** Draw method for display. */
-  draw(fillColor, active=-1, activeColor=[255, 255, 255]) {
+  draw(fillColor, alarm=-1, alarmColor=[209, 63, 128]) {
     /* 
      * Section regarding indicator drawing. 
      */
@@ -65,7 +65,7 @@ class SecondsDisplay {
 
     for (let i=0; i<this.indicators.length; i++) {
       let ind = this.indicators[i];
-      ind.draw((i === active) ? activeColor : fillColor);
+      ind.draw((i === alarm) ? alarmColor : fillColor);
 
       rotate(2 * Math.PI / this.indicators.length); // Rotates to draw each indicator circularly
     }
@@ -265,12 +265,15 @@ class MinutesDiplay {
   }
 
   /** Draw method for display. */
-  draw(active, activeHeight, passiveColor, activeColor, alarm=-1, alarmColor=[0, 0, 0], growthRate=1.03, decayRate=0.99) {
+  draw(active, activeHeight, passiveColor, activeColor, alarm=-1, alarmColor=[209, 63, 128]) {
     /*
      * Changes the heights of all the indicators surrounding the active indicator.
      * All affected indicators are added to a Map, storing both the index and the scale factor.
      * When a unit time passes, the growth and decay rates control the speed at which the indicators change height.
      */
+    const GROWTH_RATE=1.03
+    const DECAY_RATE=0.99;
+
     let factor;
     let ind;
     let newHeight;
@@ -298,14 +301,14 @@ class MinutesDiplay {
            * its current height is LESS than its calculated new height,
            * increase its height by some growth factor.
            */
-          if (ind.height < newHeight) ind.height *= growthRate;
+          if (ind.height < newHeight) ind.height *= GROWTH_RATE;
 
           /*
            * If the indicator is active or is nearby the active AND
            * its current height is GREATER than its calculated new height,
            * decrease its height by some decay factor.
            */
-          if (ind.height > newHeight) ind.height *= decayRate;
+          if (ind.height > newHeight) ind.height *= DECAY_RATE;
           
           /*
            * Adds the affected indicators and their corresponding factos to a Map collection.
@@ -322,7 +325,7 @@ class MinutesDiplay {
      */
     for (let i=0; i<this.indicators.length; i++) {
       if (!affected.has(i)) {
-        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= decayRate;
+        if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= DECAY_RATE;
 
         /*
          * If the height after decaying becomes smaller than the 
@@ -475,7 +478,10 @@ class HoursDisplay {
   }
 
   /** Draw method for display. */
-  draw(active, activeRadius, passiveColor, activeColor, growthRate=1.005, decayRate=0.999) {
+  draw(active, activeRadius, passiveColor, activeColor, alarm=-1, alarmColor=[209, 63, 128]) {
+    const GROWTH_RATE=1.005;
+    const DECAY_RATE=0.999;
+
     push();
 
     // Setup
@@ -500,14 +506,16 @@ class HoursDisplay {
          * Changes the draw colour if the current indicator is active.
          */
         drawColor = activeColor;
-        if (ind.radius < newRadius) ind.radius *= growthRate;
+        if (ind.radius < newRadius) ind.radius *= GROWTH_RATE;
       }
+
+      if (i === alarm) drawColor = alarmColor;
 
       /*
        * If the indicator is not active and its radius is greater than
        * the default radius, gradually decrease it.
        */
-      if (i !== active && ind.radius > this.radius) ind.radius *= decayRate; 
+      if (i !== active && ind.radius > this.radius) ind.radius *= DECAY_RATE; 
       else if (i !== active && ind.radius < this.radius) ind.radius = this.radius;
 
       ind.draw(drawColor);
@@ -733,6 +741,8 @@ let timeOfActivation = 0;     // The current second when the alarm timer is acti
 
 let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be coloured
 let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
+let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
+
 
 /**
  * Lerp Colour Variables.
@@ -777,16 +787,28 @@ function draw_clock(obj) {
       alarmSecondsInd = 60 - timeUntilActivation - timeOfActivation; // Calculates which indicator should change colour
 
       alarmMinutesInd = obj.minutes;
+      alarmHoursInd = obj.hours;
+
       while (alarmSecondsInd < 0) { 
         alarmSecondsInd += 60; 
-        alarmMinutesInd++; 
+        alarmMinutesInd++;
+      }
+
+      while (alarmMinutesInd > 59) {
+        alarmMinutesInd -= 60;
+        alarmHoursInd++;
+      }
+
+      while (alarmHoursInd > 11) {
+        alarmHoursInd -= 12;
       }
       
       initAlarmVars = false;
     }
 
-    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd), [209, 63, 128]);
-    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd, [209, 63, 128]);
+    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
+    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd);
+    hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL, alarmHoursInd);
   }
 
   else if (obj.seconds_until_alarm === 0) {}
@@ -798,16 +820,18 @@ function draw_clock(obj) {
 
     alarmSecondsInd = -1;
     alarmMinutesInd = -1;
+    alarmHoursInd = -1;
 
 
     secondsDisplay2.draw(SEC_COL_2);
     minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+    hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
   }
   
 
   // Draws the hoursDisplay
-  hoursDisplay.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS, HOU_PASSIVE_COL, HOU_ACTIVE_COL);
-
+  
+  
 
 
 
