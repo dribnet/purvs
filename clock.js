@@ -33,6 +33,8 @@ function draw_clock(obj) {
 
 // draws maze outline --------------------------------------------
 
+let moveH = map(obj.seconds *10,0,59, 0, 59);
+
 
 noFill();
 stroke (0,0,200);
@@ -82,6 +84,16 @@ rect(849,241,75,39);
   noFill();
   
 //-------------------------------------------------
+
+
+// draw(drawOpenMouthPacman);
+if(obj.millis<500) {
+  drawOpenMouthPacman(80+moveH,100, 35, 0,432);
+}
+else {
+  drawOpenMouthPacman(80+moveH, 100, 35, 80, 380);
+}
+
 
 
  //creates clock numbers 
@@ -241,14 +253,6 @@ print(second_tens_pos + "," + second_ones_pos + "/"+second_hun_pos + ","+ second
 
  drawOnesValue(x-410, y, size, c, second_hun_pos); //LHS hours 
 
-// draw(drawOpenMouthPacman);
-if(obj.millis<500) {
-  drawOpenMouthPacman(80, 100, 35, 80, 380);
-}
-else {
-  drawOpenMouthPacman(80,100, 35, 0,432);
-}
-
 //TOP LHS
 drawMaze (170,150,10,70,7); //draws vertical bar
 drawMaze (190,120,200,10,7); //horizontal
@@ -281,6 +285,8 @@ drawMaze (530,415,200,10,7);
 drawMaze(810,340,30,80,7); //box
 
 }
+
+
 function drawMaze (X,Y,WD,HT,Z){
 //creates maze corners -----------------------------------------
 noFill();
@@ -294,7 +300,12 @@ function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
   // Draw Pacman with an open mouth to the left
   fill(255, 255, 0); // Yellow color
   noStroke();
+ // for (let i = 20; i < 400; i++) {
+   // clear();
   arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
+//move pacman 
+
+
 
 
 }
@@ -378,6 +389,4 @@ if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
  rect (x+65,y+90,size+18,size+90,c);
  rect (x+0,y+180,size+80,size+18, c);
    */
-
-
 
