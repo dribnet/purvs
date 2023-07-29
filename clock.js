@@ -8,6 +8,9 @@ function preload(){
   img_hour=loadImage('1meat.png');
   img_minute=loadImage('1asparagus.png');
   img_seconds=loadImage('1green_pea.png');
+  img_fork=loadImage('1fork.png')
+  img_knife=loadImage('1knife.png')
+  img_table = loadImage('1table.png')
 
 
 }
@@ -17,6 +20,8 @@ function draw_clock(obj) {
     let minute = obj. minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
+
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
   //    obj.minutes goes from 0-59
@@ -55,10 +60,17 @@ function draw_clock(obj) {
 // text(millis,150,300)
 
     fill(255, 255, 0);
-
+    
    
     translate(width / 2, height / 2);
+    image(img_table,-480,-250,960,500)
     image(img_1,-200,-200, 400, 400)
+
+
+
+ 
+
+
 
     push ();
 
@@ -91,11 +103,77 @@ function draw_clock(obj) {
     pop(); 
 
 
-    
-  
+
+
+
  
+  if(alarm > 0 && alarm < 1)  {
+  movement_A=map(millis,120,0,10,0);
+  print("change 1")
 
 
+  }
+
+  else if(alarm == 0){
+    if(millis>0)
+    movement_A=map(millis,500,50,50,0)
+  }
+
+    // else{
+    //   movement_A=map(millis,50,1000,0,50)
+    
+    //   }
+  
+
+  else{
+  movement_A = 0;
+
+  }
+
+  
+  if(alarm < 0 )  {
+    movement_B=0;
+    print("change 2")
+  
+  
+    }
+ 
+    if(alarm > 0 && alarm < 1)  {
+      movement_B=map(millis,100,50,10,0);
+      print("change 1")
+    
+    
+      }
+    
+      else if(alarm == 0){
+        if(millis>0)
+        movement_B=map(millis,50,0,10,0)
+      }
+    
+        // else{
+        //   movement_A=map(millis,50,1000,0,50)
+        
+        //   }
+      
+    
+      else{
+      movement_B = 0;
+    
+      }
+    
+      
+      if(alarm < 0 )  {
+        movement_B=0;
+        print("change 2")
+      
+      
+        }
+
+
+
+
+  image(img_fork,-480,-250+movement_A/2,960,500)
+  image(img_knife,-480,-250-movement_B/3,960,500)
 
   
   
