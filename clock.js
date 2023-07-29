@@ -106,15 +106,31 @@ const night_sky = color(12, 23, 63); //50,50,60
   let hours = obj.hours;    
   let ZeroSix = map(hours,0,6,6,0);   
   let sixTwelve = map(hours,0,12,12,0); 
-  let TwelveNineteen = map(hours,12,19,19,12);
   
- 
- 
+
+  //colours
+  let minutes = obj.minutes
+  const leafGreen = color(18, 181, 121);
+  const leafYellow = color(195, 113, 37);
+//map
+//old range 0-59 for miuntes
+//new range 0-1 for the lerpColor method
+  let Lerp = map(minutes,0,59,0,1);
+  //go from colour1 to colour2
+  let leafChange = lerpColor(leafGreen, leafYellow,Lerp);
+
+  // push();
+  // noStroke();
+  // fill(leafChange);
+  // ellipse(100,100,50);
+  // pop(); 
   
+  //leaves between 0000 - 1200, green and gradually appering by the hour.
       if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
-        fill(18, 181, 121); //light green   
-     for (let i = ZeroSix; i < 6; i++) {    
-       drawLeaf(425, 42+(ystep)*i);   
+        for (let i = ZeroSix; i < 6; i++) {    
+      fill(18, 181, 121); //light green   
+       drawLeaf(425, 42+(ystep)*i);  
+       
       
     }} 
        else {//draw 6 leaves in the same spot       
@@ -136,28 +152,34 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
           drawrightLeaf(535,42+(ystep*k));   
            }  
            }
-
-           if(hours>=13&&hours<19){ //leaves turn orange by the hour between 1300 and 1900
-            for(let i = TwelveNineteen; i< 6; i++){
-            fill( 195, 113, 37); //orange
-            drawLeaf(425,42+(ystep*k));
-           }
-          }
-          else if(hours>=19){
-            for(let k=0;k<leaves;k++){   
-              fill(195, 113, 37); //orange   
-               drawLeaf(425,42+(ystep*k));   
-            }
-          }
+           //lerp colour between green and orange for 1300 - 2400
+           if(hours>=13&&hours<18){//draw 6 leaves between 1300 - 1800   //each minute the leaves will slowly fade between green and orange
+         for (let i = ZeroSix; i < 6; i++) {  
+          fill(leafChange);   //colour change
+           drawLeaf(425, 42+(ystep)*i);   
           
+        }}  
+        else if(hours>=13){//draw 6 leaves in the same spot       
+          for(let k=0;k<leaves;k++){   
+            fill(195, 113, 37); //orange   
+             drawLeaf(425,42+(ystep*k));   
+              }  
+             }
 
-           
-          //  else {//draw 6 leaves in the same spot       
-          //   for(let k=0;k<leaves;k++){   
-          //     fill(195, 113, 37); //light green    
-          //      drawLeaf(425,42+(ystep*k));   
-          //       }  
-          //      }
+             if(hours>=19&&hours<24){//draw 6 leaves between 1900 - 2400  ////each minute the leaves will slowly fade between green and orange
+              for (let i = sixTwelve; i < 6; i++) {  
+                fill(leafChange);  //colour changing
+                drawrightLeaf(535, 42+(ystep)*i);  
+               
+              } } 
+              else if(hours>=24){//draw 6 leaves in the same spot       
+                for(let k=0;k<leaves;k++){   
+                  fill(195, 113, 37); //orange   
+                   drawrightLeaf(425,42+(ystep*k));   
+                    }  
+                   }
+        
+      
 
 //stationary leaves, no if statements etc
 
@@ -169,8 +191,8 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   //   drawrightLeaf(535, 42 + (ystep * i));
   // }
 
-  //bee flying across screen
-  let minutes = obj.minutes
+  //bee flying across screen working with the minutes
+  
   let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
 
   for(w=0;w<1;w++){ 
@@ -179,11 +201,8 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
     drawbee(beeX,height/2); //change to bee when created
   }
 
-
-  
- 
-
 }
+
 let Beex = 20
   let Beey = 250
 
