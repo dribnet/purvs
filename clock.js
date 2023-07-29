@@ -36,7 +36,7 @@ function draw_clock(obj) {
   text("minute:"+minute, 50, 150);
   
 // reset the images point to 12:00
-  let seconds_origin =PI/30*40-PI/60
+  let seconds_origin =PI/30*39.5
   let minute_origin =PI/30*55.85
   let hour_origin = PI/30*7
 
@@ -61,19 +61,32 @@ function draw_clock(obj) {
     image(img_1,-200,-200, 400, 400)
 
     push ();
-    rotate(hour_origin+PI/12*hours)
+
+    rotate(hour_origin+PI/6*hours)
     image(img_hour,-200,-200, 400, 400)
     pop(); 
 
     push ();
+
+    
     rotate( minute_origin+PI/30*minute)
     image(img_minute,-200,-200, 400, 400)
     pop(); 
 
 
     // rotate(PI/30*40-PI/60+PI/30*seconds_rotation)
+
+    // push ();
+    // rotate(seconds_origin+PI/30*seconds)
+    // image(img_seconds,-200,-200, 400, 400)
+    // pop();
+    
+    
     push ();
-    rotate(seconds_origin+PI/30*seconds)
+    let secondsWithFraction = obj.seconds + (obj.millis / 999.0);
+    let secondRotateSmooth = map(secondsWithFraction, 0, 60, 0, 360);
+
+    rotate(seconds_origin+secondRotateSmooth/60)
     image(img_seconds,-200,-200, 400, 400)
     pop(); 
 
