@@ -31,13 +31,13 @@ function draw_clock(obj) {
 
 
 
-// draws maze--------------------------------------------
+// draws maze outline --------------------------------------------
 
 
 noFill();
 stroke (0,0,200);
-rect(30,65,865,400,7); //big outline
-rect(40,75,845,380,7);//smaller inner one
+rect(30,65,865,415,7); //big outline
+rect(35,70,855,405,7);//smaller inner one
 
 //LHS
 fill(0);
@@ -47,7 +47,7 @@ rect(10,240,64,40);//smaller / inner rect LHS
 
 fill(0);
 noStroke();
-rect(8,241,75,39);
+rect(8,241,75,39); //draws LHS "door"
 
 //RHS
 stroke(0,0,200);
@@ -61,39 +61,8 @@ noStroke();
 rect(849,241,75,39);
 
 
-//creates maze corners -----------------------------------------
-noFill();
-stroke(0,0,199);
-rect (90,120,10,70,7); //draws vertical bar
-rect (90,120,70,10,7); //horizontal
-
-rect (140,170,10,40,7); //short verticle bar
+//maze draw was here 
 //end of function 
-
-
-
-//draws pacman -----------------------------------------------------
- // Draw Pacman's body
-  //create a for each statement where it swaps between the two every second
-
-/*function draw_pacman(x,y,size,size){
-let x =80;
-let y= 100;
-let size = 35;
-*/
-
-fill(255, 255, 0); // Yellow color for Pacman
-noStroke();
-
- 
-  //open mouth left
- //arc(80,100,35,35, radians(80)/2, radians(380)+5, PIE);
-  // draws closed mouth
- //ellipse(80,100, 35, 35);
- 
-  // create open mouth right
-  //create open mouth down
-  //create open mouth up
 
 
 //-----------------------------------------------------
@@ -118,28 +87,10 @@ noStroke();
  //creates clock numbers 
  //create this.num / functions for each and call
  //or send each into an array list then call from array list depending on minutes/hr
-let x = 200;
-let y = 180;
+let x = 205;
+let y = 185;
 let size = -4;
 let c = 7;
-
- //fill(200,200,200);
- stroke (200,200,200);
-
- // ":" 
- rect (x+250,y+40,size+20,size+25,c);
- rect (x+250,y+150,size+20,size+25,c); 
-
- //number zero --------------------------------------------
-  //draws zeros in back-----------------------------
-  //drawDigit(x+10, y, size, c); //draws 1000s 
-  //drawDigit(x+110, y, size, c); //draws 100s place zero
-  //drawDigit(x+320, y, size, c); //draws 10s place zero
-  //drawDigit(x+420, y, size, c); //draws 01s place zero
-
-stroke(200,0,0);
-
-//
 
    /*
   //draws up 1 -------------------------------------------
@@ -266,21 +217,29 @@ rect (x+15,y-20,size+80,size+18, c);
   rect (x+490,y+90,size+18,size+110,c);
  */
 
-  // draw number 5 -----------------------------------------------
+
 //fill(55,20,147);
-  stroke(200,20,147) //purple
+  fill(0,0,199) //blue
+ // stroke(200); //white outine 
+  // ":" 
+ rect (x+250,y+40,size+20,size+25,c);
+ rect (x+250,y+150,size+20,size+25,c); 
 
+//sets pace to change the seconds 
+let second_ones_pos = obj.minutes % 10;
+let second_tens_pos = int(obj.minutes/10) % 10;
 
-let second_ones_pos = obj.seconds % 10;
-let second_tens_pos = int(obj.seconds/10) % 10;
-print(second_tens_pos + "," + second_ones_pos);
+let second_hun_pos = obj.hours % 10;
+let second_thousands_pos = int(obj.hours/10) % 10;
+print(second_tens_pos + "," + second_ones_pos + "/"+second_hun_pos + ","+ second_thousands_pos);
 
 //repositions numbers 
- drawOnesValue(x-100, y, size, c, second_tens_pos);
- drawOnesValue(x, y, size, c, second_ones_pos);
+ drawOnesValue(x-100, y, size, c, second_tens_pos); //tens pos
+ drawOnesValue(x, y, size, c, second_ones_pos); //ones pos
  //
- drawOnesValue(x-410, y, size, c, second_tens_pos);
- drawOnesValue(x-310, y, size, c, second_ones_pos);
+ drawOnesValue(x-310, y, size, c, second_thousands_pos); //RHS hours 
+
+ drawOnesValue(x-410, y, size, c, second_hun_pos); //LHS hours 
 
 // draw(drawOpenMouthPacman);
 if(obj.millis<500) {
@@ -289,10 +248,57 @@ if(obj.millis<500) {
 else {
   drawOpenMouthPacman(80,100, 35, 0,432);
 }
- 
+
+//TOP LHS
+drawMaze (170,150,10,70,7); //draws vertical bar
+drawMaze (190,120,200,10,7); //horizontal
+drawMaze(90,120,30,60,7); //box
+
+//middle 
+drawMaze(130,260,50,10,7);
+
+//BOTTOM LHS
+drawMaze (170,310,10,70,7); //vertical
+drawMaze (190,415,200,10,7);//hor
+drawMaze(90,340,30,80,7); //box
+
+// middle
+drawMaze(450,70,10,40,7);
+drawMaze(450,435,10,40,7);
+
+
+//TOP RHS
+drawMaze (740,150,10,70,7); //draws vertical bar
+drawMaze (530,120,200,10,7);
+drawMaze(810,120,30,60,7); //box
+
+//middle 
+drawMaze(740,260,50,10,7);
+
+//BOTTOM RHS
+drawMaze (740,310,10,70,7); //vertical
+drawMaze (530,415,200,10,7);
+drawMaze(810,340,30,80,7); //box
+
+}
+function drawMaze (X,Y,WD,HT,Z){
+//creates maze corners -----------------------------------------
+noFill();
+stroke (0,0,199);
+//fill(0,1000,100);
+rect (X,Y,WD,HT,Z); //draws rect
+
 }
 
+function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
+  // Draw Pacman with an open mouth to the left
+  fill(255, 255, 0); // Yellow color
+  noStroke();
+  arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
 
+
+}
+//draws different positions 
 function drawDigit(x, y, size, c) {
   rect (x+0,y,size+18,size+90,c);
   rect (x+70,y,size+18,size+90,c);
@@ -313,13 +319,13 @@ function drawOnesValue(x, y, size, c, n) {
   if ( n==0 ||  n==5 || n==6 || n==8 || n==9 ){
     rect (x+420,y,size+18,size+90,c);//B
   }
-  if (n==0 || n==1 || n==2 || n==3 || n==7 || n==8 || n==9 ){
+  if (n==0 || n==2 || n==3 || n==7 || n==8 || n==9 ){
     rect (x+490,y,size+18,size+90,c);//C
   }
   if (n==0 || n==2 || n==6 || n==8 ){
     rect (x+420,y+90,size+18,size+90,c);//D
   }
-  if (n==0 || n==1 || n==3 || n==5 || n==6 || n==7 || n==8 || n==9 ){
+  if (n==0 || n==3 || n==5 || n==6 || n==8 || n==9 ){
     rect(x+490,y+90,size+18,size+90,c);//E
   }
   if (n==0 || n==2 || n==3 || n==5 || n==6 || n==8 || n==9){
@@ -330,17 +336,39 @@ if (n ==2 || n==3){
 }
 if (n==4){
   rect (x+420,y-20,size+18,size+110,c);//K
+
+}
+if (n==4 || n==1){
   rect (x+490,y-20,size+18,size+110,c);//L
   rect (x+490,y+90,size+18,size+110,c);//N
+}
+if (n==7){
+  rect (x+490,y+90,size+18,size+110,c);//N
+
 }
 if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
   rect (x+440,y+80,size+48,size+18,c); //M small middle
 }
-
-
  
     }
   
+    
+     
+
+
+ 
+
+ //number zero reference--------------------------------------------
+  //draws zeros in back-----------------------------
+  //drawDigit(x+10, y, size, c); //draws 1000s 
+  //drawDigit(x+110, y, size, c); //draws 100s place zero
+  //drawDigit(x+320, y, size, c); //draws 10s place zero
+  //drawDigit(x+420, y, size, c); //draws 01s place zero
+
+
+
+
+    //part of the time
   /*
  rect (x+0,y-20,size+80,size+18, c);
  rect (x-5,y,size+18,size+90,c);
@@ -349,13 +377,7 @@ if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
  }
  rect (x+65,y+90,size+18,size+90,c);
  rect (x+0,y+180,size+80,size+18, c);
- */  
+   */
 
 
-function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
-  // Draw Pacman with an open mouth to the left
-  fill(255, 255, 0); // Yellow color
-  noStroke();
-  arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
 
-}
