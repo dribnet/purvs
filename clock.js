@@ -152,6 +152,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
           drawrightLeaf(535,42+(ystep*k));   
            }  
            }
+           
            //lerp colour between green and orange for 1300 - 2400
            if(hours>=13&&hours<18){//draw 6 leaves between 1300 - 1800   //each minute the leaves will slowly fade between green and orange
          for (let i = ZeroSix; i < 6; i++) {  
@@ -166,7 +167,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
               }  
              }
 
-             if(hours>=19&&hours<24){//draw 6 leaves between 1900 - 2400  ////each minute the leaves will slowly fade between green and orange
+             if(hours>=19&&hours<23){//draw 6 leaves between 1900 - 2300  ////each minute the leaves will slowly fade between green and orange
               for (let i = sixTwelve; i < 6; i++) {  
                 fill(leafChange);  //colour changing
                 drawrightLeaf(535, 42+(ystep)*i);  
