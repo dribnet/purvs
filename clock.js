@@ -690,7 +690,7 @@ const MIN_INITIAL_ANGLE = 0;
 
 const MIN_ACTIVE_HEIGHT = 24;
 const MIN_PASSIVE_COL = [92, 29, 31, 128]; //[132, 42, 44];
-const MIN_ACTIVE_COL = [97, 141, 39, 128]; //[138, 202, 56];
+const MIN_ACTIVE_COL = [97, 141, 39, 200]; //[138, 202, 56];
 
 const minutesDisplay = new MinutesDiplay(
   WIDTH/2, HEIGHT/2,
