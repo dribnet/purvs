@@ -175,12 +175,17 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
 
   for(w=0;w<1;w++){ 
     noStroke();
-    fill(255)
-    ellipse(beeX,height/2,20); //change to bee when created
+    fill(255,255,0); //yellow
+    drawbee(beeX,height/2); //change to bee when created
   }
+
+
+  
  
 
 }
+let Beex = 20
+  let Beey = 250
 
 let leafx = 20;
 let leafy = 20;
@@ -240,6 +245,30 @@ function drawrightLeaf(Leafx, leafy) {
   curveVertex(dropx, dropy + 30); //bottom //60,90
   curveVertex(dropx - 5, dropy + 25); //left side //55,85
   endShape(CLOSE);
+}
+ 
+//bee
+function drawbee(Beex,Beey){
+noStroke();
+ //back wing
+
+fill(213, 245, 255,200); //clear blue
+ellipse(Beex-5,Beey-15,15,25); //-15,235,15,25
+
+fill(255,255,0);
+ellipse(Beex,Beey,35,25); //body //20,250,35,25
+fill(0); //black
+ellipse(Beex+10,Beey-5,5); //eye //30,245,5
+stroke(0);
+line(Beex-7,Beey+12,Beex-7,Beey-10); //back stripe //13,262,13,240
+line(Beex+3,Beey+12,Beex+3,Beey-10); //front stripe //23,262,23,240
+ //front forward wing
+
+noStroke();
+fill(213, 245, 255,200); //clear blue
+ellipse(Beex,Beey-15,15,25); //-10,235,15,25
+
+}
 
 //   //waterdrops
 //   // strokeWeight(5);
@@ -260,7 +289,7 @@ function drawrightLeaf(Leafx, leafy) {
 //   curveVertex(dropx - 15, dropy+35); //left side //45,95
 //   endShape(CLOSE);
 
- }
+ 
 
   //old water drops code:
 
