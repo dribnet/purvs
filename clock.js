@@ -797,11 +797,11 @@ function draw_clock(obj) {
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // Draws the first secondsDisplay
+  // Draws the first secondsDisplay and first hourDisplay
   secondsDisplay1.draw(SEC_COL_1);
   hourDisplay1.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_1, HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1);
 
-  if (obj.seconds_until_alarm > -1) {
+  if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
     if (initAlarmVars) {
       timeUntilActivation = obj.seconds_until_alarm;
       timeOfActivation = obj.seconds + obj.millis/999;
@@ -832,7 +832,16 @@ function draw_clock(obj) {
     hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, alarmHoursInd);
   }
 
-  else if (obj.seconds_until_alarm === 0) {}
+  else if (obj.seconds_until_alarm === 0) {
+    push();
+    fill([255, 255, 255]);
+    noStroke();
+    textAlign(CENTER, CENTER);
+    textFont("Impact", 70);
+
+    text("JUMPSCARE", WIDTH/2, HEIGHT/2);
+    pop();
+  }
 
   else {
     // Resets variables
