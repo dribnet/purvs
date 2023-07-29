@@ -33,19 +33,26 @@ function draw_clock(obj) {
  
   text("Second:"+seconds, 80, 100);
   text("Hours:"+hours, 50, 50);
+  text("minute:"+minute, 50, 150);
   
+// reset the images point to 12:00
+  let seconds_origin =PI/30*40-PI/60
+  let minute_origin =PI/30*55.85
+  let hour_origin = PI/30*7
 
 
-let millis_rotation = map(millis,0,999,0,60);
-let seconds_rotation = map(millis_rotation,0,999,0,60);
-  
+// let millis_map= map(millis,0,999,0,60)
+// let seconds_rotation = map(millis_map,0,60,0,PI/30)
 
   let seconds_radius=map(seconds,0,59,1,150);
   ellipse(100,100,seconds_radius);
    
 
 
-text(seconds_rotation,150,30)
+// text(seconds_rotation,150,30)
+// text(seconds_origin+PI/30*seconds_rotation*seconds,150,350)
+
+// text(millis,150,300)
 
     fill(255, 255, 0);
 
@@ -53,15 +60,25 @@ text(seconds_rotation,150,30)
     translate(width / 2, height / 2);
     image(img_1,-200,-200, 400, 400)
 
-
+    push ();
+    rotate(hour_origin+PI/12*hours)
     image(img_hour,-200,-200, 400, 400)
+    pop(); 
 
+    push ();
+    rotate( minute_origin+PI/30*minute)
     image(img_minute,-200,-200, 400, 400)
-    
+    pop(); 
+
 
     // rotate(PI/30*40-PI/60+PI/30*seconds_rotation)
-    rotate(PI/30*40-PI/60+PI/60*seconds_rotation)
+    push ();
+    rotate(seconds_origin+PI/30*seconds)
     image(img_seconds,-200,-200, 400, 400)
+    pop(); 
+
+
+    
   
  
 
