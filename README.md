@@ -21,3 +21,7 @@ I'm thinking about changing my clock idea, slightly. Rather than having three ba
 Changing ideas:
 
 I've changed my idea completely. Now instead of balloons inflating, or a sort of dozer machine, I want to have cars slowly being loaded onto a ferry. I've started creating an ocean as a background for the clock, with small waves animated to move up and down every second. The next thing I want to do is start building the loading area, with cars slowly moving into the ferry.
+
+Developing the ferry idea:
+
+I've added a car object which has a number (representing minutes) and a hue (taken from a list of random numbers 1-100). My plan is to move cars along a path, reaching the ferry on the minute that corresponds to the number on the roof of the car, so car 20 will be loaded on to the ferry at 20 minutes past the hour. One suggestion was to make the cars get loaded on every second instead of every minute. This would make the clock have a lot more movement, so I will test how it looks.

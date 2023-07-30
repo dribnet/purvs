@@ -58,9 +58,15 @@ function draw_clock(obj) {
 
   // draw an island
 
-  draw_island()
+  // draw_island()
+
+  // draw cars
+
+  updateCars(millis, seconds, minutes);
 
 }
+
+// Waves
 
 function draw_wave(millis, wavePhase, xPos, yPos) { // draws a wave at a location (wavePhase controls whether the wave is going up or down)
 
@@ -95,6 +101,8 @@ function draw_wave(millis, wavePhase, xPos, yPos) { // draws a wave at a locatio
 
 }
 
+// Island
+
 function draw_island() {
   colorMode(HSB, 100);
 
@@ -114,4 +122,61 @@ function draw_island() {
   ellipse(0, 0, height*1.8);
 
   pop();
+}
+
+// Cars
+
+class Car {
+  constructor(number, hue) {
+    this.number = number;
+    this.hue = hue;
+  }
+}
+
+const randomHues = [32, 87, 41, 67, 19, 95, 7, 99, 83, 12, 56, 76, 9, 50, 3, 68, 60, 80, 64, 84, 43, 14, 90, 15, 62, 74, 39, 92, 6, 33, 25, 73, 47, 94, 81, 96, 27, 49, 21, 10, 79, 26, 29, 53, 31, 70, 5, 91, 18, 1, 97, 38, 66, 11, 22, 86, 72, 93, 98, 85, 8, 58, 54, 36]
+const cars = [];
+
+function updateCars(millis, seconds, minutes) {
+
+  if(cars.length == 0) {
+    for(let i = 1; i <= 60; i++){
+      cars.push(new Car(i, randomHues[i]))
+    }
+
+    for(let i = 0; i < cars.length; i++){
+      (print(cars[i].number));
+    }
+  }
+
+  for(let i = 0; i < 60; i++) {
+
+    strokeWeight(0);
+
+    push(); 
+    translate(500+seconds-50*cars[i].number, height/2); 
+
+    fill(0);         
+    ellipse(-9, 9, 8);
+    ellipse(9, 9, 8);
+    ellipse(-9, -9, 8);
+    ellipse(9, -9, 8);
+
+    rectMode(RADIUS);
+
+    fill(cars[i].hue, 100, 100);
+    rect(0, 0, 15, 10);
+
+    fill(60, 50, 100);
+    rect(-10, 0, 1, 8);
+    rect(5, 0, 3, 8);
+
+    rotate(PI/2);
+    fill(0);
+    textSize(12);
+    textAlign(CENTER, CENTER);
+    text(cars[i].number.toString(), 0, 4);
+    pop();
+
+  }
+
 }
