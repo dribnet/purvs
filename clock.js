@@ -147,9 +147,9 @@ class SecondsIndicator {
 
   /** Draw method for indicator. */
   draw(fillColor) {
+    push();
 
     // Setup
-    push();
     noStroke(); 
     fill(fillColor);
 
@@ -194,8 +194,9 @@ class SecondsPointer {
 
   /** Draw method for pointer. */
   draw(fillColor, time) {
-    // Setup
     push();
+
+    // Setup
     translate(this.xCenter, this.yCenter);
     rotate(this.angle * Math.PI/180);
     textAlign(CENTER, CENTER);
@@ -281,7 +282,6 @@ class MinutesDiplay {
     const SPREAD_RANGE = 5;
 
     for (let i=0; i<this.indicators.length; i++) {
-
       /*
        * If the for loop has reached the active unit of time, a spread is applied to nearby surrounding indicators.
        * The number of indicators affected is 2 * (spread range - 1).
@@ -320,17 +320,13 @@ class MinutesDiplay {
       }
     }
 
-    /**
-     * If an indicator is not affected, revert its height.
+    /*
+     * If the height after decaying becomes smaller than the 
+     * base height, the height is reset back to default.
      */
     for (let i=0; i<this.indicators.length; i++) {
       if (!affected.has(i)) {
         if (this.indicators[i].height > this.indicatorHeight) this.indicators[i].height *= DECAY_RATE;
-
-        /*
-         * If the height after decaying becomes smaller than the 
-         * base height, the height is reset back to default.
-         */
         if (this.indicators[i].height < this.indicatorHeight) this.indicators[i].height = this.indicatorHeight;
       }
     }
@@ -340,8 +336,8 @@ class MinutesDiplay {
      */
     push();
 
-    
     let indColor;
+
     // Setup
     translate(this.xCenter, this.yCenter);
     rotate(this.initialAngle * Math.PI / 180); // Sets the rotation of the entire display
@@ -366,7 +362,6 @@ class MinutesDiplay {
 
   /** Private method for creating circular loops in the indicator array. */
   _wrap(index) {
-
     /*
      * If the index is greater than the max index of the array,
      * subtract off the length of the array until it is within bounds.
@@ -432,7 +427,6 @@ class MinutesIndicator {
 class HoursDisplay {
   /** Constructor. */
   constructor(xCenter, yCenter, radius, indicatorCount, indicatorSize, indicatorGap, initialAngle=0, totalArcSize=2*Math.PI) {
-
     /*
      * Center co-ords, initial angle, and radius of each arc.
      */
@@ -444,7 +438,6 @@ class HoursDisplay {
     /*
      * Indicator size refers to the stroke width of the arc.
      */
-
     this.indicatorSize = indicatorSize;
 
     /*
@@ -592,14 +585,16 @@ class AmPmDisplay {
 
   /** Draw method for display. */
   draw(fillColor) {
-    // Setup
     push();
+
+    // Setup
     translate(this.xCenter, this.yCenter);
     ellipseMode(CENTER);
     noStroke();
     fill(fillColor);
 
     ellipse(0, 0, this.radius, this.radius);
+
     pop();
   }
 
@@ -607,8 +602,9 @@ class AmPmDisplay {
   static text(x, y, hour, fontSize, fontColor) {
     const TEXT_OFFSET = 70;
     const FONT = "Courier New";
-    
+  
     push();
+
     // Setup
     translate(x, y);
     textAlign(CENTER, CENTER);
@@ -703,25 +699,18 @@ const minutesDisplay = new MinutesDiplay(
  */
 const HOU_RADIUS_1 = 820;
 const HOU_RADIUS_2 = 185;
-
 const HOU_INDICATOR_COUNT = 12;
-
 const HOU_INDICATOR_SIZE_1 = 15;
 const HOU_INDICATOR_SIZE_2 = 10;
-
 const HOU_INDICATOR_GAP = 12;
-
 const HOU_INITIAL_ANGLE_1 = -90 * 3.8/10;
 const HOU_INITIAL_ANGLE_2 = -105;
-
 const HOU_TOTAL_ARC_SIZE_1 = Math.PI * 3.8/10;
 
 const HOU_ACTIVE_RADIUS_1 = 10;
 const HOU_ACTIVE_RADIUS_2 = 8;
-
 const HOU_PASSIVE_COL_1 = [30, 30, 30];
 const HOU_ACTIVE_COL_1 = [50, 50, 50];
-
 const HOU_PASSIVE_COL_2 = [132, 42, 44];
 const HOU_ACTIVE_COL_2 = [138, 202, 56];
 
@@ -731,13 +720,11 @@ const hourDisplay1 = new HoursDisplay(
   HOU_INITIAL_ANGLE_1, HOU_TOTAL_ARC_SIZE_1
 );
 
-
 const hoursDisplay2 = new HoursDisplay(
   WIDTH/2, HEIGHT/2, 
   HOU_RADIUS_2, HOU_INDICATOR_COUNT, HOU_INDICATOR_SIZE_2, HOU_INDICATOR_GAP, 
   HOU_INITIAL_ANGLE_2
 );
-
 
 /*
  * AM/PM.
@@ -810,19 +797,9 @@ function draw_clock(obj) {
       alarmMinutesInd = obj.minutes;
       alarmHoursInd = obj.hours;
 
-      while (alarmSecondsInd < 0) { 
-        alarmSecondsInd += 60; 
-        alarmMinutesInd++;
-      }
-
-      while (alarmMinutesInd > 59) {
-        alarmMinutesInd -= 60;
-        alarmHoursInd++;
-      }
-
-      while (alarmHoursInd > 11) {
-        alarmHoursInd -= 12;
-      }
+      while (alarmSecondsInd < 0) { alarmSecondsInd += 60; alarmMinutesInd++; }
+      while (alarmMinutesInd > 59) { alarmMinutesInd -= 60; alarmHoursInd++; }
+      while (alarmHoursInd > 11) { alarmHoursInd -= 12; }
       
       initAlarmVars = false;
     }
@@ -858,7 +835,6 @@ function draw_clock(obj) {
     hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2);
   }
 
-
   // Draws the ampmDisplay and text
   ampmDisplay.draw(calculatedColor);
   AmPmDisplay.text(
@@ -870,6 +846,4 @@ function draw_clock(obj) {
 
   // Draws the pointer
   pointer.draw(calculatedColor, obj.seconds);
-
-  
 }
