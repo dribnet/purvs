@@ -16,9 +16,11 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
 
+  //if (obj.seconds_until_alarm < 0 || obj.seconds_until_alarm > 0) {
+
   //changing sky based on day and night
-const night_sky = color(12, 23, 63); //50,50,60
-    const day_sky = color(173,216,230);
+const night_sky = color(12, 23, 63); //50,50,60 //dark blue
+    const day_sky = color(173,216,230); //light grey blue
     if (obj.hours >= 7 && obj.hours < 8) {
         // sunrise
         let hour_fraction = obj.minutes / 60;
@@ -107,11 +109,14 @@ const night_sky = color(12, 23, 63); //50,50,60
   let ZeroSix = map(hours,0,6,6,0);   
   let sixTwelve = map(hours,0,12,12,0); 
   
+  
 
   //colours
   let minutes = obj.minutes
+  
   const leafGreen = color(18, 181, 121);
   const leafYellow = color(195, 113, 37);
+
 //map
 //old range 0-59 for miuntes
 //new range 0-1 for the lerpColor method
@@ -129,15 +134,27 @@ const night_sky = color(12, 23, 63); //50,50,60
       if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
         for (let i = ZeroSix; i < 6; i++) {    
       fill(18, 181, 121); //light green   
-       drawLeaf(425, 42+(ystep)*i);  
-       
-      
-    }} 
+       drawLeaf(425, 42+(ystep)*i);     
+    }
+  } 
        else {//draw 6 leaves in the same spot       
         for(let k=0;k<leaves;k++){   
           fill(18, 181, 121); //light green    
            drawLeaf(425,42+(ystep*k));   
             }  
+             //lerp colour between green and orange for 1300 - 2400
+           if(hours>=13&&hours<19){//draw 6 leaves between 1300 - 1800   //each minute the leaves will slowly fade between green and orange
+            for (let i = ZeroSix; i < 6; i++) {  
+             fill(leafChange);   //colour change
+              drawLeaf(425, 42+(ystep)*i);   
+             
+           }}  
+           else if(hours>=13){//draw 6 leaves in the same spot       
+            for(let k=0;k<leaves;k++){   
+              fill(195, 113, 37); //orange   
+               drawLeaf(425,42+(ystep*k));   
+                }  
+               }
            }
 
 if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
@@ -151,34 +168,38 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
           fill(18, 181, 121); //light green  
           drawrightLeaf(535,42+(ystep*k));   
            }  
+           if(hours>=19&&hours<=24){//draw 6 leaves between 1900 - 2300  ////each minute the leaves will slowly fade between green and orange
+            for (let i = sixTwelve; i < 6; i++) {  
+              fill(leafChange);  //colour changing
+              drawrightLeaf(535, 42+(ystep)*i);  
+             
+            } 
+            
+                 
+          } 
+          else if(hours>=24){//draw 6 leaves in the same spot       
+            for(let k=0;k<leaves;k++){   
+              fill(195, 113, 37); //orange   
+               drawrightLeaf(535,42+(ystep*k));   
+                }  
+               
+              }
            }
            
-           //lerp colour between green and orange for 1300 - 2400
-           if(hours>=13&&hours<18){//draw 6 leaves between 1300 - 1800   //each minute the leaves will slowly fade between green and orange
-         for (let i = ZeroSix; i < 6; i++) {  
-          fill(leafChange);   //colour change
-           drawLeaf(425, 42+(ystep)*i);   
           
-        }}  
-        else if(hours>=13){//draw 6 leaves in the same spot       
-          for(let k=0;k<leaves;k++){   
-            fill(195, 113, 37); //orange   
-             drawLeaf(425,42+(ystep*k));   
-              }  
-             }
+      
 
-             if(hours>=19&&hours<23){//draw 6 leaves between 1900 - 2300  ////each minute the leaves will slowly fade between green and orange
-              for (let i = sixTwelve; i < 6; i++) {  
-                fill(leafChange);  //colour changing
-                drawrightLeaf(535, 42+(ystep)*i);  
-               
-              } } 
-              else if(hours>=24){//draw 6 leaves in the same spot       
-                for(let k=0;k<leaves;k++){   
-                  fill(195, 113, 37); //orange   
-                   drawrightLeaf(425,42+(ystep*k));   
-                    }  
-                   }
+            
+             
+
+  //             if(hours=24){
+  //               for(let k=0;k<leaves;k++){   
+  //                 fill(195, 113, 37); //orange   
+  //                drawLeaf(425,LeavesY+(ystep*k));   
+  //                  drawrightLeaf(535,LeavesY+(ystep*k));   
+  //                   }  
+  // }
+                 
         
       
 
@@ -202,7 +223,12 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
     drawbee(beeX,height/2); //change to bee when created
   }
 
-}
+  // if (obj.seconds_until_alarm == 0) {
+  //   background(12, 23, 63);
+ flowerAlarm(width/2,100); //flower to appear when alarm goes off
+  }
+//}
+//}
 
 let Beex = 20
   let Beey = 250
@@ -289,6 +315,24 @@ fill(213, 245, 255,200); //clear blue
 ellipse(Beex,Beey-15,15,25); //-10,235,15,25
 
 }
+
+ //alarm flower
+ let petalx = 100;
+ let petaly =100
+ 
+ function flowerAlarm(petalx,petaly){
+   fill(255);
+   noStroke();
+   ellipse(petalx,petaly,30,60);//top petal //100,100,30,60
+   ellipse(petalx,petaly+60,30,60); //bottom petal //100/160,30,60
+   ellipse(petalx-30,petaly+30,60,30); //left side petal //70,130,60,30
+   ellipse(petalx+30,petaly+30,60,30); //right side petal //130,130,60,30
+ 
+   //center of flower
+   fill(255,255,0);
+   noStroke();
+   ellipse(petalx,petaly+30,30,30); //100,130,30,30
+ }
 
 //   //waterdrops
 //   // strokeWeight(5);
