@@ -305,6 +305,33 @@ function draw_clock(obj) {
 
   pop();
 
+  pushStars();
+
+}
+
+function pushStars() {
+  let x = winMouseX - pwinMouseX;
+  let y = winMouseY - pwinMouseY;
+  let mouseVel = createVector(x,y);
+  let mousepos = createVector(mouseX-width/2, mouseY-height/2);
+
+  noStroke();
+  fill(255,0,0);
+  
+  for(let i = 0; i < testing.length; i++) {
+    for(let j = 0; j < testing[i].getStars().length; j++) {
+      let star = testing[i].getStars()[j];
+      let starpos = p5.Vector.add(star.pos(), createVector(testing[i].x, testing[i].y)).mult(0.75);
+
+      if(starpos.dist(mousepos) < 15) {
+        
+        star.setVelocity(p5.Vector.sub(starpos, mousepos).setMag(10));
+
+      }
+    }
+  }
+
+
 }
 
 
@@ -557,6 +584,10 @@ class ClockNumber {
 
   }
 
+  getStars() {
+    return this.allstars;
+  }
+
   drawNumber() {
     push();
     translate(this.x, this.y);
@@ -577,6 +608,7 @@ class ClockNumber {
 
     pop();
   }
+
 }
 
 
@@ -637,12 +669,17 @@ class NumStar {
     fill(255,255,255,10);
     circle(this.x, this.y, 3);
     fill(255,255,255,random(100,255));
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
     this.x += random(-1, 1);
     this.y += random(-1, 1);
     if(dist(this.x, this.y, this.originx, this.originy) > 6) {
       let newvec = p5.Vector.lerp(createVector(this.x, this.y), createVector(this.originx, this.originy), 0.1);
       this.x = newvec.x;
       this.y = newvec.y;
+
+      let between = createVector(this.originx, this.originy).sub(newvec).setMag(0.5);
+      this.velocity = this.velocity.add(between);
     }
     circle(this.x, this.y, 1);
   }
