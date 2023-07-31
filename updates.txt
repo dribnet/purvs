@@ -22,3 +22,6 @@ I was looking over my inspiration's design. I realised how much he used gradient
   drawingContext.shadowBlur
   drawingContext.shadowColor
 I liked the look of this, so I added a backgrund drop shadow on the background polygon, this really enhanced the look of the clock.
+
+28/7 12PM
+Found a way to make minutes show. Made every second, the color would pulse. And every minute it would rotate.

@@ -1,5 +1,7 @@
-let starSpin = 80;
+let starSpin = 0;
+let indicateSpin = 0;
 let backCircleSize = 400;
+let opacity = 10;
 
 function draw_clock(obj) {
   //    obj.seconds_until_alarm is:
@@ -8,9 +10,17 @@ function draw_clock(obj) {
   //        > 0 --> the number of seconds until alarm should go off
 
   //colors
-  let color1 = color(196, 178, 55, 10);
-  let color2 = color(220, 247, 247, 10);
-  let slowGradient = map (obj.hours, 0, 24, 0, 1)
+
+  if(obj.seconds % 2){
+    opacity = map(obj.millis, 0, 1000, 20, 40);
+  }
+  else if (obj.seconds % 2 + 1){
+    opacity = map(obj.millis, 0, 1000, 40, 20);
+  }
+
+  let color1 = color(196, 178, 55, opacity);
+  let color2 = color(220, 247, 247, opacity);
+  let slowGradient = map(obj.hours, 0, 24, 0, 1);
   let starColor = lerpColor(color1, color2, slowGradient);
 
   background(34, 36, 41);
@@ -20,7 +30,6 @@ function draw_clock(obj) {
   noFill();
   stroke(255);
   noStroke();
-
 
   //#region background
   push();
@@ -41,21 +50,33 @@ function draw_clock(obj) {
   drawingContext.shadowBlur = 20;
   drawingContext.shadowColor = color(255, 249, 97);
 
-  star(backCircleSize / 2 + 20, 0, 10, 6, 5);
+  push();
+
+  for(let indicateStep = 0; indicateStep < obj.millis; indicateStep++){
+    let indicateSecs = (obj.seconds + indicateStep) %  5;
+    let indicateMills = indicateSecs + obj.millis / 1000;
+
+    indicateSpin = map(indicateMills, 0, 5, 0, TWO_PI);
+  }
+
+  translate(backCircleSize / 2 + 20, 0)
+  rotate(indicateSpin);
+  star(0, 0, 10, 6, 5);
+  pop();
   pop();
   //#endregion
 
   //#region spin
   for (let rotateStep = 0; rotateStep < 5; rotateStep++) {
-    let rotateMinutes = (obj.minutes + rotateStep) % 5;
-    let rotateSeconds = rotateMinutes + obj.seconds / 60;
+    let rotateHours = (obj.hours + rotateStep) % 5;
+    let rotateMins = rotateHours + obj.minutes / 60;
 
-    starSpin = map(rotateSeconds, 0, 5, 0, TWO_PI);
+    starSpin = map(rotateMins, 0, 5, 0, TWO_PI);
   }
   //#endregion
 
   //#region stars
-  for (circleSteps = 0; circleSteps < obj.hours; circleSteps++) {
+  for (let circleSteps = 0; circleSteps < obj.hours; circleSteps++) {
     let circleFromMid = map(
       obj.hours,
       0,
@@ -69,8 +90,8 @@ function draw_clock(obj) {
     rotate(starSpin);
 
     fill(starColor);
-    stroke(255, 255, 255, 50);
-    strokeWeight(2);
+    stroke(255, 255, 255, opacity + 40);
+    strokeWeight(1.5);
 
     star(
       0 + backCircleSize / 2 - 45 / 2 - circleFromMid,
@@ -83,8 +104,18 @@ function draw_clock(obj) {
   }
   //#endregion
 
-  text(obj.hours, 10, 10);
+  //#region clock time
+  push();
+  fill(255);
+  textFont("Roboto");
+
+  text(nf(obj.hours, 2, 0), 50, canvasHeight / 2);
+  text(nf(obj.minutes, 2, 0), 850, canvasHeight / 2);
+  pop();
+  //#endregion
 }
+
+//shapes//
 
 //polygon background
 function backgroundOct(x, y, radius, npoints) {
