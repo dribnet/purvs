@@ -57,35 +57,35 @@ angleMode(DEGREES);
 
 
   
-  let hours_radius = map(hours, 0, 59, 70, 70);
+  let hours_radius = map(hours, 0, 59, 80, 80);
   fill(249, 140, 255);// pink
   //ellipse(width /2, 275, hours_radius);
-  image (img, width/2 -35 , height/2 -35, hours_radius, 70);
+  image (img, width/2 -35 , height/2 -35, hours_radius, 80);
   let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
-  let minutes_radius = map(minutes, 0, 59, 50, 50);
+  let minutes_radius = map(minutes, 0, 59, 55, 55);
 
   push();
     translate(width/2, height/2);
     rotate(rotH);
     fill(140,255,251); //blue
-    ellipse(120,0,minutes_radius);
+    ellipse(150,0,minutes_radius);
     
     let rotM = map(seconds + (millis/1000.0), 0, 59, 0, 360);
-    let seconds_radius = map(seconds, 0, 59, 30, 30);
+    let seconds_radius = map(seconds, 0, 59, 35, 35);
     let rotS = map(millis, 0,999,0, 360)
     
         push();
-          translate (120,0);
+          translate (150,0);
           rotate (rotM);
           fill(175, 133, 255); //purple
-          ellipse(55,0,seconds_radius);
+          ellipse(70,0,seconds_radius);
                 
-          let millis_radius = map(millis, 0, 999, 10, 10);
+          let millis_radius = map(millis, 0, 999, 15, 15);
                 push();
-                  translate (55,0);
+                  translate (70,0);
                   rotate (rotS);
                   fill(255, 165, 0); // orange
-                  ellipse(25,0, millis_radius);
+                  ellipse(30,0, millis_radius);
               
                 pop();
 
