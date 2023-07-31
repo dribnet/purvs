@@ -22,6 +22,8 @@ function preload(){
   imgTV = loadImage('img/alarm_TV.png');
 }
 
+let original_alarm = 0;
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -38,6 +40,7 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
+  // initializing color variables 
   var grey = color(0);
   var buildingsColor = color(0);
   var tintLamp = 0;
@@ -50,18 +53,23 @@ function draw_clock(obj) {
   background(255, 208, 118); // background of image
   
   // alarm stuff
-  let defaultAlarm = 20;
   var translateX = 0;
   var translateY = 0;
   var currentScale = 1;
   var shake = 0;
-  if (alarm < 0){
+  if (alarm < 0) {
+    original_alarm = 0;
     translateX = 0;
     translateY = 0;
     currentScale = 1;
   }
   else if (alarm > 0){
-    var scaleit = map(alarm, 0, defaultAlarm, 0.2, 1); 
+    // getting the starting count down time 
+    if(original_alarm == 0) {
+      original_alarm = alarm;
+    }
+
+    var scaleit = map(alarm, 0, original_alarm, 0.2, 1); // so it zooms out nicely 
 
     currentScale = currentScale * scaleit;
 
