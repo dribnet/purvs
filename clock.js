@@ -104,11 +104,6 @@ class EnemySpaceShip extends SpaceShip {
   getY() {
     return this.y + height / 5;
   }
-  // Visible function for debugging bullet collision
-  drawBoundingBox() {
-    noFill();
-    rect(this.getX()-enemyImg.width/4, this.getY()-enemyImg.height/4, enemyImg.width/2, enemyImg.height/2);
-  }
   // Moves image of ship from top centre to postion on the curve
   flyIn() {
     // 0 - 1 value over the minute
@@ -177,11 +172,6 @@ class BossEnemySpaceShip {
   // Returns y position
   getY() {
     return this.y;
-  }
-  // Visible function for debugging bullet collision
-  drawBoundingBox() {
-    noFill();
-    rect(this.getX()-bossImg.width/4, this.getY()-bossImg.height/4, bossImg.width/2, bossImg.height/2);
   }
   // Moves boss from -bossImg.height/2 to on screen
   flyIn() {
