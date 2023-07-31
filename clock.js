@@ -75,11 +75,38 @@ function draw_clock(obj) {
     ellipse(x, y, w, h);
   }
 
-  // Time of day Colour Variables
+  // Time of day Transition Variables (Sunrise to Day, Day to Sunset etc.)
+  let riseToDayMap = map(obj.millis, 0, 999, 50, -150);
+  let riseToDayMap2 = map(obj.millis, 0, 999, 410, 210);
+
+  let dayToSetMap = map(obj.millis, 0, 999, 210, 410);
+  let dayToSetMap2 = map(obj.millis, 0, 999, -150, 50);
+
+  let setToNightHueMap = map(obj.millis, 0, 999, 50, -170);
+  let setToNightHueMap2 = map(obj.millis, 0, 999, 430, 230);
+  let setToNightBrightnessMap = map(obj.millis, 0, 999, 100, 40);
+
+  let nightToRiseHueMap = map(obj.millis, 0, 999, 230, 430);
+  let nightToRiseHueMap2 = map(obj.millis, 0, 999, -170, 50);
+  let nightToRiseBrightnessMap = map(obj.millis, 0, 999, 40, 100);
+  
+  // Time of day Main Colour Variables
   colorMode(HSB);
   let sunrise = [50, 100, 100];
+  let riseToDay = [riseToDayMap, 100, 100];
+  let riseToDay2 = [riseToDayMap2, 100, 100];
+
   let dayColor = [210, 100, 100];
-  let night = [230, 100, 39];
+  let dayToSet = [dayToSetMap, 100, 100];
+  let dayToSet2 = [dayToSetMap2, 100, 100];
+
+  let night = [230, 100, 40];
+  let setToNight = [setToNightHueMap, 100, setToNightBrightnessMap];
+  let setToNight2 = [setToNightHueMap2, 100, setToNightBrightnessMap];
+
+  let nightToRise = [nightToRiseHueMap, 100, nightToRiseBrightnessMap];
+  let nightToRise2 = [nightToRiseHueMap2, 100, nightToRiseBrightnessMap];
+
   let daySection = sunrise;
 
   // Check Time of Day
@@ -89,6 +116,29 @@ function draw_clock(obj) {
     daySection = dayColor;
   } else {
     daySection = night;
+  }
+
+  //Check Sky Transition Time
+  if (obj.hours == 8 && obj.minutes == 59 && obj.seconds == 59) {
+    daySection = riseToDay;
+    if (obj.millis > 250) {
+      daySection = riseToDay2;
+    }
+  } else if (obj.hours == 17 && obj.minutes == 59 && obj.seconds == 59) {
+    daySection = dayToSet;
+    if (obj.millis > 750) {
+      daySection = dayToSet2;
+    }
+  } else if (obj.hours == 20 && obj.minutes == 59 && obj.seconds == 59) {
+    daySection = setToNight;
+    if (obj.millis > 416) {
+      daySection = setToNight2;
+    }
+  } else if (obj.hours == 4 && obj.minutes == 59 && obj.seconds == 59) {
+    daySection = nightToRise;
+    if (obj.millis > 483) {
+      daySection = nightToRise2;
+    }
   }
 
   // Set Background Colour
@@ -112,14 +162,14 @@ function draw_clock(obj) {
   if (obj.hours % 2 == 1) { // Alternate Ring Colour
     darkRing = true;
     fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+    if (daySection == night) {
+      fill(night[0] - 10, night[1], night[2] + 5);
+    }
   } else {
     darkRing = false;
     fill(daySection[0] + 5, daySection[1], daySection[2]);
   }
 
-  if (daySection == night) {
-    fill(240, 110, 50);
-  }
   // Minute Ring Background
   circle(width / 2, ringHeight, width - 30);
   
@@ -158,11 +208,15 @@ function draw_clock(obj) {
 
     for (i = 0; i < 12; i ++) {
       if (i == (obj.hours % 12)) { // Numeral Ring Setup
-        // fill((daySection == night) ? 255 : 0);
         fill(255);
+        if (daySection == night) {
+          fill(70);
+        }
       } else {
-        // fill((daySection == night) ? night : dayColor);
         fill(daySection);
+        if (daySection == night) {
+          fill(night[0] - 10, night[1], night[2] -15);
+        }
       }
       if (alarm == 0) { // Alarm Colour Pulse
         if (obj.millis < 499) {
@@ -196,6 +250,9 @@ function draw_clock(obj) {
         fill(daySection[0] + 5, daySection[1], daySection[2]);
       } else {
         fill(daySection[0] - 5, daySection[1], daySection[2] - 5);
+        if (daySection == night) {
+          fill(night[0] - 10, night[1], night[2] + 5);
+        }
       }
       rect(0, -372, 22, 190);
     }
