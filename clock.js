@@ -31,10 +31,10 @@ angleMode(DEGREES);
   fill(200); // dark grey
   textSize(10);
   textAlign(CENTER, CENTER);
-  text("Hours: " + hours, width / 2, 30);
-  text("Minutes: " + minutes, width / 2, 45);
-  text("Seconds: " + seconds, width / 2, 60);
-  text("Millis: " + millis, width / 2, 75);
+  text("Hours: " + hours, 40, 30);
+  text("Minutes: " + minutes, 40, 45);
+  text("Seconds: " + seconds, 40, 60);
+  text("Millis: " + millis, 40, 75);
 
 
   // let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
@@ -60,18 +60,17 @@ angleMode(DEGREES);
   let hours_radius = map(hours, 0, 59, 70, 70);
   fill(249, 140, 255);// pink
   //ellipse(width /2, 275, hours_radius);
-  image (img, width/2 -35 , 240, hours_radius, 70);
-  let rotH = map(minutes, 0, 59, -90, 270);
+  image (img, width/2 -35 , height/2 -35, hours_radius, 70);
+  let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
   let minutes_radius = map(minutes, 0, 59, 50, 50);
 
   push();
-    translate(width/2, 275);
+    translate(width/2, height/2);
     rotate(rotH);
     fill(140,255,251); //blue
     ellipse(120,0,minutes_radius);
     
-    let rotM = map(seconds + (millis/1000), 0, 59, 0, 360);
-    //let secondsWithFraction   = seconds + (millis / 1000.0);
+    let rotM = map(seconds + (millis/1000.0), 0, 59, 0, 360);
     let seconds_radius = map(seconds, 0, 59, 30, 30);
     let rotS = map(millis, 0,999,0, 360)
     
