@@ -44,6 +44,8 @@ function draw_clock(obj) {
   var blackSky = color(24, 5, 120);
   var blueSky = color(95, 182, 217);
   var windowColor = color(0);
+  var colorBelowCity = color(0);
+  var flowers = color(0);
 
   background(255, 208, 118); // background of image
   
@@ -66,12 +68,12 @@ function draw_clock(obj) {
     translateX = width/2 - (width/2 * scaleit) + (translateX * scaleit);
     translateY = height/2 - (height/2 * scaleit) + (translateY * scaleit);
   }
-  else if (alarm == 0) {
+  //else {
     translateX = width/2.5;
     translateY = height/2.5;
     currentScale = 0.2;
     shake = randomList[millis] * 0.01;
-  }
+  //}
 
   translate(translateX, translateY);
   scale(currentScale);
@@ -82,11 +84,15 @@ function draw_clock(obj) {
     buildingsColor = color(40, 44, 51); // blackish
     tintLamp = 255;
     windowColor = color(230, 199, 23); // yellow 
+    colorBelowCity = color(34, 94, 31);
+    flowers = color(34, 94, 31); // no flowers at night so same color as grass
   } else{
     grey = color(61, 157, 217); 
     buildingsColor = color(38, 133, 191); // blueish
     tintLamp = 100;
     windowColor = color(255, 255, 255, 180); // faded white
+    colorBelowCity = color(59, 156, 54); // green grass 
+    flowers = color(232, 224, 104);
   }
 
   // changing the background according to the time of day. 
@@ -134,6 +140,17 @@ function draw_clock(obj) {
   tint(tintLamp);
   drawImage();
 
+  // for the ground below city 
+  fill(colorBelowCity); // green 
+  rect(-10, height, width+30, 150);
+  for (let i = 0; i< 1000; i++){
+    grasslistX = randomList;
+    grasslistY =  randomList.filter(p=> p>height);
+    stroke(flowers); // yellow
+    strokeWeight(7)
+    point(grasslistX[i], grasslistY[i]);
+  }
+
   // for the alarm when zooming out - the TV
   push();
   tint(255);
@@ -155,6 +172,8 @@ function draw_clock(obj) {
   strokeWeight(15);
   noFill();
   rect(-10, -55, 350, 275, 30);
+
+
 
   pop();
 
