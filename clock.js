@@ -118,15 +118,18 @@ function draw_clock(obj) {
 
   // seconds
   push();
-  let secondsWithFraction = obj.seconds + (obj.millis / 999.0);
-  let secondRotateSmooth = map(secondsWithFraction, 0, 60, 0, 360);
-  let second_bounce =map(millis,0,999,0,TWO_PI)
+  let secondsWithFraction = obj.seconds + (obj.millis / 999.0); 
+    
+  let secondRotateSmooth = map(secondsWithFraction, 0, 59, 0, 360);
+  
+  let second_bounce =map(millis,0,999,0,TWO_PI) 
+   
   let second_phase=sin(second_bounce);
   let y_secondBounce_1=map(second_phase,-1,1,0,15)
 
 
 
-  rotate(seconds_origin + secondRotateSmooth / 60)
+  rotate(seconds_origin + secondRotateSmooth/58.5)
   image(img_seconds, -200+y_secondBounce_1, -200+y_secondBounce_1, 400, 400)
   pop();
 
