@@ -6,7 +6,15 @@ function draw_clock(obj) {
   textSize(250);
   textAlign(CENTER, CENTER);
   //text("01 : 12 ", width/2, height/2);
-  
+  let millis = obj.millis;
+
+  if (millis <300){
+  background (0,0,0);
+  }
+  else {
+background (255,105,180);
+
+  }
 
   //thousands place
   clock (110,155,20,20);
@@ -92,6 +100,13 @@ function draw_clock(obj) {
 
 }
 function clock (x,y,wd,ht){
-fill(200);
+  let millis = obj.millis;
+  if (millis < 300) {
+    fill(200);
+  }
+  else {
+    fill(0);
+  }
+
   ellipse(x,y,wd,ht);
 }

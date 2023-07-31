@@ -100,10 +100,8 @@ let y = 185;
 let size = -4;
 let c = 7;
 
-
-//fill(55,20,147);
   fill(0,0,199) //blue
- // stroke(200); //white outine 
+ 
   // ":" 
  rect (x+250,y+40,size+20,size+25,c);
  rect (x+250,y+150,size+20,size+25,c); 
