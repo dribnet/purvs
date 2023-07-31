@@ -2,21 +2,22 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function preload(){
-lady= loadImage('lady.whole.png') //lady
+lady= loadImage('lady.whole.png') //lady 227,542
 
 //right arms
-r1= loadImage('R1.png')
-r2= loadImage('R2.png')
-r3= loadImage('R3.png')
-r4= loadImage('R4.png')
-r5= loadImage('R5.png')
+r1= loadImage('R1.png') //144,319
+r2= loadImage('R2.png') //292,351
+r3= loadImage('R3.png') //289,222
+r4= loadImage('R4.png') //325,161
+r5= loadImage('R5.png') //330,182
 
 //left arms
-l1= loadImage('L1.png')
-l2= loadImage('L2.png')
-l3= loadImage('L3.png')
-l4= loadImage('L4.png')
-l5= loadImage('L5.png')
+l1= loadImage('L1.png') //207,333
+l2= loadImage('L2.png') //292,355
+l3= loadImage('L3.png') //289,222
+l4= loadImage('L4.png') //332,329
+l5= loadImage('L5.png') //316,335
+
 
 }
 
@@ -40,34 +41,60 @@ textSize(40);
 textAlign(CENTER, CENTER);
 //text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
-drawFlower1(200,200,obj.seconds)
+drawFlower1(50,50,obj.seconds)
 if (obj.seconds>=10){
-  drawFlower2(400,200,obj.seconds)
+  drawFlower2(50,250,obj.seconds)
 
 }
 if (obj.seconds>=20){
-  drawFlower3(600,200,obj.seconds)
+  drawFlower3(50,450,obj.seconds)
 }
 
 if (obj.seconds>=30){
-  drawFlower4(200,400,obj.seconds)
+  drawFlower4(50,250,obj.seconds)
 }
 if (obj.seconds>=40){
-  drawFlower5(400,400,obj.seconds)
+  drawFlower5(250,250,obj.seconds)
 }
 if (obj.seconds>=50){
-  drawFlower6(600,400,obj.seconds)
+  drawFlower6(250,450,obj.seconds)
 }
 
 drawSun();
 
-//image(lady,410,200,150,300)
+
+
+
+if (obj.hours>=1){
+  image(l1,330,85,187,293) 
+  image(r1,540,105,144,289)
+
+}
+if(obj.hours>=2){
+  image(l2,280,100,252,325)
+  image(r2,560,120,192,241)
+}
+if(obj.hours>=3){
+  image(l3,250,160,289,222)
+  image(r3,550,170,309,242)
+}
+if(obj.hours>=4){
+  image(l4,250,130,323,329)
+  image(r4,550,240,325,161)
+}
+if(obj.hours>=5){
+  image(l5,260,150,316,335)
+  image(r5,540,280,323,161)
+}
+if(obj.hours>=6){
+  image(l5,270,190,286,335)
+  image(r5,540,320,303,161)
+}
+
+
 
 if (obj.hours>=0){
-  image(lady,410,200,150,300)
-}
-if (obj.hours>=1){
-  
+  image(lady,410,70,227,442)
 }
 
 }
@@ -1377,10 +1404,10 @@ fill("pink")
 function drawSun(){
 noStroke()
 
-fill(255,191,0);// Yellow
-ellipse(505, 152, 150);
+fill(255,191,0,200);// Yellow
+ellipse(540, 40, 150);
 
-fill(255,191,0,100);
+fill(255,191,0,100);//yellow
 
 //fill(255,191,0,150);
 
@@ -1392,6 +1419,6 @@ else if(obj.millis>=500){
 millisSize= map(obj.millis,0,1000,300,150)
 millisSize= map(obj.millis,0,1000,300,130)
 }
-ellipse(505,152,millisSize)
+ellipse(540,40,millisSize)
 }
 
