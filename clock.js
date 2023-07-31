@@ -12,6 +12,7 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
   
+
   let hours = obj.hours;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
@@ -43,12 +44,101 @@ function draw_clock(obj) {
   // fill(175, 133, 255); // purple
   // ellipse(width / 3 * 2, 350, seconds_radius);
 
-  let min_height = map(minutes, 0, 59, 1, 150);
-  fill(0 , 255, 251) // blue
-  rect(width/5, height/1.2, 100, - min_height);
 
-  let sec_height = map(seconds, 0, 59, 1, 150);
+  // let sec_height = map(seconds, 0, 59, 1, 150);
+  // fill(0, 255, 255); //light blue
+  // noStroke();
+  // rect(width/2, height/1.5, 400, - sec_height);
+  
+  //water drop animation
+  let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
+  let phase1 = sin(bounce1);
+  let y_bounce1 = map(phase1, -1, 1, -75, 75);
+
+  let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
+  let phase2 = sin(bounce2);
+  let y_bounce2 = map(phase2, -1, 1, -75, 75);
+
+  // let hours_radius = map(obj.hours, 0, 59, 1, 150);
+  // fill(249, 140, 255);// pink
+  // ellipse(width / 5, 350 + y_bounce1, hours_radius);
+
+  //water drop
+  let minutes_radius = 20
+  
+  if(bounce1 < 4) {
+    minutes_radius = 0;
+  }
+  fill(0, 255, 255) // blue
+  ellipse(width/1.4, 300 + 2.9*y_bounce2, minutes_radius);
+
+
+  let secondsWithFraction   = seconds + (millis/1000);
+
+  //sink emptying animation at 59 seconds
+  let sec_height = 0;
+  if(secondsWithFraction <= 59)  {
+    sec_height = map(seconds, 0, 60, 1, 300);
+  }
+  else {
+    sec_height = map(millis, 0, 999, 300, 1);
+  }
+
+  //sink water
   fill(0, 255, 255); //light blue
   noStroke();
-  rect(width/2, height/1.5, 400, - sec_height);
+  rect(width/1.6, height/1.2, 200, - sec_height);
+
+  //minute water tank
+
+  let minutesWithFraction   = minutes + (millis/1000);
+  let min_height = 0
+  fill(0 , 255, 251) // blue
+  if(secondsWithFraction <= 59) {
+    min_height = map(minutes, 0, 59, 1, 400);
+  }
+  else {
+    min_height = map(minutesWithFraction, 0, 59, 1, 400);
+  }
+  rect(width/2.2, height/1.2, 100, - min_height);
+
+
+  if(minutesWithFraction <= 59)  {
+    min_height = map(seconds, 0, 60, 1, 300);
+  }
+  else {
+    min_height = map(millis, 0, 999, 300, 1);
+  }
+
+  //hour water tank
+  let HoursWithFraction = hours + (millis/1000);
+  let hour_height = 0
+  fill(0 , 255, 251) // blue
+  if(HoursWithFraction <= 59) {
+    hour_height = map(hours, 0, 60, 1, 700);
+  }
+  else {
+    hour_height = map(millis, 0, 999, 700, 1);
+  }
+  rect(40, height/1.2, 235, - hour_height); 
+
+  // let sec_height = 0;
+  // if(secondsWithFraction <= 59)  {
+  //   sec_height = map(seconds, 0, 60, 1, 300);
+  // }
+  // else {
+  //   sec_height = map(millis, 0, 999, 300, 1);
+  // }
+
+  text(HoursWithFraction, width/2, 50);
+
+  function preload() {
+    // preload() runs once
+    img = loadImage('Sink.png');
+  }
+
+  function draw() {
+    image(img, width/2, height/2, 1000, 1000);
+  }
+
 }
