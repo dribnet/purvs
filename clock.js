@@ -172,6 +172,12 @@ function draw_clock(obj) {
   }
   pop();
 
+
+  if(obj.seconds_until_alarm == 0) alarm();
+  
+
+
+
   drawCircle(1, width/2, height/2, 150+offset2, 100);
   noFill();
   stroke(255);
@@ -250,13 +256,13 @@ function draw_clock(obj) {
     console.log(saturnAngle, alarmAngle);
 
     noFill();
-    stroke(160,200,255);
+    stroke(140,255,250);
     strokeWeight(5);
 
     arc(width/2, height/2, 410, 410, saturnAngle-PI/2, alarmAngle-PI/2);
 
     for(let i = 0; i < 5; i++) {
-      stroke(160,200,255,10);
+      stroke(140,255,250,10);
       strokeWeight(30-i*5);
       arc(width/2, height/2, 410, 410, saturnAngle-PI/2, alarmAngle-PI/2);
     }
@@ -288,6 +294,15 @@ function draw_clock(obj) {
       moonStars[i].drawSelf();
     }
   }
+
+  for(let i = alarmStars.length-1; i >=0; i--) {
+    if(alarmStars[i].lifetime <= 0) {
+      alarmStars.splice(i, 1);
+    } else {
+      alarmStars[i].drawSelfAlarm();
+    }
+  }
+
   pop();
 
 }
@@ -396,7 +411,77 @@ function drawPlanet(planetVector, planet) {
 }
 
 
+let alarmStars = [];
 
+function alarm() {
+  let mult = map(pow(obj.millis/1000, 3), 0, 1, 1, 0.3);
+
+  noiseLayer(30*mult, 1.3*mult, 3);
+  noiseLayer(30*mult, 1.8*mult, 4);
+  
+  console.log(obj.seconds_until_alarm);
+
+  let amount = floor(map(pow(obj.millis/800, 3), 0, 1, 20, 0));
+  if(obj.millis < 200) {
+    for(let i = 0; i < amount; i++) {
+      let a = random(0, 2*PI);
+      let l = 210 + random(0, 20);
+      let v = p5.Vector.fromAngle(a, l);
+
+      let star = new NumStar(undefined, v.x, v.y);
+      star.setVelocity(p5.Vector.fromAngle(a, random(5, 10)));
+      alarmStars.push(star);
+
+    }
+  }
+
+  noiseLayer(30*mult, 1*mult, 1.5);
+
+}
+
+
+function noiseLayer(opacity, size, yoffset) {
+  push();
+  translate(width/2, height/2);
+
+  let l = 210;
+  let points = 30;
+  
+  let a = -PI/2;
+  let v = p5.Vector.fromAngle(a, l+100);
+
+  noStroke();
+  fill(140,255,250, opacity);
+
+  beginShape();
+  curveVertex(v, v.y);
+  curveVertex(v.x, v.y);
+  for(let i = 0; i < points+1; i++) {
+    a = (2*PI/points)*i-PI/2;
+    v = p5.Vector.fromAngle(a, l);
+    curveVertex(v.x, v.y);
+    if(i==0) curveVertex(v.x, v.y);
+  }
+  curveVertex(v.x, v.y);
+
+  let enda = a;
+
+  let noiseScale = 0.7;
+
+  for(let i = 0; i < points+1; i++) {
+    let noisePoint = noise(i*noiseScale, offset2*0.1+yoffset);
+    let noiseSize = map(pow(noisePoint, 3), 0, 1, 40, 300)*size;
+
+    let a = -1*(2*PI/points)*i+enda;
+    v = p5.Vector.fromAngle(a, l+noiseSize);
+    curveVertex(v.x, v.y);
+    if(i==0) curveVertex(v.x, v.y);
+  }
+
+  endShape(CLOSE);
+
+  pop();
+}
 
 
 function drawCircle(scale, x, y, rot, opacity) {
@@ -541,6 +626,9 @@ class NumStar {
     this.y = y;
     this.originx = x;
     this.originy = y;
+    this.velocity = createVector(0,0);
+    this.rot = 0;
+    this.size = 0;
   }
 
   drawSelf() {
@@ -557,6 +645,37 @@ class NumStar {
       this.y = newvec.y;
     }
     circle(this.x, this.y, 1);
+  }
+
+  drawSelfAlarm() {
+    this.lifetime--;
+    this.rot += 0.1;
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
+    this.x += random(-1, 1);
+    this.y += random(-1, 1);
+
+    noStroke();
+    let opac = map(this.lifetime, 25, 0, 255, 0);
+    fill(255,255,255,opac);
+    push();
+    translate(this.x, this.y);
+    rotate(this.rot);
+    rect(-this.size/2, -this.size/2, this.size, this.size);
+
+    fill(130,255,255,5);
+    for(let i = 0; i < 5; i++) {
+      circle(0,0,22-i*4);
+    }
+
+    pop();
+
+  }
+
+  setVelocity(newVelocity) {
+    this.velocity = newVelocity;
+    this.rot = offset2;
+    this.size = random(2, 6);
   }
 
   pos() {
