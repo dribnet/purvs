@@ -205,14 +205,14 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
 
   for(w=0;w<1;w++){ 
     noStroke();
-    fill(255,255,0); //yellow
+    fill(255,255,0); //yellow base colour of bee
     drawbee(beeX,height/2); //change to bee when created
   }
 
   if (obj.seconds_until_alarm == 0) { //this is where the alarm is active/going off
     background(12, 23, 63);
  
- text("alarm",250,250);
+//  text("alarm",250,250);
  
    // plant stalk
  stroke(1, 50, 32); //dark green
@@ -229,11 +229,11 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   line(rectx, quady, 565, 370); //line on collar of plant pot //395, 350, 565, 350
 
   flowerAlarm(width/2,100); //flower to appear when alarm goes off
-  for(w=0;w<1;w++){ 
-    noStroke();
+ 
+  
     fill(255,255,0); //yellow
     drawbee(beeX,height/2); //change to bee when created
-  }
+  
    }
 
 
