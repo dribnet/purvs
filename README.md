@@ -3,18 +3,6 @@
 ## MDDN 242 Project 1: Time-based Media  
 
 ### THIS IS YOUR README
-
-17/07/2023
-Begin work on maeda clock task, I have decided to recreate 7th clock where AM/PM is centered, whereas the actual time behaves like a clock hand.
-
-18/07/2023
-I finished a prototype for my clock, this only runs on the minute hand. In order to add points to a circle I used code from this webpage:
-https://www.alpharithms.com/evenly-spacing-objects-around-a-circle-in-p5js-processing-180222/
-The movement of the points however, I did by myself.
-
-19 - 24 July
-I successfully implemented the hours and minute rings
-
 HOW TO READ THE CLOCK:
 
 The inner-most ring are the seconds. There are 6 points that move in a circle, each at different speeds. If three points converge at the top, and the rest converge at the bottom then 30 seconds have passed since the minute started.

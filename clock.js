@@ -16,17 +16,26 @@ function draw_clock(obj) {
   let centerText = "PM";
   let hours = obj.hours;
   
-  background(31,56,100); //  dark blue
+  // loads variables for background change
+  let alarmTime = obj.seconds_until_alarm;
+  let BGcolour = color("#1F3864");
+
+  // background will change when alarm hits zero
+  if (alarmTime == 0) {
+    BGcolour = color('#833C0B');
+  }
+  
+  background(BGcolour); // changes when alarm hit zero
   fill("white");
-  strokeWeight(0); // this makes text thinner
+  strokeWeight(0); // this makes text appear thinner
 
   // displays AM or PM depending on time
   if (hours < 12) {
-    centerText = "AM"
+    centerText = "AM";
   }
 
   else {
-    centerText = "PM"
+    centerText = "PM";
   }
   
   // creates AM/PM text
@@ -51,6 +60,12 @@ function AlarmRing() {
   let alarmTime = obj.seconds_until_alarm;
   let alarmCountDown = map(alarmTime, 0, 31, PI*1.499999, -1.78);
   let alarmRingVisible = 9;
+  let ringColor = color('#B4C6E7');
+  
+  // changes ring colour when alarm hits zero
+  if (alarmTime == 0) {
+    ringColor = color('#F7CBAC');
+  }
 
   // disables alarm ring when it is not used
   if (alarmTime < 0) {
@@ -58,7 +73,7 @@ function AlarmRing() {
   }
 
   // renders alarm ring
-  stroke(180, 198, 231);
+  stroke(ringColor);
   strokeWeight(alarmRingVisible);
   noFill();
   arc(ringX, ringY, 250, 250, PI*1.5, alarmCountDown);
