@@ -70,10 +70,14 @@ class EnemySpaceShip extends SpaceShip{
     super(angle);
     this.hidden = true;
   }
+  speed() {
+    // return 0.01 during nighttime 10pm-6am and 0.02 otherwise
+    return obj.hours > 21 || obj.hours < 6 ? 0.01 : 0.02;
+  }
   update() {
     this.hidden = true;
     // Increment the angle to make the spaceship move along the lemniscate path
-    this.angle += 0.02;
+    this.angle += this.speed();
   
     // Update the position of the spaceship based on the new angle
     this.x = (enemyLemniscateWidth * cos(this.angle)) / (1 + pow(sin(this.angle), 2));
