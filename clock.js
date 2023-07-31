@@ -35,6 +35,7 @@ function draw_clock(obj) {
 
   fill(249, 174, 10);// yellow sun
   ellipse(width/2, height/2, 100);
+  image(img1,width/2-25,height/2-25,50,50);
 
   let rotMilli = map(Milliseconds, 0, 1000, 0, 360);
   let rotS = map(Seconds, 0, 60, -90, 270);
@@ -45,14 +46,14 @@ function draw_clock(obj) {
   push();
   translate(480,250);
   rotate(rotS); // rotates on the minute
-  image(img1,150,0,50);
+  image(img1,125,-25,50);
 
   push();
   translate(150,0);
   rotate(rotMilli); // rotates on the second
   fill(178, 178, 178); //moon grey
   //ellipse(50,0,30);
-  image(img2,50,0,30);
+  image(img2,35,-15,30);
   pop();
   pop();
 
