@@ -2,9 +2,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11439689&assignment_repo_type=AssignmentRepo)
 ## MDDN 242 Project 1: Time-based Media  
 
-### THIS IS YOUR README
-
-Update this file as you go along to record your progress.
+### Urban Pulse: The Clock of City Rhythms
 
 Sketch:
 I will be making a clock represented by three city building silhouettes, and a large moon behind these. All the buildings will have lights turned on/off, and the amount of lights turned on will be the time for each of the buildings. The 3 buildings represent the month, hour, and minute of the day, the stars will be pulsing according to each second, like a visual metronome. The big moon behind the three city buildings will change according to the months moon phases.

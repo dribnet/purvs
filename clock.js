@@ -68,12 +68,12 @@ function draw_clock(obj) {
     translateX = width/2 - (width/2 * scaleit) + (translateX * scaleit);
     translateY = height/2 - (height/2 * scaleit) + (translateY * scaleit);
   }
-  //else {
+  else if (alarm == 0) {
     translateX = width/2.5;
     translateY = height/2.5;
     currentScale = 0.2;
     shake = randomList[millis] * 0.01;
-  //}
+  }
 
   translate(translateX, translateY);
   scale(currentScale);
@@ -159,7 +159,7 @@ function draw_clock(obj) {
 
   strokeWeight(20);
   stroke(113, 25, 82) // purple
-  line(150, -230 + shake , 190, -140 - shake);
+  line(150, -230 + shake , 190, -140 - shake); // the shake is for when the alarm is going off 
   line(290 + shake, -230, 260 - shake, -140);
 
   fill(233, 124, 37); // orange
@@ -172,12 +172,7 @@ function draw_clock(obj) {
   strokeWeight(15);
   noFill();
   rect(-10, -55, 350, 275, 30);
-
-
-
   pop();
-
-
 }
 
 // sets the background to a gradient, changing as the time changes 
