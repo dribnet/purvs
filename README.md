@@ -1,33 +1,34 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/JAZAP9dv)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11439596&assignment_repo_type=AssignmentRepo)
+
 ## MDDN 242 Project 1: Time-based Media  
 
-### THIS IS YOUR README
+# Roadtrip Clock | Rita Close | 03/08/2023
 
-Update this file as you go along to record your progress.
 
-I really didn't know what to do for this, I had lots of ideas but not really something that would work. I like the idea of incorporating a car and a road somehow, I thought other options could be one from a drivers perspective and use maybe the speedo and road signs instead - or have a top down view of some car lanes - the cars would have numebers on their roofs - the fast lane being the seconds of course. In the below example the mile signs would show seconds, the minutes in the midground and the hours on the sun - sort of based off the parallax concept.
-
-27/07
-Working on changing the colour modes so that they work more cohesively in the landscapes and make sense changing colours in the daytime vs. at night.
-I also found a way to use the modulo % to keep the 'hour' numeral a different colour from the rest of the others. This mostly works except at night the background colours are a bit similar, but I think I've found a way around that.
-I have begun adding elements to create the alarm - my idea is that the car will start speeding - maybe with a siren and the landscape will start to blur past while the hour flahses. Getting a seamless transition between the alarm going and not may be difficult though.
-
-31/07
-Over the past few days I have been trying to add in a transition between the alarm beginning and the regualr time. I don't know if it's possible to do a transition after the alarm has ended though. I'm thinking instead of making all the transitions seamless, I could try adding a bright flash covering the screen that would block out the glitching. At the moment it only works if the millis counter is at the right time - I don't know how to get around that.
-
-Maeda Clock:
-I don't know whether this clock needs to be working throughout the day or not - if it doesn't it would be a lot easier to replicate. As it is, it isn't a perfect replica of the original Maeda clock but at least it works - the other issue is there isn't a debugging fuction for that one so making sure it always works has been tricky.
-
-31/07
-I think the next thing I need to work on is commenting my code and cleaning it up so it looks nicer. There are parts that I don't know whether I can condense or not.
-
-Your Clock Name
-* Your Name
- * A description of your overall design process that serves as your design journal (suggested: 300-600 words)
-
+* A description of your overall design process that serves as your design journal (suggested: 300-600 words)
 2) A 960x500 pixel preview.jpg that is a screenshot from your final version (you can use the '!' key to generate)
-
 3) A modified index.html that updates all meta tags with your own settings for title / url / image / etc.
 
 Have you written a final readme for your final? This readme should reflect on your project as a whole, and be an "artists statement" for your clock. Mention inspiration and design consideration here
+
+
+### Design Process
+
+For this project, I wanted to create a landscape that would reflect time and be reminicent of it's passing, rather than making a clock in itself. In the panning process I had too many bits of concepts with roman numerals, buildings, cars, hourglasses, sunrises and more - as a result, my final concept became a culmination of these ideas. When I was younger, my family would often go on road trips to see family living far away, so I remember spending entire days in the back of a car, watching the landscpae slip by and the sky fade from dawn to dusk.
+
+The assembly of this idea began by setting up the different spheres of the composition - the rings which show the hours and minutes - as I thought it was important to get the clock working before I added in the scenery as I had time for it. The hour ring was made by setting up the circle of roman numerals and then simply rotating the entire system on the hour - whereas the minute ring was made with many thin rectangles. At first these moved quite jaggedly and it took a while to understand how the different obj.(time) variables effected their movement - it was not until later that I added in smooth transitions between them.
+
+Though it was not essential I spent a very long morning making the car using vertex groups and other miscellaneous shapes, I was following the design of a Chevrolet Impala, but as long as it's recognised as 'classic' that's really the important thing.
+
+I had a bit of trouble with the colours of the sky - I had wanted to have it change so that throughout the day it went from orange, to blue, to orange to black - in the sequence of the day. I think the variable solution I came up with is slightly convoluted but I am yet to find a better alternative. When I switched from RGB to HSB colour mode, things got a lot easier to manage.
+
+Initially the seconds were difficult to make because if they are dependent on the millis/second time variables, the text on the sign would change halfway across the screen (I wanted to have more than one signpost on screen at a time, otherwise they would be too difficult to read). I managed to find a workaround for this problem by creating a second sign for the other half of the screen - even if they give the illusion of travelling the width, they actually reset halfway. The road lines were created in a similar fashion.
+
+I decided to create the landscape using functions, primarily because it would greatly reduce the space it would take up in the code, but also because I found it made customising each part of the landscape a lot easier. To add believeablity to the changing times of day, all of the landscape alters brightness between sunset and night - as well as the lights in the buildings lighting up, much like the car lights do in the same way.
+
+The alarm function was something I hadn't previously planned for and found it really interesting to complete. Although the transitions leave something to be desired - turning the car into a police car and having the landscape speed by is a concept I'm glad I thought of and I enjoyed the visual challenge of making it - I only wish I could add sound to it all.
+
+### Reflection
+
+Overall, I'm really happy with how my clock turned out and I had a lot of fun making it. If I had a bit more time I would look into fixing the transitions going into the alarm as it only works sometimes.
