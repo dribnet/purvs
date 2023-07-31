@@ -99,7 +99,6 @@ function draw_clock(obj) {
 
 
   if(prevmin == undefined || obj.minutes != prevmin) {
-    console.log(prevmin);
 
     let v1 = createVector(0,0);
     let v2 = createVector(100, 100);
@@ -121,9 +120,6 @@ function draw_clock(obj) {
 
     
   }
-
-  
-
 
   
   if(offset > 30) offset = -30;
@@ -240,14 +236,47 @@ function draw_clock(obj) {
   let moonAngle = map(obj.minutes + obj.seconds/60, 0, 60, 0, 2*PI);
   let moonVec = p5.Vector.fromAngle(moonAngle-PI/2, 208);
 
+  
+  let alarmVec;
+  if(obj.seconds_until_alarm > 0) {
+    let alarmSec = obj.seconds_until_alarm;
+    let tta = (sec+mill/1000 + alarmSec);
+    let circleTTA = ceil(tta)%60;
+    let displayTTA = circleTTA + (tta-circleTTA);
+
+    let alarmAngle = map(displayTTA, 0, 60, 0, 2*PI);
+    alarmVec = p5.Vector.fromAngle(alarmAngle-PI/2, 208);
+
+    console.log(saturnAngle, alarmAngle);
+
+    noFill();
+    stroke(160,200,255);
+    strokeWeight(5);
+
+    arc(width/2, height/2, 410, 410, saturnAngle-PI/2, alarmAngle-PI/2);
+
+    for(let i = 0; i < 5; i++) {
+      stroke(160,200,255,10);
+      strokeWeight(30-i*5);
+      arc(width/2, height/2, 410, 410, saturnAngle-PI/2, alarmAngle-PI/2);
+    }
+
+
+    drawPlanet(alarmVec, bell);
+  }
+
   drawPlanet(moonVec, moon);
   drawPlanet(starVec, planetStar);
   drawPlanet(saturnVec, saturn);
+  
 
   for(let i = 0; i < floor(random(0, 5)); i++) {
     moonStars.push(new NumStar(undefined, moonVec.x+random(-15, 15), moonVec.y+random(-15,15)));
     moonStars.push(new NumStar(undefined, starVec.x+random(-15, 15), starVec.y+random(-15,15)));
     moonStars.push(new NumStar(undefined, saturnVec.x+random(-15, 15), saturnVec.y+random(-15,15)));
+    if(obj.seconds_until_alarm > 0) {
+      moonStars.push(new NumStar(undefined, alarmVec.x+random(-15, 15), alarmVec.y+random(-15,15)));
+    }
   }
 
   push();
@@ -321,6 +350,34 @@ function planetStar() {
 
 }
 
+function bell() {
+  stroke(255,255,255,7);
+  fill(255,255,255);
+  push();
+  scale(0.8);
+
+  beginShape();
+  curveVertex(-10, 7);
+  curveVertex(-10, 7);
+  curveVertex(10, 7);
+  curveVertex(10, 7);
+  curveVertex(8, 3);
+  curveVertex(9, -4);
+  curveVertex(0, -10);
+  curveVertex(-9, -4);
+  curveVertex(-8, 3);
+  curveVertex(-10, 7);
+  curveVertex(-10, 7);
+  endShape(CLOSE);
+
+  noFill();
+  stroke(255,255,255);
+  strokeWeight(1);
+  circle(0,7,6);
+
+  pop();
+}
+
 
 function drawPlanet(planetVector, planet) {
   
@@ -337,6 +394,8 @@ function drawPlanet(planetVector, planet) {
 
   pop();
 }
+
+
 
 
 
