@@ -21,3 +21,13 @@ I don't know whether this clock needs to be working throughout the day or not - 
 
 31/07
 I think the next thing I need to work on is commenting my code and cleaning it up so it looks nicer. There are parts that I don't know whether I can condense or not.
+
+Your Clock Name
+* Your Name
+ * A description of your overall design process that serves as your design journal (suggested: 300-600 words)
+
+2) A 960x500 pixel preview.jpg that is a screenshot from your final version (you can use the '!' key to generate)
+
+3) A modified index.html that updates all meta tags with your own settings for title / url / image / etc.
+
+Have you written a final readme for your final? This readme should reflect on your project as a whole, and be an "artists statement" for your clock. Mention inspiration and design consideration here

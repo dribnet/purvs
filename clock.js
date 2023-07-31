@@ -118,7 +118,7 @@ function draw_clock(obj) {
   }
 
   if (daySection == night) {
-    fill(235, 100, 30);
+    fill(240, 110, 50);
   }
   // Minute Ring Background
   circle(width / 2, ringHeight, width - 30);
