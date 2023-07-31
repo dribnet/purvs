@@ -1,6 +1,10 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+function preload(){
+  img = loadImage('Sun_CC.png');
+}
+
 function draw_clock(obj) {
 angleMode(DEGREES);
   // draw your own clock here based on the values of obj:
@@ -55,7 +59,8 @@ angleMode(DEGREES);
   
   let hours_radius = map(hours, 0, 59, 70, 70);
   fill(249, 140, 255);// pink
-  ellipse(width /2, 275, hours_radius);
+  //ellipse(width /2, 275, hours_radius);
+  image (img, width/2 -35 , 240, hours_radius, 70);
   let rotH = map(minutes, 0, 59, -90, 270);
   let minutes_radius = map(minutes, 0, 59, 50, 50);
 
@@ -65,9 +70,9 @@ angleMode(DEGREES);
     fill(140,255,251); //blue
     ellipse(120,0,minutes_radius);
     
-    let rotM = map(seconds, 0, 59, 0, 360);
+    let rotM = map(seconds + (millis/1000), 0, 59, 0, 360);
     //let secondsWithFraction   = seconds + (millis / 1000.0);
-    let seconds_radius = map(seconds + (millis/1000), 0, 59, 30, 30);
+    let seconds_radius = map(seconds, 0, 59, 30, 30);
     let rotS = map(millis, 0,999,0, 360)
     
         push();
