@@ -16,19 +16,9 @@ function draw_clock(obj) {
   textSize(40);
   textAlign(CENTER, CENTER);
 
-  if (obj.seconds_until_alarm == 0) {
-   //background(12, 23, 63);
+ 
 
-text("alarm",250,250);
-
-  // plant stalk
-// stroke(1, 50, 32); //dark green
-// strokeWeight(8);
-// line(linex, liney, linex, liney + 265);
-//  flowerAlarm(width/2,100); //flower to appear when alarm goes off
-  }
-
-  //if (obj.seconds_until_alarm < 0 || obj.seconds_until_alarm > 0) {
+  
 
   //changing sky based on day and night
 const night_sky = color(12, 23, 63); //50,50,60 //dark blue
@@ -138,12 +128,8 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   //go from colour1 to colour2
   let leafChange = lerpColor(leafGreen, leafYellow,Lerp);
 
-  // push();
-  // noStroke();
-  // fill(leafChange);
-  // ellipse(100,100,50);
-  // pop(); 
   
+  //This is the leaves changing as the hours go by
   //leaves between 0000 - 1200, green and gradually appering by the hour.
       if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
         for (let i = ZeroSix; i < 6; i++) {    
@@ -170,7 +156,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
                 }  
                }
            }
-           text(hours,100,100);
+           
 
 if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200 
     for (let i = sixTwelve; i < 6; i++) {  
@@ -200,13 +186,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
                
               }
            }
-           
           
-      
-
-            
-             
-
   //             if(hours=24){
   //               for(let k=0;k<leaves;k++){   
   //                 fill(195, 113, 37); //orange   
@@ -218,17 +198,8 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
         
       
 
-//stationary leaves, no if statements etc
 
-  // for (let i = 0; i < 6; i++) {
-  //   drawLeaf(425, 42 + (ystep * i));
-  // }
-
-  // for (let i = 0; i < 6; i++) {
-  //   drawrightLeaf(535, 42 + (ystep * i));
-  // }
-
-  //bee flying across screen working with the minutes
+  //bee flying across screen working with the minutes 0-59
   
   let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
 
@@ -238,22 +209,43 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
     drawbee(beeX,height/2); //change to bee when created
   }
 
-  
+  if (obj.seconds_until_alarm == 0) { //this is where the alarm is active/going off
+    background(12, 23, 63);
+ 
+ text("alarm",250,250);
+ 
+   // plant stalk
+ stroke(1, 50, 32); //dark green
+  strokeWeight(8);
+  line(linex, liney, linex, liney + 265);
+  fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
+  noStroke();
+  //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
+  quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
+  rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
+
+  stroke(210, 180, 140); // light tan brown // original colour: light turquoise 140,255,251
+  strokeWeight(5);
+  line(rectx, quady, 565, 370); //line on collar of plant pot //395, 350, 565, 350
+
+  flowerAlarm(width/2,100); //flower to appear when alarm goes off
+   }
+
 
   }
 
-//}
 
-let Beex = 20
-  let Beey = 250
+//these are constant variables for my bee, leaves and water dros
+let Beex = 20 //controls x position of Bee
+  let Beey = 250 //controls y position of Bee
 
-let leafx = 20;
-let leafy = 20;
-let Leafx = 70;
-let dropx = 60;
-let dropy = 60;
+let leafx = 20; //controls x position of left leaves
+let leafy = 20; //controls y position of left and right leaves
+let Leafx = 70; //controls x position of right leaves
+let dropx = 60; //controls x position of rain drops
+let dropy = 60; //controls y position of rain drops
 
-//left leaves function
+//function to draw the left leaves //curve vertexs to achieve the shape of the leaves
 function drawLeaf(leafx, leafy) {
   
   stroke(1, 50, 32); //dark green
@@ -269,7 +261,7 @@ function drawLeaf(leafx, leafy) {
   endShape(CLOSE);
 }
 
-//right leaves function
+//function to draw the right leaves //curve vertexs to achieve the shape of the leaves
 function drawrightLeaf(Leafx, leafy) {
   
   stroke(1, 50, 32); //dark green
