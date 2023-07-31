@@ -310,9 +310,7 @@ function draw_clock(obj) {
 }
 
 function pushStars() {
-  let x = winMouseX - pwinMouseX;
-  let y = winMouseY - pwinMouseY;
-  let mouseVel = createVector(x,y);
+
   let mousepos = createVector(mouseX-width/2, mouseY-height/2);
 
   noStroke();
