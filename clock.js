@@ -1,6 +1,25 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+function preload(){
+lady= loadImage('lady.whole.png') //lady
+
+//right arms
+r1= loadImage('R1.png')
+r2= loadImage('R2.png')
+r3= loadImage('R3.png')
+r4= loadImage('R4.png')
+r5= loadImage('R5.png')
+
+//left arms
+l1= loadImage('L1.png')
+l2= loadImage('L2.png')
+l3= loadImage('L3.png')
+l4= loadImage('L4.png')
+l5= loadImage('L5.png')
+
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -19,7 +38,7 @@ background(210,4,45); //  red/cherry
 fill(200); // dark grey
 textSize(40);
 textAlign(CENTER, CENTER);
-text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+//text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
 drawFlower1(200,200,obj.seconds)
 if (obj.seconds>=10){
@@ -42,8 +61,18 @@ if (obj.seconds>=50){
 
 drawSun();
 
+//image(lady,410,200,150,300)
+
+if (obj.hours>=0){
+  image(lady,410,200,150,300)
+}
+if (obj.hours>=1){
+  
+}
+
 }
 let millisSize =0
+
 function drawFlower1(x,y,curSec,){
   let secondMap = map(curSec,0,60,360,0)
   if(obj.millis<=500){
@@ -1349,7 +1378,7 @@ function drawSun(){
 noStroke()
 
 fill(255,191,0);// Yellow
-ellipse(width / 3, 350, 150);
+ellipse(505, 152, 150);
 
 fill(255,191,0,100);
 
@@ -1363,6 +1392,6 @@ else if(obj.millis>=500){
 millisSize= map(obj.millis,0,1000,300,150)
 millisSize= map(obj.millis,0,1000,300,130)
 }
-ellipse(width/3,350,millisSize)
+ellipse(505,152,millisSize)
 }
 
