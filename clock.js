@@ -29,7 +29,19 @@ function draw_clock(obj) {
   //text("|Hours  "+ hours+"|", width / 8, 200);
   //text(" Millis  "+ millis+"|", width -180, 200);
 
+  
+  fill(255, 0, 0); // Red color for the cursor
+  noStroke();
+  ellipse(mouseX, mouseY, 10, 10);
+      
+  // Display the X and Y coordinates of the cursor tip
+  fill(220); // Black color for the text
+  text("X: " + mouseX, 50, 30);
+  text("Y: " + mouseY, 50, 70);
 
+//Array of x and y pos of pacman and "fruits"
+//let Xpos = [20, 30, 40, 50, 60, 70, 80, 90, 100, 100, 100, 110, 120];
+//let Ypos = [100,100,100,100,100,100,100,100,110,110,110,120,130,140];
 
 // draws maze outline --------------------------------------------
 
@@ -66,35 +78,19 @@ rect(849,241,75,39);
 //maze draw was here 
 //end of function 
 
-
-//-----------------------------------------------------
-
- //draws "candy"
- //create if staement 
- //if pacman pass object, remove
- //after 57 seconds counting down flash and reset 
-  //create a loop to...
-//draw but change x and y pos to numbers in an array list
-
- fill(255,165,0);
- rect (100,98,5,5);
-
- rect (120,98,5,5);
- rect (140,98,5,5);
   noFill();
   
 //-------------------------------------------------
 
 
 // draw(drawOpenMouthPacman);
-if(obj.millis<500) {
+if(obj.millis<300) {
+
   drawOpenMouthPacman(80+moveH,100, 35, 0,432);
 }
 else {
   drawOpenMouthPacman(80+moveH, 100, 35, 80, 380);
 }
-
-
 
  //creates clock numbers 
  //create this.num / functions for each and call
@@ -103,131 +99,6 @@ let x = 205;
 let y = 185;
 let size = -4;
 let c = 7;
-
-   /*
-  //draws up 1 -------------------------------------------
-//top two rects
-stroke (200,0,0);
-
-//hours LHS
-rect (x+80,y-20,size+18,size+110,c);
-rect (x+80,y+90,size+18,size+110,c);
-
-//hours RHS
-
- rect (x+180,y-20,size+18,size+110,c);
- rect (x+180,y+90,size+18,size+110,c);
-
- //mins LHS
- 
- rect (x+390,y-20,size+18,size+110,c);
- rect (x+390,y+90,size+18,size+110,c);
-
- //mins RHS
-
-  rect (x+490,y-20,size+18,size+110,c);
-  rect (x+490,y+90,size+18,size+110,c);
-
-
-  //draw number 2 -------------------------------------------
-
-  stroke(255,165,0) //orange
-
-  //LHS hours top to bott
-rect (x+15,y-20,size+80,size+18, c);
- rect (x+80,y,size+18,size+89,c);
- rect (x+10,y+70,size+70,size+18,c);//middle one
- rect (x+10,y+90,size+18,size+90,c);
- rect (x+15,y+180,size+80,size+18,c);
-
-   //second pos  
-
- //top two rects
- rect (x+115,y-20,size+80,size+18, c);
- rect (x+180,y,size+18,size+90,c);
- rect (x+110,y+70,size+70,size+18,c);//middle one
- rect (x+110,y+90,size+18,size+90,c);
- rect (x+115,y+180,size+80,size+18,c);
-
-
- //3rd number
- rect (x+325,y-20,size+80,size+18, c);
- rect (x+390,y,size+18,size+90,c);
- rect (x+320,y+70,size+70,size+18,c);//middle
- rect (x+320,y+90,size+18,size+90,c);
- rect (x+325,y+180,size+80,size+18,c);
-
-
-  //4th number 
-  rect (x+425,y-20,size+80,size+18, c);
-  rect (x+490,y,size+18,size+90,c);
-  rect (x+420,y+70,size+70,size+18,c);//middle
-  rect (x+420,y+90,size+18,size+90,c);
-  rect (x+425,y+180,size+80,size+18,c);
-
-
-  //number 3 -------------------------------------------
-
-
-  stroke(0,200,0) //green
-
-
-   //second pos  
-
- //RHS hours
- rect (x+115,y-20,size+80,size+18, c);
- rect (x+180,y,size+18,size+90,c);
- rect (x+110,y+70,size+70,size+18,c);//middle one
- rect (x+180,y+90,size+18,size+90,c);
- rect (x+115,y+180,size+80,size+18,c);
-
-
- //3rd number
- rect (x+325,y-20,size+80,size+18, c);
- rect (x+390,y,size+18,size+90,c);
- rect (x+320,y+70,size+70,size+18,c);//middle
- rect (x+390,y+90,size+18,size+90,c);
- rect (x+325,y+180,size+80,size+18,c);
-
-
-  //4th number 
-  rect (x+425,y-20,size+80,size+18, c);
-  rect (x+490,y,size+18,size+90,c);
-  rect (x+420,y+70,size+70,size+18,c);//middle
-  rect (x+490,y+90,size+18,size+90,c);
-  rect (x+425,y+180,size+80,size+18,c);
-
-
-  //draw number 4 -----------------------------------------
-
-  stroke(255,20,147) //pink
-
-
-   //second pos  
-
- //RHS hours
- rect (x+110,y-20,size+18,size+110,c);
- rect (x+180,y-20,size+18,size+110,c);
- rect (x+129,y+70,size+50,size+18,c);//middle one
- rect (x+180,y+90,size+18,size+110,c);
- 
-
-
- //3rd number
- 
- rect (x+390,y-20,size+18,size+110,c);
- rect (x+320,y-20,size+18,size+110,c);
- rect (x+340,y+70,size+50,size+18,c);//middle
- rect (x+390,y+90,size+18,size+110,c);
- 
-
-
-  //4th number 
-  rect (x+420,y-20,size+18,size+110,c);
-  rect (x+490,y-20,size+18,size+110,c);
-  rect (x+440,y+70,size+50,size+18,c);//middle
-  rect (x+490,y+90,size+18,size+110,c);
- */
 
 
 //fill(55,20,147);
@@ -300,12 +171,16 @@ function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
   // Draw Pacman with an open mouth to the left
   fill(255, 255, 0); // Yellow color
   noStroke();
- // for (let i = 20; i < 400; i++) {
-   // clear();
-  arc(x, y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
-//move pacman 
+  let Xpos = [20, 30, 40, 50, 60, 70, 80, 90, 100, 100, 100, 110, 120];
+  let Ypos = [100,100,100,100,100,100,100,100,110,110,110,120,130,140];
+  let speedX = 100;
 
+   for (let i = 0; i < 900; i++) {
+  arc(x+speedX ,y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
+  //move pacman 
 
+   }
+   
 
 
 }
