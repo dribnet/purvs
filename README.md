@@ -26,6 +26,9 @@ For the alarm, I decided to implement a countdown with text that fades to red as
 ![part 4 preview.jpg](/assets/alarm.png)
 ![part 4 preview2.jpg](/assets/alarmActive.png)
 
+**Part 5:**
+My design was essentially completed already. However, I added one final feature: the speed of the enemy red ships changes depending on the time of day. From 10 pm to 6 am, they move slower to represent people sleeping, and from 6 am to 10 pm, they move faster to represent people being up and moving around.
+
 **References**
 OpenGameArt. (2013, June 17). Space ship construction kit [Example spaceships and component sprites]. OpenGameArt. <u>https://opengameart.org/content/space-ship-construction-kit</u>
 
