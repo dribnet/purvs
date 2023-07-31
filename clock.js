@@ -231,35 +231,34 @@ function draw_clock(obj) {
   let sec = obj.seconds;
   let mill = obj.millis;
 
-  let moonAngle = map(sec + mill/1000, 0, 60, 0, 2*PI);
+  let saturnAngle = map(sec + mill/1000, 0, 60, 0, 2*PI);
+  let saturnVec = p5.Vector.fromAngle(saturnAngle-PI/2, 208);
 
+  let starAngle = map(obj.hours%12 + obj.minutes/60, 0, 12, 0, 2*PI);
+  let starVec = p5.Vector.fromAngle(starAngle-PI/2, 208);
+
+  let moonAngle = map(obj.minutes + obj.seconds/60, 0, 60, 0, 2*PI);
   let moonVec = p5.Vector.fromAngle(moonAngle-PI/2, 208);
-  stroke(255,255,255,7);
-  strokeWeight(5)
-  fill(255);
-  push();
-  translate(width/2+moonVec.x, height/2+moonVec.y);
-  scale(1.3)
 
-  for(let i = 0; i < 5; i++) {
-    strokeWeight(14-i*2.5);
-    beginShape();
-    curveVertex(4, -8);
-    curveVertex(0, -9);
-    curveVertex(-7, -7);
-    curveVertex(-10, 0);
-    curveVertex(-7, 7);
-    curveVertex(0, 9);
-    curveVertex(4, 8);
-    curveVertex(4, 8);
-    curveVertex(-2, 5);
-    curveVertex(-4, 0);
-    curveVertex(-2, -5);
-    curveVertex(4, -8);
-    curveVertex(4, -8);
-    endShape(CLOSE);
+  drawPlanet(moonVec, moon);
+  drawPlanet(starVec, planetStar);
+  drawPlanet(saturnVec, saturn);
+
+  for(let i = 0; i < floor(random(0, 5)); i++) {
+    moonStars.push(new NumStar(undefined, moonVec.x+random(-15, 15), moonVec.y+random(-15,15)));
+    moonStars.push(new NumStar(undefined, starVec.x+random(-15, 15), starVec.y+random(-15,15)));
+    moonStars.push(new NumStar(undefined, saturnVec.x+random(-15, 15), saturnVec.y+random(-15,15)));
   }
 
+  push();
+  translate(width/2, height/2);
+  for(let i = moonStars.length-1; i >=0; i--) {
+    if(moonStars[i].lifetime <= 0) {
+      moonStars.splice(i, 1);
+    } else {
+      moonStars[i].drawSelf();
+    }
+  }
   pop();
 
 }
@@ -277,8 +276,67 @@ function getNumberLines(points) {
 
 }
 
+function moon() {
+  stroke(255,255,255,7);
+  fill(255);
+  beginShape();
+  curveVertex(4, -8);
+  curveVertex(0, -9);
+  curveVertex(-7, -7);
+  curveVertex(-10, 0);
+  curveVertex(-7, 7);
+  curveVertex(0, 9);
+  curveVertex(4, 8);
+  curveVertex(4, 8);
+  curveVertex(-2, 5);
+  curveVertex(-4, 0);
+  curveVertex(-2, -5);
+  curveVertex(4, -8);
+  curveVertex(4, -8);
+  endShape(CLOSE);
+}
+
+function saturn() {
+  stroke(255,255,255,7);
+  fill(255);
+  circle(0,0, 15);
+  noFill();
+  stroke(255);
+  strokeWeight(0.6);
+  ellipse(0,0, 25, 8);
+}
+
+function planetStar() {
+  stroke(255,255,255,7);
+  fill(255);
+
+  beginShape();
+  for(let i = 0; i < 10; i++) {
+    let a = i*((2*PI)/10);
+    let l = i%2==0 ? 10 : 5;
+    let v = p5.Vector.fromAngle(a, l);
+    vertex(v.x, v.y);
+  }
+  endShape(CLOSE);
+
+}
 
 
+function drawPlanet(planetVector, planet) {
+  
+  push();
+  translate(width/2+planetVector.x, height/2+planetVector.y);
+  scale(1.3)
+
+  for(let i = 0; i < 5; i++) {
+
+    strokeWeight(14-i*2.5);
+    planet();
+    
+  }
+
+  pop();
+}
 
 
 
@@ -419,7 +477,7 @@ class NumLine {
 
 class NumStar {
   constructor(homeLine, x, y) {
-    this.lifetime = 20;
+    this.lifetime = 25;
     this.x = x;
     this.y = y;
     this.originx = x;
