@@ -37,13 +37,13 @@ function hoursBars(x, y){
 }
 
 function hoursBarsCol(x, y) {
-  noStroke();
+  // noStroke();
   fill(255);
   rect(x, y, 125, 47);
 }
 
 function hoursBarEleven(x, y) {
-  noStroke();
+  // noStroke();
   fill(255);
   rect(x, y, 260, 47);
 }
@@ -54,6 +54,10 @@ function minutesLines(x, y) {
 
 function secondsLines(x, y) {
   line(x+0, y+0, x+50, y+0);
+}
+
+function millisBar(x, y) {
+
 }
 
 function draw_clock(obj) {
@@ -88,15 +92,25 @@ function draw_clock(obj) {
   //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
   // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
   let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
-
-
+  let minutesColGreen = map(minutes, 0, 59, 0, 255);
+  let minutesColRed = map(minutes, 0, 59, 410, 0);
   
-  background(200); //  beige
-  fill(200); // dark grey
+  let millisAlpha = map(millis, 0, 1000, 0, 100);
+
+if (hours >= 6 && hours < 18) {
+  background(220); //  beige
+}
+
+if (hours >= 18 || hours < 6) {
+  background(100);
+}
+
+  // noFill(); // dark grey
+  colorMode(RGB, 255, 255, 255, 100);
+  fill(255, 0, 0, millisAlpha);
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-  
+  text("AM", centerX, centerY-180);
 
 
   // fill(255);// pink
@@ -107,7 +121,7 @@ function draw_clock(obj) {
   // ellipse(width / 3 * 2, 350, 150);
 
   noStroke();
-  fill(255);
+  fill(minutesColRed, minutesColGreen, 0);
   // rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
   rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
@@ -123,6 +137,10 @@ function draw_clock(obj) {
   for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX+5, hourBarY);
   }
+
+
+  
+
 
   let secondsLinesY = 6;
   if (seconds >= 0 && seconds < 60) {
