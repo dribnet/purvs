@@ -621,17 +621,10 @@ class AmPmDisplay {
 /*
  * ===================================== ===================================== *
  * ===================================== ===================================== *
- * ================================ CONSTANTS ================================ *
+ * =============================== DECLARATION =============================== *
  * ===================================== ===================================== *
  * ===================================== ===================================== *
  */ 
-
-/*
- * Canvas constants.
- */
-const WIDTH = 960;
-const HEIGHT = 500;
-const BACKGROUND_COL = [40, 17, 23];
 
 /* 
  * Seconds.
@@ -749,6 +742,23 @@ const ampmDisplay2 = new AmPmDisplay(
 );
 
 /*
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ * ============================= FUNCTIONS & VARS ============================ *
+ * ===================================== ===================================== *
+ * ===================================== ===================================== *
+ */
+
+/*
+ * Canvas constants.
+ */
+const WIDTH = 960;
+const HEIGHT = 500;
+const BACKGROUND_COL = [40, 17, 23];
+
+
+
+/*
  * Alarm Variables.
  */
 let initAlarmVars = true;
@@ -759,155 +769,22 @@ let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be colo
 let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
 let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
 
-
 let activationColor;
 
-/**
- * Lerp Colour Variables.
+/*
+ * Lerp AMPM Colour Variables.
  */
 let totalTime;
 let factor;
-let calculatedColor;
+let ampmColor;
 
-
-
-
-
-/** 
- * draw your own clock here based on the values of obj:
- *    obj.hours goes from 0-23
- *    obj.minutes goes from 0-59
- *    obj.seconds goes from 0-59
- *    obj.millis goes from 0-999
- *    obj.seconds_until_alarm is:
- *        < 0 if no alarm is set
- *        = 0 if the alarm is currently going off
- *        > 0 --> the number of seconds until alarm should go off
+/**
+ * Function that returns colours based around some inputed colour.
+ * Used when the alarm goes off.
  */
-function draw_clock(obj) {
-  background(BACKGROUND_COL); 
-  /*
-   * Uses the current time to calculate a lerp colour.
-   */ 
-  totalTime = obj.hours + obj.minutes/60 + obj.seconds/3600; // Millis are negligable 
-  factor = (0 <= totalTime && totalTime < 13) ? (totalTime) / 12 : 1 - (totalTime - 12) / 12;
-  calculatedColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor);
+function sineLerpColor(x, c1, c2) {
 
-  /* 
-   * Rotates both secondsDisplays.
-   */
-  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
-
-
-
-  /*
-   * While the alarm is turned on but has not yet activated.
-   */
-  if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
-    /*
-     * Initializes some alarm variables.
-     */
-    if (initAlarmVars) {
-      timeUntilActivation = obj.seconds_until_alarm;
-      timeOfTrigger = obj.seconds + obj.millis/999;
-
-      alarmSecondsInd = 60 - timeUntilActivation - timeOfTrigger; // Calculation done to get how many indicators from the pointer
-      alarmMinutesInd = obj.minutes;
-      alarmHoursInd = obj.hours;
-
-      while (alarmSecondsInd < 0) { alarmSecondsInd += 60; alarmMinutesInd++; }
-      while (alarmMinutesInd > 59) { alarmMinutesInd -= 60; alarmHoursInd++; }
-      while (alarmHoursInd > 11) { alarmHoursInd -= 12; }
-      
-      initAlarmVars = false;
-    }
-
-    drawAll(
-      SEC_COL_1,
-      SEC_COL_2,
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
-      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
-      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
-      AMPM_MONO_COL, calculatedColor,
-      calculatedColor,
-      calculatedColor,
-
-      Math.ceil(alarmSecondsInd), alarmMinutesInd, alarmHoursInd
-    );
-  }
-
-  else if (obj.seconds_until_alarm === 0) {
-    activationColor = (c1, c2) => { return lerpColor(color(c1), color(c2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
-
-    secondsDisplay1.draw(activationColor(SEC_COL_1, [10, 10, 10]));
-    hourDisplay1.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_1, 
-      activationColor(HOU_PASSIVE_COL_1, [10, 10, 10]), activationColor(HOU_ACTIVE_COL_1, [10, 10, 10])
-    );
-    ampmDisplay1.draw(activationColor(AMPM_MONO_COL, [10, 10, 10]));
-
-    minutesDisplay.draw(
-      obj.minutes, 
-      MIN_ACTIVE_HEIGHT, 
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL
-    );
-
-    minutesDisplay.draw(
-      Math.floor(map(obj.millis, 0, 999, 0, 59)),
-      MIN_ACTIVE_HEIGHT, 
-      activationColor(color(MIN_PASSIVE_COL), [209, 63, 128]), [209, 63, 128]
-    );
-
-    secondsDisplay2.draw(SEC_COL_2);
-
-    hoursDisplay2.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_2, 
-      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2), [209, 63, 128])
-    );
-
-    ampmDisplay1.text(
-      obj.hours,
-      AMPM_FONT_SIZE,
-      activationColor(calculatedColor, [209, 63, 128])
-    );
-    ampmDisplay2.draw(activationColor(calculatedColor, [209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
-
-    pointer.draw(activationColor(calculatedColor, [209, 63, 128]), obj.seconds);
-  }
-
-  else {
-    /* 
-     * Resets variables.
-     */
-    if (!initAlarmVars) {
-      initAlarmVars = true;
-      timeUntilActivation = -1;
-      timeOfTrigger = 0;
-
-      alarmSecondsInd = -1;
-      alarmMinutesInd = -1;
-      alarmHoursInd = -1;
-    }
-
-    drawAll(
-      SEC_COL_1,
-      SEC_COL_2,
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
-      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
-      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
-      AMPM_MONO_COL, calculatedColor,
-      calculatedColor,
-      calculatedColor
-    );
-
-  }
 }
-
-
-
 
 function drawAll(
   secondsDisplay1Col,
@@ -955,3 +832,146 @@ function drawAll(
 
   pointer.draw(pointerCol, obj.seconds);
 }
+
+/** 
+ * draw your own clock here based on the values of obj:
+ *    obj.hours goes from 0-23
+ *    obj.minutes goes from 0-59
+ *    obj.seconds goes from 0-59
+ *    obj.millis goes from 0-999
+ *    obj.seconds_until_alarm is:
+ *        < 0 if no alarm is set
+ *        = 0 if the alarm is currently going off
+ *        > 0 --> the number of seconds until alarm should go off
+ */
+function draw_clock(obj) {
+  background(BACKGROUND_COL); 
+  /*
+   * Uses the current time to calculate a lerp colour.
+   */ 
+  totalTime = obj.hours + obj.minutes/60 + obj.seconds/3600; // Millis are negligable 
+  factor = (0 <= totalTime && totalTime < 13) ? (totalTime) / 12 : 1 - (totalTime - 12) / 12;
+  ampmColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor);
+
+  /* 
+   * Rotates both secondsDisplays.
+   */
+  secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+  secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
+
+
+
+  /*
+   * While the alarm is turned on but has not yet activated.
+   */
+  if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
+    /*
+     * Initializes some alarm variables.
+     */
+    if (initAlarmVars) {
+      timeUntilActivation = obj.seconds_until_alarm;
+      timeOfTrigger = obj.seconds + obj.millis/999;
+
+      alarmSecondsInd = 60 - timeUntilActivation - timeOfTrigger; // Calculation done to get how many indicators from the pointer
+      alarmMinutesInd = obj.minutes;
+      alarmHoursInd = obj.hours;
+
+      while (alarmSecondsInd < 0) { alarmSecondsInd += 60; alarmMinutesInd++; }
+      while (alarmMinutesInd > 59) { alarmMinutesInd -= 60; alarmHoursInd++; }
+      while (alarmHoursInd > 11) { alarmHoursInd -= 12; }
+      
+      initAlarmVars = false;
+    }
+
+    drawAll(
+      SEC_COL_1,
+      SEC_COL_2,
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
+      AMPM_MONO_COL, ampmColor,
+      ampmColor,
+      ampmColor,
+
+      Math.ceil(alarmSecondsInd), alarmMinutesInd, alarmHoursInd
+    );
+  }
+
+  else if (obj.seconds_until_alarm === 0) {
+    let bel = [10, 10, 10]; // background elemenmt colour
+    activationColor = (c1, c2) => { return lerpColor(color(c1), color(c2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
+
+    // drawAll(
+
+    // );
+
+
+    secondsDisplay1.draw(activationColor(SEC_COL_1, [10, 10, 10]));
+    hourDisplay1.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_1, 
+      activationColor(HOU_PASSIVE_COL_1, [10, 10, 10]), activationColor(HOU_ACTIVE_COL_1, [10, 10, 10])
+    );
+    ampmDisplay1.draw(activationColor(AMPM_MONO_COL, [10, 10, 10]));
+
+    minutesDisplay.draw(
+      obj.minutes, 
+      MIN_ACTIVE_HEIGHT, 
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL
+    );
+
+    minutesDisplay.draw(
+      Math.floor(map(obj.millis, 0, 999, 0, 59)),
+      MIN_ACTIVE_HEIGHT, 
+      activationColor(color(MIN_PASSIVE_COL), [209, 63, 128]), [209, 63, 128]
+    );
+
+    secondsDisplay2.draw(SEC_COL_2);
+
+    hoursDisplay2.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_2, 
+      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2), [209, 63, 128])
+    );
+
+    ampmDisplay1.text(
+      obj.hours,
+      AMPM_FONT_SIZE,
+      activationColor(ampmColor, [209, 63, 128])
+    );
+    ampmDisplay2.draw(activationColor(ampmColor, [209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
+
+    pointer.draw(activationColor(ampmColor, [209, 63, 128]), obj.seconds);
+  }
+
+  else {
+    /* 
+     * Resets variables.
+     */
+    if (!initAlarmVars) {
+      initAlarmVars = true;
+      timeUntilActivation = -1;
+      timeOfTrigger = 0;
+
+      alarmSecondsInd = -1;
+      alarmMinutesInd = -1;
+      alarmHoursInd = -1;
+    }
+
+    drawAll(
+      SEC_COL_1,
+      SEC_COL_2,
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
+      AMPM_MONO_COL, ampmColor,
+      ampmColor,
+      ampmColor
+    );
+
+  }
+}
+
+
+
+
