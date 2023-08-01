@@ -89,7 +89,6 @@ function draw_clock(obj) {
   let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
   let alarmAlpha = 130 * pow( sin( PI/500 * millis ), 2 );
 
-
     
   if (hours >= 6 && hours < 18) {
   background(255, 209, 239);
@@ -118,27 +117,14 @@ function draw_clock(obj) {
   }
 
 
-  // noFill(); // dark grey
-
-
-
-  // fill(255);// pink
-  // ellipse(width / 3, 350, 150);
-  // fill(140, 255, 251) // blue
-  // ellipse(width / 2, 350, 150);
-  // fill(175, 133, 255); // purple
-  // ellipse(width / 3 * 2, 350, 150);
 
   noStroke();
   fill(minutesColRed, minutesColGreen, minutesColBlue);
-  // rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
   rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
-  // rect(centerX-130, centerY+140, hourBarWidth, 47);
 
   battery(centerX, centerY);
-
-    rect(centerX-130, centerY-145, 260, 47);
+  rect(centerX-130, centerY-145, 260, 47);
 
   for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX-130, hourBarY);
@@ -240,42 +226,6 @@ function draw_clock(obj) {
   fill(255, 0, 0);
   rect(centerX+220, centerY+200, 40, -alarmBar);
   }
-
-
-  // else if (hours >= 0 && 5 < hours < 11) {
-  //   for (let i = hoursAMTwelve; i < 7; i++) {
-  //     hoursBarsCol(centerX+5, 48+(hoursBarsColY)*i);
-  //   }
-  // }
-
-
-
-
-  // if (hours >=12 && hours < 18 ) {
-  //   for (let i = hoursPMSix; i < 5; i++) {
-  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*i);
-  //   }
-  // }
-
-  // if (hours >=18 && hours < 24) {
-  //   for (let j = 0; j < hourBarsCount; j++) {
-  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
-  //   }
-  // }
-
-  // if (hours >= 6 && 11 < hours < 17) {
-  //   for (let i = hoursPMTwelve; i < 7; i++) {
-  //     hoursBarsCol(centerX+5, 48+(hoursBarsColY)*i);
-  //   }
-  // }
-
-  // if (hours == 23) {
-  //   for (let j = 0; j < hourBarsCount; j++) {
-  //     hoursBarsCol(centerX-130, 162+(hoursBarsColY)*j)
-  //     hoursBarEleven(centerX-130, centerY-145)
-  //   }
-  // }
-
 
 
   }
