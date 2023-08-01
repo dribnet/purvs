@@ -95,18 +95,18 @@ function draw_clock(obj) {
   let minutesColGreen = map(minutes, 0, 59, 0, 255);
   let minutesColRed = map(minutes, 0, 59, 410, 0);
   
-  let millisAlpha = map(millis, 0, 1000, 0, 100);
+  let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
 
-if (hours >= 6 && hours < 18) {
-  background(220); //  beige
-}
+  if (hours >= 6 && hours < 18) {
+    background(220); //  beige
+  }
 
-if (hours >= 18 || hours < 6) {
-  background(100);
-}
+  if (hours >= 18 || hours < 6) {
+    background(100);
+  }
 
   // noFill(); // dark grey
-  colorMode(RGB, 255, 255, 255, 100);
+  noStroke();
   fill(255, 0, 0, millisAlpha);
   textSize(40);
   textAlign(CENTER, CENTER);
