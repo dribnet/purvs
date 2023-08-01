@@ -74,10 +74,6 @@ fill(0);
 noStroke();
 rect(849,241,75,39);
 
-
-//maze draw was here 
-//end of function 
-
   noFill();
   
 //-------------------------------------------------
@@ -91,11 +87,11 @@ if(obj.millis<300) {
 else {
   drawOpenMouthPacman(80+moveH, 100, 35, 80, 380);
 }
+//draws food 
+food (65,95,7,7);
 
  //creates clock numbers 
- //create this.num / functions for each and call
- //or send each into an array list then call from array list depending on minutes/hr
-let x = 205;
+ let x = 205;
 let y = 185;
 let size = -4;
 let c = 7;
@@ -155,9 +151,8 @@ drawMaze(810,340,30,80,7); //box
 
 }
 
-
-function drawMaze (X,Y,WD,HT,Z){
 //creates maze corners -----------------------------------------
+function drawMaze (X,Y,WD,HT,Z){
 noFill();
 stroke (0,0,199);
 //fill(0,1000,100);
@@ -179,8 +174,6 @@ function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
 
    }
    
-
-
 }
 //draws different positions 
 function drawDigit(x, y, size, c) {
@@ -236,8 +229,13 @@ if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
  
     }
   
-    
+    // draw pacman food 
      
+    function food (X,Y,SIZE){
+      fill(255,107,0);
+      rect(X,Y,SIZE,SIZE);
+
+    }
 
 
  
