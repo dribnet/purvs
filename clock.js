@@ -757,7 +757,7 @@ const ampmDisplay2 = new AmPmDisplay(
  */
 
 /*
- * Alarm Variables.
+ * Pre-alarm setup variables.
  */
 let initAlarmVars = true;
 let timeUntilActivation = -1; // Time until alarm goes off
@@ -768,22 +768,25 @@ let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be colo
 let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
 
 /*
- * Lerp AMPM Colour Variables.
+ * Lerp AMPM colour variables.
  */
 let totalTime;
 let factor;
 let ampmColor;
 
-const ALARM_ACTIVE_COL_1 = [10, 10, 10];   // background elemenmt colour
-const ALARM_ACTIVE_COL_2 = [209, 63, 128]; // alarm colour
+/*
+ * Secondary colours used in lerps for when the alarm goes off
+ */
+const ALARM_ACTIVE_COL_1 = [10, 10, 10];
+const ALARM_ACTIVE_COL_2 = [209, 63, 128];
 
 /**
  * Sine lerp color.
  * Function that returns colours based around some inputed colour.
  * Used when the alarm goes off.
  */
-function SLC(x, c1, c2) {
-  let factor = Math.pow( Math.sin( Math.PI/999 * x ), 2 ); // 999 is for max millis
+function SLC(millis, c1, c2) {
+  let factor = Math.pow( Math.sin( Math.PI/999 * millis ), 2 ); // 999 is for max millis
   return lerpColor(color(c1), color(c2), factor);
 }
 
