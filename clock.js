@@ -98,7 +98,7 @@ function draw_clock(obj) {
 
 
 
-  if(prevmin == undefined || obj.minutes != prevmin) {
+  if(prevmin == undefined || obj.minutes != prevmin || obj.hours != prevhour) {
 
     let v1 = createVector(0,0);
     let v2 = createVector(100, 100);
