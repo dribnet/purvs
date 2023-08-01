@@ -626,6 +626,13 @@ class AmPmDisplay {
  * ===================================== ===================================== *
  */ 
 
+/*
+ * Canvas constants.
+ */
+const WIDTH = 960;
+const HEIGHT = 500;
+const BACKGROUND_COL = [40, 17, 23];
+
 /* 
  * Seconds.
  */
@@ -750,15 +757,6 @@ const ampmDisplay2 = new AmPmDisplay(
  */
 
 /*
- * Canvas constants.
- */
-const WIDTH = 960;
-const HEIGHT = 500;
-const BACKGROUND_COL = [40, 17, 23];
-
-
-
-/*
  * Alarm Variables.
  */
 let initAlarmVars = true;
@@ -769,8 +767,6 @@ let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be colo
 let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
 let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
 
-let activationColor;
-
 /*
  * Lerp AMPM Colour Variables.
  */
@@ -778,12 +774,17 @@ let totalTime;
 let factor;
 let ampmColor;
 
+const BEL = [10, 10, 10];   // background elemenmt colour
+const ALC = [209, 63, 128]; // alarm colour
+
 /**
+ * Sine lerp color.
  * Function that returns colours based around some inputed colour.
  * Used when the alarm goes off.
  */
-function sineLerpColor(x, c1, c2) {
-
+function SLC(x, c1, c2) {
+  let factor = Math.pow( Math.sin( Math.PI/999 * x ), 2 ); // 999 is for max millis
+  return lerpColor(color(c1), color(c2), factor);
 }
 
 function drawAll(
@@ -793,7 +794,7 @@ function drawAll(
   hourDisplay1PassiveCol, hourDisplay1ActiveCol,
   hoursDisplay2PassiveCol, hourDisplay2ActiveCol,
   ampmDisplay1Col, ampmDisplay1TextCol,
-  ampmDisplay2Col,
+  ampmDisplay2Col, ampmDisplay2Scale,
   pointerCol,
 
   secsInd=-1, minsInd=-1, hoursInd=-1
@@ -828,7 +829,7 @@ function drawAll(
     AMPM_FONT_SIZE,
     ampmDisplay1TextCol
   );
-  ampmDisplay2.draw(ampmDisplay2Col);
+  ampmDisplay2.draw(ampmDisplay2Col, ampmDisplay2Scale);
 
   pointer.draw(pointerCol, obj.seconds);
 }
@@ -859,8 +860,6 @@ function draw_clock(obj) {
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-
-
   /*
    * While the alarm is turned on but has not yet activated.
    */
@@ -890,7 +889,7 @@ function draw_clock(obj) {
       HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
       HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
       AMPM_MONO_COL, ampmColor,
-      ampmColor,
+      ampmColor, 1,
       ampmColor,
 
       Math.ceil(alarmSecondsInd), alarmMinutesInd, alarmHoursInd
@@ -898,50 +897,16 @@ function draw_clock(obj) {
   }
 
   else if (obj.seconds_until_alarm === 0) {
-    let bel = [10, 10, 10]; // background elemenmt colour
-    activationColor = (c1, c2) => { return lerpColor(color(c1), color(c2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
-
-    // drawAll(
-
-    // );
-
-
-    secondsDisplay1.draw(activationColor(SEC_COL_1, [10, 10, 10]));
-    hourDisplay1.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_1, 
-      activationColor(HOU_PASSIVE_COL_1, [10, 10, 10]), activationColor(HOU_ACTIVE_COL_1, [10, 10, 10])
+    drawAll(
+      SLC(obj.millis, SEC_COL_1, BEL),
+      SEC_COL_2,
+      SLC(obj.millis, MIN_PASSIVE_COL, ALC), ALC,
+      SLC(obj.millis, HOU_PASSIVE_COL_1, BEL), SLC(obj.millis, HOU_ACTIVE_COL_1, BEL),
+      HOU_PASSIVE_COL_2, SLC(obj.millis, HOU_ACTIVE_COL_2, ALC),
+      SLC(obj.millis, AMPM_MONO_COL, BEL), SLC(obj.millis, ampmColor, ALC), 
+      SLC(obj.millis, ampmColor, ALC), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ),
+      SLC(obj.millis, ampmColor, ALC)
     );
-    ampmDisplay1.draw(activationColor(AMPM_MONO_COL, [10, 10, 10]));
-
-    minutesDisplay.draw(
-      obj.minutes, 
-      MIN_ACTIVE_HEIGHT, 
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL
-    );
-
-    minutesDisplay.draw(
-      Math.floor(map(obj.millis, 0, 999, 0, 59)),
-      MIN_ACTIVE_HEIGHT, 
-      activationColor(color(MIN_PASSIVE_COL), [209, 63, 128]), [209, 63, 128]
-    );
-
-    secondsDisplay2.draw(SEC_COL_2);
-
-    hoursDisplay2.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_2, 
-      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2), [209, 63, 128])
-    );
-
-    ampmDisplay1.text(
-      obj.hours,
-      AMPM_FONT_SIZE,
-      activationColor(ampmColor, [209, 63, 128])
-    );
-    ampmDisplay2.draw(activationColor(ampmColor, [209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
-
-    pointer.draw(activationColor(ampmColor, [209, 63, 128]), obj.seconds);
   }
 
   else {
@@ -965,13 +930,8 @@ function draw_clock(obj) {
       HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
       HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
       AMPM_MONO_COL, ampmColor,
-      ampmColor,
+      ampmColor, 1,
       ampmColor
     );
-
   }
 }
-
-
-
-
