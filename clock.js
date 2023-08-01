@@ -3,13 +3,19 @@
  */
 
 let bodyMain;
+let backgroundMain;
 let bodyMainValue = 0;
 let _myVariable = 0;
 
 function preload(){
   bodyMain = [
-    loadImage("bodyMain1.jpg"),
-    loadImage("bodyMain2.jpg")
+    loadImage("bodyMain1.png"),
+    loadImage("bodyMain2.png")
+  ]
+
+  backgroundMain = [
+    loadImage("backgroundMain1.jpg")
+
   ]
 }
 
@@ -27,9 +33,6 @@ function draw_clock(obj) {
   let seconds = obj.seconds;
   let minutes = obj.minutes;
   let hours = obj.hours;
-  
-  
-
 
    function setMyVariable() {
     if (_myVariable !== seconds) {
@@ -44,12 +47,12 @@ function draw_clock(obj) {
 
     function minuteNecklaceTimer (){
       textSize(20);
-      textFont('Georgia');
-      stroke(4);
       fill(0);
-      text(minutes, 456, 184);
+      stroke(4);
+      textFont('Georgia');
+      text(minutes, 456, 182.5);
 }
-
+image(backgroundMain[0],0,0)
 image(bodyMain[bodyMainValue], 0, 0);
 setMyVariable(); // call lantern function
 minuteNecklaceTimer(); // call minuteNecklaceTimer
