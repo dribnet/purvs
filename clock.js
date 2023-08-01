@@ -672,7 +672,7 @@ const SEC_POINTER_HEIGHT = 30;
 const SEC_POINTER_ANGLE = 90;
 
 const pointer = new SecondsPointer(
-  3 * WIDTH / 4, HEIGHT / 2, 
+  19/25 * WIDTH , HEIGHT / 2, 
   SEC_POINTER_WIDTH, SEC_POINTER_HEIGHT, SEC_POINTER_ANGLE
 );
 
@@ -774,8 +774,8 @@ let totalTime;
 let factor;
 let ampmColor;
 
-const BEL = [10, 10, 10];   // background elemenmt colour
-const ALC = [209, 63, 128]; // alarm colour
+const ALARM_ACTIVE_COL_1 = [10, 10, 10];   // background elemenmt colour
+const ALARM_ACTIVE_COL_2 = [209, 63, 128]; // alarm colour
 
 /**
  * Sine lerp color.
@@ -898,14 +898,14 @@ function draw_clock(obj) {
 
   else if (obj.seconds_until_alarm === 0) {
     drawAll(
-      SLC(obj.millis, SEC_COL_1, BEL),
+      SLC(obj.millis, SEC_COL_1, ALARM_ACTIVE_COL_1),
       SEC_COL_2,
-      SLC(obj.millis, MIN_PASSIVE_COL, ALC), ALC,
-      SLC(obj.millis, HOU_PASSIVE_COL_1, BEL), SLC(obj.millis, HOU_ACTIVE_COL_1, BEL),
-      HOU_PASSIVE_COL_2, SLC(obj.millis, HOU_ACTIVE_COL_2, ALC),
-      SLC(obj.millis, AMPM_MONO_COL, BEL), SLC(obj.millis, ampmColor, ALC), 
-      SLC(obj.millis, ampmColor, ALC), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ),
-      SLC(obj.millis, ampmColor, ALC)
+      SLC(obj.millis, MIN_PASSIVE_COL, ALARM_ACTIVE_COL_2), ALARM_ACTIVE_COL_2,
+      SLC(obj.millis, HOU_PASSIVE_COL_1, ALARM_ACTIVE_COL_1), SLC(obj.millis, HOU_ACTIVE_COL_1, ALARM_ACTIVE_COL_1),
+      HOU_PASSIVE_COL_2, SLC(obj.millis, HOU_ACTIVE_COL_2, ALARM_ACTIVE_COL_2),
+      SLC(obj.millis, AMPM_MONO_COL, ALARM_ACTIVE_COL_1), SLC(obj.millis, ampmColor, ALARM_ACTIVE_COL_2), 
+      SLC(obj.millis, ampmColor, ALARM_ACTIVE_COL_2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ),
+      SLC(obj.millis, ampmColor, ALARM_ACTIVE_COL_2)
     );
   }
 
