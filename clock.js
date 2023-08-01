@@ -787,6 +787,7 @@ function SLC(x, c1, c2) {
   return lerpColor(color(c1), color(c2), factor);
 }
 
+/** Draws all elements of the clock. */
 function drawAll(
   secondsDisplay1Col,
   secondsDisplay2Col,
