@@ -2,6 +2,7 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 
+//This function draws the outline of the clock
 function battery(x,y) {
   noFill();
   strokeWeight(3);
@@ -32,10 +33,14 @@ function battery(x,y) {
   endShape(CLOSE);
 }
 
+//This draws the outline of one of the rectangles inside the main battery
+//I will then draw more by looping it
 function hoursBars(x, y){
   rect(x, y, 125, 47);
 }
 
+//This draws one of the coloured rectangles inside the battery
+//I will then draw more by looping it
 function hoursBarsCol(x, y) {
   // noStroke();
   stroke(0);
@@ -43,22 +48,16 @@ function hoursBarsCol(x, y) {
   rect(x, y, 125, 47);
 }
 
+//This draws the longer rectangle in the battery
 function hoursBarEleven(x, y) {
   // noStroke();
   fill(200, 91, 232);
   rect(x, y, 260, 47);
 }
 
-function minutesLines(x, y) {
-  line(x+0, y+0, x+50, y+0);
-}
-
+//This draws the lines in the left bar
 function secondsLines(x, y) {
   line(x+0, y+0, x+50, y+0);
-}
-
-function millisBar(x, y) {
-
 }
 
 function draw_clock(obj) {
@@ -72,6 +71,7 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
   
+  //Coordinates of the center of the canvas
   let centerX = 480;
   let centerY = 250;
   
@@ -83,20 +83,30 @@ function draw_clock(obj) {
 
   let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
   let secondsCount = map(seconds, 0, 59, 59, 0);
+
+  //Mapping RGB values for the minutes bar
   let minutesColRed = map(minutes, 0, 59, 57, 160);
   let minutesColGreen = map(minutes, 0, 59, 24, 51);
   let minutesColBlue = map(minutes, 0, 59, 71, 202);
+
+  //milliseconds and alarm maps to create oscillations
   let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
   let alarmAlpha = 130 * pow( sin( PI/500 * millis ), 2 );
 
-    
+  
+  //Changing the background colour when the time is between 6am and 6pm and when it's between 6pm and 6am
+  
+  //Lighter
   if (hours >= 6 && hours < 18) {
   background(255, 209, 239);
   }
 
+  //Darker
   if (hours >= 18 || hours < 6) {
     background(152, 125, 173);
   }
+
+  //AM when it's 0000 to 1159 and PM when it's 1200 to 2359
   if (hours >= 0 && hours < 12) {
 
     noStroke();
@@ -117,14 +127,15 @@ function draw_clock(obj) {
   }
 
 
-
+  //Minute bar is on the right
+  //It goes from the bottom to the top and changes colour as it gets taller
   noStroke();
   fill(minutesColRed, minutesColGreen, minutesColBlue);
   rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
-
+  //Draws the whole outline in the center of the canvas
   battery(centerX, centerY);
-  rect(centerX-130, centerY-145, 260, 47);
+  rect(centerX-150, centerY-145, 260, 47);
 
   for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX-130, hourBarY);
