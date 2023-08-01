@@ -880,6 +880,7 @@ function draw_clock(obj) {
       alarmHoursInd = obj.hours;
 
       while (alarmSecondsInd < 0) { alarmSecondsInd += 60; alarmMinutesInd++; }
+      while (alarmSecondsInd > 59) { alarmSecondsInd -= 60; alarmMinutesInd++; }
       while (alarmMinutesInd > 59) { alarmMinutesInd -= 60; alarmHoursInd++; }
       while (alarmHoursInd > 11) { alarmHoursInd -= 12; }
       
