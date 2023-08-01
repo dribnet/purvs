@@ -1,6 +1,18 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+
+let bodyMain;
+let bodyMainValue = 0;
+let _myVariable = 0;
+
+function preload(){
+  bodyMain = [
+    loadImage("bodyMain1.jpg"),
+    loadImage("bodyMain2.jpg")
+  ]
+}
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -11,18 +23,24 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
-  fill(200); // dark grey
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
+  let seconds = obj.seconds;
+  let minutes = obj.minutes;
+  let hours = obj.hours;
+  
+setMyVariable();
 
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
+   function setMyVariable() {
+    if (_myVariable !== seconds) {
+      _myVariable = seconds;
+      if (bodyMainValue === 0) {
+        bodyMainValue = 1;
+      } else if (bodyMainValue === 1) {
+        bodyMainValue = 0;
+      }
+    }
+  }
+   image(bodyMain[bodyMainValue], 0, 0);
 
+   print(minutes)
 }
