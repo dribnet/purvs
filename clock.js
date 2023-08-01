@@ -12,13 +12,6 @@ function draw_clock(obj) {
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
 
-  
-  textSize(40);
-  textAlign(CENTER, CENTER);
-
- 
-
-  
 
   //changing sky based on day and night
 const night_sky = color(12, 23, 63); //50,50,60 //dark blue
@@ -46,14 +39,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
        
     }
 
-  //ellipse moving down test
-  // let Seconds_Radius = map(Seconds, 0, 59, 1, 150);
-  //let secondsY = map(seconds, 0, 59, 1, 150);
-
-  // fill(140, 255, 251) // blue
-  // noStroke();
-  // ellipse(width / 2, secondsY, 100); // minutes moving up and down
-
+ 
   //Raindrops positioning
   let seconds = obj.seconds
   let millis = obj.millis
@@ -83,9 +69,9 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   //plant stalk
   let linex = 480;
   let liney = 75; //originally 55
-  stroke(1, 50, 32); //dark green
+  stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
-  line(linex, liney, linex, liney + 265);
+  line(linex, liney, linex, liney + 265); //the code for the actual stalk
 
   //Plant pot
  let quadx = 405;
@@ -186,39 +172,27 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
                
               }
            }
-          
-  //             if(hours=24){
-  //               for(let k=0;k<leaves;k++){   
-  //                 fill(195, 113, 37); //orange   
-  //                drawLeaf(425,LeavesY+(ystep*k));   
-  //                  drawrightLeaf(535,LeavesY+(ystep*k));   
-  //                   }  
-  // }
-                 
-        
-      
-
 
   //bee flying across screen working with the minutes 0-59
-  
-  let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
+   let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
 
   for(w=0;w<1;w++){ 
     noStroke();
     fill(255,255,0); //yellow base colour of bee
-    drawbee(beeX,height/2); //change to bee when created
+    drawbee(beeX,height/2); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
   }
 
   if (obj.seconds_until_alarm == 0) { //this is where the alarm is active/going off
-    background(12, 23, 63);
+    background(12, 23, 63); //night blue for the alarm background
  
-//  text("alarm",250,250);
+
  
    // plant stalk
- stroke(1, 50, 32); //dark green
+ stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
-  line(linex, liney, linex, liney + 265);
+  line(linex, liney, linex, liney + 265); //the code for the actual stalk
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
+ 
   noStroke();
   //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
