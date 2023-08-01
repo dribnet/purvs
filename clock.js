@@ -866,13 +866,13 @@ function draw_clock(obj) {
   else if (obj.seconds_until_alarm === 0) {
     activationColor = (c1, c2) => { return lerpColor(color(c1), color(c2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
 
-    secondsDisplay1.draw(SEC_COL_1);
+    secondsDisplay1.draw(activationColor(SEC_COL_1, [10, 10, 10]));
     hourDisplay1.draw(
       (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
       HOU_ACTIVE_RADIUS_1, 
-      activationColor(HOU_PASSIVE_COL_1, [10,10,10]), activationColor(HOU_ACTIVE_COL_1, [10,10,10])
+      activationColor(HOU_PASSIVE_COL_1, [10, 10, 10]), activationColor(HOU_ACTIVE_COL_1, [10, 10, 10])
     );
-    ampmDisplay1.draw(AMPM_MONO_COL);
+    ampmDisplay1.draw(activationColor(AMPM_MONO_COL, [10, 10, 10]));
 
     minutesDisplay.draw(
       obj.minutes, 
@@ -917,36 +917,66 @@ function draw_clock(obj) {
       alarmMinutesInd = -1;
       alarmHoursInd = -1;
     }
-
-    secondsDisplay1.draw(SEC_COL_1);
-    hourDisplay1.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_1, 
-      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
-    );
-    ampmDisplay1.draw(AMPM_MONO_COL);
-
-    minutesDisplay.draw(
-      obj.minutes, 
-      MIN_ACTIVE_HEIGHT, 
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL
-    );
-
-    secondsDisplay2.draw(SEC_COL_2);
-
-    hoursDisplay2.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_2, 
-      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2
-    );
-
-    ampmDisplay1.text(
-      obj.hours,
-      AMPM_FONT_SIZE,
+    drawAll(
+      SEC_COL_1,
+      SEC_COL_2,
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
+      AMPM_MONO_COL, calculatedColor,
+      calculatedColor,
       calculatedColor
     );
-    ampmDisplay2.draw(calculatedColor);
 
-    pointer.draw(calculatedColor, obj.seconds);
   }
+}
+
+
+
+
+function drawAll(
+  secondsDisplay1Col,
+  secondsDisplay2Col,
+
+  minutesDisplayPassiveCol, minutesDisplayActiveCol,
+
+  hourDisplay1PassiveCol, hourDisplay1ActiveCol,
+  hoursDisplay2PassiveCol, hourDisplay2ActiveCol,
+
+  ampmDisplay1Col, ampmDisplay1TextCol,
+  ampmDisplay2Col,
+
+  pointerCol
+) {
+
+  secondsDisplay1.draw(secondsDisplay1Col);
+  hourDisplay1.draw(
+    (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+    HOU_ACTIVE_RADIUS_1, 
+    hourDisplay1PassiveCol, hourDisplay1ActiveCol
+  );
+  ampmDisplay1.draw(ampmDisplay1Col);
+
+  minutesDisplay.draw(
+    obj.minutes, 
+    MIN_ACTIVE_HEIGHT, 
+    minutesDisplayPassiveCol, minutesDisplayActiveCol
+  );
+
+  secondsDisplay2.draw(secondsDisplay2Col);
+
+  hoursDisplay2.draw(
+    (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+    HOU_ACTIVE_RADIUS_2, 
+    hoursDisplay2PassiveCol, hourDisplay2ActiveCol
+  );
+
+  ampmDisplay1.text(
+    obj.hours,
+    AMPM_FONT_SIZE,
+    ampmDisplay1TextCol
+  );
+  ampmDisplay2.draw(ampmDisplay2Col);
+
+  pointer.draw(pointerCol, obj.seconds);
 }
