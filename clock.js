@@ -38,13 +38,14 @@ function hoursBars(x, y){
 
 function hoursBarsCol(x, y) {
   // noStroke();
-  fill(255);
+  stroke(0);
+  fill(200, 91, 232);
   rect(x, y, 125, 47);
 }
 
 function hoursBarEleven(x, y) {
   // noStroke();
-  fill(255);
+  fill(200, 91, 232);
   rect(x, y, 260, 47);
 }
 
@@ -80,37 +81,50 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-  let secondsWithFraction   = seconds + (millis / 1000.0);
+  // let secondsWithFraction   = seconds + (millis / 1000.0);
 
 
 
-  let hourBarWidth   = map(hours, 0, 24, 0, 129);
+  // let hourBarWidth   = map(hours, 0, 24, 0, 129);
   let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
-  let minutesLinesYBot = 195;
-  let minutesLinesYTop = -155;
   let secondsCount = map(seconds, 0, 59, 59, 0);
   //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
   // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
-  let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
-  let minutesColGreen = map(minutes, 0, 59, 0, 255);
-  let minutesColRed = map(minutes, 0, 59, 410, 0);
-  
-  let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
+  // let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
+  let minutesColRed = map(minutes, 0, 59, 57, 160);
+  let minutesColGreen = map(minutes, 0, 59, 24, 51);
+  let minutesColBlue = map(minutes, 0, 59, 71, 202);
 
+  let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
+    
   if (hours >= 6 && hours < 18) {
-    background(220); //  beige
+  background(255, 209, 239);
   }
 
   if (hours >= 18 || hours < 6) {
-    background(100);
+    background(152, 125, 173);
+  }
+  if (hours >= 0 && hours < 12) {
+
+    noStroke();
+    fill(57, 24, 71, millisAlpha);
+    textSize(40);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text("AM", centerX, centerY-180);
+  }
+
+  if (hours >= 12 && hours < 24) {
+    noStroke();
+    fill(57, 24, 71, millisAlpha);
+    textSize(40);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+    text("PM", centerX, centerY-180);
   }
 
   // noFill(); // dark grey
-  noStroke();
-  fill(255, 0, 0, millisAlpha);
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("AM", centerX, centerY-180);
+
 
 
   // fill(255);// pink
@@ -121,7 +135,7 @@ function draw_clock(obj) {
   // ellipse(width / 3 * 2, 350, 150);
 
   noStroke();
-  fill(minutesColRed, minutesColGreen, 0);
+  fill(minutesColRed, minutesColGreen, minutesColBlue);
   // rect(centerX-210, centerY+200, 60, -secondHeightSmooth);
   rect(centerX+150, centerY+200, 60, -minuteBarHeight);
   
@@ -145,6 +159,7 @@ function draw_clock(obj) {
   let secondsLinesY = 6;
   if (seconds >= 0 && seconds < 60) {
     for (let i = secondsCount+1; i < 60; i++) {
+      stroke(57, 24, 71);
       secondsLines(centerX-205, 90+(secondsLinesY)*i);
     }
   }
@@ -210,6 +225,7 @@ function draw_clock(obj) {
     }
   }
 
+  
 
   // else if (hours >= 0 && 5 < hours < 11) {
   //   for (let i = hoursAMTwelve; i < 7; i++) {
