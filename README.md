@@ -25,3 +25,7 @@ I've changed my idea completely. Now instead of balloons inflating, or a sort of
 Developing the ferry idea:
 
 I've added a car object which has a number (representing minutes) and a hue (taken from a list of random numbers 1-100). My plan is to move cars along a path, reaching the ferry on the minute that corresponds to the number on the roof of the car, so car 20 will be loaded on to the ferry at 20 minutes past the hour. One suggestion was to make the cars get loaded on every second instead of every minute. This would make the clock have a lot more movement, so I will test how it looks.
+
+Getting cars working:
+
+Cars are now working. I created a Car class, where car objects have a number and a hue. I figured using a class would make it easier to make changes to cars if I need to, though as they are now it's probably unecessary. I've also set up some maps so that cars move  smoothly towards their destination - which they reach at the correct time. The next thing I need to do is set up what happens on the hour, when the ferry leaves. It may be diffcult to set it up in a way where the ferry can leave and return for the next set of cars within a minute. Originally I imagined that cars would build up a sort of queue while they were waiting for the ferry to return. This would work fine, however it would make it difficult to read the time.
