@@ -770,7 +770,7 @@ let factor;
 let calculatedColor;
 
 
-let idk = -1;
+
 
 
 /** 
@@ -891,7 +891,7 @@ function draw_clock(obj) {
       alarmMinutesInd = -1;
       alarmHoursInd = -1;
     }
-    
+
     drawAll(
       SEC_COL_1,
       SEC_COL_2,
