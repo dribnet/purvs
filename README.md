@@ -3,7 +3,8 @@
 ## MDDN 242 Project 1: Time-based Media  
 
 ### Urban Rhythm Clock
-
+**By Arianna Mulligan**
+>
 *Artist Statement*
 >
 An animated piece which represents time by using a city silhouette, with three main cities representing seconds, minutes and hours. The landscape changes according to the night or day time, and gives either late night city vibes or a bright and early day time aesthetic. The alarm gives a twist for the viewer, as it zooms out to show that the bigger perspective of the landscape is actually on a TV. The reason for this is because its rare these days to look out at a raw city landscape, its usually through a TV, or laptop, or any technology. The inspiration for this project is viewing Wellington city through a window, where you get to see the different windows turn on and off at random times in the day or night. It's quite comforting knowing you're not the only one awake in a big city.  
