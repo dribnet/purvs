@@ -28,7 +28,8 @@ function draw_clock(obj) {
   let minutes = obj.minutes;
   let hours = obj.hours;
   
-setMyVariable();
+  
+
 
    function setMyVariable() {
     if (_myVariable !== seconds) {
@@ -40,7 +41,17 @@ setMyVariable();
       }
     }
   }
-   image(bodyMain[bodyMainValue], 0, 0);
 
-   print(minutes)
+    function minuteNecklaceTimer (){
+      textSize(20);
+      textFont('Georgia');
+      stroke(4);
+      fill(0);
+      text(minutes, 456, 184);
+}
+
+image(bodyMain[bodyMainValue], 0, 0);
+setMyVariable(); // call lantern function
+minuteNecklaceTimer(); // call minuteNecklaceTimer
+
 }
