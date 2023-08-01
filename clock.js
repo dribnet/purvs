@@ -823,6 +823,20 @@ function draw_clock(obj) {
       initAlarmVars = false;
     }
 
+    secondsDisplay1.draw(SEC_COL_1);
+    hourDisplay1.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_1, 
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
+    );
+    ampmDisplay1.draw(AMPM_MONO_COL);
+
+    minutesDisplay.draw(
+      obj.minutes, 
+      MIN_ACTIVE_HEIGHT, 
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL
+    );
+
     minutesDisplay.draw(
       obj.minutes,
       MIN_ACTIVE_HEIGHT, 
@@ -850,12 +864,26 @@ function draw_clock(obj) {
   }
 
   else if (obj.seconds_until_alarm === 0) {
-    activationColor = (c) => { return lerpColor(c, color([209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
+    activationColor = (c1, c2) => { return lerpColor(color(c1), color(c2), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
+
+    secondsDisplay1.draw(SEC_COL_1);
+    hourDisplay1.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_1, 
+      activationColor(HOU_PASSIVE_COL_1, [10,10,10]), activationColor(HOU_ACTIVE_COL_1, [10,10,10])
+    );
+    ampmDisplay1.draw(AMPM_MONO_COL);
+
+    minutesDisplay.draw(
+      obj.minutes, 
+      MIN_ACTIVE_HEIGHT, 
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL
+    );
 
     minutesDisplay.draw(
       Math.floor(map(obj.millis, 0, 999, 0, 59)),
       MIN_ACTIVE_HEIGHT, 
-      activationColor(color(MIN_PASSIVE_COL)), [209, 63, 128]
+      activationColor(color(MIN_PASSIVE_COL), [209, 63, 128]), [209, 63, 128]
     );
 
     secondsDisplay2.draw(SEC_COL_2);
@@ -863,17 +891,17 @@ function draw_clock(obj) {
     hoursDisplay2.draw(
       (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
       HOU_ACTIVE_RADIUS_2, 
-      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2))
+      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2), [209, 63, 128])
     );
 
     ampmDisplay1.text(
       obj.hours,
       AMPM_FONT_SIZE,
-      activationColor(calculatedColor)
+      activationColor(calculatedColor, [209, 63, 128])
     );
-    ampmDisplay2.draw(activationColor(calculatedColor), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
+    ampmDisplay2.draw(activationColor(calculatedColor, [209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
 
-    pointer.draw(activationColor(calculatedColor), obj.seconds);
+    pointer.draw(activationColor(calculatedColor, [209, 63, 128]), obj.seconds);
   }
 
   else {
