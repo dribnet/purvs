@@ -67,55 +67,55 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
 
 
   //plant stalk
-  let linex = 480;
-  let liney = 75; //originally 55
+  let linex = 480; //stalk x position variable
+  let liney = 75; //stalk y position variable //originally 55
   stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
   line(linex, liney, linex, liney + 265); //the code for the actual stalk
 
   //Plant pot
- let quadx = 405;
- let quady = 370; //originally 350
- let rectx = 395;
- let recty = 340; //originally 320
+ let quadx = 405; //main body of plant pot x position variable
+ let quady = 370; //main body of plant pot y position variable //originally 350
+ let rectx = 395; //top piece of plant pot, position x variable
+ let recty = 340; //top piece of plant pot, position y variable //originally 320
 
  
-  fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
+  fill(193, 154, 107); //medium brown colour 
   noStroke();
-  //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
   rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
 
-  stroke(210, 180, 140); // light tan brown // original colour: light turquoise 140,255,251
-  strokeWeight(5);
-  line(rectx, quady, 565, 370); //line on collar of plant pot //395, 350, 565, 350
+  stroke(210, 180, 140); // light tan brown 
+  strokeWeight(5); //size of collar
+  line(rectx, quady, 565, 370); //line on collar of plant pot // colour: 395, 350, 565, 350
 
   
-  let ystep = 48;
-  let leaves = 6;  
-  let hours = obj.hours;    
-  let ZeroSix = map(hours,0,6,6,0);   
-  let sixTwelve = map(hours,0,12,12,0); 
-  let TwelveEightteen = map(hours,12,18,6,0);
-  let TestMap = map(hours,18,23,5,0);
+  let ystep = 48; //distance between the position of each leave
+  let leaves = 6;  //number of leaves to appear on each side, mapped to hours
+  let hours = obj.hours;   //hours variable 
+  let ZeroSix = map(hours,0,6,6,0);   //used for leaves to appear with the hours between 0000 and 0600
+  let sixTwelve = map(hours,0,12,12,0); //used for leaves to appear with the hours between 0600 and 1200
+  let TwelveEightteen = map(hours,12,18,6,0); //used for leaves to appear with the hours between 1200 and 1800
+  let TestMap = map(hours,18,23,5,0);//used for leaves to appear with the hours between 1800 and 2300
   
   
 
   //colours
-  let minutes = obj.minutes
+  let minutes = obj.minutes //minutes varuable
   
-  const leafGreen = color(18, 181, 121);
-  const leafYellow = color(195, 113, 37);
+  const leafGreen = color(18, 181, 121); //constant colour, green //used for controlling the change in leave colour
+  const leafOrange = color(195, 113, 37); //constant colour, orange //used for controlling the change in leave colour
 
-//map
+//map for the lerp colour //changing between green and orange
 //old range 0-59 for miuntes
 //new range 0-1 for the lerpColor method
   let Lerp = map(minutes,0,59,0,1);
   //go from colour1 to colour2
-  let leafChange = lerpColor(leafGreen, leafYellow,Lerp);
+  let leafChange = lerpColor(leafGreen, leafOrange,Lerp); //this variable controls the change in leaf colour
 
   
   //This is the leaves changing as the hours go by
+
   //leaves between 0000 - 1200, green and gradually appering by the hour.
       if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
         for (let i = ZeroSix; i < 6; i++) {    
@@ -123,7 +123,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
        drawLeaf(425, 42+(ystep)*i);     
     }
   } 
-       else {//draw 6 leaves in the same spot       
+       else {//draw 6 leaves in the same spot in green     
         for(let k=0;k<leaves;k++){   
           fill(18, 181, 121); //light green    
            drawLeaf(425,42+(ystep*k));   
@@ -131,11 +131,11 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
              //lerp colour between green and orange for 1300 - 2400
            if(hours>=13&&hours<19){//draw 6 leaves between 1300 - 1800   //each minute the leaves will slowly fade between green and orange
             for (let i = TwelveEightteen; i < 6; i++) {  
-             fill(leafChange);   //colour change
+             fill(leafChange);   //colour change between green and orange
               drawLeaf(425, 42+(ystep)*i);   
              
            }}  
-           else if(hours>=13){//draw 6 leaves in the same spot       
+           else if(hours>=13){//draw 6 leaves in the same spot in orange     
             for(let k=0;k<leaves;k++){   
               fill(195, 113, 37); //orange   
                drawLeaf(425,42+(ystep*k));   
@@ -150,21 +150,21 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
       drawrightLeaf(535, 42+(ystep)*i);  
      
     } } 
-      else  if(hours>=12){//draw 6 leaves in the same spot      
+      else  if(hours>=12){//draw 6 leaves in the same spot in green     
         for(let k=0;k<leaves;k++){      
           fill(18, 181, 121); //light green  
           drawrightLeaf(535,42+(ystep*k));   
            }  
            if(hours>=18&&hours<=23){//draw 6 leaves between 1900 - 2300  ////each minute the leaves will slowly fade between green and orange
             for (let i = TestMap; i < 6; i++) {  
-              fill(leafChange);  //colour changing
+              fill(leafChange);  //colour change between green and orange
               drawrightLeaf(535, 42+(ystep)*i);  
              
             } 
             
                  
           } 
-          else if(hours>=23){//draw 6 leaves in the same spot       
+          else if(hours>=23){//draw 6 leaves in the same spot in orange    
             for(let k=0;k<leaves;k++){   
               fill(195, 113, 37); //orange   
                drawrightLeaf(535,42+(ystep*k));   
@@ -175,17 +175,18 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
 
   //bee flying across screen working with the minutes 0-59
    let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
+   let beebounce = map(millis,0,999,0,TWO_PI); //maps the milliseconds to the sin wave for the wiggle
+   let Wiggle = sin(beebounce); //wiggle variable for bee using map for bounce rate
 
-  for(w=0;w<1;w++){ 
+  for(w=0;w<1;w++){ //this makes the bee move across the screen
     noStroke();
     fill(255,255,0); //yellow base colour of bee
-    drawbee(beeX,height/2); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
+    drawbee(beeX,height/2+Wiggle*10); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
   }
 
-  if (obj.seconds_until_alarm == 0) { //this is where the alarm is active/going off
-    background(12, 23, 63); //night blue for the alarm background
- 
-
+  //this is where the alarm is active/going off
+  if (obj.seconds_until_alarm == 0) { 
+    background(12, 23, 63); //night blue for the alarm background to replace the normal background
  
    // plant stalk
  stroke(1, 50, 32); //dark green stalk colour
@@ -194,19 +195,17 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
  
   noStroke();
-  //quad(10, 30, 80, 30, 70, 90, 20, 90); //10,30,80,30,70,90,20,90
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
   rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
 
-  stroke(210, 180, 140); // light tan brown // original colour: light turquoise 140,255,251
+  stroke(210, 180, 140); // light tan brown 
   strokeWeight(5);
-  line(rectx, quady, 565, 370); //line on collar of plant pot //395, 350, 565, 350
+  line(rectx, quady, 565, 370); //line on collar of plant pot 
 
   flowerAlarm(width/2,100); //flower to appear when alarm goes off
  
   
-    fill(255,255,0); //yellow
-    drawbee(beeX,height/2); //change to bee when created
+    
   
    }
 
