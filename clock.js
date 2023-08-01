@@ -135,8 +135,11 @@ function draw_clock(obj) {
   
   //Draws the whole outline in the center of the canvas
   battery(centerX, centerY);
-  rect(centerX-150, centerY-145, 260, 47);
 
+  //This draws the outline for the 11H bar
+  rect(centerX-130, centerY-145, 260, 47);
+
+  //Loop to draw the rest of the bars inside the battery
   for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX-130, hourBarY);
   }
@@ -144,6 +147,7 @@ function draw_clock(obj) {
     hoursBars(centerX+5, hourBarY);
   }
 
+  //One line is drawn every second until a minute has passed then it restarts
   let secondsLinesY = 6;
   if (seconds >= 0 && seconds < 60) {
     for (let i = secondsCount+1; i < 60; i++) {
@@ -152,6 +156,8 @@ function draw_clock(obj) {
     }
   }
 
+  //Every hour, the hour bars light up
+  //This goes from 0000-1100 then resets at 1200 and repeats from 1200-2300
   let hoursBarsColY = 57;
   let hourBarsCount = 5;
   let hoursAMSix = map(hours, 0, 5, 5, 0);
@@ -214,14 +220,18 @@ function draw_clock(obj) {
   }
 
   
+  //Alarm is 30 seconds so i mapped the time to the height of the bar
   let alarmBar = map(alarm, 0, 30, centerY-250, centerY+110);
 
+  //If alarm is less than 0, there is no bar
   if (alarm < 0) {
     noStroke();
     noFill();
     rect(centerX+220, centerY+200, 40, -alarmBar);
   }
 
+  //if alarm is equal to 0, the alarm goes off
+  //my alarm is a simple flashing red
   else if(alarm == 0) {
     noStroke();
     noFill();
@@ -231,6 +241,7 @@ function draw_clock(obj) {
 
   }
 
+  //else (the timer is counting down): the map is working - the height of the bar is corresponding with the time
   else {
   strokeWeight(2);
   stroke(0);
