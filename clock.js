@@ -781,7 +781,6 @@ let calculatedColor;
  */
 function draw_clock(obj) {
   background(BACKGROUND_COL); 
-
   /*
    * Uses the current time to calculate a lerp colour.
    */ 
@@ -789,11 +788,15 @@ function draw_clock(obj) {
   factor = (0 <= totalTime && totalTime < 13) ? (totalTime) / 12 : 1 - (totalTime - 12) / 12;
   calculatedColor = lerpColor(color(AMPM_DARK_COL), color(AMPM_LIGHT_COL), factor);
 
-  // Rotates both secondsDisplays
+  /* 
+   * Rotates both secondsDisplays.
+   */
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  // Draws the first secondsDisplay and first hourDisplay
+  /*
+   * Draws the first secondsDisplay and first hourDisplay.
+   */
   secondsDisplay1.draw(SEC_COL_1);
   hourDisplay1.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_1, HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1);
   ampmDisplay1.draw(AMPM_MONO_COL);
