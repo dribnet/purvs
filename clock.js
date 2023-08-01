@@ -83,19 +83,19 @@ function draw_clock(obj) {
 
   // let secondsWithFraction   = seconds + (millis / 1000.0);
 
-
-
-  // let hourBarWidth   = map(hours, 0, 24, 0, 129);
   let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
   let secondsCount = map(seconds, 0, 59, 59, 0);
-  //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
-  // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
-  // let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
   let minutesColRed = map(minutes, 0, 59, 57, 160);
   let minutesColGreen = map(minutes, 0, 59, 24, 51);
   let minutesColBlue = map(minutes, 0, 59, 71, 202);
-
   let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
+  let alarmAlpha = 130 * pow( sin( PI/500 * millis ), 2 );
+  // let hourBarWidth   = map(hours, 0, 24, 0, 129);
+
+  //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
+  // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
+  // let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
+
     
   if (hours >= 6 && hours < 18) {
   background(255, 209, 239);
@@ -122,6 +122,7 @@ function draw_clock(obj) {
     textAlign(CENTER, CENTER);
     text("PM", centerX, centerY-180);
   }
+
 
   // noFill(); // dark grey
 
@@ -151,10 +152,6 @@ function draw_clock(obj) {
   for (var hourBarY = centerY+140; hourBarY >= centerY-120; hourBarY -= 57){
     hoursBars(centerX+5, hourBarY);
   }
-
-
-  
-
 
   let secondsLinesY = 6;
   if (seconds >= 0 && seconds < 60) {
@@ -226,6 +223,30 @@ function draw_clock(obj) {
   }
 
   
+  let alarmBar = map(alarm, 0, 30, centerY-250, centerY+110);
+
+  if (alarm < 0) {
+    noStroke();
+    noFill();
+    rect(centerX+220, centerY+200, 40, -alarmBar);
+  }
+
+  else if(alarm == 0) {
+    noStroke();
+    noFill();
+    rect(centerX+220, centerY+200, 40, -alarmBar);
+
+    background(255, 0, 0, alarmAlpha)
+
+  }
+
+  else {
+  strokeWeight(2);
+  stroke(0);
+  fill(255, 0, 0);
+  rect(centerX+220, centerY+200, 40, -alarmBar);
+  }
+
 
   // else if (hours >= 0 && 5 < hours < 11) {
   //   for (let i = hoursAMTwelve; i < 7; i++) {
