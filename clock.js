@@ -584,11 +584,12 @@ class AmPmDisplay {
   }
 
   /** Draw method for display. */
-  draw(fillColor) {
+  draw(fillColor, scaleFactor=1) {
     push();
 
     // Setup
     translate(this.xCenter, this.yCenter);
+    scale(scaleFactor);
     ellipseMode(CENTER);
     noStroke();
     fill(fillColor);
@@ -752,11 +753,12 @@ const ampmDisplay2 = new AmPmDisplay(
  */
 let initAlarmVars = true;
 let timeUntilActivation = -1; // Time until alarm goes off
-let timeOfActivation = 0;     // The current second when the alarm timer is activated
+let timeOfTrigger = 0;        // The current second when the alarm timer is activated
 
 let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be coloured
 let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
 let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
+
 
 let activationColor;
 
@@ -766,6 +768,9 @@ let activationColor;
 let totalTime;
 let factor;
 let calculatedColor;
+
+
+let idk = -1;
 
 
 /** 
@@ -794,16 +799,7 @@ function draw_clock(obj) {
   secondsDisplay1.angle = - map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
-  /*
-   * Draws the first secondsDisplay, hourDisplay, and AMPM display.
-   */
-  secondsDisplay1.draw(SEC_COL_1);
-  hourDisplay1.draw(
-    (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-    HOU_ACTIVE_RADIUS_1, 
-    HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
-  );
-  ampmDisplay1.draw(AMPM_MONO_COL);
+
 
   /*
    * While the alarm is turned on but has not yet activated.
@@ -814,9 +810,9 @@ function draw_clock(obj) {
      */
     if (initAlarmVars) {
       timeUntilActivation = obj.seconds_until_alarm;
-      timeOfActivation = obj.seconds + obj.millis/999;
+      timeOfTrigger = obj.seconds + obj.millis/999;
 
-      alarmSecondsInd = 60 - timeUntilActivation - timeOfActivation; // Calculation done to get how many indicators from the pointer
+      alarmSecondsInd = 60 - timeUntilActivation - timeOfTrigger; // Calculation done to get how many indicators from the pointer
       alarmMinutesInd = obj.minutes;
       alarmHoursInd = obj.hours;
 
@@ -827,9 +823,21 @@ function draw_clock(obj) {
       initAlarmVars = false;
     }
 
-    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd);
+    minutesDisplay.draw(
+      obj.minutes,
+      MIN_ACTIVE_HEIGHT, 
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL, 
+      alarmMinutesInd
+    );
+
     secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
-    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, alarmHoursInd);
+
+    hoursDisplay2.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_2, 
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, 
+      alarmHoursInd
+    );
 
     ampmDisplay1.text(
       obj.hours,
@@ -837,23 +845,33 @@ function draw_clock(obj) {
       calculatedColor
     );
     ampmDisplay2.draw(calculatedColor);
-
+    
     pointer.draw(calculatedColor, obj.seconds);
   }
 
   else if (obj.seconds_until_alarm === 0) {
     activationColor = (c) => { return lerpColor(c, color([209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
 
-    minutesDisplay.draw(Math.floor(map(obj.millis, 0, 999, 0, 59)), MIN_ACTIVE_HEIGHT, activationColor(color(MIN_PASSIVE_COL)), [209, 63, 128]);
+    minutesDisplay.draw(
+      Math.floor(map(obj.millis, 0, 999, 0, 59)),
+      MIN_ACTIVE_HEIGHT, 
+      activationColor(color(MIN_PASSIVE_COL)), [209, 63, 128]
+    );
+
     secondsDisplay2.draw(SEC_COL_2);
-    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2)));
+
+    hoursDisplay2.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_2, 
+      HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2))
+    );
 
     ampmDisplay1.text(
       obj.hours,
       AMPM_FONT_SIZE,
       activationColor(calculatedColor)
     );
-    ampmDisplay2.draw(activationColor(calculatedColor));
+    ampmDisplay2.draw(activationColor(calculatedColor), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 ));
 
     pointer.draw(activationColor(calculatedColor), obj.seconds);
   }
@@ -862,17 +880,24 @@ function draw_clock(obj) {
     /* 
      * Resets variables.
      */
-    initAlarmVars = true;
-    timeUntilActivation = -1;
-    timeOfActivation = 0;
+    if (!initAlarmVars) {
+      initAlarmVars = true;
+      timeUntilActivation = -1;
+      timeOfTrigger = 0;
 
-    alarmSecondsInd = -1;
-    alarmMinutesInd = -1;
-    alarmHoursInd = -1;
+      alarmSecondsInd = -1;
+      alarmMinutesInd = -1;
+      alarmHoursInd = -1;
+    }
 
-    /*
-     * Draws everything like normal.
-     */
+    secondsDisplay1.draw(SEC_COL_1);
+    hourDisplay1.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_1, 
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
+    );
+    ampmDisplay1.draw(AMPM_MONO_COL);
+
     minutesDisplay.draw(
       obj.minutes, 
       MIN_ACTIVE_HEIGHT, 
