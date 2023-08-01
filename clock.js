@@ -1,6 +1,7 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -191,7 +192,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
    // plant stalk
  stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
-  line(linex, liney, linex, liney + 265); //the code for the actual stalk
+  line(linex, 130, linex, liney + 265); //the code for the actual stalk
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
  
   noStroke();
@@ -202,11 +203,15 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   strokeWeight(5);
   line(rectx, quady, 565, 370); //line on collar of plant pot 
 
-  flowerAlarm(width/2,100); //flower to appear when alarm goes off
+  fill(18, 181, 121); //light green
+  drawLeaf(425,230); //left leaf
+  drawrightLeaf(535,200); //right leaf
  
   
-    
+//let secondsrotate = map(seconds,0,59,0,TWO_PI);
   
+let flowerx = map(millis/40,0,59,30,80, petalSize);
+  flowerAlarm(width/2,100,flowerx); //flower to appear when alarm goes off
    }
 
 
@@ -296,19 +301,21 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
  //alarm flower
  let petalx = 100;
  let petaly =100
- 
- function flowerAlarm(petalx,petaly){
+let petalSize = 30
+
+ function flowerAlarm(petalx,petaly,petalSize){
+  
    fill(255);
    noStroke();
-   ellipse(petalx,petaly,30,60);//top petal //100,100,30,60
-   ellipse(petalx,petaly+60,30,60); //bottom petal //100/160,30,60
-   ellipse(petalx-30,petaly+30,60,30); //left side petal //70,130,60,30
-   ellipse(petalx+30,petaly+30,60,30); //right side petal //130,130,60,30
+   ellipse(petalx,petaly,petalSize,petalSize+30);//top petal //100,100,30,60
+   ellipse(petalx,petaly+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
+   ellipse(petalx-30,petaly+30,petalSize+30,petalSize); //left side petal //70,130,60,30
+   ellipse(petalx+30,petaly+30,petalSize+30,petalSize); //right side petal //130,130,60,30
  
    //center of flower
-   fill(255,255,0);
+   fill(195, 113, 37);
    noStroke();
-   ellipse(petalx,petaly+30,30,30); //100,130,30,30
+   ellipse(petalx,petaly+30,petalSize,petalSize); //100,130,30,30
  }
 
  
