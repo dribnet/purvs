@@ -823,44 +823,18 @@ function draw_clock(obj) {
       initAlarmVars = false;
     }
 
-    secondsDisplay1.draw(SEC_COL_1);
-    hourDisplay1.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_1, 
-      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
-    );
-    ampmDisplay1.draw(AMPM_MONO_COL);
+    drawAll(
+      SEC_COL_1,
+      SEC_COL_2,
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL,
+      HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1,
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2,
+      AMPM_MONO_COL, calculatedColor,
+      calculatedColor,
+      calculatedColor,
 
-    minutesDisplay.draw(
-      obj.minutes, 
-      MIN_ACTIVE_HEIGHT, 
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL
+      Math.ceil(alarmSecondsInd), alarmMinutesInd, alarmHoursInd
     );
-
-    minutesDisplay.draw(
-      obj.minutes,
-      MIN_ACTIVE_HEIGHT, 
-      MIN_PASSIVE_COL, MIN_ACTIVE_COL, 
-      alarmMinutesInd
-    );
-
-    secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
-
-    hoursDisplay2.draw(
-      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
-      HOU_ACTIVE_RADIUS_2, 
-      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, 
-      alarmHoursInd
-    );
-
-    ampmDisplay1.text(
-      obj.hours,
-      AMPM_FONT_SIZE,
-      calculatedColor
-    );
-    ampmDisplay2.draw(calculatedColor);
-    
-    pointer.draw(calculatedColor, obj.seconds);
   }
 
   else if (obj.seconds_until_alarm === 0) {
@@ -917,6 +891,7 @@ function draw_clock(obj) {
       alarmMinutesInd = -1;
       alarmHoursInd = -1;
     }
+    
     drawAll(
       SEC_COL_1,
       SEC_COL_2,
@@ -937,16 +912,14 @@ function draw_clock(obj) {
 function drawAll(
   secondsDisplay1Col,
   secondsDisplay2Col,
-
   minutesDisplayPassiveCol, minutesDisplayActiveCol,
-
   hourDisplay1PassiveCol, hourDisplay1ActiveCol,
   hoursDisplay2PassiveCol, hourDisplay2ActiveCol,
-
   ampmDisplay1Col, ampmDisplay1TextCol,
   ampmDisplay2Col,
+  pointerCol,
 
-  pointerCol
+  secsInd=-1, minsInd=-1, hoursInd=-1
 ) {
 
   secondsDisplay1.draw(secondsDisplay1Col);
@@ -960,15 +933,17 @@ function drawAll(
   minutesDisplay.draw(
     obj.minutes, 
     MIN_ACTIVE_HEIGHT, 
-    minutesDisplayPassiveCol, minutesDisplayActiveCol
+    minutesDisplayPassiveCol, minutesDisplayActiveCol,
+    minsInd
   );
 
-  secondsDisplay2.draw(secondsDisplay2Col);
+  secondsDisplay2.draw(secondsDisplay2Col, secsInd);
 
   hoursDisplay2.draw(
     (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
     HOU_ACTIVE_RADIUS_2, 
-    hoursDisplay2PassiveCol, hourDisplay2ActiveCol
+    hoursDisplay2PassiveCol, hourDisplay2ActiveCol,
+    hoursInd
   );
 
   ampmDisplay1.text(
