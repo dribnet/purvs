@@ -272,8 +272,8 @@ class MinutesDiplay {
      * All affected indicators are added to a Map, storing both the index and the scale factor.
      * When a unit time passes, the growth and decay rates control the speed at which the indicators change height.
      */
-    const GROWTH_RATE=1.03
-    const DECAY_RATE=0.99;
+    const GROWTH_RATE = 1.03
+    const DECAY_RATE = 0.99;
 
     let factor;
     let ind;
@@ -710,7 +710,7 @@ const HOU_TOTAL_ARC_SIZE_1 = Math.PI * 3.8/10;
 const HOU_ACTIVE_RADIUS_1 = 10;
 const HOU_ACTIVE_RADIUS_2 = 8;
 const HOU_PASSIVE_COL_1 = [30, 30, 30];
-const HOU_ACTIVE_COL_1 = [50, 50, 50];
+const HOU_ACTIVE_COL_1 = [40, 40, 40];
 const HOU_PASSIVE_COL_2 = [132, 42, 44];
 const HOU_ACTIVE_COL_2 = [138, 202, 56];
 
@@ -729,15 +729,22 @@ const hoursDisplay2 = new HoursDisplay(
 /*
  * AM/PM.
  */
-const AMPM_RADIUS = 30;
-const AMPM_FONT_SIZE = 45;
+const AMPM_RADIUS_1 = 60;
+const AMPM_RADIUS_2 = 30;
+const AMPM_FONT_SIZE = 35;
 
+const AMPM_MONO_COL = [30, 30, 30];
 const AMPM_DARK_COL = [105, 10, 125];
 const AMPM_LIGHT_COL = [138, 202, 56];
 
-const ampmDisplay = new AmPmDisplay(
+const ampmDisplay1 = new AmPmDisplay(
+  0, HEIGHT/2,
+  AMPM_RADIUS_1
+);
+
+const ampmDisplay2 = new AmPmDisplay(
   WIDTH/2, HEIGHT/2,
-  AMPM_RADIUS
+  AMPM_RADIUS_2
 );
 
 /*
@@ -751,6 +758,7 @@ let alarmSecondsInd = -1;     // Which secondsDisplay indicator needs to be colo
 let alarmMinutesInd = -1;     // Which minutesDisplay indicator needs to be coloured
 let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be coloured
 
+let activationColor;
 
 /**
  * Lerp Colour Variables.
@@ -758,6 +766,7 @@ let alarmHoursInd = -1;       // Which HoursDisplay indicator needs to be colour
 let totalTime;
 let factor;
 let calculatedColor;
+
 
 /** 
  * draw your own clock here based on the values of obj:
@@ -787,6 +796,7 @@ function draw_clock(obj) {
   // Draws the first secondsDisplay and first hourDisplay
   secondsDisplay1.draw(SEC_COL_1);
   hourDisplay1.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_1, HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1);
+  ampmDisplay1.draw(AMPM_MONO_COL);
 
   if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
     if (initAlarmVars) {
@@ -807,21 +817,41 @@ function draw_clock(obj) {
     minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL, alarmMinutesInd);
     secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
     hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, alarmHoursInd);
+
+    ampmDisplay2.draw(calculatedColor);
+    AmPmDisplay.text(
+      0, HEIGHT/2,
+      obj.hours,
+      AMPM_FONT_SIZE,
+      calculatedColor
+    );
+
+    pointer.draw(calculatedColor, obj.seconds);
   }
 
   else if (obj.seconds_until_alarm === 0) {
-    push();
-    fill([255, 255, 255]);
-    noStroke();
-    textAlign(CENTER, CENTER);
-    textFont("Impact", 70);
+    activationColor = (c) => { return lerpColor(c, color([209, 63, 128]), Math.pow( Math.sin( Math.PI/999 * obj.millis ), 2 )); }
 
-    text("JUMPSCARE", WIDTH/2, HEIGHT/2);
-    pop();
+    minutesDisplay.draw(Math.floor(map(obj.millis, 0, 999, 0, 59)), MIN_ACTIVE_HEIGHT, activationColor(color(MIN_PASSIVE_COL)), [209, 63, 128]);
+    secondsDisplay2.draw(SEC_COL_2);
+    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2)));
+
+
+    ampmDisplay2.draw(activationColor(calculatedColor));
+    AmPmDisplay.text(
+      0, HEIGHT/2,
+      obj.hours,
+      AMPM_FONT_SIZE,
+      activationColor(calculatedColor)
+    );
+
+    pointer.draw(activationColor(calculatedColor), obj.seconds);
   }
 
   else {
-    // Resets variables
+    /* 
+     * Resets variables.
+     */
     initAlarmVars = true;
     timeUntilActivation = -1;
     timeOfActivation = 0;
@@ -830,20 +860,31 @@ function draw_clock(obj) {
     alarmMinutesInd = -1;
     alarmHoursInd = -1;
 
-    minutesDisplay.draw(obj.minutes, MIN_ACTIVE_HEIGHT, MIN_PASSIVE_COL, MIN_ACTIVE_COL);
+    /*
+     * Draws everything like normal.
+     */
+    minutesDisplay.draw(
+      obj.minutes, 
+      MIN_ACTIVE_HEIGHT, 
+      MIN_PASSIVE_COL, MIN_ACTIVE_COL
+    );
+
     secondsDisplay2.draw(SEC_COL_2);
-    hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2);
+
+    hoursDisplay2.draw(
+      (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+      HOU_ACTIVE_RADIUS_2, 
+      HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2
+    );
+
+    ampmDisplay2.draw(calculatedColor);
+    AmPmDisplay.text(
+      0, HEIGHT/2,
+      obj.hours,
+      AMPM_FONT_SIZE,
+      calculatedColor
+    );
+
+    pointer.draw(calculatedColor, obj.seconds);
   }
-
-  // Draws the ampmDisplay and text
-  ampmDisplay.draw(calculatedColor);
-  AmPmDisplay.text(
-    0, HEIGHT/2,
-    obj.hours,
-    AMPM_FONT_SIZE,
-    calculatedColor
-  );
-
-  // Draws the pointer
-  pointer.draw(calculatedColor, obj.seconds);
 }
