@@ -46,11 +46,11 @@ Update this file as you go along to record your progress.
   Firstly, I wanted to make it so that no matter how long the delay is, some highlighted indicator would pass the pointer exactly as the alarm goes off. This was apparently really simple: by subtracting the max total seconds (60) by the current second in the minute (this effectively resets the seconds back to zero), and then by the time until the alarm would go off, it would compute which indicator needed to be highlighted. Somehow I managed to not see the solution immediatly and spent an hour on this problem.
 
 28 JULY
-  The highlighting 
+  The minute and hour of when the alarm is going off is now also highlighted. Furthermore, if the sum of the alarm time and current second is over 59, then the following minute will be highlighted. This also applies to the hours; If the following minute is 0 (as in, it has passed 59 minutes), then the following hour will be highlighted.
 
-29 JULY
+  Another HoursDisplay has been added to complimemt the background gear. Like with the background gear, it was not part of the original design and was added as a means to make the clock look better. The first HoursDisplay is a full circle, surrounded by the secondsDisplay. However, this background gear is off to the side and does not fit inside the canvas. As a result of this, the HoursDisplay class has a new parameter that lets it adjust the total size of the arc. This has made it so that this new HoursDisplay entirelly fits on the canvas.
 
-30 JULY
+  SecondsDisplay and MinutesDisplay have both been rescaled and repositioned, deviating from the clocks original composition. This new arrangement has the SecondsDisplay gear smaller and the MinutesDisplay larger and on the outside. The latter's alpha colour has also been halved to make it semi transparent.
 
 01 AUGUST
 
