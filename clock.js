@@ -598,15 +598,15 @@ class AmPmDisplay {
     pop();
   }
 
-  /** Static method that displays AM or PM based on the current hour. */
-  static text(x, y, hour, fontSize, fontColor) {
+  /** Method that displays AM or PM based on the current hour. */
+  text(hour, fontSize, fontColor) {
     const TEXT_OFFSET = 70;
     const FONT = "Courier New";
   
     push();
 
     // Setup
-    translate(x, y);
+    translate(this.xCenter, this.yCenter);
     textAlign(CENTER, CENTER);
     textFont(FONT, fontSize);
     noStroke();
@@ -831,13 +831,12 @@ function draw_clock(obj) {
     secondsDisplay2.draw(SEC_COL_2, Math.ceil(alarmSecondsInd));
     hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2, alarmHoursInd);
 
-    ampmDisplay2.draw(calculatedColor);
-    AmPmDisplay.text(
-      0, HEIGHT/2,
+    ampmDisplay1.text(
       obj.hours,
       AMPM_FONT_SIZE,
       calculatedColor
     );
+    ampmDisplay2.draw(calculatedColor);
 
     pointer.draw(calculatedColor, obj.seconds);
   }
@@ -849,14 +848,12 @@ function draw_clock(obj) {
     secondsDisplay2.draw(SEC_COL_2);
     hoursDisplay2.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_2, HOU_PASSIVE_COL_2, activationColor(color(HOU_ACTIVE_COL_2)));
 
-
-    ampmDisplay2.draw(activationColor(calculatedColor));
-    AmPmDisplay.text(
-      0, HEIGHT/2,
+    ampmDisplay1.text(
       obj.hours,
       AMPM_FONT_SIZE,
       activationColor(calculatedColor)
     );
+    ampmDisplay2.draw(activationColor(calculatedColor));
 
     pointer.draw(activationColor(calculatedColor), obj.seconds);
   }
@@ -890,13 +887,12 @@ function draw_clock(obj) {
       HOU_PASSIVE_COL_2, HOU_ACTIVE_COL_2
     );
 
-    ampmDisplay2.draw(calculatedColor);
-    AmPmDisplay.text(
-      0, HEIGHT/2,
+    ampmDisplay1.text(
       obj.hours,
       AMPM_FONT_SIZE,
       calculatedColor
     );
+    ampmDisplay2.draw(calculatedColor);
 
     pointer.draw(calculatedColor, obj.seconds);
   }
