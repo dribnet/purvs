@@ -65,39 +65,39 @@ drawSun();
 
 
 
-if (obj.hours>=1){
-  image(l1,330,85,187,293) 
+if (obj.hours>=2){
+  image(l1,335,85,187,293) 
   image(r1,540,105,144,289)
 
 }
-if(obj.hours>=2){
-  image(l2,280,100,252,325)
+if(obj.hours>=4){
+  image(l2,270,80,252,325)
   image(r2,560,120,192,241)
 }
-if(obj.hours>=3){
+if(obj.hours>=6){
   image(l3,250,160,289,222)
   image(r3,550,170,309,242)
 }
-if(obj.hours>=4){
+if(obj.hours>=8){
   image(l4,250,130,323,329)
   image(r4,550,240,325,161)
 }
-if(obj.hours>=5){
+if(obj.hours>=10){
   image(l5,260,150,316,335)
   image(r5,540,280,323,161)
 }
-if(obj.hours>=6){
+if(obj.hours>=12){
   image(l5,270,190,286,335)
   image(r5,540,320,303,161)
 }
 
 if (obj.hours>=0){
-  image(lady,410,70,227,442)
+  image(lady,415,70,227,442)
 }
 
-
-
-
+if (obj.hours>=1){
+drawGlobe(500,300,50)
+}
 }
 let millisSize =0
 
@@ -1423,3 +1423,24 @@ millisSize= map(obj.millis,0,1000,300,130)
 ellipse(540,40,millisSize)
 }
 
+function drawGlobe(x,y){
+  noStroke()
+
+fill(255,255,255,200);// white
+ellipse(x,y, 50);
+
+fill(255,255,255,50);//white
+
+//fill(255,191,0,150);
+
+if(obj.millis<=500){
+millisSize= map(obj.millis,0,1000,50,100)
+millisSize= map(obj.millis,0,1000,40,100)
+}
+else if(obj.millis>=500){
+millisSize= map(obj.millis,0,1000,100,50)
+millisSize= map(obj.millis,0,1000,100,40)
+}
+ellipse(x,y,millisSize)
+
+}
