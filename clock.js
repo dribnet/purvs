@@ -81,8 +81,6 @@ function draw_clock(obj) {
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
 
-  // let secondsWithFraction   = seconds + (millis / 1000.0);
-
   let minuteBarHeight = map(minutes, 0, 59, centerY-250, centerY+110);
   let secondsCount = map(seconds, 0, 59, 59, 0);
   let minutesColRed = map(minutes, 0, 59, 57, 160);
@@ -90,11 +88,7 @@ function draw_clock(obj) {
   let minutesColBlue = map(minutes, 0, 59, 71, 202);
   let millisAlpha = 255 * pow( sin( PI/999 * millis ), 2 );
   let alarmAlpha = 130 * pow( sin( PI/500 * millis ), 2 );
-  // let hourBarWidth   = map(hours, 0, 24, 0, 129);
 
-  //let secondBarHeight  = map(seconds, 0, 60, centerY-250, centerY+110);
-  // let secondHeightSmooth  = map(secondsWithFraction, 0, 60, centerY-250, centerY+110);
-  // let millisBarHeight = map(millis, 0, 1000, centerY+200, centerY-60);
 
     
   if (hours >= 6 && hours < 18) {
