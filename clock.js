@@ -2,7 +2,10 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function preload(){
-  img = loadImage('Sun_CC.png');
+  img_sun = loadImage('sun.png');
+  img_uranus = loadImage('uranus.png');
+  img_purple = loadImage('purple.png');
+  img_green = loadImage('green.png');
 }
 
 function draw_clock(obj) {
@@ -60,7 +63,7 @@ angleMode(DEGREES);
   let hours_radius = map(hours, 0, 59, 80, 80);
   fill(249, 140, 255);// pink
   //ellipse(width /2, 275, hours_radius);
-  image (img, width/2 -35 , height/2 -35, hours_radius, 80);
+  image (img_sun, width/2 -40 , height/2 -40, hours_radius, 80);
   let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
   let minutes_radius = map(minutes, 0, 59, 55, 55);
 
@@ -68,7 +71,8 @@ angleMode(DEGREES);
     translate(width/2, height/2);
     rotate(rotH);
     fill(140,255,251); //blue
-    ellipse(150,0,minutes_radius);
+    //ellipse(150,0,minutes_radius);
+    image (img_uranus, 150-27.5,0-27.5,minutes_radius,55);
     
     let rotM = map(seconds + (millis/1000.0), 0, 59, 0, 360);
     let seconds_radius = map(seconds, 0, 59, 35, 35);
@@ -78,14 +82,16 @@ angleMode(DEGREES);
           translate (150,0);
           rotate (rotM);
           fill(175, 133, 255); //purple
-          ellipse(70,0,seconds_radius);
+          //ellipse(70,0,seconds_radius);
+          image (img_purple, 70-17.5,0-17.5,seconds_radius,35);
                 
           let millis_radius = map(millis, 0, 999, 15, 15);
                 push();
                   translate (70,0);
                   rotate (rotS);
                   fill(255, 165, 0); // orange
-                  ellipse(30,0, millis_radius);
+                  //ellipse(30,0, millis_radius);
+                  image (img_green, 30-7.5, 0-7.5, millis_radius, 15);
               
                 pop();
 
