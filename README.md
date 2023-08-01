@@ -38,7 +38,7 @@ Update this file as you go along to record your progress.
 25 JULY
   Because it is impossible to tell whether the clock is show AM or PM, a new class called AMPMDisplay has been defined to solve this problem. This class is simply a circle that lerps forwards between two colours during AM to PM (a dark colour going to light), then lerps backwards between the same two colours during PM to AM (a light colour going to a dark colour). In contrast with the other displays, this one was the most simple to program. 
 
-  A bit later on I realised that this does not actually solve the problem at all; because the lerp backwards is just the inverse of the lerp forwards, two times 12 hours appart, lets say 5AM and 5PM, look identical. The only way to tell them apart is by waiting for the next hour to go by and seeing if the AMPMDisplay would get lighter or darker. To remedy this, a new static method was added that displayed in text AM or PM depending on the current hour. This was positioned near the centre of the background gear, with the same lerp colour as the main display.
+  A bit later on I realised that this does not actually solve the problem at all; because the lerp backwards is just the inverse of the lerp forwards, two times 12 hours appart, lets say 5AM and 5PM, look identical. The only way to tell them apart is by waiting for the next hour to go by and seeing if the AMPMDisplay would get lighter or darker. To remedy this, a new static method called text(...) was added that displayed in text AM or PM depending on the current hour. This was positioned near the centre of the background gear, with the same lerp colour as the main display.
 
 27 JULY
   I began working on the alarm today, starting with the indications before the alarm would go off. 
@@ -53,5 +53,14 @@ Update this file as you go along to record your progress.
   SecondsDisplay and MinutesDisplay have both been rescaled and repositioned, deviating from the clocks original composition. This new arrangement has the SecondsDisplay gear smaller and the MinutesDisplay larger and on the outside. The latter's alpha colour has also been halved to make it semi transparent.
 
 01 AUGUST
+  Another AMPMDisplay was added, this one is in the centre of the background gear. I realised that the coordinates of the text are the same as this new AMPMDisplay, and so I changed the text(...) method from a static to a regular and got rid of the coordinate parameters.
 
+  The alarm has been fully implemented. When the alarm goes off:
+    - The background SecondsDisplay, HoursDisplay, and AMPMDisplay pulsates from their default colour to a much darker colour.
+    - In the MinutesDisplay, the current and active indicators remain highlighted, while the unaffected pulsates from their normal colour to this highlighted colour.
+    - The current hour pulsates from its default colour to the highlighted colour.
+    - The pointer, AMPMDisplay, and AMPMDisplay text pulsate from their default colour to the highlighted colour. The AMPMDisplay has the bonus effect of growing and shrinking 
+      in size as it does this.
+  
+  The three states of the alarm, no alarm, alarm active, and alarm waiting, all use very similar drawing code. Because of this, I grouped up all of the drawing code into one big function called drawAll(...) to reduce repetition.
 
