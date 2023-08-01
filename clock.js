@@ -51,7 +51,7 @@ if (obj.seconds>=20){
 }
 
 if (obj.seconds>=30){
-  drawFlower4(50,250,obj.seconds)
+  drawFlower4(250,50,obj.seconds)
 }
 if (obj.seconds>=40){
   drawFlower5(250,250,obj.seconds)
@@ -91,11 +91,12 @@ if(obj.hours>=6){
   image(r5,540,320,303,161)
 }
 
-
-
 if (obj.hours>=0){
   image(lady,410,70,227,442)
 }
+
+
+
 
 }
 let millisSize =0
