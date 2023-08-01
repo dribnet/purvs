@@ -795,13 +795,23 @@ function draw_clock(obj) {
   secondsDisplay2.angle = map(obj.seconds + (obj.millis / 1000), 0, 59, 0, 354);
 
   /*
-   * Draws the first secondsDisplay and first hourDisplay.
+   * Draws the first secondsDisplay, hourDisplay, and AMPM display.
    */
   secondsDisplay1.draw(SEC_COL_1);
-  hourDisplay1.draw((obj.hours > 11) ? obj.hours - 12 : obj.hours, HOU_ACTIVE_RADIUS_1, HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1);
+  hourDisplay1.draw(
+    (obj.hours > 11) ? obj.hours - 12 : obj.hours, 
+    HOU_ACTIVE_RADIUS_1, 
+    HOU_PASSIVE_COL_1, HOU_ACTIVE_COL_1
+  );
   ampmDisplay1.draw(AMPM_MONO_COL);
 
+  /*
+   * While the alarm is turned on but has not yet activated.
+   */
   if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
+    /*
+     * Initializes some alarm variables.
+     */
     if (initAlarmVars) {
       timeUntilActivation = obj.seconds_until_alarm;
       timeOfActivation = obj.seconds + obj.millis/999;
