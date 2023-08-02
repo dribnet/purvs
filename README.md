@@ -6,7 +6,7 @@
 
 Update this file as you go along to record your progress.
 
-18 JULY\n
+18 JULY
   Seconds in this clock are defined by a gear that rotates. Once one tooth passes some pointer, one second will have passed.
   To make this, I defined a class called SecondsGear. This class will take in some arguments and construct a hollow gear with them, which can be rotated through a method that will change its angle property.
 
