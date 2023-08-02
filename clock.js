@@ -879,12 +879,15 @@ function draw_clock(obj) {
       alarmMinutesInd = obj.minutes;
       alarmHoursInd = obj.hours;
 
+      /*
+       * While loops for wrapping the the alarm indicators in case they flow over or go under their respective limits.
+       */ 
       while (alarmSecondsInd < 0) { alarmSecondsInd += 60; alarmMinutesInd++; }
       while (alarmSecondsInd > 59) { alarmSecondsInd -= 60; alarmMinutesInd++; }
       while (alarmMinutesInd > 59) { alarmMinutesInd -= 60; alarmHoursInd++; }
       while (alarmHoursInd > 11) { alarmHoursInd -= 12; }
       
-      initAlarmVars = false;
+      initAlarmVars = false; // Disable the alarm variables from initialising again unless the alarm is turned off
     }
 
     drawAll(
@@ -901,7 +904,13 @@ function draw_clock(obj) {
     );
   }
 
+  /*
+   * While the alarm is activated.
+   */
   else if (obj.seconds_until_alarm === 0) {
+    /*
+     * SLC is used to pulse between two colours based on the milliseconds. 
+     */
     drawAll(
       SLC(obj.millis, SEC_COL_1, ALARM_ACTIVE_COL_1),
       SEC_COL_2,
