@@ -81,7 +81,7 @@ function draw_clock(obj) {
   oilFlame(millis, jittermap, jittermap2);
   oilFlame(millis, jittermap, jittermap2);
   
-  alarm(SecsTillAlarm, flameHeight);
+  alarm(SecsTillAlarm, flameHeight, millis);
 
 }
 
@@ -409,27 +409,44 @@ function hourglassBlock(nightBackground, dayBackground, hours, mins){
   pop();
 }
 
-function alarm(SecsTillAlarm, flameHeight){
+function alarm(SecsTillAlarm, CandleflameHeight, millis){
   push();
-  let glowSizeWidth = map(SecsTillAlarm,5,0,0,40);
-  let glowSizeHeight = map(SecsTillAlarm,5,0,0,45);
-  let glowXpos = map(SecsTillAlarm,5,0,flameHeight,flameHeight-13);
+  let glowSizeWidth = map(SecsTillAlarm,10,0,0,40);
+  let glowSizeHeight = map(SecsTillAlarm,10,0,0,50);
+  let CandleGlowXpos = map(SecsTillAlarm,10,0,CandleflameHeight,CandleflameHeight-15);
+  let OilGlowXpos = map(SecsTillAlarm,10,0,235,220);
+
+
   let yellowFlame = color(255,224,71,60);
-  let whiteFlame = color(255,255,255,60);
-  let flameGradient = lerpColor(yellowFlame, whiteFlame, SecsTillAlarm*0.2);;
+  let orangeFlame = color(252,168,58,120);//color(255,255,255,120);
+  
+
 
     //glow effect via https://www.youtube.com/watch?v=iIWH3IUYHzM&t=88s
-    drawingContext.shadowBlur = 10;
-    drawingContext.shadowColor = color(252,168,58);
+    drawingContext.shadowBlur = 32;
+    drawingContext.shadowColor = color(255,255,255);
+
 
   if (SecsTillAlarm == 0){
-    //alarm going off
+    //alarm going off - flashes every odd/even millisecond
+    if (millis%2==0){
+      fill(yellowFlame);
+    } else {
+      fill(orangeFlame); 
+    }
+    //I liked the effect of layering the ellipses so I called them twice.
+    ellipse(194, CandleflameHeight-15,40,50); // ellipse over candle flame
+    ellipse(194, CandleflameHeight-15,40,50); // ellipse over candle flame
+
+    ellipse(605,215,40,50); //ellipse over oil lamp flame
+    ellipse(605,215,40,50); //ellipse over oil lamp flame
+ 
+
+  } else if (SecsTillAlarm > 0 && SecsTillAlarm <= 10) {
+    //10 seconds until alarm, light grows
     fill(yellowFlame);
-    ellipse(194, flameHeight-13,40,45);
-  } else if (SecsTillAlarm > 0 && SecsTillAlarm <= 5) {
-    //5 seconds until alarm
-    fill(flameGradient);
-    ellipse(194, glowXpos, glowSizeWidth, glowSizeHeight);
+    ellipse(194, CandleGlowXpos, glowSizeWidth, glowSizeHeight); //candle flame grows
+    ellipse(605, OilGlowXpos, glowSizeWidth,glowSizeHeight);
   } else {
     //no alarm
   }
