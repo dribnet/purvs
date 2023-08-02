@@ -41,12 +41,13 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
     }
 
  
-  //Raindrops positioning
+  //Raindrops positioning. 
   let seconds = obj.seconds
   let millis = obj.millis
-  let Rain = seconds + (millis/1000); //makes the rain drops run smoother
-  let dropsY = map(Rain,0,59,30,500);
+  let Rain = seconds + (millis/1000); //makes the rain drops run smoother by using the milliseconds with the seconds
+  let dropsY = map(Rain,0,59,30,500); //allows the raindrops to gradually fall (imitating water actaul rain does)
   
+  //for loops draw multiple raindrops across the x-axis
   for(w=0;w<8;w++){ //
     drawWaterdrops(50+w*120,dropsY); //top line of rain drops
   }
@@ -101,7 +102,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   
   
 
-  //colours
+  //colours variables
   let minutes = obj.minutes //minutes varuable
   
   const leafGreen = color(18, 181, 121); //constant colour, green //used for controlling the change in leave colour
@@ -115,7 +116,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   let leafChange = lerpColor(leafGreen, leafOrange,Lerp); //this variable controls the change in leaf colour
 
   
-  //This is the leaves changing as the hours go by
+  //This is the leaves changing as the hours go by:
 
   //leaves between 0000 - 1200, green and gradually appering by the hour.
       if(hours>=0&&hours<7){//draw 6 leaves between 0000 - 0600  
@@ -179,22 +180,21 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
    let beebounce = map(millis,0,999,0,TWO_PI); //maps the milliseconds to the sin wave for the wiggle
    let Wiggle = sin(beebounce); //wiggle variable for bee using map for bounce rate
 
-  for(w=0;w<1;w++){ //this makes the bee move across the screen
-    noStroke();
-    fill(255,255,0); //yellow base colour of bee
-    drawbee(beeX,height/2+Wiggle*10); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
-  }
+   //this makes the bee move across the screen
+  drawbee(beeX,height/2+Wiggle*10); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
+  
 
-  //this is where the alarm is active/going off
+  //this is where the alarm is active/going off:
   if (obj.seconds_until_alarm == 0) { 
     background(12, 23, 63); //night blue for the alarm background to replace the normal background
  
-   // plant stalk
+   // plant stalk for alarm
  stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
   line(linex, 130, linex, liney + 265); //the code for the actual stalk
+  
+  //plant pot for the alarm function
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
- 
   noStroke();
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
   rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
@@ -210,24 +210,27 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   
 
 
-
+//this is the flower code for the alarm
 angle = angle + 0.05; //slows down the speed of the flower spinning
 //let secondsrotate = map(seconds,0,59,0, angle); //maps flower spinning to the seconds
 let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargement of the flower by the milliseconds e.g., allows flower to become bigger and smaller for the alarm. 
 
 
 push();
-  translate(width/2,100) ; //movews flower to position i need it at
+translate(width/2,100) ; //moves flower to position i need it at
   rotate(angle); //allows the flower to spin
   flowerAlarm(0,0, flowersize); //flower to appear when alarm goes off
 
   pop();
 
+  drawbee(width/2,100+Wiggle*10);
+
 }
 
 
-  }
+  } //this is the end of the draw clock function
 
+//These are all my individual functions and their variables:
 
 //these are constant variables for my bee, leaves and water dros
 let Beex = 20 //controls x position of Bee
@@ -289,20 +292,20 @@ function drawrightLeaf(Leafx, leafy) {
 //bee
 function drawbee(Beex,Beey){
 noStroke();
- //back wing
 
+ //back wing
 fill(213, 245, 255,200); //clear blue
 ellipse(Beex-5,Beey-15,15,25); //-15,235,15,25
 
-fill(255,255,0);
+fill(255,255,0); //body colour, yellow
 ellipse(Beex,Beey,35,25); //body //20,250,35,25
 fill(0); //black
 ellipse(Beex+10,Beey-5,5); //eye //30,245,5
 stroke(0);
 line(Beex-7,Beey+12,Beex-7,Beey-10); //back stripe //13,262,13,240
 line(Beex+3,Beey+12,Beex+3,Beey-10); //front stripe //23,262,23,240
- //front forward wing
 
+ //front forward wing
 noStroke();
 fill(213, 245, 255,200); //clear blue
 ellipse(Beex,Beey-15,15,25); //-10,235,15,25
@@ -310,23 +313,25 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
 }
 
  //alarm flower
- let petalx = 100;
- let petaly =100
+ let petal = 100;
 let petalSize = 30
 
- function flowerAlarm(petalx,petaly,petalSize){
+ function flowerAlarm(petal,petal,petalSize){
   
+  push();
+  ellipseMode();
    fill(255);
    noStroke();
-   ellipse(petalx,petaly,petalSize,petalSize+30);//top petal //100,100,30,60
-   ellipse(petalx,petaly+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
-   ellipse(petalx-30,petaly+30,petalSize+30,petalSize); //left side petal //70,130,60,30
-   ellipse(petalx+30,petaly+30,petalSize+30,petalSize); //right side petal //130,130,60,30
+   ellipse(petal,petal,petalSize,petalSize+30);//top petal //100,100,30,60
+   ellipse(petal,petal+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
+   ellipse(petal-30,petal+30,petalSize+30,petalSize); //left side petal //70,130,60,30
+   ellipse(petal+30,petal+30,petalSize+30,petalSize); //right side petal //130,130,60,30
  
    //center of flower
    fill(195, 113, 37);
    noStroke();
-   ellipse(petalx,petaly+30,petalSize,petalSize); //100,130,30,30
+   ellipse(petal,petal+30,petalSize,petalSize); //100,130,30,30
+   pop();
  }
 
  
