@@ -1,14 +1,5 @@
 // DRAW CLOCK FUNCTION
 function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
 
   // Setup Variables
   let carColor = color(0);
@@ -378,11 +369,19 @@ function draw_clock(obj) {
   textFont('Helvetica');
   textAlign(CENTER);
   fill(255);
-  text(obj.seconds, markerWidth + markerPace + 2, 418);
-  if (obj.seconds == 0) {
-    text(59, markerPace, 418);
-  } else {
+  if (alarm == 10) { // Alarm Countdown Transition
+    text(Math.floor(alarm), markerWidth + markerPace, 418);
     text(obj.seconds - 1, markerPace, 418);
+  } else if (alarm > 0 && alarm < 10) { // Alarm Countdown
+    text(Math.floor(alarm), markerWidth + markerPace, 418);
+    text(Math.floor(alarm + 1), markerPace, 418);
+  } else { // Regular Second Markers
+    text(obj.seconds, markerWidth + markerPace + 2, 418);
+    if (obj.seconds == 0) {
+      text(59, markerPace, 418);
+    } else {
+      text(obj.seconds - 1, markerPace, 418);
+    }
   }
   
   // ALARM OVERLAY

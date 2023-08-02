@@ -5,14 +5,6 @@
 
 # Roadtrip Clock | Rita Close | 03/08/2023
 
-
-* A description of your overall design process that serves as your design journal (suggested: 300-600 words)
-2) A 960x500 pixel preview.jpg that is a screenshot from your final version (you can use the '!' key to generate)
-3) A modified index.html that updates all meta tags with your own settings for title / url / image / etc.
-
-Have you written a final readme for your final? This readme should reflect on your project as a whole, and be an "artists statement" for your clock. Mention inspiration and design consideration here
-
-
 ### Design Process
 
 For this project, I wanted to create a landscape that would reflect time and be reminicent of it's passing, rather than making a clock in itself. In the panning process I had too many bits of concepts with roman numerals, buildings, cars, hourglasses, sunrises and more - as a result, my final concept became a culmination of these ideas. When I was younger, my family would often go on road trips to see family living far away, so I remember spending entire days in the back of a car, watching the landscpae slip by and the sky fade from dawn to dusk.
@@ -31,4 +23,4 @@ The alarm function was something I hadn't previously planned for and found it re
 
 ### Reflection
 
-Overall, I'm really happy with how my clock turned out and I had a lot of fun making it. If I had a bit more time I would look into fixing the transitions going into the alarm as it only works sometimes.
+Overall, I'm really happy with how my clock turned out and I had a lot of fun making it. If I had a bit more time I would look into fixing the transitions going into the alarm as it only works sometimes. I would also look more into the sky colour and how to better transition between the times of day - sunrise to daytime for example. It would also be interesting to add more detail to the landscape and make how it changes throughout the hour more drastic instead of just alternating between the city and the countryside. I think perhaps I could've come up with an alarm that suits the narritive a bit more, but I kind of like it's surprising nature and I do think it looks cool the way it is.
