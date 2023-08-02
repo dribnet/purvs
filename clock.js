@@ -71,12 +71,13 @@ function draw_clock(obj) {
 
     var scaleit = map(alarm, 0, original_alarm, 0.2, 1); // so it zooms out nicely 
 
+    // so the zoom out is centered 
     currentScale = currentScale * scaleit;
-
     translateX = width/2 - (width/2 * scaleit) + (translateX * scaleit);
     translateY = height/2 - (height/2 * scaleit) + (translateY * scaleit);
   }
   else if (alarm == 0) {
+    // default view 
     translateX = width/2.5;
     translateY = height/2.5;
     currentScale = 0.2;
@@ -183,7 +184,13 @@ function draw_clock(obj) {
   pop();
 }
 
-// sets the background to a gradient, changing as the time changes 
+// 
+/**
+ * sets the background to a gradient, changing as the time changes 
+ * @param { The current hour of the day } hours 
+ * @param { What color is night time } blackSky 
+ * @param { What color is day time } blueSky 
+ */
 function setBackground(hours, blackSky, blueSky){
   let currentColor = color(0);
 
@@ -213,7 +220,12 @@ function setBackground(hours, blackSky, blueSky){
   
 }
 
-// draws the clouds or the stars and their colors 
+/**
+ * draws the clouds or the stars and their colors 
+ * @param { What is the current milliseconds } millis 
+ * @param { What are the current seconds } seconds 
+ * @param { What are the current hours } hours 
+ */
 function drawCloudsOrStars(millis, seconds, hours){
   var starsPulsing = 0;
   var starsPulsing2 = 0;
@@ -249,14 +261,28 @@ function drawCloudsOrStars(millis, seconds, hours){
   }
 }
 
-// draws the street lamp across the bottom 
+/**
+ * draws the street lamp across the bottom 
+ */
 function drawImage(){
   for (let i =20; i< width; i+=170){
     image(imgLamp, i, height-90, 100, 100);
     }
 }
 
-// Creating windows in their respective areas and buildings, placing them randomly. 
+/**
+ * Creating windows in their respective areas and buildings, placing them randomly. 
+ * @param { What is the section of time you want to display? } time 
+ * @param { The max amount of columns } iMax 
+ * @param { The max amount of rows } jMax 
+ * @param { What is the x offset } x 
+ * @param { What is the x offset plus more } x1 
+ * @param { What is the y offset } y 
+ * @param { What is the y offset plus more } y1 
+ * @param { How wide are the windows } width 
+ * @param { How tall are the windows } height 
+ * @param { What is the color of the windows } color 
+ */
 function windows(time, iMax, jMax, x, x1, y, y1, width, height, color){
   // make random window placements when they turn on 
   let windowPlacement = [];
@@ -278,7 +304,11 @@ function windows(time, iMax, jMax, x, x1, y, y1, width, height, color){
   }
 }
 
-// Function to shuffle the elements in the array according to the Fisher-Yates shuffle algorithm and adding a random numbers array
+/**
+ * Function to shuffle the elements in the array according to the Fisher-Yates shuffle algorithm and 
+ * adding a random numbers array
+ * @param { The array you want to shuffle } arr 
+ */
 function shuffleArray(arr) {
   let randomNumbers = [0.23405879432578, 0.9085432875432, 0.4325876215437281, 0.5467358362, 0.3459867189257438, 0.534672895, 0.23459876432590,
                       0.345982754893027, 0.44568784392057483, 0.74583920574893, 0.954738234, 0.32490578489032, 0.45937589430257, 0.5437892057849, 0.12349867290157];
@@ -303,7 +333,14 @@ function shuffleArray(arr) {
   }
 }
 
-// star function from p5.js reference
+/**
+ * star function from p5.js reference
+ * @param { x-coordinate } x 
+ * @param { y-coordinate } y 
+ * @param { radius of first triangle } radius1 
+ * @param { radius of second triangle } radius2 
+ * @param { number of points in the star } npoints 
+ */
 function star(x, y, radius1, radius2, npoints) {
   var angle = TWO_PI / npoints;
   var halfAngle = angle / 2.0;
@@ -319,7 +356,11 @@ function star(x, y, radius1, radius2, npoints) {
   endShape(CLOSE);
 }
 
-// from ChatGBT 
+/**
+ * Drawing a cloud which 6 'puffs' of cloud 
+ * @param { x-coordinate } x 
+ * @param { y-coordinate } y 
+ */
 function drawCloud(x, y) {
   noStroke();
   fill(255, 255, 255, 50); // Set the color of the cloud to white
@@ -337,13 +378,25 @@ function drawCloud(x, y) {
   }
 }
 
-// to change background according to time from https://stackoverflow.com/questions/60196138/lerp-background-colour-based-on-time-of-day 
+/**
+ * to change gradient of background according to time 
+ * from https://stackoverflow.com/questions/60196138/lerp-background-colour-based-on-time-of-day 
+ * @param { Color changing from } from 
+ * @param { COlor its changing to } to 
+ * @param { Hour it starts from } startTime 
+ * @param { Hour it ends to } endTime 
+ * @param { The current hour } hours 
+ * @returns 
+ */
 function lerpSkyColor(from, to, startTime, endTime, hours){
   const lerpAmt = map(hours, startTime, endTime, 0, 1)
   return lerpColor(color(from), color(to), lerpAmt)
 }
 
-// My own function which draws a moon and moves according to the y coordinate 
+/**
+ * My own function which draws a moon and moves according to the y coordinate 
+ * @param { How much the moon moves up or down } moveY 
+ */
 function drawMoon(moveY){
   var moonColor = color(230, 199, 23);
   var moonDot = color(171, 151, 39);
@@ -362,9 +415,11 @@ function drawMoon(moveY){
   ellipse(530, 270 + moveY, 40); // medium 
 }
 
-// draw sun with transparent rays
+/**
+ * draw sun with transparent rays
+ * @param { How much the moon moves up or down } moveY 
+ */
 function drawSun(moveY) {
-  let numRays = 50;
   let sunRadius = 175;
   let x = width / 2;
   let y = height / 2 - 70 + moveY;

@@ -35,10 +35,13 @@ function draw_clock(obj) {
   text("AM", 0, 0);
   pop();
 
+  // changing time drawing to fit image 
   translate(-60, 100);
   scale(0.5);
+
   // 1
   rect(50, 0, 10, 100);
+  
   // 0
   ellipse(150, 50, 50, 100);
   fill(orange);
@@ -51,12 +54,10 @@ function draw_clock(obj) {
   noFill();
   strokeWeight(20);
   arc(60, 200, 75, 50, 270, 90, OPEN);
+
   // 7
   line(200, 140, 150, 230);
   strokeWeight(10);
   fill(pink);
   rect(150, 130, 50, 10);
-
-
-
 }
