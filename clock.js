@@ -1,4 +1,4 @@
-const carTargetX = 200;
+const carTargetX = 400;
 
 /*
  * use p5.js to draw a clock on a 960x500 canvas
@@ -23,6 +23,7 @@ function draw_clock(obj) {
   background(60, 80, 50);
 
   let hours = obj.hours;
+  let twelveHours = hours % 12 || 12;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
   let millis = obj.millis; 
@@ -57,33 +58,25 @@ function draw_clock(obj) {
     }
   }
 
+  // draw road
+
+  colorMode(HSB, 100);
+  rectMode(RADIUS);
+  strokeWeight(0);
+  
+  fill(50);  
+  rect(0, height*0.8, carTargetX+30, 50);
+  fill(15, 100, 100);
+  rect(0, (height*0.8)-42, carTargetX+30, 2);
+  rect(0, (height*0.8)+42, carTargetX+30, 2);
+
   // draw cars
 
-  drawCars(millis, seconds, minutes);
+  drawCars(millis, seconds, minutes);  
 
   // draw ferry
 
-  ferryX = carTargetX;
-  ferryY = height*0.8;
-
-  strokeWeight(0);
-  colorMode(HSB, 100);
-  fill(100);
-  rectMode(CENTER);
-
-  push();
-
-  translate(ferryX, ferryY);
-  beginShape();
-  vertex(200, -75);
-  vertex(0, -75);  
-  vertex(0, 75);
-  vertex(300, 75);
-  vertex(400, 0);
-  vertex(300, -75);
-  endShape();
-
-  pop();
+  drawFerry(millis, seconds, minutes, hours, twelveHours);
 
   // draw car target (DEBUG)
 
@@ -148,23 +141,26 @@ class Car {
     strokeWeight(0);
 
     push(); 
-    translate(carTargetX-(carGap*(this.number-minutes)) + interpolate, height*0.8); 
+    translate(carTargetX-(carGap*(this.number-minutes)) + interpolate + 15, height*0.8); 
 
+    // wheels
     fill(0);         
     ellipse(-9, 9, 8);
     ellipse(9, 9, 8);
     ellipse(-9, -9, 8);
     ellipse(9, -9, 8);
 
+    // body
     rectMode(RADIUS);
-
     fill(this.hue, 100, 100);
     rect(0, 0, 15, 10);
 
+    // windows
     fill(60, 50, 100);
     rect(-10, 0, 1, 8);
     rect(5, 0, 3, 8);
 
+    // number (minutes)
     rotate(PI/2);
     fill(0);
     textSize(12);
@@ -188,9 +184,102 @@ function drawCars(millis, seconds, minutes) { // creates cars if none exist, dra
   }
 
   for(let i = 0; i < 60; i++) {
-    if(cars[i].number >= minutes) {
+    if(cars[i].number > minutes) {
       cars[i].draw(millis, seconds, minutes);
     }
   }
 
+}
+
+function drawFerry(millis, seconds, minutes, hours, twelveHours) {
+  ferryX = 400;
+  ferryY = height*0.8;
+  ferryRot = 0;
+  let secondsWithFraction = seconds + (millis / 1000.0);
+
+  // animation sequence at 1 hour mark
+  if(minutes == 17 && seconds <= 10) {;
+    ferryRot = 0 + (-PI/60 * secondsWithFraction);
+    ferryX = 400 + (600/10 * secondsWithFraction);
+    ferryY = (height*0.8) - (100/10 * secondsWithFraction);
+  }
+
+  if(minutes == 17 && seconds > 10 && seconds <= 20) {;
+    ferryRot = 0 + (PI/200 * (secondsWithFraction-11));
+    ferryX = -1000 + (1400/10 * (secondsWithFraction-11));
+    ferryY = (height*0.4/10 * (secondsWithFraction-11));
+  }
+
+  if(minutes == 17 && seconds > 20 && seconds <= 30) {;
+    ferryRot = PI/20 - (PI/200 * (secondsWithFraction-21));
+    ferryX = 400 + (400/10 * (secondsWithFraction-21));
+    ferryY = height*0.4 + (height*0.4/10 * (secondsWithFraction-21));
+  }
+
+  if(minutes == 17 && seconds > 30 && seconds <= 40) {;
+    ferryRot = 0;
+    ferryX = 800 - (400/10 * (secondsWithFraction-31));
+    ferryY = height*0.8;
+  }
+
+  // graphics for the ferry
+
+  strokeWeight(0);
+  colorMode(HSB, 100);
+
+  push(); 
+  
+  fill(100);
+  translate(ferryX, ferryY);
+  rotate(ferryRot);  
+
+  beginShape();  // base shape
+  vertex(0, -65);  
+  vertex(0, 65);
+  vertex(300, 75);
+  vertex(350, 45);
+  vertex(400, 0);
+  vertex(350, -45);
+  vertex(300, -75);
+  endShape();
+
+
+  fill(10, 50, 70);
+
+  beginShape();  // deck (smaller copy of base shape)
+  vertex(10, -55);  
+  vertex(10, 55);
+  vertex(295, 65);
+  vertex(340, 40);
+  vertex(385, 0);
+  vertex(340, -40);
+  vertex(295, -65);
+  endShape();
+
+  fill(0, 50, 50);
+
+  beginShape();  // upper level (smaller copy of base shape)
+  vertex(120, -45);  
+  vertex(120, 45);
+  vertex(295, 45);
+  vertex(320, 30);
+  vertex(340, 0);
+  vertex(320, -30);
+  vertex(295, -45);
+  endShape();
+
+  fill(20);  // chimneys
+  strokeWeight(5)
+  stroke(40);
+  ellipse(275, 0, 70);
+  ellipse(175, 0, 70);
+
+  strokeWeight(5); // number (hour)
+  stroke(100);
+  fill(100);
+  textSize(72);
+  textAlign(CENTER, CENTER);
+  text(twelveHours.toString(), 65, 0);
+
+  pop();
 }
