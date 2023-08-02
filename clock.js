@@ -208,17 +208,18 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   drawrightLeaf(535,200); //right leaf
  
   
-//let secondsrotate = map(seconds,0,59,0,TWO_PI);
 
 
-angle = angle + 0.05; 
-let flowerx = map(millis/40,0,59,30,80, petalSize);
+
+angle = angle + 0.05; //slows down the speed of the flower spinning
+//let secondsrotate = map(seconds,0,59,0, angle); //maps flower spinning to the seconds
+let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargement of the flower by the milliseconds e.g., allows flower to become bigger and smaller for the alarm. 
 
 
 push();
-  translate(width/2,100) ;
-  rotate(angle);
-  flowerAlarm(0,0, flowerx); //flower to appear when alarm goes off
+  translate(width/2,100) ; //movews flower to position i need it at
+  rotate(angle); //allows the flower to spin
+  flowerAlarm(0,0, flowersize); //flower to appear when alarm goes off
 
   pop();
 
