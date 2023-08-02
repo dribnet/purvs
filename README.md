@@ -9,7 +9,7 @@
 >
 An animated piece which represents time by using a city silhouette, with three main cities representing seconds, minutes and hours. The landscape changes according to the night or day time, and gives either late night city vibes or a bright and early day time aesthetic. The alarm gives a twist for the viewer, as it zooms out to show that the bigger perspective of the landscape is actually on a TV. The reason for this is because its rare these days to look out at a raw city landscape, its usually through a TV, or laptop, or any technology. The inspiration for this project is viewing Wellington city through a window, where you get to see the different windows turn on and off at random times in the day or night. It's quite comforting knowing you're not the only one awake in a big city.  
 >
-*My Initial Ideas*
+*My Initial Sketch + Ideas*
 >
 I will be making a clock represented by three city building silhouettes, and a large moon behind these. All the buildings will have lights turned on/off, and the amount of lights turned on will be the time for each of the buildings. The 3 buildings represent the month, hour, and minute of the day, the stars will be pulsing according to each second, like a visual metronome. The big moon behind the three city buildings will change according to the months moon phases.
 There could be a rotation of sun and clouds and moon and stars, to make the scene not as static. 
@@ -20,7 +20,7 @@ Instead of the month, I could do the date of the month.
 I made a clock ticking in an analog clock-like motion. I added my own types of colours and outline of the clock (the outline changes its 
 visibility according to the seconds). This clock was practice for the actual clock project. 
 >
-*The Actual Clock Project*
+*The Actual Clock Project Reflection*
 >
 I tried to implement my sketch. Instead of using the day of the month, I used the seconds, minutes and hours instead, as there was no variable for the day of the month. This also meant I couldn't do the different moon phases, so I stuck with a big full moon, which gave the landscape better night life vibes. 
 
