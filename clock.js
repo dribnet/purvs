@@ -33,6 +33,7 @@ function draw_clock(obj) {
   let Minutes = obj.minutes;
   let Hours = obj.hours;
   let Milliseconds = obj.millis;
+  let Alarm =  obj.seconds_until_alarm;
   
   image(BackgroundImg, 0,0,960,500);
 
@@ -66,5 +67,21 @@ function draw_clock(obj) {
   rotate(rotS);
   image(SatImg,225,0,20,40); //Satellite
   pop();
+
+  let ellipseSecs = map(Milliseconds/2,0,999,0,2300);
+  
+
+  ellipse(ellipseSecs*1.2,200,60,60);
+  ellipse(ellipseSecs/1.2,100,40,40);
+  ellipse(ellipseSecs,50,35,35);
+  ellipse(ellipseSecs,350,50,50);
+  ellipse(ellipseSecs*1.2,450,45,45);
+
+  //if statement for alarm
+
+  // if (Alarm > 0){
+
+  //  rect() 
+  // }
 
 }
