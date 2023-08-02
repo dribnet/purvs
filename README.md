@@ -10,6 +10,7 @@ I scrapped this idea and decided to do some further research into the history of
 Although recreating this seemed quite literal, abstract visual representations aren't my strength and I thought it would be fun to attempt to layer PNGs and code. 
 
 ATTRIBUTION INCLUDION
+inspiration and challenges
 
 
 ### THIS IS YOUR README
