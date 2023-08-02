@@ -65,9 +65,17 @@ function draw_clock(obj) {
 
   //indicater
   push();
-  drawingContext.shadowBlur = 7;
-  drawingContext.shadowColor = color(222, 184, 33);
-  fill(255, 204, 0);
+
+  if ((hours >= 0 && hours <= 6) || (hours >= 18 && hours <= 24)) {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(222, 184, 33);
+    fill(255, 204, 0);
+  } else {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(153, 36, 242);
+    fill(153, 36, 242);
+  }
+
   noStroke();
 
   let alarmIndiSpin = map(millis, 0, 1000, 0, TWO_PI);
@@ -153,7 +161,6 @@ function draw_clock(obj) {
   textAlign(CENTER, CENTER);
   drawingContext.shadowBlur = 7;
   drawingContext.shadowColor = color(255);
-  fill(255);
 
   translate(canvasWidth / 2 - 420, canvasHeight / 2 + 10);
   rotate(PI / 2);
@@ -166,7 +173,6 @@ function draw_clock(obj) {
   textAlign(RIGHT, CENTER);
   drawingContext.shadowBlur = 7;
   drawingContext.shadowColor = color(255);
-  fill(255);
 
   translate(canvasWidth / 2 + 450, canvasHeight / 2 + 242);
   rotate(PI / 2);
@@ -174,7 +180,7 @@ function draw_clock(obj) {
   if (alarm < 0) {
     text("Alarm Not Set", 0, 0);
   } else {
-    text(nfs(alarm, 2, 1) + ' secs', 0, 0);
+    text(nfs(alarm, 2, 1) + " secs", 0, 0);
   }
   pop();
 }
