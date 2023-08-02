@@ -20,7 +20,8 @@ function draw_clock(obj) {
   let alarm = obj.seconds_until_alarm;
 
     background(150); //  Grey
-    fill(255); // white
+    image(img, 0, 0, width, height);
+    fill(0); // white
     textSize(20);
     text("Hour: "   + hours, width*0.2, 22);
     text("Minute: " + minutes, width*0.4, 22);
@@ -52,8 +53,8 @@ function draw_clock(obj) {
   
   //water drop animation
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
-  let phase1 = sin(bounce1);
-  let y_bounce1 = map(phase1, -1, 1, -75, 75);
+  //let phase1 = sin(bounce1);
+  //let y_bounce1 = map(phase1, -1, 1, -75, 75);
 
   let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
   let phase2 = sin(bounce2);
@@ -70,7 +71,7 @@ function draw_clock(obj) {
     minutes_radius = 0;
   }
   fill(0, 255, 255) // blue
-  ellipse(width/1.4, 300 + 2.9*y_bounce2, minutes_radius);
+  ellipse(706, 250 + 2*y_bounce2, minutes_radius);
 
 
   let secondsWithFraction   = seconds + (millis/1000);
@@ -78,16 +79,26 @@ function draw_clock(obj) {
   //sink emptying animation at 59 seconds
   let sec_height = 0;
   if(secondsWithFraction <= 59)  {
-    sec_height = map(seconds, 0, 60, 1, 300);
+    sec_height = map(seconds, 0, 60, 1, 190);
   }
   else {
-    sec_height = map(millis, 0, 999, 300, 1);
+    sec_height = map(millis, 0, 999, 190, 1);
   }
 
   //sink water
   fill(0, 255, 255); //light blue
   noStroke();
-  rect(width/1.6, height/1.2, 200, - sec_height);
+  rect(535, 340, 345, - sec_height);
+  
+  fill(0);
+  rect(535, 340, 350, 5);
+
+  fill(100);
+  strokeWeight(4);
+  stroke(0);
+  rect(685, 80, 43, 20, 5, 5, 0, 0);
+
+  noStroke();
 
   //minute water tank
 
@@ -100,7 +111,7 @@ function draw_clock(obj) {
   else {
     min_height = map(minutesWithFraction, 0, 59, 1, 400);
   }
-  rect(width/2.2, height/1.2, 100, - min_height);
+  rect(340, 443, 74, - min_height);
 
 
   if(minutesWithFraction <= 59)  {
@@ -120,7 +131,12 @@ function draw_clock(obj) {
   else {
     hour_height = map(millis, 0, 999, 700, 1);
   }
-  rect(40, height/1.2, 235, - hour_height); 
+  rect(44, 465, 228, - hour_height); 
+
+  
+  if(alarm = 0) {
+    rect(0, 0, width, height);
+  }
 
   // let sec_height = 0;
   // if(secondsWithFraction <= 59)  {
@@ -131,14 +147,10 @@ function draw_clock(obj) {
   // }
 
   text(HoursWithFraction, width/2, 50);
+  
+}
 
-  function preload() {
-    // preload() runs once
-    img = loadImage('Sink.png');
-  }
-
-  function draw() {
-    image(img, width/2, height/2, 1000, 1000);
-  }
-
+function preload() {
+  // preload() runs once
+  img = loadImage('Sink.png');
 }
