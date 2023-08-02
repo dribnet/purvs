@@ -35,88 +35,99 @@ function draw_clock(obj) {
 
 
 background(210,4,45); //  red/cherry
-//Image(img,0,0,960,500)
-fill(200); // dark grey
+fill(200)
 textSize(40);
 textAlign(CENTER, CENTER);
 //text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
 
-drawFlower1(50,50,obj.seconds)
+//seconds
+drawFlower1(60,50,obj.seconds)
 if (obj.seconds>=10){
-  drawFlower2(50,250,obj.seconds)
+  drawFlower2(60,250,obj.seconds)
 
 }
 if (obj.seconds>=20){
-  drawFlower3(50,450,obj.seconds)
+  drawFlower3(60,450,obj.seconds)
 }
 
 if (obj.seconds>=30){
-  drawFlower4(250,50,obj.seconds)
+  drawFlower4(900,50,obj.seconds)
 }
 if (obj.seconds>=40){
-  drawFlower5(250,250,obj.seconds)
+  drawFlower5(900,250,obj.seconds)
 }
 if (obj.seconds>=50){
-  drawFlower6(250,450,obj.seconds)
+  drawFlower6(900,450,obj.seconds)
 }
 
-drawSun();
-// 
-// let firstArmsAm = [2,3,4,5,6,7,8,9,10,11]
-// let Index1 = 0
-// let secondArmsAm = [4,5,6,7,8,9,10,11]
-// let Index2 = 0
-// let thirdArmsAm = [6,7,8,9,10,11]
-// let Index3 = 0
-// let fourthArmsAm = (8,9,10,11)
-// let Index4 = 0
-// let fifthArmsAm = [10,11]
-// let Index5 = 0
+drawSun(490,40);
+
+
+//hours
 
 if (obj.hours>=2 && obj.hours<12){
-  image(l1,335,85,187,293) 
-  image(r1,540,105,144,289)
+  image(l1,265,90,187,293) 
+  image(r1,485,90,144,289)
 
 }
 
-
-if(obj.hours>=4 && obj.hours<12){
-  image(l2,270,80,252,325)
-  image(r2,560,120,192,241)
+if (obj.hours>=4 && obj.hours<12){
+  image(l2,200,100,252,325)
+  image(r2,490,120,192,241)
 }
 
-
-
-if(obj.hours>=6 && obj.hours<12){
-  image(l3,250,160,289,222)
-  image(r3,550,170,309,242)
+if (obj.hours>=6 && obj.hours<12){
+  image(l3,180,160,289,222)
+  image(r3,480,170,309,242)
 }
 
-
-
-if(obj.hours>=8 && obj.hours<12){
-  image(l4,250,130,323,329)
-  image(r4,550,240,325,161)
+if (obj.hours>=8 && obj.hours<12){
+  image(l4,190,130,323,329)
+  image(r4,470,240,325,161)
 }
 
-
-
-if(obj.hours>=10 && obj.hours<12){
-  image(l5,260,150,316,335)
-  image(r5,540,280,323,161)
+if (obj.hours>=10 && obj.hours<12){
+  image(l5,190,150,316,335)
+  image(r5,470,280,323,161)
 }
 
-// if(obj.hours>=12|| obj.hours< 11.59){
-//   image(l5,270,190,286,335)
-//   image(r5,540,320,303,161)
-//}
+if (obj.hours>=14 && obj.hours<24){
+  image(l1,265,90,187,293) 
+  image(r1,485,90,144,289)  
+}
+
+ if (obj.hours>=16 && obj.hours<24){
+  image(l2,200,100,252,325)
+  image(r2,490,120,192,241)
+  }
+
+
+ if (obj.hours>=18 && obj.hours<24){
+  image(l3,180,160,289,222)
+  image(r3,480,170,309,242)
+ }
+
+ if (obj.hours>=20 && obj.hours<24){
+  image(l4,180,130,323,329)
+  image(r4,470,240,325,161)
+ }
+
+ if (obj.hours>=22 && obj.hours<24){
+   image(l5,190,150,316,335)
+   image(r5,470,280,323,161)
+ }
+
+
 
 if (obj.hours>=0){
-  image(lady,415,70,227,442)
+  image(lady,350,70,227,442)
 }
 
-if (obj.hours>=1){
-drawGlobe(500,300,50)
+if (obj.hours>=0 && obj.hours<=1){
+  drawGlobeEven(545,85,50)
+}
+if (obj.hours>=1 && obj.hours<=2){
+drawGlobeOdd(520,80,50)
 }
 
 
@@ -1425,11 +1436,11 @@ fill("pink")
 
 //seconds
 
-function drawSun(){
+function drawSun(x,y){
 noStroke()
 
 fill(255,191,0,200);// Yellow
-ellipse(540, 40, 150);
+ellipse(x, y, 150);
 
 fill(255,191,0,100);//yellow
 
@@ -1443,10 +1454,10 @@ else if(obj.millis>=500){
 millisSize= map(obj.millis,0,1000,300,150)
 millisSize= map(obj.millis,0,1000,300,130)
 }
-ellipse(540,40,millisSize)
+ellipse(x, y, millisSize)
 }
 
-function drawGlobe(x,y){
+function drawGlobeOdd(x,y){
   noStroke()
 
 fill(255,255,255,200);// white
@@ -1466,6 +1477,25 @@ millisSize= map(obj.millis,0,1000,100,40)
 }
 ellipse(x,y,millisSize)
 
+}
+function drawGlobeEven(x,y){
+  noStroke()
+
+  fill(125,255,155,200);// malachite
+  ellipse(x,y, 50);
+  
+  fill(125,255,185,50);// tourmiline
+  
+  
+  if(obj.millis<=500){
+  millisSize= map(obj.millis,0,1000,50,200)
+  millisSize= map(obj.millis,0,1000,30,200)
+  }
+  else if(obj.millis>=500){
+  millisSize= map(obj.millis,0,1000,200,50)
+  millisSize= map(obj.millis,0,1000,200,30)
+  }
+  ellipse(x,y,millisSize)
 }
 
 console.log()
