@@ -14,7 +14,6 @@ function preload() {
   img_table = loadImage('1table.png')
   img_sauce = loadImage('1sauce.png')
 
-
 }
 
 function draw_clock(obj) {
@@ -26,20 +25,10 @@ function draw_clock(obj) {
 
 
 
-
-
   // reset the images point to 12:00:00
   let seconds_origin = PI / 30 * 39.5
   let minute_origin = PI / 30 * 55.85
   let hour_origin = PI / 30 * 7
-
-
-
-
-
-
-
-
 
 
   // import the still images:
