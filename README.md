@@ -19,6 +19,7 @@ Instead of the month, I could do the date of the month.
 >
 I made a clock ticking in an analog clock-like motion. I added my own types of colours and outline of the clock (the outline changes its 
 visibility according to the seconds). This clock was practice for the actual clock project. 
+Was inspired from John Maeda.
 >
 *The Actual Clock Project Reflection*
 >
