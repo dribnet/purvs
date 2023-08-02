@@ -61,68 +61,51 @@ if (obj.seconds>=50){
 }
 
 drawSun();
+// 
+// let firstArmsAm = [2,3,4,5,6,7,8,9,10,11]
+// let Index1 = 0
+// let secondArmsAm = [4,5,6,7,8,9,10,11]
+// let Index2 = 0
+// let thirdArmsAm = [6,7,8,9,10,11]
+// let Index3 = 0
+// let fourthArmsAm = (8,9,10,11)
+// let Index4 = 0
+// let fifthArmsAm = [10,11]
+// let Index5 = 0
 
-let firstArmsAm = [2,3,4,5,6,7,8,9,10,11]
-let Index1 = 0
-let secondArmsAm = [4,5,6,7,8,9,10,11]
-let Index2 = 0
-let thirdArmsAm = [6,7,8,9,10,11]
-let Index3 = 0
-let fourthArmsAm = (8,9,10,11)
-let Index4 = 0
-let fifthArmsAm = [10,11]
-let Index5 = 0
-
-
-Index1 = Index1+1
-Index2 = Index2+1
-Index3 = Index3+1
-Index4 = Index4+1
-Index5 = Index5+1
-
-if (obj.hours=firstArmsAm[Index1]){
+if (obj.hours>=2 && obj.hours<12){
   image(l1,335,85,187,293) 
   image(r1,540,105,144,289)
 
 }
-if (Index1=firstArmsAm.length){
-  Index1 =0
-}
 
-if(obj.hours=secondArmsAm[Index2]){
+
+if(obj.hours>=4 && obj.hours<12){
   image(l2,270,80,252,325)
   image(r2,560,120,192,241)
 }
-if(Index2=secondArmsAm.length){
-  Index2=0
-}
 
 
-if(obj.hours=thirdArmsAm[Index3]){
+
+if(obj.hours>=6 && obj.hours<12){
   image(l3,250,160,289,222)
   image(r3,550,170,309,242)
 }
-if(Index3=thirdArmsAm.length){
-  Index3=0
-}
 
 
-if(obj.hours=fourthArmsAm[Index4]){
+
+if(obj.hours>=8 && obj.hours<12){
   image(l4,250,130,323,329)
   image(r4,550,240,325,161)
 }
-if(Index4=fourthArmsAm.length){
-  Index3=0
-}
 
 
-if(obj.hours=fifthArmsAm[Index5]){
+
+if(obj.hours>=10 && obj.hours<12){
   image(l5,260,150,316,335)
   image(r5,540,280,323,161)
 }
-if(Index5=fifthArmsAm.length){
-  Index5=0
-}
+
 // if(obj.hours>=12|| obj.hours< 11.59){
 //   image(l5,270,190,286,335)
 //   image(r5,540,320,303,161)
