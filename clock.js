@@ -15,7 +15,7 @@
       // Preload images
       bodyMain = [
         loadImage("bodyMain/bodyMain1.png"),
-        loadImage("bodymain/bodyMain2.png")
+        loadImage("bodyMain/bodyMain2.png")
       ];
 
       backgroundMain = [
