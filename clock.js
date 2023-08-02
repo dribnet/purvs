@@ -186,7 +186,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
 
   //this is where the alarm is active/going off:
   if (obj.seconds_until_alarm == 0) { 
-    background(12, 23, 63); //night blue for the alarm background to replace the normal background
+    background(173,216,230); //night blue for the alarm background to replace the normal background
  
    // plant stalk for alarm
  stroke(1, 50, 32); //dark green stalk colour
