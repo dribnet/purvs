@@ -226,7 +226,7 @@ if (n==7){
 if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
   rect (x+440,y+80,size+48,size+18,c); //M small middle
 }
- 
+ //
     }
   
     // draw pacman food 
