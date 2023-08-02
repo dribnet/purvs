@@ -7,14 +7,7 @@ function draw_clock(obj) {
   let hours = obj.hours;
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
+
   let backgroundCol = (0); //  black
 background(backgroundCol);
 
@@ -25,7 +18,6 @@ stroke(400);
 textSize(25);
 text("1UP",100,30);
 
-
 // high score at top of page
 fill(222); // white
 noStroke();
@@ -35,7 +27,6 @@ textSize(15);
 text("HIGH SCORE", 450,30);
 textSize(20); 
 text (+seconds,450,50);
-
 
 // draws maze outline and doors --------------------------------
 
@@ -65,7 +56,6 @@ fill(0);
 noStroke();
 rect(899,79,75,38);
 
-  
 //-------------------------------------------------
   //draws food and gets eaten according to seconds
   let rmFood = map((seconds),0,57,-15, 935);
@@ -121,12 +111,11 @@ else {
   drawOpenMouthPacman( moveH , 98, 35, 80, 380);
 }
 
-//draws pacman lives 
+//draws pacman lives at the top of the screen
 drawOpenMouthPacman( 730 ,35, 28, 80,382);
 drawOpenMouthPacman( 760 ,35, 28, 80,382);
 drawOpenMouthPacman( 790 ,35, 28, 80,382);
 drawOpenMouthPacman( 820 ,35, 28, 80,382);
-
 
 //draws the maze ------------------------------------------
 //TOP LHS
@@ -165,14 +154,11 @@ let y = 185;
 let size = -4;
 let c = 5;
 
-
 //sets pace to change min/hr
 let second_ones_pos = obj.minutes % 10;
 let second_tens_pos = int(obj.minutes/10) % 10;
 let second_hun_pos = obj.hours % 10;
 let second_thousands_pos = int(obj.hours/10) % 10;
-
-//repositions numbers 
 
 noStroke();
 
@@ -220,6 +206,7 @@ else if (alarm == 0){ //alarm going off
   }
 }
 
+//repositions numbers 
 drawsNumbers(x-100, y, size, c, second_tens_pos); //tens pos
 drawsNumbers(x, y, size, c, second_ones_pos); //ones pos
 drawsNumbers(x-410, y, size, c, second_thousands_pos); //LHS hours 
@@ -235,29 +222,22 @@ ellipse (802,170,10,10);
 ellipse (892,451,10,10);
 ellipse (322,451,10,10);
 
-
-
-
 }
 
 //creates maze corners -----------------------------------------
 function drawMaze (X,Y,WD,HT,Z){
 noFill();
 stroke (21, 21, 255);
-//fill(0,1000,100);
-rect (X,Y,WD,HT,Z); //draws rect
+rect (X,Y,WD,HT,Z); //draws maze
 
 }
 
 function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
-  // Draw Pacman with an open mouth to the left
+  // Draw Pacman
   fill(255, 255, 0); // Yellow color
   noStroke();
-
   arc(x,y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
-
 }
-
 
 function drawsNumbers(x, y, size, c, n) {
   if (n==0 || n==2 || n==3 || n==5 || n==6 || n==7 || n==8 || n==9){
@@ -295,7 +275,7 @@ if (n==7){
 if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
   rect (x+440,y+80,size+48,size+18,c); //M small middle
 }
- //
+
     }
    // draw pacman food 
 function food (X,Y,SIZE){
@@ -311,7 +291,6 @@ function redGhost (x,y,size){
   ellipse(x+57,y+420,size+15,size+15);
   ellipse(x+70,y+420,size+15,size+15);
   ellipse(x+82,y+420,size+15,size+15);
- 
   
  fill(255);
  ellipse(x+62,y+400,size+12,size+12);
@@ -319,7 +298,6 @@ function redGhost (x,y,size){
  fill(0,100,200);
  ellipse(x+80,y+401,size+5,size+5);
  ellipse(x+65,y+401,size+5,size+5);
-
 
 }
 function blueGhost (x,y,size){
