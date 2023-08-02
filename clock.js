@@ -316,21 +316,36 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
  let petal = 100;
 let petalSize = 30
 
- function flowerAlarm(petal,petal,petalSize){
+ function flowerAlarm(petalSize, petalSize, petalSize){
   
-  push();
-  ellipseMode();
+  // push();
+  // ellipseMode();
+  //  fill(255);
+  //  noStroke();
+  //  ellipse(petal,petal,petalSize,petalSize+30);//top petal //100,100,30,60
+  //  ellipse(petal,petal+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
+  //  ellipse(petal-30,petal+30,petalSize+30,petalSize); //left side petal //70,130,60,30
+  //  ellipse(petal+30,petal+30,petalSize+30,petalSize); //right side petal //130,130,60,30
+ 
+  //  //center of flower
+  //  fill(195, 113, 37);
+  //  noStroke();
+  //  ellipse(petal,petal+30,petalSize,petalSize); //100,130,30,30
+  //  pop();
+
+   push();
+   ellipseMode();
    fill(255);
    noStroke();
-   ellipse(petal,petal,petalSize,petalSize+30);//top petal //100,100,30,60
-   ellipse(petal,petal+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
-   ellipse(petal-30,petal+30,petalSize+30,petalSize); //left side petal //70,130,60,30
-   ellipse(petal+30,petal+30,petalSize+30,petalSize); //right side petal //130,130,60,30
+   ellipse(petalSize+70,petalSize+70,petalSize,petalSize+30);//top petal //100,100,30,60
+   ellipse(petalSize+70,petalSize+130,petalSize,petalSize+30); //bottom petal //100/160,30,60
+   ellipse(petalSize+40,petalSize+100,petalSize+30,petalSize); //left side petal //70,130,60,30
+   ellipse(petalSize+100,petalSize+100,petalSize+30,petalSize); //right side petal //130,130,60,30
  
    //center of flower
    fill(195, 113, 37);
    noStroke();
-   ellipse(petal,petal+30,petalSize,petalSize); //100,130,30,30
+   ellipse(petalSize+70,petalSize+100,petalSize,petalSize); //100,130,30,30
    pop();
  }
 
