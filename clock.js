@@ -219,7 +219,7 @@ let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargemen
 push();
 translate(width/2,100) ; //moves flower to position i need it at
   rotate(angle); //allows the flower to spin
-  flowerAlarm(0,0, flowersize); //flower to appear when alarm goes off
+  flowerAlarm(0,0,flowersize); //flower to appear when alarm goes off
 
   pop();
 
@@ -315,8 +315,9 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
  //alarm flower
  let petal = 100;
 let petalSize = 30
+let flowerpos = width/2
 
- function flowerAlarm(petalSize, petalSize, petalSize){
+ function flowerAlarm(flowerpos, flowerpos, petalSize){
   
   // push();
   // ellipseMode();
@@ -337,15 +338,15 @@ let petalSize = 30
    ellipseMode();
    fill(255);
    noStroke();
-   ellipse(petalSize+70,petalSize+70,petalSize,petalSize+30);//top petal //100,100,30,60
-   ellipse(petalSize+70,petalSize+130,petalSize,petalSize+30); //bottom petal //100/160,30,60
-   ellipse(petalSize+40,petalSize+100,petalSize+30,petalSize); //left side petal //70,130,60,30
-   ellipse(petalSize+100,petalSize+100,petalSize+30,petalSize); //right side petal //130,130,60,30
+   ellipse(flowerpos,flowerpos,petalSize,petalSize+30);//top petal //100,100,30,60
+   ellipse(flowerpos,flowerpos+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
+  ellipse(flowerpos-30,flowerpos+30,petalSize+30,petalSize); //left side petal //70,130,60,30
+  ellipse(flowerpos+30,flowerpos+30,petalSize+30,petalSize); //right side petal //130,130,60,30
  
    //center of flower
    fill(195, 113, 37);
    noStroke();
-   ellipse(petalSize+70,petalSize+100,petalSize,petalSize); //100,130,30,30
+   ellipse(flowerpos,flowerpos+30,petalSize,petalSize); //100,130,30,30
    pop();
  }
 
