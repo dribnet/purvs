@@ -335,13 +335,16 @@ function draw_clock(obj) {
   // CAR SETUP
   let bounce = map(obj.millis, 0, 999, 1, 800);
   let phase = sin(bounce);
-  let alarmSpeed = map(obj.millis, 0, 999, 0, 249);
-  if (alarm > 0 && alarm <= 1) {
-    draw_Car(50 + alarmSpeed, 230 + phase, phase, carColor);
-  } else if (alarm == 0) {
-    draw_Car(50 + 250, 230 + phase, phase, carColor);
-  } else {
+
+  if (alarm > 0 && alarm <= 1) { // Car Position Transition
+    draw_Car(250 - alarm * 200, 230 + phase, phase, carColor);
+  } else if (alarm == 0) { // Police Car
+    draw_Car(50 + 220, 220 + phase, phase, carColor);
+  } else { // Regular Car Position
     draw_Car(50, 230 + phase, phase, carColor);
+  }
+  if (alarm < 3) { // Speeding Car
+    draw_Car(970 - (alarm * 1000 - 1500), 270 + phase, phase, 240);
   }
 
   //MARKER POSTS
@@ -369,20 +372,13 @@ function draw_clock(obj) {
   textFont('Helvetica');
   textAlign(CENTER);
   fill(255);
-  if (alarm == 10) { // Alarm Countdown Transition
-    text(Math.floor(alarm), markerWidth + markerPace, 418);
+  text(obj.seconds, markerWidth + markerPace + 2, 418);
+  if (obj.seconds == 0) {
+    text(59, markerPace, 418);
+  } else {
     text(obj.seconds - 1, markerPace, 418);
-  } else if (alarm > 0 && alarm < 10) { // Alarm Countdown
-    text(Math.floor(alarm), markerWidth + markerPace, 418);
-    text(Math.floor(alarm + 1), markerPace, 418);
-  } else { // Regular Second Markers
-    text(obj.seconds, markerWidth + markerPace + 2, 418);
-    if (obj.seconds == 0) {
-      text(59, markerPace, 418);
-    } else {
-      text(obj.seconds - 1, markerPace, 418);
-    }
   }
+  
   
   // ALARM OVERLAY
   let opacity = map(obj.millis, 0, 999, 0, 2.55);
