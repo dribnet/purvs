@@ -25,3 +25,8 @@ I liked the look of this, so I added a backgrund drop shadow on the background p
 
 28/7 12PM
 Found a way to make minutes show. Made every second, the color would pulse. And every minute it would rotate.
+
+03/08 4AM
+I rewrote the whole script because it got too complicated to read the speghetti code I made. I remade it, it's now 4AM but I can now understand the script better and easier. Overall, I'd say it's completed. However, there is an error. Debugging isn't possible since there is a new error line whenever that I try to debug:
+  "Uncaught TypeError: Cannot read properties of undefined (reading 'toString')"
+I will need to check this out by hand in. And create my readMe.

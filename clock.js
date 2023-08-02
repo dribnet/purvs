@@ -1,124 +1,188 @@
-let starSpin = 0;
-let indicateSpin = 0;
-let backCircleSize = 400;
-let opacity = 10;
+//    obj.seconds_until_alarm is:
+//        < 0 if no alarm is set
+//        = 0 if the alarm is currently going off
+//        > 0 --> the number of seconds until alarm should go off
 
 function draw_clock(obj) {
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
+  let hours = obj.hours;
+  let minutes = obj.minutes;
+  let seconds = obj.seconds;
+  let millis = obj.millis;
+  let alarm = obj.seconds_until_alarm;
 
-  //colors
-
-  if(obj.seconds % 2){
-    opacity = map(obj.millis, 0, 1000, 20, 40);
-  }
-  else if (obj.seconds % 2 + 1){
-    opacity = map(obj.millis, 0, 1000, 40, 20);
-  }
-
-  let color1 = color(196, 178, 55, opacity);
-  let color2 = color(220, 247, 247, opacity);
-  let slowGradient = map(obj.hours, 0, 24, 0, 1);
-  let starColor = lerpColor(color1, color2, slowGradient);
-
-  background(34, 36, 41);
-  angleMode(RADIANS);
-  colorMode(RGB);
-
-  noFill();
-  stroke(255);
-  noStroke();
+  let spins = map(minutes, 0, 60, 0, TWO_PI);
 
   //#region background
+  let nightColorBG = color(61, 61, 61);
+  let dayColorBG = color(245, 245, 245);
+
+  //static
+  if ((hours >= 0 && hours <= 6) || (hours >= 18 && hours <= 24)) {
+    background(nightColorBG);
+  } else {
+    background(dayColorBG);
+  }
+
+  //flicker
+  let alarmLerpBG;
+  if (millis >= 0 && millis <= 500) {
+    alarmLerpBG = map(millis, 0, 500, 0, 1);
+  } else if (millis >= 501 && millis <= 1000) {
+    alarmLerpBG = map(millis, 500, 1000, 1, 0);
+  }
+
+  let alarmBG = lerpColor(nightColorBG, dayColorBG, alarmLerpBG);
+
+  //alarm
+  if (alarm == 0) {
+    background(alarmBG);
+  }
+  //#endregion
+
   push();
+  //#region base
+  let nightColorBase = color(99, 99, 99, 100);
+  let nightStrokeBase = color(250);
+  let dayColorBase = color(230, 230, 230, 100);
+  let dayStrokeBase = color(10);
+
+  //static
+  if ((hours >= 0 && hours <= 6) || (hours >= 18 && hours <= 24)) {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(255);
+    fill(nightColorBase);
+    stroke(nightStrokeBase);
+  } else {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(0);
+    fill(dayColorBase);
+    stroke(dayStrokeBase);
+  }
+
   translate(canvasWidth / 2, canvasHeight / 2);
-  rotate(starSpin);
-  stroke(255, 255, 255, 50);
-  strokeWeight(2);
-  fill(42, 44, 54);
+  rotate(spins);
+  backgroundOct(0, 0, 200, 10);
 
-  drawingContext.shadowBlur = 13;
-  drawingContext.shadowColor = color(0);
-
-  backgroundOct(0, 0, backCircleSize / 2 - 7, 10);
-
-  fill(230, 223, 32);
+  //indicater
+  push();
+  drawingContext.shadowBlur = 7;
+  drawingContext.shadowColor = color(222, 184, 33);
+  fill(255, 204, 0);
   noStroke();
 
-  drawingContext.shadowBlur = 20;
-  drawingContext.shadowColor = color(255, 249, 97);
+  let alarmIndiSpin = map(millis, 0, 1000, 0, TWO_PI);
+
+  translate(0, 0);
+  rotate(PI);
+  if (alarm == 0) {
+    rotate(alarmIndiSpin);
+  }
+
+  star(-65, -200, 10, 6, 5);
+  pop();
+  //#endregion
+  pop();
 
   push();
+  //#region hourPoly
 
-  for(let indicateStep = 0; indicateStep < obj.millis; indicateStep++){
-    let indicateSecs = (obj.seconds + indicateStep) %  5;
-    let indicateMills = indicateSecs + obj.millis / 1000;
-
-    indicateSpin = map(indicateMills, 0, 5, 0, TWO_PI);
+  if (obj.seconds % 2) {
+    opacity = map(obj.millis, 0, 1000, 5, 20);
+  } else if ((obj.seconds % 2) + 1) {
+    opacity = map(obj.millis, 0, 1000, 20, 5);
   }
 
-  translate(backCircleSize / 2 + 20, 0)
-  rotate(indicateSpin);
-  star(0, 0, 10, 6, 5);
-  pop();
-  pop();
-  //#endregion
+  let nightColor = color(242, 203, 48, opacity + 18 / hours);
+  let nightStroke = color(250, opacity + 50);
+  let dayColor = color(153, 36, 242, opacity + 18 / hours);
+  let dayStroke = color(10, opacity + 50);
 
-  //#region spin
-  for (let rotateStep = 0; rotateStep < 5; rotateStep++) {
-    let rotateHours = (obj.hours + rotateStep) % 5;
-    let rotateMins = rotateHours + obj.minutes / 60;
-
-    starSpin = map(rotateMins, 0, 5, 0, TWO_PI);
+  //static
+  if ((hours >= 0 && hours <= 6) || (hours >= 18 && hours <= 24)) {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(242, 203, 48, 10);
+    fill(nightColor);
+    stroke(nightStroke);
+  } else {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(153, 36, 242, 10);
+    fill(dayColor);
+    stroke(dayStroke);
   }
-  //#endregion
 
-  //#region stars
-  for (let circleSteps = 0; circleSteps < obj.hours; circleSteps++) {
-    let circleFromMid = map(
-      obj.hours,
-      0,
-      24,
-      0,
-      (backCircleSize / 50) * circleSteps
-    );
+  translate(canvasWidth / 2, canvasHeight / 2);
+  rotate(spins);
+
+  for (let circleSteps = 0; circleSteps < hours; circleSteps++) {
+    let circleFromOrigin = map(hours, 0, 24, 0, (400 / 50) * circleSteps);
 
     push();
-    translate(canvasWidth / 2, canvasHeight / 2);
-    rotate(starSpin);
+    rotate(TWO_PI / 4); //translate and rotate is annoying to deal with
+    rotate(PI); //this is needed to get the star into place or else it starts at the bottom
 
-    fill(starColor);
-    stroke(255, 255, 255, opacity + 40);
-    strokeWeight(1.5);
+    if (alarm == 0) {
+      rotate(alarmIndiSpin);
+    }
 
     star(
-      0 + backCircleSize / 2 - 45 / 2 - circleFromMid,
+      0 + 400 / 2 - 45 / 2 - circleFromOrigin,
       0,
-      10 + circleFromMid,
-      15 + circleFromMid,
+      10 + circleFromOrigin,
+      15 + circleFromOrigin,
       5
     );
     pop();
   }
   //#endregion
-
-  //#region clock time
-  push();
-  fill(255);
-  textFont("Roboto");
-
-  text(nf(obj.hours, 2, 0), 50, canvasHeight / 2);
-  text(nf(obj.minutes, 2, 0), 850, canvasHeight / 2);
   pop();
-  //#endregion
+
+  //#region text
+  if ((hours >= 0 && hours <= 6) || (hours >= 18 && hours <= 24)) {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(255);
+    fill(255);
+  } else {
+    drawingContext.shadowBlur = 7;
+    drawingContext.shadowColor = color(60);
+    fill(60);
+  }
+
+  push();
+  textSize(150);
+  textFont("BAHNSCHRIFT");
+  textAlign(CENTER, CENTER);
+  drawingContext.shadowBlur = 7;
+  drawingContext.shadowColor = color(255);
+  fill(255);
+
+  translate(canvasWidth / 2 - 420, canvasHeight / 2 + 10);
+  rotate(PI / 2);
+  text(nfs(hours, 2) + " :" + nfs(minutes, 2), 0, 0);
+  pop();
+
+  push();
+  textSize(40);
+  textFont("BAHNSCHRIFT");
+  textAlign(RIGHT, CENTER);
+  drawingContext.shadowBlur = 7;
+  drawingContext.shadowColor = color(255);
+  fill(255);
+
+  translate(canvasWidth / 2 + 450, canvasHeight / 2 + 242);
+  rotate(PI / 2);
+
+  if (alarm < 0) {
+    text("Alarm Not Set", 0, 0);
+  } else {
+    text(nfs(alarm, 2, 1) + ' secs', 0, 0);
+  }
+  pop();
 }
 
-//shapes//
-
-//polygon background
+//polygon background from p5.js reference
 function backgroundOct(x, y, radius, npoints) {
+  rotate(60);
+
   let angle = TWO_PI / npoints;
   beginShape();
   for (let a = 0; a < TWO_PI; a += angle) {
@@ -129,7 +193,7 @@ function backgroundOct(x, y, radius, npoints) {
   endShape(CLOSE);
 }
 
-//star function from p5.js reference
+// star function from p5.js reference
 function star(x, y, radius1, radius2, npoints) {
   let angle = TWO_PI / npoints;
   let halfAngle = angle / 2.0;
