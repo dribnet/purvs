@@ -30,3 +30,8 @@ Found a way to make minutes show. Made every second, the color would pulse. And 
 I rewrote the whole script because it got too complicated to read the speghetti code I made. I remade it, it's now 4AM but I can now understand the script better and easier. Overall, I'd say it's completed. However, there is an error. Debugging isn't possible since there is a new error line whenever that I try to debug:
   "Uncaught TypeError: Cannot read properties of undefined (reading 'toString')"
 I will need to check this out by hand in. And create my readMe.
+
+03/08 11AM
+Finalising my clock and descriptions. I finally fixed the problem by changing else{} to else if(){}. The pickiness of coding language is worse than english sometimes.
+I have now changed the title of the clock to Zen Octo' Clock (Ten O'Clock). That's when I actually named it, I'm not joking.
+ReadMe file has been written. It's now time to submit.
