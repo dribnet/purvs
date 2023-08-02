@@ -1,30 +1,33 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/JAZAP9dv)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11439593&assignment_repo_type=AssignmentRepo)
-## MDDN 242 Project 1: Time-based Media  
 
-Wax, Oil and Sand by Hannah Kai Fong
+# MDDN 242 Project 1: Time-based Media  
 
-I really struggled to come up with an idea for this assignment. Originally I went with 3 sets of rings that would appear as the hours/minutes/seconds increased, however I decided that this was difficult to read and would be too visually confusing. 
-I scrapped this idea and decided to do some further research into the history of clocks. In my research, I found the earliest ones particularly interesting due to their simplicity. I came across an image that featured two candle clocks and an oil lamp via (MODERN NET REFERENCE) and I liked that they were so simple, but visually interesting due to the craftsmanship of the metal. I started thinking about how I could include these in my clock. 
+## Wax, Oil and Sand by Hannah Kai Fong
 
-Although recreating this seemed quite literal, abstract visual representations aren't my strength and I thought it would be fun to attempt to layer PNGs and code. 
+I really struggled to come up with an idea for this assignment. Originally I went with 3 sets of rings that would appear as the hours/minutes/seconds increased. Although I liked how this design used colour, I decided that this was difficult to read and would be too visually confusing overall. I scrapped this idea and decided to do some further research into existing time keeping methods.
+In my research, I found the earliest clock devices particularly interesting due to their simplicity. I found https://mymodernmet.com/candle-clock-alarm/ which held some interesting images of candle clocks and oil lamp clocks. The crafstmanship of these devices was satisfying to me and I felt that they had potential to translate well in this project. 
 
-ATTRIBUTION INCLUDION
-inspiration and challenges
+From the images on mymodernmet, I started sketching my own designs of oil lamps and candle clocks. On a 960x500 canvas these pieces weren't filling the space very well, so I decided to add another device. I felt that the candle clock would be easiest to read when representing hours and the same goes for the oil clock and minutes. This left the seconds category open. I chose to do the hourglass as it seemed like a more interesting shape to add to the canvas. It would also stop me from soley relying on rect() shapes to represent the time. 
 
+Due to the complex shape of each device I decided to draw them in Photoshop. I had the idea to 'sandwich' the coded elements between PNGs so I separated the image into layers accordingly e.g. the hourglass glass is seperate from the main body. 
 
-### THIS IS YOUR README
+I had some issues preloading these assets into my clock file. I found that if I created the variables inside the main clock function it would create an infinite loop. I tested a few ways to fix this and found that using global variables was the only way the code worked. This was the method I used in my final code. 
 
-Hannah Kai Fong.
+I started the animated code with the oil lamp. This was the easiest device to complete as it only needed a rect() with rounded corners. I ran into some major issues when starting the candle as I realised my candle clock started at 1 rather than 12. It took me a while to figure out how to fix this, but eventually I made conditional statements for 12am and 12pm that gave me more control of how the candle looked at these times. I found this a bit tedious, but I'm happy with how the final candle turned out.
 
-Your final version should have
+It was at this point that I also had to address the smoothness of the candle and oil movement. I started incorporating the fraction method we talked about in class so that the transition between hours and minutes was gradual rather than sudden. I found the 12am and 12pm hours on the clock a bit harder to address as they weren't included in the main maps. I ended up having to create a seperate map for the 12am/12pm candle height so it continued to decrease rather than halting at the 12 line. This was probably a bit unneccesary, but its a small detail that I'm glad I included. 
+The fraction method also helped me address the reset of each device as I could create maps that 'refill' each device at the end of their time period. I was really happy with how this addition turned out as I feel like it really brings the clock to life. 
 
-1) A README.md file that includes:
+I then moved on to creating the flame for both the candle clock and oil lamp. I had a bit of an issue with this as without being able to use random(), I wasn't able to quite recreate the flickering look I was going for. I settled for ellipses that pulsed in y position and size. I ended up using maps that would control the size and height every 500 milliseconds. Although I felt like this was the best method at the time, I found a more effective method of mimicking flickering when I created the alarm function (by using the modulo operation). Unfortunately I didn't have time to go back and change the standard flame, but it would be something I would change in an improved design. I did find that calling the flame function twice looked better as it made the glow effect I added (taken from https://www.youtube.com/watch?v=iIWH3IUYHzM&t=88s) more effective.
 
-* Your Clock Name
-* Your Name
-* A description of your overall design process that serves as your design journal (suggested: 300-600 words)
+I then moved onto the hourglass. This was difficult as I didn't realise you couldn't create triangles with rounded vertices in p5js. It was suggested that I create another PNG to block out the outside of the hourglass and use rectangles placed behind the blocks to mimic a full glass. I was going to do this, however I knew that I needed to decipher night/day hours by having a colour change in the background. This meant that the png block would stay one colour while the background changed, destroying the illusion. Fixing this issue was a bit frustrating as I had to create a custom shape to create the block. This took a long time and a lot of guesswork, but eventually I got to a shape I was happy with. I think the overall illusion works well, but I wish I'd found a way to bring the final background shadow ontop of the block so it blended in better.
+I then coded the 'sand' in the hourglass. This wasn't too difficult but I found that using maps on the width as well as the height created a better illusion as you could see the rounded edges of the rect better (I felt like this looked better). This made the sand a bit more tedious than expected, but I'm happy with how it turned out.
+I then coded the dropping sand. The biggest challenge with this was making sure it dropped to the right y position, so that when the bottom sand was empty, it still hit the correct level in the hourglass. Overall the hourglass was probably the most challenging of the devices to create, however I'm really proud of how it turned out. Even though it doesn't fully adhere to my initial idea, I think the illusion turned out well and it's quite visually pleasing. 
 
-2) A 960x500 pixel preview.jpg that is a screenshot from your final version (you can use the '!' key to generate)
+I then coded the background colour change according to the tutorial in class. At this point I also changed the colours of the oil, sand and flames so that they would suit both the night and day background better. 
+As I was finally happy with how my clock was functioning, I moved onto the alarm. I didn't want to do anything too crazy for the alarm as I felt like it wouldn't suit the clock style. I settled on changing the flame size in some way and having it flicker more dramatically would work well. I tried a few methods of bringing this to life, but I found the easiest and most effective was to have the 10 second build-up to the alarm, be a layered ellipse that increases in size. At the actual alarm, this ellipse would reach its full size and flicker between 2 colours. 
+I wanted to incorporate milliseconds somehow into this part of the code, so I came up with flickering the flame every odd/even millisecond using the modulo operation. I think this is really effective and it distinguishes the alarm flame from the standard flame on the candle well. Similar to the regular flame, I also decided to layer the glow effect of the ellipses as it looked better. If I had more time, I would have made the size of the ellipse a bit bigger to add a touch more drama, but I'm overall happy with how it has turned out. 
 
-3) A modified index.html that updates all meta tags with your own settings for title / url / image / etc.
+As a final touch I added some more shadow to the background using a PNG created in photoshop. This, layered with the drawingContext reference (idea taken from https://p5js.org/reference/#/p5/drawingContext), gave the design a lot more depth and blended the elements together much more effectively. 
+
+Overall, I'm really happy with how my clock turned out. I think it displays the hours/minutes/seconds in a visually engaging manner. Although creating a clock made of clock devices was quite a literal take on the assignment, I'm glad I didn't take the abstract route as it wouldn't have allowed me to explore layering PNGs and code in the same manner that this idea did. I can certainly see a handful of things I would improve with more time (the look of the standard flame, hourglass blocking method etc.), but I think the final piece works well and doesn't have too many obvious faults. 
+
