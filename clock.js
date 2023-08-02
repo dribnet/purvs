@@ -9,6 +9,7 @@
     let backgroundMainValue = 0;
     let secondsMain = 0;
     let testvar = 0;
+    let alarmOn = 0;
 
     function preload() {
       // Preload images
@@ -53,7 +54,8 @@
       scytheMain = [
         loadImage("scytheAlarm/scythe_Idle.png"),
         loadImage("scytheAlarm/scytheAlarm_01.png"),
-        loadImage("scytheAlarm/scytheAlarm_02.png")
+        loadImage("scytheAlarm/scytheAlarm_02.png"),
+        loadImage("scytheAlarm/scythe_none.png"),
       ];
     }
 
@@ -106,7 +108,8 @@
         text(minutes, 456, 182.5);
       }
 
-      function soulVAR() {
+      function soulVariableToHour() {
+        // changing soulvariable to hours function
         soulVariable = hours;
       }
 
@@ -124,15 +127,16 @@
       function alarm() {
         // alarm scythe function
         if (alarmMain < 0) {
-          image(scytheMain[0], 0, 0);
+          alarmOn = 0;
         } else if (alarmMain === 0) {
           image(scytheMain[1], 0, scytheMovement);
         } else if (alarmMain > 0) {
+          alarmOn = 1;
           image(scytheMain[2], 0, scytheMovement);
         }
       }
 
-      function soulsShake (){ 
+      function soulShake (){ 
         // souls shaking animation function
         if (testvar === 0){
           image(soulMain[soulVariable], 0, soulMovement);
@@ -140,6 +144,17 @@
         } else if (testvar === 1){
           image(soulMain[soulVariable], 0, soulMovement2);
           testvar = 0;
+        }
+
+      }
+
+      function scytheHide(){
+        // function to shwo scythe when alarm is not on and to hide scythe when alarm turned on
+        if (alarmOn === 0) {
+          image(scytheMain[0], 0, 0);
+
+        } else if (alarmOn === 1) {
+          image(scytheMain[3], 0, 0);
         }
 
       }
@@ -153,6 +168,8 @@
       alarm();
       lanternMain();
       minuteNecklaceTimer();
-      soulVAR();
-      soulsShake();
+      soulVariableToHour();
+      soulShake();
+      scytheHide();
+
     }

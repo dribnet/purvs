@@ -19,10 +19,10 @@ i struggled with this initially but after some researching and testing i got it.
 
 the next part of this process way the Minute Necklace, this was quite easy all i did was display text on the screen that updates with the minutes variable that i made, and i positioned the text in the middle of the Minute Necklace, also changed the color and font to my liking.
 
-for the hours i had to import all the soul images which was 24 images and every hour, it would display the next image, this was quite easy because i made a function where the image would update according to the hour number 0-24. so this function would do its thing every hour. i also created a little animation where the souls move up and down in unison using the milliseconds variable, i mapped it to my liking and made the souls update their position.
+for the hours i had to import all the soul images which was 24 images and every hour, it would display the next image, this was quite easy because i made a function where the image would update according to the hour number 0-24. so this function would do its thing every hour. i also created a little animation where the souls move up and down in unison using the milliseconds variable, i mapped it to my liking and made the souls update their position. (i made alittle function that i played around with, overall it just makes the souls shake very quickly, like they are vibrating)
 
 the background will update every 12 hours, this is how i further developed my idea to somehow represent AM  and PM.
 
-the Alarm function was simply designed, when the alarm is off, the scythe is a regular scythe, when you turn on the alarm the scythe changes its form going into a more bloodier scythe, and when the alarm is going off it changes to a more angelic brigther form.
+the Alarm function was simply designed, when the alarm is off, the scythe is a regular scythe, when you turn on the alarm the scythe changes its form going into a more bloodier scythe, and when the alarm is going off it changes to a more angelic brigther form, the scythe also moves to the variable that i mapped.
 
-in conclusion i liked the design aesthetic  of this project and i think the execution was ok from me, although it was quite simple i think its fun to look at and if i wanted to develop this idea further i would make more things move such as the robe and maybe the scythe could move when the alarm is active.
+in conclusion i liked the design aesthetic  of this project and i think the execution was ok from me, although it was quite simple i think its fun to look at and if i wanted to develop this idea further i would make more things move such as the robe.
