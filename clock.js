@@ -179,10 +179,11 @@ function draw_clock(obj) {
 
   if (alarm < 0) {
     text("Alarm Not Set", 0, 0);
-  } else {
+  } else if (alarm >= 0){
     text(nfs(alarm, 2, 1) + " secs", 0, 0);
   }
   pop();
+  //#endregion
 }
 
 //polygon background from p5.js reference
