@@ -10,6 +10,7 @@ var baseImg;
 var oilBack;
 var candleHolderGlass;
 var wick;
+var bgShadow;
 
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -34,6 +35,8 @@ function draw_clock(obj) {
 
   BackgroundGradient(hours, mins, nightBackground, dayBackground); //controls background gradient between day/night (changes btwn 7am-8am & 7pm-8pm)
 
+  image(bgShadow,0,0); //insert png shadow for background
+
   noStroke();
   
   image(oilBack,0,0); //insert back of oil lamp
@@ -46,7 +49,7 @@ function draw_clock(obj) {
   drawingContext.shadowOffsetX = 5;
   drawingContext.shadowOffsetY = 5;
   drawingContext.shadowBlur = 10;
-  drawingContext.shadowColor = 'black';
+  drawingContext.shadowColor = color(9,17,23);
 
   image(baseImg,0,0); //draw main image - candle clock backing, oil lamp body and hourglass body
 
@@ -62,18 +65,11 @@ function draw_clock(obj) {
 
   wickPosition(hours, mins, secs, millis); //controls height of candle wick
   
-
-  //textSize(40);
-  //textAlign(CENTER, CENTER);
-  //text("hours = " + hours, width / 2, 100);
-  //text("minutes = " + mins, width / 2, 150);
-  //text("seconds = " + secs, width / 2, 200);
-  
   //jittermaps helped me control the pulsing of the size and height of the flames (done every 500 milliseconds)
   let jittermap = map(millis, 0, 500, -1,1);
   let jittermap2 = map(millis,501,999, 1, -1);
 
-   //I found calling candleFlame twice was the best way to brighten the glow of the flame
+  //I found calling candleFlame twice was the best way to brighten the glow of the flame
   let flameHeight = candleFlame(hours, mins, secs, millis, jittermap, jittermap2);
   candleFlame(hours, mins, secs, millis, jittermap, jittermap2); 
 
@@ -81,17 +77,18 @@ function draw_clock(obj) {
   oilFlame(millis, jittermap, jittermap2);
   oilFlame(millis, jittermap, jittermap2);
   
+  //alarm function
   alarm(SecsTillAlarm, flameHeight, millis);
 
 }
 
 //preload png images
 function preload() {
-
   baseImg = loadImage("assets/MiddleBase.png");
   oilBack = loadImage("assets/OilBack.png");
   candleHolderGlass = loadImage("assets/CandleHolderandGlass.png");
   wick = loadImage("assets/Wick.png");
+  bgShadow = loadImage("assets/ShadowBG.png")
 }
 
 //controls background gradient between day/night (changes btwn 7am-8am & 7pm-8pm)
@@ -129,7 +126,8 @@ function candle(hours, mins, secs, millis){
   let HeightAtTwelve = map(mins+secs/60, 0, 55,-36, -30);
   let returnHeight = map(secs+millis/1000, 55, 60, -30, -291);
   
-  //conditional statements as clock starts at 0 rather than 1 (top of candle clock)
+  //conditional statements for candle height as candle clock starts at 1 rather than 12
+  //specific statments were needed for 12 am and 12pm
   if (hours == 0 ) {
     if (mins==59 && secs >=55) {
       //returns height of candle in last 5 seconds of the hour
@@ -167,31 +165,38 @@ function wickPosition(hours, mins, secs, millis){
   let HeightAtTwelve = map(mins+secs/60, 0, 60, 1, 7);
   let returnHeight = map(secs+millis/1000,55,60, 7, -254);
 
-
+  //conditional statements for placement of wick as candle clock starts at 1 rather than 12
+  //specific statments were needed for 12 am and 12pm
   if (hours == 0 ) {
     if (mins==59 && secs >=55) {
+      //returns height of wick in last 5 seconds of the hour
       image(wick, 0, returnHeight);
     } else {
+      //decreases height of wick during the hour
       image(wick, 0, HeightAtTwelve);
     }
   } else if (hours == 12) {
     if (mins==59 && secs >= 55) {
+      //returns height of wick in last 5 seconds of the hour
       image(wick, 0, returnHeight);
     } else {
+      //decreases height of wick during the hour
       image(wick, 0, HeightAtTwelve);
     }
   } else if (hours >= 1 && hours <= 11){
+    //controls wick Height during day
     image(wick, 0, wickHeightday);  
-  } else
+  } else {
+    //controls wick Height during night
     image(wick, 0, wickHeightnight);
+  }
 }
-
 
 //draws candle flame pulsing at the correct height (follows the candle height)
 function candleFlame(hours, mins, secs, millis, jitter, revjitter) {
   push();
 
-  let flameHeight;
+  let flameHeight; // by 'height' i'm referring to the yPos which follows the height of the candle
   let colorsList = [color(241,115,0), color(255, 150, 0, 100), color(255,214,10, 50)]; //array for flame colours
   let xPos = 194; //x pos of flame
   let size = 25; //determines outer flame ellipse size
@@ -204,25 +209,31 @@ function candleFlame(hours, mins, secs, millis, jitter, revjitter) {
   //specific statments were needed for 12 am and 12pm
   if (hours == 0 ) {
     if (mins==59 && secs >=55) {
+      //returns Ypos of flame in last 5 seconds of the hour
       flameHeight = map(secs+millis/1000,55,60, 381, 120);
     } else {
+       //decreases Ypos of flame during the hour
       flameHeight = map(mins+secs/60, 0, 60, 375, 381);
     }
   } else if (hours == 12) {
     if (mins==59 && secs >=55) {
+      //returns Ypos of flame in last 5 seconds of the hour
       flameHeight = map(secs+millis/1000,55,60, 381, 120);
     } else {
+      //decreases Ypos of flame during the hour
       flameHeight = map(mins+secs/60, 0, 60, 375, 381);
     }
   } else if (hours >= 1 && hours <= 11){
+    //controls flame Height during day
     flameHeight = map(hours+mins/60, 0, 11, 98, 350);
-  } else
+  } else {
+    //controls flame Height during day
     flameHeight = map(hours+mins/60, 12, 23, 98, 350);   
-  
+  }
 
   //draws 3 rings to flame in a loop
   for (let i = 0; i < 3; i++) {
-    //flame rings size and height pulse with jitter (every half millisecond)
+    //flame rings size and height pulse with jitter (every half second)
     if (millis >= 0 && millis <= 500) {
       size += jitter;
       flameHeight-= jitter/2;
@@ -238,7 +249,7 @@ function candleFlame(hours, mins, secs, millis, jitter, revjitter) {
   }
 
   pop()
-  return flameHeight;
+  return flameHeight; //return to use for the alarm function
   
 }
 
@@ -264,7 +275,7 @@ function oillamp(mins, secs, millis){
 function oilFlame(millis, jitter, revjitter) {
   push();
 
-  let flameHeight = 225;
+  let flameHeight = 225; //yPos of flame
   let colorsList = [color(241,115,0), color(255, 150, 0, 100), color(255,214,10, 50)];
   let xPos = 605; //x pos of flame
   let size = 25; //determines outer ring of flame size
@@ -325,7 +336,7 @@ function hourglassSand(secs, millis){
   
 
   if (secs >= 56) {
-    //gradual increase to full upper part of hourglass after 56 seconds
+    //gradual increase to full upper part of hourglass at 56 seconds
     rect(TopSandReturnXPos, 245, TopSandReturnWidth, TopSandReturnHeight, 10);
     rect(BottomSandReturnXpos, 434, BottomSandReturnWidth, BottomSandReturnHeight, 20);
 
@@ -371,7 +382,6 @@ function hourglassBlock(nightBackground, dayBackground, hours, mins){
     fill(nightBackground);
   }
 
-
   //left of hourglass
   beginShape();
   vertex(720, 150);
@@ -411,21 +421,21 @@ function hourglassBlock(nightBackground, dayBackground, hours, mins){
 
 function alarm(SecsTillAlarm, CandleflameHeight, millis){
   push();
+  //two maps to control the height/width of the glow that appears on the candle (starts growing 10 secs before alarm)
   let glowSizeWidth = map(SecsTillAlarm,10,0,0,40);
   let glowSizeHeight = map(SecsTillAlarm,10,0,0,50);
-  let CandleGlowXpos = map(SecsTillAlarm,10,0,CandleflameHeight,CandleflameHeight-15);
-  let OilGlowXpos = map(SecsTillAlarm,10,0,235,220);
 
+  //maps to sink the Xpos of the glow so that it stays in the correct position over the flames
+  let CandleGlowXpos = map(SecsTillAlarm,10,0,CandleflameHeight,CandleflameHeight-15);
+  let OilGlowXpos = map(SecsTillAlarm,10,0,228,217);
 
   let yellowFlame = color(255,224,71,60);
-  let orangeFlame = color(252,168,58,120);//color(255,255,255,120);
+  let orangeFlame = color(252,168,58,120);
   
 
-
-    //glow effect via https://www.youtube.com/watch?v=iIWH3IUYHzM&t=88s
-    drawingContext.shadowBlur = 32;
-    drawingContext.shadowColor = color(255,255,255);
-
+  //glow effect via https://www.youtube.com/watch?v=iIWH3IUYHzM&t=88s
+  drawingContext.shadowBlur = 32;
+  drawingContext.shadowColor = color(255,255,255);
 
   if (SecsTillAlarm == 0){
     //alarm going off - flashes every odd/even millisecond
@@ -435,11 +445,11 @@ function alarm(SecsTillAlarm, CandleflameHeight, millis){
       fill(orangeFlame); 
     }
     //I liked the effect of layering the ellipses so I called them twice.
-    ellipse(194, CandleflameHeight-15,40,50); // ellipse over candle flame
-    ellipse(194, CandleflameHeight-15,40,50); // ellipse over candle flame
+    ellipse(194, CandleflameHeight-15,40,50); //ellipse over candle flame
+    ellipse(194, CandleflameHeight-15,40,50); //ellipse over candle flame
 
-    ellipse(605,215,40,50); //ellipse over oil lamp flame
-    ellipse(605,215,40,50); //ellipse over oil lamp flame
+    ellipse(605,217,40,50); //ellipse over oil lamp flame
+    ellipse(605,217,40,50); //ellipse over oil lamp flame
  
 
   } else if (SecsTillAlarm > 0 && SecsTillAlarm <= 10) {
@@ -451,9 +461,6 @@ function alarm(SecsTillAlarm, CandleflameHeight, millis){
     //no alarm
   }
 
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
   pop();
 
 
