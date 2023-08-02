@@ -1,8 +1,6 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/JAZAP9dv)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11440819&assignment_repo_type=AssignmentRepo)
 ## MDDN 242 Project 1: Time-based Media  
 
-### THIS IS YOUR README
+### Moving Points Clock by Treion Raquid
 
 17/07/2023
 Begin work on maeda clock task, I have decided to recreate 7th clock where AM/PM is centered, whereas the actual time behaves like a clock hand.
@@ -21,6 +19,9 @@ Created alarm ring that fills up as it counts down. I have yet to add a proper a
 31/07/2023
 I have further implemented the alarm function. I initially wanted to have the ring flash once the countdow hit zero. However, my attempts to do so kept freezing the program. Instead, when the countdown reaches zero the colour scheme changes to an orange palette.
 
+02/08/2023
+Added proper metadata and referred to hand in checklist
+
 
 HOW TO READ THE CLOCK:
 
@@ -31,4 +32,4 @@ This same principle is also applied to the middle-most ring, the minutes ring.
 
 The outermost ring behaves exactly like an hour hand on a real clock.
 
-I was inspired by the clock in the PlayStation 2 menu. where dots would move around at different rates, converging once a certain unit of time passed. However, that version has the points move in a 3D space. My version can only use a 2D plane (unless I use the 3D aspect of p5js)
+I was inspired by the clock in the PlayStation 2 menu. where dots would move around at different rates, converging once a certain unit of time passed. However, that version has the points move in a 3D space. My version can only use a 2D plane (unless I use the 3D aspect of p5js).
