@@ -23,10 +23,10 @@ function draw_clock(obj) {
     image(img, 0, 0, width, height);
     fill(0); // white
     textSize(20);
-    text("Hour: "   + hours, width*0.2, 22);
-    text("Minute: " + minutes, width*0.4, 22);
-    text("Second: " + seconds, width*0.6, 22);
-    text("Millis: " + millis, width*0.8, 22);
+    // text("Hour: "   + hours, width*0.2, 22);
+    // text("Minute: " + minutes, width*0.4, 22);
+    // text("Second: " + seconds, width*0.6, 22);
+    // text("Millis: " + millis, width*0.8, 22);
 
   // fill(200); // dark grey
   // textSize(40);
@@ -100,25 +100,30 @@ function draw_clock(obj) {
 
   noStroke();
 
+
+
   //minute water tank
 
   let minutesWithFraction   = minutes + (millis/1000);
   let min_height = 0
   fill(0 , 255, 251) // blue
-  if(secondsWithFraction <= 59) {
-    min_height = map(minutes, 0, 59, 1, 400);
+  if(minutesWithFraction <= 59){
+    if(secondsWithFraction <= 59) {
+      min_height = map(minutes, 0, 59, 1, 390);
+    }
+    else {
+      min_height = map(minutesWithFraction, 0, 59, 1, 390);
+    }
+    rect(340, 443, 74, - min_height); 
   }
-  else {
-    min_height = map(minutesWithFraction, 0, 59, 1, 400);
-  }
-  rect(340, 443, 74, - min_height);
-
-
-  if(minutesWithFraction <= 59)  {
-    min_height = map(seconds, 0, 60, 1, 300);
-  }
-  else {
-    min_height = map(millis, 0, 999, 300, 1);
+  else{
+    if(minutesWithFraction <= 59 && secondsWithFraction <= 59)  {
+      min_height = map(seconds, 0, 60, 1, 390);
+    }
+    else {
+      min_height = map(millis, 0, 999, 390, 1);
+    } 
+    rect(340, 443, 74, - min_height); 
   }
 
   //hour water tank
@@ -126,10 +131,10 @@ function draw_clock(obj) {
   let hour_height = 0
   fill(0 , 255, 251) // blue
   if(HoursWithFraction <= 59) {
-    hour_height = map(hours, 0, 60, 1, 700);
+    hour_height = map(hours, 0, 60, 1, 1100);
   }
   else {
-    hour_height = map(millis, 0, 999, 700, 1);
+    hour_height = map(millis, 0, 999, 1100, 1);
   }
   rect(44, 465, 228, - hour_height); 
 
@@ -146,7 +151,7 @@ function draw_clock(obj) {
   //   sec_height = map(millis, 0, 999, 300, 1);
   // }
 
-  text(HoursWithFraction, width/2, 50);
+  text(minutesWithFraction, width/2, 50);
   
 }
 
