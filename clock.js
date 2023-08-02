@@ -27,9 +27,9 @@ function draw_clock(obj) {
       }
       rotate(x + 15);
       fill(color);
-      rect(x, y, w, h, 4);
+      rect(x, y, w, h);
       fill(color - 10);
-      rect(x - 1, y + h, w + 2, 5);
+      rect(x - 1.5, y + h, w + 3, 5);
       
       //Building Windows
       let lightRow = (w / 10) - 1;
@@ -281,7 +281,7 @@ function draw_clock(obj) {
     } else {
       rotate(scapeDegSec + scapeDegMin);
     }
-    rotate(130); // Place around circle
+    rotate(160); // Place around circle
 
     // Function Format(rotation, x, y, height, width, shade, night?)
     draw_Hill(0, 0, -240, 170, 250, 0, nightShade);
@@ -302,11 +302,11 @@ function draw_clock(obj) {
   draw_Buildings(14, cityY, -120, 60, 110);
   draw_Buildings(10, cityY, -40, 50, 140);
   draw_Buildings(20, cityY, -60, 30, 190);
-  draw_Buildings(26, cityY, -140, 40, 160);
-  draw_Buildings(24, cityY, -50, 50, 130);
-  draw_Buildings(22, cityY, -60, 30, 180);
-  draw_Buildings(36, cityY, -120, 60, 110);
-  draw_Buildings(27, cityY, -40, 50, 140);
+  draw_Buildings(28, cityY, -140, 40, 160);
+  draw_Buildings(44, cityY, -50, 50, 100);
+  draw_Buildings(18, cityY, -60, 30, 180);
+  draw_Buildings(36, cityY, -120, 60, 130);
+  draw_Buildings(24, cityY, -40, 50, 140);
   draw_Buildings(32, cityY, -60, 30, 190);
 
   // EARTH RING (Innermost Ring)
