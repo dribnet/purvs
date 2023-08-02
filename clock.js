@@ -29,7 +29,8 @@ function draw_clock(obj) {
   //text("|Hours  "+ hours+"|", width / 8, 200);
   //text(" Millis  "+ millis+"|", width -180, 200);
 
-  
+
+
   fill(255, 0, 0); // Red color for the cursor
   noStroke();
   ellipse(mouseX, mouseY, 10, 10);
@@ -39,59 +40,68 @@ function draw_clock(obj) {
   text("X: " + mouseX, 50, 30);
   text("Y: " + mouseY, 50, 70);
 
-//Array of x and y pos of pacman and "fruits"
-//let Xpos = [20, 30, 40, 50, 60, 70, 80, 90, 100, 100, 100, 110, 120];
-//let Ypos = [100,100,100,100,100,100,100,100,110,110,110,120,130,140];
-
 // draws maze outline --------------------------------------------
-
-let moveH = map(obj.seconds *10,0,59, 0, 59);
-
 
 noFill();
 stroke (0,0,200);
-rect(30,65,865,415,7); //big outline
-rect(35,70,855,405,7);//smaller inner one
+rect(30,65,899,415,7); //big outline
+rect(35,70,889,405,7);//smaller inner one
 
 //LHS
 fill(0);
-rect(10,232,65,57); //bigger rect LHS
+rect(10,70,40,57); //bigger rect LHS
 noFill();
-rect(10,240,64,40);//smaller / inner rect LHS
+rect(10,78,40,40);//smaller / inner rect LHS
 
 fill(0);
 noStroke();
-rect(8,241,75,39); //draws LHS "door"
+rect(8,79,75,38); //draws LHS "door"
 
 //RHS
 stroke(0,0,200);
 fill(0);
-rect(850,232,65,57); //bigger rect LHS
+rect(910,70,40,57); //bigger rect LHS
 noFill();
-rect(850,240,64,40);//smaller / inner rect LHS
+rect(910,78,40,40);//smaller / inner rect LHS
 
 fill(0);
 noStroke();
-rect(849,241,75,39);
+rect(899,79,75,38);
 
   noFill();
-  
+
+    
 //-------------------------------------------------
+  //draws food 
+  for (let i = 0; i < 59; i++) {
+    value += 17.5;
+  }
 
-
+food (5.0+value,96,3,3);
+/*
+food (22.5,96,3,3);
+food (40,96,3,3);
+food (57.5,96,3,3);
+food (75,96,3,3);
+food (92.5,96,3,3);
+food (110,96,3,3);
+food (127.5,96,3,3);
+food (22.5,96,3,3);
+*/
+//moves pacman across screen
+let moveH = map((obj.seconds),0,57,-15, 935);
 // draw(drawOpenMouthPacman);
-if(obj.millis<300) {
+if(obj.millis<500) {
 
-  drawOpenMouthPacman(80+moveH,100, 35, 0,432);
+  drawOpenMouthPacman( moveH ,98, 35, 0,432);
 }
 else {
-  drawOpenMouthPacman(80+moveH, 100, 35, 80, 380);
+  drawOpenMouthPacman( moveH , 98, 35, 80, 380);
 }
-//draws food 
-food (65,95,7,7);
+
 
  //creates clock numbers 
- let x = 205;
+let x = 205;
 let y = 185;
 let size = -4;
 let c = 7;
@@ -113,41 +123,42 @@ print(second_tens_pos + "," + second_ones_pos + "/"+second_hun_pos + ","+ second
 //repositions numbers 
  drawsNumbers(x-100, y, size, c, second_tens_pos); //tens pos
  drawsNumbers(x, y, size, c, second_ones_pos); //ones pos
- //
- drawsNumbers(x-310, y, size, c, second_thousands_pos); //RHS hours 
+ drawsNumbers(x-410, y, size, c, second_thousands_pos); //LHS hours 
+ drawsNumbers(x-310, y, size, c, second_hun_pos); //RHS hours 
 
- drawsNumbers(x-410, y, size, c, second_hun_pos); //LHS hours 
+
 
 //TOP LHS
-drawMaze (170,150,10,70,7); //draws vertical bar
-drawMaze (190,120,200,10,7); //horizontal
-drawMaze(90,120,30,60,7); //box
+drawMaze (190,150,10,70,7); //draws vertical bar
+drawMaze (210,120,200,10,7); //horizontal
+drawMaze(100,120,30,60,7); //box
 
 //middle 
-drawMaze(130,260,50,10,7);
+drawMaze(110,260,90,10,7);
 
 //BOTTOM LHS
-drawMaze (170,310,10,70,7); //vertical
-drawMaze (190,415,200,10,7);//hor
-drawMaze(90,340,30,80,7); //box
+drawMaze (190,310,10,70,7); //vertical
+drawMaze (210,415,200,10,7);//hor
+drawMaze(100,340,30,80,7); //box
 
 // middle
-drawMaze(450,70,10,40,7);
-drawMaze(450,435,10,40,7);
+drawMaze(470,435,10,40,7);
 
 
 //TOP RHS
-drawMaze (740,150,10,70,7); //draws vertical bar
-drawMaze (530,120,200,10,7);
-drawMaze(810,120,30,60,7); //box
+drawMaze (760,150,10,70,7); //draws vertical bar
+drawMaze (550,120,200,10,7);
+drawMaze(830,120,30,60,7); //box
 
 //middle 
-drawMaze(740,260,50,10,7);
+drawMaze(760,260,90,10,7);
 
 //BOTTOM RHS
-drawMaze (740,310,10,70,7); //vertical
-drawMaze (530,415,200,10,7);
-drawMaze(810,340,30,80,7); //box
+drawMaze (760,310,10,70,7); //vertical
+drawMaze (550,415,200,10,7);
+drawMaze(830,340,30,80,7); //box
+
+
 
 }
 
@@ -164,17 +175,12 @@ function drawOpenMouthPacman(x, y, diameter, angleStart, angleEnd) {
   // Draw Pacman with an open mouth to the left
   fill(255, 255, 0); // Yellow color
   noStroke();
-  let Xpos = [20, 30, 40, 50, 60, 70, 80, 90, 100, 100, 100, 110, 120];
-  let Ypos = [100,100,100,100,100,100,100,100,110,110,110,120,130,140];
-  let speedX = 100;
 
-   for (let i = 0; i < 900; i++) {
-  arc(x+speedX ,y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
-  //move pacman 
+  arc(x,y, diameter, diameter, radians(angleStart) / 2, radians(angleEnd) + 5, PIE);
 
-   }
-   
 }
+
+
 //draws different positions 
 function drawDigit(x, y, size, c) {
   rect (x+0,y,size+18,size+90,c);
@@ -232,6 +238,7 @@ if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
     // draw pacman food 
      
     function food (X,Y,SIZE){
+  
       fill(255,107,0);
       rect(X,Y,SIZE,SIZE);
 
