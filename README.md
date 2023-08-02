@@ -27,3 +27,8 @@ The leaves stayed relatively the same from the initial idea. The difference here
 After going back and forth lots, I settled on the idea of having the bee slowly moving across the screen to represent the minutes. The bee starts at the left side and moves to the right side where it reaches 59 minutes and then repeats. 
 
 The bee may not make a heap of sense at first, however, the idea behind this is that the bee is waiting for a flower to pollinate. Therefore, when the alarm goes off, a flower appears and the bee pollinates the flower. 
+
+
+Flower rotation code credit:
+
+Rushcode.(2021, January 29). How to Rotate Multiple Objects in Javascript Coding on P5.js - 10 subscriber special. [Video]. Youtube. https://www.youtube.com/watch?v=H6QQIZeVuew 

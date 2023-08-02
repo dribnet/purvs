@@ -1,7 +1,7 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
-
+let angle = 0; //angle for alarm clock flower. This allows my flower to spin around itself
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -12,7 +12,7 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-
+  
 
   //changing sky based on day and night
 const night_sky = color(12, 23, 63); //50,50,60 //dark blue
@@ -209,10 +209,20 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
  
   
 //let secondsrotate = map(seconds,0,59,0,TWO_PI);
-  
+
+
+angle = angle + 0.05; 
 let flowerx = map(millis/40,0,59,30,80, petalSize);
-  flowerAlarm(width/2,100,flowerx); //flower to appear when alarm goes off
-   }
+
+
+push();
+  translate(width/2,100) ;
+  rotate(angle);
+  flowerAlarm(0,0, flowerx); //flower to appear when alarm goes off
+
+  pop();
+
+}
 
 
   }
