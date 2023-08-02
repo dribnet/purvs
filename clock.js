@@ -15,12 +15,12 @@
       // Preload images
       bodyMain = [
         loadImage("bodyMain/bodyMain1.png"),
-        loadImage("bodyMain/bodyMain2.png")
+        loadImage("bodyMain/bodyMain2.png"),
       ];
 
       backgroundMain = [
         loadImage("background/backgroundMain1.jpg"),
-        loadImage("background/backgroundMain2.png")
+        loadImage("background/backgroundMain2.png"),
       ];
 
       soulMain = [
