@@ -1,32 +1,24 @@
 const carTargetX = 400;
+let globalBrightness = 0.5;
 
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
-  
-  // fill(0, 0, 200); // dark grey
-  // textSize(40);
-  // textAlign(CENTER, CENTER);
-  // text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-
-  colorMode(HSB, 100);
-  background(60, 80, 50);
 
   let hours = obj.hours;
   let twelveHours = hours % 12 || 12;
   let minutes = obj.minutes;
   let seconds = obj.seconds;
   let millis = obj.millis; 
+  let alarm = obj.seconds_until_alarm;
+
+
+  // global brightness to add a day/night effect, where the brightest time is 12pm and the darkest is 12am
+  globalBrightness = map(twelveHours, 0, 12, 0.5, 1);
+  if(hours > 12 || hours == 0) {
+    globalBrightness = map(twelveHours, 0, 12, 1, 0.5);    
+  }
 
   // phase between -1 and 1 second
   let phase = 1;
@@ -36,8 +28,17 @@ function draw_clock(obj) {
     phase = -1;
   }
 
-  // draw waves in the background
+  // // alarm (makes the ocean sway when it goes off)
+  if(alarm == 0) {
+    let roll = map(millis, 0, 1000, -PI/200, PI/200);
+    rotate(roll*phase); 
+  } 
 
+  // background
+  colorMode(HSB, 100);
+  background(60, 80, 50*globalBrightness);
+
+  // draw waves in the background
   let wavesX = 15; wavesY = 12;
   let offset = width/50;
 
@@ -53,42 +54,34 @@ function draw_clock(obj) {
           offsetPhase = 1;
         }
 
-      draw_wave(millis, phase*offsetPhase, (i*width/(wavesX+1))+offset*offsetPhase, j*height/(wavesY+1)); 
+      // draw wave uses phase and offset phase to swap directions smoothly in the animation and offset stops the waves from looking too grid like
+      draw_wave(millis, phase*offsetPhase, (i*width/(wavesX+1))+offset*offsetPhase, j*height/(wavesY+1), alarm); 
 
     }
   }
 
   // draw road
-
   colorMode(HSB, 100);
   rectMode(RADIUS);
   strokeWeight(0);
   
-  fill(50);  
+  fill(50*globalBrightness);  
   rect(0, height*0.8, carTargetX+30, 50);
-  fill(15, 100, 100);
+  fill(15, 100, 100*globalBrightness);
   rect(0, (height*0.8)-42, carTargetX+30, 2);
   rect(0, (height*0.8)+42, carTargetX+30, 2);
 
   // draw cars
-
   drawCars(millis, seconds, minutes);  
 
   // draw ferry
-
   drawFerry(millis, seconds, minutes, hours, twelveHours);
-
-  // draw car target (DEBUG)
-
-  // strokeWeight(2);
-  // stroke(100, 100, 100)
-  // line(carTargetX, 0, carTargetX, height); 
 
 }
 
 // Waves
 
-function draw_wave(millis, wavePhase, xPos, yPos) { // draws a wave at a location (wavePhase controls whether the wave is going up or down)
+function draw_wave(millis, wavePhase, xPos, yPos, alarm) { // draws a wave at a location (wavePhase controls whether the wave is going up or down)
 
   colorMode(HSB, 100);
 
@@ -99,10 +92,13 @@ function draw_wave(millis, wavePhase, xPos, yPos) { // draws a wave at a locatio
   
   translate(xPos+horizontalMotion, yPos);
   scale(1);
+  if(alarm == 0) {
+    scale(2);
+  }
   
   noFill();
   strokeWeight(1);
-  stroke(60, 80, 70);
+  stroke(60, 80, 70*globalBrightness);
 
   // wave curve
   beginShape();
@@ -145,24 +141,24 @@ class Car {
 
     // wheels
     fill(0);         
-    ellipse(-9, 9, 8);
-    ellipse(9, 9, 8);
-    ellipse(-9, -9, 8);
-    ellipse(9, -9, 8);
+    ellipse(-9, 8, 8);
+    ellipse(9, 8, 8);
+    ellipse(-9, -8, 8);
+    ellipse(9, -8, 8);
 
     // body
     rectMode(RADIUS);
-    fill(this.hue, 100, 100);
+    fill(this.hue, 70, 70*globalBrightness);
     rect(0, 0, 15, 10);
 
     // windows
-    fill(60, 50, 100);
+    fill(60, 50, 100*globalBrightness);
     rect(-10, 0, 1, 8);
     rect(5, 0, 3, 8);
 
     // number (minutes)
     rotate(PI/2);
-    fill(0);
+    fill(100*globalBrightness);
     textSize(12);
     textAlign(CENTER, CENTER);
     text(this.number.toString(), 0, 4);
@@ -198,25 +194,25 @@ function drawFerry(millis, seconds, minutes, hours, twelveHours) {
   let secondsWithFraction = seconds + (millis / 1000.0);
 
   // animation sequence at 1 hour mark
-  if(minutes == 17 && seconds <= 10) {;
+  if(minutes == 0 && seconds <= 10) {;
     ferryRot = 0 + (-PI/60 * secondsWithFraction);
     ferryX = 400 + (600/10 * secondsWithFraction);
     ferryY = (height*0.8) - (100/10 * secondsWithFraction);
   }
 
-  if(minutes == 17 && seconds > 10 && seconds <= 20) {;
+  if(minutes == 0 && seconds > 10 && seconds <= 20) {;
     ferryRot = 0 + (PI/200 * (secondsWithFraction-11));
     ferryX = -1000 + (1400/10 * (secondsWithFraction-11));
     ferryY = (height*0.4/10 * (secondsWithFraction-11));
   }
 
-  if(minutes == 17 && seconds > 20 && seconds <= 30) {;
+  if(minutes == 0 && seconds > 20 && seconds <= 30) {;
     ferryRot = PI/20 - (PI/200 * (secondsWithFraction-21));
     ferryX = 400 + (400/10 * (secondsWithFraction-21));
     ferryY = height*0.4 + (height*0.4/10 * (secondsWithFraction-21));
   }
 
-  if(minutes == 17 && seconds > 30 && seconds <= 40) {;
+  if(minutes == 0 && seconds > 30 && seconds <= 40) {;
     ferryRot = 0;
     ferryX = 800 - (400/10 * (secondsWithFraction-31));
     ferryY = height*0.8;
@@ -229,7 +225,7 @@ function drawFerry(millis, seconds, minutes, hours, twelveHours) {
 
   push(); 
   
-  fill(100);
+  fill(100*globalBrightness);
   translate(ferryX, ferryY);
   rotate(ferryRot);  
 
@@ -244,7 +240,7 @@ function drawFerry(millis, seconds, minutes, hours, twelveHours) {
   endShape();
 
 
-  fill(10, 50, 70);
+  fill(10, 50, 70*globalBrightness);
 
   beginShape();  // deck (smaller copy of base shape)
   vertex(10, -55);  
@@ -256,7 +252,7 @@ function drawFerry(millis, seconds, minutes, hours, twelveHours) {
   vertex(295, -65);
   endShape();
 
-  fill(0, 50, 50);
+  fill(0, 50, 50*globalBrightness);
 
   beginShape();  // upper level (smaller copy of base shape)
   vertex(120, -45);  
@@ -268,18 +264,47 @@ function drawFerry(millis, seconds, minutes, hours, twelveHours) {
   vertex(295, -45);
   endShape();
 
-  fill(20);  // chimneys
+  fill(20*globalBrightness);  // chimneys
   strokeWeight(5)
-  stroke(40);
+  stroke(40*globalBrightness);
   ellipse(275, 0, 70);
   ellipse(175, 0, 70);
 
+  let secondsText1 = '0';
+  let secondsText2 = '0';
+  if(seconds.toString().length > 1) {
+    secondsText1 = seconds.toString()[0];
+    secondsText2 = seconds.toString()[1];
+  }  else {
+    secondsText1 = '0';
+    secondsText2 = seconds.toString()[0];
+  }
+
+  // using alpha to make the seconds numbers in the chimney stacks fade away like smoke
+  let sAlpha = map(millis, 0, 800, 80, 0);
+  strokeWeight(0); // number (seconds)
+  fill(0, 0, 100*globalBrightness, sAlpha);
+
+  // scaling the seconds text over a second to make it look like it's getting closer to the top of the chimney
+  let sTextSize = map(millis, 0, 1000, 0, 100);
+  textSize(sTextSize);
+  textAlign(CENTER, CENTER);
+  text(secondsText1, 175, 0);
+  text(secondsText2, 275, 0);
+
   strokeWeight(5); // number (hour)
-  stroke(100);
-  fill(100);
+  stroke(100*globalBrightness);
+  fill(100*globalBrightness);
+
+  // this maintains the displayed hour on the boat until after it has left the screen
+  let displayedHour = twelveHours.toString();
+  if(minutes == 0 && seconds <= 10) {
+    displayedHour = (twelveHours-1).toString();
+  }
+
   textSize(72);
   textAlign(CENTER, CENTER);
-  text(twelveHours.toString(), 65, 0);
+  text(displayedHour, 65, 0);
 
   pop();
 }
