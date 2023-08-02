@@ -15,29 +15,8 @@ function draw_clock(obj) {
   //        < 0 if no alarm is set
   //        = 0 if the alarm is currently going off
   //        > 0 --> the number of seconds until alarm should go off
-
   let backgroundCol = (0); //  black
- 
-//alarm
-
-
-if (alarm > 0 && alarm < 5 ){//building up to alarm
-  let hours_radius = map(alarm, 0, 500, 1, 500);
-  redGhost = (200,400, hours_radius,hours_radius );
-}
-else if (alarm == 0){ //alarm going off
-if (millis < 500){
-  backgroundCol = 0;
-}
-else {
-  backgroundCol=200;
-
-} //-----------------------------------------------------
-
-}
 background(backgroundCol);
-
-
 
 textAlign(CENTER, CENTER);
 // one up text
@@ -186,11 +165,6 @@ let y = 185;
 let size = -4;
 let c = 5;
 
-fill(21, 21, 255) //blue
- 
-  // ":" 
- rect (x+280,y+40,size+20,size+25,c);
- rect (x+280,y+150,size+20,size+25,c); 
 
 //sets pace to change min/hr
 let second_ones_pos = obj.minutes % 10;
@@ -199,10 +173,6 @@ let second_hun_pos = obj.hours % 10;
 let second_thousands_pos = int(obj.hours/10) % 10;
 
 //repositions numbers 
- drawsNumbers(x-100, y, size, c, second_tens_pos); //tens pos
- drawsNumbers(x, y, size, c, second_ones_pos); //ones pos
- drawsNumbers(x-410, y, size, c, second_thousands_pos); //LHS hours 
- drawsNumbers(x-310, y, size, c, second_hun_pos); //RHS hours 
 
 noStroke();
 
@@ -211,11 +181,12 @@ let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
 let phase1 = sin(bounce1);
 let y_bounce1 = map(phase1, -1, 1, -20, 20);
 this.redGhost(0,10+y_bounce1,0);
-
+//creates orange pacman and makes it move
+this.orangeGhost(90,-200-y_bounce1,0);
 //blue pacman move
-let bounce2 = map(obj.millis, 0, 5, 0, TWO_PI);
+
 let y_bounce2 = map(phase1, -1, 1, -10, 20);
-this.blueGhost(790+y_bounce2,-100,0);
+this.blueGhost(790-y_bounce2,-100,0);
 
 //pink pacman move
 let phase3 = sin(bounce1);
@@ -223,12 +194,49 @@ let y_bounce3 = map(phase3, -1, 1, -10, 20);
 this.pinkGhost(500+y_bounce3,47,0);
 
 
+fill(10, 21, 255) //blue
+if (alarm > 0 && alarm < 10 ){//building up to alarm
+whiteGhost(0,10+y_bounce1,0);//red
+whiteGhost(790-y_bounce2,-100,0);//blue
+whiteGhost(500+y_bounce3,47,0);//pink
+whiteGhost(90,-200-y_bounce1,0);
+}
+else if (alarm == 0){ //alarm going off
+  if (millis < 500){
+    fill(255,0,0);
+  }
+  else {
+   
+    whiteGhost(0,10+y_bounce1*2,0);//red
+    whiteGhost(790+y_bounce2*2,-100,0);//blue
+    whiteGhost(500+y_bounce3*2,47,0);//pink
+    whiteGhost(90,-200+y_bounce1,0) //orange
+
+    whiteGhost(0,10-y_bounce1*2,0);//red
+    whiteGhost(790-y_bounce2*2,-100,0);//blue
+    whiteGhost(500-y_bounce3*2,47,0);//pink
+    whiteGhost (90,-180-y_bounce1,0); //orange
+    fill(0,255,0) ;
+  }
+}
+
+drawsNumbers(x-100, y, size, c, second_tens_pos); //tens pos
+drawsNumbers(x, y, size, c, second_ones_pos); //ones pos
+drawsNumbers(x-410, y, size, c, second_thousands_pos); //LHS hours 
+drawsNumbers(x-310, y, size, c, second_hun_pos); //RHS hours 
+  // ":" 
+  rect (x+280,y+40,size+20,size+25,c);
+  rect (x+280,y+150,size+20,size+25,c); 
+
 //draw power up orbs
-fill(244,100,20);
-ellipse (160,223,10,10);
+fill(244,180,20);
+ellipse (160,293,10,10);
 ellipse (802,170,10,10);
 ellipse (892,451,10,10);
 ellipse (322,451,10,10);
+
+
+
 
 }
 
@@ -289,12 +297,11 @@ if (n==4 || n==5 || n ==6 || n==8 || n==9 ){
 }
  //
     }
+   // draw pacman food 
+function food (X,Y,SIZE){
   
-    // draw pacman food 
-    function food (X,Y,SIZE){
-  
-      fill(255,140,0);
-      rect(X,Y,SIZE,SIZE);
+fill(255,140,0); //set color to orange
+rect(X,Y,SIZE,SIZE);
 
     }
 function redGhost (x,y,size){
@@ -348,4 +355,39 @@ function pinkGhost (x,y,size){
  //draws eyes
  ellipse(x+75,y+401,size+5,size+5);
  ellipse(x+60,y+401,size+5,size+5);
+}
+
+function orangeGhost (x,y,size){
+  fill(255, 127, 0);
+  ellipse(x+70,y+400,size+40,size+40);
+  rect(x+50,y+400,size+40,size+20);
+  ellipse(x+57,y+420,size+15,size+15);
+  ellipse(x+70,y+420,size+15,size+15);
+  ellipse(x+82,y+420,size+15,size+15);
+ 
+  
+ fill(255);
+ ellipse(x+62,y+400,size+12,size+12);
+ ellipse(x+77,y+400,size+12,size+12);
+ fill(0,100,200);//eye colour
+ //draws eyes
+ ellipse(x+75,y+401,size+5,size+5);
+ ellipse(x+60,y+401,size+5,size+5);
+}
+
+function whiteGhost (x,y,size){
+  fill(255);
+  ellipse(x+70,y+400,size+40,size+40);
+  rect(x+50,y+400,size+40,size+20);
+  ellipse(x+57,y+420,size+15,size+15);
+  ellipse(x+70,y+420,size+15,size+15);
+  ellipse(x+82,y+420,size+15,size+15);
+ 
+  
+ fill(0,100,200);//eye colour
+ //draws eyes
+ ellipse(x+78,y+401,size+5,size+5);
+ ellipse(x+63,y+401,size+5,size+5);
+
+ rect(x+60,y+410,size+20,size+1);
 }
