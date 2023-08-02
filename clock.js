@@ -8,6 +8,7 @@ function preload(){
   MoonImg = loadImage("assets/Moon.png")
   SatImg = loadImage("assets/Satellite.png")
   SunImg = loadImage("assets/Sun.png")
+  BackgroundImg = loadImage("assets/Background.png")
 }
 
 function draw_clock(obj) {
@@ -33,6 +34,7 @@ function draw_clock(obj) {
   let Hours = obj.hours;
   let Milliseconds = obj.millis;
   
+  image(BackgroundImg, 0,0,960,500);
 
   let rotMilli = map(Milliseconds, 0, 1000, 0, 360);
   let rotS = map(Seconds, 0, 60, -90, 270);
