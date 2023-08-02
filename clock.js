@@ -867,7 +867,7 @@ function draw_clock(obj) {
   /*
    * While the alarm is turned on but has not yet activated.
    */
-  if (obj.seconds_until_alarm > -1 && obj.seconds_until_alarm !== 0) {
+  if (obj.seconds_until_alarm > 0) {
     /*
      * Initializes some alarm variables.
      */
