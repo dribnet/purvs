@@ -73,7 +73,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   let liney = 75; //stalk y position variable //originally 55
   stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
-  line(linex, liney, linex, liney + 265); //the code for the actual stalk
+  line(linex, liney, linex, liney + 265); //the code for the plant stalk
 
   //Plant pot
  let quadx = 405; //main body of plant pot x position variable
@@ -186,12 +186,12 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
 
   //this is where the alarm is active/going off:
   if (obj.seconds_until_alarm == 0) { 
-    background(173,216,230); //night blue for the alarm background to replace the normal background
+    background(173,216,230); //day blue for the alarm background to replace the normal background
  
    // plant stalk for alarm
  stroke(1, 50, 32); //dark green stalk colour
   strokeWeight(8);
-  line(linex, 130, linex, liney + 265); //the code for the actual stalk
+  line(linex, liney+45, linex, liney + 265); //the code for the plant stalk
   
   //plant pot for the alarm function
   fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
@@ -217,16 +217,15 @@ let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargemen
 
 
 push();
-translate(width/2,100) ; //moves flower to position i need it at
+translate(480,100) ; //moves flower to correct position
   rotate(angle); //allows the flower to spin
   flowerAlarm(0,0,flowersize); //flower to appear when alarm goes off
 
   pop();
 
-  drawbee(width/2,100+Wiggle*10);
+  drawbee(460,100+Wiggle*10);
 
 }
-
 
   } //this is the end of the draw clock function
 
@@ -313,41 +312,26 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
 }
 
  //alarm flower
- let petal = 100;
-let petalSize = 30
-let flowerpos = width/2
+
+let petalSize = 30; //creates a constant variable for the size of the flower petals and center
+
+let flowerpos = 480; //controls the center of the flower
 
  function flowerAlarm(flowerpos, flowerpos, petalSize){
-  
-  // push();
-  // ellipseMode();
-  //  fill(255);
-  //  noStroke();
-  //  ellipse(petal,petal,petalSize,petalSize+30);//top petal //100,100,30,60
-  //  ellipse(petal,petal+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
-  //  ellipse(petal-30,petal+30,petalSize+30,petalSize); //left side petal //70,130,60,30
-  //  ellipse(petal+30,petal+30,petalSize+30,petalSize); //right side petal //130,130,60,30
  
-  //  //center of flower
-  //  fill(195, 113, 37);
-  //  noStroke();
-  //  ellipse(petal,petal+30,petalSize,petalSize); //100,130,30,30
-  //  pop();
+  fill(255); //white petals
+  noStroke();
+  ellipse(flowerpos, flowerpos+30, petalSize,petalSize+30); //top petal //480,510,30,60
+  ellipse(flowerpos,flowerpos-30,petalSize,petalSize+30); // bottom petal //480,450,30,60
+  ellipse(flowerpos -30,flowerpos,petalSize+30,petalSize); // left petal //450,480,60,30
+  ellipse(flowerpos +30,flowerpos,petalSize+30,petalSize); // right petal //510,480,60,30
 
-   push();
-   ellipseMode();
-   fill(255);
-   noStroke();
-   ellipse(flowerpos,flowerpos,petalSize,petalSize+30);//top petal //100,100,30,60
-   ellipse(flowerpos,flowerpos+60,petalSize,petalSize+30); //bottom petal //100/160,30,60
-  ellipse(flowerpos-30,flowerpos+30,petalSize+30,petalSize); //left side petal //70,130,60,30
-  ellipse(flowerpos+30,flowerpos+30,petalSize+30,petalSize); //right side petal //130,130,60,30
- 
-   //center of flower
-   fill(195, 113, 37);
-   noStroke();
-   ellipse(flowerpos,flowerpos+30,petalSize,petalSize); //100,130,30,30
-   pop();
+
+//center of flower
+fill(195, 113, 37); //orange colour
+noStroke();
+ellipse(flowerpos,flowerpos,petalSize,petalSize); //480, 480,30,30
+
  }
 
  
