@@ -19,8 +19,11 @@ function draw_clock(obj) {
   let backgroundCol = (0); //  black
  
 //alarm
+
+
 if (alarm > 0 && alarm < 5 ){//building up to alarm
-  backgroundCol = map(alarm, 5,0,50,240)
+  let hours_radius = map(alarm, 0, 500, 1, 500);
+  redGhost = (200,400, hours_radius,hours_radius );
 }
 else if (alarm == 0){ //alarm going off
 if (millis < 500){
@@ -181,7 +184,7 @@ drawMaze(830,340,30,80,7); //box
 let x = 220;
 let y = 185;
 let size = -4;
-let c = 7;
+let c = 5;
 
 fill(21, 21, 255) //blue
  
