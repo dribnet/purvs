@@ -111,12 +111,12 @@ let second_thousands_pos = int(obj.hours/10) % 10;
 print(second_tens_pos + "," + second_ones_pos + "/"+second_hun_pos + ","+ second_thousands_pos);
 
 //repositions numbers 
- drawOnesValue(x-100, y, size, c, second_tens_pos); //tens pos
- drawOnesValue(x, y, size, c, second_ones_pos); //ones pos
+ drawsNumbers(x-100, y, size, c, second_tens_pos); //tens pos
+ drawsNumbers(x, y, size, c, second_ones_pos); //ones pos
  //
- drawOnesValue(x-310, y, size, c, second_thousands_pos); //RHS hours 
+ drawsNumbers(x-310, y, size, c, second_thousands_pos); //RHS hours 
 
- drawOnesValue(x-410, y, size, c, second_hun_pos); //LHS hours 
+ drawsNumbers(x-410, y, size, c, second_hun_pos); //LHS hours 
 
 //TOP LHS
 drawMaze (170,150,10,70,7); //draws vertical bar
@@ -189,7 +189,7 @@ function drawDigit(x, y, size, c) {
   rect (x+5,y+180,size+80,size+18,c);
 }
 
-function drawOnesValue(x, y, size, c, n) {
+function drawsNumbers(x, y, size, c, n) {
   if (n==0 || n==2 || n==3 || n==5 || n==6 || n==7 || n==8 || n==9){
     rect (x+425,y-20,size+80,size+18, c); //A
   }
