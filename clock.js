@@ -6,6 +6,7 @@ function preload(){
   img_uranus = loadImage('uranus.png');
   img_purple = loadImage('purple.png');
   img_green = loadImage('green.png');
+  img_star = loadImage('star.png');
 }
 
 function draw_clock(obj) {
@@ -28,9 +29,24 @@ angleMode(DEGREES);
   let seconds = obj.seconds;
   let minutes = obj.minutes;
   let hours = obj.hours;
+  let alarm = obj.seconds_until_alarm;
+
+  let background_c = (50);
+
+  if(alarm > 0 && alarm <5){
+    background_c = map(alarm, 5, 0, 50, 240);
+  }
+  else if(alarm == 0){
+    if(millis < 500) {
+      background_c = 0;
+    }
+    else {
+      background_c = 200;
+    }
+  }
 
 
-  background(50); //  beige
+  background(background_c); //  beige
   fill(200); // dark grey
   textSize(10);
   textAlign(CENTER, CENTER);
@@ -60,10 +76,11 @@ angleMode(DEGREES);
 
 
   
-  let hours_radius = map(hours, 0, 59, 80, 80);
-  fill(249, 140, 255);// pink
-  //ellipse(width /2, 275, hours_radius);
-  image (img_sun, width/2 -40 , height/2 -40, hours_radius, 80);
+  let sun_radius = map(hours, 0, 24, 80, 80);
+  let hours_radius = map(hours, 0, 24, 0, 60);
+  fill(253, 179, 83);// orange
+  image (img_sun, width/2 -40 , height/2 -40, sun_radius, 80);
+  ellipse(width /2, height/2, hours_radius);
   let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
   let minutes_radius = map(minutes, 0, 59, 55, 55);
 
@@ -73,6 +90,7 @@ angleMode(DEGREES);
     fill(140,255,251); //blue
     //ellipse(150,0,minutes_radius);
     image (img_uranus, 150-27.5,0-27.5,minutes_radius,55);
+    
     
     let rotM = map(seconds + (millis/1000.0), 0, 59, 0, 360);
     let seconds_radius = map(seconds, 0, 59, 35, 35);
@@ -98,6 +116,9 @@ angleMode(DEGREES);
     pop ();  
 
   pop();
+
+  
+
       
     }
 
