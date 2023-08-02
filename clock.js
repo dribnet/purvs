@@ -131,7 +131,7 @@ function draw_clock(obj) {
 
   push();
   rotate(knifeRoation)
-  image(img_knife, -480 + x_knifeBounce, -250 + y_knifeBounce_1 + 40, 960, 500)
+  image(img_knife, -480 + x_knifeBounce, -250 + y_knifeBounce_1, 960, 500)
   pop();
 
 
