@@ -4,14 +4,10 @@
 
 ### THIS IS YOUR README
 
-Update this file as you go along to record your progress.
-Tue 18 July
-Today we set up a working clock. Coded so that the different balls get bigger/smaller depending on the time (hours, minutes, seconds, millis). We also looked at making the transition of the balls getting bigger smooth so that it looks quite seamless. And then also a sin wave?? to make the balls bounce up and down.
+Sun & Stars by Isla Jones
+
+My clock that I designed uses the milliseconds which is represented by the green planet which is orbitting the seconds, represented by the purple planet. Which orbits the minutes which is represented by the blue planet, which orbits the sun. The way these planets orbit one another is like how clock hands work on a regular clock and that is how the minutes can be read on this clock. The center of the sun has a growing orange ellipse which is an indication of what hour it is. Another way to tell the hours is by the stars all around the screen are representing the hours. Every hour an additional star will appear. As well as this to give my clock more movement, the stars bounce up and down, and every minute the screen slowly changes between pitch black and a dark grey colour. For the alarm of this clock, a strobe a black and white flashes will appear and make the stars glow. 
+
+All of the code used in this project is code that I learnt in class and that I used from examples given to us. I didn't source any code from any websites or other sources.
 
 
-Thu 13 July
-Today we set up github pages and looked at everyones clock sketches. We then did a little refresher on how to use p5js and visual studio code. We started our Maeda clocks and I used rect(100,100,50,50); etc to create a clock that read 11:11
-
-
-Tue 11 July
-Today was our first class. I learnt how to use github pages and did my first clock sketch
