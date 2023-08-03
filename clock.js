@@ -2,17 +2,13 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 let angle = 0; //angle for alarm clock flower. This allows my flower to spin around itself
+
 function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
-  
+
+  let millis = obj.millis //milliseconds variable
+  let seconds = obj.seconds //seconds variable
+  let minutes = obj.minutes //minutes varuable
+  let hours = obj.hours;   //hours variable 
 
   //changing sky based on day and night
 const night_sky = color(12, 23, 63); //50,50,60 //dark blue
@@ -42,8 +38,6 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
 
  
   //Raindrops positioning. 
-  let seconds = obj.seconds
-  let millis = obj.millis
   let Rain = seconds + (millis/1000); //makes the rain drops run smoother by using the milliseconds with the seconds
   let dropsY = map(Rain,0,59,0,500); //allows the raindrops to gradually fall (imitating water actaul rain does)
   
@@ -112,9 +106,8 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
 
  
   
-  let ystep = 48; //distance between the position of each leave
+  let ystep = 48; //controls the distance between the position of each leave
   let leaves = 6;  //number of leaves to appear on each side, mapped to hours
-  let hours = obj.hours;   //hours variable 
   let ZeroSix = map(hours,0,6,6,0);   //used for leaves to appear with the hours between 0000 and 0600
   let sixTwelve = map(hours,0,12,12,0); //used for leaves to appear with the hours between 0600 and 1200
   let TwelveEightteen = map(hours,12,18,6,0); //used for leaves to appear with the hours between 1200 and 1800
@@ -123,15 +116,13 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   
 
   //colours variables
-  let minutes = obj.minutes //minutes varuable
-  
   const leafGreen = color(18, 181, 121); //constant colour, green //used for controlling the change in leave colour
   const leafOrange = color(195, 113, 37); //constant colour, orange //used for controlling the change in leave colour
 
 //map for the lerp colour //changing between green and orange
 //old range 0-59 for miuntes
 //new range 0-1 for the lerpColor method
-  let Lerp = map(minutes,0,59,0,1);
+  let Lerp = map(minutes,0,59,0,1); //maps the change in colour with the minutes, this variable is then added to the leafChange variable
   //go from colour1 to colour2
   let leafChange = lerpColor(leafGreen, leafOrange,Lerp); //this variable controls the change in leaf colour
 
@@ -198,7 +189,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   //bee flying across screen working with the minutes 0-59
    let beeX = map(minutes,0,59,0,960); //moves across the screen every minute
    let beebounce = map(millis,0,999,0,TWO_PI); //maps the milliseconds to the sin wave for the wiggle
-   let Wiggle = sin(beebounce); //wiggle variable for bee using map for bounce rate
+   let Wiggle = sin(beebounce); //wiggle variable for bee using map for bounce rate. This allows the bee to look more life like when flying across the screens x-axis
 
    //this makes the bee move across the screen
   drawbee(beeX,height/2+Wiggle*10); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
@@ -206,7 +197,7 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
  
 
   //this is where the alarm is active/going off:
-  if (obj.seconds_until_alarm == 0) { 
+  if (obj.seconds_until_alarm == 0) { //alarm if statement
     background(173,216,230); //day blue for the alarm background to replace the normal background
  
 //sun in the alarm visuals
@@ -223,7 +214,7 @@ ellipse(100,100,45); //front ellipse of the sun
 //this is the code for the deck that the plant pot sits on (giving some dimension to the piece, so it's not so 2D)
 noStroke();
 fill(117, 93, 69); //lighter brown for top of deck
-rect(0,440,960,50); //top of deck
+rect(0,440,960,50); //top of deck that pot plant sits on
 
 fill(84, 68, 51); //dark brown
 rect(0,480,960,30); //lip of the deck
@@ -240,36 +231,31 @@ line(0,470,960,470); //bottom line
   line(linex, liney+45, linex, liney + 265); //the code for the plant stalk
   
   //plant pot for the alarm function
-  fill(193, 154, 107); //medium brown colour //original colour: dark turquoise 0,206,209 
+  fill(193, 154, 107); //medium brown colour 
   noStroke();
   quad(quadx, quady, quadx + 150, quady, quadx + 130, quady + 100, quadx + 20, quady + 100); // 405, 350, 555, 350, 535, 450, 425, 450 //goes from right to left, x then y...
   rect(rectx, recty, 170, 30); //collar of plant pot //395, 320, 170, 30
 
-  stroke(210, 180, 140); // light tan brown 
+  stroke(210, 180, 140); // light tan brown for pot plant detail
   strokeWeight(5);
   line(rectx, quady, 565, 370); //line on collar of plant pot 
 
   fill(18, 181, 121); //light green
   drawLeaf(425,230); //left leaf
   drawrightLeaf(535,200); //right leaf
- 
-  
-
 
 //this is the flower code for the alarm
 angle = angle + 0.05; //slows down the speed of the flower spinning
-//let secondsrotate = map(seconds,0,59,0, angle); //maps flower spinning to the seconds
-let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargement of the flower by the milliseconds e.g., allows flower to become bigger and smaller for the alarm. 
 
+let flowersize = map(millis/40,0,59,30,80, petalSize); //controls the enlargement of the flower by the milliseconds e.g., allows flower to become bigger and smaller for the alarm. 
 
 push();
 translate(480,100) ; //moves flower to correct position
   rotate(angle); //allows the flower to spin
   flowerAlarm(0,0,flowersize); //flower to appear when alarm goes off
-
   pop();
 
-  drawbee(460,100+Wiggle*10);
+  drawbee(460,100+Wiggle*10); //bee pollinating the flower
 
 }
 
@@ -277,10 +263,9 @@ translate(480,100) ; //moves flower to correct position
 
 //These are all my individual functions and their variables:
 
-//these are constant variables for my bee, leaves and water dros
+//these are constant variables for my bee, leaves and rain drops functions
 let Beex = 20 //controls x position of Bee
-  let Beey = 250 //controls y position of Bee
-
+let Beey = 250 //controls y position of Bee
 let leafx = 20; //controls x position of left leaves
 let leafy = 20; //controls y position of left and right leaves
 let Leafx = 70; //controls x position of right leaves
@@ -334,10 +319,10 @@ function drawrightLeaf(Leafx, leafy) {
   endShape(CLOSE);
 }
  
-//bee
+//function to draw the bee
 function drawbee(Beex,Beey){
-noStroke();
 
+noStroke();
  //back wing
 fill(213, 245, 255,200); //clear blue
 ellipse(Beex-5,Beey-15,15,25); //-15,235,15,25
@@ -346,6 +331,7 @@ fill(255,255,0); //body colour, yellow
 ellipse(Beex,Beey,35,25); //body //20,250,35,25
 fill(0); //black
 ellipse(Beex+10,Beey-5,5); //eye //30,245,5
+strokeWeight(1)
 stroke(0);
 line(Beex-7,Beey+12,Beex-7,Beey-10); //back stripe //13,262,13,240
 line(Beex+3,Beey+12,Beex+3,Beey-10); //front stripe //23,262,23,240
@@ -357,12 +343,11 @@ ellipse(Beex,Beey-15,15,25); //-10,235,15,25
 
 }
 
- //alarm flower
-
+ //alarm flower variables
 let petalSize = 30; //creates a constant variable for the size of the flower petals and center
-
 let flowerpos = 480; //controls the center of the flower
 
+//function to draw the flower
  function flowerAlarm(flowerpos, flowerpos, petalSize){
  
   fill(255); //white petals
