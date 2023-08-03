@@ -209,9 +209,15 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
   if (obj.seconds_until_alarm == 0) { 
     background(173,216,230); //day blue for the alarm background to replace the normal background
  
-//sun in the alarm
-fill(255,255,0); //sun yellow
-ellipse(100,100,45);
+//sun in the alarm visuals
+fill(255,255,0,50); //sun yellow with lowest opacity //the change in opacity is to make the sun look like it has sun rays
+ellipse(100,100,75); //back ellipse of the sun
+
+fill(255,255,0,100); //sun yellow with medium opacity //the change in opacity is to make the sun look like it has sun rays
+ellipse(100,100,60); //middle ellipse of the sun
+
+fill(255,255,0); //sun yellow with full opacity
+ellipse(100,100,45); //front ellipse of the sun
 
 
 //this is the code for the deck that the plant pot sits on (giving some dimension to the piece, so it's not so 2D)
