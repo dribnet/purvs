@@ -178,6 +178,237 @@ angleMode(DEGREES);
     image (img_star, 900, 260 + y_bounce3, 20,20);
     image (img_star, 730, 430 + y_bounce4, 30,30);
   }
+  else if (hours == 13){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+  }
+  else if (hours == 14){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+  }
+  else if (hours == 15){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+  }
+  else if (hours == 16){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+  }
+  else if (hours == 17){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+  }
+  else if (hours == 18){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+  }
+  else if (hours == 19){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+    image (img_star, 660, 130 + y_bounce3, 20,20);
+  }
+  else if (hours == 20){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+    image (img_star, 660, 130 + y_bounce3, 20,20);
+    image (img_star, 630, 300 + y_bounce4, 30,30);
+  }
+  else if (hours == 21){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+    image (img_star, 660, 130 + y_bounce3, 20,20);
+    image (img_star, 630, 300 + y_bounce4, 30,30);
+    image (img_star, 600, 275 + y_bounce1, 30,30);
+  }
+  else if (hours == 22){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+    image (img_star, 660, 130 + y_bounce3, 20,20);
+    image (img_star, 630, 300 + y_bounce4, 30,30);
+    image (img_star, 600, 275 + y_bounce1, 30,30);
+    image (img_star, 820, 100 + y_bounce2, 20,20);
+  }
+  else if (hours == 23){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+
+    image (img_star, 120, 120 + y_bounce1, 30,30);
+    image (img_star, 175, 300 + y_bounce2, 20,20);
+    image (img_star, 260, 175 + y_bounce3, 20,20);
+    image (img_star, 150, 150 + y_bounce4, 30,30);
+    image (img_star, 130, 330 + y_bounce1, 30,30);
+    image (img_star, 410, 270 + y_bounce2, 20,20);
+    image (img_star, 660, 130 + y_bounce3, 20,20);
+    image (img_star, 630, 300 + y_bounce4, 30,30);
+    image (img_star, 600, 275 + y_bounce1, 30,30);
+    image (img_star, 820, 100 + y_bounce2, 20,20);
+    image (img_star, 860, 310 + y_bounce3, 20,20);
+  }
   angleMode(DEGREES);
 
 
