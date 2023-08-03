@@ -44,10 +44,11 @@ fill(200)
 textSize(40);
 textAlign(CENTER, CENTER);
 //text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-drawAlarm(0,0)
+
 
 drawNight(0,0)
 
+drawAlarm(0,0)
 //seconds
 drawFlower1(60,50,obj.seconds)
 if (obj.seconds>=10){
