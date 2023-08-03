@@ -1,7 +1,7 @@
 
 // change these for marking
-let init = true;
-var waitForHourChange = true;
+let init = false;
+var waitForHourChange = false;
 
 // global varibles 
 let customFrameCount = 0;
