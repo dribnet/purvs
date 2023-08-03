@@ -2,21 +2,21 @@
  * use p5.js to draw a clock on a 960x500 canvas
  */
 function preload(){
-lady= loadImage('lady.whole.png') //lady 227,542
+lady= loadImage('lady.whole.png') 
 
 //right arms
-r1= loadImage('R1.png') //144,319
-r2= loadImage('R2.png') //292,351
-r3= loadImage('R3.png') //289,222
-r4= loadImage('R4.png') //325,161
-r5= loadImage('R5.png') //330,182
+r1= loadImage('R1.png') 
+r2= loadImage('R2.png') 
+r3= loadImage('R3.png') 
+r4= loadImage('R4.png') 
+r5= loadImage('R5.png')
 
 //left arms
-l1= loadImage('L1.png') //207,333
-l2= loadImage('L2.png') //292,355
-l3= loadImage('L3.png') //289,222
-l4= loadImage('L4.png') //332,329
-l5= loadImage('L5.png') //316,335
+l1= loadImage('L1.png') 
+l2= loadImage('L2.png')
+l3= loadImage('L3.png') 
+l4= loadImage('L4.png') 
+l5= loadImage('L5.png') 
 
 
 }
@@ -1632,14 +1632,14 @@ noStroke()
     fill(125,255,155,200); //green
     ellipse(x,y, 50);
     
-    fill(125,255,185,50);
+    fill(125,255,185,50); //a lighter green with less opacity
     ellipse(x,y,millisSize)
   } 
   else if(x<=479){
     fill(255,255,255,200); //white
     ellipse(x,y, 50);
     
-    fill(255,255,255,50);
+    fill(255,255,255,50); // white with less opacticy
     ellipse(x,y,millisSize)
   }
 
