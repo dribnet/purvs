@@ -31,6 +31,7 @@ angleMode(DEGREES);
   let hours = obj.hours;
   let alarm = obj.seconds_until_alarm;
 
+
   let background_c = (50);
 
   if(alarm > 0 && alarm <5){
@@ -56,6 +57,13 @@ angleMode(DEGREES);
   text("Millis: " + millis, 40, 75);
 
 
+
+  StarMap = map(hours, 0, 23, 80,80);
+  for (let i = StarMap; i <12; i++){
+    image (img_star, 40, 80, 80);
+  }
+
+
   // let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   // let phase1 = sin(bounce1);
   // let y_bounce1 = map(phase1, -1, 1, -10, 10);
@@ -73,16 +81,17 @@ angleMode(DEGREES);
   // let y_bounce4 = map(phase4, -1, 1, -10, 10);
 
 
-
-
   
   let sun_radius = map(hours, 0, 24, 80, 80);
   let hours_radius = map(hours, 0, 24, 0, 60);
   fill(253, 179, 83);// orange
+  noStroke ();
   image (img_sun, width/2 -40 , height/2 -40, sun_radius, 80);
   ellipse(width /2, height/2, hours_radius);
   let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
   let minutes_radius = map(minutes, 0, 59, 55, 55);
+
+
 
   push();
     translate(width/2, height/2);
