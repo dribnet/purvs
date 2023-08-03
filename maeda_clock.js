@@ -5,7 +5,7 @@ function draw_clock(obj) {
   fill(200); // dark grey
   textSize(50);
   textAlign(CENTER, CENTER);
-  text("MEADA CLOCK TEST", width/2, height/2);
+  //text("MEADA CLOCK TEST", width/2, height/2);
   rect (100,100,60,300);
   rect (240,100,60,300);
 
