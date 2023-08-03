@@ -8,6 +8,10 @@ let init = false;
 var waitForHourChange = false;
 Please be aware that for every hour the clock and alarm look completely different so please test using a few different times. My favourites are 11 and 12 O’clock, to easily read the time you might need to wait a minute for the shapes to align especially for later hours where there is alot going on. 
 
+## maeda clock
+I chose to recreate the clock by gomako, Oripy and Merijn-DH. It wasn't a perfect recreation as I only made my number oscillate when they did the same but also slowly changed size based on the time. 
+![plot](./images/IMAGE-maeda-clock.PNG)
+
 ## Week 1
 My idea for my clock sketch was to represent the hour hand as a segment that is uncovered and the minute hand is shown on the outside of the clock. In this example the time is 8:10 
 ![plot](./images/sketch.png)
