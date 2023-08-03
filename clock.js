@@ -7,6 +7,7 @@ function preload(){
   img_purple = loadImage('purple.png');
   img_green = loadImage('green.png');
   img_star = loadImage('star.png');
+  img_blob = loadImage('blob.png');
 }
 
 function draw_clock(obj) {
@@ -57,28 +58,129 @@ angleMode(DEGREES);
   text("Millis: " + millis, 40, 75);
 
 
+  angleMode(RADIANS);
+  let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
+  let phase1 = sin(bounce1);
+  let y_bounce1 = map(phase1, -1, 1, -3, 3);
 
-  StarMap = map(hours, 0, 23, 80,80);
-  for (let i = StarMap; i <12; i++){
-    image (img_star, 40, 80, 80);
+  let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
+  let phase2 = sin(bounce2);
+  let y_bounce2 = map(phase2, -2, 2, -4, 4);
+
+  let bounce3 = map(obj.millis, 0, 999, 0, TWO_PI);
+  let phase3 = sin(bounce3);
+  let y_bounce3 = map(phase3, -3, 3, -5, 5);
+
+  let bounce4 = map((obj.millis+100), 0, 999, 0, TWO_PI);
+  let phase4 = sin(bounce4);
+  let y_bounce4 = map(phase4, -4, 4, -6, 6);
+
+  
+  if (hours == 1){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
   }
+  else if (hours == 2){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20, 20);
+  }
+  else if (hours == 3){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20);
+  }
+  else if (hours == 4){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20);
+    image (img_star, 300, 45 + y_bounce4, 30,30);
+  }
+  else if (hours == 5){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+  }
+  else if (hours == 6){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+  }
+  else if (hours == 7){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+  }
+  else if (hours == 8){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+  }
+  else if (hours == 9){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+  }
+  else if (hours == 10){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+  }
+  else if (hours == 11){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+  }
+  else if (hours == 12){
+    image (img_star, 90, 60 + y_bounce1, 30, 30);
+    image (img_star, 230, 200 + y_bounce2, 20,20);
+    image (img_star, 115, 400 + y_bounce3, 20,20,);
+    image (img_star, 300, 45 + y_bounce4, 30, 30);
+    image (img_star, 30, 260 + y_bounce1, 30, 30);
+    image (img_star, 270, 430 + y_bounce2, 20,20);
+    image (img_star, 550, 60 + y_bounce3, 20,20);
+    image (img_star, 700, 200 + y_bounce4, 30,30);
+    image (img_star, 575, 400 + y_bounce1, 30,30);
+    image (img_star, 760, 45 + y_bounce2, 20,20);
+    image (img_star, 900, 260 + y_bounce3, 20,20);
+    image (img_star, 730, 430 + y_bounce4, 30,30);
+  }
+  angleMode(DEGREES);
 
 
-  // let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
-  // let phase1 = sin(bounce1);
-  // let y_bounce1 = map(phase1, -1, 1, -10, 10);
-
-  // let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-  // let phase2 = sin(bounce2);
-  // let y_bounce2 = map(phase2, -1, 1, -10, 10);
-
-  // let bounce3 = map(obj.millis, 0, 999, 0, TWO_PI);
-  // let phase3 = sin(bounce3);
-  // let y_bounce3 = map(phase3, -1, 1, -10, 10);
-
-  // let bounce4 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-  // let phase4 = sin(bounce4);
-  // let y_bounce4 = map(phase4, -1, 1, -10, 10);
 
 
   
@@ -128,6 +230,7 @@ angleMode(DEGREES);
 
   
 
+  
       
     }
 
