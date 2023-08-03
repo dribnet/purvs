@@ -12,7 +12,7 @@ function preload(){
   MeteorImg = loadImage("assets/Meteor.png")
 }
 
-let alarmOffset = 0;
+let alarmOffset = -300;
 
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -81,29 +81,24 @@ function draw_clock(obj) {
     image(MeteorImg,ellipseSecs-10,300-10,20,20);
     image(MeteorImg,ellipseSecs-25,350-25,50,50);
     image(MeteorImg,(ellipseSecs*1.2)-20,450-20,45,45);
-    alarmOffset = 0;
+    alarmOffset = -300;
    }
 
+  
    
-   let RocketUpSize = map(Seconds,0,60,50,150);
-   let RocketDownSize = map(Seconds,0,60,150,50);
-   
-  let RocketSize = 100
+   xRect = 350
+   yRect = 150
   
    if(Alarm ==0){
 
-     if(alarmOffset<460){
-      rect(alarmOffset, 200, RocketUpSize, RocketUpSize/2);
-      alarmOffset = alarmOffset + 3;
+      rect(alarmOffset, 175, xRect,yRect);
+      alarmOffset = alarmOffset + 4;
+      
   
-     }else {
-
-      rect(alarmOffset, 200, RocketDownSize, RocketDownSize/2);
-      alarmOffset = alarmOffset + 3;
 
      }
  
-  }
+  
   
 
 
