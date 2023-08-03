@@ -10,7 +10,7 @@ Please be aware that for every hour the clock and alarm look completely differen
 
 ## maeda clock
 I chose to recreate the clock by gomako, Oripy and Merijn-DH. It wasn't a perfect recreation as I only made my number oscillate when they did the same but also slowly changed size based on the time. 
-![plot](./images/IMAGE-maeda-clock.PNG)
+![plot](./images/image-maeda-clock.PNG)
 
 ## Week 1
 My idea for my clock sketch was to represent the hour hand as a segment that is uncovered and the minute hand is shown on the outside of the clock. In this example the time is 8:10 
