@@ -9,7 +9,10 @@ function preload(){
   SatImg = loadImage("assets/Satellite.png")
   SunImg = loadImage("assets/Sun.png")
   BackgroundImg = loadImage("assets/Background.png")
+  MeteorImg = loadImage("assets/Meteor.png")
 }
+
+let alarmOffset = 0;
 
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -48,7 +51,6 @@ function draw_clock(obj) {
   image(SunImg,-85, -85,170,170);
   pop();
 
- 
   push();
   translate(480,250);
   rotate(rotM); // rotates on the minute
@@ -61,27 +63,48 @@ function draw_clock(obj) {
   pop();
   pop();
 
-
   push();
   translate(480,250);
   rotate(rotS);
   image(SatImg,225,0,20,40); //Satellite
   pop();
 
+  
+  //if statement for alarm countdown
   let ellipseSecs = map(Milliseconds/2,0,999,0,2300);
+  if (Alarm>0){
+    image(MeteorImg,ellipseSecs-20,50-20,35,35);
+    image(MeteorImg,(ellipseSecs/1.2)-20,100-20,40,40);
+    image(MeteorImg,(ellipseSecs/1.05)-25,150-25,50,50);
+    image(MeteorImg,ellipseSecs*1.2-30,200-30,60,60);
+    image(MeteorImg,(ellipseSecs/1.1)-20,275-20,35,35);
+    image(MeteorImg,ellipseSecs-10,300-10,20,20);
+    image(MeteorImg,ellipseSecs-25,350-25,50,50);
+    image(MeteorImg,(ellipseSecs*1.2)-20,450-20,45,45);
+    alarmOffset = 0;
+   }
+
+   
+   let RocketUpSize = map(Seconds,0,60,50,150);
+   let RocketDownSize = map(Seconds,0,60,150,50);
+   
+  let RocketSize = 100
+  
+   if(Alarm ==0){
+
+     if(alarmOffset<460){
+      rect(alarmOffset, 200, RocketUpSize, RocketUpSize/2);
+      alarmOffset = alarmOffset + 3;
+  
+     }else {
+
+      rect(alarmOffset, 200, RocketDownSize, RocketDownSize/2);
+      alarmOffset = alarmOffset + 3;
+
+     }
+ 
+  }
   
 
-  ellipse(ellipseSecs*1.2,200,60,60);
-  ellipse(ellipseSecs/1.2,100,40,40);
-  ellipse(ellipseSecs,50,35,35);
-  ellipse(ellipseSecs,350,50,50);
-  ellipse(ellipseSecs*1.2,450,45,45);
-
-  //if statement for alarm
-
-  // if (Alarm > 0){
-
-  //  rect() 
-  // }
 
 }
