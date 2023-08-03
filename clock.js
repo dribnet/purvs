@@ -34,7 +34,7 @@ angleMode(DEGREES);
   let alarm = obj.seconds_until_alarm;
 
 
-  let background_c = (0); //sets the background colour
+  let background_c = map(seconds, 0,59,0,50); //sets the background colour, makes it so that the background colour is always changing based on the seconds.
   
   if(alarm > 0 && alarm <5){ //if statement for the alarm
     background_c = map(alarm, 5, 0, 50, 240);
@@ -48,7 +48,7 @@ angleMode(DEGREES);
     }
   }
   
-  background_c = map(seconds, 0,59,0,50); //makes it so that the background colour is always changing based on the seconds.
+  
   background(background_c); 
   //TEXT FOR DEBUGGING
   // fill(200); 
