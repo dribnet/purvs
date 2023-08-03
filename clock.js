@@ -21,48 +21,12 @@ function draw_clock(obj) {
 
     background(150); //  Grey
     image(img, 0, 0, width, height);
-    fill(0); // white
-    textSize(20);
-    // text("Hour: "   + hours, width*0.2, 22);
-    // text("Minute: " + minutes, width*0.4, 22);
-    // text("Second: " + seconds, width*0.6, 22);
-    // text("Millis: " + millis, width*0.8, 22);
-
-  // fill(200); // dark grey
-  // textSize(40);
-  // textAlign(CENTER, CENTER);
-  // text("Seconds: " + seconds, width / 2, 200);
-
-  // let hours_radius = map(obj.hours, 0, 59, 1, 150);
-  // fill(249, 140, 255);// pink
-  // ellipse(width / 3, 350, hours_radius);
-
-  // let minutes_radius = map(obj.minutes, 0, 59, 1, 150);
-  // fill(140, 255, 251) // blue
-  // ellipse(width / 2, 350, minutes_radius);
-
-  // let seconds_radius = map(seconds, 0, 59, 1, 150);
-  // fill(175, 133, 255); // purple
-  // ellipse(width / 3 * 2, 350, seconds_radius);
-
-
-  // let sec_height = map(seconds, 0, 59, 1, 150);
-  // fill(0, 255, 255); //light blue
-  // noStroke();
-  // rect(width/2, height/1.5, 400, - sec_height);
   
   //water drop animation
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
-  //let phase1 = sin(bounce1);
-  //let y_bounce1 = map(phase1, -1, 1, -75, 75);
-
   let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
   let phase2 = sin(bounce2);
   let y_bounce2 = map(phase2, -1, 1, -75, 75);
-
-  // let hours_radius = map(obj.hours, 0, 59, 1, 150);
-  // fill(249, 140, 255);// pink
-  // ellipse(width / 5, 350 + y_bounce1, hours_radius);
 
   //water drop
   let minutes_radius = 20
@@ -90,9 +54,11 @@ function draw_clock(obj) {
   noStroke();
   rect(535, 340, 345, - sec_height);
   
+  //sink outline
   fill(0);
   rect(535, 340, 350, 5);
 
+  //tap cap
   fill(100);
   strokeWeight(4);
   stroke(0);
@@ -100,13 +66,49 @@ function draw_clock(obj) {
 
   noStroke();
 
+  //alarm
+  fill(0, 255, 255); //light blue
+  let water_height = 0;
+  //2 seconds before alarm goes off have water rise to cover the screen
+  if(alarm > 0 && alarm < 2){
+    water_height = map(alarm, 2, 0, 0, 500);
+    rect(0, 500, width, -water_height);
+  }
+  //while alarm is going off keep screen blue
+  else if (alarm == 0){
+      rect(0, 0, width, height); 
+    }
+  //fill water tanks before the screen fills up 
+  if(alarm > 2 && alarm < 7){//minutes tank
+    min_water_height = map(alarm, 7, 2, 0, 400);
+    rect(340, 443, 74, - min_water_height); 
+  }
+  if(alarm > 2 && alarm < 7){//seconds tank
+    sec_water_height = map(alarm, 7, 2, 0, 190);
+    rect(535, 340, 345, - sec_water_height);
+  }
+  if(alarm > 2 && alarm < 7){//hours tank
+    hour_water_height = map(alarm, 7, 2, 0, 430);
+    rect(44, 465, 228, - hour_water_height);
+  }
+
+  //keep tanks full
+  if(alarm > 0 && alarm < 2){//minutes tank
+    rect(340, 443, 74, -400); 
+  }
+  if(alarm > 0 && alarm < 2){//seconds tank
+    rect(535, 340, 345, -190);
+  }
+  if(alarm > 0 && alarm < 2){//hours tank
+    rect(44, 465, 228, - 430);
+  }
 
 
   //minute water tank
-
-  let minutesWithFraction   = minutes + (millis/1000);
+  let minutesWithFraction   = minutes + (millis/1000); 
   let min_height = 0
-  fill(0 , 255, 251) // blue
+  fill(0 , 255, 251) // light blue
+  //within the first 59 seconds water will raise as the end of each minute smoothly
   if(minutesWithFraction <= 59){
     if(secondsWithFraction <= 59) {
       min_height = map(minutes, 0, 59, 1, 390);
@@ -116,6 +118,7 @@ function draw_clock(obj) {
     }
     rect(340, 443, 74, - min_height); 
   }
+  //in the last second of the last minute the water drops smoothly emptying the water tank
   else{
     if(minutesWithFraction <= 59 && secondsWithFraction <= 59)  {
       min_height = map(seconds, 0, 60, 1, 390);
@@ -129,7 +132,7 @@ function draw_clock(obj) {
   //hour water tank
   let HoursWithFraction = hours + (millis/1000);
   let hour_height = 0
-  fill(0 , 255, 251) // blue
+  fill(0 , 255, 251) // light blue
   if(HoursWithFraction <= 59) {
     hour_height = map(hours, 0, 60, 1, 1100);
   }
@@ -142,20 +145,9 @@ function draw_clock(obj) {
   if(alarm = 0) {
     rect(0, 0, width, height);
   }
-
-  // let sec_height = 0;
-  // if(secondsWithFraction <= 59)  {
-  //   sec_height = map(seconds, 0, 60, 1, 300);
-  // }
-  // else {
-  //   sec_height = map(millis, 0, 999, 300, 1);
-  // }
-
-  text(minutesWithFraction, width/2, 50);
   
 }
-
+//load background sink image
 function preload() {
-  // preload() runs once
   img = loadImage('Sink.png');
 }
