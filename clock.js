@@ -31,9 +31,6 @@ function draw_clock(obj) {
 
   background(0); //  black background
   angleMode(DEGREES);
-  fill(200); // dark grey
-  textSize(40);
-  //textAlign(CENTER, CENTER);
   let Seconds = obj.seconds;
   let Minutes = obj.minutes;
   let Hours = obj.hours;
@@ -42,15 +39,15 @@ function draw_clock(obj) {
   
   image(BackgroundImg, 0,0,960,500);
 
-  let rotMilli = map(Milliseconds, 0, 1000, 0, 360);
-  let rotS = map(Seconds, 0, 60, -90, 270);
-  let rotM = map(Minutes, 0, 60, -90, 270);
-  let rotH = map(Hours, 0 , 12, 0, 360);
+  let rotMilli = map(Milliseconds, 0, 1000, 0, 360); //rotates on the millisecond
+  let rotS = map(Seconds, 0, 60, -90, 270); // rotates on the second
+  let rotM = map(Minutes, 0, 60, -90, 270); // rotates on the minute
+  let rotH = map(Hours, 0 , 12, 0, 360); // rotates on the hour
 
   push();
   translate(480,250);
   rotate(rotH);
-  image(SunImg,-85, -85,170,170);
+  image(SunImg,-85, -85,170,170); //Sun
   pop();
 
   push();
@@ -87,7 +84,7 @@ function draw_clock(obj) {
    }
 
   
-   
+   // rocket for alarm
    xRect = 350
    yRect = 150
   
