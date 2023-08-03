@@ -1,85 +1,18 @@
-// Define an array of pixels to repesent each number
-let numbers = [
-  [
-    [1, 1, 1],  // 0
-    [1, 0, 1],
-    [1, 0, 1],
-    [1, 0, 1],
-    [1, 1, 1]
-  ],
-  [
-    [0, 0, 1],  // 1
-    [0, 0, 1],
-    [0, 0, 1],
-    [0, 0, 1],
-    [0, 0, 1]
-  ],
-  [
-    [1, 1, 1],  // 2
-    [0, 0, 1],
-    [1, 1, 1],
-    [1, 0, 0],
-    [1, 1, 1]
-  ],
-  [
-    [1, 1, 1],  // 3
-    [0, 0, 1],
-    [1, 1, 1],
-    [0, 0, 1],
-    [1, 1, 1]
-  ],
-  [
-    [1, 0, 1],  // 4
-    [1, 0, 1],
-    [1, 1, 1],
-    [0, 0, 1],
-    [0, 0, 1]
-  ],
-  [
-    [1, 1, 1],  // 5
-    [1, 0, 0],
-    [1, 1, 1],
-    [0, 0, 1],
-    [1, 1, 1]
-  ],
-  [
-    [1, 1, 1],  // 6
-    [1, 0, 0],
-    [1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1]
-  ],
-  [
-    [1, 1, 1],  // 7
-    [0, 0, 1],
-    [0, 0, 1],
-    [0, 0, 1],
-    [0, 0, 1]
-  ],
-  [
-    [1, 1, 1],  // 8
-    [1, 0, 1],
-    [1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1]
-  ],
-  [
-    [1, 1, 1],  // 9
-    [1, 0, 1],
-    [1, 1, 1],
-    [0, 0, 1],
-    [1, 1, 1]
-  ]
-];
 
-//let customFrmaeCount = obj.seconds * 60;
+// change these for marking
+let init = true;
+var waitForHourChange = true;
+
+// global varibles 
 let customFrameCount = 0;
-let init = false;
 var maxSize = 200;
 var maxSizeConst = 200;
 var minSize = 40;
 var minSizeConst = 40;
 var alramActive = false;
+var elements = 12;
+var frameStrokeWeightConst = 32;
+var frameStrokeWeight = 32;
 
 function draw_clock(obj) {
   //setup
@@ -89,25 +22,60 @@ function draw_clock(obj) {
   stroke(255);
   textSize(29)
   translate(width/2,height/2);
-  // waiting for seconds to equal zero until starting
+  var hour = 0;
+  // convert hours to number of elements 
+  if(obj.hours+1>12){
+    hour = obj.hours - 12;
+  }else{
+    hour = obj.hours ;
+    
+  }
+  if(hour == 0){
+    hour = 12;
+  }
+  // waiting for seconds to equal zero until starting so clock rotation is alligned 
   if(init){
     text("The clock will start in "+ (60 - obj.seconds), -150, 0);
     if(obj.seconds == 0){
       init = false;
+      elements = hour;
     }
     
   }else {
     textSize(20);
-    text(obj.hours + " : " + obj.minutes +  " : " + obj.seconds + "   alarm -" + obj.seconds_until_alarm, -350, 0);
+    //text(obj.hours + " : " + obj.minutes +  " : " + obj.seconds +" Number of elements: " + hour + " alarm in "+ obj.seconds_until_alarm+ "   time until alligned -" + customFrameCount % 3600, -0, -220 );
     noFill();
     strokeWeight(4);
     var highlight = true;
-    var altSeconds = obj.seconds%2;
+    // set number of elements to the correct hour every minute on the correct part of the animaion 
+    if(waitForHourChange){
+      if( customFrameCount % 3600 < 150 && customFrameCount % 3600 > 135){
+        elements = hour;
+      } 
+    } else{
+      elements = hour;
+    }
     
-    var numberOfShapes = 8;
-    var elements = 12;
+    // decrease the size of the clock before update the hour to make the size jump less noticable 
+    if( customFrameCount % 3600 < 125 || customFrameCount % 3600 > 3550){
+      maxSize-=0.5;
+      minSize -= 0.5;
+      frameStrokeWeight++;
+    } else{
+      // change back to regular values 
+      if(frameStrokeWeight > frameStrokeWeightConst){
+        frameStrokeWeight--;
+      }
+      if(maxSize < maxSizeConst){
+        maxSize+= 0.3;
+      }
+      if(minSize < minSizeConst){
+        minSize += 0.3;
+      }
+    }
+    var numberOfShapes = elements;
     var rotation = customFrameCount / (10 * elements);
-    
+   
     var alramTimer = obj.seconds_until_alarm;
     if(alramTimer== 0){
       alramActive = true;
@@ -126,10 +94,6 @@ function draw_clock(obj) {
       }
       
     }
-    var bool = true;
-    if(frameCount > 200){
-      bool = true;
-    }
     push();
     for(var i = 0; i < numberOfShapes; i++){
       strokeWeight(4);
@@ -145,7 +109,9 @@ function draw_clock(obj) {
       }
       
       beginShape();
-      for(var j = 0; j < 360; j += 10){
+      // loop over points 
+      for(var j = 0; j < 360; j += 5){
+        // map radius to sin wave
         var rad = map(sin(j * elements + customFrameCount) , -1, 1, minSize , maxSize);
         var x = rad * cos(j);
         var y = rad * sin(j);
@@ -156,7 +122,7 @@ function draw_clock(obj) {
         }
       }
       endShape(CLOSE);
-      strokeWeight(32);
+      strokeWeight(frameStrokeWeight);
       ellipseMode(RADIUS);
       ellipse(0, 0, rad, rad);
       if(true){
@@ -172,35 +138,41 @@ function draw_clock(obj) {
     textSize(15);
     textAlign(CENTER, CENTER);
     // tune correction 
-    var hours = obj.hours
-    //make time 12 hour
-    if(hours > 11){
-      hours -=12;
-    } 
-    //rotate 90 degrees
-    hours = hours -3;
-    if(hours < 0){
-      hours  = 12 + hours;
-    } 
-  for (var i = 0; i < 12; i++) {
-    var angle = map(i, 0, 12, 0, 360);
-    var x = rad * cos(angle);
-    var y = rad * sin(angle);
     
-    if(i == hours){
-      fill(50);
-    } else{
-      noFill();
-    }
-    push();
-    stroke(50);
-    translate(x, y);
-    ellipse(0, 0, 5, 5);
-    pop();
-}
 
-    customFrameCount++;
+    //text(newMinute + " old number - " + (obj.minutes+1)/5 , -200,-200);
+    
+    draw_face(rad,obj);
+
+    customFrameCount+=1;
   }
   
   
+}
+
+function draw_face(rad,obj){
+    var newMinute = int((obj.minutes+1)/5);
+    //rotate 90 degrees
+    newMinute = newMinute -3;
+    if(newMinute < 0){
+      newMinute = 12 + newMinute;
+    }
+
+    for (var i = 0; i < 12; i++) {
+      var angle = map(i, 0, 12, 0, 360);
+      var x = rad * cos(angle);
+      var y = rad * sin(angle);
+      
+      if(i == newMinute){
+        fill(50);
+      } else{
+        noFill();
+      }
+      push();
+      strokeWeight(2);
+      stroke(50);
+      translate(x, y);
+      ellipse(0, 0, 5, 5);
+      pop();
+  }
 }
