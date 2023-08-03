@@ -45,9 +45,13 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   let seconds = obj.seconds
   let millis = obj.millis
   let Rain = seconds + (millis/1000); //makes the rain drops run smoother by using the milliseconds with the seconds
-  let dropsY = map(Rain,0,59,30,500); //allows the raindrops to gradually fall (imitating water actaul rain does)
+  let dropsY = map(Rain,0,59,0,500); //allows the raindrops to gradually fall (imitating water actaul rain does)
+  
+  
+  
   
   //for loops draw multiple raindrops across the x-axis
+ 
   for(w=0;w<8;w++){ //
     drawWaterdrops(50+w*120,dropsY); //top line of rain drops
   }
@@ -67,11 +71,26 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
     drawWaterdrops(50+w*120,400+dropsY); //bottom line of rain drops
   }
 
+   //this is the code for the deck that the plant pot sits on (giving some dimension to the piece, so it's not so 2D)
+   noStroke();
+   fill(117, 93, 69); //lighter brown for top of deck
+   rect(0,440,960,50); //top of deck
+
+   fill(84, 68, 51); //dark brown
+   rect(0,480,960,30); //lip of the deck
+
+   stroke(84, 68, 51); //these lines are to give detail and show the grooves of the deck
+   strokeWeight(3);
+   line(0, 450, 960, 450); //top line
+   line(0,460,960,460); //middle line
+   line(0,470,960,470); //bottom line
+ 
+   
 
   //plant stalk
   let linex = 480; //stalk x position variable
   let liney = 75; //stalk y position variable //originally 55
-  stroke(1, 50, 32); //dark green stalk colour
+  stroke(3, 82, 53); //dark green stalk colour
   strokeWeight(8);
   line(linex, liney, linex, liney + 265); //the code for the plant stalk
 
@@ -91,6 +110,7 @@ const night_sky = color(12, 23, 63); //50,50,60 //dark blue
   strokeWeight(5); //size of collar
   line(rectx, quady, 565, 370); //line on collar of plant pot // colour: 395, 350, 565, 350
 
+ 
   
   let ystep = 48; //distance between the position of each leave
   let leaves = 6;  //number of leaves to appear on each side, mapped to hours
@@ -183,13 +203,33 @@ if(hours>=7&&hours<12){//draw 6 leaves between 0700 - 1200
    //this makes the bee move across the screen
   drawbee(beeX,height/2+Wiggle*10); //drawing the bee in new position (using the bee function created) and mapping x position movement to the minutes
   
+ 
 
   //this is where the alarm is active/going off:
   if (obj.seconds_until_alarm == 0) { 
     background(173,216,230); //day blue for the alarm background to replace the normal background
  
+//sun in the alarm
+fill(255,255,0); //sun yellow
+ellipse(100,100,45);
+
+
+//this is the code for the deck that the plant pot sits on (giving some dimension to the piece, so it's not so 2D)
+noStroke();
+fill(117, 93, 69); //lighter brown for top of deck
+rect(0,440,960,50); //top of deck
+
+fill(84, 68, 51); //dark brown
+rect(0,480,960,30); //lip of the deck
+
+stroke(84, 68, 51); //these lines are to give detail and show the grooves of the deck
+strokeWeight(3);
+line(0, 450, 960, 450); //top line
+line(0,460,960,460); //middle line
+line(0,470,960,470); //bottom line
+
    // plant stalk for alarm
- stroke(1, 50, 32); //dark green stalk colour
+ stroke(3, 82, 53); //dark green stalk colour
   strokeWeight(8);
   line(linex, liney+45, linex, liney + 265); //the code for the plant stalk
   
@@ -244,7 +284,7 @@ let dropy = 60; //controls y position of rain drops
 //function to draw the left leaves //curve vertexs to achieve the shape of the leaves
 function drawLeaf(leafx, leafy) {
   
-  stroke(1, 50, 32); //dark green
+  stroke(3, 82, 53); //dark green
   strokeWeight(1.5);
   beginShape();
   curveVertex(leafx, leafy); //20,20
@@ -260,7 +300,7 @@ function drawLeaf(leafx, leafy) {
 //function to draw the right leaves //curve vertexs to achieve the shape of the leaves
 function drawrightLeaf(Leafx, leafy) {
   
-  stroke(1, 50, 32); //dark green
+  stroke(3, 82, 53); //dark green
   strokeWeight(1.5);
   beginShape();
   curveVertex(Leafx, leafy); //70,20
