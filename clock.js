@@ -10,6 +10,8 @@ function preload(){
   SunImg = loadImage("assets/Sun.png")
   BackgroundImg = loadImage("assets/Background.png")
   MeteorImg = loadImage("assets/Meteor.png")
+  RocketImg1 = loadImage("assets/Rocket1.png")
+  RocketImg2 = loadImage("assets/Rocket2.png")
 }
 
 let alarmOffset = -300;
@@ -91,10 +93,16 @@ function draw_clock(obj) {
   
    if(Alarm ==0){
 
-      rect(alarmOffset, 175, xRect,yRect);
-      alarmOffset = alarmOffset + 4;
+    if(alarmOffset > 0 && alarmOffset < 100 || alarmOffset>200 && alarmOffset<300 ||alarmOffset > 400 && alarmOffset < 500 || alarmOffset>600 && alarmOffset<700 || alarmOffset >800 ){
+
+      image(RocketImg1,alarmOffset,175,xRect,yRect);
+      alarmOffset = alarmOffset + 3;
       
-  
+    }else {
+      image(RocketImg2,alarmOffset,175,xRect,yRect);
+      alarmOffset = alarmOffset + 3;
+    }
+     
 
      }
  
