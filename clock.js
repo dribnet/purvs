@@ -1,4 +1,3 @@
-
 // change these for marking
 let init = false;
 var waitForHourChange = false;

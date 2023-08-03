@@ -2,6 +2,12 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11462214&assignment_repo_type=AssignmentRepo)
 ## MDDN 242 Project 1: Time-based Media  
 
+## How the clock works
+The clock represents hours by the number of shapes and elements. Minutes are represented by the filled circle around the face of the clock. It also will align itself every minute. It will transition hours seamlessly however this can take up to 1 minute I realised that for marking this isn’t practical so I have disabled it by default however if you want to enable it you can do so by change line 2 and 3 in clock.js to
+let init = false;
+var waitForHourChange = false;
+Please be aware that for every hour the clock and alarm look completely different so please test using a few different times. My favourites are 11 and 12 O’clock, to easily read the time you might need to wait a minute for the shapes to align especially for later hours where there is alot going on. 
+
 ## Week 1
 My idea for my clock sketch was to represent the hour hand as a segment that is uncovered and the minute hand is shown on the outside of the clock. In this example the time is 8:10 
 ![plot](./images/sketch.png)
