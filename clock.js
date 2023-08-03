@@ -21,6 +21,11 @@ l5= loadImage('L5.png') //316,335
 
 }
 
+let millisSize =0
+let globeLocation =0
+let x =0
+
+
 function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
   //    obj.hours goes from 0-23
@@ -65,75 +70,220 @@ drawSun(490,40);
 
 //hours
 
+//calling upon each pair of arms every 2 hours
+
+//1st pair am
 if (obj.hours>=2 && obj.hours<12){
   image(l1,265,90,187,293) 
   image(r1,485,90,144,289)
 
 }
 
+//2nd pair am
 if (obj.hours>=4 && obj.hours<12){
   image(l2,200,100,252,325)
   image(r2,490,120,192,241)
 }
 
+//3rd pair am
 if (obj.hours>=6 && obj.hours<12){
   image(l3,180,160,289,222)
   image(r3,480,170,309,242)
 }
 
+//4th pair am
 if (obj.hours>=8 && obj.hours<12){
   image(l4,190,130,323,329)
   image(r4,470,240,325,161)
 }
 
+//5th pair am
 if (obj.hours>=10 && obj.hours<12){
   image(l5,190,150,316,335)
   image(r5,470,280,323,161)
 }
 
+//1st pair pm
 if (obj.hours>=14 && obj.hours<24){
   image(l1,265,90,187,293) 
   image(r1,485,90,144,289)  
 }
 
+//2nd pair pm
  if (obj.hours>=16 && obj.hours<24){
   image(l2,200,100,252,325)
   image(r2,490,120,192,241)
   }
 
-
+//3rd pair pm
  if (obj.hours>=18 && obj.hours<24){
   image(l3,180,160,289,222)
   image(r3,480,170,309,242)
  }
 
+ //4th pair pm
  if (obj.hours>=20 && obj.hours<24){
   image(l4,180,130,323,329)
   image(r4,470,240,325,161)
  }
 
+ //5th pair pm
  if (obj.hours>=22 && obj.hours<24){
    image(l5,190,150,316,335)
    image(r5,470,280,323,161)
  }
 
 
-
+// the picture of the lady stays the full duration of hours
 if (obj.hours>=0){
   image(lady,350,70,227,442)
 }
 
-if (obj.hours>=0 && obj.hours<=1){
-  drawGlobeEven(545,85,50)
-}
-if (obj.hours>=1 && obj.hours<=2){
-drawGlobeOdd(520,80,50)
-}
+//MINUTES
 
 
 
+  //AM GLOBE PLACEMENTS
+  if(obj.hours==0 || obj.hours==1){
+    if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,478,481)
+  drawGlobe(globeLocation,85,50)
+} else if (x=478 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,481,478)
+  drawGlobe(globeLocation,85,50)
+} 
+ }
+
+if (obj.hours==2 || obj.hours==3){
+if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,365,550)
+  drawGlobe(globeLocation,100,50)
+} else if (x=550 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,550,365)
+  drawGlobe(globeLocation,100,50)
+} 
 }
-let millisSize =0
+
+if (obj.hours==4 || obj.hours==5){
+  if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,280,630)
+  drawGlobe(globeLocation,115,50)
+} else if (x=630 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,630,280)
+  drawGlobe(globeLocation,115,50)
+} 
+}
+
+
+if(obj.hours==6 || obj.hours==7){
+  if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,215,750)
+  drawGlobe(globeLocation,210,50)
+} else if (x=750 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,750,215)
+  drawGlobe(globeLocation,210,50)
+} 
+}
+
+
+if(obj.hours==8 || obj.hours==9){
+  if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,210,760)
+  drawGlobe(globeLocation,300,50)
+} else if (x=760 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,760,210)
+  drawGlobe(globeLocation,300,50)
+} 
+}
+
+ if (obj.hours==10 || obj.hours==11){
+  if (obj.minutes<=60)
+{ 
+  globeLocation= map(obj.minutes,0,60,210,770)
+  drawGlobe(globeLocation,365,50)
+} else if (x=770 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,770,210)
+  drawGlobe(globeLocation,365,50)
+} 
+}
+
+
+//PM globe placements
+
+if (obj.hours==12 || obj.hours==13){
+  if (obj.minutes<=60)
+  { 
+    globeLocation= map(obj.minutes,0,60,478,481)
+    drawGlobe(globeLocation,85,50)
+  } else if (x=478 && obj.minutes<= 60){
+    globeLocation = map(obj.minutes,0,60,481,478)
+    drawGlobe(globeLocation,85,50)
+} 
+}
+
+if (obj.hours==14 || obj.hours==15){
+  if (obj.minutes<=60)
+  { 
+    globeLocation= map(obj.minutes,0,60,365,550)
+    drawGlobe(globeLocation,100,50)
+  } else if (x=550 && obj.minutes<= 60){
+    globeLocation = map(obj.minutes,0,60,550,365)
+    drawGlobe(globeLocation,100,50) 
+  }
+}
+
+if(obj.hours==16 || obj.hours==17){
+  if (obj.minutes<=60)
+  { 
+    globeLocation= map(obj.minutes,0,60,280,630)
+    drawGlobe(globeLocation,115,50)
+  } else if (x=630 && obj.minutes<= 60){
+    globeLocation = map(obj.minutes,0,60,630,280)
+    drawGlobe(globeLocation,115,50)
+  }
+}
+
+if (obj.hours==18 || obj.hours==19){
+  if (obj.minutes<=60){
+
+  globeLocation= map(obj.minutes,0,60,215,750)
+  drawGlobe(globeLocation,210,50)
+} else if (x=750 && obj.minutes<= 60){
+  globeLocation = map(obj.minutes,0,60,750,215)
+  drawGlobe(globeLocation,210,50)
+} 
+}
+
+if (obj.hours==20 || obj.hours==21){
+  if (obj.minutes<=60)
+  { 
+    globeLocation= map(obj.minutes,0,60,210,760)
+    drawGlobe(globeLocation,300,50)
+  } else if (x=760 && obj.minutes<= 60){
+    globeLocation = map(obj.minutes,0,60,760,210)
+    drawGlobe(globeLocation,300,50)
+  } 
+ }
+
+if (obj.hours==22 || obj.hours==23){
+  if (obj.minutes<=60)
+  { 
+    globeLocation= map(obj.minutes,0,60,210,770)
+    drawGlobe(globeLocation,365,50)
+  } else if (x=770 && obj.minutes<= 60){
+    globeLocation = map(obj.minutes,0,60,770,210)
+    drawGlobe(globeLocation,365,50)
+  } 
+}
+
+}
+
+
 
 function drawFlower1(x,y,curSec,){
   let secondMap = map(curSec,0,60,360,0)
@@ -1457,37 +1607,10 @@ millisSize= map(obj.millis,0,1000,300,130)
 ellipse(x, y, millisSize)
 }
 
-function drawGlobeOdd(x,y){
-  noStroke()
-
-fill(255,255,255,200);// white
-ellipse(x,y, 50);
-
-fill(255,255,255,50);//white
-
-//fill(255,191,0,150);
-
-if(obj.millis<=500){
-millisSize= map(obj.millis,0,1000,50,100)
-millisSize= map(obj.millis,0,1000,40,100)
-}
-else if(obj.millis>=500){
-millisSize= map(obj.millis,0,1000,100,50)
-millisSize= map(obj.millis,0,1000,100,40)
-}
-ellipse(x,y,millisSize)
-
-}
-function drawGlobeEven(x,y){
-  noStroke()
-
-  fill(125,255,155,200);// malachite
-  ellipse(x,y, 50);
+function drawGlobe(x,y){
   
-  fill(125,255,185,50);// tourmiline
-  
-  
-  if(obj.millis<=500){
+noStroke()
+ if(obj.millis<=500){
   millisSize= map(obj.millis,0,1000,50,200)
   millisSize= map(obj.millis,0,1000,30,200)
   }
@@ -1495,7 +1618,24 @@ function drawGlobeEven(x,y){
   millisSize= map(obj.millis,0,1000,200,50)
   millisSize= map(obj.millis,0,1000,200,30)
   }
-  ellipse(x,y,millisSize)
+  
+  if(x>=480){
+    fill(125,255,155,200); //green
+    ellipse(x,y, 50);
+    
+    fill(125,255,185,50);
+    ellipse(x,y,millisSize)
+  } 
+  else if(x<=479){
+    fill(255,255,255,200); //white
+    ellipse(x,y, 50);
+    
+    fill(255,255,255,50);
+    ellipse(x,y,millisSize)
+  }
+
+
+
 }
 
-console.log()
+console.error()
