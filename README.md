@@ -17,4 +17,4 @@ I have been working on my alarm, I have found it difficult to make both my main 
 
 ## Week 4
 In week 4 my focus was on making my clock function better as a clock. I first did this by making the number of elements represent the hours. This worked well however it created a new much more difficult problem to deal with. Since I used the number of elements or the hours to calculate the radius of the shapes, changing the hour meant there would be a slight change in the size of the object. It also meant there would be a sudden jump in the shape itself so I had to find a way to smoothly transition between hours. I did this by reducing the size of the clock to make the slight jump in size less noticeable and by increasing the thickness of the frame any change of the shape is hidden. 
-![plot](./images/image-week4.png)
+![plot](./images/image-week4.PNG)
