@@ -109,11 +109,11 @@ function draw_clock(obj) {
     let dig4 = obj.minutes%10;
 
 
-    if(dig1 != floor(prevhour/10) || prevhour == undefined) testing[0]=(new ClockNumber(getNumberLines(numarray[floor(obj.hours/10)]), -220, -62, 8, 8));
-    if(dig2 != prevhour%10 || prevhour == undefined) testing[1]=(new ClockNumber(getNumberLines(numarray[obj.hours%10]), -130, -62, 8, 8));
-    testing[2]=(new ClockNumber(getNumberLines(numbers.colon), -40, -62, 8, 8));
-    if(dig3 != floor(prevmin/10) || prevmin == undefined) testing[3]=(new ClockNumber(getNumberLines(numarray[floor(obj.minutes/10)]), 30, -62, 8, 8));
-    if(dig4 != prevmin%10 || prevmin == undefined) testing[4]=(new ClockNumber(getNumberLines(numarray[obj.minutes%10]), 120, -62, 8, 8));
+    if(dig1 != floor(prevhour/10) || prevhour == undefined) testing[0]=(new ClockNumber(getNumberLines(numarray[floor(obj.hours/10)]), -220, -62, 9, 6.5));
+    if(dig2 != prevhour%10 || prevhour == undefined) testing[1]=(new ClockNumber(getNumberLines(numarray[obj.hours%10]), -130, -62, 9, 6.5));
+    testing[2]=(new ClockNumber(getNumberLines(numbers.colon), -40, -62, 8, 6.5));
+    if(dig3 != floor(prevmin/10) || prevmin == undefined) testing[3]=(new ClockNumber(getNumberLines(numarray[floor(obj.minutes/10)]), 30, -62, 9, 6.5));
+    if(dig4 != prevmin%10 || prevmin == undefined) testing[4]=(new ClockNumber(getNumberLines(numarray[obj.minutes%10]), 120, -62, 9, 6.5));
 
     prevmin = obj.minutes;
     prevhour = obj.hours;
@@ -138,7 +138,6 @@ function draw_clock(obj) {
       var col = lerpColor(c1,c2,val/1.5);
       var distance = map(dist(x, y, width/2, height/2), 0, width/1.2, 1, 0.1);
       fill(lerpColor(color(0,0,0,0), col, distance));
-      var rand = random(1,1.5);
       
       var size = map(distance, 1, 0.1, 100, 30);
       ellipse(x,y,size,size);
@@ -276,12 +275,13 @@ function draw_clock(obj) {
   drawPlanet(saturnVec, saturn);
   
 
-  for(let i = 0; i < floor(random(0, 5)); i++) {
-    moonStars.push(new NumStar(undefined, moonVec.x+random(-15, 15), moonVec.y+random(-15,15)));
-    moonStars.push(new NumStar(undefined, starVec.x+random(-15, 15), starVec.y+random(-15,15)));
-    moonStars.push(new NumStar(undefined, saturnVec.x+random(-15, 15), saturnVec.y+random(-15,15)));
+  for(let i = 0; i < floor(noisePoint(0, 5)); i++) {
+
+    moonStars.push(new NumStar(undefined, moonVec.x+noisePoint(-15, 15), moonVec.y+noisePoint(-15,15)));
+    moonStars.push(new NumStar(undefined, starVec.x+noisePoint(-15, 15), starVec.y+noisePoint(-15,15)));
+    moonStars.push(new NumStar(undefined, saturnVec.x+noisePoint(-15, 15), saturnVec.y+noisePoint(-15,15)));
     if(obj.seconds_until_alarm > 0) {
-      moonStars.push(new NumStar(undefined, alarmVec.x+random(-15, 15), alarmVec.y+random(-15,15)));
+      moonStars.push(new NumStar(undefined, alarmVec.x+noisePoint(-15, 15), alarmVec.y+noisePoint(-15,15)));
     }
   }
 
@@ -330,6 +330,15 @@ function pushStars() {
   }
 
 
+}
+
+let randOffset = 1;
+
+function noisePoint(min, max) {
+    randOffset++;
+    randOffset = (7 * randOffset + 13) % 97;
+    number = noise(randOffset%23,randOffset%53);
+    return number*(max-min)+min;
 }
 
 
@@ -449,12 +458,14 @@ function alarm() {
   let amount = floor(map(pow(obj.millis/800, 3), 0, 1, 20, 0));
   if(obj.millis < 200) {
     for(let i = 0; i < amount; i++) {
-      let a = random(0, 2*PI);
-      let l = 210 + random(0, 20);
+
+      let a = noisePoint(0, 12*PI);
+      let l = 210 + noisePoint(0, 20);
       let v = p5.Vector.fromAngle(a, l);
 
       let star = new NumStar(undefined, v.x, v.y);
-      star.setVelocity(p5.Vector.fromAngle(a, random(5, 10)));
+
+      star.setVelocity(p5.Vector.fromAngle(a, noisePoint(5, 10)));
       alarmStars.push(star);
 
     }
@@ -623,9 +634,9 @@ class NumLine {
     for(let i = 0; i < density*this.units; i++) {
       let t = i/(density*this.units);
       let vec = p5.Vector.lerp(this.end1, this.end2, t);
-      this.stars.push(new NumStar(this, vec.x + random(-randomness,randomness), vec.y + random(-randomness,randomness)));
+      this.stars.push(new NumStar(this, vec.x + noisePoint(-randomness,randomness), vec.y + noisePoint(-randomness,randomness)));
 
-      if(random() > 1-decorationDensity) this.decorationstars.push(new NumStar(this, vec.x + random(-randomness*5,randomness*5), vec.y + random(-randomness*5,randomness*5)));
+      if(noisePoint(0,1) > 1-decorationDensity) this.decorationstars.push(new NumStar(this, vec.x + noisePoint(-randomness*5,randomness*5), vec.y + noisePoint(-randomness*5,randomness*5)));
 
     }
 
@@ -634,8 +645,7 @@ class NumLine {
   }
 
   drawSelf() {
-    //stroke(255);
-    //line(this.end1.x, this.end1.y, this.end2.x, this.end2.y);
+
     stroke(230,230,255,2);
     strokeWeight(60);
     for(let i = 0; i < 6; i++) {
@@ -666,11 +676,12 @@ class NumStar {
     noStroke();
     fill(255,255,255,10);
     circle(this.x, this.y, 3);
-    fill(255,255,255,random(100,255));
+    fill(255,255,255,noisePoint(100,255));
     this.x += this.velocity.x;
     this.y += this.velocity.y;
-    this.x += random(-1, 1);
-    this.y += random(-1, 1);
+
+    this.x += noisePoint(-1, 1);
+    this.y += noisePoint(-1, 1);
     if(dist(this.x, this.y, this.originx, this.originy) > 6) {
       let newvec = p5.Vector.lerp(createVector(this.x, this.y), createVector(this.originx, this.originy), 0.1);
       this.x = newvec.x;
@@ -687,8 +698,8 @@ class NumStar {
     this.rot += 0.1;
     this.x += this.velocity.x;
     this.y += this.velocity.y;
-    this.x += random(-1, 1);
-    this.y += random(-1, 1);
+    this.x += noisePoint(-1, 1);
+    this.y += noisePoint(-1, 1);
 
     noStroke();
     let opac = map(this.lifetime, 25, 0, 255, 0);
@@ -710,7 +721,7 @@ class NumStar {
   setVelocity(newVelocity) {
     this.velocity = newVelocity;
     this.rot = offset2;
-    this.size = random(2, 6);
+    this.size = noisePoint(2, 6);
   }
 
   pos() {
