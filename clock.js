@@ -84,6 +84,48 @@ function HourRing1() {
   const diameter = 250;
   const ringX = width / 2;
   const ringY = height / 2;
+  
+  // Declares time varibles revelant to (h) ring
+  let hours = obj.hours;
+  let mins = obj.minutes;
+  let hoursFract = hours + (mins/60); //smooths out movement of point
+
+  // Declares variables for alarm
+  let hourHColour = color("#8EAADB")
+  let alarmTime = obj.seconds_until_alarm;
+
+  // colour of hour hand will change when alarm hits zero
+  if (alarmTime == 0) {
+    hourHColour = color('#F4B183');
+  }
+
+  //Map function allows timed movement around ring (PI*x controls speed)
+  let pointLoc1 = map(hoursFract,0,24,0,PI*4);
+
+  // Define styles of our geometry (circle)
+  stroke(hourHColour);
+  strokeWeight(0);
+  noFill();
+    
+  // Create the circle
+  circle(ringX, ringY, diameter);
+  
+  // Determines location for each point, the offset of (PI*1.5) places points at top of circle
+  let angle1 = pointLoc1+(PI*1.5);
+
+  //point1
+  let point1x = diameter / 2 * Math.cos(angle1) + ringX;
+  let point1y = diameter / 2 * Math.sin(angle1) + ringY;
+  strokeWeight(20);
+  point(point1x, point1y);
+
+}
+
+function HourRing2() {
+  // Controls size and location for ring
+  const diameter = 250;
+  const ringX = width / 2;
+  const ringY = height / 2;
 
   // Define styles of our geometry (circle)
   stroke('white');
@@ -103,39 +145,6 @@ function HourRing1() {
       strokeWeight(4);
       point(x, y);
   }
-
-}
-
-function HourRing2() {
-  // Controls size and location for ring
-  const diameter = 250;
-  const ringX = width / 2;
-  const ringY = height / 2;
-  
-  // Declares time varibles revelant to (h) ring
-  let hours = obj.hours;
-  let mins = obj.minutes;
-  let hoursFract = hours + (mins/60); //smooths out movement of point
-
-  //Map function allows timed movement around ring (PI*x controls speed)
-  let pointLoc1 = map(hoursFract,0,24,0,PI*4);
-
-  // Define styles of our geometry (circle)
-  stroke('white');
-  strokeWeight(0);
-  noFill();
-    
-  // Create the circle
-  circle(ringX, ringY, diameter);
-  
-  // Determines location for each point, the offset of (PI*1.5) places points at top of circle
-  let angle1 = pointLoc1+(PI*1.5);
-
-  //point1
-  let point1x = diameter / 2 * Math.cos(angle1) + ringX;
-  let point1y = diameter / 2 * Math.sin(angle1) + ringY;
-  strokeWeight(25);
-  point(point1x, point1y);
 }
 
 function MinRing() {
@@ -231,7 +240,7 @@ function SecRing() {
   let point1x = diameter / 2 * Math.cos(angle1) + ringX;
   let point1y = diameter / 2 * Math.sin(angle1) + ringY;
   stroke('white');
-  strokeWeight(12);
+  strokeWeight(8);
   point(point1x, point1y);
 
   //point2
