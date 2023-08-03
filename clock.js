@@ -1,6 +1,7 @@
 /*
  * use p5.js to draw a clock on a 960x500 canvas
  */
+//This function is loading all of my images in
 function preload(){
   img_sun = loadImage('sun.png');
   img_uranus = loadImage('uranus.png');
@@ -33,32 +34,33 @@ angleMode(DEGREES);
   let alarm = obj.seconds_until_alarm;
 
 
-  let background_c = (50);
-
-  if(alarm > 0 && alarm <5){
+  let background_c = (0); //sets the background colour
+  
+  if(alarm > 0 && alarm <5){ //if statement for the alarm
     background_c = map(alarm, 5, 0, 50, 240);
   }
-  else if(alarm == 0){
+  else if(alarm == 0){//creates the strobe effect when alarm is going off
     if(millis < 500) {
       background_c = 0;
     }
     else {
-      background_c = 200;
+      background_c = (255,255,255);
     }
   }
+  
+  background_c = map(seconds, 0,59,0,50); //makes it so that the background colour is always changing based on the seconds.
+  background(background_c); 
+  //TEXT FOR DEBUGGING
+  // fill(200); 
+  // textSize(10);
+  // textAlign(CENTER, CENTER);
+  // text("Hours: " + hours, 40, 30);
+  // text("Minutes: " + minutes, 40, 45);
+  // text("Seconds: " + seconds, 40, 60);
+  // text("Millis: " + millis, 40, 75);
 
 
-  background(background_c); //  beige
-  fill(200); // dark grey
-  textSize(10);
-  textAlign(CENTER, CENTER);
-  text("Hours: " + hours, 40, 30);
-  text("Minutes: " + minutes, 40, 45);
-  text("Seconds: " + seconds, 40, 60);
-  text("Millis: " + millis, 40, 75);
-
-
-  angleMode(RADIANS);
+  angleMode(RADIANS);//set the angle mode to radians so that I can use the sinwave to make my images bounce
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase1 = sin(bounce1);
   let y_bounce1 = map(phase1, -1, 1, -3, 3);
@@ -76,6 +78,7 @@ angleMode(DEGREES);
   let y_bounce4 = map(phase4, -4, 4, -6, 6);
 
   
+  //STAR IMAGES, these 23 if statments control how many stars are on the screen based on what hour it is. These star images represent what the hour is.
   if (hours == 1){
     image (img_star, 90, 60 + y_bounce1, 30, 30);
   }
@@ -409,318 +412,45 @@ angleMode(DEGREES);
     image (img_star, 820, 100 + y_bounce2, 20,20);
     image (img_star, 860, 310 + y_bounce3, 20,20);
   }
-  angleMode(DEGREES);
-
-
-
-
   
+  angleMode(DEGREES);//set the anglemode back to Degrees so that my planets can orbit normally.
+
+
   let sun_radius = map(hours, 0, 24, 80, 80);
-  let hours_radius = map(hours, 0, 24, 0, 60);
+  let hours_radius = map(hours, 0, 24, 0, 60);//map for the middle of the sun, which will get larger based on what the hour is
   fill(253, 179, 83);// orange
   noStroke ();
   image (img_sun, width/2 -40 , height/2 -40, sun_radius, 80);
   ellipse(width /2, height/2, hours_radius);
-  let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270);
+  let rotH = map(minutes + (seconds/1000.0), 0, 59, -90, 270); //rotation map for the minutes planet to follow
   let minutes_radius = map(minutes, 0, 59, 55, 55);
 
 
-
-  push();
+  push();//first push to move the minutes planet to where it needs to be
     translate(width/2, height/2);
     rotate(rotH);
     fill(140,255,251); //blue
-    //ellipse(150,0,minutes_radius);
     image (img_uranus, 150-27.5,0-27.5,minutes_radius,55);
-    
-    
     let rotM = map(seconds + (millis/1000.0), 0, 59, 0, 360);
     let seconds_radius = map(seconds, 0, 59, 35, 35);
     let rotS = map(millis, 0,999,0, 360)
     
-        push();
+        push(); //second push to move the seconds planet to where it needs to be
           translate (150,0);
           rotate (rotM);
           fill(175, 133, 255); //purple
-          //ellipse(70,0,seconds_radius);
-          image (img_purple, 70-17.5,0-17.5,seconds_radius,35);
-                
+          image (img_purple, 70-17.5,0-17.5,seconds_radius,35);  
           let millis_radius = map(millis, 0, 999, 15, 15);
-                push();
-                  translate (70,0);
-                  rotate (rotS);
-                  fill(255, 165, 0); // orange
-                  //ellipse(30,0, millis_radius);
-                  image (img_green, 30-7.5, 0-7.5, millis_radius, 15);
-              
-                pop();
 
-    pop ();  
+                  push(); //third push to move the millis planet to where it needs to be
+                    translate (70,0);
+                    rotate (rotS);
+                    fill(255, 165, 0); // orange
+                    image (img_green, 30-7.5, 0-7.5, millis_radius, 15);
+                
+                  pop();
+
+        pop ();  
 
   pop();
-
-  
-
-  
-      
-    }
-
-
-
-
-
-
-// BACKUPPFirst clock made, the circles that get bigger and smaller based on the time, Circles also bounce up and down :)
-//   let millis = obj.millis;
-//   let seconds = obj.seconds;
-//   let minutes = obj.minutes;
-//   let hours = obj.hours;
-
-
-//   background(50); //  beige
-//   fill(200); // dark grey
-//   textSize(10);
-//   textAlign(CENTER, CENTER);
-//   text("Hours: " + hours, width / 2, 30);
-//   text("Minutes: " + minutes, width / 2, 45);
-//   text("Seconds: " + seconds, width / 2, 60);
-//   text("Millis: " + millis, width / 2, 75);
-
-
-//   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
-//   let phase1 = sin(bounce1);
-//   let y_bounce1 = map(phase1, -1, 1, -10, 10);
-
-//   let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-//   let phase2 = sin(bounce2);
-//   let y_bounce2 = map(phase2, -1, 1, -10, 10);
-
-//   let bounce3 = map(obj.millis, 0, 999, 0, TWO_PI);
-//   let phase3 = sin(bounce3);
-//   let y_bounce3 = map(phase3, -1, 1, -10, 10);
-
-//   let bounce4 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-//   let phase4 = sin(bounce4);
-//   let y_bounce4 = map(phase4, -1, 1, -10, 10);
-
-
-
-
-  
-//   let hours_radius = map(hours, 0, 59, 70, 90);
-//   fill(249, 140, 255);// pink
-//   ellipse(width /2, 275 + y_bounce1, hours_radius);
-//   let rotH = map(minutes, 0, 59, 0, TWO_PI);
-//   let minutes_radius = map(minutes, 0, 59, 50, 70);
-
-//   push();
-//     translate(width/2, 275 + y_bounce1);
-//     rotate(rotH);
-//     fill(140,255,251); //blue
-//     ellipse(100,0,minutes_radius);
-    
-//     let rotM = map(seconds, 0, 59, 0, TWO_PI);
-//     let seconds_radius = map(seconds, 0, 59, 30, 50);
-    
-//     push ();
-//       translate (10,10 + y_bounce2);
-//       rotate (rotM);
-//       fill(175, 133, 255); //purple
-//       ellipse(100,0,seconds_radius);
-//     pop ()  
-
-//   pop();
-
-  
-
-
-//   //let secondsWithFraction   = seconds + (millis / 1000.0);
-//   //let seconds_radius = map(secondsWithFraction, 0, 59, 30, 50);
-//   //fill(175, 133, 255); // purple
-//   //ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
-//   let rotS = map(millis, 0,999,0, TWO_PI)
-  
-
-
-  
-
-//   let millis_radius = map(millis, 0, 999, 10, 30);
-
-//   push();
-//     translate (width / 3 * 2, 350 + y_bounce3);
-//     rotate (rotS);
-//     fill(255, 165, 0); // orange
-//     ellipse(75,0, millis_radius);
-
-//   pop();
-
-
-
-// }
-
-
-
-
-
-//Clock that made the millis orbitting the seconds and thats it. Backup save :)
-// let millis = obj.millis;
-// let seconds = obj.seconds;
-// let minutes = obj.minutes;
-// let hours = obj.hours;
-
-
-// background(50); //  beige
-// fill(200); // dark grey
-// textSize(30);
-// textAlign(CENTER, CENTER);
-// text("Hours: " + hours, width / 2, 120);
-// text("Minutes: " + minutes, width / 2, 160);
-// text("Seconds: " + seconds, width / 2, 200);
-// text("Millis: " + millis, width / 2, 240);
-
-
-// let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
-// let phase1 = sin(bounce1);
-// let y_bounce1 = map(phase1, -1, 1, -10, 10);
-
-// let bounce2 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-// let phase2 = sin(bounce2);
-// let y_bounce2 = map(phase2, -1, 1, -10, 10);
-
-// let bounce3 = map(obj.millis, 0, 999, 0, TWO_PI);
-// let phase3 = sin(bounce3);
-// let y_bounce3 = map(phase3, -1, 1, -10, 10);
-
-// let bounce4 = map((obj.millis+100), 0, 999, 0, TWO_PI);
-// let phase4 = sin(bounce4);
-// let y_bounce4 = map(phase4, -1, 1, -10, 10);
-
-
-
-
-// let hours_radius = map(hours, 0, 59, 70, 90);
-// fill(249, 140, 255);// pink
-// ellipse(width / 3, 350 + y_bounce1, hours_radius);
-
-// let minuteswithFraction = minutes + (seconds / 1000.0);
-// let minutes_radius = map(minuteswithFraction, 0, 59, 50, 70);
-// fill(140, 255, 251) // blue
-// ellipse(width / 2, 350 + y_bounce2, minutes_radius);
-
-
-// let secondsWithFraction   = seconds + (millis / 1000.0);
-// let seconds_radius = map(secondsWithFraction, 0, 59, 30, 50);
-// fill(175, 133, 255); // purple
-// let rotS = map(seconds, 0,59,0, TWO_PI)
-// ellipse(width / 3 * 2, 350 + y_bounce3, seconds_radius);
-
-// let millis_radius = map(millis, 0, 999, 10, 30);
-
-// push();
-//   translate (width / 3 * 2, 350 + y_bounce3);
-//   rotate (rotS);
-//   fill(255, 165, 0); // orange
-//   ellipse(75,0, millis_radius);
-
-// pop();
-
-
-
-// }
-
-
-
-
-// 25 July Tuesday, Horizons Clock Orbits
-// angleMode(DEGREES);
-//     background(253, 196, 255);
-//     stroke(255);
-//     strokeWeight(3);
-//     textAlign(CENTER, CENTER);
-//     textSize(80);
- 
-
-//     let hourC = color(255, 250, 115); // light yellow
-//     let minuteC = color(171,225,239); // light blue
-//     let secondC = color(140, 255, 140); // light green
-    
-
-//     drawHour(250,200,obj.hours,hourC,minuteC);
-
-//     drawMinute(450,350,obj.minutes,minuteC,secondC);
-
-//     drawSecond(650,200,obj.seconds,secondC,hourC);
-  
-//     noStroke();
-//     fill(255);
-//     ellipse(450, 100, 100);
-
-//     fill(253, 196, 255);
-
-//     if(obj.hours < 5 || obj.hours > 19 ) {
-//         ellipse(475, 100, 100);// night 
-//     }    
-//     else if(obj.hours >=5 && obj.hours < 7 ){
-//         ellipse(450, 120, 100);//  dawn 
-//     }
-//     else if (obj.hours >=17 && obj.hours <= 19 ){
-//         ellipse(450, 65, 100);//  dusk 
-//     }
-//     else{
-//         fill(255);
-//         ellipse(450, 100, 100);
-//     }
-
-// }
-
-
-
-// function drawHour(x,y,curHour,Hc,Mc){
-//     fill(Hc);
-//     let hoursMap = map(curHour,0,23, 0,360);
-//     let colorLerpMap = map(curHour, 0,23, 0,1);
-//     let betweenColor= lerpColor(Hc,Mc,colorLerpMap);
-
-//     push();
-//         translate(x,y);
-//         ellipse(0,0, 200);
-//         rotate(hoursMap);
-//         translate(0,-130);
-//         fill(betweenColor);
-//         ellipse(0,0, 30);
-//     pop();
-// }
-
-
-// function drawMinute(x,y, curMin,Mc,Sc){
-//     fill(Mc);
-//     let minuteMap = map(curMin, 0,59, 0, 360);
-//     let colorLerpMap = map(curMin, 0,59, 0,1);
-//     let betweenColor= lerpColor(Mc,Sc,colorLerpMap);
-
-//     push();
-//     translate(x,y);
-//     ellipse(0,0, 200);
-//     rotate(minuteMap);
-//     fill(betweenColor);
-//     ellipse(0,-130, 30);
-//     pop();
-// }
-
-// function drawSecond(x,y,curSec,Sc,Hc){
-//     fill(Sc);
-//     let colorLerpMap = map(curSec, 0,59, 0,1);
-//     let secondMap = map(curSec, 0,59, 0, 360);
-//     let betweenColor= lerpColor(Sc,Hc,colorLerpMap);
-
-//     push();
-//     translate(x,y);
-//     ellipse(0,0, 200);
-//     rotate(secondMap);
-//     fill(betweenColor);
-//     ellipse(0,-130, 30);
-//     pop();
-// }
-
-
-
+}
