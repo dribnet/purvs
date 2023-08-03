@@ -44,6 +44,9 @@ fill(200)
 textSize(40);
 textAlign(CENTER, CENTER);
 //text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+drawAlarm(0,0)
+
+drawNight(0,0)
 
 //seconds
 drawFlower1(60,50,obj.seconds)
@@ -139,7 +142,7 @@ if (obj.hours>=0){
   image(lady,350,70,227,442)
 }
 
-//MINUTES
+
 
 
 
@@ -284,7 +287,8 @@ if (obj.hours==22 || obj.hours==23){
 }
 
 
-
+// the flowers add a petal every 1second. and each flower apears every 10 seconds. 
+//the middle of the flower starts pulsing at 9 seconds and the rest of the flower at 10seconds. 
 function drawFlower1(x,y,curSec,){
   let secondMap = map(curSec,0,60,360,0)
   if(obj.millis<=500){
@@ -1584,17 +1588,18 @@ fill("pink")
 
 
 
-//seconds
 
-function drawSun(x,y){
-noStroke()
+//the sun pulses with the seconds
+function drawSun(x,y,){
+ 
+
 
 fill(255,191,0,200);// Yellow
 ellipse(x, y, 150);
-
+//lesser opacity
 fill(255,191,0,100);//yellow
 
-//fill(255,191,0,150);
+
 
 if(obj.millis<=500){
 millisSize= map(obj.millis,0,1000,150,300)
@@ -1605,8 +1610,12 @@ millisSize= map(obj.millis,0,1000,300,150)
 millisSize= map(obj.millis,0,1000,300,130)
 }
 ellipse(x, y, millisSize)
+
+
+
 }
 
+//this globe apears each time a pair of arms show every 2 hours. it shows whether the time is either say 2 o'clock or 3o'clock. left is white and even. right is odd and green.
 function drawGlobe(x,y){
   
 noStroke()
@@ -1637,5 +1646,50 @@ noStroke()
 
 
 }
+
+//this function changes the opacity of a black background overlay from0 to 255 to simulate night time
+function drawNight(x,y){
+opacity1=map(obj.minutes,0,60,0,255)
+opacity2=map(obj.minutes,0,60,255,0)
+
+if(obj.hours==5){
+  fill(0,0,0,opacity2)
+  rect(x,y,960,500)
+} else if(obj.hours<5){
+  fill(0,0,0,255)
+  rect(x,y,960,500)
+}
+if(obj.hours==17){
+  fill(0,0,0,opacity1)
+  rect(x,y,960,500)
+} 
+else if( obj.hours>17){
+  fill(0,0,0,255)
+  rect(x,y,960,500)
+} 
+else if(obj.hours>5&&obj.hours<17){
+  fill(0,0,0,0)
+  rect(x,y,960,500)
+}
+}
+
+//i am using some of my code from my music visualiser from creative coding1
+//this will make the background strobe different colours
+function drawAlarm(x,y){
+  push()
+  colorMode(HSB,100)
+  if (obj.seconds_until_alarm==0){
+  let colorA=map(obj.millis,0,1000,0,150)
+  let colorB=map(obj.millis,0,1000,250,50)
+  let colorC=map(obj.millis,0,1000,255,150)
+  
+  fill(colorA,colorB,colorC,255)
+  rect(x,y,960,500)
+  }
+
+pop()
+
+}
+
 
 console.error()
