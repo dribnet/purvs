@@ -30,3 +30,7 @@ I wanted a pulsing effect when the alarm goes off, and to implement this I added
 
 ![image](https://github.com/23-2-DSDN242/mddn242-time-based-media-DanielIe/assets/94158822/27ccb03a-02dc-43bc-ae25-6cfdc17f57b7)
 
+# Part 5: Final Clock and Reflection
+
+I had a lot of fun creating my original clock, I challenged myself technically and created something that I am proud of visually. I was inspired by stars and constellations, as well as swirling galaxies and took elements from these ideas to create my own original clock. The hardest part for me was coming up with an idea, but once I was happy with my vision, implementation went fairly smoothly. Finding a way to get around using 'random' was also a fun challenge, as a lot of my clock is based on randomness with the placement of stars, constellations, etc. Overall I am happy with my clock and think it makes for a unique and interesting visual experience. 
+
