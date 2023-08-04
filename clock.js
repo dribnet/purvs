@@ -4,6 +4,8 @@
 let img;
 function preload() {
   img = loadImage('Tree.PNG');
+  img2 = loadImage('mountains.PNG'); 
+  img3 = loadImage('trees.PNG'); 
 }
 
 function draw_clock(obj) {
@@ -21,15 +23,45 @@ function draw_clock(obj) {
   let hours = obj.hours; 
   let millis = obj.millis; 
   let alarm = obj.seconds_until_alarm; 
-    //testingPNGtree
-
+ 
+    
+    let background_color = 50;
+    let text_color = color(107, 161, 121); //green
   
-  background(50); //  black
-  fill(0); // black
-  textSize(40);
+ 
+
+
+    if(alarm > 0 && alarm < 5) {
+      background_color = map(alarm, 5, 0, 50, 200)
+    }
+    else if(alarm == 0) {
+      if(millis < 500) {
+        background_color = map(millis, 0, 500, 50, 200); 
+      }
+      else {
+        background_color = map(millis, 500, 1000, 200, 50);
+      }
+    }
+
+    if(alarm > 0 && alarm < 5) {
+      text_color = map(alarm, 5, 0, 200, 255);
+    }
+    else if(alarm == 0) {
+        if(millis < 500) {
+          text_color = map(millis, 0, 500, 255, 255);
+        }
+        else {
+          text_color = map(millis, 500, 1000, 255, 255);
+        }
+    }
+  
+  background(background_color); //  greyblack
+  fill(107, 161, 121); //green
+  textSize(90);
   textAlign(CENTER, CENTER);
-  text ()
-  //text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
+  text (); 
+ 
+
 
 
 //example ellipses from 18/07/23
@@ -49,14 +81,6 @@ function draw_clock(obj) {
 
 
 
-
-  let beamY1 = 470
-  let beamY2 = 100
-  let beamY3 = 470
-
-  let beamY4 = 440
-  let beamY5 = 160
-  let beamY6 = 440
 
   let bounce1 = map(obj.millis, 0, 999, 0, TWO_PI);
   let phase1 = sin(bounce1);
@@ -79,6 +103,26 @@ function draw_clock(obj) {
   let phase5 = sin(shift3);
   let x_shift3 = map(phase5, -1, 1, 10, -10);
 
+
+
+  // hidden big time for alarm
+  fill (50); //background color
+  noStroke();
+  textSize(300);
+  text(hours, 150, 150);
+
+  ellipse(500, 100, 30, 30);
+  ellipse(500, 200, 30, 30);
+
+  textSize(300);
+  text(minutes, 790, 150);
+
+  image(img2, 0, 50, 1000, 500); //mountains
+  image(img3, 0, 0, 960, 460);
+
+  //ground rectangle
+fill(30); //darkgrey
+  rect(0, 420, 965, 100);
 
   noStroke();
   fill(194, 228, 232);
@@ -129,7 +173,7 @@ noStroke();
 //text (seconds, );  
 
 let minutes_lift = map(minutes, 0, 59, 440, 140); //make number move up with hour
-fill (107, 161, 121);
+fill (text_color);
 // rect(286, hours_lift, 30, 100); //hoursnumbers
 noStroke();
 textSize(80);
@@ -140,7 +184,7 @@ let seconds_lift = map(seconds, 0, 59, 425, 175); //make number move up with min
 
 
 
-fill (107, 161, 121);
+fill (text_color);
 noStroke();
 textSize(40);
 // text(minutes, 750, seconds_lift);
@@ -152,7 +196,12 @@ text(minutes, 750, seconds_lift);
 // rect(760, minutes_lift, 15, 50); //minutesnumbers
 
 
-image(img,120, 350, 90, 150);
+image(img3, 0, 0, 960, 500);
+
+
+
+//testing landings
+
 
 
 }
