@@ -9,6 +9,7 @@ Approaching this project, I initially wanted to create a clock as a visual exper
 For my John Maeda clock I recreated the one where previous times display behind the current time like shadows (this one:)
 
 ![image](https://github.com/23-2-DSDN242/mddn242-time-based-media-DanielIe/assets/94158822/4b02690a-7ca7-4032-9515-6fcc624655ce)
+
 My recreation is very similar to the original. I changed the colours used, and also made the shadow-times fade into the background as I wanted the current time to stand out more. Creating this clock helped me get comfortable manipulating p5.js to my needs, and I feel confident in working on my own original clock.
 
 ![image](https://github.com/23-2-DSDN242/mddn242-time-based-media-DanielIe/assets/94158822/6f6c2749-bd11-4396-8690-528bad24aa2a)
