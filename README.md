@@ -5,6 +5,8 @@
 # Part 1: Sketch
 Approaching this project, I initially wanted to create a clock as a visual experience which would change throughout the day. I would model a landscape using p5.js and then alter the colours/positions of objects to represent the current time of day. I ultimately did not use this idea as I wanted to be able to better show the time changing, as well as technical limitations with what I wanted verses what I could accomplish within the timeframe.
 
+![image](https://github.com/23-2-DSDN242/mddn242-time-based-media-DanielIe/assets/94158822/e9b38cee-9e2c-45cc-b844-3d0950c2d8de)
+
 # Part 2: Maeda Clock
 For my John Maeda clock I recreated the one where previous times display behind the current time like shadows (this one:)
 
