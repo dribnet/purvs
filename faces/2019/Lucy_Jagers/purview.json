@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "c4ae108bb58447a22c5c41f551b2742d0db38b1c",
+      "name": "final_version"
+    },
+    {
+      "sha": "110ccd25697b5f6e4a7b18963a2acec0dda20d76",
+      "name": "refined_distribution"
+    },
+    {
+      "sha": "58809d2db74a58e165cff752a5a6f8765aff88e3",
+      "name": "weighted_selection"
+    },
+    {
+      "sha": "126e61d71615054e1bb4dfbf33e75a5a5e0270ac",
+      "name": "Eyes"
+    },
+    {
+      "sha": "5e654349f17ff4c5ed05a50678f3ce4429bcdb75",
+      "name": "Hair detail"
+    },
+    {
+      "sha": "953be0fe863255bd0d139c98dabde89a5dd6f36e",
+      "name": "Initial Hair"
+    },
+    {
+      "sha": "4adebc958cd9c85d108cbdebbec8e573f4c6b52e",
+      "name": "Initial Concept"
+    }
+  ]
+}
