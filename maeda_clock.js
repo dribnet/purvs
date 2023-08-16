@@ -23,8 +23,11 @@ function draw_clock(obj) {
   // Clock Structure Ring Circles these will rotate
   ellipse(480, 250, 480, 480); //Minute 'Hand"
   strokeWeight(seconds_radius);
+ 
+
   ellipse(480, 250, 300, 300); // Second "Hand"
   strokeWeight(seconds_radius);
+  
   ellipse(480, 250, 100, 100); // Minute "Hand"
   strokeWeight(seconds_radius);
 
