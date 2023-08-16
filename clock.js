@@ -15,7 +15,6 @@ function draw_clock(obj) {
   let seconds = obj.seconds;
   let seconds_radius = map (seconds, 0, 59, 1, 25);
   let minutes = obj. minutes;
-  let minutes_radius = map (minutes, 0, 59, 1, 25);
   let milllis = obj. millis / 1000.0;
 
   background(50); //  beige
@@ -25,13 +24,16 @@ function draw_clock(obj) {
   //text("Seconds: " + seconds, width / 2, 200);
  
 
-  
+  //Hours
   ellipse(480, 250, 480, 480);
-  rotate(PI/3); 
+  strokeWeight(10);
  
+  //Minutes
   ellipse(480, 250, 300, 300);
-  
-  
+  strokeWeight(15);
+
+  //Seconds
   ellipse(480, 250, 100, 100);
+  strokeWeight(20);
   
 }
