@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "6512ee589ca02b1193bfe147aedae6735ee167f6",
+      "name": "final_version"
+    },
+    {
+      "sha": "60d3afbfbf5cfd3999546ac0396caaf08629ff0f",
+      "name": "Variables all done"
+    },
+    {
+      "sha": "2663b21da5142dcafcbd88168940073bd5e4fd80",
+      "name": "Discrete Variables"
+    },
+    {
+      "sha": "2f79c01410c625523e830635460b5e70cc4ba4f2",
+      "name": "Variants again"
+    },
+    {
+      "sha": "0e4a07ee42367d87eda4eccbd5ec97aa4d38e6d5",
+      "name": "Variants"
+    },
+    {
+      "sha": "61200653905415b33251bef6aeb8650ae3b5fba0",
+      "name": "Basic template"
+    },
+    {
+      "sha": "1e0e173b197bb8f5fdf50efbec3a1cabfa1a64f5",
+      "name": "Sketch"
+    }
+  ]
+}
