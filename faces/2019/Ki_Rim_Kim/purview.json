@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "bf5ab5c2aeb4cc915aac9b73c67a47a8eb4f5807",
+      "name": "final_version"
+    },
+    {
+      "sha": "1f8cbeaefc3a167d61d72593f5988997030b5d0b",
+      "name": "refined_distribution"
+    },
+    {
+      "sha": "8efe19386974f212a064bbfe48f58dff65f6a83b",
+      "name": "weighted_selection"
+    },
+    {
+      "sha": "96d98e94d60621459e54749633bf115876f52489",
+      "name": "rotation_experiment"
+    }
+  ]
+}
