@@ -1,0 +1,9 @@
+
+git subtree add -P faces/2019/Michael_Kelly git@gist.github.com:6538649f045c54195d3990695406caac.git master
+git subtree add -P faces/2019/Lucy_Jagers git@gist.github.com:8164ed2b475fde1782a386debc554886.git master
+git subtree add -P faces/2019/Ki_Rim_Kim git@gist.github.com:e02076c096ad6b7097b12076c3984803.git master
+git subtree add -P faces/2019/Dylan_Wansbrough git@gist.github.com:4fc10474f18412a2e7d7a6e9759d9007.git master
+git subtree add -P faces/2019/Aydn_Hooper git@gist.github.com:38ef00a4d7bc408d3820144c91b8028b.git master
+git subtree add -P faces/2019/Fran_Armstrong git@gist.github.com:201631e5a3ec93b73cb5398f42e26bb8.git master
+git subtree add -P faces/2019/Eugene_Park git@gist.github.com:949247abd6e7d4b0986fa86f9650006b.git master
+
