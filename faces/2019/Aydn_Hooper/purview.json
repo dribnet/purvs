@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "5f7397b247bd63e8adff547b80bc4dc0cffe323e",
+      "name": "final_version"
+    },
+    {
+      "sha": "904f0993951e5a1b117f89151705c36eee20221a",
+      "name": "refined_distribution"
+    },
+    {
+      "sha": "ec63489725b15747d2979812b04172d926029679",
+      "name": "weighted_selection"
+    },
+    {
+      "sha": "9044e8512d20ce0e9b7ef80e16fa2973063f7ca7",
+      "name": "extra_experiment1"
+    }
+  ]
+}
