@@ -25,12 +25,14 @@ function draw_clock(obj) {
  
 
   //Hours
+  rotate(PI/3.0);
   ellipse(480, 250, 480, 480);
   strokeWeight(10);
- 
+
   //Minutes
   ellipse(480, 250, 300, 300);
   strokeWeight(15);
+
 
   //Seconds
   ellipse(480, 250, 100, 100);
