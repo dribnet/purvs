@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "7379b9b7238d2eedf4fbeb8373c5fd60b15fa862",
+      "name": "final"
+    },
+    {
+      "sha": "b4e9d19d8aae572d8bd5086d85bcd1ac8066576d",
+      "name": "clock_alarm"
+    },
+    {
+      "sha": "f1e74a264595ff8106112713bf48e28501bdf187",
+      "name": "original_clock"
+    },
+    {
+      "sha": "45368ca8b398c6fefdc2e1d4b078fa54d215181c",
+      "name": "maeda_clock"
+    },
+    {
+      "sha": "6deb717fd196cc907c29f746e4fa0aa1f0b975d1",
+      "name": "sketch"
+    }
+  ]
+}
