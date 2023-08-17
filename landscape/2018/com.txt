@@ -1,0 +1,40 @@
+git subtree add -P landscape/2018/Tom_White git@gist.github.com:dece0be274ed3a21ee238c351dc99c51 master
+git subtree add -P landscape/2018/Daniel_Aston git@gist.github.com:56939272a02f941fe75c67d060af36b7 master
+git subtree add -P landscape/2018/Ivy_Bai git@gist.github.com:0890f3b940f976a05fdffb9b2f582055 master
+git subtree add -P landscape/2018/Harin_Choi git@gist.github.com:0f32893557e195b99642dc284fc2f98f master
+git subtree add -P landscape/2018/Changheon_Chung git@gist.github.com:ce1cbb9a57a0062f80900cf4f3d2e38d master
+git subtree add -P landscape/2018/Rodney_Cruden-Powell git@gist.github.com:0860dfd5d1c3537192d6e5d8d42b4682 master
+git subtree add -P landscape/2018/Hazel_Darney git@gist.github.com:2c050db465004ad954057615625f0150 master
+git subtree add -P landscape/2018/David_De_Vigne git@gist.github.com:a361ff1bf3bdfaa9fbdef04d71f54769 master
+# github=AndrijaKiwi, no gist git subtree add -P landscape/2018/Andrija_Djorovic git@gist.github.com:NONE master
+git subtree add -P landscape/2018/Rick_Dodds git@gist.github.com:67874ea9a8700a5a1dd8f0d276dc227d master
+git subtree add -P landscape/2018/Cj_Evans git@gist.github.com:ff1d439594fd11027921ef1fd58dc0a5 master
+#? git subtree add -P landscape/2018/Josh_Felizardo git@gist.github.com:NONE master
+git subtree add -P landscape/2018/Tristan_Fuehrhop git@gist.github.com:14f5cf771323e016125676d49a8cca48 master
+git subtree add -P landscape/2018/Ej_Genova git@gist.github.com:fe58451ef670cf1628107c4d0c5ae7eb master
+git subtree add -P landscape/2018/Damienne_Herlihy git@gist.github.com:d2f60f308a49406a6b387fc7ec8aeb4e master
+git subtree add -P landscape/2018/Robert_Jordan git@gist.github.com:43c24f860f377435320ebc987f0bfa8d master
+git subtree add -P landscape/2018/Jared_Lee git@gist.github.com:b760a4152cf13bb493398e93d0c3e40b master
+git subtree add -P landscape/2018/Wei_Li git@gist.github.com:daf2554896d9d3aaab33793f6fa456a2 master
+git subtree add -P landscape/2018/Tyler_Maddren git@gist.github.com:440522234a0aeac98cb5062288b4ba9d master
+git subtree add -P landscape/2018/Ej_Mallari git@gist.github.com:00d89e861d96dacd3548a7dd9f04e0ac master
+git subtree add -P landscape/2018/Phil_Matich git@gist.github.com:09236dc4414f9682e432001936ce212e master
+git subtree add -P landscape/2018/Mikaela_Mclean git@gist.github.com:792bc3207c8b8c73b41334d004fbe4e6 master
+git subtree add -P landscape/2018/Siddharth_Mistry git@gist.github.com:6278b82380664c19b6b8fcdd37b66589 master
+git subtree add -P landscape/2018/Finn_Mitchell-Anyon git@gist.github.com:9aacb933b0121d46a3ac83019f74084c master
+git subtree add -P landscape/2018/Lijun_Mo git@gist.github.com:379ec7f127b99b7f5ec0164ea60ad934 master
+git subtree add -P landscape/2018/Emily_Nguyen git@gist.github.com:9281d5ca846ac1c817a869d1d2ca3ec4 master
+git subtree add -P landscape/2018/Erin_O_Brien git@gist.github.com:aba7b65d74f0a9c47cbecb90aa836f24 master
+git subtree add -P landscape/2018/Jack_O_Connor git@gist.github.com:07e2060f8f73ac1b4b574913d847e751 master
+git subtree add -P landscape/2018/Jordan_Peat git@gist.github.com:af5b23d45d32cd469ebb5b51ecb2ced2 master
+git subtree add -P landscape/2018/Zoe_Richards git@gist.github.com:388340e5b12fdf7b3240079908661b34 master
+# disappeared. was salazarrachel@github git subtree add -P landscape/2018/Rachel_Salazar git@gist.github.com:9db7381a12985aea3aa56aeb37d561f8 master
+git subtree add -P landscape/2018/Emily_Shaw git@gist.github.com:2d7f34790f4961f9a6caa1371b174e29 master
+git subtree add -P landscape/2018/Eddie_Smith git@gist.github.com:1ac6323783868da3a7583c0b0bc34964 master
+git subtree add -P landscape/2018/Sandra_Son git@gist.github.com:edc00c3b0a6499721b2f645d7ea31b1c master
+git subtree add -P landscape/2018/Kerryn_Song git@gist.github.com:1724fc21b2dff7b08c67c9ae4f878b5f master
+git subtree add -P landscape/2018/Scarlett_Tacon git@gist.github.com:9ba1bee0c9e29d48bcfdfe9138418f0e master
+git subtree add -P landscape/2018/Stacey_Willcox git@gist.github.com:95b4438263d408a3f024456b8365395c master
+git subtree add -P landscape/2018/Amy_Wilson git@gist.github.com:7589100e510e1cc2a9d4d7049cb80260 master
+git subtree add -P landscape/2018/Shile_Zhang git@gist.github.com:05a98a847e2708d5dfbf58c51c0a38f0 master
+git subtree add -P landscape/2018/Zhenyang_Zou git@gist.github.com:371af32e37e1012f53049e1d2375001f master
