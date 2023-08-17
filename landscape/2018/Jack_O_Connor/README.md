@@ -1,0 +1,7 @@
+## PS4 MDDN 342 2018
+
+I find myself without too much immediate inspiration for this project, which bothers me because I love maps and visualising levels of detail so you'd think this would be right up my alley. The strongest of my inspirations is in line with Tom's example of the famous Scale of Life website where you can zoom through orders of magnitude from the cosmos to particles.
+
+I instead want to do a more pseudo-scientific, premodern version of this webpage. By this, I mean to use dated and disproved models of the universe inspired by geocentic models of the universe, kepler's mysterium cosmographicum in which the planets are ordered and arranged based on the relative sizes of nested platonic solids, alchemical models of chemistry and the like. I can imagine an experience similar to Scale of Life where one is zooming in through a universe with celestial spheres and explanantions about geocentric epicycles and platonic solids, zooming down further into Earth (maybe flat to be cheeky?), and deeper into molecular levels where alchemy and antiquated models of the atom can be seen.
+
+For now I am just testing with different scaling factors to draw different stroke weights based on the zoom level, and whether or not I can hide or show things such as text based on different zoom levels.
