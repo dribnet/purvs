@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "9c4aef29bfee02898e2eade893b24ba1cdf04616",
+      "name": "Final_Version"
+    }, 
+    {
+      "sha": "346e5feda99b8997855dab9479350e0f90a7b25e",
+      "name": "Iteration_2"
+    },
+    {
+      "sha": "f817f3f97453a4d2025a4791df9a8a4ae238ff34",
+      "name": "Iteration_1"
+    },
+    {
+      "sha": "554c424a1de668928baecdec7aa4b9fbee0f62dd",
+      "name": "First Animation"
+    }, 
+    {
+      "sha": "6259a8717d5a420ba3066ae731854956c66f55a1",
+      "name": "Initial Idea"
+    }    
+  ]
+}
