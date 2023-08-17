@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "c83c95327e9a4abce9893b014b3a908943646213",
+      "name": "final_version"
+    },
+    {
+      "sha": "0da04ba76e9ffd085333cee428fff8885a35efd9",
+      "name": "Last version before Handin"
+    },
+    {
+      "sha": "c9b7dbb761911e7f8dede7e489fb846ca2aa7dd3",
+      "name": "Experiment"
+    },
+    {
+      "sha": "74d20d461d18e3596f9919fac9c7bd630d4a1ee9",
+      "name": "First approch"
+    },
+    {
+      "sha": "1ebf28fa4c416ec4c85a1a486a6689cbc21c8342",
+      "name": "Sketch"
+    }
+  ]
+}
