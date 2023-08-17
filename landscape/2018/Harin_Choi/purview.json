@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "e18f4b56ee9a4d54babfb2b0fd21dff2f216f36f",
+      
+      "name": "Final"
+    },
+
+    {
+      "sha": "663b19b737033cfd93aec9b80d587a8f75f9e002",
+      "name": "Monochromatic"
+    },
+
+    {
+      "sha": "cd8cc4b05fef1c73ff6ce7364623c3d0ccb3d25d",
+      "name": "Iteration"
+    },
+
+    {
+      "sha": "f5cf735b0ab348334c1af459e62ae92b32dea7fc",
+      "name": "Initial Sketch"
+    }
+  ]
+}
