@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "73578c53b352b33c0d285166b976438dccc848ff",
+      "name": "final version 2 (VERY SLOW)"
+    },
+    {
+      "sha": "a55259c0cbf843a57044d6f4df14874e0c4d52b3",
+      "name": "final version 1"
+    },
+    {
+      "sha": "44607c7e8777d62f7c0b04c0febd258672bc110e",
+      "name": "self-similar first attempt"
+    },
+    {
+      "sha": "57c10d188dbcacc798f8107b4c662325737c8ef5",
+      "name": "static grid 2"
+    },
+    {
+      "sha": "737a2f409df61b347009781472d4e57799d88287",
+      "name": "static grid 1"
+    },
+    {
+      "sha": "7f31362998f5338b069ef0b865047aa2ca2ad821",
+      "name": "concept"
+    }
+  ]
+}
