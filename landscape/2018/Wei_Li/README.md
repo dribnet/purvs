@@ -1,0 +1,3 @@
+## PS4 MDDN 342 2018
+
+This final version I decided to use black and white as the color pallete because it works better with this design. I developed futher with the styles and positions of the text, also I added the background() within drawLines() to clear the canvas into black when super zoomed. The concept of this design is based on the tool we are using to creating this non-exist design,the design piece itself is made from coding, therefore this design coule be just void. I use text to express this idea because text is powerful, it transfering information from people to people, also from computers to people, and vise versa..
