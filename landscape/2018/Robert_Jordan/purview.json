@@ -1,0 +1,36 @@
+{
+  "commits": [
+    {
+      "sha": "0b16b59b5fbc26e512661db460af45343c48473c",
+      "name": "final_version"
+    },
+        {
+      "sha": "3c064c6290de9849404365bfac1d9b65896984fb",
+      "name": "iteration 6"
+    },
+    {
+      "sha": "62565a478d8bb4197179b19c4983c0556e4ac2e2",
+      "name": "iteration 5"
+    },
+    {
+      "sha": "8a641f18ae2abe9f03ea777ad78c28fb09a51b46",
+      "name": "iteration 4"
+    },
+    {
+      "sha": "95ce474d0e1ff8b7563d3e93ea0ac9198f9820f7",
+      "name": "iteration 3"
+    },
+    {
+      "sha": "917b5d154bd7974ed2b5f0c84bb0d7e8012ad5d7",
+      "name": "iteration 2"
+    },
+    {
+      "sha": "1f5a92f95d7e0fcf04d1a22201493f9a7f9beec3",
+      "name": "iteration 1"
+    },
+    {
+      "sha": "03fa8f864edad363ea5c1dad3677fafa15a64421",
+      "name": "sketch"
+    }
+  ] 
+}
