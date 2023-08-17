@@ -1,0 +1,18 @@
+## PS4 MDDN 342 2018
+
+### Initial Concept and Ideation
+Originally I found a block of code in the JS library that would sketch in a circle overtime using a randomly generated angle and the cos and sin functions, to random draw lines eventually generating a circle. I really liked the idea of this mix of mathematical shapes and the sketching like feel it created which was very distinct from a lot of what I’d already seen in p5.js. So I explored a lot of different ideas and potential shapes in my test.js file, viewable in indextest.html. Ultimately what I wanted to do was try to create a sketch of an eye-like object where on zooming into the iris the shape evolved and changed giving way to more and more details.
+
+### Pulse
+Initially, before any animation, the image would just generate all in one go. This I felt lost a lot of the sketching feel of the original code drawing the image overtime all the colours overlapping. However when I did add it in I ran into the problem that if the canvas was moved areas that were obfuscated prior would have the default background instead of the black. Thus I realised I couldn’t just draw to a point and then stop as with my initial design, I had to reach a point in the draw of equilibrium and then fade the background overtop in pulses while still drawing in so that newly uncovered areas would slowly reach equilibrium with the rest of the work. This works somewhat how well it works is generally due to the speed of the pulse which I intentionally chose to be quite slow and meditative however depending on the complexity of the image just how slow, due to it being frame dependent, can be substantially slower.
+
+### Tiling
+I had a few attempts at tiling however I ultimately abandoned it due to a few major incompatibilities with my chosen style. Firstly the “valley” objects scale to infinity because they use tan thus drawing over each other and interfering with draws of adjacent objects. Setting the bounds on these objects was possible however I couldn’t find an aesthetically pleasing way to do so. Secondly the amount of draw calls for each singular math shape is quite substantial seeing as they’re comprised of thousands of semi-transparent lines. However they look far more interesting when overlapping and interacting with each other creating more complex shapes together. Yet when tiling it either ground to a very stutter filled mess with shapes taking minutes to appear or the pattern became quite basic, a chain link of circles, as opposed the original eye shape concept. This was all prior to my addition of the “movers” which I feel would have compounded these problems further.
+
+### Movers
+
+One problem I found with some of the objects due to both they’re colour and how they’re barriers are either hard or permeable via the line draws. Some of the shapes were significantly less distinct than others some of the ways I dealt with this was firstly the inelegant way of duplicating the shape calls for that zoom level; creating a magnitude variable that increased the amount of calls a shape would get before it was “finished” allowing other shapes to catch up before the pulse started. Lastly I decided on creating moving shapes that would trace the lines of the objects giving them more distinction and hopefully adding to the overall aesthetic.
+
+### Zoom
+
+My general philosophy for the zoom was to create a sense that the shape evolves with greater complexity as you look closer, giving a feeling that though at each level the shape is different it’s also similar to the one prior and the one following. Giving each zoom level a sense of cohesion with the others and the overall piece. 
