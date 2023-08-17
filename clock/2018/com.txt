@@ -1,0 +1,146 @@
+git subtree add -P clock/2018/Mitchell_Barclay git@gist.github.com:791e0c926707c7dd0c596e1203e51682 master
+git subtree add -P clock/2018/Callum_Browne git@gist.github.com:fba9bf93ed85fd135a3cfb3d2c3d6be9 master
+git subtree add -P clock/2018/Ehnel_Bugas git@gist.github.com:172c8cc47ffa2029b813aee3c24e58cd master
+git subtree add -P clock/2018/Max_Cadenhead git@gist.github.com:b9d35837b3ceff7137c6c43b9da481e0 master
+git subtree add -P clock/2018/Vivian_CHEN git@gist.github.com:8e15f0caa74cfd8601e46c47f20311bf master
+git subtree add -P clock/2018/Yutong git@gist.github.com:74174c76c402c371651b563603fd8901 master
+## GONE git subtree add -P clock/2018/Tom_Crampin git@gist.github.com:f1489ec44f95d6031ec8f9424db0c7ca master
+git subtree add -P clock/2018/Matt_Cross git@gist.github.com:c0939f2ebf603a18f9ff2ac794a670f1 master
+git subtree add -P clock/2018/Sam_Darlington git@gist.github.com:860e464d680138a3b17c11c2be02baf4 master
+git subtree add -P clock/2018/Andrija_Djorovic git@gist.github.com:5c327b2b332f06e4bd755644f1f013dd master
+git subtree add -P clock/2018/Rick_Dodds git@gist.github.com:cd68c44501f72a69a12393fbd6210610 master
+git subtree add -P clock/2018/Morgan_Douglas git@gist.github.com:805ee183ff01bd673b02808672e46e9f master
+git subtree add -P clock/2018/Keegan_Edwards git@gist.github.com:a2f5b64cb7eb62ea7af7bdc2e0cfaec4 master
+git subtree add -P clock/2018/Sieni_Faafuata git@gist.github.com:c79b2f4cbd51621747d7d61510af7e10 master
+git subtree add -P clock/2018/Joshua_Felizardo git@gist.github.com:a898d7bb411753708ae481ce62d48bf4 master
+git subtree add -P clock/2018/Emily_Fung git@gist.github.com:62987049fb98363b193387840edb340e master
+git subtree add -P clock/2018/Kathleen_Griffin git@gist.github.com:8c5b0e7e5fdc88ef26beec38dd1b8076 master
+git subtree add -P clock/2018/Thomas_Hartley git@gist.github.com:f32e2c5fe1909cf63af4a021a65e16d4 master
+git subtree add -P clock/2018/Sean_Herbert git@gist.github.com:cd7853b0dd6d1c57ed24f5fc160f7679 master
+git subtree add -P clock/2018/John_Hilbert git@gist.github.com:9160114511b1fa0414dcec6eab6cf9f6 master
+git subtree add -P clock/2018/Kathy_Ho git@gist.github.com:380ba1c4a200db0692c3165d45bcbefd master
+git subtree add -P clock/2018/Aydn_Hooper git@gist.github.com:5941429d2652e1b96340bdfe8e88d2f8 master
+git subtree add -P clock/2018/Mu_Huang git@gist.github.com:beff9ec12aefdcca82a8d9bd73ec3d8a master
+git subtree add -P clock/2018/James_Hunt git@gist.github.com:c5fc48eb3474c6da351374e1eee7909a master
+git subtree add -P clock/2018/Lucy_Jaegers git@gist.github.com:c959f94447f10c2d2ba611149d2c3477 master
+git subtree add -P clock/2018/Zichen_Jie git@gist.github.com:bd47dd6f57d354203d0e47bf5582e6e8 master
+git subtree add -P clock/2018/Michael_Johnsen git@gist.github.com:056453d0af383cfb204a2d286d0fa555 master
+git subtree add -P clock/2018/Ruby_Johnson_ git@gist.github.com:9a192a84d43a015b1c56988ab1860050 master
+git subtree add -P clock/2018/Michael_Kelly git@gist.github.com:86f1de6e6f9343e5d28916089a4e91ee master
+git subtree add -P clock/2018/David_Kim git@gist.github.com:dd1d588c7dbaf527e26ae13478b3bb1a master
+git subtree add -P clock/2018/Fergus_Lees git@gist.github.com:b33131dd9f1d0a4335a98bcb45f9cc15 master
+git subtree add -P clock/2018/Hanley_Makene git@gist.github.com:a33e1dbc19d1fdeea90a1e78f9187b0f master
+git subtree add -P clock/2018/Melissa_Marriott git@gist.github.com:509d220c8134bfaa51beea8b1de94cc7 master
+git subtree add -P clock/2018/Nick_Martin git@gist.github.com:2b84abdf08132dd39126c88c15cf8f7e master
+git subtree add -P clock/2018/Lijun_Mo git@gist.github.com:a8ced33bbd0355ae8a6e9ca00dc90e0c master
+git subtree add -P clock/2018/Caleb_Moffatt git@gist.github.com:89f0aa49ae0056ea5ec2d5e0fbf252e1 master
+git subtree add -P clock/2018/Emily_Monkman git@gist.github.com:191788187fa2ad6479c187b0bb5237b7 master
+git subtree add -P clock/2018/Jacob_Ng git@gist.github.com:62f74f506b8d245478d4a8e6d892e8a2 master
+git subtree add -P clock/2018/Alexandra_O_Donoghue git@gist.github.com:046bdeee4ccdaae665877d700790b169 master
+git subtree add -P clock/2018/Bradley_Peary git@gist.github.com:095be697b9a38af90c2cab4348cbd762 master
+git subtree add -P clock/2018/Sarah_Phillips git@gist.github.com:e256a30dd8689dcfef07c85ca83f845f master
+git subtree add -P clock/2018/Richie_Prak git@gist.github.com:30b37e1253cb1818cf599ff4018aa182 master
+git subtree add -P clock/2018/Lauren_Reid git@gist.github.com:3e390cb808fa2f4d6227b01a75c60663 master
+git subtree add -P clock/2018/Mary_Richards git@gist.github.com:b686d534b4fa9569b544cb6c5e89e9f6 master
+git subtree add -P clock/2018/Aliz_Ritthisri git@gist.github.com:d4980d1437953921e32a84eb80280a41 master
+git subtree add -P clock/2018/George_Robson git@gist.github.com:864026858586c959009c8bb4205fbe01 master
+git subtree add -P clock/2018/Liam_Royal git@gist.github.com:e75e682fa2a456fa32900258e2cb12c8 master
+git subtree add -P clock/2018/William_Shaw git@gist.github.com:8ebe2d955e86c017507d47940d1caa2c master
+git subtree add -P clock/2018/Karu_Skipper git@gist.github.com:beb6c0b1fad6e473429838c586603181 master
+git subtree add -P clock/2018/Eddie_Smith git@gist.github.com:06c7ed22a1d5bf83e191f84f256986a4 master
+git subtree add -P clock/2018/Sylvia_Song git@gist.github.com:b5651b5cf7d8e02222ba6228ecf37f11 master
+git subtree add -P clock/2018/Ben_Spearman git@gist.github.com:475dfa3a3e55c4420bc4ecec5a8b987d master
+git subtree add -P clock/2018/Reuben_Spori git@gist.github.com:1406b240da63d60cd91bf29689b4b8f5 master
+git subtree add -P clock/2018/Cody_Stiles git@gist.github.com:2579b02f2e3ee0c10beb14c71f56630e master
+git subtree add -P clock/2018/Christian_Sutherland git@gist.github.com:cedc5ad5f71ce6109e0eb6e2044a43ac master
+git subtree add -P clock/2018/Matthew_Taylor git@gist.github.com:09b48441ad3a3f218eb25458a01f36c2 master
+git subtree add -P clock/2018/Mehau_Williams git@gist.github.com:8fad2e018ccfca4565cf2b25e775d1ac master
+git subtree add -P clock/2018/Tyler_Titov-Smith git@gist.github.com:25c75caf7b1067412bc5bae05ca977aa master
+git subtree add -P clock/2018/Brock_Trewavas git@gist.github.com:ec4291a5134463027cb1397aff7d6ba9 master
+git subtree add -P clock/2018/Katrina_Villareal git@gist.github.com:bda846e4e3b0a83b1ae3fdf87f4ea2f3 master
+git subtree add -P clock/2018/Stella_Vokia-Scarlett git@gist.github.com:1c0638ef9c2cd23737e3a6d472d6005d master
+git subtree add -P clock/2018/Amy_Wilson git@gist.github.com:ebc113c82b7658d5e8166e0d3e2e47a7 master
+git subtree add -P clock/2018/Lu_Xiao git@gist.github.com:ae98418f7a9d4244e9bb6ccf784fc3e2 master
+git subtree add -P clock/2018/Jackie_Xu git@gist.github.com:b6c6f439167135e38d7818be623f029e master
+git subtree add -P clock/2018/Brad_Yip git@gist.github.com:c97662520d3b50367c03c79146efe073 master
+git subtree add -P clock/2018/Michael_Zhang git@gist.github.com:71ad4e723dc31f5888ed42dc2b7b1672 master
+git subtree add -P clock/2018/Shile_Zhang git@gist.github.com:35a0d867956f6f60eecf3d167c32050d master
+git subtree add -P clock/2018/Xun_Zhao git@gist.github.com:f923338d60cf953b13a31a925d9dbfb9 master
+git subtree add -P clock/2018/Yvonne_Zou git@gist.github.com:065a938366292e43bb1851f1eeb5a3ee master
+git subtree add -P clock/2018/Tom_White git@gist.github.com:db72032317305dea2cee2fc780853329 master
+git subtree add -P clock/2018/Phoebe_Zeller git@gist.github.com:7e72e63bd4c664db9880d876cfda6b2f master
+git subtree add -P clock/2018/Sophie_Price git@gist.github.com:fd270c7a895a29f3d60b21a0a94eca21 master
+git subtree add -P clock/2018/Michael_Kelly_Tutor git@gist.github.com:874cd7fea48047a3a463052da1ecea04 master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
