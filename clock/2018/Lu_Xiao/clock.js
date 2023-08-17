@@ -1,0 +1,202 @@
+/*
+ * us p5.js to draw a clock on a 960x500 canvas
+ */ 
+    let r = 0.1044;
+    let r2 = 0.263;
+    let al = 100;
+function draw_clock(obj) {
+    // draw your own clock here based on the values of obj:
+    //    obj.hours goes from 0-23
+    //    obj.minutes goes from 0-59
+    //    obj.seconds goes from 0-59
+    //    obj.millis goes from 0-1000
+    //    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
+    let hr = obj.hours;
+    let mn = obj.minutes;
+    let sc = obj.seconds;
+    let ml = obj.millis;
+    let al = obj.seconds_until_alarm;
+    let c = color(80,113,184);
+   
+    angleMode(DEGREES);
+    
+    for (i = 0; i <= width; i++){
+    	let col = color(47,148,199);
+    	let col2 = color(108,148,199);
+    	let col3 = color(69,95,127);
+    	let c1 = 0 ;
+    	if(hr>=18&&hr<=23){
+    		let gc = lerpColor(col2,col3,0.01+map(hr,18,23,0.01,0.9));
+    		background(gc);
+    	}
+        
+    	if(hr>=0&&hr<7){
+    		let gc2 = lerpColor(col3,col,0.01+map( hr, 0, 7 , 0.01, 0.9));
+    		background(gc2);
+    	}
+        
+    	if(hr>=7&&hr<18){
+    		let gc3 = lerpColor(col,col2,0.01+map( hr, 8, 18 , 0.01, 0.9));
+    		background(gc3);
+    	}
+        
+        if(al == 0){
+            let gc4 = lerpColor(color(2555,83,13),color(255,95,150),0.01+map( ml, 0, 1000 , 0.01, 0.99));
+    		background(gc4);
+        }
+
+        // alarm
+    }
+
+    // seconds number
+    push();
+    textSize(400);
+    translate(width/2-290,height/2+160);
+    fill(255,20);
+    if( al>0){	
+    	fill(lerpColor(color(255,222,209),color(255,102,28),0.01+map(al, 20, 0 , 0.01,0.99))); 
+    }
+    if(mn<10&&mn>=0){
+    	text("0"+mn,340,0);
+    }
+    if(mn>=10&&mn<20){
+    	text(mn,340,0);
+    }
+    if(mn<60&&mn>=20){
+    	text(mn,340,0);
+    }
+
+    if(hr == 0){
+        text(24,-200,0);
+    }
+
+    if(hr<10&&hr>0){
+        text("0"+hr,-200,0);
+    }
+    if(hr>=10&&hr<20){
+        text(hr,-200,0);
+    }
+    if(hr>=20){
+        text(hr,-200,0);
+    }
+    
+    if(ml>=500){
+        noStroke();
+        ellipse(300,-200,40,40);
+        ellipse(300,-100, 40, 40);
+    }else{
+
+    }
+    
+    pop();
+
+
+    push();
+    translate(width/2+10,height/2-310);
+    rotate(map(mn,0,59,15,1)); //rotate hours.
+    // Hours ||
+    mk1();
+
+    mk2()
+    pop();
+
+//minutes ||
+    
+
+    push();
+    
+    translate(width/2+10,height+100);
+    rotate(map(sc,0,59,6,0))
+
+    mk3();
+    pop();
+    
+    push();
+    translate(width/2,height/2);
+    fill(255);
+    scale(1.5);
+    
+    textSize(15);
+  
+    noStroke()
+// hours number
+    for (i = 0; i < 24; i++) {
+        v = p5.Vector.fromAngle((i + 1) / 24.0 * TAU-r2*hr-radians(269)-radians(map(mn,0,59,1,15)));
+        v.mult(190);
+        fill(lerpColor(color(88,124,184,80),color(255),map(abs(i-hr+1),0,5,1,0)))
+        text(i + 1, v.x, v.y-200);
+
+    }
+    pop();
+// minutes number
+    push();
+    translate(width/2-8,height+100)
+    //
+    textSize(17);
+    noStroke()
+
+    for (i = 0; i < 60; i++) {
+        v = p5.Vector.fromAngle((i + 1) / 60.0 * TAU - HALF_PI- r* mn- radians( map( sc, 0, 59, 0, 6)));
+        v.mult(250);
+        fill(lerpColor(color(88,124,184,80),color(255),map(abs(i-mn+1),0,5,1,0)));
+        text(i + 1, v.x+10, v.y);
+    }
+    pop();
+
+
+    push()
+    translate(width/2-17,140);
+    noStroke();
+    triangle(15, 0, 28, 20, 41, 0);
+    pop();
+    push();
+    translate(width/2-17,380);
+    noStroke();
+    triangle(20, 60, 28, 10, 36, 60);
+    pop();
+}
+
+function mk1(){
+    push();
+    
+    for(i=0; i<24; i++){
+        rotate(15);  
+        stroke(255);
+        line(0,260,0,230);  
+    }
+    pop();
+
+}
+function mk2(){
+
+    push();
+    
+    for(i=0; i<120; i++){
+        
+        rotate(3);  
+        stroke(255,30);
+        line(0,250,0,230);  
+    }
+    pop();
+}
+function mk3(){
+    for(i=0; i<60; i++){
+        
+        rotate(6);  
+        stroke(255,al-2);
+        line(0,240,0,220);  
+    }
+}
+function seconds(){
+    textSize(100);
+  fill(255);
+  noStroke()
+  for (i = 0; i < 60; i++) {
+    v = p5.Vector.fromAngle((i + 1) / 60.0 * TAU - HALF_PI);
+    v.mult(1200);
+    text(i + 1, v.x, v.y);
+  }
+}
