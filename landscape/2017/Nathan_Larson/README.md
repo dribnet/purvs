@@ -1,0 +1,5 @@
+## PS4 Infinite LandScape Final
+
+Due to the framework, there is a bit of lag (especially at the more zoomed at levels) so please keep in mind it may take a little bit before you see anything start to render.
+
+For my landscape I wanted to explore more of a 3D space, rather than a 2D space (which is more common for the framework we are using). I thought an infinite landscape would pair well with a 3D world, as with noise I could play around with height as well as color to create a more appealing and interesting landscape. It was a challenge to think of what to add at more zoomed in levels, as my landscape is at its best the further zoomed out you are, and if it wasn't so laggy I would have taken the zoom further back. I decided to add little rare sights to the landscape, so if you zoom in you might come across one such sight and I feel like not having these everywhere adds to the satisfaction of finally finding one. 
