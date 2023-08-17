@@ -1,0 +1,71 @@
+<head>
+	<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.3/seedrandom.min.js"></script>
+    <script src="https://d3js.org/d3-random.v1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="design1.js"></script>
+<style>
+        body   { padding: 0; margin: 0; }
+        .inner { position: absolute; }
+        #controls {
+            font: 300 12px "Helvetica Neue";
+            padding: 5;
+            margin: 5;
+            background: #f0f0f0;
+            opacity: 0.0;
+            -webkit-transition: opacity 0.2s ease;
+            -moz-transition: opacity 0.2s ease;
+            -o-transition: opacity 0.2s ease;
+            -ms-transition: opacity 0.2s ease;
+        }
+        #controls:hover { opacity: 0.9; }
+    </style>
+
+</head>
+<body style="background-color:white">
+    <div class="outer">
+        <div class="inner" id="controls" height="500">
+            <table>
+                    <th>Screen Controls</th>
+                <tr>
+                    <td></td>
+                    <td id="button1Container"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="button2Container"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="button3Container"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="button4Container"></td>
+                </tr>
+                <hr>
+                    <th>Spacial Points</th>
+                 <tr>
+                    <td></td>
+                    <td id="Pos1Container"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="Pos2Container"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="Pos3Container"></td>
+                </tr>
+            </table>
+                <p3>NOTE: Click "Full Tour" again if it doesnt start to zoom in</p3>
+                <hr>
+                <p3>NOTE: Please wait for each zoom to complete</p3>
+                <hr>
+        </div>
+        <div>
+            <div id="canvasContainer"></div>
+        </div>
+    </div>
+</body>

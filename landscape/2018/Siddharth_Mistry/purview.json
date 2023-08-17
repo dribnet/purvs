@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "dc8390191a41f213430977a040026aa9345b66bf",
+      "name": "Part 6: Final"
+    },
+    {
+      "sha": "062451d250837da1a9075ea772bfcb59eaea3a91",
+      "name": "Part 5: Style over-haul"
+    },
+    {
+      "sha": "3099c1004469a45976ccaa414d1f48f3eb599c7f",
+      "name": "Part 4: Tour feature/layers"
+    },
+    {
+      "sha": "8486eaa8b19d9eaedb0848711846a42743e6eaaf",
+      "name": "Part 3: OnScreen Controls/Zoom Points"
+    },
+  	{
+      "sha": "d30cd8832360797d97de07495ae69bbd7bb58ae8",
+      "name": "Part 2: Move Controls"
+    },
+    {
+      "sha": "bf5242814ba0a6c5b1a350b2ca939d4d06647621",
+      "name": "Part 1: Sketch Idea"
+    }
+  ]
+}
