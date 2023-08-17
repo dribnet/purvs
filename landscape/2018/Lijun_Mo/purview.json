@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "4ece492c3616a38641eab72037c97afe5d0e3647",
+      "name": "final_version"
+    },
+    {
+      "sha": "ad55df0c310ff8e1854766d8504a20d56f7bcd54",
+      "name": "Color selection"
+    },
+    {
+      "sha": "94ed277a6b26bc8312dccd91c0c79063745daf3d",
+      "name": "Animation"
+    },
+    {
+      "sha": "0f3a7712b781b5210f6ebfbea47b31989ee89594",
+      "name": "Experiment"
+    },
+    {
+      "sha": "f89dde8c8cdf194512e659a9a47d095e1117b53d",
+      "name": "Sketch"
+    }
+  ]
+}
