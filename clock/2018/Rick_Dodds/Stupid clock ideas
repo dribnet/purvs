@@ -1,0 +1,26 @@
+Stupid clock ideas
+
+Child mathmatics learning clock
+-difficulty levels
+-learns from experience
+-multiple inputs and higher difficulties
+-multiple choice and lower difficulties/ pure input at higher difficulties
+
+*design ideas/problems
+
+create varied mathmatical problems from a given solution
+
+case 1 addition =
+rand int (1-12), save x, minus randINT from current time, save result y,  
+what is x + y?
+case 2 subtraction =
+addition reversed
+case 3 Multiplication =
+divide by random int x between 2-12, exitloop if answer y equals whole number
+what is x * y?
+
+reminder to set reminder clock
+-reminds to move
+-reminds to set reminders at the end of the day
+-reminds you to sleep/wake
+
