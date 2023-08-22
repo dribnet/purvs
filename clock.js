@@ -25,7 +25,7 @@ function draw_clock(obj) {
  
 
   //Hours
-  rotate(PI/3.0);
+  rotate();
   ellipse(480, 250, 480, 480);
   strokeWeight(10);
 
@@ -37,5 +37,10 @@ function draw_clock(obj) {
   //Seconds
   ellipse(480, 250, 100, 100);
   strokeWeight(20);
+
+translate(width / 2, height / 2);
+rotate(PI / 3.0);
+rect(-26, -26, 52, 52);
+strokeWeight(5);
   
 }
