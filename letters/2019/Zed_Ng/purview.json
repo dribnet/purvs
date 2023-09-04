@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "8a787f16dc99489115ed1330f43f1e8c4f20ddae",
+      "name": "Final"
+    },
+    {
+      "sha": "cdeb45e7e107471c9985ad5e9e49479f1fdbc138",
+      "name": "Adjustments and Tweaks to code, added documentations"
+    },
+    {
+      "sha": "0ad39eb9ef9fabc9c18f42c305f4afe0dccd9a18",
+      "name": "Added Exhibition"
+    },
+    {
+      "sha": "acf591d76adada7a93d348c5cc3f63abaebdfdd1",
+      "name": "Added Interpolation"
+    },
+    {
+      "sha": "ce03892ab610db54a0e029c47f514f61e95ed9be",
+      "name": "Added list of Alphabet"
+    },
+    {
+      "sha": "155c4434b308ba7b596526424d6d9e09aa2ccf78",
+      "name": "Initial Sketch"
+    }
+  ]
+}
