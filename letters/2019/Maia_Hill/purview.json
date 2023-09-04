@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "55be824091d0b7463edb3b2beb86b7ba237fc5a6",
+      "name": "Final"
+    },
+    {
+      "sha": "a9fb7fc18b64e14f0441e99066f0ef30b7e2764b",
+      "name": "Exhibition"
+    },
+    {
+      "sha": "c31a37001901cf49b3581eed33e05d42af328ce6",
+      "name": "Interpolation"
+    },
+    {
+      "sha": "cb9a9835b97e4bb8fd315107963757e2cbee6991",
+      "name": "Revising Alphabet"
+    },
+    {
+      "sha": "998ff8a3307799042907c1de2254b0b578fc4239",
+      "name": "Creating Alphabet"
+    },
+    {
+      "sha": "ba6a5621d3ef6a9f15a0d6826a4592b27a0e20e5",
+      "name": "Sketch"
+    }
+  ]
+}
