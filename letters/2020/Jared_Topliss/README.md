@@ -1,0 +1,5 @@
+## MDDN 242 2020 Assignment 2
+
+Final Submission
+
+Overall for this project the main idea for me was experimenting with Arcs and ellipses which was a concept i expanded across the different sections of this project through basic sketches to a full drawn A-Z alphabet with added 0-9 numbers Ipersonally enjoyed using the alphabet code and creating my letter forms to the point where it can interpolate and animate well when i got to the next stage of the project which was using the letters and numbers i made and testing how well they animate and work together as a whole which i then expanded further in the exhibition for them to make full words. The main idea behind my alphabet was that of an arc alphabet that could rotate shift and transition with the constant still ellipse from one letter to another seemlisngly as it was part of the same family.
