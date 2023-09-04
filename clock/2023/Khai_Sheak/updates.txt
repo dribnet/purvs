@@ -1,0 +1,37 @@
+14/7 12PM
+I have decided to recreate Conway's Game of Life Clock originally designed by John Maeda.
+I have created the first step which is to create the grid background. Now, I have to try and figure out how to target specific parts of the grid. and make it change colour. I've given the each square on the grid, a coordinate. Hopefully, this can help make the process easier.
+
+14/7 9PM
+I used classes to create a square... and is able to place specific square on the grid. Next step is to find out how to make it know it's next to another square.
+
+18/7 12AM
+I have changed my method to using 2d arrays to create grids. I also created a possible shape using arrays [0 and 1]. 1 represents true and 0 represents false. if it's true, then the square will light up red. this method should make it easier for shapes to detect the nieghbouring squares's state.
+
+20/7 10AM
+I'm probably going to admit defeat here. I'll figure out how arrays with classes work some other time. Right now I should focus on the main alarm. But before That I'm not yet satisfied with how the maeda clock came out. I will try to recreate a different clock. hopefully this time it will be a little bit faster.
+
+24/7 8PM
+I changed my maeda clock to a different clock. This one I had a better understanding on how to break it down and recreate. It was a lot easier that I decided to put my own twist on it.
+
+26/7 11AM
+I found a sketch that I liked and found potential in. I was inspired by @maxdrekker and his works that uses simple geometric shapes to create aesthetically pleasing graphics. To start with I first made simple circles making it overlap each other. More hour = more circles. Secondly, I moved the circles over to then they would all touch the edge of the overall background circle. These would rotate around based on the seconds. Lastly, I turned those circles into squares using p5js polygon references.
+
+27/7 1AM
+I was looking over my inspiration's design. I realised how much he used gradients in his work. So I decided to use lerps to create the look. At midnight, I found out I didn't know what the seconds was because there was 0 hours as 0 is midnight. Because of that, I made a smaller star outside the background polygon. It felt bland so I added some glow to it. It only requires 2 lines 
+  drawingContext.shadowBlur
+  drawingContext.shadowColor
+I liked the look of this, so I added a backgrund drop shadow on the background polygon, this really enhanced the look of the clock.
+
+28/7 12PM
+Found a way to make minutes show. Made every second, the color would pulse. And every minute it would rotate.
+
+03/08 4AM
+I rewrote the whole script because it got too complicated to read the speghetti code I made. I remade it, it's now 4AM but I can now understand the script better and easier. Overall, I'd say it's completed. However, there is an error. Debugging isn't possible since there is a new error line whenever that I try to debug:
+  "Uncaught TypeError: Cannot read properties of undefined (reading 'toString')"
+I will need to check this out by hand in. And create my readMe.
+
+03/08 11AM
+Finalising my clock and descriptions. I finally fixed the problem by changing else{} to else if(){}. The pickiness of coding language is worse than english sometimes.
+I have now changed the title of the clock to Zen Octo' Clock (Ten O'Clock). That's when I actually named it, I'm not joking.
+ReadMe file has been written. It's now time to submit.
