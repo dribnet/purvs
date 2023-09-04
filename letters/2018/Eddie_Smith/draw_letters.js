@@ -1,0 +1,68 @@
+
+
+function drawLetter(letterData) {
+  
+//bounding box
+  stroke(255);
+  noFill();
+  //rect(0, 0, 100, 200);
+
+
+  strokeWeight(2.5);
+  let posx = 5;
+  let posy = 89;
+  push();
+  scale(2.2);
+
+//parameters for bezier
+
+  let pos1x = posx + letterData["x1"];
+  let pos1y = posy + letterData["y1"];
+  let pos2x = posx + letterData["x2"];
+  let pos2y = posy + letterData["y2"];
+  let pos3x = posx + letterData["x3"];
+  let pos3y = posy + letterData["y3"];
+  let pos4x = posx + letterData["x4"];
+  let pos4y = posy + letterData["y4"];
+  let pos5x = posx + letterData["x5"];
+  let pos5y = posy + letterData["y5"];
+
+// color map that change with bezier position
+  let col1 = map(pos1x, -150, 150, 0, 255);
+  let col2 = map(pos2y, -150, 150, 0, 255);
+  let col3 = map(pos3y, -150, 150, 0, 255);
+
+//bezier
+  fill(col1*5, col2*1, col3*1.9, 100);
+  bezier(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
+
+//circle
+  strokeWeight(1);
+  fill(255);
+  ellipse(pos5x, pos5y, 3,3);
+
+  pop();
+
+
+}
+
+
+//interpolate code 
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+
+  new_letter["x1"] = map(percent, 0 , 100, oldObj["x1"],  newObj["x1"]);
+  new_letter["y1"] = map(percent, 0 , 100, oldObj["y1"],  newObj["y1"]);
+  new_letter["x2"] = map(percent, 0 , 100, oldObj["x2"],  newObj["x2"]);
+  new_letter["y2"] = map(percent, 0 , 100, oldObj["y2"],  newObj["y2"]);
+  new_letter["x3"] = map(percent, 0 , 100, oldObj["x3"],  newObj["x3"]);
+  new_letter["y3"] = map(percent, 0 , 100, oldObj["y3"],  newObj["y3"]);
+  new_letter["x4"] = map(percent, 0 , 100, oldObj["x4"],  newObj["x4"]);
+  new_letter["y4"] = map(percent, 0 , 100, oldObj["y4"],  newObj["y4"]);
+  new_letter["x5"] = map(percent, 0 , 100, oldObj["x5"],  newObj["x5"]);
+  new_letter["y5"] = map(percent, 0 , 100, oldObj["y5"],  newObj["y5"]);
+
+  return new_letter;
+
+}
