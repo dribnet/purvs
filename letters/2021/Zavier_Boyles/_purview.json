@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "31fbc4837215f03d265aaedbd67d38756ad67ab4",
+      "name": "Final"
+    },
+    {
+      "sha": "c8420f4a7b154c895f0b87b815948120ad1de8d3",
+      "name": "First iteration"
+    },
+    {
+      "sha": "14c8a7ed07b948b89e4111b7061677c7cc2a296d",
+      "name": "Change to constellation idea"
+    },
+    {
+      "sha": "3f805f62804d04289d6f71cf2f8b142c6774643c",
+      "name": "WebGL Experiment"
+    }
+  ]
+}
