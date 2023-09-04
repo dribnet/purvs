@@ -1,0 +1,25 @@
+{
+  "commits": [
+    {
+      "sha": "70e96b1c7e86a2de64566a729a9c79d9275c0c9e",
+      "name": "final"
+    },
+    {
+      "sha": "02e9629a45486e45c429206839bd700742ebbe8a",
+      "name": "interpolation and arcs"
+    },
+    {
+      "sha": "17dc9afe6ebadf97565f9fa3c9adcfc126944284",
+      "name": "quad problems"
+    },
+    {
+      "sha": "cf77979951c3ecd092dcee8a7c9641b8ed8c8d8a",
+      "name": "alphabet and quads"
+    },
+    {
+      "sha": "416379a21e8255fdb9870292af7c42ec24b90af8",
+      "name": "initial idea"
+    }    
+
+  ]
+}
