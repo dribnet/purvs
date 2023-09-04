@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "b502dca454a7b41f8ac9180f55a648a83bd7637f",
+      "name": "final"
+    },
+    {
+      "sha": "4717d3f560bef40dbb9868a61cef4041ea1a9b68",
+      "name": "interpolate_letter"
+    },
+    {
+      "sha": "cec755f6c8a55138beeb16230a3cd66933d997ea",
+      "name": "alphabet_final"
+    },
+    {
+      "sha": "631bbf6ba04c6abfd30ed933b99601ad632dfa06",
+      "name": "alphabet_draft"
+    },
+    {
+      "sha": "97bdb2694b15fdde4f2e29939d7fab1d56b859eb",
+      "name": "newsketch_idea"
+    },
+    {
+      "sha": "2619e2fe97463781bbd751bcada67687f3982616",
+      "name": "initial_idea"
+    }
+  ]
+}
