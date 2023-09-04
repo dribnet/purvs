@@ -1,0 +1,48 @@
+{
+  "commits": [
+    {
+      "sha": "234fb1f0938ad90ed14959eccfce8de183309206",
+      "name": "Final"
+    },
+        {
+      "sha": "5fdbdaf4c18af46124624664822575a77333f488",
+      "name": "Interpolation but more broken"
+    },
+    {
+      "sha": "7f515a3a96dd4f0408da2ebdf59155b89f19f157",
+      "name": "I tried to clean up my code but broke the Interpolation"
+    },
+    {
+      "sha": "0aef3c4fe7d3e3086e87f19a4ce6bb004aea2fd9",
+      "name": "New Colors"
+    },
+    {
+      "sha": "3f38cc817e63f27c23d8c5d2a6c3b052f7a7275d",
+      "name": "First working Interpolation"
+    },
+    {
+      "sha": "4330ddc2a0585d03a07b73b35a30fb9e90e32585",
+      "name": "Finished The Alphabet"
+    },
+    {
+      "sha": "da3c2d79eb8896598b818981adec3aef2c330213",
+      "name": "Figured Out How To Draw The Alphabet"
+    },
+    {
+      "sha": "baeb04e6948c8158c02e8ca1a366b77d6e3931f1",
+      "name": "First Time I Broke The Code"
+    },
+    {
+      "sha": "f2bb63bfd2796f76e95f6e0a7d1b81b7d215c687",
+      "name": "Started Playing With Russian"
+    },
+    {
+      "sha": "95849369a0f629a28024a624f2ccfaa1fe7c80ea",
+      "name": "FinalSketch"
+    },
+    {
+      "sha": "1eded8cb841ca1ff1a0b7c88e1512e41d9b3ccfe",
+      "name": "First Sketch"
+    }
+  ]
+}
