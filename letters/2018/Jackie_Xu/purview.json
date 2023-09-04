@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "d7f85dcad3eb7032fb136cb22db16bea2b60ab54",
+      "name": "exhibition"
+    },
+    {
+      "sha": "4e5d837a286ddc110f7adf2eeb5eddcc0022d5f4",
+      "name": "interaction"
+    },
+    {
+      "sha": "3020b01cc784fb10c8b0ddb512c580cb31ad86fc",
+      "name": "alphabet(final)"
+    },
+    {
+      "sha": "f15e16a23e78fbd9fab904e925a0d51e54d0ea1f",
+      "name": "alphabet(process)"
+    },
+    {
+      "sha": "e7b1ba3328b2bef1ceee40c3e39e34d362950422",
+      "name": "alphabet(beginning)"
+    },
+    {
+      "sha": "de1d216b11a5b7d438f036a1143ff089e6383fde",
+      "name": "sketch"
+    },
+    {
+      "sha": "62ebca4bc1af71f2484ca1a2240c3e2ae2f6543c",
+      "name": "style"
+    }
+  ]
+}
