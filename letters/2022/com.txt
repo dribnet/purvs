@@ -1,0 +1,31 @@
+grep \"id\" 22.1.mddn242.ps1.json > list.txt
+grep \"name\" 22.1.mddn242.ps1.json >> list.txt
+
+git subtree add -P letters/2022/Tia_Corpe git@gist.github.com:ba3d97603e084a3ac91ed0b1d82db508 main
+git subtree add -P letters/2022/Adam_Leach git@gist.github.com:4c0d2647f31b28840536d08addea19fc main
+git subtree add -P letters/2022/Ryan_Skelton git@gist.github.com:a52899480d329a1ecb35beb1f3b6cf4a main
+git subtree add -P letters/2022/Henry_Bethwaite git@gist.github.com:89b192f2fd3670a78309582511ef84cb main
+git subtree add -P letters/2022/Marshall_Scott git@gist.github.com:d747c6ce29520940eee7ed86ce7b7f6c main
+git subtree add -P letters/2022/Olivia_Owen git@gist.github.com:c710897cff86e8b40a3346dcba5fae09 main
+git subtree add -P letters/2022/Alanah_Rhind git@gist.github.com:f7a80924c06d89fc78dd29c3bf3b6351 main
+git subtree add -P letters/2022/Jeremy_Henshaw git@gist.github.com:99e8644e3b6b4ec8ef263a254e0f017f main
+git subtree add -P letters/2022/Chloe_Akerblom git@gist.github.com:c64ad8d0c8c66f01302c32f7f1ca66df main
+git subtree add -P letters/2022/Brad_Crosbie git@gist.github.com:dced2de631859469be9a89fc177c3f3e main
+git subtree add -P letters/2022/Valerie_Rong git@gist.github.com:3a021d2bfcae436ae60cbf23e60f31f9 main
+git subtree add -P letters/2022/Louis_Jefferson git@gist.github.com:57679b419b17670677be475371fe1d5f main
+git subtree add -P letters/2022/Youhe_Zhu git@gist.github.com:788245cd6389954cbd27bd6e1fb1bcca main
+git subtree add -P letters/2022/Harrison_Matthews git@gist.github.com:972344170ba6be258b1bf0bd30285259 main
+git subtree add -P letters/2022/Ben_Pilbrow git@gist.github.com:8abc80c9760d1ff5ba81f5f13cf0b255 main
+git subtree add -P letters/2022/Jade_Perry git@gist.github.com:7c3c8f008ee7af27531dae01eb98c487 main
+git subtree add -P letters/2022/Toby_Crust git@gist.github.com:ac5903fecdd713881ba297a8dd48badc main
+git subtree add -P letters/2022/Robbie_Kinnaird git@gist.github.com:f9bfca28010189f427b4a5399ef6a7d8 main
+git subtree add -P letters/2022/Jakob_Dove git@gist.github.com:3a6acb364eceeeb8cfda1085f080a24e main
+git subtree add -P letters/2022/Nathan_Parr git@gist.github.com:110fcdc9d482ee815081a1c6f71b2be4 main
+git subtree add -P letters/2022/Leila_Walker git@gist.github.com:e30ce74f7406eba0981582ecef11b4d5 main
+git subtree add -P letters/2022/Nathan_Russell git@gist.github.com:5bc8dbabee1efa688f1787ac31376038 main
+git subtree add -P letters/2022/Kazumi_Sato git@gist.github.com:9848c6f7c7b9a0af68194ea3202464b6 main
+git subtree add -P letters/2022/Eunice_Mudzviti git@gist.github.com:2da7de19117f7ab148d87d3fb89645c3 main
+git subtree add -P letters/2022/Timothy_Mitchell git@gist.github.com:f9eaf8c8f27d7f2737e5c16879bbaba1 main
+git subtree add -P letters/2022/Erika_Ybanez git@gist.github.com:cc97c5cffc8a04a71f99a3a3e263f52c main
+git subtree add -P letters/2022/Clydille-Rave_Abbott git@gist.github.com:1f0b3e92f437ddddb9b5fe55e8b53848 main
+git subtree add -P letters/2022/Dingcheng_Peng git@gist.github.com:1b9484226b433bcff3ed88ff06ef1d5d main

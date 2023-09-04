@@ -6,3 +6,4 @@ letters/2018    <- taken from json and imported all aug 2023
 letters/2019    <- taken from json and imported all aug 2023
 letters/2020    <- taken from gradesheeet and imported all aug 2023
 letters/2021    <- taken from json and imported all aug 2023
+letters/2022    <- taken from json-1 and imported all aug 2023
