@@ -1,0 +1,15 @@
+{
+  "commits": [
+    {
+      "sha": "5df79bafe4d5c3e33acb543106ccdec3a0d91b8f",
+      "name": "Final (editor does not have background slider function)
+    },
+    {
+      "sha": "8372915bfae227212994341ea6a896e2eac0b492",
+      "name": "Final (editor has working slider function however breaks code outside of editor)
+    },
+    {
+     
+    }
+  ]
+}
