@@ -1,0 +1,54 @@
+grep \"id\" 21.1.mddn242.ps2.json > list.txt
+grep \"name\" 21.1.mddn242.ps2.json >> list.txt
+
+git subtree add -P letters/2021/Suarim_Ahmed git@gist.github.com:ff361361e0140124c81b83e28784f031 master
+git subtree add -P letters/2021/Joel_Bell git@gist.github.com:ec4adb3b20c87c56244373ea7e33df0f master
+git subtree add -P letters/2021/Zavier_Boyles git@gist.github.com:49c860d27f91a594b64546bf6d0a5910 master
+git subtree add -P letters/2021/Sasha_Brenton git@gist.github.com:6323d9331cbb4c4ec42d44d234f02aca master
+git subtree add -P letters/2021/Robyn_Bruwer git@gist.github.com:b2b22e708a6cc7580df16ba2eca16b5a master
+git subtree add -P letters/2021/Vivian_Chang git@gist.github.com:8d581f57bfaab46ccb447d10124db6ae master
+git subtree add -P letters/2021/Sarah_Dixon git@gist.github.com:cb6c21601e4de83659869133f708f820 master
+git subtree add -P letters/2021/Luna_Dong git@gist.github.com:20d50a5b98da7e22ce46dac47a60db65 master
+git subtree add -P letters/2021/Matias_Ermenyi git@gist.github.com:3b2279a796d48edaa9607d57d7155bf6 master
+git subtree add -P letters/2021/Ed_Evans git@gist.github.com:a549f41ee6fb04b7366a27ed62b0c011 master
+git subtree add -P letters/2021/Hayes_Francis git@gist.github.com:f0ed47113cb1d8c86a8cf888a7bb556c master
+git subtree add -P letters/2021/Laura_Garcia git@gist.github.com:f16231da9b112bc055ae01cf527d05a0 master
+git subtree add -P letters/2021/Mason_Garner git@gist.github.com:532f7570c09e3d05ea9cf55d2f0d019f master
+git subtree add -P letters/2021/Lucy_Heffernan git@gist.github.com:016f6463a66f98328d6dcc0f6d15d346 master
+git subtree add -P letters/2021/Lucas_Huynh git@gist.github.com:686d870138bf33f233174d946d6f4a14 master
+git subtree add -P letters/2021/Daniel_Khamis git@gist.github.com:2db6902b231e7d1bfbebd1a8b263f929 master
+git subtree add -P letters/2021/Christina_Li git@gist.github.com:f9d377de2c9a304cef0d3acb0ac2528e master
+git subtree add -P letters/2021/Carson_Liu git@gist.github.com:92399ed4be88b299d552bd020c0c4ef6 master
+git subtree add -P letters/2021/Charlie_Lynch-Gerrard git@gist.github.com:4642f4c299930f72a4f0072e739f4369 master
+git subtree add -P letters/2021/Jordan_Marshall git@gist.github.com:e7e8cba997404d061101ffb29b13bbf5 master
+git subtree add -P letters/2021/Jacob_McBride git@gist.github.com:b28754a4530fb8604a36719f14d9f5df master
+git subtree add -P letters/2021/Sam_McSweeney git@gist.github.com:d7df67f84278665fba8c537bb177c33a master
+git subtree add -P letters/2021/Sanika_Ratanpal git@gist.github.com:025d48f33dc0e0e81f5406c4545da61f master
+git subtree add -P letters/2021/Sam_Rush git@gist.github.com:58d2859ab2cf4e244dac044c15c75b9f master
+git subtree add -P letters/2021/Conor_Shanahan git@gist.github.com:7462ebe11baf2df53ad8dbecd7182a85 master
+git subtree add -P letters/2021/Ethan_Sheaf-Morrison git@gist.github.com:3bf0290e1851caee6cc749b4b19c43f0 master
+git subtree add -P letters/2021/Caitlin_Smith git@gist.github.com:1e09e3e159f4b9e690ddced457282931 master
+git subtree add -P letters/2021/Scott_Smith git@gist.github.com:722a31c963ba59ccce543a2773de8e01 master
+git subtree add -P letters/2021/Zoe_Styles git@gist.github.com:b76369d4b2a96f15f7533a766399a8bf master
+git subtree add -P letters/2021/Guadalupe_Taboada git@gist.github.com:185a561dbfaac4f1baf6eb6524051aa2 master
+git subtree add -P letters/2021/Anna_Takeda git@gist.github.com:a29f76f9d90894d7535bb95ce2852adf master
+git subtree add -P letters/2021/Ella_Thomas git@gist.github.com:1aa40f482c77bd746ec9fc440064c8b3 master
+git subtree add -P letters/2021/Brayden_Usherwood git@gist.github.com:c1dd1106ccd2d9e595196856d866ece0 master
+git subtree add -P letters/2021/Callum_Watson git@gist.github.com:c81a084b0cdffba400b75274b7b1f818 master
+git subtree add -P letters/2021/Tom_Wellington git@gist.github.com:99a4c417e367bd10a421197bcd149f0c master
+git subtree add -P letters/2021/Christopher_Wendt git@gist.github.com:fd2aa4a54240c62fd7bf72a9dfa4a71b master
+git subtree add -P letters/2021/Amber_Woolcock git@gist.github.com:1f0167c367ad41136f9b3b20b7c911db master
+git subtree add -P letters/2021/Emily_Xu git@gist.github.com:d0af5f5356a44cc3bf8138e893ade05c master  # <-- GONE
+git subtree add -P letters/2021/Emily_Yang git@gist.github.com:9a44d3a0de562ebe7b99be5382b36335 master
+git subtree add -P letters/2021/Finn_Zemba git@gist.github.com:7291fe84070a253c32c199d8ca35b3a2 master
+git subtree add -P letters/2021/Xiaoya_Zhu git@gist.github.com:3fd90c6feb75ab7a7c6ab50226a8354c master
+git subtree add -P letters/2021/Jierui_Zhuge git@gist.github.com:2a4d6a92e44ba6893d7a0bc88291cf80 master
+
+git subtree add -P letters/2021/uwcc git@gist.github.com:f230e88655274403fe6f6ed0a4372907 master
+git subtree add -P letters/2021/Phoebe_Zeller git@gist.github.com:c2dcac73173933d9cac209579fb66484 master
+
+git subtree add -P letters/2021/Harrison_Matthews git@gist.github.com:NONE1 master
+git subtree add -P letters/2021/Amy_Southon git@gist.github.com:NONE2 master
+git subtree add -P letters/2021/Khallum_Vithal git@gist.github.com:NONE3 master
+git subtree add -P letters/2021/Leila_Walker git@gist.github.com:NONE4 master
+git subtree add -P letters/2021/Shuangyan_Xu git@gist.github.com:NONE5 master
