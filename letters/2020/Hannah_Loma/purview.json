@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "5a2f317d249c5c809e1c7ad47de38de78cd8d052",
+      "name": "Final"
+    },
+    {
+      "sha": "2a6666a857e01e14ef898f7b3d50410ec1a592de",
+      "name": "Colour Concepts Experiments"
+    },
+    {
+      "sha": "1e02a473b7d4bbcbbbb1e76c2c43d48c11080662",
+      "name": "Interpolation"
+    },
+    {
+      "sha": "b3f8586a9eba1c879c6f9ac660dbb721e72a5655",
+      "name": "Part 2: Finished Creating Alphabet Shapes"
+    },
+    {
+      "sha": "823e670f3e03aec833840396092ecddecbe42ae3",
+      "name": "Initial Creation"
+    },
+    {
+      "sha": "dcff2e62bded6e3f7b9a13442a62ea109955d46a",
+      "name": "Part 1: Initial Ideas"
+    },
+    {
+      "sha": "bc64301fa3e51cd70cd2e58741cdea105a0442af",
+      "name": "Sketching on Paper"
+    }
+  ]
+}
