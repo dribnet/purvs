@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "4f77f238d717f0d917bb3747bc3b921d07c0cee8",
+      "name": "FINAL SUBMISSION"
+    },
+    {
+      "sha": "9eeabad5738e4ab9f88a0fe1363d030051736bcd",
+      "name": "Interpolation timing test"
+    },
+    {
+      "sha": "3f218f550c35b412506651e4260b52d8e3bd0d86",
+      "name": "Basic animations and shapes done"
+    },
+    {
+      "sha": "82ff3e0a5fa153ec359a74c68f6d7ca77003a03b",
+      "name": "Framework in progress"
+    },
+    {
+      "sha": "473c3fb23ed6f11623f72fc1eeb1cb2361c420e7",
+      "name": "Code is now properly working"
+    },
+    {
+      "sha": "acdc1b20f034c07e02292db46948c09a496c2491",
+      "name": "Sketch prototype"
+    }
+  ]
+}
