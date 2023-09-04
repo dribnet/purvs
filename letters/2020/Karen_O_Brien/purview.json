@@ -1,0 +1,16 @@
+{
+  "commits": [
+    {
+      "sha": "127e1160e2b1aba15ae84ebe31f61b2466191d2c",
+      "name": "Final"
+    },
+    {
+      "sha": "14d0985bd3c12f3dadc5cfb36d28452ec8eca34d",
+      "name": "Experiment 2: Changing static effect"
+    },
+    {
+      "sha": "22d6c54154547a4cdf3e6fb4d41c06e9dc5690f2",
+      "name": "Experiment 1: Larger Letters"
+    }
+  ]
+}
