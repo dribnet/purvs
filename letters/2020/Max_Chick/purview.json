@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "4cf3b233cb1d2d6c7c3d48afc1dae82eed935292",
+      "name": "final"
+    },
+    {
+      "sha": "743615f140eafdc3f5e564faebfd1eeddabfe124",
+      "name": "experiment 2 and exhibition"
+    },
+    {
+      "sha": "c179a84c16a3299a085f20b71ea37f9675c5e324",
+      "name": "interaction and colours"
+    },
+    {
+      "sha": "ca6c97b36b2d2dace71a17ddcd1a57b32b15fc43",
+      "name": "first entire alphabet"
+    },
+    {
+      "sha": "5da253fa127a764a8461362c095322f4c1b32abd",
+      "name": "experiment 1"
+    },
+    {
+      "sha": "e8f1b05630989fbf13be42950b436bbc00cfb6ff",
+      "name": "first play with code / experiment"
+    },
+    {
+      "sha": "fed7c876ced63be5dc008c5d662b3c445a5d5740",
+      "name": "initial ideas sketch"
+    }
+  ]
+}
