@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "7594782815e70b622ea2595a3090021acc323718",
+      "name": "final"
+    },
+    {
+      "sha": "f94cabf621fa910a1f861e2e03cb4ea9273d9a55",
+      "name": "finished the numbers"
+    },
+    {
+      "sha": "a1a8f810dceaca802f90d94154b06f5a9cbda383",
+      "name": "made new design and finshed the letters"
+    },
+    {
+      "sha": "e343693e9034d65155930c564721f514c5751ab8",
+      "name": "first idea with triangles"
+    }
+  ]
+}
