@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "b0b5ba32441c97e8f3b2fd8316873c2f314257cf",
+      "name": "final"
+    },
+    {
+      "sha": "94a154716fba0d6593b3bc82673806c993d6339c",
+      "name": "Initial font completion and Colour Palette"
+    },
+    {
+      "sha": "d0adb03e02dd7c2449e68ef1fb403d8f5eefdf43",
+      "name": "Letterform creation"
+    },
+    {
+      "sha": "7222974609d30acd5e94d71a94c6686e1aac8643",
+      "name": "Sketch"
+    }
+  ]
+}
