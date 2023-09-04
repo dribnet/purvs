@@ -46,7 +46,7 @@ git subtree add -P letters/2020/Gus_Wilson git@gist.github.com:0f234b63ab6581e30
 git subtree add -P letters/2020/Georgia_Windle git@gist.github.com:637519b05804b66d273da1f71a0ee3fd master
 git subtree add -P letters/2020/Rachel_Wirepa git@gist.github.com:14e1f64d38229dc0ec9610685dcc0dc7 master
 git subtree add -P letters/2020/Connor_Wright git@gist.github.com:163e6d703411b15a7fd7a73b81b4f7d2 master
-git subtree add -P letters/2020/Yinan_Zhao git@gist.github.com:cd8baa013ea6a977e349ef6edbdb9df2 master
+git subtree add -P letters/2020/Yinan_Zhao git@gist.github.com:cd8baa013ea6a977e349ef6edbdb9df2 master (zip)
 git subtree add -P letters/2020/Ziman_Zhao git@gist.github.com:58a49d72d36ca0706289fa76d9aba8bf master
 
 git subtree add -P letters/2020/uwcc git@gist.github.com:b1b187fab75c34fe00e03f121f53ddb2 master
@@ -57,4 +57,4 @@ git subtree add -P letters/2020/Liam_English git@gist.github.com:NONE master
 git subtree add -P letters/2020/Benjamin_Joe git@gist.github.com:NONE master
 git subtree add -P letters/2020/Urena_Kuang git@gist.github.com:NONE master
 git subtree add -P letters/2020/Autaia_Whakahoehoe git@gist.github.com:NONE master
-git subtree add -P letters/2020/Yingyi_Zhang git@gist.github.com:NONE master
+git subtree add -P letters/2020/Yingyi_Zhang git@gist.github.com:NONE master (zip)

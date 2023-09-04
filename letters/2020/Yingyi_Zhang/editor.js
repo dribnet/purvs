@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#384061";
-const colorLines   = "#FFFFFF";
+const colorBack    = "#f0f1e1";
+const colorLines   = "#000090";
 
 /*******
  * define this "sliderInfo" variable
@@ -11,36 +11,24 @@ const colorLines   = "#FFFFFF";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  // ["x1", 0, 100],//first arc
-  // ["vy1",  0,  100],
-  // // ["hy1", 0, 100],
-  // ["sw1", 0, 15],
+  ["arcX" , 0, 100],
+  ["arcY",  40,  190],
+  ["arcH", 10, 180],
+  ["arcW",10,130],
+  ["arcStart",0,360],
 
-  // ["x2", 0, 100],//second arc
-  // ["vy2", 0, 200],
-  // // ["hy2", 0, 100],
-  // ["sw2", 0, 15],
+  ["curveX" , 10, 100],
+  ["curveY",  10,  190],
+  ["clnth", 30, 150],
+  ["cGap",20,150],
+  ["cAngle",0,360],
 
-  // ["x3", 0, 100],//the top poit y value
-  // ["vy3", 0, 200],
-  // // ["hy3", 0, 100],
-  // ["sw3", 0, 15]
-  ["x1", 0, 50],//
-  ["y1",  0,  175],
-  ["hy1", 0, 200],
-  ["sw1", 0, 5],
-
-  ["x2", 0, 50],
-  ["y2", 0, 100],
-  ["hy2", 0, 150],
-  ["sw2", 4, 14],
-
-  ["x3", 0, 50],
-  ["y3", 100, 200],
-  ["hy3", 100, 200],
-  ["sw3", 0, 5],
-
-  ["ly", 20, 180]
+  ["elpsX" , 30, 100],
+  ["elpsY",  40,  190],
+  ["elpsLnth", 15, 50],
+  ["elpsGap",10,50],
+  ["elpsSize",10,40],
+  ["eAngle",0,360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -100,7 +88,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
