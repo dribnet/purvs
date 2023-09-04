@@ -1,0 +1,5 @@
+clock/2018      <- taken from json and imported all aug 2023 + localized!
+landscape/2018  <- taken from json and imported all aug 2023
+landscape/2017  <- took some?
+clock/2023      <- taken from gradesheet and imported all
+letters/2018    <-

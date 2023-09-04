@@ -1,0 +1,13 @@
+git subtree add -P landscape/2017/Tom_White git@gist.github.com:b963e498ccfce6a14de7827c1df6e665.git master
+git subtree add -P landscape/2017/Edward_Taylor git@gist.github.com:2344d8b867fb4f69093d1934894c14d1.git master
+git subtree add -P landscape/2017/Justina_Ho git@gist.github.com:9c60cf3785e7892090998f4845cd1f6b.git master
+git subtree add -P landscape/2017/Michael_George_Kelly git@gist.github.com:8de7e160aa265cb84cc99e1c726661f3.git master
+git subtree add -P landscape/2017/Sam_Gard git@gist.github.com:e1f3290d16663b66d7dd6daf181408db.git master
+git subtree add -P landscape/2017/Zach_Thompson git@gist.github.com:46dac6337704488aaca18692d8924ec3.git master
+git subtree add -P landscape/2017/Nathan_Larson git@gist.github.com:0e38e790ee67aae181418bbc8f3c139e.git master
+git subtree add -P landscape/2017/Jack_Upton git@gist.github.com:40047846cbb3bf2f200f06a3d4d726cf.git master
+git subtree add -P landscape/2017/James_Campbell git@gist.github.com:e6fd7ff7451a4c086131414ad5578b0c.git master
+git subtree add -P landscape/2017/Lara_Hayward git@gist.github.com:cf520b061ef68c971f11eafcf6b0e87b.git master
+git subtree add -P landscape/2017/Phoebe_Zeller git@gist.github.com:96e4c70f2179a15a86af6d7b1eec84a7.git master
+git subtree add -P landscape/2017/
+git subtree add -P landscape/2017/
