@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "13759a3676fe8ab0531ea28f041fe9381aaff8ac",
+      "name": "final"
+    },
+    {
+      "sha": "e500e3607ca6ab682939b4f64cbf3c08fa351c10",
+      "name": "Design refinement"
+    },
+    {
+      "sha": "ec8d72130993e2d4853eaacf4e974ad335162058",
+      "name": "Colour change"
+    },
+    {
+      "sha": "66ed49441d3e058a5040b241c0bd1edf66b51e96",
+      "name": "Change of design"
+    },
+    {
+      "sha": "17ff7dd3a9cd235479d257eaccadb91a51d190ce",
+      "name": "Initial idea"
+    }    
+  ]
+}
