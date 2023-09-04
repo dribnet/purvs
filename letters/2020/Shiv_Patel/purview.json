@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "0ef29b0e1ab7c12d01ad207772b95bd0f0128f6a",
+      "name": "final"
+    },
+    {
+      "sha": "86e4a70ec2846af2070b0308cf41664f4bd46031",
+      "name": "adjusted_idea"
+    },
+    {
+      "sha": "7e81c4dbbc78ba8d374b47023bcc3165d05fe993",
+      "name": "new_idea"
+    },
+    {
+      "sha": "13ffc58db18e264c75364c5b565b33dbfeae6728",
+      "name": "original_idea"
+    },
+    {
+      "sha": "74cf3d5a55e8d770eec225eae5bac77e03dea402",
+      "name": "paper_sketch"
+    }        
+  ]
+}
