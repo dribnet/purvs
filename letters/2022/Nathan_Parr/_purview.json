@@ -1,0 +1,36 @@
+{
+  "commits": [
+    {
+      "sha": "46b2686250c56f158984fabf9eb505b609ced81d",
+      "name": "Final"
+    },
+    {
+      "sha": "19b53c3d351a33d7f6835e15535e757ad6cbbb18",
+      "name": "Nearing completion"
+    },
+    {
+      "sha": "3c8eca0ddd538988cb8e3c7dc7bde459359dfad1",
+      "name": "Starting to interpolate"
+    },
+    {
+      "sha": "e0b62d099cde66dc1e38639d4661f66daf43cb85",
+      "name": "Finish base alphabet"
+    },
+    {
+      "sha": "f78de331a4c0787da6c216446fac8962aa79b9bc",
+      "name": "Hours of reshuffle"
+    },
+    {
+      "sha": "6264addd1760aa997632c833a51c99a035dc00ee",
+      "name": "Idea 2 - New beginnings"
+    },
+    {
+      "sha": "bdf2a20074aa2ee583d6afbf8ceb3d6a7761cc42",
+      "name": "As far as I took first idea"
+    },
+    {
+      "sha": "a7cde33a2488dcdcf08dc77d9b77032a6b1db4c8",
+      "name": "Idea 1 - Starting out"
+    }
+  ]
+}
