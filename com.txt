@@ -7,3 +7,5 @@ git subtree add -P faces/2019/Aydn_Hooper git@gist.github.com:38ef00a4d7bc408d38
 git subtree add -P faces/2019/Fran_Armstrong git@gist.github.com:201631e5a3ec93b73cb5398f42e26bb8.git master
 git subtree add -P faces/2019/Eugene_Park git@gist.github.com:949247abd6e7d4b0986fa86f9650006b.git master
 
+git subtree add -P clock/2017/Isobel_Dowell git@gist.github.com:9f36df076028d4cca5a85ce5625f9e96.git master
+git subtree add -P glyph/2017/Isobel_Dowell git@gist.github.com:8cdebaa9e110a36dae79cc9eafdd045d.git master
