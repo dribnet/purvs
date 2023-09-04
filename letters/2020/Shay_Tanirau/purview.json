@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "c276cec9d12170e2399aad2a80abbbdf516b36e5",
+      "name": "final"
+    },
+    {
+      "sha": "2192864d1ad0aaa1ba2212da271046e5599d5c3a",
+      "name": "Interaction"
+    },
+    {
+      "sha": "d1a10e3231087b6263c38ca80362805fbd611988",
+      "name": "Editorial"
+    },
+    {
+      "sha": "10b00ffefe054054a3842c9b61ae17975ed7b779",
+      "name": "Transition"
+    },
+    {
+      "sha": "648e688ce7a6db078da50106c697450ef792be89",
+      "name": "Formula"
+    }
+  ]
+}
