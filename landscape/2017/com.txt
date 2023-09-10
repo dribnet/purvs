@@ -9,5 +9,5 @@ git subtree add -P landscape/2017/Jack_Upton git@gist.github.com:40047846cbb3bf2
 git subtree add -P landscape/2017/James_Campbell git@gist.github.com:e6fd7ff7451a4c086131414ad5578b0c.git master
 git subtree add -P landscape/2017/Lara_Hayward git@gist.github.com:cf520b061ef68c971f11eafcf6b0e87b.git master
 git subtree add -P landscape/2017/Phoebe_Zeller git@gist.github.com:96e4c70f2179a15a86af6d7b1eec84a7.git master
-git subtree add -P landscape/2017/
+git subtree add -P landscape/2017/Jessica_Freire git@gist.github.com:96e4c70f2179a15a86af6d7b1eec84a7.git master
 git subtree add -P landscape/2017/
