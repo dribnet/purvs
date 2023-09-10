@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "80b30177f52f757e6e6242d0b6424f048b195ca4",
+      "name": "final_version"
+    },
+	{
+      "sha": "d023278637856dc8a75907668a67d26417e24724",
+      "name": "version_2"
+    }, 
+	{
+      "sha": "19b201e68306595ef31d5ef1ec4bd60aefe3b3a0",
+      "name": "training_examples"
+    },
+    {
+      "sha": "dfeadbe7d4b9dd85c59971e69eee3559c7587a9b",
+      "name": "version_1"
+    },
+    {
+      "sha": "0fbd94f40384cfa9429262e214a823adae4d8bf0",
+      "name": "object_oriented_face"
+    }
+  ]
+}
