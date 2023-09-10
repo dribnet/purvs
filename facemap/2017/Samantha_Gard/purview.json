@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "c3308de715ccec6fdb2b584089f69d6500729dcd",
+      "name": "final_version"
+    },
+    {
+      "sha": "8e697ed7a6f48b62ad35bfcb0aa46dd23f2579a1",
+      "name": "version_3 (new images & landmarks)"
+    },
+    {
+      "sha": "dcbd099ade0a4a6adab76e1f8e54eb2b468c1257",
+      "name": "version_2 (added slider properties)"
+    },
+    {
+      "sha": "ec898da29fdba46b8addbb627fcebf909d3d9dfd",
+      "name": "version_1 (finalised design)"
+    }
+  ]
+}
