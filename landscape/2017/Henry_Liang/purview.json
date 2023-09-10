@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "afa2d482acdf8352e6c8662f3119bd6ede8d59c5",
+      "name": "Final Version"
+    },
+    {
+      "sha": "860b6cb7b4e6204bfbdffaed6ce13c6eec05b7cd",
+      "name": "Guided Tour"
+    },
+    {
+      "sha": "0c71c364a622212cb1f711cf72045ef4b63c2447",
+      "name": "Layering Details"
+    },
+    {
+      "sha": "bde5dae7a0e1c3364c9bfcb2e618acc07bcb0ae7",
+      "name": "Zooming and Panning"
+    }
+  ]
+}
