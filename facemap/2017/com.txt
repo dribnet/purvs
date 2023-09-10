@@ -1,0 +1,32 @@
+(names and ids from grading spreadsheet)
+
+git subtree add -P facemap/2017/Hamzah_Ali git@gist.github.com:d90c0d5a484addceace59810f1eb79f5 master
+git subtree add -P facemap/2017/Lewis_Brewer git@gist.github.com:32e6f21a1c2a133174ed23d5f3226a88 master
+git subtree add -P facemap/2017/James_Campbell git@gist.github.com:8d6bbd00633187c2a99f048b580faec8 master
+git subtree add -P facemap/2017/Robbie_Carmichael git@gist.github.com:d4505ad056dd7cf0ccb3e1f02cef0fc9 master
+git subtree add -P facemap/2017/Ashton_Davenport git@gist.github.com:31b17a9fba86d9076ad08ca7fe279ea4 master
+git subtree add -P facemap/2017/Hannah_Dockerty git@gist.github.com:53f9e40ecd01516998bccf87ee9aeb56 master
+git subtree add -P facemap/2017/Samantha_Gard git@gist.github.com:25c9e6ec2c6a3b6608a203d6617d8530 master
+git subtree add -P facemap/2017/Marc_Gluyas git@gist.github.com:bb3368b68727391e66b0add18f372f3f master
+git subtree add -P facemap/2017/Lara_Hayward git@gist.github.com:2aeb3f54afbcbaba74688110d328ede0 master
+git subtree add -P facemap/2017/Justina_Ho git@gist.github.com:62b35ae793424cbc73a58228179245e8 master
+git subtree add -P facemap/2017/Shakira_Jensen git@gist.github.com:590d1844b5221fc0b1a0bcacdd4a3803 master
+git subtree add -P facemap/2017/Olly_Johnston git@gist.github.com:db37e585b23b5cc0cbf458a8278d8808 master
+git subtree add -P facemap/2017/Michael_Kelly git@gist.github.com:3dd517a1438ecdd89841b660712017e1 master
+git subtree add -P facemap/2017/Nathan_Larson git@gist.github.com:715e26d5dd5ecefceb4e61f1c6bb57db master
+git subtree add -P facemap/2017/Henry_Liang git@gist.github.com:7a1e299674e4fd0303451668c00c0cb0 master
+git subtree add -P facemap/2017/Jessica_Freire git@gist.github.com:aa34f61e277ffc7a9aea85a199c7c7da master
+git subtree add -P facemap/2017/Wanli_Peng git@gist.github.com:a3e7cba67919639dcdb4d7e2ddfdd016 master
+git subtree add -P facemap/2017/Christina_Petris git@gist.github.com:01efc35ef9ef057c45c9a76c50e908a7 master
+git subtree add -P facemap/2017/Henri_Spencer git@gist.github.com:1f6d432d9a9ea6bb71646ce78ee21fd9 master
+git subtree add -P facemap/2017/Tiaan_Steenkamp git@gist.github.com:dc07c7a13d8f87d7f8bc0a2597cb5e2d master
+git subtree add -P facemap/2017/Edward_Taylor git@gist.github.com:ef228d3ea73f4ebda6547c0c024c6c42 master
+git subtree add -P facemap/2017/Zach_Thompson git@gist.github.com:339339ee3d9c399a53aa9a7a867b816e master
+git subtree add -P facemap/2017/Daniel_Tideman git@gist.github.com:774af0a0596b2f0f56e346268670be0a master
+git subtree add -P facemap/2017/Jack_Upton git@gist.github.com:91332994b32e23b5ded1924a5f9a64b6 master
+git subtree add -P facemap/2017/Shane_Watters git@gist.github.com:f91f9e6d43f4aa3b17886ec299b4b1db master
+git subtree add -P facemap/2017/Susan_Williams git@gist.github.com:7ef8bdc5b28e452eb64fa604ea6ab559 master
+git subtree add -P facemap/2017/Camden_Wright git@gist.github.com:28a06752af704acabedad17695bd0ed4 master
+git subtree add -P facemap/2017/Hera_Wynn git@gist.github.com:6abbf4c788ead31a8a1832304df3f5be master
+
+git subtree add -P facemap/2017/Tom_White git@gist.github.com:f0e72971c9dd4116a377012308e9283e master
