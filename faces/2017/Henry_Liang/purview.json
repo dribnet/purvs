@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "0ee9ff81b78c016818e0738443d4f5cf9d032c6e",
+      "name": "final"
+    },
+    {
+      "sha": "44b15b968f103e9fb4714f128dc273f01a4b5b48",
+      "name": "distribution"
+    },
+    {
+      "sha": "5586fdd508206d1ddcae3905e198eed13f331df9",
+      "name": "experiment with face1"
+    },
+    {
+      "sha": "d26ce12bcb02fceb2e85fe937334bf98dae5a6ce",
+      "name": "randomize"
+    },
+    {
+      "sha": "8cc352c304d85a78e9f896676426dca8f4029f86",
+      "name": "drawing_styles"
+    },
+    {
+      "sha": "d0d5cd7acb59780674f0bc7dbc40cd1897bf33d7",
+      "name": "portraits"
+    }
+  ]
+}
