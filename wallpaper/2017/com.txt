@@ -1,0 +1,32 @@
+(names and ids from grading spreadsheet)
+
+git subtree add -P wallpaper/2017/Hamzah_Ali git@gist.github.com:b5510951076b28425b813a80351e7d93 master
+git subtree add -P wallpaper/2017/Lewis_Brewer git@gist.github.com:0901f9d03a4dbce2a2402033a054ddf5 master
+git subtree add -P wallpaper/2017/James_Campbell git@gist.github.com:d0bb0624a7fea83a6bed4eb312c12a9a master
+git subtree add -P wallpaper/2017/Robbie_Carmichael git@gist.github.com:75adb12bf47454a296079e03a0685d86 master
+git subtree add -P wallpaper/2017/Ashton_Davenport git@gist.github.com:ad4b21f91960c4efe5cc3321c29c20e9 master
+git subtree add -P wallpaper/2017/Hannah_Dockerty git@gist.github.com:ab13612acf5e9d60137a6d265fcb9d17 master
+git subtree add -P wallpaper/2017/Samantha_Gard git@gist.github.com:b11c58a0a34bd15eb19b127c44d72c69 master
+git subtree add -P wallpaper/2017/Marc_Gluyas git@gist.github.com:83fc926bec4d351535a4c3e2706d4287 master
+git subtree add -P wallpaper/2017/Lara_Hayward git@gist.github.com:d7da645768f25151dcbeeaafab053183 master
+git subtree add -P wallpaper/2017/Justina_Ho git@gist.github.com:2e060541d065e55de15bee8410539486 master
+git subtree add -P wallpaper/2017/Shakira_Jensen git@gist.github.com:43d32b9cca4d85a67410841a7115d741 master
+git subtree add -P wallpaper/2017/Olly_Johnston git@gist.github.com:81c7b92d2cc0c5dee040435ca19bba61 master
+git subtree add -P wallpaper/2017/Michael_Kelly git@gist.github.com:f2dbc503bb7332ffa883f32230127f81 master
+git subtree add -P wallpaper/2017/Nathan_Larson git@gist.github.com:cfdb2a7c8f4a5dcbc120352e5c50a78a master
+git subtree add -P wallpaper/2017/Henry_Liang git@gist.github.com:7bddfb9868cc179098a282d133caa384 master
+git subtree add -P wallpaper/2017/Jessica_Freire git@gist.github.com:64a68b5c4ccd79920fc68b92022ae1be master
+git subtree add -P wallpaper/2017/Wanli_Peng git@gist.github.com:857448b277bdc7ea60b4fbfb636b6075 master
+git subtree add -P wallpaper/2017/Christina_Petris git@gist.github.com:0a05164982296a4a03e2fb53cff0938f master
+git subtree add -P wallpaper/2017/Henri_Spencer git@gist.github.com:0089cb0c0b2606e14fb125f22e33d0db master
+git subtree add -P wallpaper/2017/Tiaan_Steenkamp git@gist.github.com:5bef732021648f8262fa297febbcf8f5 master
+git subtree add -P wallpaper/2017/Edward_Taylor git@gist.github.com:9dea595bbabfd51b11d4a660c70d8a65 master
+git subtree add -P wallpaper/2017/Zach_Thompson git@gist.github.com:8eeb0e15d4340983a3910ee074a4a739 master
+git subtree add -P wallpaper/2017/Daniel_Tideman git@gist.github.com:b082769fe8437330d451fbf5a1e82e67 master
+git subtree add -P wallpaper/2017/Jack_Upton git@gist.github.com:1f8d5959b7d83c77e332d96e0459c925 master
+git subtree add -P wallpaper/2017/Shane_Watters git@gist.github.com:0967de91df065231fd429b5fedb517d6 master
+git subtree add -P wallpaper/2017/Susan_Williams git@gist.github.com:f7cab22b3237de7bc5ee65cf46439546 master
+git subtree add -P wallpaper/2017/Camden_Wright git@gist.github.com:0b27384ce7ba854e54f6dd6a35ff5e44 master
+git subtree add -P wallpaper/2017/Hera_Wynn git@gist.github.com:22898d5f98d7081537874be26091ee0a master
+
+git subtree add -P wallpaper/2017/Tom_White git@gist.github.com:a40272315a1376256619e3537a9806b8 master
