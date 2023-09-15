@@ -1,0 +1,20 @@
+{
+  "commits": [
+    {
+      "sha": "8ece097650e47d84dafd579a53b7f1dd74ad55c5",
+      "name": "Final"
+    },
+    {
+      "sha": "b33744be5c4332ef63a1248c9b1d64e8f5046b2f",
+      "name": "Experiment with symbols and art style"
+    },
+    {
+      "sha": "61bce5cafd7f230681bcfa56a16d0be6b06c85a9",
+      "name": "Testing of code with mask of 8 different gradient"
+    },
+    {
+      "sha": "47da46ab8994b6fd391eef01d7978ebf338fd63e",
+      "name": "Initial testing with black and white mask"
+    }
+  ]
+}
