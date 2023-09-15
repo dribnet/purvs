@@ -1,0 +1,8 @@
+## Creative Coding 2: Custom Pixel Final - Siblings	
+
+I chose 'siblings' as my theme because my brothers are dear to me and I think it's a nice way to remind people about their family; the blood that runs through them; and our genes. My older brother and I are one year and a half apart, and growing up with him, many people have told us that we look very similar. I was more intruiged by our resemblence to each other when my younger brother was introduced to the world and I found that, as he grew up, he looked quite different from us. However, my younger brother is unfortunately back in Taiwan or I would have loved to include him in this project to contrast between the differences and similarities in our facial features.
+
+For my masks, I used five shades of gray. Each identifies the different layers of the original image: the background, the clothes, the hair and face, the frame of the highlighted parts, and the highlighted features of our face. Only artwork 2 is different - which is an image of the both of us - and only has three layers: the background, the frame of the highlighted feature, and the highlighted feature. I did this because I thought it was easier to see our similarites by comparing the blurry parts and the clearer parts of our faces. I like to think of the final output as all three artworks combined because then you can see a nice connection between all the images.
+
+The shapes of the pixels are all pretty simple and they consist of a mix of crosslines, ellipses, and rectangles. I used the lines for the background; a mix of lines and ellipses for the body; and rectangle tiles for the highlighted features because I thought that made it the clearest to see. 
+
