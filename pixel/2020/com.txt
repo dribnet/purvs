@@ -1,0 +1,60 @@
+grep \"id\" 20.1.mddn242.ps3.json > list.txt
+grep \"name\" 20.1.mddn242.ps3.json >> list.txt
+
+git subtree add -P pixel/2020/Jakob_Backhouse git@gist.github.com:bcb43a5b4c314245f2616219b81e61dd master
+#MISSING git subtree add -P pixel/2020/John_Berryman git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Newton_Chan git@gist.github.com:730a436ae556f89400c09861dcf7d5cd master
+#MISSING git subtree add -P pixel/2020/Ken_Chen git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Max_Chick git@gist.github.com:e8c3e996461a63422c92a6f0d3da0912 master
+git subtree add -P pixel/2020/Cindy_Cruz git@gist.github.com:7da167694d5468fb51965e76f433a6aa master
+git subtree add -P pixel/2020/Emily_Dale git@gist.github.com:4c28e364e35e3f510dace9d8ef9891ef master
+git subtree add -P pixel/2020/James_Drown git@gist.github.com:912ed6a075e09f701156646af60983ec master
+git subtree add -P pixel/2020/Mavis_Eaton git@gist.github.com:b0f03ede148cef71319ecb2f2a099c54 master
+#MISSING git subtree add -P pixel/2020/Liam_English git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Lexie_Etherington git@gist.github.com:d875a0a323afc0c1cf5f68df6c5efa5d master
+git subtree add -P pixel/2020/Jamie_Gambles git@gist.github.com:7ca5fdcc41f3e11fd9b045a6a23ce0b0 master
+git subtree add -P pixel/2020/Emily_Gee git@gist.github.com:8ba5d20cf40466d8564b18cc97e84a9f master
+git subtree add -P pixel/2020/Zihan_Geng git@gist.github.com:ecbfac7a8a5e17c05a31067111cc2a1e master
+git subtree add -P pixel/2020/Keely_Haskett git@gist.github.com:7f75d35527232a489119b1dc608bff28 master
+git subtree add -P pixel/2020/Katy_He git@gist.github.com:07ed379ceb8a8933fdc8b0869aaf49b3 master
+git subtree add -P pixel/2020/Xinze_Hu git@gist.github.com:de893fbfa671a7578597419e18db3705 master
+git subtree add -P pixel/2020/Bee_Huang git@gist.github.com:7ed336e78eecf98a1f118a93a71e7f3c master
+#MISSING git subtree add -P pixel/2020/Owen_Jemmett git@gist.github.com:NONE master
+#MISSING git subtree add -P pixel/2020/Benjamin_Joe git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Sarah_Kneebone git@gist.github.com:3bf2ef21e5a0da2be52b3a2a55f231bc master
+git subtree add -P pixel/2020/Urena_Kuang git@gist.github.com:cd825150f5d03e4ecf4e0fc8a02755ab master
+git subtree add -P pixel/2020/Hannah_Loma git@gist.github.com:b1903f1aa71c783a43ac5706e4ad1074 master
+git subtree add -P pixel/2020/Matt_Loveman git@gist.github.com:23b56edfec9f036a7cb948b650b71e7e master
+git subtree add -P pixel/2020/Jamie_Lum git@gist.github.com:b1234c117dd8bd7038bb39ce7b17e66a master
+git subtree add -P pixel/2020/Mingyue_Luo git@gist.github.com:cb3393c00d7d665a97d388e73c0c304a master
+git subtree add -P pixel/2020/Joelle_Malek git@gist.github.com:7bc559583fb083697fc1bf91f1e05158 master
+git subtree add -P pixel/2020/Rosa_McClelland git@gist.github.com:6c605b762a4cd344e2e13e6ebc55e6f6 master
+git subtree add -P pixel/2020/Kiera_McKechnie git@gist.github.com:bf4dc75ac48e46497eef673464e2b664 master
+git subtree add -P pixel/2020/George_Mckendry git@gist.github.com:e12e6d37ef7e924f2933a79dc7c527a6 master
+git subtree add -P pixel/2020/Madisyn_Muggeridge git@gist.github.com:5f8296e3cae7ee1b65bee772d150d650 master
+git subtree add -P pixel/2020/Karen_O_Brien git@gist.github.com:c0c6e7c05096681028057f7a7f193a18 master
+git subtree add -P pixel/2020/Dorothy_Ong git@gist.github.com:399d3abb41869fb06e44e995359fe0ae master
+git subtree add -P pixel/2020/Kayla_Palmer git@gist.github.com:eedfa536af7c56fe94751de54e0f21af master
+git subtree add -P pixel/2020/Shiv_Patel git@gist.github.com:baa9f513269f22a1261ca1a599068bcd master
+git subtree add -P pixel/2020/Caitlin_Piepke git@gist.github.com:3e8458233f279d6101be8d76b45e55d5 master
+git subtree add -P pixel/2020/Ave_Ruddell git@gist.github.com:b6b244bf1410b16b910a7a150d4d05fb master
+git subtree add -P pixel/2020/Liam_Sapsford git@gist.github.com:a17ffad213eff6492d96294d96b7173c master
+git subtree add -P pixel/2020/Alisha_Smith git@gist.github.com:61856285891976febb59013b000a02c0 master
+git subtree add -P pixel/2020/Craig_Springett git@gist.github.com:175afd0cc595d254edadd3377b7d0535 master
+git subtree add -P pixel/2020/Laura_Steer git@gist.github.com:b0e3da2b27b7c4d6295ac2bcaaf7014a master
+git subtree add -P pixel/2020/Shay_Tanirau git@gist.github.com:f272a9ca546fd020f789444d38bbd06c master
+git subtree add -P pixel/2020/Jared_Topliss git@gist.github.com:f50363640952edbeee2da6b969b2621b master
+git subtree add -P pixel/2020/Hayden_Watson git@gist.github.com:3a60e6f087931af9d7f74b58e1d47faf master
+git subtree add -P pixel/2020/Ziyi_Wei git@gist.github.com:c789ba4f366b6af4ed28955ef76f5352 master
+git subtree add -P pixel/2020/Cody_Westerman git@gist.github.com:51b6e5d1a40ca79a7d70672cd9431952 master
+#MISSING git subtree add -P pixel/2020/Autaia_Whakahoehoe git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Gus_Wilson git@gist.github.com:eb4c838fa71af5e5c1eba9729a1e9fba master
+git subtree add -P pixel/2020/Georgia_Windle git@gist.github.com:7cbc6843c15b4e72875d1adb44f33555 master
+git subtree add -P pixel/2020/Rachel_Wirepa git@gist.github.com:3bd8b301c7faea968753ff37b39a2428 master
+git subtree add -P pixel/2020/Connor_Wright git@gist.github.com:ae1ebc2f4aff716b206444c579ed7a79 master
+git subtree add -P pixel/2020/Yingyi_Zhang git@gist.github.com:64b64110a14cf671ce096d54a652dc61 master
+#MISSING git subtree add -P pixel/2020/Yinan_Zhao git@gist.github.com:NONE master
+git subtree add -P pixel/2020/Ziman_Zhao git@gist.github.com:6011c662ac14de2b1a6834b5e89d1e6d master
+
+git subtree add -P pixel/2020/uwcc git@gist.github.com:9c5d63fe4bafd9e16b9a58d48ce52478 master
+git subtree add -P pixel/2020/Phoebe_Zeller git@gist.github.com:309de683c8d1ad85b936fd1a972b5052 master
