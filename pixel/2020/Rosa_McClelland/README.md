@@ -1,0 +1,5 @@
+## Creative Coding 2: Custom Pixel
+
+The theme of my custom pixel design is multicultural connections through my experience of travelling to Japan. This is my personal experience of this so I conveyed the theme through my custom pixel as if I was painting the central parts of my experience. The similar colours and painterly style connect the three different perspectives, being in New Zealand, being in Japan and my things I got from the trip. The addition of the graphic elements further clarify these perspectives and show how my interpretation is added to the experience through creating art from it.
+
+I found it interesting to work with a system to create the images rather than drawing individual elements as I had to think about what it would look like together rather than individually. I wanted to make a visually interesting image so I used three different techniques to create three different painterly effects to reflect what I am interested in with art. I think these all look effective individually and work well together to convey the theme.
