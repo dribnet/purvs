@@ -1,0 +1,4 @@
+## Creative Coding 2: Custom Pixel
+
+The overall theme I have choosen to go for is more about how life can be more abstract. I thought about how particular parts of life can appear to be distorted or simiply out of foucus when viewed from an partiular angle. For this I choose to use nature photos from around Wellington's CBD. I have choosen to keep the background of the photos relatively in focus by adding a stroke to each of the shapes which form the background. 
+For the subject of the of the images i have chossen to distort the images alot more by adding lines that go off in seemingly random direcitons and lengths. These lines are in mulitple colors to imply that although things can appear as though they are out of kilter they are still able to have a certian value and intrest to them. 
