@@ -1,0 +1,5 @@
+## Creative Coding 2: Custom Pixel
+
+This is my final work in this project and I decided to change the circles to hexagons because I always thought teh graphics are not so dense that the overall pictures do not look particularly perfect. Therefore, I chose hexagons that was initating the shape of hive to be my final shapes because I think this shape is the most dense and sturdy. For my mask, I chose Photoshop to create my mask because I think My photos' contrast is not strong  and I am more familiar with Photoshop. Therefore, I think I can be better to control when I made the masks. If I use the smart mask, I think this feature may not be very helpful to me. For my final work, I have fixed the problem of mask, I used long time to make the photos' mask to be better. 
+
+For my idea, I continued my previous one, the overall use of a fresh and natural style and My idea also is about "have a meal", So these three images is including the table, people and drink. However, because of the first picture's contrast is not strong, so I change the color of background to grey to increase the contrast of this image. 
