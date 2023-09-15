@@ -1,0 +1,9 @@
+## Creative Coding 2: Custom Pixel
+
+Final Readme!
+
+Theme: Life and Death
+
+In this project I chose to explore the relationship and contrast between 'life' and 'death'. I have used three photographs that I took in a graveyard in Wellington. These photos feature both a representation of life - through nature, seen as the flourishing plants and flowers - and death - through the gravestones of the cemetary.
+In my images I wanted to create a contrast between life and death. I have attempted to do this by using a mask to draw all 'life' parts of the images as overlapping colourful ellipses. These circles represent both the circle of life, and the free unconstrained nature of being alive through their curves. The use of colour is to help create a vibrancy and further the impression of 'alive'. I have then used a mask to draw all 'death' parts of the images as neatly lined up (non-overlapping) sharp lined colourless squares which vary from black to white. The squares represent the cold and hard truth of death, and their colourless appearence is a symbol of the loss of life and vibrance. These small squares combined with the greyscale also give the impression of static and noise which furthers this idea that the death space is the 'abscence' of something, in this case life.
+In this project I am also exploring how life and death can exist in the same space and even have a direct effect on each other, such as how it is the death and decomposition in the graveyard that provides the nature with the nutrients and conditions it needs to flourish. To represent this link between life and death I have made the ellipses and squares all be the exact same size even though they differ in shape and colour. This demonstrates how there is a direct link between life and death and how you could not have one without the other, however at the same time these are two totally different states of being. 
