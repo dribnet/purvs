@@ -1,0 +1,7 @@
+## Creative Coding 2: Custom Pixel
+
+My project theme this time around was about pollution, littering and nature in general and how that affects our oceans. I came up with the theme through looking through my photos that i had taken to test out the code we were learning, my favourites were ones of the sea and I decided to use them and something that is important to me is how we take these things for granted. My photos, the first a still fairly uninhabited sea are, the second with a big boat in the water and the third a shot from a boat of a big city landscape.
+
+In all parts that had been either man made or was obstructing the view of the sea and sky I used my mask to have them be plain square outlines and the sea and the sky was coloured in. This was to bring attention to the sea and sky which was my focus for this project. The symbols fro the sea and sky have crosses in them this is to signify not to litter or pollute, and how these views will not be here one day if we continue to do this.
+
+I liked this project quite a lot, and I really like the art that influenced it so it was very enjoyable to see it coming together. In future I would try to have my theme layed out a bit more in advance so then I could focus more on how to learn to code things specifically for that.
