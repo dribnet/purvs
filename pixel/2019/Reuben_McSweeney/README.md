@@ -1,0 +1,4 @@
+## Creative Coding 2: Custom Pixel
+
+Made the rose contrast the background by making it out of triangles whose sharp corners contrast with the soft background made up of ellipses. I then added further texture to the background by creating a random element the speckles the background with 2 variations of ellipses giving it a unique effect. This could be seen to be the pollen or random bugs floating in the background. I then created an random element that creates spiked points to juxtapose the soft nature of the plants/flowers while at the same time giving the artwork a unique effect.
+My goal with this is to create a more painted feel to the image while still maintining the image itself. Combining this with new elements to enhance the image and add character.
