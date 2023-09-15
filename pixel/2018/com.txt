@@ -1,0 +1,73 @@
+grep \"id\" 18.1.mddn242.ps4.json > list.txt
+grep \"name\" 18.1.mddn242.ps4.json >> list.txt
+
+git subtree add -P pixel/2018/Mitchell_Barclay git@gist.github.com:e02250753ee4343ea08bc7fe1bcbee86 master
+git subtree add -P pixel/2018/Callum_Browne git@gist.github.com:ef89330c33c47b27fe06f2bf64828678 master
+git subtree add -P pixel/2018/Ehnel_Bugas git@gist.github.com:5d68c384bf9bb40bd70efd25672e4938 master
+git subtree add -P pixel/2018/Max_Cadenhead git@gist.github.com:d1b6f304382610dd6aa40c2d555e7a26 master
+git subtree add -P pixel/2018/Vivian_Chen git@gist.github.com:c2700706e6dbd7ea2b2f56475d79842d master
+git subtree add -P pixel/2018/Yutong_Chen git@gist.github.com:b9299d1e59e0651e6a71ad55f2dedd7e master
+git subtree add -P pixel/2018/Tom_Crampin git@gist.github.com:3c310b11b9030c66d3e4c746726f453a master
+git subtree add -P pixel/2018/Matt_Cross git@gist.github.com:86021df1de5a5279857476eae21ba732 master
+git subtree add -P pixel/2018/Sam_Darlington git@gist.github.com:c1e4a8fb056b43f0f497c9ac59cf613a master
+git subtree add -P pixel/2018/Andrija_Djorovic git@gist.github.com:61b8ccdb3580b99163d69bbe20e41877 master
+git subtree add -P pixel/2018/Rick_Dodds git@gist.github.com:37c5d7d74bb049d7393a0bd694768793 master
+git subtree add -P pixel/2018/Morgan_Douglas git@gist.github.com:f1e452ffa1fa1a41d9b94a58e17f0e4d master
+git subtree add -P pixel/2018/Keegan_Edwards git@gist.github.com:bf0080d0b270e0e873642024f5b4ed13 master
+git subtree add -P pixel/2018/Sieni_Faafuata git@gist.github.com:e0a81de0bee80fcc062d69cee5e565b3 master
+git subtree add -P pixel/2018/Joshua_Felizardo git@gist.github.com:9363ed58a4750c4e64a58e649f148723 master
+git subtree add -P pixel/2018/Emily_Fung git@gist.github.com:34c2147d9944bb6e734604c147f382fb master
+git subtree add -P pixel/2018/Kathleen_Griffin git@gist.github.com:49784e98a24905d417a83f77a5b2111a master
+git subtree add -P pixel/2018/Thomas_Hartley git@gist.github.com:d69563a79f4aa7a8c9caf4c5b581107b master
+# MISSING git subtree add -P pixel/2018/Sean_Herbert git@gist.github.com:NONE master
+git subtree add -P pixel/2018/John_Hilbert git@gist.github.com:7f4d813ca3a25a6d1708759c8a68c5f6 master
+git subtree add -P pixel/2018/Kathy_Ho git@gist.github.com:6ed4c8103ccebf42b885f07f30672609 master
+git subtree add -P pixel/2018/Aydn_Hooper git@gist.github.com:d8b959b38706f0204639ffaec8da34fd master
+git subtree add -P pixel/2018/Mu_Huang git@gist.github.com:71ef883524aa4e81252a4419f5166674 master
+git subtree add -P pixel/2018/James_Hunt git@gist.github.com:5f2a77714249ba688ecc33331ca016dd master
+# MISSING git subtree add -P pixel/2018/Lucy_Jaegers git@gist.github.com:NONE master
+# git subtree add -P pixel/2018/Zichen_Jie git@gist.github.com:ac7416f21f1c9349eaba9a23a93b30d3 master <-- GONE
+# MISSING git subtree add -P pixel/2018/Michael_Johnsen git@gist.github.com:NONE master
+git subtree add -P pixel/2018/Ruby_Johnson git@gist.github.com:88a7e1da400f6bf0a213bb99d3325645 master
+git subtree add -P pixel/2018/Michael_Kelly git@gist.github.com:fe91c5a063c8eddf8c7f836ada51ee66 master
+git subtree add -P pixel/2018/David_Kim git@gist.github.com:c99631d7354cf58c4b05f5fec5b11d80 master
+git subtree add -P pixel/2018/Fergus_Lees git@gist.github.com:47e336c586923c08fc333d2aeffa0e9e master
+git subtree add -P pixel/2018/Hanley_Makene git@gist.github.com:3c6dfc539f6b12b10878d4f5d13dd53b master
+git subtree add -P pixel/2018/Melissa_Marriott git@gist.github.com:36ddd8c7608bb3d4f4a601b57e961742 master
+git subtree add -P pixel/2018/Nick_Martin git@gist.github.com:e0d83f2da92ba544330db3442377dae4 master
+git subtree add -P pixel/2018/Lijun_Mo git@gist.github.com:d5ac1fe1ae439504472d8991b2be868c master
+git subtree add -P pixel/2018/Caleb_Moffatt git@gist.github.com:c748b5abdf9c143744f73cddb122ae12 master
+git subtree add -P pixel/2018/Emily_Monkman git@gist.github.com:7726ff51e3a6e84a2cbb059749cdca75 master
+git subtree add -P pixel/2018/Jacob_Ng git@gist.github.com:a542c622f7f5682c2a97dc30676ec6fa master
+git subtree add -P pixel/2018/Alexandra_O_Donoghue git@gist.github.com:72336b3f8d90a2f6df7abf29261e87a3 master
+git subtree add -P pixel/2018/Bradley_Peary git@gist.github.com:d9c65176956469ab674274cdd9b03f1c master
+git subtree add -P pixel/2018/Sarah_Phillips git@gist.github.com:NONE master
+git subtree add -P pixel/2018/Richie_Prak git@gist.github.com:df342a190bde8a37b86969d743746b25 master
+git subtree add -P pixel/2018/Lauren_Reid git@gist.github.com:f88fe2e7a75fa0f04c7a0043e321c87d master
+git subtree add -P pixel/2018/Mary_Richards git@gist.github.com:4e9c2a4545b09045a087ec262a6a3dd1 master
+git subtree add -P pixel/2018/Aliz_Ritthisri git@gist.github.com:de22ffa2e075cdbc100caa1983b1a973 master
+git subtree add -P pixel/2018/George_Robson git@gist.github.com:0835106b71c303f460d318b5b88a4e0f master
+git subtree add -P pixel/2018/Liam_Royal git@gist.github.com:b0b2419455d1daf26ea1268a9a9f3d02 master
+git subtree add -P pixel/2018/William_Shaw git@gist.github.com:4e7c4269c7ef64c5649ab9c346f29f67 master
+git subtree add -P pixel/2018/Karu_Skipper git@gist.github.com:3619a1bbfdd46772249f5ddfafb21e7d master
+git subtree add -P pixel/2018/Eddie_Smith git@gist.github.com:84ed622d2acb8b367ce3b808b00a15b3 master
+git subtree add -P pixel/2018/Sylvia_Song git@gist.github.com:3bdf0b31a3ae452a6d337b0b97e99c28 master
+git subtree add -P pixel/2018/Ben_Spearman git@gist.github.com:f8f8cbd17dbf381391a19fed7f7f4ae3 master
+git subtree add -P pixel/2018/Reuben_Spori git@gist.github.com:7609e69ba6ec828589a8148a3ea49c71 master
+git subtree add -P pixel/2018/Cody_Stiles git@gist.github.com:b00f56236f6fe5425f4063ce2992f062 master
+git subtree add -P pixel/2018/Christian_Sutherland git@gist.github.com:704650c0a50800e2ec3ebf8796013933 master
+git subtree add -P pixel/2018/Matthew_Taylor git@gist.github.com:6e7cf95bf8fd60d7204db0c0e06bbf09 master
+# MISSING git subtree add -P pixel/2018/Mehau_Williams git@gist.github.com:NONE master
+# MISSING git subtree add -P pixel/2018/Tyler_Titov-Smith git@gist.github.com:NONE master
+git subtree add -P pixel/2018/Brock_Trewavas git@gist.github.com:6266664d05b2f7e780f2a13444cafe6e master
+git subtree add -P pixel/2018/Katrina_Villareal git@gist.github.com:4c181107a14fb6d9df68915fa05f6f7c master
+git subtree add -P pixel/2018/Stella_Vokia-Scarlett git@gist.github.com:6f7ac4688d18ab621ebc551036ac13f3 master
+git subtree add -P pixel/2018/Amy_Wilson git@gist.github.com:e505a8d9d20ecce2027dab680a0a0d89 master
+git subtree add -P pixel/2018/Lu_Xiao git@gist.github.com:6224a77c701617059414ce900823f4de master
+git subtree add -P pixel/2018/Jackie_Xu git@gist.github.com:7c3337db9f332f5bd9661c58ee98cce1 master
+git subtree add -P pixel/2018/Brad_Yip git@gist.github.com:b59e6ae533e6aa3c9a06da6f459c94f0 master
+# MISSING git subtree add -P pixel/2018/Michael_Zhang git@gist.github.com:NONE master
+git subtree add -P pixel/2018/Shile_Zhang git@gist.github.com:ca41c14646f60f606cf044e0d4d901d0 master
+git subtree add -P pixel/2018/Xun_Zhao git@gist.github.com:3e51626ca2e0ced510ec3bf621175e6d master
+git subtree add -P pixel/2018/Yvonne_Zou git@gist.github.com:715526ccfbee321e63e4425016efdf34 master
+git subtree add -P pixel/2018/Tom_White git@gist.github.com:65bf12998a2f05df4418d0428e67436c master
