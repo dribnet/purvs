@@ -1,0 +1,7 @@
+## Creative Coding 2: Custom Pixel
+
+I have created a custom pixel that has a touch of circular floral elements while arranging the background pixels in a grid formation so that it remains structured. I think this brings a nice contrast to the artwork and the viewer can see a distinct contrast between the two masks. I think the contrast between the two masks highlights the flowers more which is the focus of my piece.
+
+I chose not to use the SmartMask tool for my final design as my bunch of flowers have some intricate detail so I felt that I would get a better result by creating the masks in photoshop myself. 
+
+I wanted to focus on the vibrancy of colours that the flowers have. This helped develop my code as when I started I had the flowers being made up of small circles. While this looked nice the colours didn't really stand out against the rectangular filled pixelated background. Then I decided to invert my masks so the background would become the circles and the flowers would become the squares. Although this made the colours pop more, it frustrated me as it looked like a pixelated picture that wasn't loading properly. This lead me to develop more so I changed the squares to bigger circles and the background to smaller rectangles. I liked how the smaller rectangles made the flowers stand out more as there was more of a contrast between the two masks.
