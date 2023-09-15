@@ -1,0 +1,15 @@
+## Creative Coding 2: Custom Pixel
+
+For my project I went with the theme of crystal flowers. I chose this theme because of my love for flowers and how I always thought that when they got wet it looks like they shine like crystals. I chose some different flowers for each but related the colour to one another.
+
+The shapes consist of purely triangles and squares. I didn’t want anything round as I wanted the harsh edges of the shapes to show off delicate  crystal flowers. 
+
+With the spacing of the shapes I had some trouble figuring out what I wanted, so I played around with it and I ended up with something that is close but not too close so that you can still see the spacing between the flowers. With the spacing this gave it the glistening look because of the different opacities of the shapes and the white spaces between each of the triangles and squares. 
+
+I wanted the colours to be brighter so I first played around with the colour modes and tested out a lot of different colours before deciding that it would be better to just change the saturation of the image instead so that it showed up better because of the crystals opacity. With the opacity I really like how it looks in the first image with the power stems hanging down as it looks like it is shattering and the shapes are falling down. It gives the image a fuzzy look to it as it ends up look like it is cloudy but also it glistens which I think is interesting. 
+
+The smart mask ended up not working as well as I thought it would. With the first one I tested it cut off some parts of the flower and didn’t mask as close to the flowers as I wanted to. For all the smart masks I ended up not using them as they did not do what I wanted to. Since there was no flower option it ended up all being potted plants. I think that because of my images were so complicated it was difficult to cut it to how I wanted it to as even creating my own mask I had some trouble masking where I wanted.
+
+Looking at the images and the filter I really like how they turned out. The triangles and squares for the flowers and the stretched out triangles for the background that make it look like hair is an interesting contrast. I like how thin the background is to the point that unless you look closely you cannot tell that they are triangles. I like how the background ended up floating more to the left and leaving this white space in the right side. The bright colours of the flowers and the opacity of the flowers compliments each other well. As for the background I like how the thin triangles are stretched out to the point that it looks like hairs or the sides of shattered glass.
+
+Overall, I like how my project turned out. At the start I was really lost to as what I wanted to do so I played around with the code a lot and I ended up with some triangles. The images and the theme I like how well it fits as, however if I were to have more time I think I would explore some more ideas and not stick so close to the theme and constrain myself so much. It would be better if I pushed myself more as I played it too safe so next time it would be better to see something more unique and interesting.
