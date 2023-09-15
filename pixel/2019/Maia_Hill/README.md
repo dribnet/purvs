@@ -1,0 +1,9 @@
+## Creative Coding 2: Custom Pixel
+
+Near and Dear.
+
+My three images are about family, featuring my loved ones and pets. The first two show the loving relationship between people and their pets, and the last one represents the nostalgia and longing that can come when your pet passes. Depicting my dog who has passed away, the colours, her pose, and the sun halo help the image to convey this. 
+
+I find coded art really fascinating in how it can create something that is normally hand-made, so with my images I wanted to explore giving them a painted look. To do this I played around with different sized ellipses being drawn at random on a loop until I got the effect I wanted. Though this style suited my middle image well, it didn't create the look I wanted for the other two, so I rearranged the ellipses into a cross to create the textile-y look of the first and second image. I knew I wanted to seperate the people/pets from the background so I created my mask to do just that. Initially I blocked out the background with colour to give it a pop-art inspired look but felt it didn't convey the loving and nostalgic feel I wanted it to. So, after watching tom's tile tutorial I drew the background using lines of tiled squares spaced apart so that the background colour appears as the lines in between. I used tiled rects instead of lines as I wanted it to have a pixilated look.
+
+Overall I'm happy with how everything turned out. I like how from a distance the pictures read well, yet as you get closer to them you see more of the details and it gets harder to make out what they are picturing. I think this style will work well with a larger format. 
