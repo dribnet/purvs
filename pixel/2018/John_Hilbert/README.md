@@ -1,0 +1,5 @@
+## Creative Coding 2: Custom Pixel
+
+I was looking through a magazine one day and saw people holding the tools of their trade, always facing the camera. Always prominently showing the person and their trade or hobby clearly. I wanted to take these things and obscure them as much as possible. Anton, smoking his weed out front of his band's lockout, and Marie in front of the graffiti that she loves so much, and "Juan Superior" just being "Juan Superior" I felt these images put more of the mystery on the person rather than the object, while at the same time dissolving the ego and giving a sense of who they are.  
+
+In this final version I reworked the settings from my high resolution commit to achieve a more stylized effect. Achieving the smoother gradient dissolve of the person or the person's objects, better than my higher resolution versions. I also rendered out some gradient ramps and set them as the background image to give a little more feeling to the rendered pixel elements. Overall I believe it worked out well and the majority of the images are readable or at least interesting to try and decipher.
