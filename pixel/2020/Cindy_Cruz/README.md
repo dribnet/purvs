@@ -1,0 +1,8 @@
+## Creative Coding 2: Custom Pixel
+I finally added the grey mask to have that sort of outline effect for depth of the jellyfish. For this I used lines, going the opposite direction of the lines for the black mask. I also decided to use the lightest shade possible of grey, so that there would also be some white mask elements added, where there would be circles too.
+
+I’ve thought about adding grids and specific shapes, but I decided not to as the photo itself already conveys so much. I feel like adding more complex shapes would have overflow of the image, which isn’t my goal for this project. I want to show jellyfish in an artistic sense, and I want the image to look expressive both up close and from afar. I might play around a bit with the colours to express more purple.
+
+I’ve added grey masks for the rest of the images and have settled on final numbers that best suit all the images. It was a bit difficult to do this as the render time took way too long, but the final outcome was worth it! I really am fond of how these simple codes convey the image very well. I definitely think that adding more complex shapes and more effects would’ve dimmed down the abstractness of the image, as the image itself is already pretty abstract.
+
+I explored the grid techniques and have made this as a background layer for my image. I'm not 100% sure if i'll integrate this into my assignment but if I do, it would be very little. I feel like there's too many pixels for the image but it was nice to be able to try out different techniques for the grids! I'm going to play around with this further and try to find a final background layer for my outcome. I'm excited to see how this will turn out, hoping it'll perfectly convey my theme.
