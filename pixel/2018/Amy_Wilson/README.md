@@ -1,0 +1,13 @@
+## Creative Coding 2: Custom Pixel
+
+The idea for my 3 designs is to show a theme that relates to the negative imapcts of designer dogs that occurs in this country. For my first design, I am planning to have the background represented by a wide range of dog glypths to show the idea of designer dogs and the excessive quantity of breeds that we have purely for their looks and have the actual dog in the photo to be a blurred image to represent the idea of the dog not yet being chosen and how the choice you make about where you get your dog from makes a difference. I decided to make the background of my design quite abstract from the original photograph because, although I wanted a background with enough colour to give the dog glyphs diversity, the background itself is irrelevant to the theme. 
+
+I was inspired by my own dog and how she now suffers from health issues from her breeder breeding dogs unethically. The images used are 3 different photographs I have taken myself of my dog.
+
+The masks I have used are dog itself and the dog minus the edge. I decided to do this so that there wouldn't be a gap between the edge of the dog and the background dogs. One option would be to have just drawn the background entirely underneath without checking a mask but I didn't want any dogs showing thorugh underneath, especially since originally I was going to use less ellipses to create the design. I didn't use smartmask because it didn't have the option to create both of these.
+
+To create the background, I used a for loop that drew very small dogs in a set colour. The appearance of the dog is determined by the pixel underneath with half the dogs randomly facing a different direction. The for loop for the larger dogs is almost the same except it uses a greyscale version of the orginal pixel colour and is only drawn if outside of the mask (main mask). 
+
+To create the dog, I used a for loop that found a random spot inside the mask (mask b) and drew an ellipse with a random amount of stretch. I decided to make the ellipses transparent so that the edges of the dog faded out into the background to stick with the theme of the dog being undefined. For the colour, I used a brighter greyscale version of the original pixel colour.
+
+To improve on this design, I think it might have been better to use a dog that doesn't have spots so the silhouette had a more consistent colouring to it and there might be a few ways I could have done the background differently to make the main theme clearer.
